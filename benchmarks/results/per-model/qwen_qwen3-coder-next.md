@@ -1,13 +1,13 @@
 # Qwen3-Coder-Next (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3-coder-next`
-- **Total tests**: 235/241 exitosos (6 errores)
-- **Score final**: 7.23
-- **Calidad**: 7.48
+- **Total tests**: 249/255 exitosos (6 errores)
+- **Score final**: 7.28
+- **Calidad**: 7.52
 - **Judge score (Phi-4)**: 3.84/10
 - **Velocidad**: 74 tok/s
-- **Latencia primera token**: 7.70s
-- **Costo promedio por test**: $0.00279
+- **Latencia primera token**: 7.45s
+- **Costo promedio por test**: $0.00265
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 8.67 | 8.65 |
 | deep_reasoning | 6 | 6 | 6.78 | 6.95 |
 | hallucination | 3 | 3 | 7.31 | 7.00 |
+| integridad_idioma | 4 | 4 | 6.65 | 6.44 |
 | multi_turn | 4 | 4 | 7.91 | 8.00 |
 | news_seo_writing | 5 | 5 | 7.14 | 7.30 |
 | niah_es | 51 | 45 | 8.35 | 10.00 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 6.88 | 6.40 |
 | tool_calling_adversarial | 10 | 10 | 6.88 | 6.12 |
 | translation | 5 | 5 | 7.64 | 7.47 |
+| verificar_claim | 10 | 10 | 8.74 | 8.90 |
 
 ## Detalle por test
 
@@ -2811,3 +2813,7 @@ Ventas alcanzaron **$2.3M (+18% vs Q4 2025)**, impulsadas por un crecimiento del
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

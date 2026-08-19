@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 223/224 exitosos (1 errores)
-- **Score final**: 7.13
-- **Calidad**: 8.06
+- **Total tests**: 237/238 exitosos (1 errores)
+- **Score final**: 7.19
+- **Calidad**: 8.12
 - **Judge score (Phi-4)**: 3.82/10
 - **Velocidad**: 49 tok/s
-- **Latencia primera token**: 30.27s
-- **Costo promedio por test**: $0.02512
+- **Latencia primera token**: 29.59s
+- **Costo promedio por test**: $0.02373
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 7 | 7 | 7.43 | 8.04 |
 | deep_reasoning | 6 | 6 | 7.01 | 7.78 |
 | hallucination | 3 | 3 | 6.70 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.31 | 9.61 |
 | multi_turn | 4 | 4 | 6.88 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.39 | 7.17 |
 | niah_es | 59 | 59 | 8.00 | 9.92 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 5.51 | 5.49 |
 | tool_calling_adversarial | 10 | 10 | 6.72 | 6.54 |
 | translation | 8 | 7 | 7.04 | 7.57 |
+| verificar_claim | 10 | 10 | 8.19 | 8.90 |
 
 ## Detalle por test
 
@@ -2373,3 +2375,7 @@ Ventas de $2.3M (+18% QoQ) con un runway de 14 meses. El segmento enterprise cre
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

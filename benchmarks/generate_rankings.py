@@ -511,6 +511,13 @@ def table_head(cfg):
         # ordenarse por la tarea Harbor: el número que decide el puesto no estaba en
         # NINGUNA columna, y la tabla se leía desordenada respecto de todo lo que mostraba.
         base_cols += f'<th scope="col">{esc(score_label(cfg))}</th>'
+    elif cfg["criterion"] == "cost":
+        # La columna que ORDENA tiene que estar. Esta página ordena por costo/1.000
+        # llamadas y mostraba «Global»: el lector veía un orden que ninguna columna
+        # explicaba. Es el mismo fallo que ya se arregló en los rankings por pilar, en la
+        # única página que no pasó por ese arreglo.
+        base_cols += ('<th scope="col">$/1.000 llamadas</th>'
+                      '<th scope="col">Global</th>')
     else:
         base_cols += '<th scope="col">Global</th>'
     if cfg["criterion"] != "suite":
@@ -546,8 +553,13 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
     # Ranking por pilar/costo/open_source: la columna que ORDENA primero, después los
     # pilares como contexto. La columna que ordena tiene que estar: sin ella el lector ve
     # un puesto que no puede verificar contra nada de lo que la tabla le muestra.
-    global_col = (f"<td><strong>{relevant:.1f}</strong></td>" if cfg["criterion"] == "pillar"
-                  else f"<td>{m.get('score_global',0):.2f}</td>")
+    if cfg["criterion"] == "pillar":
+        global_col = f"<td><strong>{relevant:.1f}</strong></td>"
+    elif cfg["criterion"] == "cost":
+        global_col = (f"<td><strong>{fmt_usd(cost_for_calls(m))}</strong></td>"
+                      f"<td>{m.get('score_global',0):.2f}</td>")
+    else:
+        global_col = f"<td>{m.get('score_global',0):.2f}</td>"
     return (f"<tr><td>{rank}</td><td>{nm}</td>{global_col}"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
@@ -1161,7 +1173,14 @@ def render_ranking(cfg, models):
     <p>Ajusta presupuesto, calidad mínima y tipo de tarea sobre 100+ modelos. En 30 segundos tienes tu ranking personalizado.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
-    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)
+    from contrato_pagina import emitir as _contrato
+    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body,
+                      contrato=_contrato(
+                          tipo="ranking", generador="generate_rankings",
+                          recomienda=[m.get("name") for m in ranked[:8]],
+                          ordena_por=score_label(cfg),
+                          tablas=[{"rol": "principal", "ordena_por": score_label(cfg),
+                                   "filas": len(ranked[:8])}]))
 
 
 def main():

@@ -3,7 +3,7 @@
 Contexto (jun 2026): el bug del base_url hardcodeado en llm_judge.py hacía que
 el juez fallara silenciosamente y el 100% de los tests quedara con score
 automático (quality == auto_quality). Este script toma el JSON de resultados,
-relee cada respuesta completa desde results/responses/<ts>/*.md, la evalúa con
+relee cada respuesta completa desde results/responses/<modelo>/<suite>/*.md, la evalúa con
 el juez indicado y recalcula quality y final con la MISMA fórmula del runner:
 
     quality = auto_quality * 0.3 + judge_quality * 0.7
@@ -41,7 +41,8 @@ def build_test_index():
 
 def read_full_response(responses_root: Path, model_key: str, suite: str, test_name: str) -> str | None:
     """Lee la respuesta completa desde el .md guardado por el runner."""
-    matches = list(responses_root.glob(f"*/{model_key}__{suite}__{test_name}.md"))
+    # Estructura desde el 17-ago-2026: responses/<modelo>/<suite>/<test>__<ts>.md
+    matches = list(responses_root.glob(f"{model_key}/{suite}/{test_name}__*.md"))
     if not matches:
         return None
     # tomar el más reciente si hay varios timestamps
@@ -106,7 +107,7 @@ def main():
             resp = read_full_response(responses_root, model_key, suite, tname)
         else:
             # inferir: probar con cualquier archivo que matchee __suite__test
-            matches = list(responses_root.glob(f"*/*__{suite}__{tname}.md"))
+            matches = list(responses_root.glob(f"*/{suite}/{tname}__*.md"))
             if matches:
                 m = max(matches, key=lambda p: p.stat().st_mtime)
                 text = m.read_text(encoding="utf-8")

@@ -163,6 +163,27 @@ def r6_segunda_tabla():
     return faltan
 
 
+# ── R7 · toda página publicada DECLARA lo que publica ─────────────────────────
+def r7_contrato_de_pagina():
+    """Sin contrato, el auditor tiene que inferir la estructura con regex — y las 71
+    páginas tienen ocho formas distintas. Cada regex cubre unas y deja otras ciegas: así
+    aparecieron cinco falsos positivos y puntos ciegos en un día, todos el mismo bug.
+
+    Una página nueva sin contrato entra en silencio y abre el siguiente punto ciego. Por
+    eso falla acá: el contrato es el precio de publicar."""
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    from contrato_pagina import leer
+    sin = []
+    for pg in sorted(DOCS.rglob("index.html")):
+        if pg.parent == DOCS:
+            continue
+        if leer(pg.read_text(errors="replace")) is None:
+            sin.append(pg.parent.name)
+    return [f"docs/{s}/ no declara su contrato: el auditor tiene que adivinar su "
+            f"estructura, y ahí es donde nacen los puntos ciegos" for s in sin]
+
+
 REGLAS = [
     ("R1", "el filtro de no-aptos está en TODA superficie agéntica", r1_filtro_agentico),
     ("R2", "cada tarea del wizard tiene quien verifique su promesa", r2_promesas_del_wizard),
@@ -170,6 +191,7 @@ REGLAS = [
     ("R4", "toda suite medida está declarada, y el chequeo corre", r4_suites_registradas),
     ("R5", "todo guardrail del pipeline está probado contra su fallo", r5_guardrails_probados),
     ("R6", "la segunda tabla se decide midiendo, no con un flag", r6_segunda_tabla),
+    ("R7", "toda página publicada declara lo que publica", r7_contrato_de_pagina),
 ]
 
 

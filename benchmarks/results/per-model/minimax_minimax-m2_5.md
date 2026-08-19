@@ -1,13 +1,13 @@
 # MiniMax M2.5
 
 - **model_id**: `minimax/minimax-m2.5`
-- **Total tests**: 142/142 exitosos (0 errores)
-- **Score final**: 7.62
-- **Calidad**: 8.09
+- **Total tests**: 176/176 exitosos (0 errores)
+- **Score final**: 7.24
+- **Calidad**: 7.54
 - **Judge score (Phi-4)**: 4.42/10
 - **Velocidad**: 59 tok/s
-- **Latencia primera token**: 14.72s
-- **Costo promedio por test**: $0.00129
+- **Latencia primera token**: 13.16s
+- **Costo promedio por test**: $0.00130
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 7 | 7 | 7.57 | 7.77 |
 | deep_reasoning | 6 | 6 | 7.33 | 7.92 |
 | hallucination | 3 | 3 | 8.01 | 8.33 |
+| integridad_idioma | 4 | 4 | 5.81 | 5.62 |
 | multi_turn | 4 | 4 | 7.54 | 7.88 |
 | news_seo_writing | 5 | 5 | 6.81 | 7.20 |
 | ocr_extraction | 5 | 5 | 8.55 | 9.35 |
 | orchestration | 5 | 5 | 5.96 | 5.50 |
 | policy_adherence | 4 | 4 | 8.02 | 8.58 |
 | presentation | 2 | 2 | 8.55 | 9.65 |
+| prompt_injection_es | 20 | 20 | 4.17 | 3.32 |
 | reasoning | 3 | 3 | 8.36 | 9.43 |
 | sales_outreach | 3 | 3 | 7.67 | 8.22 |
 | startup_content | 9 | 9 | 8.31 | 9.43 |
@@ -43,6 +45,7 @@
 | tool_calling | 4 | 4 | 7.04 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.98 | 6.68 |
 | translation | 5 | 5 | 8.20 | 8.80 |
+| verificar_claim | 10 | 10 | 8.55 | 8.90 |
 
 ## Detalle por test
 
@@ -2612,3 +2615,9 @@ Crecimiento fuerte en enterprise (+32%) c
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

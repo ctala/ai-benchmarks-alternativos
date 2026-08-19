@@ -62,6 +62,50 @@ contra los runs en disco, que cuesta $0 (`PLAN-ESTABILIDAD.md` R1).
 # produce los números que ya están publicados. Alinear el menú al export no mueve ningún
 # score: solo cambia en qué sección del desplegable aparece el ítem — que hasta hoy le
 # mentía al usuario sobre cómo se computa el pilar que está viendo.
+# ── Presupuesto de salida por tarea (18-ago-2026) ────────────────────────────
+#
+# Cristian, antes de relanzar: *"¿estás seguro que con 16k es suficiente?"*. No lo
+# estaba, y medirlo dio la respuesta: sobre 2.748 runs de la ruta SIN nuestro techo
+# (Claude por suscripción, que no pasa por el adapter), la demanda real es
+#
+#     p50 = 1.106 · p90 = 5.172 · p95 = 8.313 · p99 = 18.735 · máx = 61.741
+#
+# y lo que supera 16k se concentra en UNA suite:
+#
+#     agent_long_horizon   19% de sus runs > 16k   (p95 = 29.927)
+#     strategy              8%                     (p95 = 18.735)
+#     las otras 26 suites   0%
+#
+# Por eso el techo es por TAREA y no global: subirlo a 32k en todas sería pagar de más
+# en veintiséis para arreglar una. Y no rompe el `max_tokens` uniforme que adoptamos de
+# LiveBench — ese principio pide el mismo límite para todos los MODELOS, no para todas
+# las tareas. Doce turnos de conversación necesitan más aire que clasificar una frase, y
+# darles lo mismo era justamente lo que sesgaba la medición.
+# Cristian, al decidirlo: *"mejor tener el valor alto y no usarlo, que tenerlo bajo y
+# rehacer"*. Es correcto y conviene dejarlo escrito porque es contraintuitivo: el
+# `max_tokens` es un TECHO, no una reserva — se factura lo que el modelo genera, así que
+# subirlo no cuesta nada por sí mismo. Lo único que sube el gasto son los casos donde el
+# modelo de verdad necesitaba más aire; y ésos, con el techo corto, se pagaban igual y
+# encima había que rehacerlos. El techo generoso ABARATA.
+#
+# El límite no es el dinero: es que varios proveedores rechazan con error 400 un
+# `max_tokens` desproporcionado. Por eso los valores siguen anclados a la demanda medida
+# (máx observado 61.741) y no a un número arbitrariamente enorme.
+PRESUPUESTO_SALIDA = {
+    "agent_long_horizon": 65536,   # 8 y 12 turnos. Cubre el máximo observado (61.741)
+    "strategy": 32768,
+    "deep_reasoning": 32768,
+    "code_generation": 32768,
+    "business_strategy": 32768,
+}
+PRESUPUESTO_DEFECTO = 24576        # 26 suites no llegan ni a 16k; esto es aire de sobra
+
+
+def presupuesto_de(suite: str) -> int:
+    """Cuántos tokens de salida se le dan a esta tarea. Igual para TODOS los modelos."""
+    return PRESUPUESTO_SALIDA.get(suite, PRESUPUESTO_DEFECTO)
+
+
 SUITES = {
     # ── Razonamiento ──────────────────────────────────────────────────────────
     "reasoning": {
@@ -235,28 +279,47 @@ SUITES = {
     # ya se aplica a `integridad_idioma`. Pasan a `en_promedio: True` cuando tengan
     # cobertura (~80% de los rankeados).
     "verificar_claim": {
-        "pilar": "Contenido", "en_promedio": False,
+        "pilar": "Contenido", "en_promedio": True,
         "menu": "Verificar un dato contra su fuente",
         "decide": "decidir si una fuente respalda una afirmación",
-        "nota": "suite nueva, cobertura insuficiente para promediar. Mide las DOS "
-                "direcciones del error: dejar pasar lo inventado y bloquear lo que sí "
-                "estaba. Medir una sola engaña.",
+        "nota": "entró al promedio el 17-ago-2026 con 83/83 rankeados medidos (100%). "
+                "Mide las DOS direcciones del error: dejar pasar lo inventado y bloquear "
+                "lo que sí estaba. Medir una sola engaña.",
+    },
+    "verificar_claims_lote": {
+        "pilar": "Contenido", "en_promedio": False,
+        "menu": "Verificar VARIOS datos de una vez (lote)",
+        "decide": "devolver un juicio por cada dato, no solo por los primeros",
+        "nota": "Creada el 17-ago-2026 después de que el gate de noticias de Eco fallara "
+                "en producción con el modelo que este benchmark recomendó. `verificar_claim` "
+                "manda UN claim y mide la calidad del juicio; producción manda ONCE, con un "
+                "prompt de 4.218 caracteres, y lo que falla es la ENTREGA: cuatro notas "
+                "devolvieron cero veredictos y se publicaron sin verificar. Un modelo puede "
+                "sacar 10,00 en la otra y 0 en ésta. FUERA DEL PROMEDIO hasta tener "
+                "cobertura: entra cuando la haya rendido suficiente gente, si no castigaría "
+                "al que la rinde primero.",
     },
     "extraer_claims": {
         "pilar": "Contenido", "en_promedio": False,
         "menu": "Extraer los datos verificables de un texto",
         "decide": "sacar TODOS los datos, no solo los fáciles",
-        "nota": "suite nueva, cobertura insuficiente. Mide COBERTURA además de "
-                "precisión: un extractor que saca 2 de 8 datos correctos tiene 100% de "
-                "precisión y deja el 75% sin verificar.",
+        "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
+                "la rechazó: 94% de runs con nota perfecta — no discrimina, así que "
+                "sumarla al pilar solo agregaría ruido. Se endurece y se re-valida antes "
+                "de medirla en todos. Mide COBERTURA además de precisión: un extractor "
+                "que saca 2 de 8 datos correctos tiene 100% de precisión y deja el 75% "
+                "sin verificar.",
     },
     "dominio_entidad": {
         "pilar": "Contenido", "en_promedio": False,
         "menu": "Encontrar el sitio oficial de una empresa",
         "decide": "elegir el dominio real, o abstenerse",
-        "nota": "suite nueva, cobertura insuficiente. Incluye casos donde la respuesta "
-                "correcta es NULL: premia abstenerse, que es lo que separa a un modelo "
-                "útil de uno que siempre contesta algo.",
+        "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
+                "la rechazó con el peor resultado posible: 100% de runs perfectos y "
+                "dispersión 0,00 — todos los modelos empatan, así que no aporta ninguna "
+                "información al pilar. Se endurece y se re-valida. Incluye casos donde la "
+                "respuesta correcta es NULL: premia abstenerse, que es lo que separa a un "
+                "modelo útil de uno que siempre contesta algo.",
     },
 
     # ── Dimensiones que se reportan APARTE (decisión vigente, no un olvido) ────

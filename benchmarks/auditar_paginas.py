@@ -108,6 +108,18 @@ def cargar():
     return d, por_nombre, real
 
 
+def contrato_de(html):
+    """El contrato declarado por la página, o None. Ver `contrato_pagina.py`.
+
+    Con esto el auditor deja de inferir la estructura con regex — que es la causa de los
+    cinco falsos positivos y puntos ciegos que se arreglaron uno por uno el 17-ago.
+    """
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    from contrato_pagina import leer
+    return leer(html)
+
+
 def paginas():
     """slug → (path, generador)."""
     gens = {}
@@ -137,11 +149,24 @@ def p1(pgs, por_nombre, real):
             continue
         html = p.read_text(errors="replace")
         filas = _filas(html)
+        # SOLO LA PRIMERA TABLA. Una página puede tener dos que ordenan distinto a
+        # propósito (capacidad · capacidad-por-precio); mezclarlas produce un orden que
+        # no es el de ninguna.
+        primera = re.search(r"<table.*?</table>", html, re.S)
+        filas = _filas(primera.group(0)) if primera else filas
         pares = [(len(filas) - i, real[n]) for i, (_, n) in enumerate(filas) if n in real]
         # Mínimo 10: con 7 modelos una correlación de −0,45 es ruido, y publicarla como
         # hallazgo es el mismo error que se persigue — afirmar más de lo que la muestra
         # sostiene. Se prefiere no decir nada a decir algo que no aguanta.
         if len(pares) < 10:
+            continue
+        # Y SIN VARIANZA NO HAY NADA QUE CORRELACIONAR. En /mejor-llm-para-agentes/ los
+        # ocho publicados sacan **1,000 exacto** en la tarea real: correlacionar un grupo
+        # empatado da ruido (+0,09) y el chequeo lo reportaba como «el criterio no
+        # predice». Que todos empaten arriba es justamente lo que se quería — el orden lo
+        # decide el desempate, no la tarea.
+        ys = [y for _, y in pares]
+        if st.pstdev(ys) < 0.05:
             continue
         c = _corr([x for x, _ in pares], [y for _, y in pares])
         if c is None:
@@ -166,8 +191,12 @@ def _ordenada(vals, bloques=False):
     sobre las 10 filas las marcaba a todas — el salto entre familias no es un desorden,
     es la estructura de la página.
     """
+    # Descendente (mayor es mejor) O ascendente (menor es mejor: precio, latencia).
+    # Asumir una sola dirección marcaba /mejor-llm-barato/ como desordenada cuando estaba
+    # perfectamente ordenada — por precio, de menor a mayor.
     saltos = sum(1 for a, b in zip(vals, vals[1:]) if a < b - 0.051)
-    if saltos == 0:
+    saltos_asc = sum(1 for a, b in zip(vals, vals[1:]) if a > b + 0.051)
+    if saltos == 0 or saltos_asc == 0:
         return True
     if not bloques:
         return False
@@ -237,8 +266,49 @@ def p3(pgs, d, por_nombre):
     hallazgos = []
     for slug, (p, gen) in pgs.items():
         html = p.read_text(errors="replace")
+        c = contrato_de(html)
+        if c is not None:
+            # La página DECLARA qué recomienda: no hay que adivinarlo. Es la diferencia
+            # entre auditar la lista real y auditar lo que un regex alcanzó a ver.
+            if c["tipo"] == "redirect":
+                continue
+            rec = c.get("recomienda") or []
+            r = sorted({n for n in rec if n in retirados})
+            if r:
+                hallazgos.append((ALTA, slug, gen,
+                                  f"RECOMIENDA modelo(s) retirado(s): {', '.join(r[:4])} "
+                                  f"— su endpoint ya no existe"))
+            if re.search(r"agent|n8n|tool|herramienta|automatiza", slug):
+                na = [n for n in rec if n in no_aptos]
+                if na:
+                    hallazgos.append((ALTA, slug, gen,
+                                      f"página agéntica que recomienda modelos que NO corren "
+                                      f"dentro de un agente: {', '.join(na[:4])}"))
+            top3 = [n for n in rec[:3] if n in no_rank]
+            if top3 and not ("no está rankeado" in html or 'class="row-badge no-rankea"' in html):
+                hallazgos.append((MEDIA, slug, gen,
+                                  f"corona en el top 3 a no-rankeado(s) sin salvedad: "
+                                  f"{', '.join(top3)}"))
+            continue
         filas = _filas(html)
         if not filas:
+            # SIN TABLA NUMERADA TAMBIÉN SE RECOMIENDA.
+            #
+            # Medido el 17-ago-2026 al preguntarse si el escrutinio era parejo: **10
+            # páginas pasaban por 3 de las 6 clases** —las de variantes («¿cuál de los
+            # Grok?») y las explicativas— porque su tabla no lleva columna de puesto y
+            # `_filas()` no las veía. Son páginas publicadas que recomiendan modelos, y el
+            # chequeo que evita mandar a alguien contra un endpoint muerto no las miraba.
+            #
+            # Acá se buscan los nombres en el texto: menos preciso que una fila, pero un
+            # retirado nombrado en una página de recomendación es un problema igual, y es
+            # mejor un aviso revisable que un punto ciego.
+            texto = re.sub(r"<[^>]+>", " ", html)
+            r = sorted({n for n in retirados if n in texto})
+            if r:
+                hallazgos.append((MEDIA, slug, gen,
+                                  f"nombra modelo(s) RETIRADO(s) sin tabla que auditar: "
+                                  f"{', '.join(r[:4])}. Verificá que no los recomiende"))
             continue
         nombres = [n for _, n in filas]
         r = [n for n in nombres if n in retirados]
@@ -272,6 +342,13 @@ def p4(pgs):
         html = p.read_text(errors="replace")
         if 'http-equiv="refresh"' in html:
             continue                      # es un redirect declarado
+        # Una FICHA habla de UN modelo: su tabla de alternativas trae 1-3 filas por
+        # diseño, y eso no es una muestra pobre. Sin leer el contrato, P4 marcaba las 83
+        # como «rankings que entregan una terna» — el falso positivo exacto que el
+        # contrato existe para evitar: la página dice lo que es, el auditor no adivina.
+        c = contrato_de(html)
+        if c and c.get("tipo") == "ficha":
+            continue
         n = _filas_datos(html)
         if n == 0:
             hallazgos.append((ALTA, slug, gen, "no publica NINGUNA fila de datos"))

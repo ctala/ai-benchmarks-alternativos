@@ -1,13 +1,13 @@
 # Qwen 3.7 Max
 
 - **model_id**: `qwen/qwen3.7-max`
-- **Total tests**: 168/168 exitosos (0 errores)
-- **Score final**: 6.48
-- **Calidad**: 7.29
+- **Total tests**: 182/182 exitosos (0 errores)
+- **Score final**: 6.58
+- **Calidad**: 7.43
 - **Judge score (Phi-4)**: 3.79/10
 - **Velocidad**: 55 tok/s
-- **Latencia primera token**: 44.21s
-- **Costo promedio por test**: $0.02304
+- **Latencia primera token**: 44.07s
+- **Costo promedio por test**: $0.02210
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 7 | 7 | 6.96 | 7.62 |
 | deep_reasoning | 6 | 6 | 6.10 | 6.95 |
 | hallucination | 3 | 3 | 5.88 | 6.33 |
+| integridad_idioma | 4 | 4 | 7.99 | 9.60 |
 | multi_turn | 4 | 4 | 6.67 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.35 | 7.30 |
 | ocr_extraction | 5 | 5 | 7.88 | 9.25 |
@@ -44,6 +45,7 @@
 | tool_calling | 4 | 4 | 5.65 | 5.63 |
 | tool_calling_adversarial | 10 | 10 | 6.79 | 7.24 |
 | translation | 3 | 3 | 7.49 | 8.57 |
+| verificar_claim | 10 | 10 | 7.71 | 8.80 |
 
 ## Detalle por test
 
@@ -2230,3 +2232,7 @@ A continuación, te presento el **Plan de Proyecto Ágil** estructurado para tu 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

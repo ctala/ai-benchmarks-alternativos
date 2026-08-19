@@ -199,7 +199,7 @@ def build_md() -> str:
 
     out.append("---")
     out.append("")
-    out.append("Para ver respuestas reales por modelo: `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md`.")
+    out.append("Para ver respuestas reales por modelo: `benchmarks/results/responses/<modelo>/<suite>/<test>__<timestamp>.md`.")
     return "\n".join(out)
 
 

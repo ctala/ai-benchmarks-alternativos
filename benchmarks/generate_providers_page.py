@@ -249,7 +249,15 @@ resultó ser el dato más útil.</p>
 {funnel_block()}
 {methodology()}
 """
-    html = page_shell(title, desc, kw, f"{SITE}/{SLUG}/", body)
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from contrato_pagina import emitir as _contrato
+    html = page_shell(title, desc, kw, f"{SITE}/{SLUG}/", body,
+                      contrato=_contrato(tipo="explicativa",
+                                         generador="generate_providers_page",
+                                         recomienda=[],
+                                         nota="compara el MISMO modelo servido por "
+                                              "distintos proveedores: no recomienda uno"))
     out = DOCS / SLUG
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(html, encoding="utf-8")

@@ -1,13 +1,13 @@
 # Ministral 14B
 
 - **model_id**: `mistralai/ministral-14b-2512`
-- **Total tests**: 151/151 exitosos (0 errores)
-- **Score final**: 7.78
-- **Calidad**: 8.01
+- **Total tests**: 185/185 exitosos (0 errores)
+- **Score final**: 7.24
+- **Calidad**: 7.25
 - **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 71 tok/s
-- **Latencia primera token**: 14.25s
-- **Costo promedio por test**: $0.00086
+- **Velocidad**: 66 tok/s
+- **Latencia primera token**: 12.34s
+- **Costo promedio por test**: $0.00091
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 8.07 | 7.89 |
 | deep_reasoning | 6 | 6 | 7.42 | 7.50 |
 | hallucination | 3 | 3 | 7.15 | 7.00 |
+| integridad_idioma | 4 | 4 | 7.14 | 7.22 |
 | multi_turn | 4 | 4 | 7.85 | 8.00 |
 | news_seo_writing | 9 | 9 | 5.77 | 5.32 |
 | ocr_extraction | 5 | 5 | 8.59 | 9.10 |
 | orchestration | 9 | 9 | 8.20 | 8.59 |
 | policy_adherence | 4 | 4 | 8.29 | 8.58 |
 | presentation | 3 | 3 | 8.88 | 9.71 |
+| prompt_injection_es | 20 | 20 | 2.68 | 1.00 |
 | reasoning | 3 | 3 | 8.73 | 9.32 |
 | sales_outreach | 3 | 3 | 8.29 | 8.67 |
 | startup_content | 5 | 5 | 8.65 | 9.37 |
@@ -43,6 +45,7 @@
 | tool_calling | 4 | 4 | 7.16 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.80 | 6.12 |
 | translation | 3 | 3 | 8.75 | 9.20 |
+| verificar_claim | 10 | 10 | 8.28 | 8.20 |
 
 ## Detalle por test
 
@@ -2740,3 +2743,9 @@ Aquí tienes un **plan detallado** para lanzar tu landing page en **4 semanas** 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

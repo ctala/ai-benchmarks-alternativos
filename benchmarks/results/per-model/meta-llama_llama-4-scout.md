@@ -1,12 +1,12 @@
 # Llama 4 Scout 17B
 
 - **model_id**: `meta-llama/llama-4-scout`
-- **Total tests**: 138/138 exitosos (0 errores)
-- **Score final**: 7.87
-- **Calidad**: 7.83
+- **Total tests**: 172/172 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.09
 - **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 142 tok/s
-- **Latencia primera token**: 5.39s
+- **Velocidad**: 122 tok/s
+- **Latencia primera token**: 4.80s
 - **Costo promedio por test**: $0.00029
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 8.66 | 8.35 |
 | deep_reasoning | 6 | 6 | 6.75 | 6.25 |
 | hallucination | 3 | 3 | 8.08 | 8.33 |
+| integridad_idioma | 4 | 4 | 9.11 | 9.76 |
 | multi_turn | 4 | 4 | 7.75 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.18 | 5.68 |
 | ocr_extraction | 5 | 5 | 8.57 | 9.10 |
 | orchestration | 5 | 5 | 8.50 | 8.24 |
 | policy_adherence | 4 | 4 | 8.65 | 8.67 |
 | presentation | 2 | 2 | 8.88 | 9.00 |
+| prompt_injection_es | 20 | 20 | 2.80 | 1.00 |
 | reasoning | 3 | 3 | 8.67 | 9.05 |
 | sales_outreach | 3 | 3 | 8.51 | 8.67 |
 | startup_content | 9 | 9 | 8.75 | 9.29 |
@@ -43,6 +45,7 @@
 | tool_calling | 4 | 4 | 7.42 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.80 | 6.12 |
 | translation | 3 | 3 | 7.41 | 7.09 |
+| verificar_claim | 10 | 10 | 8.02 | 8.00 |
 
 ## Detalle por test
 
@@ -2412,3 +2415,9 @@ Aquí te dejo la información de los 3 perfiles de candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

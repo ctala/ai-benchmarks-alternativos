@@ -1,13 +1,13 @@
 # Mistral Large 3 675B
 
 - **model_id**: `mistralai/mistral-large-2512`
-- **Total tests**: 142/142 exitosos (0 errores)
-- **Score final**: 7.64
-- **Calidad**: 8.23
+- **Total tests**: 176/176 exitosos (0 errores)
+- **Score final**: 7.09
+- **Calidad**: 7.46
 - **Judge score (Phi-4)**: 4.40/10
-- **Velocidad**: 54 tok/s
-- **Latencia primera token**: 14.83s
-- **Costo promedio por test**: $0.00341
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 12.77s
+- **Costo promedio por test**: $0.00336
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.70 | 7.93 |
 | deep_reasoning | 6 | 6 | 7.26 | 7.92 |
 | hallucination | 3 | 3 | 6.92 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.48 | 9.63 |
 | multi_turn | 4 | 4 | 7.13 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.85 | 7.37 |
 | ocr_extraction | 5 | 5 | 8.33 | 9.10 |
 | orchestration | 5 | 5 | 7.51 | 7.95 |
 | policy_adherence | 4 | 4 | 8.03 | 8.58 |
 | presentation | 2 | 2 | 8.53 | 9.81 |
+| prompt_injection_es | 20 | 20 | 2.34 | 1.00 |
 | reasoning | 3 | 3 | 8.38 | 9.59 |
 | sales_outreach | 3 | 3 | 7.72 | 8.22 |
 | startup_content | 8 | 8 | 8.17 | 9.31 |
@@ -43,6 +45,7 @@
 | tool_calling | 4 | 4 | 7.17 | 7.10 |
 | tool_calling_adversarial | 10 | 10 | 6.01 | 5.56 |
 | translation | 5 | 5 | 8.23 | 8.71 |
+| verificar_claim | 10 | 10 | 8.28 | 8.50 |
 
 ## Detalle por test
 
@@ -2579,3 +2582,9 @@ Aquí tienes la información de los tres candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

@@ -628,28 +628,59 @@ def test_retirado_sale_de_los_tres_contextos():
 
 
 def test_free_no_rankea_pero_sigue_en_catalogo():
-    """Sus runs son reales; lo que no es comparable es su fiabilidad."""
-    v = eleg.evaluar({"id": "meta/llama:free", "runs": 500}, 50)
+    """Sus runs son reales; lo que no es comparable es su fiabilidad.
+
+    El fixture declara `examen_completo` porque desde el 17-ago-2026 ése es el
+    requisito de catálogo, y acá se prueba OTRA cosa: que un `:free` con el examen
+    entero siga listado y no rankee. Sin declararlo, el test pasaría a probar el
+    examen y dejaría de vigilar lo suyo.
+    """
+    v = eleg.evaluar({"id": "meta/llama:free", "runs": 500, "examen_completo": True}, 50)
     assert v["catalogo"] and not v["ranking"]
 
 
-def test_examen_incompleto_bloquea_el_ranking():
-    """Un promedio sobre 1 de 4 tests no compara con uno de 4 de 4."""
-    v = eleg.evaluar({"runs": 500, "suites_incompletas": {"coding": {"rindio": 1, "total": 4}}}, 50)
-    assert not v["ranking"] and v["catalogo"]
+def test_examen_incompleto_bloquea_el_ranking_Y_EL_CATALOGO():
+    """Un promedio sobre 1 de 4 tests no compara con uno de 4 de 4.
+
+    DECISIÓN REVERTIDA EXPLÍCITAMENTE (17-ago-2026). Antes esto bloqueaba el ranking
+    y dejaba al modelo en el catálogo, en la sección «En evaluación». Cristian:
+    *"solo los medidos completos aparecen en el benchmark / calculadora. Si no, no
+    aparecen."* Y tiene razón: la calculadora existe para DECIDIR, y ofrecer un
+    modelo cuyo promedio sale de un examen más corto es ofrecer una comparación que
+    no se sostiene. «En evaluación» sonaba prudente y publicaba lo mismo con una
+    etiqueta.
+
+    Los runs no se pierden: siguen en models.json con su motivo y su entrada/salida
+    en results/responses/. Se saca la recomendación, no la evidencia.
+    """
+    v = eleg.evaluar({"runs": 500, "examen_completo": False,
+                      "suites_incompletas": {"coding": {"rindio": 1, "total": 4}}}, 50)
+    assert not v["ranking"] and not v["catalogo"]
 
 
-def test_muestra_chica_bloquea_el_ranking():
-    """Con 3-12 runs un modelo puede liderar por azar."""
-    assert not eleg.evaluar({"runs": 12}, 50)["ranking"]
-    assert eleg.evaluar({"runs": 500}, 50)["ranking"]
+def test_el_umbral_de_runs_ya_no_decide_el_ranking():
+    """DECISIÓN REVERTIDA EXPLÍCITAMENTE (17-ago-2026).
+
+    Este test exigía `runs >= 50`. Cristian: *"no seguiría poniendo el filtro de 50
+    runs. Todos deben de tener todos y punto, si no no son comparables."*
+
+    El umbral era un PROXY y fallaba en las dos direcciones: dos modelos con 50 runs
+    pueden haber rendido tests DISTINTOS (pasaban igual), y uno con 40 de un examen
+    más corto quedaba fuera sin razón. Hoy decide el examen entero — 143 tests, así
+    que quien lo complete tiene ≥143 runs y el umbral quedó subsumido.
+
+    Lo que se vigila ahora es que la cantidad de runs NO mande: 12 runs con el examen
+    completo rankean, y 500 sin completarlo no.
+    """
+    assert eleg.evaluar({"runs": 12, "examen_completo": True}, 50)["ranking"]
+    assert not eleg.evaluar({"runs": 500, "examen_completo": False}, 50)["ranking"]
 
 
 def test_agentico_distingue_no_puede_de_no_se_sabe():
     """Hermes 4 (medido, todo cero) y GPT-5.4 Mini (nunca medido) NO son el mismo caso."""
-    no_puede = eleg.evaluar({"runs": 500, "sirve_para_agentes": False,
+    no_puede = eleg.evaluar({"runs": 500, "examen_completo": True, "sirve_para_agentes": False,
                              "agentico": {"tareas": {"a": {"media": 0}}}}, 50)
-    no_se_sabe = eleg.evaluar({"runs": 500}, 50)
+    no_se_sabe = eleg.evaluar({"runs": 500, "examen_completo": True}, 50)
     assert not no_puede["agentico"] and not no_se_sabe["agentico"]
     assert no_puede["motivos"]["agentico"] != no_se_sabe["motivos"]["agentico"]
     assert "no puede ejecutar" in eleg.explicar(no_puede, "agentico")
@@ -657,7 +688,7 @@ def test_agentico_distingue_no_puede_de_no_se_sabe():
 
 
 def test_con_evidencia_agentica_es_elegible():
-    v = eleg.evaluar({"runs": 500, "sirve_para_agentes": True,
+    v = eleg.evaluar({"runs": 500, "examen_completo": True, "sirve_para_agentes": True,
                       "agentico": {"tareas": {"harbor-cotizar": {"media": 1.0, "piso": 1.0}}}}, 50)
     assert v["agentico"] and v["ranking"]
 
@@ -1029,3 +1060,79 @@ def test_ningun_titulo_promete_un_modelo_retirado(datos):
                 malas.append(f"docs/{idx.parent.name}/ promete «{corto}» en el title "
                              f"y no lo muestra en la página")
     assert not malas, "\n".join(malas)
+
+
+def test_ningun_modelo_del_catalogo_quedo_sin_sus_runs(datos):
+    """Un modelo con ≥20 runs en disco no puede aparecer con 0 en el dataset.
+
+    POR QUÉ (17-ago-2026). Renombrar «Claude Sonnet 4.6 (ultimo Anthropic)» —un nombre que
+    mentía— lo dejó con **0 runs**: el export agrupa por `(model_id, name)` y los 151 runs
+    históricos seguían con la etiqueta vieja. El modelo desapareció del ranking, cuatro
+    páginas de comparación se quedaron sin un lado, y **el arreglo correcto se llevó puesto
+    al modelo**.
+
+    Nada lo cazó: un modelo con 0 runs no está roto, simplemente no está. Por eso el
+    chequeo compara el dataset contra los runs EN DISCO, que es la única fuente que un
+    rename no toca.
+    """
+    import glob as _g
+    from collections import Counter
+    en_disco = Counter()
+    for f in _g.glob(str(ROOT / "benchmarks" / "results" / "benchmark_*.json")):
+        try:
+            d = json.loads(Path(f).read_text())
+        except Exception:
+            continue
+        for r in (d if isinstance(d, list) else d.get("results", [])):
+            if isinstance(r, dict) and r.get("model") and r.get("success"):
+                en_disco[r["model"]] += 1
+
+    # Huérfanos DECLARADOS: la condición se conoce y la decisión no es mía.
+    #
+    # `Gemma 4 31B` es la entrada canónica de OpenRouter y nunca se midió por ahí; sus 77
+    # runs se guardaron con el nombre corto ANTES de que la variante NIM se renombrara a
+    # «(NIM)». Reasignarlos cambia qué modelo se publica y con qué proveedor, así que se
+    # declara y se decide aparte — no se silencia ni se resuelve de pasada.
+    DECLARADOS = {
+        "Gemma 4 31B": "runs guardados con el nombre corto antes de que la variante NIM "
+                       "se renombrara. Reasignarlos define de qué proveedor es el número "
+                       "publicado: es una decisión, no una migración.",
+    }
+    publicados = {m["name"]: (m.get("runs") or 0) for m in datos["models"]}
+    malas = []
+    for nombre, n in en_disco.items():
+        if n < 20:
+            continue
+        if nombre in DECLARADOS:
+            continue
+        if nombre not in publicados:
+            malas.append(f"«{nombre}» tiene {n} runs en disco y NO existe en el catálogo "
+                         f"— ¿se renombró el modelo sin migrar su histórico?")
+        elif publicados[nombre] == 0:
+            malas.append(f"«{nombre}» tiene {n} runs en disco y 0 en el dataset")
+    assert not malas, "\n".join(malas)
+
+
+def test_todo_rankeado_publica_su_presupuesto_de_salida(datos):
+    """El dato que evita el fallo silencioso no puede faltar en un modelo publicado.
+
+    17-ago-2026. El gate de noticias de Eco se configuró con `max_tokens: 2000`, se le
+    cambió el modelo por uno que razona, y con 12 claims el nuevo necesitaba 2.492: el
+    JSON se cortaba y devolvía MENOS veredictos de los pedidos. Un claim sin veredicto no
+    bloquea, así que el gate pasó de frenar el 15,6% a frenar el 0,0% — **en la dirección
+    peligrosa y en silencio**.
+
+    El repo tenía `output_tokens` en cada run desde siempre y no lo publicaba en ninguna
+    parte. Ahora sí, por tarea. Este test existe para que no se caiga de nuevo sin que
+    nadie se entere: si el export deja de emitirlo, la ficha se queda sin la sección y
+    nada más protesta.
+    """
+    faltan = [
+        m["key"] for m in datos["models"]
+        if m.get("ranked") and not ((m.get("presupuesto_salida") or {}).get("por_tarea"))
+    ]
+    assert not faltan, (
+        f"{len(faltan)} modelo(s) rankeados sin presupuesto de salida por tarea: "
+        f"{faltan[:5]}. Sin ese dato, quien los integre no sabe qué max_tokens darles, "
+        f"y quedarse corto no falla: entrega de menos."
+    )

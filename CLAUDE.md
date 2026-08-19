@@ -57,7 +57,7 @@ source .venv/bin/activate
     --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
 ```
 
-El runner **guarda incrementalmente** tras cada test y puede continuar desde cualquier punto. También guarda la respuesta completa por test en `benchmarks/results/responses/<timestamp>/<modelo>__<suite>__<test>.md` (auditable desde GitHub).
+El runner **guarda incrementalmente** tras cada test y puede continuar desde cualquier punto. También guarda la respuesta completa por test en `benchmarks/results/responses/<modelo>/<suite>/<test>__<timestamp>.md` (auditable desde GitHub).
 
 ## Como agregar un modelo nuevo
 
@@ -99,7 +99,7 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 - `benchmarks/generate_per_model_md.py` — Regenera MDs navegables desde JSON
 - `providers/adapters.py` — Adaptador unificado OpenAI-compatible con timeout y manejo de thinking models
 - `benchmarks/results/*.json` — Resultados históricos versionados en git
-- `benchmarks/results/responses/<timestamp>/` — Respuestas completas por test (nuevas corridas)
+- `benchmarks/results/responses/<modelo>/<suite>/` — Respuestas completas por test, navegables por modelo y tarea
 - `benchmarks/results/per-model/` — MDs navegables por modelo con ranking + link a responses
 
 ## Estándar del benchmark para thinking models
@@ -231,7 +231,10 @@ auditar ni revertir.**
    su docstring decía "seis" y el código leía cuatro. El problema no era el olvido —
    **era que la lista no existía en ningún lugar verificable.**
 
-5. **Todo cambio va al `CHANGELOG.md`, con su versión, antes de mergear a `main`.**
+5. **Todo cambio va al `CHANGELOG.md` con su versión — y se escribe CON el commit,
+   no al final.** El estándar completo (qué nivel según qué tocaste, formato del
+   commit, el flujo de `## [No publicado]`) está en **[`VERSIONADO.md`](VERSIONADO.md)**
+   y lo hace cumplir `check_changelog.py`.
    Publicar sin entrada es publicar sin traza: pasó con v4.1 hasta que se marcó.
 
 6. **NO se mide por fuera del runner.** Un script propio que llame a los modelos pierde

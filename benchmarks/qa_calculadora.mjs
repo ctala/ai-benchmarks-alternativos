@@ -695,6 +695,113 @@ chequeo("W9 · cada tarea recomienda un modelo que destaca en ESA tarea", () => 
   return malas;
 });
 
+// ── W11 · las tareas finas recomiendan por SU eje, no por el pilar ──────────
+// Las tareas «Verificar datos» y «Escribir noticias» no prometen un pilar: prometen un
+// eje concreto y medido. «Verificar datos» promete que el modelo no publique lo que la
+// fuente no dice — eso vive en `verificar_claim`, donde la población se reparte entre
+// 6,30 y 8,65, no en el promedio de Contenido, que los deja apelmazados.
+//
+// Dos cosas se verifican, y la segunda es la que importa: (1) el recomendado tiene esas
+// suites medidas —recomendar sin evidencia del eje preguntado es el fallo que este
+// benchmark existe para no cometer—; y (2) queda sobre el percentil 70 de la población
+// EN ESE EJE. La vara no es el podio porque el wizard pondera precio, pero un modelo del
+// montón no puede ganar una tarea que el usuario eligió por su nombre.
+chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    if (!t.suites) continue;
+    // percentil 70 de la media de esas suites entre los rankeados que las rindieron
+    const notas = RANKED.map(m => {
+      const qs = m.quality_by_suite || {};
+      const vs = t.suites.map(s => qs[s]).filter(v => v != null);
+      return vs.length ? vs.reduce((a, b) => a + b, 0) / vs.length : null;
+    }).filter(v => v != null).sort((a, b) => a - b);
+    if (notas.length < 10) continue;
+    const p70 = notas[Math.floor(notas.length * 0.70)];
+    for (const b of app.WIZ.budgets) {
+      const r = app.wizDecidir(t.id, b.id, null);
+      if (!r.length) {
+        malas.push(`${t.id}/${b.id}: no recomienda NADA — la tarea existe en el menú y no responde`);
+        continue;
+      }
+      const m = r[0].m;
+      const qs = m.quality_by_suite || {};
+      const vs = t.suites.map(s => qs[s]).filter(v => v != null);
+      if (!vs.length) {
+        malas.push(`${t.id}/${b.id}: recomienda ${m.name}, sin NINGUNA de sus suites medida ` +
+                   `(${t.suites.join(", ")})`);
+        continue;
+      }
+      const media = vs.reduce((a, b2) => a + b2, 0) / vs.length;
+      if (media < p70) {
+        malas.push(`${t.id}/${b.id}: recomienda ${m.name} con ${media.toFixed(2)} en su ` +
+                   `propio eje — bajo el percentil 70 (${p70.toFixed(2)})`);
+      }
+    }
+  }
+  return malas;
+});
+
+// ── W13 · nunca recomendar para un agente algo que falla la tarea ENTERA ────
+// `piso` es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al
+// menos una vez el modelo no hizo el trabajo. Para algo desatendido eso no es «peor»,
+// es «no sirve».
+//
+// La regla ya existía dentro de `scoreAgentico`, pero sólo se aplicaba cuando el usuario
+// elegía TIPO de agente; sin tipo, `wizDecidir` cae a `computeZScore` y la ponderación
+// del presupuesto la diluía. El 19-ago el preset «producción» —el más exigente en
+// fiabilidad— recomendaba Llama 4 Scout con piso 0,00 por delante de tres modelos con
+// piso 0,44 / 0,89 / 1,00, y ni siquiera por precio.
+chequeo("W13 · lo agéntico nunca recomienda a quien falla la tarea entera", () => {
+  const malas = [];
+  for (const b of app.WIZ.budgets) {
+    for (const ag of [null, ...(app.WIZ_AGENTES || []).map(a => a.id)]) {
+      const r = app.wizDecidir("agentes", b.id, ag);
+      if (!r || !r.length) continue;
+      for (const { m } of r.slice(0, 3)) {
+        const t = Object.values(m.agentico?.tareas || {});
+        if (!t.length) { malas.push(`agentes/${b.id}/${ag}: ${m.name} sin evidencia`); continue; }
+        const piso = Math.min(...t.map(x => x.piso == null ? 0 : x.piso));
+        if (piso <= 0) malas.push(`agentes/${b.id}/${ag ?? "sin tipo"}: ${m.name} tiene piso ${piso}`);
+      }
+    }
+  }
+  return malas;
+});
+
+// ── W12 · las tareas que se juzgan por SUITES, no por pilar ─────────────────
+// `verificar` y `noticias` no tienen pilar: su promesa se apoya en suites concretas
+// (`verificar_claim`, `content_verificable`, `news_seo_writing`…). W9 cubre las tareas
+// con pilar y no las alcanza, así que quedaban sin nadie que verificara su promesa —
+// justo las dos más nuevas, y justo la que rompió el gate de Eco en producción.
+//
+// Recomendar para «que no publique lo que la fuente no dice» a un modelo que está
+// ABAJO en `verificar_claim` es exactamente el error que esa pantalla debe evitar.
+chequeo("W12 · las tareas sin pilar recomiendan a alguien fuerte en SUS suites", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks.filter(x => !x.pillar && x.suites?.length)) {
+    for (const b of app.WIZ.budgets) {
+      const r = app.wizDecidir(t.id, b.id, null);
+      if (!r.length) continue;
+      const m = r[0].m;
+      for (const suite of t.suites) {
+        const todos = RANKED.map(x => (x.quality_by_suite || {})[suite]).filter(v => v != null);
+        if (todos.length < 10) continue;   // sin población no hay con qué comparar
+        const q = (m.quality_by_suite || {})[suite];
+        if (q == null) continue;           // la suite puede no aplicarle; W-cobertura lo ve
+        const mu = todos.reduce((a, b2) => a + b2, 0) / todos.length;
+        const sd = Math.sqrt(todos.reduce((a, b2) => a + (b2 - mu) ** 2, 0) / todos.length);
+        // Mismo criterio que W10: una desviación por debajo de la media es «flojo ahí»
+        // de verdad. Un percentil convertiría un empate en un veredicto.
+        if (sd > 0 && q < mu - sd) {
+          malas.push(`${t.id}/${b.id}: recomienda ${m.name}, flojo en ${suite} (${q.toFixed(2)} vs media ${mu.toFixed(2)})`);
+        }
+      }
+    }
+  }
+  return malas;
+});
+
 // ── W10 · «Un poco de todo» no puede ser bueno en una sola cosa ─────────────
 // La tarea «Un poco de todo · no estoy seguro / uso general» promete un modelo PAREJO.
 // Recomendar uno excelente en un pilar y flojo en otro es lo contrario de lo que dice:

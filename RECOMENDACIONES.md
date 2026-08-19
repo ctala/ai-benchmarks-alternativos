@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-17 · 82 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-19 · 91 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -26,17 +26,19 @@ _El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **DeepSeek V4 Flash (OpenRouter)** — ≈$1/mes (calidad en Contenido 8.71/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**168.3× más**) por apenas +0.29 de calidad — dentro del margen de error.
-- _10 modelos empatan en calidad en este pilar._
+- **Usá:** **GPT-5.6 Luna** — ≈$3/mes (calidad en Contenido 8.84/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**83.9× más**) por apenas +0.25 de calidad — dentro del margen de error.
+- **Mejor open-source:** **GLM 5** — ≈$12/mes (calidad en Contenido 8.90/10)
+- _11 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **Nex-N2-Mini** — ≈$0/mes (calidad en Coding 9.60/10)
-- **Lo que te ahorrás:** Muse Spark 1.2 cuesta ≈$20/mes (**43.1× más**) por apenas +0.13 de calidad — dentro del margen de error.
-- _6 modelos empatan en calidad en este pilar._
+- **Usá:** **Solar Pro 4** — ≈$1/mes (calidad en Coding 9.84/10)
+- **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**50.5× más**) por apenas -0.18 de calidad — dentro del margen de error.
+- **Mejor open-source:** **Poolside Laguna XS 2.1** — ≈$1/mes (calidad en Coding 9.71/10)
+- _11 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -54,19 +56,19 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
-| Hasta $30/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
-| Hasta $100/mes | **Tencent Hy3** | 8.53 | ≈$2/mes |
+| Menos de $10/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
+| Hasta $30/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
+| Hasta $100/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**17 modelos empatan en calidad** en la cima del ranking global.
+**36 modelos empatan en calidad** en la cima del ranking global.
 
-El más barato de ese grupo — **Qwen 3.7 Flash** — sale **≈$1/mes**.
-El más caro — **Claude Fable 5** — sale **≈$234/mes**.
+El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
+El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.
 
-Eso es **383.6× más caro** por una diferencia de calidad de **-0.15 puntos**, que está dentro del margen de error.
+Eso es **396.6× más caro** por una diferencia de calidad de **-0.03 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

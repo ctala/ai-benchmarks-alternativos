@@ -1,13 +1,13 @@
 # Kimi K3
 
 - **model_id**: `moonshotai/kimi-k3`
-- **Total tests**: 153/153 exitosos (0 errores)
-- **Score final**: 6.47
-- **Calidad**: 7.79
+- **Total tests**: 167/167 exitosos (0 errores)
+- **Score final**: 6.56
+- **Calidad**: 7.89
 - **Judge score (Phi-4)**: 4.21/10
-- **Velocidad**: 34 tok/s
-- **Latencia primera token**: 73.54s
-- **Costo promedio por test**: $0.05707
+- **Velocidad**: 36 tok/s
+- **Latencia primera token**: 71.55s
+- **Costo promedio por test**: $0.05461
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 7.12 | 8.19 |
 | deep_reasoning | 6 | 6 | 5.93 | 7.13 |
 | hallucination | 3 | 3 | 5.76 | 6.56 |
+| integridad_idioma | 4 | 4 | 7.21 | 8.95 |
 | multi_turn | 4 | 4 | 5.83 | 6.79 |
 | news_seo_writing | 5 | 5 | 4.79 | 5.65 |
 | ocr_extraction | 5 | 5 | 7.63 | 9.43 |
@@ -44,6 +45,7 @@
 | tool_calling | 4 | 4 | 5.44 | 5.70 |
 | tool_calling_adversarial | 10 | 10 | 5.30 | 5.70 |
 | translation | 3 | 3 | 6.81 | 8.14 |
+| verificar_claim | 10 | 10 | 7.79 | 9.00 |
 
 ## Detalle por test
 
@@ -2357,6 +2359,10 @@ Con 4 semanas y un equipo de 4, la clave es **paralelizar**: mientras el diseña
 ### Otras suites
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim
 
 #### business_audit
 

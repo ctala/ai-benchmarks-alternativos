@@ -210,6 +210,14 @@ MODELS = {
         "tier": "cheap",
     },
     "gemini-flash-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash (thinking)",
         "cost_input": 0.30,
@@ -218,6 +226,164 @@ MODELS = {
         "thinking": True,
         "force_reasoning": True,
         "notes": "Misma versión que gemini-flash con thinking forzado (effort=high).",
+    },
+    "qwen-3.8-27b": {
+        # Publicado el 14-ago-2026. Denso 27B vision-language, open-weight, con thinking
+        # que se puede prender y apagar. Todo verificado contra la API de OpenRouter el
+        # 17-ago, no contra la página: precio listado $0,45/$3,20 (la ficha muestra
+        # $0,40/$3,00, que es el de Chutes; OpenRouter reporta el promedio ponderado) y
+        # 262.144 de contexto.
+        #
+        # ⚠️ TRES ENDPOINTS Y NO SON EQUIVALENTES — Chutes fp8 · Io Net fp8 · AkashML
+        # **bf16**. La cuantización no es un detalle de infraestructura: es parte de lo
+        # que se mide. OpenRouter elige por nosotros, así que el modelo puede rendir
+        # distinto entre corridas sin que nada cambie de nuestro lado. Por eso cada run
+        # guarda `upstream_provider`: si aparece dispersión rara, lo primero a mirar es
+        # si nos tocó bf16 o fp8, y eso sólo se puede saber después si quedó registrado.
+        "id": "qwen/qwen3.8-27b",
+        "name": "Qwen 3.8 27B",
+        "cost_input": 0.45, "cost_output": 3.20,
+        "tier": "cheap",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "context_window": 262144,
+        "multimodal": True,
+        "publisher": "Alibaba (Qwen)",
+        # Verificado con un request antes de escribirlo: 200. `-Instruct` da 401, así que
+        # no existe — es justo el caso donde adivinar el repo publicaría un enlace roto.
+        "weights_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "notes": ("Denso 27B vision-language (texto+imagen+video), open-weight, thinking "
+                  "opcional. Base de la familia = pesos abiertos, a diferencia de Plus/Max. "
+                  "Servido en fp8 (Chutes, io.net) y bf16 (AkashML)."),
+    },
+    # ── Lote 17-ago-2026: el hueco que destapó cruzar nuestro catálogo con el de
+    # OpenRouter (414 modelos vivos, 103 nuestros). La mayoría de los ausentes son
+    # viejos y no importan; éstos son de las últimas semanas y de familias que ya
+    # seguimos, así que su ausencia SÍ deja preguntas sin responder.
+    #
+    # Precios, contexto y modalidades verificados uno por uno contra la API el mismo día.
+    # `open_source` va SOLO donde hay certeza: la regla del repo es no marcarlo por el
+    # nombre —el error clásico es asumir que «Qwen 3.x algo» es abierto cuando Plus y Max
+    # son API-only— y estos publishers (Kwaipilot, Meituan, Sakana) no los conozco lo
+    # suficiente. Sin verificar la licencia, se deja en falso y se corrige al confirmar.
+    "gemini-3.7-flash": {
+        "id": "google/gemini-3.7-flash",
+        "name": "Gemini 3.7 Flash",
+        "cost_input": 0.38, "cost_output": 1.88,
+        "tier": "cheap", "context_window": 1048576, "multimodal": True,
+        "publisher": "Google", "license": "Proprietary",
+        "notes": "Publicado 13-ago-2026. Multimodal completo (texto/imagen/video/audio/archivo).",
+    },
+    "gemini-3.5-flash-lite": {
+        "id": "google/gemini-3.5-flash-lite",
+        "name": "Gemini 3.5 Flash Lite",
+        "cost_input": 0.30, "cost_output": 2.50,
+        "tier": "cheap", "context_window": 1048576, "multimodal": True,
+        "publisher": "Google", "license": "Proprietary",
+    },
+    "grok-4.6": {
+        "id": "x-ai/grok-4.6",
+        "name": "Grok 4.6",
+        "cost_input": 2.00, "cost_output": 6.00,
+        "tier": "medium", "context_window": 500000, "multimodal": True,
+        "publisher": "xAI", "license": "Proprietary",
+        "notes": "Publicado 12-ago-2026.",
+    },
+    "qwen-3.8-max": {
+        "id": "qwen/qwen3.8-max",
+        "name": "Qwen 3.8 Max",
+        "cost_input": 2.00, "cost_output": 6.00,
+        "tier": "medium", "context_window": 1000000, "multimodal": True,
+        "publisher": "Alibaba (Qwen)", "open_source": False, "license": "Proprietary",
+        "notes": "Tier Max = API-only propietario, como el resto de la familia Max.",
+    },
+    "qwen-3.8-2.4t": {
+        "id": "qwen/qwen3.8-2.4t-a95b",
+        "name": "Qwen 3.8 2.4T (A95B)",
+        "cost_input": 2.00, "cost_output": 6.00,
+        "tier": "medium", "context_window": 1048576,
+        "publisher": "Alibaba (Qwen)",
+        "notes": "MoE 2,4T totales / 95B activos. Licencia sin verificar: NO marcado open_source.",
+    },
+    "kat-coder-air-2.5": {
+        "id": "kwaipilot/kat-coder-air-v2.5",
+        "name": "KAT Coder Air v2.5",
+        "cost_input": 0.15, "cost_output": 0.60,
+        "tier": "ultra_cheap", "context_window": 256000,
+        "publisher": "Kwaipilot",
+        "notes": "Orientado a coding, muy barato. Licencia sin verificar.",
+    },
+    "kat-coder-pro-2.5": {
+        "id": "kwaipilot/kat-coder-pro-v2.5",
+        "name": "KAT Coder Pro v2.5",
+        "cost_input": 0.74, "cost_output": 2.96,
+        "tier": "cheap", "context_window": 256000,
+        "publisher": "Kwaipilot",
+        "notes": "Licencia sin verificar.",
+    },
+    "longcat-2.0": {
+        # 18-ago-2026: examen INTERRUMPIDO en 24 de 143 tests, por decisión.
+        # Medido contra los tres que arrancaron a la misma hora: 2,5 min por test,
+        # cinco veces más lento que Sakana Namazu (0,5) y 40% más que los Seed (1,8).
+        # Encima su proveedor devolvió respuesta vacía tres veces seguidas en
+        # `content_generation/social_media_batch`, sumando reintentos.
+        # Cristian: *"quizás decidir al tiro y lo dejamos pendiente para la próxima"*.
+        # Su lentitud NO es un defecto de medición: es un dato sobre el modelo, y por
+        # sí solo lo descarta para cualquier cosa que corra en línea. Se retoma en la
+        # próxima vuelta si sigue habiendo interés.
+        "id": "meituan/longcat-2.0",
+        "name": "LongCat 2.0",
+        "cost_input": 0.30, "cost_output": 1.20,
+        "tier": "cheap", "context_window": 1048756,
+        "publisher": "Meituan",
+        "notes": "Licencia sin verificar.",
+    },
+    "deepseek-v4-pro-0813": {
+        "id": "deepseek/deepseek-v4-pro-0813",
+        "name": "DeepSeek V4 Pro (0813)",
+        "cost_input": 0.66, "cost_output": 1.98,
+        "tier": "cheap", "context_window": 1048576,
+        "publisher": "DeepSeek",
+        "notes": ("Snapshot del 13-ago-2026. Se mide APARTE del V4 Pro que ya está: un "
+                  "snapshot con fecha es otro modelo, y comparar el nuevo contra el viejo "
+                  "es justamente una pregunta con dueño."),
+    },
+    "seed-2-1-turbo": {
+        "id": "bytedance-seed/seed-2-1-turbo",
+        "name": "Seed 2.1 Turbo",
+        "cost_input": 0.50, "cost_output": 2.50,
+        "tier": "cheap", "context_window": 262144, "multimodal": True,
+        "publisher": "ByteDance Seed",
+        "notes": "Namespace nuevo `bytedance-seed/` (el viejo `bytedance/` ya no sirve).",
+    },
+    "seed-2.0-code": {
+        "id": "bytedance-seed/seed-2.0-code",
+        "name": "Seed 2.0 Code",
+        "cost_input": 0.50, "cost_output": 3.00,
+        "tier": "cheap", "context_window": 262144, "multimodal": True,
+        "publisher": "ByteDance Seed",
+    },
+    "sakana-namazu": {
+        # 19-ago-2026 · NO tiene endpoint con herramientas, verificado midiendo.
+        # Las CINCO suites que mandan `tools` fallaron con `404 - No endpoints found`
+        # —tool_calling, tool_calling_adversarial, orchestration, agent_capabilities,
+        # customer_support: 484 errores— mientras el resto del examen corría normal.
+        #
+        # Ojo con el diagnóstico fácil: el catálogo de OpenRouter declara `tools` para
+        # este id, y un ping sin herramientas responde perfecto. Lo que falta no es el
+        # modelo: es un PROVEEDOR que las exponga. Mismo caso que Hermes 4 405B, cuyo
+        # propio desarrollador recomienda usar otro para tool calling.
+        #
+        # Queda fuera del ranking solo por el criterio de examen completo — que es la
+        # respuesta correcta: un modelo que no puede ejecutar herramientas no se compara
+        # de igual a igual con uno que sí, y recomendarlo para un agente sería mentir.
+        "sirve_para_agentes": False,
+        "id": "sakana/sakana-namazu",
+        "name": "Sakana Namazu",
+        "cost_input": 0.95, "cost_output": 4.00,
+        "tier": "cheap", "context_window": 262144, "multimodal": True,
+        "publisher": "Sakana AI",
+        "notes": "Licencia sin verificar.",
     },
     "qwen-3.6-max": {
         "id": "qwen/qwen3.6-max-preview",
@@ -252,6 +418,13 @@ MODELS = {
         "notes": "Plus = API-only propietario de Alibaba (NO confundir con Qwen 3.6 base que es Apache 2.0)",
     },
     "qwen-3.5-plus": {
+        # NO es un modelo muerto: es un modelo sin ruta que podamos medir, y la
+        # distinción importa (marcar como retirado a uno vivo es tan malo como lo
+        # contrario). Verificado el 17-ago-2026 contra el catálogo de OpenRouter: los
+        # `qwen3.5-*` que están son los BASE (9b, 27b, 35b-a3b, 122b-a10b, 397b-a17b,
+        # flash). El Plus nunca estuvo, porque —como dice la tabla de la familia Qwen en
+        # CLAUDE.md— Plus y Max son API-only por DashScope, y no tenemos esa credencial.
+        "unavailable": "Plus es API-only de Alibaba (DashScope); no hay ruta configurada",
         "id": "qwen/qwen3.5-plus",
         "name": "Qwen 3.5 Plus",
         "cost_input": 1.20,
@@ -277,6 +450,14 @@ MODELS = {
     # con los mismos runs contados dos veces). El precio vigente vive en la or-.
     # (dedup 14-jul-2026)
     "kimi-k2.5-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
         "cost_input": 0.57,
@@ -300,6 +481,14 @@ MODELS = {
         "notes": "Thinking model. Pesos públicos en HF (1.1T params). Precio corregido may 2026 vía OpenRouter API ($0.73/$3.49).",
     },
     "kimi-k2.6-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
         "cost_input": 0.5795,
@@ -492,6 +681,14 @@ MODELS = {
         "notes": "Haiku 4.5 vía suscripción Claude Code.",
     },
     "claude-opus-4.7-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",
         "cost_input": 5.00,
@@ -593,6 +790,11 @@ MODELS = {
         "tier": "medium",
     },
     "gpt-4o": {
+        # Más de un año y NUNCA se empezó a medir (decisión 15-ago-2026: el
+        # benchmark responde qué usar HOY). Declarado el 19-ago: estaba fuera por
+        # casualidad. Los viejos que SÍ medimos —Llama 4, DeepSeek V3, Kimi K2,
+        # Gemini 2.5— se quedan: son opciones vigentes con examen completo.
+        "no_medir": True,
         "id": "openai/gpt-4o",
         "name": "GPT-4o",
         "cost_input": 2.50,
@@ -600,6 +802,11 @@ MODELS = {
         "tier": "medium",
     },
     "claude-sonnet": {
+        # Más de un año y NUNCA se empezó a medir (decisión 15-ago-2026: el
+        # benchmark responde qué usar HOY). Declarado el 19-ago: estaba fuera por
+        # casualidad. Los viejos que SÍ medimos —Llama 4, DeepSeek V3, Kimi K2,
+        # Gemini 2.5— se quedan: son opciones vigentes con examen completo.
+        "no_medir": True,
         "id": "anthropic/claude-sonnet-4",
         "name": "Claude Sonnet 4",
         "cost_input": 3.00,
@@ -698,6 +905,14 @@ MODELS = {
         "tier": "medium",
     },
     "claude-sonnet-4.6-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6 (thinking)",
         "cost_input": 3.00,
@@ -716,6 +931,14 @@ MODELS = {
         "notes": "Anthropic Haiku family. Hybrid (extended thinking opt-in).",
     },
     "claude-haiku-4.5-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5 (thinking)",
         "cost_input": 1.00,
@@ -735,6 +958,13 @@ MODELS = {
 
     # --- Cohere North (coding, via OpenRouter) ---
     "openrouter-north-mini-code": {
+        # Existe, pero SOLO como `cohere/north-mini-code:free` (verificado en el catálogo
+        # el 17-ago-2026). Y medir en un endpoint `:free` está prohibido por regla dura:
+        # los runs contra ids `:free` fallan 69,2% contra 10,9% de los pagos — seis veces
+        # más — y pueden servirse con otra cuantización, así que el número no sería del
+        # modelo. La regla manda medirlo por la infra de su creador; no tenemos key de
+        # Cohere, así que por ahora no hay ruta.
+        "unavailable": "en OpenRouter sólo existe como :free (prohibido medir ahí); falta key de Cohere",
         "id": "cohere/north-mini-code",
         "name": "North Mini Code",
         "cost_input": 0.2,
@@ -826,9 +1056,16 @@ MODELS = {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía Groq para comparar infraestructuras.
         "provider_variant": True,
-        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
-        # NO es retired: el modelo existe. Solo nos falta la llave.
-        "unavailable": "falta GROQ_API_KEY",
+        # Hasta el 16-ago-2026 decía «falta GROQ_API_KEY, NO es retired». Esa distinción
+        # era correcta y sigue importando: una credencial ausente no es un modelo muerto.
+        # Lo que cambió es que ahora hay evidencia externa — Groq lo apagó de verdad.
+        "retired": True,
+        "retired_at": "2026-08-16",
+        "retired_reason": (
+            "Groq deprecó el endpoint (anunciado por correo el 17-jun-2026, apagado el "
+            "16-ago). Recomiendan migrar a openai/gpt-oss-120b o qwen/qwen3.6-27b. "
+            "El modelo Llama 3.3 70B sigue vivo en OpenRouter: lo que murió es esta ruta."),
+        "retired_kind": "provider",
         "id": "llama-3.3-70b-versatile",
         "name": "Llama 3.3 70B (Groq)",
         "cost_input": 0.59, "cost_output": 0.79,
@@ -839,9 +1076,13 @@ MODELS = {
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía Groq para comparar infraestructuras.
         "provider_variant": True,
-        # Vivo en Groq, pero GROQ_API_KEY está vacía → no lo podemos medir.
-        # NO es retired: el modelo existe. Solo nos falta la llave.
-        "unavailable": "falta GROQ_API_KEY",
+        "retired": True,
+        "retired_at": "2026-08-16",
+        "retired_reason": (
+            "Groq deprecó el endpoint (anunciado el 17-jun-2026, apagado el 16-ago). "
+            "Recomiendan migrar a openai/gpt-oss-20b. Ojo: era el mejor de Groq en tool "
+            "calling (8,01) y el reemplazo sugerido marca 6,45."),
+        "retired_kind": "provider",
         "id": "llama-3.1-8b-instant",
         "name": "Llama 3.1 8B Instant (Groq)",
         "cost_input": 0.05, "cost_output": 0.08,
@@ -1028,6 +1269,14 @@ MODELS = {
         "notes": "Próxima generación Qwen — pendiente desde Lote 4",
     },
     "nim-qwen3-next-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
         "provider_variant": True,
@@ -1053,6 +1302,14 @@ MODELS = {
         "notes": "Colaboración Mistral × NVIDIA, optimizado en Nemo",
     },
     "nim-kimi-k2-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
         "provider_variant": True,
@@ -1273,6 +1530,14 @@ MODELS = {
         "tier": "cheap",
     },
     "gemini-3.1-flash-lite-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-3.1-flash-lite-preview",
         "name": "Gemini 3.1 Flash Lite (thinking)",
         "cost_input": 0.25, "cost_output": 1.50,
@@ -1288,6 +1553,14 @@ MODELS = {
         "tier": "medium",
     },
     "gemini-3.1-pro-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-3.1-pro-preview",
         "name": "Gemini 3.1 Pro (thinking)",
         "cost_input": 2.00, "cost_output": 12.00,
@@ -1703,6 +1976,14 @@ MODELS = {
         "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
     },
     "hermes-4-70b-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
         # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
         # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
@@ -1741,6 +2022,14 @@ MODELS = {
         "notes": "Flagship Hermes 4 con reasoning híbrido. Sin reasoning explícito en este config.",
     },
     "hermes-4-405b-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
         # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
         # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
@@ -1759,6 +2048,16 @@ MODELS = {
 
     # --- StepFun Step3 (multimodal MoE) ---
     "step3": {
+        # Verificado contra el catálogo vivo de OpenRouter (17-ago-2026, 414 modelos):
+        # `stepfun-ai/step3` no existe. Lo que sí está es `stepfun/step-3.5-flash` y
+        # `step-3.7-flash` — otro namespace Y otra generación. El 3.5 ya lo medimos como
+        # `or-step-3.5-flash` (pasó el canario 18/18), así que la familia sigue cubierta:
+        # lo que se retira es esta versión, no el proveedor.
+        "retired": True,
+        "retired_at": "2026-08-17",
+        "retired_reason": ("OpenRouter: 'No endpoints found for stepfun'. El id no existe "
+                           "en el catálogo; la familia sigue viva en step-3.5/3.7-flash."),
+        "retired_kind": "provider",
         "id": "stepfun-ai/step3",
         "name": "Step3 (StepFun)",
         "cost_input": 1.00, "cost_output": 3.00,  # estimado, verificar
@@ -1785,6 +2084,14 @@ MODELS = {
 
     # --- ByteDance Seed-OSS (Apache 2.0, reasoning + agentic) ---
     "seed-oss-36b": {
+        # Verificado contra el catálogo vivo (17-ago-2026): `bytedance/seed-oss-36b-instruct`
+        # no está. ByteDance publica hoy bajo `bytedance-seed/` (seed-1.6, seed-2.0-*) y
+        # este modelo no aparece en ninguna forma. Cambió el namespace Y se fue el modelo.
+        "retired": True,
+        "retired_at": "2026-08-17",
+        "retired_reason": ("OpenRouter: 'No endpoints found for bytedance'. El namespace "
+                           "pasó a `bytedance-seed/` y Seed-OSS 36B no está en el catálogo."),
+        "retired_kind": "provider",
         "id": "bytedance/seed-oss-36b-instruct",
         "name": "Seed-OSS 36B Instruct",
         "cost_input": 0.20, "cost_output": 0.60,  # estimado, verificar
@@ -2005,6 +2312,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-qwen3-next-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking",
         "cost_input": 0.15, "cost_output": 1.2,
@@ -2012,6 +2327,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-kimi-k2-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2-thinking",
         "name": "Kimi K2 Thinking",
         "cost_input": 0.6, "cost_output": 2.5,

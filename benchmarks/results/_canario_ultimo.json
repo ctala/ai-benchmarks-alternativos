@@ -1,12 +1,14 @@
 {
-  "cuando": "2026-08-17T07:46:33",
+  "cuando": "2026-08-18T22:02:23",
   "modelos": [
-    "qwen3.7-flash"
+    "seed-2-1-turbo",
+    "qwen-3.8-max"
   ],
   "suites": [
     "tool_calling",
     "structured_output",
     "business_audit"
   ],
-  "ok": true
+  "ok": true,
+  "motivos": []
 }

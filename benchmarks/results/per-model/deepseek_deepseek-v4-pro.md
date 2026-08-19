@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 189/211 exitosos (22 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.06
+- **Total tests**: 223/245 exitosos (22 errores)
+- **Score final**: 6.93
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 47.87s
-- **Costo promedio por test**: $0.00374
+- **Velocidad**: 47 tok/s
+- **Latencia primera token**: 41.82s
+- **Costo promedio por test**: $0.00387
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 8 | 4 | 7.79 | 8.38 |
 | deep_reasoning | 11 | 9 | 6.74 | 7.50 |
 | hallucination | 6 | 5 | 7.31 | 8.00 |
+| integridad_idioma | 4 | 4 | 8.37 | 9.58 |
 | multi_turn | 8 | 7 | 6.94 | 7.43 |
 | news_seo_writing | 10 | 9 | 6.38 | 7.06 |
 | ocr_extraction | 9 | 8 | 8.07 | 9.34 |
 | orchestration | 10 | 8 | 6.33 | 6.61 |
 | policy_adherence | 7 | 7 | 8.12 | 9.08 |
 | presentation | 3 | 3 | 7.80 | 8.98 |
+| prompt_injection_es | 20 | 20 | 2.37 | 1.00 |
 | reasoning | 5 | 5 | 8.09 | 9.35 |
 | sales_outreach | 3 | 3 | 6.00 | 6.44 |
 | startup_content | 10 | 9 | 7.95 | 9.28 |
@@ -43,6 +45,7 @@
 | tool_calling | 8 | 7 | 5.79 | 5.58 |
 | tool_calling_adversarial | 10 | 10 | 7.01 | 7.10 |
 | translation | 5 | 5 | 7.29 | 7.84 |
+| verificar_claim | 10 | 10 | 8.44 | 9.00 |
 
 ## Detalle por test
 
@@ -3673,3 +3676,9 @@ Aquí tienes un desglose detallado en fases, tareas, dependencias, responsables 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

@@ -1,13 +1,13 @@
 # DeepSeek R1 (reasoning)
 
 - **model_id**: `deepseek/deepseek-r1`
-- **Total tests**: 209/213 exitosos (4 errores)
-- **Score final**: 6.61
-- **Calidad**: 7.50
+- **Total tests**: 223/227 exitosos (4 errores)
+- **Score final**: 6.66
+- **Calidad**: 7.57
 - **Judge score (Phi-4)**: 3.97/10
 - **Velocidad**: 21 tok/s
-- **Latencia primera token**: 76.05s
-- **Costo promedio por test**: $0.00954
+- **Latencia primera token**: 74.94s
+- **Costo promedio por test**: $0.00914
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 6.79 | 7.90 |
 | deep_reasoning | 6 | 6 | 6.49 | 7.78 |
 | hallucination | 3 | 3 | 6.30 | 7.00 |
+| integridad_idioma | 4 | 4 | 6.91 | 8.03 |
 | multi_turn | 4 | 4 | 7.25 | 8.50 |
 | news_seo_writing | 5 | 5 | 6.55 | 7.60 |
 | niah_es | 45 | 41 | 6.68 | 7.07 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 6.63 | 7.45 |
 | tool_calling_adversarial | 10 | 10 | 6.46 | 7.10 |
 | translation | 5 | 5 | 7.61 | 8.80 |
+| verificar_claim | 10 | 10 | 7.71 | 8.90 |
 
 ## Detalle por test
 
@@ -2560,3 +2562,7 @@ Ventas totales: $2.3M (+18% vs. Q4 2025). Runway: 14 meses. Burn rate: $380K/mes
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

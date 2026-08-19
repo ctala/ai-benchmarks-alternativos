@@ -3,6 +3,315 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [No publicado]
+
+> Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
+> cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
+
+- **El wizard recomendaba para «producción» un modelo que falla la tarea entera.** `piso`
+  es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al menos una
+  vez el modelo no hizo el trabajo. `scoreAgentico` ya lo ponderaba, pero ese camino sólo
+  corre si el usuario elige TIPO de agente; sin tipo, `wizDecidir` cae a `computeZScore`
+  con los pesos del presupuesto y el piso desaparece. Resultado: en el preset más
+  exigente en fiabilidad salía Llama 4 Scout (piso 0,00) por delante de tres con piso
+  0,44 / 0,89 / 1,00 — y ni por precio, porque Qwen 3.7 Flash cuesta menos y tiene 0,89.
+  El criterio sube al filtro de candidatos, donde ninguna ponderación puede diluirlo:
+  saca 13 de 84 y deja 71. Con su prueba, W13.
+
+## [v4.7.0] - 2026-08-19 — Cuatro modelos frontier estaban al fondo por un techo nuestro
+
+Esta versión no agrega un eje: **arregla la medición**. Y el titular es cuánto se movió
+el ranking al arreglarla:
+
+    Gemini 3.6 Flash    +57 puestos
+    Claude Opus 5 Fast  +44
+    Claude Opus 5       +37     (estaba #79 de 83)
+    Claude Sonnet 5     +26
+
+Ninguno había cambiado: cambió el presupuesto de salida que les dábamos.
+
+**91 modelos rankeados** (antes 83) · 205 catalogados · cero truncamiento en los 167 con
+muestra suficiente.
+
+
+> Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
+> cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
+> Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
+
+- **A1 del validador acusaba una regresión que no existía**, y bloqueaba el export desde
+  el lunes. Decidía si un run era «nuevo» comparando el NOMBRE DEL ARCHIVO contra
+  `benchmark_20260716`: como texto, `"benchmark_remedir_…" > "benchmark_20260716"` (la `r`
+  va después del `2`), así que 36 runs de ABRIL consolidados por `armar_resume` en
+  archivos sin fecha pasaban por nuevos. Ahora se mira la fecha del run, que está en el
+  run. `validate.py` quedó en verde: el benchmark se puede publicar.
+- Las **14 variantes `-thinking`** quedan declaradas `effort_variant` + `no_medir`, y
+  **GPT-4o y Claude Sonnet 4** como `no_medir` por antigüedad. Estaban fuera del ranking
+  por casualidad, no por decisión — y cualquier barrido los habría levantado, como pasó
+  con los GPT-5.6 Pro y Qwen 2.5 72B. Los quince modelos viejos que SÍ medimos (Llama 4,
+  DeepSeek V3, Kimi K2, Gemini 2.5…) se quedan: son opciones vigentes con examen completo,
+  y la regla es no EMPEZAR uno viejo, no jubilar los que ya están.
+- Re-medición del lote de agosto con el presupuesto por tarea: los modelos que antes se
+  cortaban en 2.048 ahora generan hasta 32.768 tokens, y el truncamiento de los runs
+  nuevos bajó a 2-5% (dentro de lo normal: un test largo puede tocar el techo en
+  cualquier modelo). Los 1.096 runs cortados con el techo viejo quedan en
+  `_archive-truncados-20260818/` con su original al lado — son evidencia de que pasó, no
+  se borran.
+- **El presupuesto de salida pasa a ser por TAREA**, calibrado contra la demanda real:
+  2.748 runs de la ruta sin nuestro techo dan p95 8.313 y p99 18.735, y lo que supera 16k
+  se concentra en `agent_long_horizon` (19%, p95 29.927) mientras 26 de 31 suites no
+  llegan ni a 16k. `agent_long_horizon` 65.536 · cuatro suites medias 32.768 · resto
+  24.576. No rompe el `max_tokens` uniforme de LiveBench: ese principio pide el mismo
+  límite para todos los MODELOS, no para todas las tareas.
+- El multiplicador ×4 sólo aplica ya a los call sites que no pasan la suite: encima del
+  presupuesto nuevo daba 131.072 tokens, que varios proveedores rechazan con 400.
+- El canario escribe recibo **también cuando falla**. Un rojo dejaba en su lugar el verde
+  anterior, y por eso un lote arrancó pese a un «NO lanzar»: el script leyó un recibo de
+  12 horas antes, de otro modelo. Ahora además se exige frescura, no sólo `ok`.
+- `VERSIONADO.md` + `check_changelog.py`: el estándar de versionado y CHANGELOG, con el
+  instrumento que lo hace cumplir. Nace de una sesión con once commits cuyo CHANGELOG se
+  escribió al final y de memoria — y del `git reset --hard` del mismo día, que probó que
+  perder el relato no es hipotético. El nivel de versión deja de ser criterio y pasa a
+  decidirlo **qué archivo se tocó**: `scoring_reference.json` es MAJOR, las suites y los
+  criterios de ranking son MINOR, datos y arreglos son PATCH.
+- Decisión al índice: se mide el **modo por defecto** de cada modelo, nunca un esfuerzo
+  forzado — y cuál es ese default (medium o high) se determina **midiendo**, no leyendo la
+  documentación del proveedor. Hoy 178 modelos declaran «default del proveedor» sin que
+  sepamos qué significa: **cero runs registran `reasoning_tokens`**, así que el dato que
+  lo decidiría no se está capturando. Queda como pendiente con método, no como duda.
+- **Once de trece modelos nuevos estaban midiendo con el techo pegado en 2.048** —Seed
+  2.1 Turbo cortó el 73% de su examen— porque razonan por default y no estaban en
+  `THINKING_MODELS`. La conclusión que casi se publica, «la generación Qwen 3.8 rinde
+  peor que la 3.7», era falsa: 3.6 Max y 3.7 Flash, de la misma familia y sí declarados,
+  cortan 0%. Seis patrones nuevos y re-medición pendiente.
+- El detector de truncamiento **estaba al revés**: miraba sólo los modelos ya rankeados,
+  o sea que era ciego justo donde más importa —un modelo nuevo publica su nota por
+  primera vez y no hay histórico con qué contrastarla—. Ahora mira todos por defecto.
+- Y sube al **canario**, que es donde se evita pagar: si más de la mitad de las
+  respuestas del pre-vuelo salen cortadas, el lote no arranca. La técnica ya existía
+  —el 12-ago se probaron 9 modelos con `max_tokens=300` y cinco salieron en blanco— pero
+  había quedado como anécdota en un comentario, no como paso obligatorio.
+- El timeout del canario sube a 75 min y **juzga con lo que alcanzó a medir** si expira:
+  al declarar thinking a media docena de familias sus respuestas pasaron de 2.048 a 8.192
+  tokens y el canario empezó a morir sin veredicto. Un gate que expira enseña a saltarlo
+  con `--sin-canario`, y ahí se pierden los cinco invariantes, no sólo éste.
+- LongCat 2.0 queda con el examen interrumpido en 24/143, por decisión: mide **2,5 min
+  por test**, cinco veces más lento que Sakana Namazu en el mismo examen y arrancando a
+  la misma hora. Con el criterio de examen completo no rankea, y su lentitud es en sí el
+  dato que lo descarta para uso en línea.
+- El runner **rechaza** los modelos marcados `no_medir` / `effort_variant`, incluso
+  pedidos explícitamente por `--models`. Esos flags los miraba la capa que PUBLICA
+  (`export_for_pages`, `completar_examen`) y no la que GASTA, así que una decisión de
+  catálogo se hacía cumplir *después* de haber pagado el examen. En una mañana entraron
+  los dos GPT-5.6 Pro y Qwen 2.5 72B, que llevaba el flag puesto y aun así corrió 76
+  tests. Escape declarado: `--incluir-no-medir`, que deja rastro en el comando.
+- `check_presupuesto.py`: verifica que haya con qué pagar ANTES de lanzar un lote. Nace
+  de la noche del 17-ago, cuando la API key llegó a su tope a las 20:57 y se llevó el
+  juez —que puntúa todo—: Opus 5 murió a mitad del examen y dos chunks ni arrancaron. El
+  canario ya verificaba que los modelos respondan; nadie verificaba que hubiera con qué
+  pagarles. Distingue el tope de la KEY del saldo de la cuenta, que es lo que confundió
+  la recarga del día siguiente.
+- `qa.py` gana tres chequeos que estaban enganchados al pipeline pero **no al comando de
+  QA**, que es donde alguien los busca: credenciales, truncamiento y CHANGELOG. Era el
+  mismo patrón que persigue `check_cobertura` — la regla aplicada donde uno se acordó.
+
+## [v4.6.0] - 2026-08-17 — El día que el benchmark se equivocó, y qué se cambió para que se note
+
+Esta versión no agrega un eje: **arregla tres formas distintas de publicar un número que
+no se sostiene**, y las tres las destapó Cristian preguntando, no un guardrail. Eso es lo
+que se corrigió además del número.
+
+### Opus 5 estaba #79 de 83 por un `max_tokens` nuestro
+
+*"Me llama mucho la atención lo de Opus 5."* Razona por default vía API y no estaba
+declarado en `THINKING_MODELS`, así que corría con el techo de 2.048 y **el 31% de su
+examen terminaba en `finish_reason="length"`** — cortado a mitad de frase, puntuado igual.
+Su p90 de salida era exactamente 2.048; por la ruta de suscripción, que no pasa por el
+adapter, es 10.231.
+
+| modelo | examen cortado | brecha de calidad |
+|---|---|---|
+| Claude Opus 5 Fast | 33% de 167 runs | — |
+| Claude Opus 5 | 31% de 173 | 7,68 → 8,49 por la otra ruta |
+| Gemini 3.6 Flash | 30% de 174 | — |
+| Claude Sonnet 5 | 15% de 222 | 8,04 → 8,86 |
+
+Sobre una población que entera abarca 1,4 puntos. Los cuatro entran a `THINKING_MODELS` y
+se re-midieron.
+
+**Por qué ningún detector lo vio** — la pregunta que hizo Cristian: *"eso lo debió detectar
+el QA, ¿no?"*. Porque los seis detectores cazan **ausencia** (vacíos, sin procedencia, rutas
+muertas, precio $0) y un run truncado no carece de nada: tiene contenido, forma válida,
+`success=True` y pasa `validate.py`. Lo que hay es un techo de más. Nuevo
+`check_truncamiento.py`, umbral 12% — donde se parte la población, no un número redondo.
+
+### El ranking ya no se decide por cantidad de runs, sino por el examen entero
+
+*"No seguiría poniendo el filtro de 50 runs. Todos deben de tener todos y punto, si no no
+son comparables."* El umbral era un proxy y fallaba en las dos direcciones: dos modelos con
+50 runs pueden haber rendido tests **distintos**. Hoy manda rendir las 29 suites que puntúan
+con todos sus tests — 143 en total, así que quien lo complete tiene ≥143 runs y el viejo
+umbral queda subsumido.
+
+Y el examen incompleto ahora saca también del **catálogo**, no solo del ranking: *"solo los
+medidos completos aparecen en el benchmark / calculadora"*. «En evaluación» sonaba prudente
+y publicaba lo mismo con una etiqueta.
+
+Simulado antes de aplicarlo, como manda PLAN-ESTABILIDAD R1: **83 → 79 rankeados**. La
+simulación cazó dos bugs propios antes de publicar — leer «no tiene suites incompletas»
+metía 29 modelos con **cero runs** al ranking, y comparar por cantidad sacaba a GPT-5.6 Luna
+y MiniMax M3, que habían rendido las **dos** versiones de una suite editada.
+
+Las variantes `-sub` (Claude por suscripción) salen del catálogo público: mismo modelo con
+dos filas y números distintos, y el que le aplica al lector es siempre el de la API.
+
+### Cuánto `max_tokens` necesita cada modelo, por tarea
+
+El repo tenía `output_tokens` en cada run desde siempre y no lo publicaba. Ahora está en
+cada ficha, **por tarea**, porque quedarse corto **no falla ruidoso: entrega de menos** y
+quien consume lo lee como «nada que reportar».
+
+El caso que lo motivó es el gate de noticias de Eco, que este benchmark recomendó cambiar y
+falló en producción en dos horas. Nueva suite **`verificar_claims_lote`** (1, 3, 5, 8, 12 y
+15 claims sobre el mismo material, con el prompt real de 4.218 caracteres) y scorer
+`list_completeness`: la nota es *ítems correctos / ítems **enviados***, así que devolver 2
+de 11 perfectos da 1,8 y no 10. Medido:
+
+| | calidad 1→15 claims | tokens con 12 claims | costo /1.000 llamadas |
+|---|---|---|---|
+| Gemini 2.5 Flash | 10 · 10 · 10 · 8,8 · 9,2 · 9,3 | 869 | $2,637 |
+| DeepSeek V4 Flash | 10 · 10 · 10 · 8,8 · 9,2 · 9,3 | **2.492** | **$0,492** |
+
+Curvas idénticas: **el modelo no era el problema**. El nodo tenía `max_tokens: 2000` y la
+tarea pide 3.115 con ese modelo. Y el ahorro sobrevive al mayor consumo — 5,37× más barato
+aun gastando 2-3× más tokens.
+
+### QA: nueve guardrails no los corría nadie
+
+Cristian: *"revisa bien que no nos falte revisar algo más para los QA, siempre aparece algo
+nuevo"*. Cruzados los 24 chequeos contra quién los ejecuta, aparecieron nueve huérfanos.
+Cuatro son análisis exploratorios y está bien que se corran a mano; los otros cinco ya
+corren en el pipeline y en CI — entre ellos **`test_unitarios`, las 123 pruebas del núcleo,
+que existían y el CI no ejecutaba**, y `check_blog_consistency`, nacido de ocho posts con
+claims muertos en producción y sin correr desde julio.
+
+Nuevo **`check_secretos.py`**, después de que la Secret Key real de R2 resultara ser el
+**fixture** de `string_precision` y se replicara sola a PROMPTS.md, TESTS.md y ~600 archivos
+de `results/` — porque cada run guarda su prompt, y el repo es público. Dice también qué no
+cubre: 6 de las 8 API keys del `.env` están vacías (viven en Infisical), así que la capa sin
+falsos positivos **tampoco habría cazado el caso que la motivó**. Contra eso el único control
+real es que los fixtures se **generen**, nunca se copien de un `.env`.
+
+Los dos guardrails nuevos van con su prueba en `test_guardrails` (18/18) y hay un W12 nuevo
+en el QA de la calculadora para las tareas que se juzgan por suites y no por pilar.
+
+### Estado de los datos
+
+**El código y los criterios de esta versión están completos; los números todavía no.** Hay
+un lote midiendo la re-medición de los cuatro truncados, doce modelos nuevos del catálogo
+(Gemini 3.7 Flash, Grok 4.6, DeepSeek V4 Pro 0813, Qwen 3.8 Max y 2.4T, KAT Coder Air/Pro,
+LongCat 2.0, Gemini 3.5 Flash Lite, Sakana Namazu, Seed 2.1 Turbo y 2.0 Code) y el backfill
+de seguridad e idioma. Los artefactos publicados se regeneran al cerrar ese lote: `validate.py`
+bloquea hasta entonces, y con razón — hay `dominio_entidad` parcial en tres modelos y 12 runs
+sin sello de fórmula que hay que resolver antes de publicar.
+
+## [v4.5.0] - 2026-08-17 — Verificar un dato entra al índice, y las páginas dejan de adivinarse
+
+### El eje nuevo: verificar un claim contra su fuente
+
+Un eje que ningún benchmark general mide y que decide cualquier flujo que publique sin
+humano revisando: **¿la fuente respalda lo que dice el titular?** Se mide en las **dos
+direcciones**, que es lo que casi nadie hace — dejar pasar lo inventado publica un dato
+falso con fuente citada; bloquear lo que sí estaba tira trabajo ya pagado. Medir una sola
+premia al que bloquea todo.
+
+**83 modelos rankeados, rango 6,30 – 8,65, σ 0,37, cero notas perfectas.** Lidera Claude
+Opus 4.8 (8,29); entre los baratos, Qwen 3-Next 80B (8,65) y Nemotron 3.5 Lightning (8,59).
+
+Entra al promedio del pilar Contenido y **mueve 77 de 83 modelos de puesto**: GPT-5.4 sube
+31, Hermes 4 405B sube 29, Qwen 3.5 35B baja 21. En el ranking global el movimiento es
+menor (máximo 10 puestos) porque Contenido es un pilar entre varios. Eso es la suite
+haciendo lo que se le pidió: separar al que **escribe** bien del que **verifica** bien, que
+hasta hoy eran indistinguibles.
+
+**Nació saturada y no se publicó así.** La v1 tenía seis casos y **cinco daban nota
+perfecta en todos los modelos** — 95% de runs perfectos. Yo la había probado en UNO, que es
+exactamente el error que la Regla 0.7 del runbook describe. `validate_suite.py` la rechazó
+con ocho modelos repartidos por el rango. Las trampas viejas eran de tipografía («42»
+contra «4,2»); las nuevas son la distancia entre lo que una fuente **afirma** y lo que un
+lector **infiere**: la cuenta que da pero nadie hizo, el plan que no es hecho, la
+atribución que no es afirmación.
+
+### El `--aplicar` que no leía su propio reporte
+
+`simular_pilares.py --aplicar` marcó **tres** suites como parte del promedio mientras el
+reporte que acababa de imprimir decía que dos tenían **10% de cobertura** y habían fallado
+la validación por saturación (una con **100% de runs perfectos y dispersión 0,00**).
+
+Hoy no entraban al score —el export excluye lo que está bajo 80% de cobertura— pero
+habrían entrado **solas el día que subiera la cobertura**, sin que nadie lo decidiera. El
+gate ahora usa los umbrales de `validate_suite.py` y se niega, nombrando el motivo. Y las
+dos notas del registro dicen ahora que están fuera **por saturación, no por cobertura**:
+la distinción cambia qué hay que hacer para arreglarlas.
+
+Mismo patrón de siempre: la regla estaba escrita, la imprimía en pantalla, y el código de
+abajo no la leía.
+
+### Las páginas declaran lo que publican
+
+Cristian, después del cuarto arreglo seguido en el auditor: *"solucionemos de manera
+definitiva lo de las páginas"*.
+
+Los cuatro arreglos anteriores eran **el mismo arreglo**. El auditor infería la estructura
+del HTML con expresiones regulares y las 71 páginas tienen **ocho formas distintas**: cada
+regex cubría unas y dejaba otras ciegas. P2 mezclaba las filas de dos tablas y declaraba
+desordenada una página ordenada; P3 no miraba 10 páginas sin columna de puesto; P4 contaba
+«cero filas» en páginas con 48.
+
+Ahora cada página **emite un contrato JSON** con lo que promete —tipo, generador, qué
+recomienda, qué ordena, cuántas tablas— y el auditor lo lee. **71 de 71 lo declaran**, y
+R7 impide publicar una sin él: un formato nuevo ya no puede entrar en silencio.
+
+Es la tercera vez que este repo resuelve un problema así con el mismo movimiento (el
+registro de suites, `m["elegible"]`, y ahora esto): **cuando el dato viaja declarado, nadie
+tiene que reconstruirlo.**
+
+### Groq apagó dos endpoints, y el guardrail frenó la publicación
+
+Groq deprecó `llama-3.3-70b-versatile` y `llama-3.1-8b-instant` el 16-ago. Se marcan
+retirados, con la aclaración de que **el modelo Llama 3.3 70B sigue vivo en OpenRouter**:
+lo que murió es la ruta.
+
+El registro decía antes *«falta GROQ_API_KEY, NO es retired»*, y esa distinción era
+correcta y sigue importando — una credencial ausente no es un modelo muerto. Lo que cambió
+es que ahora hay evidencia externa.
+
+Al regenerar, el pipeline **bloqueó la publicación**: `/modelos-n8n/` recomendaba el
+endpoint recién apagado. Se reemplazó por Qwen 3.7 Flash (tool calling 8,18, el más alto
+del corte barato) y Llama 4 Scout 17B para quien prioriza latencia, diciendo lo que se
+perdió: **ningún modelo del ranking iguala los 1,3 s de la LPU de Groq** por otra ruta.
+
+Y un dato que el anuncio de Groq no menciona: los reemplazos que recomienda son GPT-OSS, y
+**GPT-OSS marca 6,4-6,5 en tool calling contra 8,0 del que reemplaza** — el mismo número
+por las dos rutas, así que es el modelo y no el serving. Si el agente solo redacta es buen
+cambio; si llama herramientas, es un retroceso.
+
+### Además
+
+- **151 runs de Claude Sonnet 4.6 recuperados**: renombrar el modelo los había dejado
+  huérfanos (el export agrupa por `(model_id, name)`) y el modelo figuraba con 0 runs, con
+  4 páginas de comparación mostrando un lado vacío. El guardrail nuevo encontró de
+  inmediato otro caso preexistente: **Gemma 4 31B con 77 huérfanos** — declarado, pendiente
+  de decidir.
+- **`/mejor-llm-barato/` ordenaba por una columna que no mostraba.** Era la única página
+  que no había pasado por el arreglo de los rankings por pilar. De paso, P2 asumía que
+  «mayor es mejor» y marcaba como desordenada una página perfectamente ordenada de menor a
+  mayor precio.
+- **`check_cobertura.py`**, siete reglas transversales que preguntan lo que ningún
+  guardrail preguntaba: *¿esto que hicimos acá, debería estar también allá?* Nació de
+  encontrar la segunda tabla en 2 de 16 páginas y W6 verificando 2 de 8 promesas del
+  wizard. Encontró, dentro de un guardrail, que el regex de markdown de
+  `check_consistency` no tenía el `(?:de\s+)?` que sí tenía el de HTML.
+
 ## [v4.4.2] - 2026-08-16 — El QA es uno solo, y la herramienta que desbloqueaba modelos no podía funcionar
 
 ### La fuente única de elegibilidad

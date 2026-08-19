@@ -135,6 +135,8 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_language_check(response, expected_answer)
     elif answer_type == "exact_vs_distractor":
         return _score_exact_vs_distractor(response, expected_answer)
+    elif answer_type == "list_completeness":
+        return _score_list_completeness(response, expected_answer)
     else:
         # Antes devolvía 5.0 en silencio. Un tipo mal escrito —o un scorer que alguien
         # olvida implementar— entregaba una nota media plausible y el error viajaba
@@ -146,7 +148,8 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
             f"reasoning, constraint_check, must_not_assert, hallucination_check, "
             f"honesty_check, creativity_check, depth_check, range, niah_extraction, "
             f"credential_leak_check, json_valid, json_exact, language_check, "
-            f"exact_vs_distractor. Si agregaste un tipo, implementá su scorer."
+            f"exact_vs_distractor, list_completeness. "
+            f"Si agregaste un tipo, implementá su scorer."
         )
 
 
@@ -1135,3 +1138,47 @@ def _score_must_not_assert(response: str, expected: dict) -> float:
         raise RuntimeError("el verificador no respondió — no puedo puntuar `must_not_assert`")
 
     return round(10.0 * (evaluadas - afirmadas) / evaluadas, 2)
+
+
+def _score_list_completeness(response: str, expected: dict) -> float:
+    """¿Devolvió un juicio correcto para CADA ítem que se le mandó?
+
+    POR QUÉ NO ALCANZA CON `json_valid` (17-ago-2026)
+    -------------------------------------------------
+    `json_valid` premia parsear (4,0 de arranque) y mide los valores sobre lo que el
+    modelo entregó. Para una tarea de N ítems eso puntúa alto a quien devuelve 2 de 11
+    perfectos — que es exactamente el modelo que rompió el gate de Eco en producción.
+
+    Acá la nota es una sola cosa, y es la que le importa a quien lo pone a trabajar:
+
+        ítems con veredicto CORRECTO / ítems ENVIADOS
+
+    Un ítem no devuelto cuenta como error, porque en producción lo es: un claim sin
+    veredicto no bloquea nada y la nota se publica sin verificar. Devolver 2 de 11, aun
+    perfectos, da 1,8 — no 10.
+
+    No hay crédito por parsear. Un JSON que no cierra es cero juicios entregados, y
+    cero es la nota honesta: el workflow no recibió nada con qué decidir.
+    """
+    esperados = expected.get("expected") or {}
+    if not esperados:
+        return 0.0
+    data = _extraer_json(response)
+    if data is None:
+        return 0.0
+
+    lista = data.get(expected.get("list_key", "veredictos")) if isinstance(data, dict) else data
+    if not isinstance(lista, list):
+        return 0.0
+
+    id_key = expected.get("id_key", "id")
+    val_key = expected.get("value_key", "veredicto")
+
+    # El último gana si repite un id: devolver dos juicios del mismo ítem no suma.
+    devueltos = {}
+    for it in lista:
+        if isinstance(it, dict) and it.get(id_key) is not None:
+            devueltos[str(it[id_key]).strip()] = str(it.get(val_key, "")).strip().upper()
+
+    aciertos = sum(1 for k, v in esperados.items() if devueltos.get(k) == str(v).upper())
+    return round(10.0 * aciertos / len(esperados), 2)

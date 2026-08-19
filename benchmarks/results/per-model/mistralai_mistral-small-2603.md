@@ -1,13 +1,13 @@
 # Mistral Small 4
 
 - **model_id**: `mistralai/mistral-small-2603`
-- **Total tests**: 250/262 exitosos (12 errores)
-- **Score final**: 7.64
-- **Calidad**: 8.07
+- **Total tests**: 264/276 exitosos (12 errores)
+- **Score final**: 7.69
+- **Calidad**: 8.10
 - **Judge score (Phi-4)**: 3.74/10
 - **Velocidad**: 75 tok/s
-- **Latencia primera token**: 6.49s
-- **Costo promedio por test**: $0.00419
+- **Latencia primera token**: 6.31s
+- **Costo promedio por test**: $0.00397
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 8.63 | 8.90 |
 | deep_reasoning | 6 | 6 | 7.94 | 8.20 |
 | hallucination | 3 | 3 | 7.34 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.47 | 8.94 |
 | multi_turn | 4 | 4 | 7.55 | 7.38 |
 | news_seo_writing | 5 | 5 | 7.19 | 7.28 |
 | niah_es | 102 | 90 | 8.38 | 9.80 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 6.54 | 5.70 |
 | tool_calling_adversarial | 10 | 10 | 6.50 | 5.84 |
 | translation | 3 | 3 | 7.68 | 7.37 |
+| verificar_claim | 10 | 10 | 8.53 | 8.50 |
 
 ## Detalle por test
 
@@ -2346,3 +2348,7 @@ Aquí tienes un **plan detallado en fases, tareas, dependencias, responsables y 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

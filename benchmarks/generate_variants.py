@@ -379,7 +379,12 @@ def render(cfg, models):
 {funnel_block()}
 {methodology()}
 """
-    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body)
+    from contrato_pagina import emitir as _contrato
+    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body,
+                      contrato=_contrato(
+                          tipo="variantes", generador="generate_variants",
+                          recomienda=[m.get("name") for m in vs],
+                          nota="compara versiones de una misma familia"))
 
 
 def main():

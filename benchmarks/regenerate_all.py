@@ -104,6 +104,47 @@ def main() -> int:
     if not args.dry_run:
         run_script("audit_suites.py", [], dry_run=False, allow_fail=True)
 
+    # 0b-bis. ¿Hay una credencial real en algo que se publica? (check_secretos.py)
+    #
+    # Va ANTES que todo lo demás porque es el único fallo del que no se vuelve: un score
+    # mal calculado se corrige regenerando; una clave publicada en un repo público con
+    # forks hay que rotarla, y hasta que se rote está viva. El 17-ago la Secret Key de R2
+    # era el FIXTURE de string_precision y se replicó sola a ~600 archivos de results/,
+    # porque cada run guarda su prompt.
+    if not args.dry_run:
+        rc = run_script("check_secretos.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n🔴 Hay una credencial en un archivo versionado. NO publiques: rotala primero.")
+            return 1
+
+    # 0c. ¿Alguna nota se construyó sobre respuestas cortadas? (check_truncamiento.py)
+    #
+    # 17-ago-2026: Claude Opus 5 estaba publicado #79 de 83 con el 31% de su examen
+    # terminando en `finish_reason="length"` — cortado por NUESTRO techo de tokens, por
+    # no estar declarado en THINKING_MODELS. Igual Opus 5 Fast (33%), Gemini 3.6 Flash
+    # (30%) y Sonnet 5 (15%).
+    #
+    # Va acá arriba, junto a endpoints y suites, por la misma razón que ellos: si una
+    # nota está mal medida, TODO lo que se genere después la propaga —ranking, fichas,
+    # comparaciones, recomendaciones, el pilar del blog—. Detectarlo al final es
+    # detectarlo cuando ya se publicó.
+    #
+    # No aborta: re-medir es una decisión con costo (y con archivado de los runs viejos,
+    # que no son comparables con los nuevos). El pipeline avisa; la decisión es humana.
+    if not args.dry_run:
+        rc = run_script("check_truncamiento.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n⚠️  Hay modelos con notas construidas sobre respuestas a medias (arriba).")
+            print("   Fix: su patrón de id a THINKING_MODELS en providers/adapters.py, y RE-MEDIR.\n")
+
+    # 0d. ¿Hay modelos afuera del ranking por dos tests sueltos? (completar_examen.py)
+    #
+    # Existe desde el 15-ago y hasta hoy no lo corría nadie salvo a mano — que es tanto
+    # como no tenerlo, porque el caso que lo motivó (GPT-5.6 Luna Pro, calidad 8,60,
+    # afuera por DOS tests) aparece justamente cuando nadie está mirando.
+    if not args.dry_run:
+        run_script("completar_examen.py", [], dry_run=False, allow_fail=True)
+
     # 1. Single source of truth para la calculadora y todo lo demás
     run_script("export_for_pages.py", [], dry_run=args.dry_run)
 
@@ -141,6 +182,11 @@ def main() -> int:
         # Las comparaciones A-vs-B no responden "cual de los TRES tomo".
         run_script("generate_variants.py", [], dry_run=args.dry_run)
         run_script("generate_manual_landings.py", [], dry_run=args.dry_run)
+        # Una ficha por modelo rankeado (`/modelo/<key>/`). Publica SUS numeros y enlaza
+        # los oficiales al fabricante en vez de copiarlos: el benchmark de lanzamiento lo
+        # hace quien construyo el modelo, con mas recursos y antes. Lo que no esta alla
+        # es como se comporta decidiendo algo de un negocio chico en espanol.
+        run_script("generate_model_cards.py", [], dry_run=args.dry_run)
         # Bloque "Explora" del home -> paginas pSEO. Sin esto las 35 comparaciones
         # y las 6 paginas de familia quedan huerfanas: cero enlaces internos desde
         # la pagina mas autoritativa del sitio. /claude-vs-chatgpt/ vale 2.480
@@ -294,6 +340,18 @@ def main() -> int:
         if rc != 0:
             print("\n❌ Una página publica algo que la data no sostiene. Ver arriba.")
             return 1
+
+        # Las cifras se publican DE VERDAD en el blog, que es otro repo. El pilar SEO
+        # cita scores en prosa, tablas y FAQ, y un rescoring las caduca todas de golpe.
+        # El guardrail existía desde julio —nacido de ocho posts con claims muertos en
+        # producción, uno coronando al #9 como "#1 de mi benchmark"— y **no lo corría
+        # nadie**. No aborta: el repo hermano puede no estar clonado en esta máquina.
+        print()
+        run_script("check_blog_consistency.py", [], dry_run=False, allow_fail=True)
+
+        # Un doc podrido pasando por vigente. Tampoco lo corría nadie desde el 13-ago.
+        print()
+        run_script("check_docs.py", [], dry_run=False, allow_fail=True)
 
     print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0

@@ -1,13 +1,13 @@
 # Qwen 3.6 35B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-35b-a3b`
-- **Total tests**: 212/218 exitosos (6 errores)
-- **Score final**: 7.12
-- **Calidad**: 7.59
+- **Total tests**: 226/232 exitosos (6 errores)
+- **Score final**: 7.10
+- **Calidad**: 7.54
 - **Judge score (Phi-4)**: 3.90/10
-- **Velocidad**: 127 tok/s
-- **Latencia primera token**: 14.08s
-- **Costo promedio por test**: $0.00488
+- **Velocidad**: 128 tok/s
+- **Latencia primera token**: 13.98s
+- **Costo promedio por test**: $0.00467
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 8.43 | 9.12 |
 | deep_reasoning | 6 | 6 | 6.87 | 7.08 |
 | hallucination | 3 | 3 | 5.87 | 5.67 |
+| integridad_idioma | 4 | 4 | 3.40 | 2.33 |
 | multi_turn | 4 | 4 | 7.52 | 8.00 |
 | news_seo_writing | 5 | 5 | 4.79 | 4.15 |
 | niah_es | 51 | 45 | 8.39 | 9.70 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 6.63 | 6.54 |
 | tool_calling_adversarial | 10 | 10 | 7.45 | 7.74 |
 | translation | 3 | 3 | 7.98 | 8.80 |
+| verificar_claim | 10 | 10 | 8.13 | 8.57 |
 
 ## Detalle por test
 
@@ -2311,3 +2313,7 @@ Here's a thinking process:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

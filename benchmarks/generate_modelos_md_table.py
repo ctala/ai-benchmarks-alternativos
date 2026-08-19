@@ -66,22 +66,21 @@ def load_models_export():
 
 
 def find_response_dirs(model_id: str) -> list[str]:
+    """La carpeta de respuestas de este modelo, si existe.
+
+    Desde el 17-ago-2026 las respuestas viven en `responses/<modelo>/<suite>/`, así que
+    la carpeta ES el modelo y basta con mirar si está. Antes había que recorrer las 555
+    carpetas de corrida y ADIVINAR el modelo desde el nombre del archivo, comparando
+    substrings en los dos sentidos (`mid_short in stem or stem in mid_short`) — una
+    heurística que empareja de más: `qwen3-27b` matcheaba con `qwen3-27b-instruct`.
+    """
     if not RESPONSES_DIR.exists():
         return []
-    found = []
-    safe_id = model_id.replace("/", "_").replace(":", "_")
-    for ts_dir in sorted(RESPONSES_DIR.iterdir(), reverse=True):
-        if not ts_dir.is_dir():
-            continue
-        for f in ts_dir.iterdir():
-            if not f.name.endswith(".md"):
-                continue
-            stem = f.name.split("__")[0]
-            mid_short = model_id.split("/")[-1].replace(".", "")
-            if mid_short.lower() in stem.lower() or stem.lower() in mid_short.lower():
-                found.append(ts_dir.name)
-                break
-    return found
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from models import MODELS
+    keys = [k for k, v in MODELS.items() if v.get("id") == model_id]
+    return [k for k in keys if (RESPONSES_DIR / k).is_dir()]
 
 
 def build_links(model_id: str) -> tuple[str, str]:

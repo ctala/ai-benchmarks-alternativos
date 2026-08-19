@@ -1,13 +1,13 @@
 # GLM 5
 
 - **model_id**: `z-ai/glm-5`
-- **Total tests**: 144/144 exitosos (0 errores)
-- **Score final**: 7.28
-- **Calidad**: 8.28
+- **Total tests**: 178/178 exitosos (0 errores)
+- **Score final**: 6.89
+- **Calidad**: 7.69
 - **Judge score (Phi-4)**: 4.39/10
-- **Velocidad**: 48 tok/s
-- **Latencia primera token**: 64.53s
-- **Costo promedio por test**: $0.00734
+- **Velocidad**: 49 tok/s
+- **Latencia primera token**: 57.04s
+- **Costo promedio por test**: $0.00744
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.01 | 7.56 |
 | deep_reasoning | 6 | 6 | 6.52 | 7.50 |
 | hallucination | 3 | 3 | 6.29 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.04 | 9.61 |
 | multi_turn | 4 | 4 | 6.43 | 7.12 |
 | news_seo_writing | 5 | 5 | 6.51 | 7.41 |
 | ocr_extraction | 5 | 5 | 7.98 | 9.35 |
 | orchestration | 5 | 5 | 6.56 | 7.01 |
 | policy_adherence | 4 | 4 | 7.31 | 8.17 |
 | presentation | 2 | 2 | 7.83 | 9.24 |
+| prompt_injection_es | 20 | 20 | 3.15 | 2.35 |
 | reasoning | 5 | 5 | 8.02 | 9.60 |
 | sales_outreach | 3 | 3 | 7.97 | 9.33 |
 | startup_content | 9 | 9 | 7.90 | 9.30 |
@@ -43,6 +45,7 @@
 | tool_calling | 4 | 4 | 5.18 | 4.65 |
 | tool_calling_adversarial | 10 | 10 | 6.34 | 6.40 |
 | translation | 5 | 5 | 6.97 | 7.91 |
+| verificar_claim | 10 | 10 | 8.18 | 9.10 |
 
 ## Detalle por test
 
@@ -2568,3 +2571,9 @@ Este es un plan de proyecto detallado para lanzar tu landing page en 4 semanas. 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

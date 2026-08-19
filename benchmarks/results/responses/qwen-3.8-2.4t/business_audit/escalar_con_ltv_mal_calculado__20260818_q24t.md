@@ -1,0 +1,34 @@
+# Qwen 3.8 2.4T (A95B) — business_audit/escalar_con_ltv_mal_calculado
+
+- model_id: `qwen/qwen3.8-2.4t-a95b`
+- success: True  | final: 8.53 | quality: 10.0
+- latency_total: 13.729s | tokens_per_second: 149.2
+- input_tokens: 255 | output_tokens: 2048
+
+## Entrada exacta (lo que recibió el modelo)
+
+**system:**
+
+Eres analista de unit economics. Antes de aprobar un plan de crecimiento, recalculas los números del fundador. Muchos planes mueren en la aritmética.
+
+**user:**
+
+Ya soy rentable y quiero escalar fuerte con publicidad pagada. Mis números:
+
+- Precio: $35/mes por cliente.
+- Churn mensual: 8%.
+- Margen bruto: 70% (después de infraestructura y procesador de pagos).
+- Mi costo de adquirir un cliente con publicidad (CAC): $290.
+
+Mi cálculo: como un cliente se queda unos 2 años, el LTV es 35 × 24 = $840. Contra un CAC de $290, eso me da LTV/CAC = 2,9, que está por encima de 3 más o menos. Así que voy a meter $10.000 en publicidad este mes.
+
+¿Le doy?
+
+
+## Respuesta completa
+
+We need answer in Spanish. User asks as founder wants to scale paid ads. We are unit economics analyst. Need recalc numbers. Need likely point out mistakes: LTV should use gross margin? Churn 8% monthly implies average lifetime 1/churn = 12.5 months, not 24 months, if constant churn. Price $35, gross margin 70%, so monthly gross profit per customer $24.5. LTV gross profit = ARPA * margin / churn = 35*0.7/0.08 = $306.25 (simple perpetuity ignoring discount). If use revenue LTV = 35/0.08 = $437.5. CAC $290. LTV/CAC using gross profit LTV = 1.06, using revenue = 1.51. Not above 3. If they assume 24 months, inconsistent with 8% churn; retention after 24 months = (0.92)^24 ≈ 13.4%. Average lifetime 12.5 months. Also payback: CAC / monthly gross profit = 290 / 24.5 = 11.84 months. Payback in revenue = 8.3 months but cash needs gross profit. With $10k spend, acquire ~34.48 customers. Need consider fixed costs, contribution margin after variable support etc. Need maybe mention if CAC fully loaded? ad spend only? sales, creative, tools, taxes, payment? The margin already includes payment and infra but maybe not support, CSM, overhead. Need maybe cohort cash flow: spend $10,000 now, customers generate $35*0.7 = $24.5 per month gross profit but churn reduces. Month 1 gross profit from 34.5 customers ≈ $844.6? Actually if acquired at beginning and pay first month, 34.48*24.5 = $844.76. Cumulative gross profit over 12 months maybe CAC recovered? Let's compute cumulative per customer with monthly churn and gross profit at beginning/end. If pay monthly, expected gross profit sum over months: 24.5 * sum_{t=1}^∞ (0.92)^{t-1} = 24.5/0.08=306.25. Payback around 12 months. $10k yields expected lifetime gross profit $10,560? Actually 10k/290=34.48 customers * 306.25 = $10,560. Net contribution after CAC $560, before fixed costs/ads platform? Very thin. If discount rate, even negative. Need maybe mention if churn is 8% monthly, annual retention ~36.8%; average months 12.5. Need maybe propose sensitivity: to justify 3x gross margin LTV/CAC, need LTV >= 870 gross profit. With margin 70 and churn 8%, required ARPA = LTV*churn/margin = 870*0.08/0.7 = $99.43/mes; or CAC <= 306.25/3=$102; or churn <= (35*0.7)/(3*290)=24.5/870=2.82%; or margin higher. To get payback <= 6 months: CAC <= 6*24.5=$147. To support $10k, need enough working capital for 12-month payback. Maybe if they have cash, but scaling strong with thin unit economics will burn cash. Need answer: no, not yet; recalc; maybe test small, improve churn/CAC/price/margin. Need maybe calculate if using 24 months but with churn? Could do expected revenue over 24 months: sum 35*(0.92)^(t-1) for 24 = 35*(1-0.92^24)/0.08 = 35*(1-0.134)/0.08 = 35*10.825 = $378.9 revenue, gross profit $265.2. Less than CAC? Actually gross profit 265.2 < 290, negative. Infinite horizon gross profit 306.25. So even if wait 24 months, LTV gross profit only $265? Wait infinite 306, yes 24-month truncated 265. So CAC not recovered fully over 24 months in gross profit. But if use revenue, 378.9 > 290 but ignores cost to serve. Need be careful: LTV normally gross profit not revenue. If founder used $840 revenue over 24 months, ignores churn and margin. If 2 years average? Churn 8% monthly impossible. If contractual 2-year lock? Not stated. If prepaid annual? Need ask. But likely no.
+
+Need maybe produce final with direct answer: No le des con $10k a escalar fuerte. First validate. Maybe if CAC $290 is blended and predictable, and you can reduce churn to <3%, raise price, etc. Need maybe include a mini model.
+
+Need perhaps mention LTV/CAC "más o menos 3" is threshold; but should use contribution margin and payback. Need maybe compute: LTV revenue using churn = $437.50; LTV gross profit = $306.25. Ratio = 1.06 (gross profit) or 1.51 (revenue). The 2.9 is wrong. Actually founder says 2.9 and above 3 más o menos? 2.9 below 3, but says above? Need point out it's below 3 even on revenue, but real is ~1.1. Also 24-month assumption: with 8% churn, expected lifetime = 12.5 months. Probability a customer stays 24 months = 13.4%. The expected customer-months over 24 months = (1 - 0.92^24)/0.08 = 10.83 months, not 24. So LTV revenue 24m = $379, gross profit $265. If CAC 290, negative contribution over 24m by -$25 gross profit. Infinite LTV gross profit $306, net +$16 per customer before fixed costs. $10k spend yields only ~$560 lifetime contribution (if assumptions perfect), ROI 5.6%, not enough for risk, discount, errors. Need maybe include cash flow: Month 0 -$10,000. Month 1 revenue $1,207? 34.48*35=1206.9; gross profit $844.8. Cumulative gross profit after 12 months? Per customer cumulative gross profit = 24.5*(1-0.92^12)/0.08 = 24.5*(1-0.3677)/0.08=24.5*7.904=193.65. For 34.48 = $6,677. So after 12 months recovered 67% of ad spend. After 24 months: per customer 24.5*10.825=265.2, total $9,143, still below $10k. Infinite: $10,560. So cash payback >24 months? Wait infinite gross profit per customer 306.25, total $10,560. Payback when cumulative gross profit = 290 per customer: solve 24.5*(1-0.92^n)/0.08 = 290 => (1-0.92^n)=290*0.08/24.5=23.2/24.5=0.94694; 0.92^n=0.05306; n=ln(0.05306)/ln(0.92)= -2.936/-0.08338=35.2 months. Wait earlier I said CAC/monthly gross profit 11.8 months but that assumes no churn. With churn, payback is much longer, if ever. Because churn erodes base. The simple payback with constant cohort: cumulative gross profit asymptote 306.25, so payback at 35 months. If using monthly gross profit from surviving customers, yes. If no churn payback 11.8. Important: with churn 8%, payback 35 months if CAC 290 and LTV gross profit 306. Very bad. Need mention. But wait LTV formula 24.5/0.08 = 306.25. To recover 290, need 94.7% of lifetime value,

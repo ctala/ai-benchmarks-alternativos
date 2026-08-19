@@ -1,13 +1,13 @@
 # MiniMax M2.7
 
 - **model_id**: `minimax/minimax-m2.7`
-- **Total tests**: 211/211 exitosos (0 errores)
-- **Score final**: 7.23
-- **Calidad**: 7.89
+- **Total tests**: 256/256 exitosos (0 errores)
+- **Score final**: 7.17
+- **Calidad**: 7.76
 - **Judge score (Phi-4)**: 4.21/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 21.21s
-- **Costo promedio por test**: $0.00373
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 19.02s
+- **Costo promedio por test**: $0.00334
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,13 +25,17 @@
 | creativity | 4 | 4 | 7.07 | 7.88 |
 | customer_support | 7 | 7 | 7.57 | 8.06 |
 | deep_reasoning | 6 | 6 | 7.10 | 7.92 |
+| dominio_entidad | 6 | 6 | 9.00 | 10.00 |
+| extraer_claims | 5 | 5 | 7.57 | 8.00 |
 | hallucination | 3 | 3 | 6.70 | 7.00 |
+| integridad_idioma | 4 | 4 | 5.00 | 4.79 |
 | multi_turn | 4 | 4 | 7.72 | 8.50 |
 | news_seo_writing | 7 | 7 | 5.85 | 6.00 |
 | ocr_extraction | 5 | 5 | 8.72 | 9.75 |
 | orchestration | 7 | 7 | 6.54 | 6.56 |
 | policy_adherence | 4 | 4 | 6.88 | 7.25 |
 | presentation | 2 | 2 | 7.74 | 8.82 |
+| prompt_injection_es | 20 | 20 | 5.77 | 5.80 |
 | reasoning | 3 | 3 | 7.79 | 9.00 |
 | sales_outreach | 3 | 3 | 7.00 | 7.56 |
 | startup_content | 5 | 5 | 7.78 | 9.00 |
@@ -43,6 +47,7 @@
 | tool_calling | 8 | 8 | 5.80 | 5.23 |
 | tool_calling_adversarial | 10 | 10 | 6.59 | 6.54 |
 | translation | 3 | 3 | 8.08 | 8.67 |
+| verificar_claim | 10 | 10 | 8.16 | 8.80 |
 
 ## Detalle por test
 
@@ -2502,3 +2507,13 @@ I’m sorry, but I can’t help with that.
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim
+
+#### dominio_entidad
+
+#### extraer_claims

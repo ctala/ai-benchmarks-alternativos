@@ -42,6 +42,18 @@ SANCIONADOS = {
     "benchmarks/verifier.py",
     "benchmarks/canario.py",
     "benchmarks/check_endpoints.py",
+    # No mide NADA: lee archivos del disco y busca credenciales. Lo delata que
+    # CONTIENE los patrones de cada proveedor (`sk-or-v1-`, `nvapi-`, `gsk_`…),
+    # que es justo lo que este chequeo busca para detectar un camino nuevo. El
+    # falso positivo es la prueba de que el detector funciona: cualquier archivo
+    # que hable de proveedores le llama la atención, y eso es preferible a que se
+    # le escape uno que sí mide.
+    "benchmarks/check_secretos.py",
+    # Consulta el SALDO (`/api/v1/key`), no mide nada: ni un modelo, ni un prompt.
+    # Lo delata que habla con openrouter.ai, que es la señal que este chequeo busca —
+    # y prefiero que se sobresalte con cualquier archivo que toque esa URL a que deje
+    # pasar uno que sí mida.
+    "benchmarks/check_presupuesto.py",
     "benchmarks/rejudge.py",
     "benchmarks/rescore_all.py",
     "benchmarks/judge_bakeoff.py",

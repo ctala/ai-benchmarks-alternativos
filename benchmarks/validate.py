@@ -108,10 +108,25 @@ def a1_procedencia(runs, verbose):
     # del runner volvió a omitir el stamp — la clase de bug que dejó a
     # agent_long_horizon entera sin marca y produjo "comparar cosas distintas".
     # El aviso blando no alcanzó: esto tiene que DOLER en el momento, no meses después.
-    EPOCA_PROCEDENCIA = "benchmark_20260716"  # todo archivo >= esta fecha DEBE stampear
+    EPOCA_PROCEDENCIA = "20260716"  # todo run desde esta fecha DEBE stampear
+    #
+    # ⚠️ 19-ago-2026: esto comparaba el NOMBRE DEL ARCHIVO, no la fecha del run, y por
+    # eso acusó una regresión que no existía. `armar_resume` consolida runs históricos
+    # dentro de archivos llamados `benchmark_remedir_*` / `benchmark_completar_*`, y
+    # como texto `"benchmark_remedir_…" > "benchmark_20260716"` (la `r` va después del
+    # `2`). Resultado: 36 runs de ABRIL, legítimamente sin sello porque la marca no
+    # existía entonces, se reportaban como «un path del runner omite el stamp» y
+    # bloqueaban el export.
+    #
+    # La fecha de un run está en el run. Usar el nombre del archivo como proxy funcionó
+    # mientras todos los archivos se llamaban `benchmark_<fecha>_…`, y se rompió en
+    # silencio el día que aparecieron nombres sin fecha — que es justamente lo que hacen
+    # las herramientas de consolidación.
+    def _fecha(r):
+        return str(r.get("timestamp") or "")[:8]
     nuevos_sin = [r for r in runs
                   if r.get("quality") is not None and not r.get("scoring")
-                  and str(r.get("_archivo", "")) >= EPOCA_PROCEDENCIA]
+                  and _fecha(r) >= EPOCA_PROCEDENCIA]
     if nuevos_sin:
         ejemplos = {r.get("_archivo") for r in list(nuevos_sin)[:3]}
         fallo("A1 · procedencia (runs NUEVOS)",
@@ -175,7 +190,22 @@ def a3_sin_doble_conteo(verbose):
 # Suites que NO alimentan `quality` — son pilares aparte con su propia métrica.
 # Un examen incompleto acá no corrompe el ranking: significa que de ese modelo no
 # sabemos su contexto usable (o su resistencia a inyección). Eso se DICE, no se inventa.
-PILARES_APARTE = ("niah", "prompt_injection")
+# Las suites que se reportan APARTE y por tanto no bloquean el examen.
+#
+# 19-ago-2026: esto era una tupla a mano —`("niah", "prompt_injection")`— y quedó
+# desactualizada en cuanto entraron suites nuevas fuera del promedio. Bloqueó el export
+# por `dominio_entidad`, que no puntúa hace días por estar saturada. El mismo patrón que
+# este repo persigue desde que `SUITE_TO_PILLAR` vivía en tres archivos: la lista existe
+# dos veces y una envejece en silencio.
+#
+# Ahora se LEE del registro único. Si mañana una suite entra o sale del promedio, esto
+# se entera solo.
+def _pilares_aparte():
+    from benchmarks.suites import SUITES
+    return tuple(s for s, v in SUITES.items() if not v.get("en_promedio"))
+
+
+PILARES_APARTE = _pilares_aparte()
 
 
 def b1_examen_completo(models, verbose):

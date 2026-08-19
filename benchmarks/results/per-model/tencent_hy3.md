@@ -1,13 +1,13 @@
 # Tencent Hy3
 
 - **model_id**: `tencent/hy3`
-- **Total tests**: 202/202 exitosos (0 errores)
-- **Score final**: 7.33
-- **Calidad**: 7.99
+- **Total tests**: 223/223 exitosos (0 errores)
+- **Score final**: 7.46
+- **Calidad**: 8.14
 - **Judge score (Phi-4)**: 4.24/10
 - **Velocidad**: 64 tok/s
-- **Latencia primera token**: 40.34s
-- **Costo promedio por test**: $0.00410
+- **Latencia primera token**: 38.08s
+- **Costo promedio por test**: $0.00377
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,6 +25,8 @@
 | creativity | 4 | 4 | 8.04 | 8.75 |
 | customer_support | 4 | 4 | 7.75 | 8.24 |
 | deep_reasoning | 6 | 6 | 6.56 | 7.08 |
+| dominio_entidad | 6 | 6 | 9.13 | 10.00 |
+| extraer_claims | 5 | 5 | 8.80 | 10.00 |
 | hallucination | 3 | 3 | 6.83 | 7.00 |
 | integridad_idioma | 4 | 4 | 5.71 | 5.80 |
 | multi_turn | 4 | 4 | 7.80 | 8.50 |
@@ -46,6 +48,7 @@
 | tool_calling | 4 | 4 | 5.53 | 5.00 |
 | tool_calling_adversarial | 10 | 10 | 7.08 | 7.10 |
 | translation | 3 | 3 | 7.97 | 8.67 |
+| verificar_claim | 10 | 10 | 8.48 | 9.10 |
 
 ## Detalle por test
 
@@ -2054,3 +2057,9 @@ Para lanzar una landing page SaaS en 4 semanas (aprox. 20 días hábiles) con un
 #### prompt_injection_es
 
 #### tool_calling_adversarial
+
+#### verificar_claim
+
+#### dominio_entidad
+
+#### extraer_claims

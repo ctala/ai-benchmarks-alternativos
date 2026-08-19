@@ -1,13 +1,13 @@
 # Inkling Small
 
 - **model_id**: `thinkingmachines/inkling-small`
-- **Total tests**: 208/212 exitosos (4 errores)
-- **Score final**: 7.23
-- **Calidad**: 8.03
+- **Total tests**: 218/222 exitosos (4 errores)
+- **Score final**: 7.29
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 66.20s
-- **Costo promedio por test**: $0.01237
+- **Velocidad**: 62 tok/s
+- **Latencia primera token**: 63.31s
+- **Costo promedio por test**: $0.01184
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -46,6 +46,7 @@
 | tool_calling | 4 | 4 | 6.25 | 6.33 |
 | tool_calling_adversarial | 10 | 10 | 6.80 | 6.68 |
 | translation | 3 | 3 | 7.56 | 8.20 |
+| verificar_claim | 10 | 10 | 8.55 | 8.80 |
 
 ## Detalle por test
 
@@ -2044,3 +2045,5 @@ TechFlow cerró Q1 con crecimiento sólido: ventas de $2.3M (+18% vs $1.95M), im
 #### prompt_injection_es
 
 #### tool_calling_adversarial
+
+#### verificar_claim

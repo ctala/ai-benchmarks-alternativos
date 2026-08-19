@@ -53,6 +53,24 @@ El juez `phi4-or` (Phi-4 por OpenRouter) NO es el cuello — pero OJO: **rompe c
 sin puntuar = gap sistemático en varios modelos. Si un test es gap en 3+ modelos a la vez,
 sospechar del VERIFICADOR, no de los modelos.
 
+## Regla 0.4 — ¿alcanza el presupuesto? (18-ago-2026, se pagó caro)
+
+```bash
+python benchmarks/check_presupuesto.py --necesito 35
+```
+
+La noche del 17-ago un lote de once mediciones **murió a las 20:57** porque la API key
+llegó a su tope mensual. No falló un modelo: falló **el juez**, que puntúa todo. Claude
+Opus 5 murió a mitad del examen, dos chunks no arrancaron y otros dos estuvieron una hora
+entregando HTTP 403 como runs fallidos.
+
+Lo caro no fue la plata: fue que **murió a mitad en vez de no arrancar**. Cuatro exámenes
+quedaron incompletos y hubo que re-correrlos.
+
+⚠️ **El tope suele ser de la KEY, no del saldo de la cuenta** (`limit_reset: monthly`).
+Recargar créditos no lo cambia: se sube en `openrouter.ai/settings/keys`. Esa confusión
+costó una hora más al día siguiente.
+
 ## Regla 0.5 — costo: estimar POR SUITE, nunca con un $/run promedio
 
 ```bash

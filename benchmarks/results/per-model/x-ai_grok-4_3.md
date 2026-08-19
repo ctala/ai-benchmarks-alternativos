@@ -1,13 +1,13 @@
 # Grok 4.3
 
 - **model_id**: `x-ai/grok-4.3`
-- **Total tests**: 240/325 exitosos (85 errores)
-- **Score final**: 7.49
-- **Calidad**: 8.31
+- **Total tests**: 274/359 exitosos (85 errores)
+- **Score final**: 7.31
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 3.77/10
-- **Velocidad**: 99 tok/s
-- **Latencia primera token**: 8.51s
-- **Costo promedio por test**: $0.03374
+- **Velocidad**: 100 tok/s
+- **Latencia primera token**: 8.08s
+- **Costo promedio por test**: $0.03059
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 7 | 7 | 5.42 | 4.72 |
 | deep_reasoning | 6 | 6 | 5.48 | 5.42 |
 | hallucination | 3 | 3 | 6.45 | 6.33 |
+| integridad_idioma | 4 | 4 | 8.44 | 9.53 |
 | multi_turn | 4 | 4 | 6.75 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.63 | 7.01 |
 | niah_es | 144 | 79 | 8.30 | 9.95 |
@@ -33,7 +34,7 @@
 | orchestration | 9 | 9 | 6.71 | 6.89 |
 | policy_adherence | 4 | 4 | 6.07 | 5.75 |
 | presentation | 3 | 3 | 8.38 | 9.55 |
-| prompt_injection_es | 20 | 0 | - | - |
+| prompt_injection_es | 40 | 20 | 4.39 | 3.92 |
 | reasoning | 6 | 6 | 7.59 | 8.33 |
 | sales_outreach | 3 | 3 | 6.39 | 6.44 |
 | startup_content | 7 | 7 | 8.31 | 9.38 |
@@ -45,6 +46,7 @@
 | tool_calling | 8 | 8 | 5.54 | 5.00 |
 | tool_calling_adversarial | 10 | 10 | 5.33 | 4.72 |
 | translation | 5 | 5 | 7.34 | 7.69 |
+| verificar_claim | 10 | 10 | 8.36 | 8.90 |
 
 ## Detalle por test
 
@@ -2601,3 +2603,7 @@ Aquí tienes un plan semanal realista y optimizado, respetando tus reuniones fij
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

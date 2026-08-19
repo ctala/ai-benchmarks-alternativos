@@ -1,13 +1,13 @@
 # Gemini 3.1 Flash Lite
 
 - **model_id**: `google/gemini-3.1-flash-lite-preview`
-- **Total tests**: 224/275 exitosos (51 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.65
+- **Total tests**: 238/289 exitosos (51 errores)
+- **Score final**: 7.46
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 3.77/10
-- **Velocidad**: 100 tok/s
-- **Latencia primera token**: 2.80s
-- **Costo promedio por test**: $0.00593
+- **Velocidad**: 99 tok/s
+- **Latencia primera token**: 2.74s
+- **Costo promedio por test**: $0.00560
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 7.12 | 6.63 |
 | deep_reasoning | 6 | 6 | 8.00 | 8.33 |
 | hallucination | 3 | 3 | 7.87 | 7.67 |
+| integridad_idioma | 4 | 4 | 8.94 | 9.65 |
 | multi_turn | 4 | 4 | 8.00 | 8.00 |
 | news_seo_writing | 5 | 5 | 7.07 | 7.21 |
 | niah_es | 102 | 51 | 8.24 | 9.79 |
@@ -45,6 +46,7 @@
 | tool_calling | 4 | 4 | 7.29 | 7.24 |
 | tool_calling_adversarial | 10 | 10 | 6.61 | 5.84 |
 | translation | 3 | 3 | 8.58 | 8.57 |
+| verificar_claim | 10 | 10 | 8.78 | 8.80 |
 
 ## Detalle por test
 
@@ -2613,3 +2615,7 @@ Aquí tienes la información extraída de los tres candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim

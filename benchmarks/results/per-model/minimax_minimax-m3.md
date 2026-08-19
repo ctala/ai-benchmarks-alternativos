@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 362/379 exitosos (17 errores)
-- **Score final**: 7.26
-- **Calidad**: 8.17
+- **Total tests**: 387/404 exitosos (17 errores)
+- **Score final**: 7.35
+- **Calidad**: 8.24
 - **Judge score (Phi-4)**: 4.50/10
-- **Velocidad**: 53 tok/s
-- **Latencia primera token**: 27.67s
-- **Costo promedio por test**: $0.00970
+- **Velocidad**: 55 tok/s
+- **Latencia primera token**: 26.42s
+- **Costo promedio por test**: $0.00914
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,7 +25,10 @@
 | creativity | 4 | 4 | 7.22 | 8.38 |
 | customer_support | 4 | 4 | 7.32 | 7.18 |
 | deep_reasoning | 6 | 6 | 5.61 | 6.08 |
+| dominio_entidad | 6 | 6 | 9.40 | 10.00 |
+| extraer_claims | 5 | 5 | 9.08 | 10.00 |
 | hallucination | 3 | 3 | 6.60 | 7.00 |
+| integridad_idioma | 4 | 4 | 7.30 | 7.98 |
 | multi_turn | 4 | 4 | 6.66 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.71 | 7.52 |
 | niah_es | 118 | 102 | 8.21 | 10.00 |
@@ -45,6 +48,7 @@
 | tool_calling | 4 | 4 | 5.17 | 4.30 |
 | tool_calling_adversarial | 10 | 10 | 6.53 | 6.12 |
 | translation | 5 | 5 | 7.83 | 8.58 |
+| verificar_claim | 10 | 10 | 8.44 | 8.80 |
 
 ## Detalle por test
 
@@ -2616,3 +2620,11 @@ Con un equipo pequeño y un plazo de 4 semanas, la clave es **paralelizar desde 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### verificar_claim
+
+#### dominio_entidad
+
+#### extraer_claims

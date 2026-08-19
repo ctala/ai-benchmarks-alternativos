@@ -71,6 +71,25 @@ CHEQUEOS = [
      [PY, "benchmarks/check_caminos.py"], True, True),
     ("version", "las 7 superficies declaran lo mismo, con tag y CHANGELOG",
      [PY, "benchmarks/check_version.py"], True, True),
+    # 17-ago-2026: lo que se hizo tiene que estar ESCRITO antes de publicarlo, y el bump
+    # tiene que alcanzar para lo que se tocó. Ver VERSIONADO.md.
+    ("version", "lo que se cambió quedó en el CHANGELOG, y el bump alcanza",
+     [PY, "benchmarks/check_changelog.py", "--nivel"], True, True),
+    # NO bloqueante: quedarse sin presupuesto no invalida ningún número publicado — impide
+    # medir mañana. Bloquear el QA por eso sería confundir «no puedo seguir» con «lo que
+    # hay está mal». Se consulta antes de un lote, con --necesito.
+    ("version", "queda presupuesto en OpenRouter para medir",
+     [PY, "benchmarks/check_presupuesto.py"], False, True),
+    # Ninguna credencial real en un repo público donde cada run guarda su prompt. Es el
+    # único fallo del que no se vuelve: una clave publicada hay que rotarla.
+    ("guardrails", "ninguna credencial real en los archivos versionados",
+     [PY, "benchmarks/check_secretos.py"], True, False),
+    # NO bloqueante todavía, a propósito: los runs truncados de los cuatro modelos siguen
+    # en disco hasta que se archiven (el 17-ago se estaban re-midiendo). Pasa a bloqueante
+    # cuando se archiven — si no, el QA quedaría en rojo permanente y se aprendería a
+    # ignorarlo, que es peor que no tenerlo.
+    ("datos", "ninguna nota se construyó sobre respuestas cortadas",
+     [PY, "benchmarks/check_truncamiento.py"], False, False),
     ("datos", "cobertura del núcleo sobre el piso",
      [PY, "benchmarks/cobertura.py", "--duro"], False, False),
 ]

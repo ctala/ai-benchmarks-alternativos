@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 158/163 exitosos (5 errores)
-- **Score final**: 7.24
-- **Calidad**: 8.18
+- **Total tests**: 192/197 exitosos (5 errores)
+- **Score final**: 6.70
+- **Calidad**: 7.36
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 52 tok/s
-- **Latencia primera token**: 52.60s
-- **Costo promedio por test**: $0.00963
+- **Latencia primera token**: 46.29s
+- **Costo promedio por test**: $0.00857
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 5 | 5 | 7.95 | 8.99 |
 | deep_reasoning | 7 | 6 | 6.69 | 7.50 |
 | hallucination | 3 | 3 | 6.98 | 7.67 |
+| integridad_idioma | 4 | 4 | 3.11 | 2.16 |
 | multi_turn | 4 | 4 | 7.19 | 8.00 |
 | news_seo_writing | 11 | 7 | 5.48 | 5.80 |
 | ocr_extraction | 5 | 5 | 8.47 | 10.00 |
 | orchestration | 7 | 7 | 6.92 | 7.60 |
 | policy_adherence | 4 | 4 | 7.61 | 8.58 |
 | presentation | 2 | 2 | 7.73 | 8.99 |
+| prompt_injection_es | 20 | 20 | 2.40 | 1.15 |
 | reasoning | 3 | 3 | 7.84 | 9.19 |
 | sales_outreach | 3 | 3 | 6.49 | 7.11 |
 | startup_content | 5 | 5 | 7.87 | 9.17 |
@@ -43,6 +45,7 @@
 | tool_calling | 8 | 8 | 5.33 | 5.16 |
 | tool_calling_adversarial | 10 | 10 | 7.39 | 7.94 |
 | translation | 4 | 4 | 7.05 | 7.88 |
+| verificar_claim | 10 | 10 | 8.08 | 9.00 |
 
 ## Detalle por test
 
@@ -2261,3 +2264,9 @@ Aquí tienes un plan estructurado, realista y listo para ejecutar, diseñado esp
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
+
+#### verificar_claim

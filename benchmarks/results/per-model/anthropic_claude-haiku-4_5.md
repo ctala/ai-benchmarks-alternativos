@@ -1,13 +1,13 @@
 # Claude Haiku 4.5
 
 - **model_id**: `anthropic/claude-haiku-4.5`
-- **Total tests**: 153/153 exitosos (0 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.92
+- **Total tests**: 181/181 exitosos (0 errores)
+- **Score final**: 7.47
+- **Calidad**: 7.99
 - **Judge score (Phi-4)**: 4.41/10
-- **Velocidad**: 95 tok/s
-- **Latencia primera token**: 5.94s
-- **Costo promedio por test**: $0.00763
+- **Velocidad**: 91 tok/s
+- **Latencia primera token**: 5.61s
+- **Costo promedio por test**: $0.00678
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 7.40 | 7.67 |
 | deep_reasoning | 6 | 6 | 7.50 | 8.20 |
 | hallucination | 3 | 3 | 8.03 | 8.33 |
+| integridad_idioma | 8 | 8 | 8.41 | 9.59 |
 | multi_turn | 4 | 4 | 7.15 | 7.38 |
 | news_seo_writing | 5 | 5 | 6.74 | 7.25 |
 | ocr_extraction | 5 | 5 | 8.44 | 9.21 |
@@ -44,6 +45,7 @@
 | tool_calling | 4 | 4 | 6.81 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 7.33 | 7.52 |
 | translation | 3 | 3 | 7.52 | 7.56 |
+| verificar_claim | 20 | 20 | 7.81 | 7.90 |
 
 ## Detalle por test
 
@@ -2495,3 +2497,7 @@ Entendido, voy a ayudarte con lo que pueda. Pero necesito aclarar algunos puntos
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### verificar_claim
+
+#### integridad_idioma

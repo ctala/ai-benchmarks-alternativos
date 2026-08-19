@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniMax M2.7: benchmark real en español (2026)</title>
+<meta name="description" content="MiniMax M2.7: 217 runs propios en español — calidad 7.83, $1.89 por 1.000 llamadas. Para qué sirve de verdad en un negocio chico, y cuándo conviene otro.">
+<meta name="keywords" content="minimax m2.7 benchmark, minimax m2.7 precio, minimax m2.7 opiniones">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/modelo/minimax-m2.7/">
+<meta property="og:title" content="MiniMax M2.7: benchmark real en español (2026)">
+<meta property="og:description" content="MiniMax M2.7: 217 runs propios en español — calidad 7.83, $1.89 por 1.000 llamadas. Para qué sirve de verdad en un negocio chico, y cuándo conviene otro.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/modelo/minimax-m2.7/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MiniMax M2.7: benchmark real en español (2026)">
+<meta name="twitter:description" content="MiniMax M2.7: 217 runs propios en español — calidad 7.83, $1.89 por 1.000 llamadas. Para qué sirve de verdad en un negocio chico, y cuándo conviene otro.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MiniMax M2.7: benchmark real en español (2026)",
+  "description": "MiniMax M2.7: 217 runs propios en español — calidad 7.83, $1.89 por 1.000 llamadas. Para qué sirve de verdad en un negocio chico, y cuándo conviene otro.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-08-17",
+  "dateModified": "2026-08-19",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/modelo/minimax-m2.7/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/modelo/minimax-m2.7/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+<style>
+  .hero { position: relative; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 12% 8%, rgba(122,0,223,.28) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 92% 95%, rgba(0,212,255,.10) 0%, transparent 55%);
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(rgba(122,0,223,.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122,0,223,.18) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+    mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  /* ── Tira de KPIs: lo que se responde sin bajar ──────────────────────────
+     Una tabla de 15 filas trata «puesto #45» y «ventana de contexto» como si
+     pesaran lo mismo. No pesan igual: cuatro números deciden si el modelo
+     entra a la lista corta, y el resto es para cuando ya entró. */
+  .kpi-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem;
+               margin: 1.75rem 0 1.25rem; }
+  @media (min-width: 720px) { .kpi-strip { grid-template-columns: repeat(4, 1fr); } }
+  .kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+         padding: 1rem 1.1rem; position: relative; overflow: hidden; }
+  .kpi::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+                 background: var(--green); opacity: .8; }
+  .kpi.is-cyan::before { background: var(--cyan); }
+  .kpi.is-magenta::before { background: var(--magenta); }
+  .kpi .k-label { font-family: 'JetBrains Mono', monospace; font-size: .66rem;
+                  letter-spacing: .09em; text-transform: uppercase; color: var(--gray);
+                  display: block; margin-bottom: .4rem; }
+  .kpi .k-value { font-family: 'JetBrains Mono', monospace; font-size: 1.7rem;
+                  font-weight: 700; color: var(--white); line-height: 1.05; display: block; }
+  .kpi .k-value .k-unit { font-size: .9rem; color: var(--gray); font-weight: 400; }
+  .kpi .k-sub { font-size: .72rem; color: var(--gray); display: block; margin-top: .35rem; }
+
+  /* ── Badges: propiedades binarias, que en una tabla ocupan una fila cada una */
+  .badges { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 2rem; }
+  .badge { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .04em;
+           padding: .32rem .65rem; border-radius: 999px; border: 1px solid var(--border);
+           color: var(--gray-dark); background: rgba(255,255,255,.02); }
+  .badge.on { color: var(--green); border-color: rgba(57,255,20,.34); background: rgba(57,255,20,.07); }
+  .badge.info { color: var(--cyan); border-color: rgba(0,212,255,.30); background: rgba(0,212,255,.06); }
+  .badge.warn { color: var(--magenta); border-color: rgba(255,0,110,.34); background: rgba(255,0,110,.07); }
+
+  /* ── Perfil por pilar: una nota suelta no dice nada sin la población al lado.
+     La marca vertical es la MEDIANA de los rankeados en ese pilar, así que la
+     barra se lee como «arriba o abajo del resto», no como un 0-10 abstracto. */
+  .perfil { margin: 0 0 2.25rem; }
+  .bar-row { display: grid; grid-template-columns: 1fr auto; gap: .25rem .9rem;
+             margin-bottom: 1.15rem; align-items: center; }
+  @media (min-width: 720px) { .bar-row { grid-template-columns: 10.5rem 1fr auto; } }
+  .bar-row .b-label { font-family: 'JetBrains Mono', monospace; font-size: .78rem;
+                      color: var(--white); }
+  .bar-track { position: relative; height: 10px; background: rgba(255,255,255,.06);
+               border-radius: 999px; grid-column: 1 / -1; }
+  @media (min-width: 720px) { .bar-track { grid-column: auto; } }
+  .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
+              background: linear-gradient(90deg, var(--cyan), var(--green)); }
+  .bar-fill.bajo { background: linear-gradient(90deg, #4a4a5e, var(--magenta)); }
+  .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
+                background: var(--gray); opacity: .7; }
+  .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
+                    font-weight: 700; color: var(--green); white-space: nowrap; }
+  .bar-row .b-val.bajo { color: var(--magenta); }
+  .bar-row .b-val .delta { color: var(--gray); font-weight: 400; font-size: .72rem; }
+  .perfil .leyenda { font-size: .75rem; color: var(--gray); margin-top: -.35rem; }
+
+  /* ── Tabla agrupada: el mismo dato, pero sabiendo de qué habla cada bloque */
+  .results-table tr.grupo th { font-family: 'JetBrains Mono', monospace; font-size: .68rem;
+        letter-spacing: .11em; text-transform: uppercase; color: var(--cyan);
+        padding-top: 1.35rem; background: transparent; }
+  .results-table td .riesgo { color: var(--magenta); font-weight: 700; }
+  .results-table td .bien { color: var(--green); font-weight: 700; }
+</style>
+</head>
+<body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('skool.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>MiniMax M2.7: para qué sirve de verdad (benchmark en español)</h1>
+    <p class="lead">Lo mejor que tiene es <strong>Coding</strong>, y aun así queda abajo (#62 de 91 entre los que rinden el examen completo), y donde menos rinde es <strong>Razonamiento</strong> (7.65 contra 8.87). Cuesta $1.89 por cada 1.000 llamadas.</p>
+    <p class="meta">Medido con <strong>217 runs</strong> que puntúan, juez Phi-4 local.
+    Última actualización: 2026-08-19 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
+  </section>
+  <div class="kpi-strip">
+    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#83<span class="k-unit"> de 91</span></span><span class="k-sub">mejor que el 9% de los rankeados</span></div>
+    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">7.83<span class="k-unit">/10</span></span><span class="k-sub">75 modelos por encima</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$1.89</span><span class="k-sub">más barato que 55 de 91</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">45<span class="k-unit"> tok/s</span></span><span class="k-sub">47.8 s de espera media</span></div>
+  </div>
+  <div class="badges">
+    <span class="badge ">⬡ Propietario</span>
+    <span class="badge on">⚒ Tool calling</span>
+    <span class="badge info">⌸ 204K de contexto</span>
+    <span class="badge warn">⛨ Prompt injection 5.8/10</span>
+  </div>
+  <section class="perfil">
+    <h2>Dónde está parado, pilar por pilar</h2>
+    <p class="leyenda">Cada barra va de peor a mejor del ranking, no de 0 a 10 —
+    la población entera cabe en poco más de un punto y en escala absoluta todas
+    se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
+    <div class="bar-row">
+      <span class="b-label">Coding</span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:61.0%"></span><span class="bar-median" style="left:67.9%"></span></span>
+      <span class="b-val bajo">8.87 <span class="delta">(-0.19 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Contenido</span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:36.9%"></span><span class="bar-median" style="left:55.0%"></span></span>
+      <span class="b-val bajo">8.08 <span class="delta">(-0.29 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Razonamiento</span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:68.0%"></span><span class="bar-median" style="left:79.4%"></span></span>
+      <span class="b-val bajo">7.65 <span class="delta">(-0.34 vs mediana)</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="b-label">Agentes</span>
+      <span class="bar-track"><span class="bar-fill" style="width:62.9%"></span><span class="bar-median" style="left:52.5%"></span></span>
+      <span class="b-val">7.80 <span class="delta">(+0.25 vs mediana)</span></span>
+    </div>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>La ficha: MiniMax M2.7 en números</h2>
+      <p class="meta">Todo esto sale de runs propios, guardados y auditables. La latencia es
+      la <strong>total</strong> de respuesta, no el time-to-first-token.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <tbody>
+        <tr class="grupo"><th scope="col" colspan="2">Calidad medida</th></tr>
+        <tr><th scope="row">Runs que puntúan</th><td>217</td></tr>
+        <tr><th scope="row">Tool calling</th><td>6.84</td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">5.80</span></td></tr>
+        <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
+        <tr><th scope="row">Precio por millón · entrada</th><td>$0.300</td></tr>
+        <tr><th scope="row">Precio por millón · salida</th><td>$1.20</td></tr>
+        <tr class="grupo"><th scope="col" colspan="2">Rendimiento y límites</th></tr>
+        <tr><th scope="row">Latencia total media</th><td>47.8 s</td></tr>
+        <tr><th scope="row">Ventana de contexto</th><td>204.800</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Contra los mejores del ranking, en plata</h2>
+      <p class="meta">La pregunta útil no es cuánto le falta a MiniMax M2.7 para ser
+      el mejor: es <strong>cuánta calidad extra estás comprando, y a cuántas veces el
+      precio</strong>. Eso es lo que decide si conviene.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1.000 llamadas</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--green);font-weight:700">MiniMax M2.7</strong><br><span class="meta">Este modelo</span></td><td>7.83</td><td>$1.89</td></tr>
+        <tr><td><strong>GPT-5.6 Luna</strong><br><span class="meta">El de más calidad medida</span></td><td>8.52</td><td>$0.930</td></tr>
+        <tr><td><strong>Claude Opus 4.8</strong><br><span class="meta">El frontier más caro del top 10</span></td><td>8.48</td><td>$39.00</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li><strong>GPT-5.6 Luna</strong> (el techo medido) rinde 9% más <em>y además</em> es más barato: $0.930 contra $1.89. Acá no hay que elegir.</li>
+      <li><strong>Claude Opus 4.8</strong> (el caro que todos conocen) rinde <strong>8% más</strong> (8.48 contra 7.83) y cuesta <strong>21 veces más</strong> por llamada.</li>
+    </ul>
+    <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
+    límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Cuánto <code>max_tokens</code> darle, por tarea</h2>
+      <p class="meta">Si tu nodo o tu script queda por debajo de esto,
+      MiniMax M2.7 <strong>no falla: entrega de menos</strong> — y quien lo consume lo
+      lee como que no había nada que reportar. Es el modo de falla más caro que hay,
+      porque se parece a que todo salió bien.</p>
+      
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
+      <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>3.264</td><td>21.323</td><td><strong>26.653</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>1.112</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>1.295</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>747</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>1.538</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">OCR / extracción desde imágenes</th><td>1.367</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Presentaciones (slides. reportes)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>725</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Estrategia (pricing. planificación)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>2.048</td><td>2.048</td><td><strong>2.560</strong></td></tr>
+        <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>880</td><td>1.576</td><td><strong>1.970</strong></td></tr>
+        <tr><th scope="row">Resúmenes y extracción de datos</th><td>1.445</td><td>1.445</td><td><strong>1.806</strong></td></tr>
+        <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>354</td><td>1.344</td><td><strong>1.680</strong></td></tr>
+        <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>431</td><td>1.084</td><td><strong>1.355</strong></td></tr>
+        <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>871</td><td>1.054</td><td><strong>1.317</strong></td></tr>
+        <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>179</td><td>886</td><td><strong>1.107</strong></td></tr>
+        <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>463</td><td>810</td><td><strong>1.012</strong></td></tr>
+        <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>475</td><td>805</td><td><strong>1.006</strong></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>319</td><td>787</td><td><strong>983</strong></td></tr>
+        <tr><th scope="row">Traducción (es↔en)</th><td>552</td><td>734</td><td><strong>917</strong></td></tr>
+        <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>521</td><td>609</td><td><strong>761</strong></td></tr>
+        <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>517</td><td>604</td><td><strong>755</strong></td></tr>
+        <tr><th scope="row">Extraer los datos verificables de un texto</th><td>380</td><td>550</td><td><strong>687</strong></td></tr>
+        <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>250</td><td>543</td><td><strong>678</strong></td></tr>
+        <tr><th scope="row">Verificar un dato contra su fuente</th><td>235</td><td>380</td><td><strong>475</strong></td></tr>
+        <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>150</td><td>341</td><td><strong>426</strong></td></tr>
+        <tr><th scope="row">Encontrar el sitio oficial de una empresa</th><td>239</td><td>300</td><td><strong>375</strong></td></tr>
+        <tr><th scope="row">Tool calling (llamada de funciones)</th><td>139</td><td>201</td><td><strong>251</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>
+  </section>
+  <section>
+    <h2>Qué hace bien y qué no</h2>
+    <p>Su media entre las 33 tareas medidas es <strong>7.19</strong>. Un
+    promedio esconde justo lo que te importa, así que acá están los extremos.</p>
+    <h3>Donde rinde por encima de sí mismo</h3>
+    <ul>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.94 (+1.75 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 8.80 (+1.61 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
+        <li><strong>OCR / extracción desde imágenes</strong> — 8.69 (+1.50 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
+        <li><strong>Gestión de tareas (action items, planes)</strong> — 8.24 (+1.05 contra su media). <span class="meta">Decide: convertir una conversación en tareas</span></li>
+    </ul>
+    <h3>Donde se cae</h3>
+    <ul>
+        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 5.00 (-2.19 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 5.31 (-1.88 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 5.77 (-1.42 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Resúmenes y extracción de datos</strong> — 5.80 (-1.39 contra su media). <span class="meta">Decide: resumir sin perder lo que importa</span></li>
+    </ul>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Si MiniMax M2.7 no te cierra</h2>
+      <p class="meta">Alternativas elegidas por contraste con este modelo, no por ranking general.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ling 3.0 Flash</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>7.98</td><td>$0.101</td><td>12.1 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
+        <tr><td><strong>GPT-5.6 Luna</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.52</td><td>$0.930</td><td>10.6 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
+        <tr><td><strong>Gemini 3.1 Flash Lite</strong><br><span class="meta">Responde antes</span></td><td>8.09</td><td>$2.33</td><td>4.1 s</td><td class="meta">al menos 40% menos de espera, sin caer de nota</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section>
+    <h2>Los números oficiales de MiniMax M2.7</h2>
+    <p>Acá no los repetimos, y es a propósito. MMLU, GPQA, SWE-bench y la tabla del
+    lanzamiento las publica quien hizo el modelo, con más recursos y antes que nadie:
+    <strong>ese enlace es mejor que cualquier copia nuestra</strong>, y no envejece.</p>
+    <ul>
+        <li><a href="https://openrouter.ai/minimax/minimax-m2.7" target="_blank" rel="noopener nofollow">Ficha en OpenRouter</a> — <span class="meta">precio vigente, proveedores que lo sirven y límites de contexto</span></li>
+    </ul>
+    <p>Lo que sí medimos acá es lo otro: <strong>qué pasa cuando este modelo tiene que
+    decidir algo de un negocio chico, en español y a un precio que se pueda pagar</strong>.
+    Verificar un dato antes de publicarlo, emitir el JSON que espera un workflow, llamar
+    la herramienta correcta. Eso no está en la tarjeta del fabricante.</p>
+  </section>
+  <section class="cta-block">
+    <h2>¿Es el mejor para TU caso?</h2>
+    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabés si
+    MiniMax M2.7 es tu opción o hay algo mejor para lo que hacés.</p>
+    <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  </section>
+<script type="application/json" id="contrato-pagina">
+{"tipo": "ficha", "generador": "generate_model_cards", "recomienda": ["MiniMax M2.7", "Ling 3.0 Flash", "GPT-5.6 Luna", "Gemini 3.1 Flash Lite"], "nota": "ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante"}
+</script>
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
+  </div>
+</footer>
+</body>
+</html>

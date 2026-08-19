@@ -277,6 +277,131 @@ def _t_caminos():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("check_truncamiento", "una nota construida sobre respuestas cortadas a la mitad")
+def _t_truncamiento():
+    # Se fabrica el caso exacto del 17-ago: un modelo con la mitad del examen terminando
+    # en `finish_reason="length"`. Nada más está mal —los runs tienen contenido, éxito y
+    # forma válida—, que es precisamente por qué ningún otro detector lo ve.
+    #
+    # El archivo se escribe en results/ porque el chequeo lee de ahí; el nombre lleva
+    # `_prueba_` y se borra siempre, incluso si la prueba explota.
+    import json as _json
+    tmp = ROOT / "benchmarks" / "results" / "_prueba_truncamiento.json"
+    try:
+        runs = [{"model": "Modelo De Prueba Truncado", "model_id": "prueba/truncado",
+                 "suite": "reasoning", "success": True, "quality": 7.0,
+                 "finish_reason": "length" if i % 2 else "stop",
+                 "output_tokens": 2048 if i % 2 else 700}
+                for i in range(60)]
+        tmp.write_text(_json.dumps({"metadata": {"timestamp": "prueba"}, "results": runs}))
+        # --todos porque el modelo inventado no está en models.json (no es rankeado);
+        # lo que se prueba es que el umbral dispare, no la lista de rankeados.
+        return _correr("check_truncamiento.py", "--todos", "--duro") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+@prueba("check_secretos", "una credencial real del .env dentro de un archivo publicable")
+def _t_secretos():
+    # Se toma un valor REAL del .env y se lo escribe en un archivo versionado, que es
+    # exactamente la forma del incidente del 17-ago. Si el chequeo no lo ve, no sirve.
+    # El archivo se crea y se borra; el valor nunca se imprime ni queda en disco.
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT / "benchmarks"))
+    from check_secretos import valores_del_env
+    env = valores_del_env()
+    if not env:
+        return True  # sin .env en esta máquina no hay nada que probar (CI)
+    valor = next(iter(env.values()))
+    tmp = ROOT / "_prueba_secreto.md"
+    try:
+        tmp.write_text(f"config de ejemplo\n\n    api_key = {valor}\n")
+        subprocess.run(["git", "add", "-N", str(tmp)], capture_output=True, cwd=ROOT)
+        return _correr("check_secretos.py") != 0
+    finally:
+        subprocess.run(["git", "rm", "-q", "--cached", "--force", str(tmp)],
+                       capture_output=True, cwd=ROOT)
+        tmp.unlink(missing_ok=True)
+
+
+@prueba("check_blog_consistency", "un post del blog citando un score que ya no existe")
+def _t_blog():
+    # El blog es OTRO repo, así que puede no estar clonado en esta máquina (CI). Sin él
+    # no hay nada que probar y la prueba pasa: acusar en falso sería peor.
+    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    posts = blog / "src" / "content" / "blog"
+    if not posts.is_dir():
+        return True
+    # El caso real de julio: ocho posts en producción con claims muertos, uno coronando
+    # como «#1 de mi benchmark» a un modelo que estaba #9.
+    tmp = posts / "_prueba_guardrail_blog.md"
+    try:
+        tmp.write_text(
+            "---\ntitle: prueba\nseoTitle: Modelo Inventado saca score 99.99 en mi benchmark\n"
+            "description: prueba\npubDate: 2026-08-17\n---\n\n"
+            "Modelo Inventado tiene un score de 99.99 y es el #1 de mi benchmark.\n",
+            encoding="utf-8")
+        return _correr("check_blog_consistency.py") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+@prueba("check_changelog", "cambios sin su entrada, y un bump que no alcanza")
+def _t_changelog():
+    # Dos fallos en uno, porque son las dos mitades del estándar (VERSIONADO.md):
+    # que lo hecho esté ESCRITO, y que el número declarado alcance para lo que se tocó.
+    ch = ROOT / "CHANGELOG.md"
+    with Sabotaje(ch):
+        txt = ch.read_text(encoding="utf-8")
+        # Se vacía `## [No publicado]`: si hay cambios desde el último tag —y en un repo
+        # vivo siempre los hay— tiene que protestar.
+        import re as _re
+        roto = _re.sub(r"(^##\s*\[No publicado\]\s*$).*?(?=^##\s*\[)",
+                       r"\1\n\n", txt, count=1, flags=_re.S | _re.M)
+        if roto == txt:
+            return False  # sin la sección no se puede probar; mejor fallar que fingir
+        ch.write_text(roto, encoding="utf-8")
+        # Puede no haber cambios desde el tag (repo recién taggeado): se fabrica uno.
+        tmp = ROOT / "benchmarks" / "_prueba_changelog.py"
+        try:
+            tmp.write_text("# archivo de prueba\n")
+            subprocess.run(["git", "add", "-N", str(tmp)], capture_output=True, cwd=ROOT)
+            return _correr("check_changelog.py") != 0
+        finally:
+            subprocess.run(["git", "rm", "-q", "--cached", "--force", str(tmp)],
+                           capture_output=True, cwd=ROOT)
+            tmp.unlink(missing_ok=True)
+
+
+@prueba("runner · veto de catálogo", "medir un modelo marcado `no_medir`, pedido explícito")
+def _t_veto():
+    # El caso exacto del 18-ago: se pidió por nombre un modelo excluido por decisión y el
+    # runner lo midió igual, porque el flag solo lo miraba la capa que publica. Se exige
+    # que RECHACE — y que lo diga, no que lo descarte en silencio.
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"),
+                        "--models", "gpt-5.6-luna-pro", "--tests", "reasoning",
+                        "--sin-canario"],
+                       capture_output=True, text=True, cwd=ROOT)
+    salida = (r.stdout or "") + (r.stderr or "")
+    return "RECHAZADOS" in salida and "gpt-5.6-luna-pro" in salida
+
+
+@prueba("canario · truncamiento", "un modelo que razona sin estar declarado")
+def _t_canario_trunca():
+    # Se le pasan runs FABRICADOS con la firma del 18-ago: mitad cortados por el techo.
+    # No se mide nada — `revisar()` es una función pura, y por eso se puede probar sola.
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    from canario import revisar
+    runs = [{"success": True, "response_preview": "texto", "output_tokens": 2048,
+             "finish_reason": "length", "suite": "business_audit", "tool_calls_made": 0}
+            for _ in range(12)]
+    runs += [{"success": True, "response_preview": "texto", "output_tokens": 400,
+              "finish_reason": "stop", "suite": "business_audit", "tool_calls_made": 0}
+             for _ in range(4)]
+    return any("CORTADAS" in p for p in revisar("modelo-de-prueba", runs))
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

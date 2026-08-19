@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark 2026</title>
-<meta name="description" content="GLM 5.2 tiene score compuesto 6.20 pero calidad 8.28. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.">
+<meta name="description" content="GLM 5.2 tiene score compuesto 6.68 pero calidad 8.36. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.">
 <meta name="keywords" content="glm 5.2, zhipu glm 5.2, glm 5.2 benchmark, glm 5.2 score bajo, glm 5.2 vs opus 4.8, glm 5.2 vs glm 5.1, modelo chino ia 2026">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark 2026">
-<meta property="og:description" content="GLM 5.2 tiene score compuesto 6.20 pero calidad 8.28. Explicamos el gap, las fortalezas y las comparaciones con GLM 5.1 y Claude Opus 4.8.">
+<meta property="og:description" content="GLM 5.2 tiene score compuesto 6.68 pero calidad 8.36. Explicamos el gap, las fortalezas y las comparaciones con GLM 5.1 y Claude Opus 4.8.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "GLM 5.2: por qué su score no refleja su calidad real",
-  "description": "GLM 5.2 tiene score compuesto 6.20 pero calidad 8.28. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.",
+  "description": "GLM 5.2 tiene score compuesto 6.68 pero calidad 8.36. Te explicamos por qué el benchmark lo castiga, en qué brilla y cómo se compara con GLM 5.1 y Claude Opus 4.8.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
@@ -56,7 +56,7 @@
       "name": "¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El score global del benchmark penaliza factores como seguridad y latencia, no solo calidad de salida. GLM 5.2 tiene quality 8.28, pero un security_score de 2.53 en prompt injection, lo que arrastra el compuesto a 6.20. Desde v4.1 el titular del benchmark es la calidad sola, así que hoy GLM 5.2 se publica #13 de 79."
+        "text": "El score global del benchmark penaliza factores como seguridad y latencia, no solo calidad de salida. GLM 5.2 tiene quality 8.36, pero un security_score de 2.69 en prompt injection, lo que arrastra el compuesto a 6.68. Desde v4.1 el titular del benchmark es la calidad sola, así que hoy GLM 5.2 se publica #13 de 79."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "¿En qué destaca GLM 5.2?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "GLM 5.2 destaca en long-context (9.92 en NIAH hasta 800K), code_generation (7.83), reasoning (7.75), agent_long_horizon (7.91) y velocidad (51.8 tok/s). Su quality_avg de 8.28 lo ubica en el top del benchmark en calidad pura."
+        "text": "GLM 5.2 destaca en long-context (9.92 en NIAH hasta 800K), code_generation (7.83), reasoning (7.75), agent_long_horizon (7.91) y velocidad (51.8 tok/s). Su quality_avg de 8.36 lo ubica en el top del benchmark en calidad pura."
       }
     },
     {
@@ -122,7 +122,7 @@
 <main class="container">
   <section class="hero">
     <h1>GLM 5.2: por qué su score global no le hace justicia</h1>
-    <p class="lead">El benchmark le da a <strong>GLM 5.2</strong> un score compuesto de <strong>6.20</strong>, pero su <strong>calidad pura es 8.28</strong>. Acá explicamos por qué pasa ese gap, dónde brilla el modelo y cuándo conviene usarlo por encima de GLM 5.1 o Claude Opus 4.8.</p>
+    <p class="lead">El benchmark le da a <strong>GLM 5.2</strong> un score compuesto de <strong>6.68</strong>, pero su <strong>calidad pura es 8.36</strong>. Acá explicamos por qué pasa ese gap, dónde brilla el modelo y cuándo conviene usarlo por encima de GLM 5.1 o Claude Opus 4.8.</p>
     <p class="meta">Datos: 106 runs, juez Phi-4 local, español neutro LATAM. Actualizado 2026-06-29.</p>
   </section>
 
@@ -130,7 +130,7 @@
 <div class="callout" style="border-left:3px solid var(--green);padding:12px 16px;margin:18px 0;background:rgba(57,255,20,.06)">
       <p><strong>Actualizado en agosto 2026 — y esta página envejeció bien.</strong> Cuando se
       escribió, el titular del benchmark era un <em>score compuesto</em> que mezclaba calidad con
-      precio, velocidad y seguridad, y GLM 5.2 salía #26 con una calidad de 8.28. El reclamo era
+      precio, velocidad y seguridad, y GLM 5.2 salía #26 con una calidad de 8.36. El reclamo era
       correcto, y no solo para GLM: <strong>desde v4.1 el titular es la calidad sola</strong> y el
       precio se reporta al lado. Hoy GLM 5.2 se publica <strong>#13 de 79</strong>.</p>
       <p>Lo que <em>no</em> cambió es la advertencia de seguridad — y empeoró: con más mediciones,
@@ -143,15 +143,15 @@
         <tr><th>Métrica</th><th>GLM 5.2</th><th>Qué mide</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>score_global</strong></td><td><strong>6.20</strong></td><td>Score compuesto final (quality, costo, velocidad, seguridad, latencia).</td></tr>
-        <tr><td><strong>quality_avg</strong></td><td><strong>8.28</strong></td><td>Calidad pura de las respuestas evaluadas por Phi-4.</td></tr>
+        <tr><td><strong>score_global</strong></td><td><strong>6.68</strong></td><td>Score compuesto final (quality, costo, velocidad, seguridad, latencia).</td></tr>
+        <tr><td><strong>quality_avg</strong></td><td><strong>8.36</strong></td><td>Calidad pura de las respuestas evaluadas por Phi-4.</td></tr>
         <tr><td>long_context_quality</td><td><strong>9.92</strong></td><td>Recuperación de información en contextos largos (NIAH).</td></tr>
         <tr><td>security_score</td><td><strong>1.45</strong></td><td>Resistencia a prompt injection y fuga de datos.</td></tr>
         <tr><td>latency_score_avg</td><td><strong>1.27</strong></td><td>Penalización por latencia total.</td></tr>
         <tr><td>tokens_per_second</td><td><strong>51.8</strong></td><td>Velocidad de generación.</td></tr>
       </tbody>
     </table></div>
-    <p>El <strong>quality_avg de 8.28</strong> es el dato que explica el "wow" de la gente. GLM 5.2 genera respuestas de alta calidad. El problema es que el score global penaliza fuerte su debilidad en seguridad y latencia.</p>
+    <p>El <strong>quality_avg de 8.36</strong> es el dato que explica el "wow" de la gente. GLM 5.2 genera respuestas de alta calidad. El problema es que el score global penaliza fuerte su debilidad en seguridad y latencia.</p>
   </section>
 
   <section>
@@ -188,7 +188,7 @@
       <tbody>
         <tr><td>Coding</td><td>7.32</td><td>7.05</td><td class="positive">+0.27</td></tr>
         <tr><td>Contenido</td><td>7.33</td><td>7.22</td><td class="positive">+0.11</td></tr>
-        <tr><td>Agentes</td><td>6.88</td><td>6.51</td><td class="positive">+0.37</td></tr>
+        <tr><td>Agentes</td><td>6.88</td><td>6.68</td><td class="positive">+0.37</td></tr>
         <tr><td>Razonamiento</td><td>7.31</td><td>7.06</td><td class="positive">+0.25</td></tr>
         <tr><td>Contexto</td><td>1M</td><td>202K</td><td class="positive">5×</td></tr>
         <tr><td>Velocidad</td><td>51.8 tok/s</td><td>7.9 tok/s (NIM)</td><td class="positive">6.5×</td></tr>
@@ -204,8 +204,8 @@
         <tr><th>Métrica</th><th>GLM 5.2</th><th>Claude Opus 4.8 (sub)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Score compuesto</td><td>6.20</td><td>6.24</td></tr>
-        <tr><td>Calidad (el titular)</td><td>8.28</td><td><strong>8.37</strong></td></tr>
+        <tr><td>Score compuesto</td><td>6.68</td><td>6.24</td></tr>
+        <tr><td>Calidad (el titular)</td><td>8.36</td><td><strong>8.37</strong></td></tr>
         <tr><td>Coding</td><td><strong>8.07</strong></td><td>7.91</td></tr>
         <tr><td>Contenido</td><td><strong>7.35</strong></td><td>7.29</td></tr>
         <tr><td>Agentes</td><td><strong>6.85</strong></td><td>6.60</td></tr>
@@ -253,6 +253,9 @@
       <li><a href="/">Calculadora interactiva de modelos IA</a></li>
     </ul>
   </section>
+<script type="application/json" id="contrato-pagina">
+{"tipo": "explicativa", "generador": "manual", "recomienda": [], "nota": "explica un modelo; no publica ranking ni recomendación"}
+</script>
 </main>
 <footer>
   <div class="container">

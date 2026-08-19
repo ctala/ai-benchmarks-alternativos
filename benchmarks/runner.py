@@ -49,6 +49,8 @@ from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 # empresa pertenece un dominio. Las tres tienen respuesta objetiva —el dato está o no
 # está— así que no dependen del juez para puntuar lo esencial.
 from benchmarks.tests import verificar_claim, extraer_claims, dominio_entidad
+from benchmarks.tests import verificar_claims_lote
+from benchmarks.suites import presupuesto_de
 # Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
@@ -142,6 +144,7 @@ ALL_TEST_SUITES = {
     # calidad titular. Nace de una fuga de CJK real en un pipeline de publicación automática.
     "integridad_idioma": integridad_idioma.TESTS,
     "verificar_claim": verificar_claim.TESTS,
+    "verificar_claims_lote": verificar_claims_lote.TESTS,
     "extraer_claims": extraer_claims.TESTS,
     "dominio_entidad": dominio_entidad.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
@@ -219,6 +222,7 @@ def run_single_test(
     test: dict,
     timeout: int = 120,
     model_config: dict | None = None,
+    suite: str = "",
 ) -> BenchmarkResult:
     """Ejecuta un solo test contra un modelo.
 
@@ -262,7 +266,7 @@ def run_single_test(
             _msgs.insert(0, {"role": "system", "content": _prompt_tools_system(tools).lstrip()})
         result = provider.chat(
             model=model_id, messages=_msgs, tools=None, temperature=0.7,
-            max_tokens=2048, timeout=timeout, force_reasoning=force_reasoning,
+            max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
         )
     else:
         result = provider.chat(
@@ -270,7 +274,7 @@ def run_single_test(
             messages=test["messages"],
             tools=tools,
             temperature=0.7,
-            max_tokens=2048,
+            max_tokens=presupuesto_de(suite),
             timeout=timeout,
             force_reasoning=force_reasoning,
         )
@@ -308,7 +312,7 @@ def run_single_test(
             return result
         retry = provider.chat(
             model=model_id, messages=test["messages"], tools=tools,
-            temperature=0.7, max_tokens=2048, timeout=timeout,
+            temperature=0.7, max_tokens=presupuesto_de(suite), timeout=timeout,
             force_reasoning=force_reasoning,
         )
         retry.test_name = test["name"]
@@ -350,6 +354,7 @@ def run_multi_turn_script(
     test: dict,
     timeout: int = 120,
     model_config: dict | None = None,
+    suite: str = "agent_long_horizon",   # su única suite; el presupuesto sale de ahí
 ) -> BenchmarkResult:
     """Ejecuta un test multi-turn con script de usuario pre-escrito.
 
@@ -372,7 +377,7 @@ def run_multi_turn_script(
             messages=messages,
             tools=None,
             temperature=0.7,
-            max_tokens=2048,
+            max_tokens=presupuesto_de(suite),
             timeout=timeout,
             force_reasoning=force_reasoning,
         )
@@ -385,7 +390,7 @@ def run_multi_turn_script(
         if (not last_result.success) or not (last_result.response or "").strip():
             retry = provider.chat(
                 model=model_id, messages=messages, tools=None, temperature=0.7,
-                max_tokens=2048, timeout=timeout, force_reasoning=force_reasoning,
+                max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
             )
             if retry.success and (retry.response or "").strip():
                 last_result = retry            # transitorio: el reintento lo trae
@@ -960,6 +965,40 @@ def run_benchmark(args):
     # "No hay modelos seleccionados" es el mismo fallo callado que nos costó dos vueltas
     # hoy con las keys. Un pedido explícito se respeta o se rechaza fuerte; no se ignora.
     pedidos = set(args.models or [])
+
+    # ── `no_medir` / `effort_variant`: se RECHAZA, incluso pedido explícito ──────
+    #
+    # 18-ago-2026. Cristian, después de encontrar por segunda vez en un día que se
+    # estaba midiendo algo ya excluido: *"pero ¿por qué estás violando reglas?"*.
+    #
+    # La respuesta era estructural, no un descuido: estos dos flags los miraban
+    # `export_for_pages`, `completar_examen` y `check_cobertura` — la capa que
+    # PUBLICA — y no el runner, que es la que GASTA. Así, la decisión «este modelo
+    # no se mide» se hacía cumplir DESPUÉS de haber pagado por medirlo. En una
+    # mañana entraron los dos GPT-5.6 Pro (variantes de esfuerzo, decisión del
+    # 15-ago) y Qwen 2.5 72B, que llevaba el flag puesto y aun así corrió 76 tests.
+    #
+    # A diferencia de `provider_variant`, acá el pedido explícito NO alcanza: el
+    # sentido del flag es que ese examen no se paga nunca. Quien de verdad quiera
+    # forzarlo tiene `--incluir-no-medir`, que deja rastro en el comando.
+    if not getattr(args, "incluir_no_medir", False):
+        vetados = {k: v for k, v in models.items()
+                   if v.get("no_medir") or v.get("effort_variant")}
+        for k in vetados:
+            models.pop(k)
+        if vetados:
+            forzados = [k for k in vetados if k in pedidos]
+            console.print(f"[yellow]🚫 Omito {len(vetados)} modelo(s) marcados "
+                          f"`no_medir`/`effort_variant` — decisión de catálogo, "
+                          f"no se miden (DECISIONES.md)[/yellow]")
+            if forzados:
+                # Pedirlos por nombre y descartarlos en silencio sería el fallo callado
+                # que este archivo ya penaliza más abajo: se dice cuáles y por qué.
+                console.print(f"[yellow]   pedidos explícitamente y RECHAZADOS: "
+                              f"{', '.join(sorted(forzados))}[/yellow]")
+                console.print("[dim]   si de verdad hay que medirlos: "
+                              "--incluir-no-medir[/dim]")
+
     variantes = [k for k in list(models)
                  if models[k].get("provider_variant") and k not in pedidos]
     for k in variantes:
@@ -1299,8 +1338,20 @@ def run_benchmark(args):
             json.dump(output, f, indent=2, ensure_ascii=False)
 
     # Directorio para respuestas completas (output auditable por test)
-    responses_dir = results_dir / "responses" / timestamp
-    responses_dir.mkdir(parents=True, exist_ok=True)
+    #
+    # ESTRUCTURA (17-ago-2026). Cristian: *"las responses de los modelos las tendría en
+    # una carpeta por modelo bajo responses o verificar_claim, no todo junto"*.
+    #
+    # Antes: `responses/<timestamp>/<modelo>__<suite>__<test>.md` — todo plano dentro de
+    # la corrida. Con 555 carpetas de timestamp, responder «¿qué contestó este modelo en
+    # esta tarea?» obligaba a saber PRIMERO en qué corrida se midió, que es exactamente
+    # el dato que uno no tiene cuando va a auditar un resultado raro.
+    #
+    # Ahora: `responses/<modelo>/<suite>/<test>__<timestamp>.md`. Se navega por lo que
+    # uno sabe (el modelo y la tarea) y el timestamp queda en el nombre, así que dos
+    # corridas del mismo test conviven y se pueden comparar — que es para lo que sirve
+    # tener la entrada guardada además de la salida.
+    responses_root = results_dir / "responses"
 
     def _safe_slug(s: str) -> str:
         return "".join(c if c.isalnum() or c in "-_." else "_" for c in s)[:80]
@@ -1310,8 +1361,9 @@ def run_benchmark(args):
         if not getattr(result, "response", None):
             return
         test_meta = test_meta or {}
-        fname = f"{_safe_slug(model_key)}__{_safe_slug(suite)}__{_safe_slug(test_name)}.md"
-        path = responses_dir / fname
+        d = responses_root / _safe_slug(model_key) / _safe_slug(suite)
+        d.mkdir(parents=True, exist_ok=True)
+        path = d / f"{_safe_slug(test_name)}__{timestamp}.md"
         header = [
             f"# {scores.get('model','?')} — {suite}/{test_name}",
             "",
@@ -1486,9 +1538,11 @@ def run_benchmark(args):
                     print(f"{label}...", end=" ", flush=True)
 
                     if test.get("type") == "multi_turn_script":
-                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
+                        result = run_multi_turn_script(provider, model_id, test, REQUEST_TIMEOUT,
+                                                       model_config=model_config, suite=suite_name)
                     else:
-                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT, model_config=model_config)
+                        result = run_single_test(provider, model_id, test, REQUEST_TIMEOUT,
+                                                 model_config=model_config, suite=suite_name)
                     scores = evaluate_result(result, test, model_config, judge=judge, suite_name=suite_name)
                     scores["suite"] = suite_name
                     scores["run"] = run_num + 1
@@ -1663,6 +1717,9 @@ def display_results(results: list[dict]):
 def main():
     parser = argparse.ArgumentParser(description="Benchmark de modelos AI via OpenRouter")
     parser.add_argument("--models", nargs="+", help="Modelos especificos a evaluar (keys del config)")
+    parser.add_argument("--incluir-no-medir", action="store_true",
+                        dest="incluir_no_medir",
+                        help="forzar modelos marcados no_medir/effort_variant (deja rastro en el comando)")
     parser.add_argument(
         "--allow-anthropic-api", action="store_true",
         help=("Permite correr modelos Anthropic por OpenRouter (SE COBRA POR TOKEN) aunque "
