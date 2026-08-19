@@ -8,6 +8,25 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **La puerta de entrada era más chica que lo que hay detrás.** Medido: el wizard vivía
+  en `max-width: 640px` de los 1100 que da el `main` —el 58% del ancho— mientras la
+  calculadora completa, que es el SEGUNDO nivel, usaba los 1052 px enteros con cards de
+  preset grandes. Cristian: *"el tamaño donde tenemos Tus Criterios es el ideal, y el
+  wizard está más pequeño"*. Ahora comparten ancho y escala: la pregunta pasa de 20 a
+  25 px, las opciones de 14,5 a 16,5, el grid a `auto-fit` (4 columnas en desktop, como
+  los presets) y el botón a 17 px. El flujo completo entra en una pantalla.
+
+- **La recomendación del wizard no llevaba a ninguna parte.** Tres preguntas, un nombre
+  — y el nombre era texto plano. La ficha existía y no había cómo llegar justo cuando el
+  interés es máximo. `check_fichas_alcanzables.py` no lo caza porque audita HTML
+  generado y esto lo pinta el JS: es el punto ciego de cualquier superficie dinámica.
+  Por eso el chequeo va donde sí llega, **W16 en `qa_calculadora.mjs`** (31 chequeos),
+  verificado saboteándolo.
+
+- **86 de 91 rankeados ya tienen evidencia agéntica** (81 con las tres tareas), tras el
+  lote de Harbor de 12 modelos × 3 tareas × 3 intentos. La columna «Tarea real
+  ejecutada» deja de estar vacía para casi toda la tabla.
+
 - **El sitio tenía 30 colores; el manual de marca tiene 10.** Cristian: *"a nivel de
   colores creo que cansa"*. La auditoría: **22 hex fuera del manual** — siete fondos
   oscuros casi idénticos y seis acentos compitiendo (dorado `#ffd700` ×17, naranja,

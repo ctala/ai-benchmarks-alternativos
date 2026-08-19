@@ -1566,7 +1566,12 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 }
 
 /* ============ WIZARD GUIADO (v4.0) ============ */
-.wizard { max-width: 640px; margin: 0 auto 2.5rem; }
+/* 19-ago-2026 · el wizard vivía en 640 px de los 1100 que da el main: el 58% del
+   ancho. La calculadora completa —que es el SEGUNDO nivel— usaba los 1052 px enteros,
+   con cards de preset grandes. O sea, la puerta de entrada era más chica que lo que
+   hay detrás. Cristian: «el tamaño donde tenemos Tus Criterios es el ideal, y el
+   wizard está más pequeño». Ahora comparten ancho y escala. */
+.wizard { max-width: none; margin: 0 auto 2.5rem; }
 .wiz-thesis {
   background: linear-gradient(160deg, rgba(57,255,20,.07), rgba(0,212,255,.05));
   border: 1px solid var(--border); border-left: 3px solid var(--green);
@@ -1577,21 +1582,21 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-steps { display: flex; gap: 6px; margin: 0 0 18px; }
 .wiz-steps span { flex: 1; height: 4px; border-radius: 99px; background: var(--border); transition: .3s; }
 .wiz-steps span.on { background: linear-gradient(90deg, var(--green), var(--cyan)); box-shadow: 0 0 10px rgba(57,255,20,.4); }
-.wiz-qlabel { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--cyan); margin: 0 0 4px; }
-.wiz-qh { font-size: 20px; font-weight: 750; letter-spacing: -.02em; margin: 0 0 6px; }
+.wiz-qlabel { font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--cyan); margin: 0 0 4px; }
+.wiz-qh { font-size: 25px; font-weight: 750; letter-spacing: -.02em; margin: 0 0 8px; }
 .wiz-hint { color: var(--gray); font-size: 13px; margin: 0 0 15px; }
-.wiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.wiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(236px, 1fr)); gap: 13px; }
 .wiz-opt {
   text-align: left; background: linear-gradient(180deg, var(--bg-card), var(--bg));
-  border: 1px solid var(--border); border-radius: 14px; padding: 14px; cursor: pointer;
-  color: inherit; font-family: inherit; transition: .16s; display: flex; gap: 11px; align-items: flex-start;
+  border: 1px solid var(--border); border-radius: 14px; padding: 17px 18px; cursor: pointer;
+  color: inherit; font-family: inherit; transition: .16s; display: flex; gap: 13px; align-items: flex-start;
 }
 .wiz-opt:hover { border-color: var(--gray-dark); transform: translateY(-2px); }
 .wiz-opt.sel { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 0 26px -6px rgba(57,255,20,.5); background: linear-gradient(180deg, color-mix(in srgb, var(--green) 7%, var(--bg-card)), var(--bg)); }
-.wiz-opt .ic { font-size: 21px; line-height: 1; flex: none; }
+.wiz-opt .ic { font-size: 25px; line-height: 1; flex: none; }
 .wiz-opt .ic + span { display: flex; flex-direction: column; min-width: 0; }
-.wiz-opt .ot { font-weight: 700; font-size: 14.5px; display: block; }
-.wiz-opt .od { color: var(--gray); font-size: 12px; margin-top: 2px; display: block; line-height: 1.35; }
+.wiz-opt .ot { font-weight: 700; font-size: 16.5px; display: block; }
+.wiz-opt .od { color: var(--gray); font-size: 13.5px; margin-top: 2px; display: block; line-height: 1.35; }
 .wiz-toggle {
   display: flex; align-items: center; gap: 13px; width: 100%; text-align: left;
   background: linear-gradient(180deg, var(--bg-card), var(--bg)); border: 1px solid var(--border);
@@ -1605,7 +1610,7 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-toggle[aria-pressed="true"] .wiz-sw::after { transform: translateX(18px); }
 .wiz-tt { font-weight: 650; font-size: 14px; display: block; } .wiz-td { color: var(--gray); font-size: 12px; margin-top: 1px; display: block; }
 .wiz-nav { display: flex; gap: 10px; margin-top: 18px; }
-.wiz-btn { flex: 1; border: none; font-family: inherit; font-weight: 750; font-size: 15px; border-radius: 12px; padding: 14px; cursor: pointer; transition: .16s; }
+.wiz-btn { flex: 1; border: none; font-family: inherit; font-weight: 750; font-size: 17px; border-radius: 12px; padding: 17px; cursor: pointer; transition: .16s; }
 .wiz-btn.primary { background: linear-gradient(120deg, var(--green), var(--green)); color: var(--bg); box-shadow: 0 10px 30px -10px rgba(57,255,20,.6); }
 .wiz-btn.primary:hover { transform: translateY(-2px); } .wiz-btn.primary:disabled { opacity: .4; transform: none; cursor: not-allowed; box-shadow: none; }
 .wiz-btn.ghost { flex: 0 0 auto; background: transparent; border: 1px solid var(--gray-dark); color: var(--gray); padding: 14px 18px; }
@@ -1771,3 +1776,11 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .fila-modelo:hover .ir-ficha, .ir-ficha:focus { opacity: 1; }
 .ir-ficha:hover { text-decoration: underline; }
 @media (hover: none) { .ir-ficha { opacity: .75; } }  /* en táctil no hay hover */
+
+/* 19-ago-2026 · el nombre del modelo recomendado era texto plano.
+   Quien acaba de recorrer las 3 preguntas y recibe UN nombre quiere saber más de ESE
+   modelo — la ficha es el destino natural y no había cómo llegar. `check_fichas_
+   alcanzables` no lo cazó porque audita páginas generadas, y esto lo pinta el JS. */
+.wiz-pick-name a.a-ficha { color: inherit; text-decoration: none; }
+.wiz-pick-name a.a-ficha:hover { text-decoration: underline; }
+.wiz-pick-name .pick-ar { font-size: .6em; color: var(--cyan); vertical-align: super; }

@@ -762,6 +762,23 @@ chequeo("W15 · cada tarea del wizard enlaza a un ranking que existe", () => {
   return malas;
 });
 
+// ── W16 · la recomendación del wizard tiene que llevar a la ficha ──────────
+// 19-ago-2026. El wizard hace tres preguntas y devuelve UN nombre. Quien llega hasta
+// ahí quiere saber más de ESE modelo, y el nombre era texto plano: la ficha existía y
+// no había cómo llegar. `check_fichas_alcanzables.py` no lo caza porque audita HTML
+// generado, y esto lo pinta el JS en runtime — el mismo punto ciego que tendría
+// cualquier superficie dinámica que agreguemos después.
+chequeo("W16 · la recomendación del wizard enlaza a la ficha del modelo", () => {
+  const src = readFileSync(join(ROOT, "docs", "app.js"), "utf8");
+  const bloque = src.slice(src.indexOf("wiz-pick-name"), src.indexOf("wiz-pick-name") + 320);
+  const malas = [];
+  if (!/a-ficha/.test(bloque))
+    malas.push("wiz-pick-name no enlaza a /modelo/<key>/: el usuario recibe un nombre y no puede ir a su ficha");
+  if (!/top\.ranked/.test(bloque))
+    malas.push("el enlace no condiciona por `ranked`: mandaría a un 404 cuando la recomendación no tiene ficha");
+  return malas;
+});
+
 // ── W14 · el enlace a la ficha no puede ser un 404 ──────────────────────────
 // La tabla enlaza a `/modelo/<key>/`, que sólo existe para los RANKEADOS —
 // `generate_model_cards` no genera los demás—. Y la tabla muestra también no

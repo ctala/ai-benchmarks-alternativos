@@ -1703,7 +1703,9 @@ function wizResult() {
     <div class="wiz-rec">
       <p class="wiz-eyebrow">Tu recomendación</p>
       <div class="wiz-hero">
-        <div class="wiz-pick-name">${top.name}</div>
+        <div class="wiz-pick-name">${top.ranked && top.key
+          ? `<a class="a-ficha" href="/modelo/${top.key}/">${top.name} <span class="pick-ar">↗</span></a>`
+          : top.name}</div>
         <div class="wiz-badges">${badges(top)}</div>
         <p class="wiz-why">${why}</p>
         <div class="wiz-cost">

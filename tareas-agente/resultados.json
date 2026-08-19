@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-15T07:18:04",
+  "generado": "2026-08-19T18:04:40",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -114,6 +114,32 @@
           "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2-1-turbo": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2.0-code": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 4,
           "rewards": [
             1.0,
             1.0,
@@ -278,6 +304,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "google/gemini-3.5-flash-lite": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "google/gemma-4-26b-a4b-it": {
           "media": 1.0,
           "piso": 1.0,
@@ -291,7 +330,47 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "google/gemma-4-31b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 4,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "inclusionai/ling-3.0-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-air-v2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -594,6 +673,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "nvidia/nemotron-3.5-lightning": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -702,6 +794,19 @@
             0.8889,
             0.8889,
             0.8889
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3-coder-next": {
+          "media": 0.9259,
+          "piso": 0.8889,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.8889,
+            0.8889,
+            1.0
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0
@@ -837,6 +942,52 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "qwen/qwen3.8-2.4t-a95b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.8-27b": {
+          "media": 0.8333,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 7,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "motivo": "falta la credencial del proveedor — no es un fallo del modelo",
+          "causas_de_los_ceros": [
+            "sin_credencial"
+          ]
+        },
+        "qwen/qwen3.8-max": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "tencent/hy3": {
           "media": 1.0,
           "piso": 1.0,
@@ -919,6 +1070,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "x-ai/grok-4.6": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "xiaomi/mimo-v2.5": {
           "media": 1.0,
           "piso": 1.0,
@@ -988,11 +1152,11 @@
       "task_checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 74,
-        "corridas": 231,
-        "perfectos": 48,
+        "modelos": 86,
+        "corridas": 273,
+        "perfectos": 58,
         "ceros": 5,
-        "media_global": 0.8988,
+        "media_global": 0.9101,
         "costo_usd": 2.66,
         "descartadas_por_checksum": 2
       }
@@ -1152,6 +1316,32 @@
           "costo_usd": 0.23
         },
         "anthropic/claude-sonnet-5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2-1-turbo": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2.0-code": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1330,6 +1520,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "google/gemini-3.5-flash-lite": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "google/gemini-3.6-flash": {
           "media": 1.0,
           "piso": 1.0,
@@ -1356,7 +1559,46 @@
           "estado": "ok_parcial",
           "costo_usd": 0.0
         },
+        "google/gemma-4-31b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "inclusionai/ling-3.0-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-air-v2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1609,6 +1851,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "nvidia/nemotron-3.5-lightning": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -1705,6 +1960,19 @@
           "costo_usd": 0.0
         },
         "qwen/qwen3-coder": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3-coder-next": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1835,6 +2103,45 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "qwen/qwen3.8-2.4t-a95b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.8-27b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.8-max": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "tencent/hy3": {
           "media": 1.0,
           "piso": 1.0,
@@ -1901,6 +2208,19 @@
           "costo_usd": 0.0
         },
         "x-ai/grok-4.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "x-ai/grok-4.6": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -1982,11 +2302,11 @@
       "task_checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 70,
-        "corridas": 229,
-        "perfectos": 54,
+        "modelos": 82,
+        "corridas": 265,
+        "perfectos": 66,
         "ceros": 1,
-        "media_global": 0.9495,
+        "media_global": 0.9568,
         "costo_usd": 2.8,
         "descartadas_por_checksum": 216
       }
@@ -2097,6 +2417,32 @@
           "costo_usd": 0.23
         },
         "anthropic/claude-sonnet-5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2-1-turbo": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "bytedance-seed/seed-2.0-code": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -2269,6 +2615,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "google/gemini-3.5-flash-lite": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "google/gemma-4-26b-a4b-it": {
           "media": 1.0,
           "piso": 1.0,
@@ -2282,7 +2641,46 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "google/gemma-4-31b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "inclusionai/ling-3.0-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-air-v2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -2527,6 +2925,22 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "nvidia/nemotron-3.5-lightning": {
+          "media": 0.6667,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0,
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -2630,6 +3044,19 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.01
+        },
+        "qwen/qwen3-coder-next": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         },
         "qwen/qwen3-next-80b-a3b-instruct": {
           "media": 1.0,
@@ -2748,6 +3175,45 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "qwen/qwen3.8-2.4t-a95b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.8-27b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "qwen/qwen3.8-max": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "tencent/hy3": {
           "media": 1.0,
           "piso": 1.0,
@@ -2814,6 +3280,19 @@
           "costo_usd": 0.0
         },
         "x-ai/grok-4.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "x-ai/grok-4.6": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -2895,11 +3374,11 @@
       "task_checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 69,
-        "corridas": 231,
-        "perfectos": 61,
+        "modelos": 81,
+        "corridas": 267,
+        "perfectos": 72,
         "ceros": 0,
-        "media_global": 0.985,
+        "media_global": 0.9831,
         "costo_usd": 4.23,
         "descartadas_por_checksum": 16
       }
