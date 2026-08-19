@@ -1,9 +1,9 @@
 # Seed 2.1 Turbo — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `bytedance-seed/seed-2-1-turbo`
-- success: True  | final: 8.31 | quality: 10.0
-- latency_total: 101.339s | tokens_per_second: 72.2
-- input_tokens: 302 | output_tokens: 7316
+- success: True  | final: 8.29 | quality: 10.0
+- latency_total: 105.698s | tokens_per_second: 75.4
+- input_tokens: 302 | output_tokens: 7971
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,74 +27,66 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-### Primero: cálculo de tu capacidad REAL (no la ideal, que es donde se equivocan el 90% de los fundadores solos)
-Tienes 4h/día de construcción efectiva = 20h/semana. En 8 semanas son **160h brutas**.  
-Le descontamos un 20% de buffer obligatorio (soporte que se pasa de las 2h, bugs urgentes, días de baja productividad, reuniones imprevistas): te quedan **128h útiles garantizadas** para todo el trimestre.
+### Razonamiento previo (basado en tu capacidad REAL, no en suposiciones)
+Primero, calculamos tu capacidad efectiva de construcción en el trimestre, para no engañarnos:
+- 4h/día de construcción × 5 días/semana × 8 semanas = 160h brutas
+- Le sumamos un 20% de colchón por interrupciones de soporte, scope creep o imprevistos (estándar para equipos de una persona) → **~128h de construcción efectiva en todo el trimestre**
 
-Además, tus estimaciones de esfuerzo son de tiempo completo (8h/día de construcción), así que los convertimos a TU ritmo: cada semana full-time = 40h = 2 semanas de tu trabajo. Ajustado:
-- A: 3 meses full-time = 480h → **ni la terminas en 2 trimestres** trabajando solo a tu ritmo actual.
-- B: 1 semana full-time = 40h → 2 semanas de tu tiempo.
-- C: 3 semanas full-time = 120h → 6 semanas de tu tiempo, PERO depende de A → imposible en este trimestre.
-- D: 2 semanas full-time = 80h → 4 semanas de tu tiempo.
+Luego, convertimos los esfuerzos de las iniciativas (que están medidos en tiempo completo, 8h/día de construcción) a tu ritmo:
+- A (3 meses full time): 480h de esfuerzo → te llevaría **6 meses a tu ritmo**, ni siquiera terminas un 25% en el trimestre. Riesgo altísimo de sobreesfuerzo (las reescrituras siempre duran más de lo estimado) y cero valor entregado en el corto plazo.
+- B (1 semana full time): 40h de esfuerzo → te lleva **~2 semanas reales**. Impacto alto inmediato, sin invertir en adquisición.
+- C (3 semanas full time): 120h de esfuerzo → pero depende de A terminado, así que está completamente bloqueado en este trimestre.
+- D (2 semanas full time): 80h de esfuerzo → te lleva **~4,5 semanas reales**. Impacto medio, con beneficios secundarios que aumentan tu capacidad futura (reducción de soporte, mejor retención).
 
----
-
-### Descarte inicial de iniciativas no factibles (no son malas, pero no caben sin matar tu negocio)
-❌ **A (reescritura de plataforma): No la hacemos en este trimestre**  
-No solo no la terminas en 8 semanas: si dedicaras TODO tu tiempo de construcción a ella, solo avanzarías un 30%, sin entregar nada usable a clientes, sin generar ningún impacto en ingresos o conversión, y sin margen para imprevistos.  
-Las reescrituras en equipos de una persona son la trampa número 1 de los fundadores técnicos: te sientes productivo escribiendo código, pero pasas meses sin generar valor, y te puedes quedar sin recursos antes de terminar.
-
-❌ **C (panel de métricas): Pospuesto hasta el próximo trimestre**  
-Depende de A, así que no hay forma de hacerlo ahora. Lo reevaluaremos cuando tengamos datos reales de si vale la pena invertir en la reescritura.
+El principio rector para un fundador solo: **entrega valor medible lo más rápido posible, no te puedes permitir proyectos largos sin retorno en el corto plazo**.
 
 ---
 
-### Priorización de lo que SÍ caben, por impacto y sinergia
-Quedan B y D, y ambas caben perfectamente (sumadas son 120h, te sobran 8h de margen). El orden no es arbitrario:
-1.  **B primero (arreglo del flujo de alta): Impacto alto, esfuerzo bajo, y multiplica el impacto de todo lo demás que hagas después.**
-    Si pasas de perder el 60% de usuarios en el paso 2 a perder, por ejemplo, el 30%, tu tasa de alta se duplica. Cualquier esfuerzo de adquisición que hagas después (como los videos) rendirá el doble.
-2.  **D después (videos de contenido): Impacto medio, esfuerzo medio, y complementa a B.**
-    Los videos traen más gente al alta, que ya se convierte mejor gracias a B. Si lo hicieras al revés, desperdiciarías el 60% del tráfico que generes.
+### Plan del trimestre (orden de prioridad, semana a semana)
+Es flexible, pero se apega a tu capacidad y maximiza el impacto en 8 semanas:
+
+#### 📅 Semanas 1-2: Iniciativa B (Arreglar flujo de alta) → PRIORIDAD ABSOLUTA
+**Por qué va primero**:
+Es el ROI más alto de todas: pierdes el 60% de la gente en el paso 2, así que arreglarlo multiplica por 2-2.5 los usuarios que completan el alta sin invertir nada en adquisición. Más altas = más clientes = más ingresos = más feedback para validar el resto de iniciativas.
+
+**Cómo ejecutarlo para no desviarte**:
+- No hagas un flujo perfecto. Dedica las primeras 2 horas a analizar datos/feedback para saber exactamente qué causa el abandono (¿demasiados campos? ¿falta de explicación? ¿bugs?). Aplica el cambio de mayor impacto en menos tiempo (ej: reducir campos de 10 a 2, agregar un mensaje de contexto, arreglar un error de carga).
+- **Hito fin de semana 2**: Tasa de abandono del paso 2 reducida al menos a la mitad (de 60% a 30% o menos).
+
+#### 📅 Semanas 3-6.5: Iniciativa D (10 videos, entrega incremental)
+**Por qué va después de B**:
+Sinergia directa: B aumenta la cantidad de usuarios que se dan de alta, y D ayuda a retenerlos, reducir tu carga de soporte y traer más gente nueva. Si hicieras D primero, desperdiciarías parte de su impacto (la gente que llega se pierde en el alta rota).
+
+**Cómo ejecutarlo para obtener valor ya, no al final**:
+Ordena los videos por impacto, no por orden de lista:
+1. **Primero 2-3 videos de soporte** (responden las preguntas más frecuentes): en la primera semana ya reduces las 2h/día que gastas en soporte. Si logras recortar 30min/día, pasas a tener 4.5h/día de construcción para siempre (un aumento de 12.5% de tu capacidad).
+2. Luego 2-3 videos de onboarding: ayudan a que los nuevos usuarios (ahora más por B) entiendan el producto y se queden más.
+3. Finalmente los videos de adquisición: traen más gente que se convierte bien gracias al alta arreglada.
+
+No te obsesiones con la calidad de edición: el contenido vale más que la producción.
+- **Hito fin de semana 3**: 3 videos de soporte publicados, consultas de esos temas reducidas en al menos 40%.
+- **Hito fin de semana 6.5**: 10 videos completos.
+
+#### 📅 Semanas 6.5-8: Spike de validación de A + mejoras incrementales de alto impacto
+**Por qué NO empiezas A de lleno**:
+Te llevaría 6 meses completos a tu ritmo (si no hay sobreesfuerzo, lo que es raro en reescrituras). No terminarías nada en el trimestre, y perderías la oportunidad de generar tracción con B y D.
+
+**Qué haces en estas 1.5 semanas**:
+1. **1 semana de spike de A**: Elige una parte pequeña y crítica de la plataforma (ej: el flujo de alta que acabas de arreglar, o el módulo de usuarios) y reescríbela en el nuevo framework. El objetivo no es construir, sino validar:
+   - ¿Realmente es más rápido de desarrollar?
+   - ¿Mejora la velocidad para el usuario?
+   - ¿Hay problemas que no habías previsto?
+   Con datos reales, decidirás en el próximo trimestre si vale la pena invertir 6 meses en la reescritura, o si es mejor seguir con el stack actual y hacer mejoras incrementales.
+2. **0.5 semanas de mejoras pequeñas**: Arregla el bug más reportado por soporte, agrega una funcionalidad que pidan 3+ clientes, o mejora un poco más el flujo de alta. Sigue entregando valor hasta el último día.
+
+- **Hito fin de trimestre**: Informe de validación de A (con esfuerzo real estimado para la reescritura completa) + 2-3 mejoras pequeñas implementadas.
 
 ---
 
-### Plan semanal detallado del trimestre (con buffers y objetivos medibles)
-Trabajas en UNA SOLA iniciativa a la vez (el costo de cambio de contexto para un fundador solo es altísimo, no mezcles proyectos).
-
-#### Bloque 1: Arreglo del flujo de alta (Semanas 1 y 2, con 1 semana de reserva)
-**Objetivo medible:** Reducir el abandono en el paso 2 de 60% a máximo 30%.
-- Semana 1: Analiza datos reales de por qué se van los usuarios (¿bug? ¿formulario muy largo? ¿no entienden el siguiente paso?). Desarrolla la solución, prueba internamente.
-- Semana 2: Lanza a producción, monitorea la tasa en tiempo real, ajusta pequeños detalles si no baja lo suficiente.
-- Si terminas antes: No te adelantes a D. Usa el tiempo para hablar con 3-5 usuarios que pasaron por el nuevo alta para validar que no hay fricciones ocultas, y para escribir los guiones de los videos (así vas más rápido después).
-
-#### Bloque 2: Grabación de 10 videos (Semanas 3 a 6, con 1 semana de reserva)
-**Objetivo medible:** Publicar los 10 videos, que generen al menos [define un número realista según tu canal] visitas por semana, y que al menos el 10% de las visitas lleguen a tu página de alta.
-- Semana 3: Escribe los 10 guiones, graba todas las tomas principales.
-- Semana 4: Edita los primeros 5 videos, sube y programa los 3 primeros con sus llamados a la acción hacia el alta.
-- Semana 5: Edita los últimos 5 videos, programa la publicación de todos los restantes.
-- Semana 6: Optimiza los títulos/etiquetas de los videos que mejor rendimiento tengan, y añade enlaces en tu página de soporte a los videos de preguntas frecuentes (esto te reducirá el tiempo de soporte después).
-- Si terminas antes: Graba 2 videos extra de consultas que te lleguen mucho por soporte: te ahorras tiempo de operación a futuro.
-
-#### Bloque 3: Espacio de validación y preparación para el próximo trimestre (Semanas 7 y 8)
-Este es tu margen de seguridad, no lo asignes a nada fijo. Lo usas para tres cosas en orden de prioridad:
-1.  **Recoger datos de B y D:** Cuánto subió la conversión del alta, cuántos clientes nuevos trajeron los videos, cuánto aumentaron tus ingresos. Esto te dará la información para decidir si vale la pena invertir en A el próximo trimestre.
-2.  **Hacer un spike (prueba técnica) de A de máximo 20h (1 semana):** No empieces la reescritura completa. Reescribe solo una parte muy pequeña de la plataforma (por ejemplo, el flujo de alta que acabas de arreglar) en el nuevo framework para responder:
-    - ¿Realmente ganas tanta velocidad como crees?
-    - ¿Hay problemas técnicos que no habías previsto?
-    - ¿Cuánto te cuesta realmente hacer una funcionalidad sencilla en el nuevo framework?
-    Esto te dará un estimado mucho más realista del esfuerzo total de A, sin mentirte.
-3.  **Arreglar pequeños bugs o mejoras que hayan salido durante el trimestre.**
-
----
-
-### ¿Qué pasa con A y C después de este trimestre?
-Con los resultados de B y D, tendrás dos cosas que no tienes ahora:
-1.  Más ingresos (por la mejora de conversión y el nuevo tráfico) para delegar parte del soporte y pasar de 4h/día a 5-6h/día de construcción.
-2.  Datos reales del esfuerzo de A (por el spike) para decidir si vale la pena.
-
-Si confimas que la reescritura te ahorra al menos el 50% del tiempo de desarrollo de nuevas funcionalidades, **no hagas un big bang**: ve reescribiendo partes de la plataforma una por una, cada una con valor para el cliente. Por ejemplo: empieza por reescribir el panel de métricas (C) en el nuevo framework, así entregas valor a tus clientes mientras avanzas en la reescritura. No pasas 6 meses sin entregar nada.
+### ¿Y qué pasa con C?
+Como depende de A terminado, se pospone mínimo 2 trimestres (si es que decides hacer A). Pero antes de descartarlo del todo, pregúntate: **¿realmente no puedo hacer un MVP muy básico de panel de métricas con el stack actual?** Por ejemplo, un panel que muestre solo 2-3 métricas clave, usando herramientas que ya tienes. Si se puede, cambia el spike de A por este MVP de C: tiene impacto medio directo en los clientes, y si están dispuestos a pagar por ello, te da ingresos inmediatos para justificar proyectos más grandes después.
 
 ---
 
 ### Regla de oro para no desviarte
-Si en medio del trimestre te dan ganas de empezar la reescritura, pregúntate: *¿Esto me genera más ingresos o más tiempo de construcción en los próximos 3 meses?* Si la respuesta es no, vuelve a lo que estabas haciendo. La reescritura es un objetivo de largo plazo, pero primero necesitas sobrevivir y crecer lo suficiente como para poder invertir en ella sin morir en el intento.
+Cada semana tiene que haber algo de valor entregado a los usuarios. No pases más de 10 días sin que tus clientes noten un cambio positivo. Esto te mantiene motivado, te da feedback constante y evita que te pierdas en proyectos "para el futuro" que nunca llegan.

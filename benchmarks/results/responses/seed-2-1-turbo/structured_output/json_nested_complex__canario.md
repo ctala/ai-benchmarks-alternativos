@@ -1,9 +1,9 @@
 # Seed 2.1 Turbo — structured_output/json_nested_complex
 
 - model_id: `bytedance-seed/seed-2-1-turbo`
-- success: True  | final: 8.32 | quality: 10.0
-- latency_total: 117.495s | tokens_per_second: 59.0
-- input_tokens: 271 | output_tokens: 6937
+- success: True  | final: 8.29 | quality: 10.0
+- latency_total: 127.897s | tokens_per_second: 61.4
+- input_tokens: 271 | output_tokens: 7858
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -41,10 +41,10 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
   "start_date": "2026-05-01",
   "end_date": "2026-06-30",
   "team": [
-    {"name": "Lucía Martínez", "role": "Diseñadora UX/UI", "allocation_pct": 30},
-    {"name": "Carlos Ruiz", "role": "Desarrollador Frontend", "allocation_pct": 100},
-    {"name": "Sofía Mendoza", "role": "Desarrolladora Backend", "allocation_pct": 100},
-    {"name": "Diego Fernández", "role": "Analista de Calidad QA", "allocation_pct": 35}
+    {"name": "Carlos Ruiz", "role": "Diseñador UX/UI", "allocation_pct": 80},
+    {"name": "María González", "role": "Desarrolladora Frontend", "allocation_pct": 100},
+    {"name": "Javier López", "role": "Desarrollador Backend", "allocation_pct": 100},
+    {"name": "Sofía Torres", "role": "Analista de Calidad QA", "allocation_pct": 70}
   ],
   "phases": [
     {
@@ -52,48 +52,57 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
       "start": "2026-05-01",
       "end": "2026-05-15",
       "tasks": [
-        {"title": "Auditoría del sitio web actual y análisis de competencia", "assignee": "Lucía Martínez", "hours": 16, "depends_on": null},
-        {"title": "Entrevistas con usuarios y definición de personas", "assignee": "Lucía Martínez", "hours": 20, "depends_on": null},
-        {"title": "Diseño de wireframes de baja fidelidad", "assignee": "Lucía Martínez", "hours": 24, "depends_on": ["Auditoría del sitio web actual y análisis de competencia", "Entrevistas con usuarios y definición de personas"]},
-        {"title": "Diseño de interfaces de alta fidelidad y guía de estilos", "assignee": "Lucía Martínez", "hours": 20, "depends_on": "Diseño de wireframes de baja fidelidad"}
+        {"title": "Auditoría del sitio web actual", "assignee": "Carlos Ruiz", "hours": 20, "depends_on": null},
+        {"title": "Entrevistas con stakeholders y definición de requisitos", "assignee": "Carlos Ruiz", "hours": 16, "depends_on": null},
+        {"title": "Diseño de wireframes de baja fidelidad", "assignee": "Carlos Ruiz", "hours": 24, "depends_on": ["Auditoría del sitio web actual", "Entrevistas con stakeholders y definición de requisitos"]},
+        {"title": "Diseño de prototipos de alta fidelidad y guía de estilos", "assignee": "Carlos Ruiz", "hours": 32, "depends_on": ["Diseño de wireframes de baja fidelidad"]},
+        {"title": "Aprobación final de diseños por parte del cliente", "assignee": "Carlos Ruiz", "hours": 8, "depends_on": ["Diseño de prototipos de alta fidelidad y guía de estilos"]}
       ]
     },
     {
-      "name": "Desarrollo de la plataforma web",
-      "start": "2026-05-16",
+      "name": "Desarrollo Frontend",
+      "start": "2026-05-12",
+      "end": "2026-06-10",
+      "tasks": [
+        {"title": "Configuración del entorno de desarrollo y stack tecnológico", "assignee": "María González", "hours": 12, "depends_on": null},
+        {"title": "Maquetación responsive de la página principal", "assignee": "María González", "hours": 28, "depends_on": ["Aprobación final de diseños por parte del cliente"]},
+        {"title": "Maquetación responsive de páginas internas (nosotros, servicios, portafolio, contacto)", "assignee": "María González", "hours": 40, "depends_on": ["Maquetación responsive de la página principal"]},
+        {"title": "Implementación de componentes interactivos (formularios, carruseles, menús)", "assignee": "María González", "hours": 24, "depends_on": ["Maquetación responsive de páginas internas (nosotros, servicios, portafolio, contacto)"]}
+      ]
+    },
+    {
+      "name": "Desarrollo Backend e Integración",
+      "start": "2026-05-18",
       "end": "2026-06-15",
       "tasks": [
-        {"title": "Configuración de entorno de desarrollo y repositorio de código", "assignee": "Carlos Ruiz", "hours": 12, "depends_on": null},
-        {"title": "Diseño de arquitectura backend y modelo de base de datos", "assignee": "Sofía Mendoza", "hours": 28, "depends_on": "Diseño de wireframes de baja fidelidad"},
-        {"title": "Desarrollo de componentes frontend reutilizables", "assignee": "Carlos Ruiz", "hours": 48, "depends_on": ["Configuración de entorno de desarrollo y repositorio de código", "Diseño de interfaces de alta fidelidad y guía de estilos"]},
-        {"title": "Desarrollo de endpoints API REST y lógica de negocio", "assignee": "Sofía Mendoza", "hours": 72, "depends_on": "Diseño de arquitectura backend y modelo de base de datos"},
-        {"title": "Maquetación de vistas responsive y flujos de usuario", "assignee": "Carlos Ruiz", "hours": 60, "depends_on": "Desarrollo de componentes frontend reutilizables"},
-        {"title": "Integración entre frontend y API REST", "assignee": "Carlos Ruiz", "hours": 32, "depends_on": ["Maquetación de vistas responsive y flujos de usuario", "Desarrollo de endpoints API REST y lógica de negocio"]},
-        {"title": "Configuración de servidor de staging y despliegue preliminar", "assignee": "Sofía Mendoza", "hours": 20, "depends_on": "Desarrollo de endpoints API REST y lógica de negocio"},
-        {"title": "Revisión preliminar de funcionalidades en staging", "assignee": "Diego Fernández", "hours": 24, "depends_on": "Configuración de servidor de staging y despliegue preliminar"}
+        {"title": "Configuración de servidor, base de datos y entorno de staging", "assignee": "Javier López", "hours": 16, "depends_on": null},
+        {"title": "Desarrollo de API para formulario de contacto y suscripciones", "assignee": "Javier López", "hours": 20, "depends_on": ["Configuración de servidor, base de datos y entorno de staging"]},
+        {"title": "Implementación de CMS headless para gestión de contenidos", "assignee": "Javier López", "hours": 48, "depends_on": ["Configuración de servidor, base de datos y entorno de staging"]},
+        {"title": "Integración entre frontend y servicios backend", "assignee": "Javier López", "hours": 32, "depends_on": ["Implementación de CMS headless para gestión de contenidos", "Implementación de componentes interactivos (formularios, carruseles, menús)"]}
       ]
     },
     {
-      "name": "Pruebas, ajustes y lanzamiento oficial",
-      "start": "2026-06-16",
+      "name": "Pruebas, Correcciones y Lanzamiento",
+      "start": "2026-06-10",
       "end": "2026-06-30",
       "tasks": [
-        {"title": "Diseño y planificación de casos de prueba completos", "assignee": "Diego Fernández", "hours": 16, "depends_on": "Revisión preliminar de funcionalidades en staging"},
-        {"title": "Pruebas funcionales, de usabilidad y de compatibilidad cross-browser", "assignee": "Diego Fernández", "hours": 32, "depends_on": "Diseño y planificación de casos de prueba completos"},
-        {"title": "Corrección de errores y ajustes de frontend detectados en pruebas", "assignee": "Carlos Ruiz", "hours": 20, "depends_on": "Pruebas funcionales, de usabilidad y de compatibilidad cross-browser"},
-        {"title": "Ajustes de rendimiento y seguridad en backend", "assignee": "Sofía Mendoza", "hours": 16, "depends_on": "Pruebas funcionales, de usabilidad y de compatibilidad cross-browser"},
-        {"title": "Pruebas de regresión y validación final de funcionalidades", "assignee": "Diego Fernández", "hours": 16, "depends_on": ["Corrección de errores y ajustes de frontend detectados en pruebas", "Ajustes de rendimiento y seguridad en backend"]},
-        {"title": "Despliegue en producción y configuración de dominios y SSL", "assignee": "Sofía Mendoza", "hours": 8, "depends_on": "Pruebas de regresión y validación final de funcionalidades"},
-        {"title": "Entrega de documentación y capacitación al equipo cliente", "assignee": "Lucía Martínez", "hours": 8, "depends_on": "Pruebas de regresión y validación final de funcionalidades"}
+        {"title": "Diseño y planificación de casos de prueba", "assignee": "Sofía Torres", "hours": 12, "depends_on": null},
+        {"title": "Pruebas funcionales de interfaz de usuario", "assignee": "Sofía Torres", "hours": 24, "depends_on": ["Maquetación responsive de páginas internas (nosotros, servicios, portafolio, contacto)"]},
+        {"title": "Pruebas de funcionalidades backend y seguridad", "assignee": "Sofía Torres", "hours": 20, "depends_on": ["Integración entre frontend y servicios backend"]},
+        {"title": "Pruebas de usabilidad con usuarios objetivo", "assignee": "Sofía Torres", "hours": 18, "depends_on": ["Pruebas funcionales de interfaz de usuario"]},
+        {"title": "Corrección de errores detectados en frontend", "assignee": "María González", "hours": 16, "depends_on": ["Pruebas funcionales de interfaz de usuario", "Pruebas de usabilidad con usuarios objetivo"]},
+        {"title": "Corrección de errores detectados en backend", "assignee": "Javier López", "hours": 12, "depends_on": ["Pruebas de funcionalidades backend y seguridad"]},
+        {"title": "Lanzamiento del sitio web en entorno de producción", "assignee": "Javier López", "hours": 8, "depends_on": ["Corrección de errores detectados en frontend", "Corrección de errores detectados en backend"]},
+        {"title": "Capacitación al cliente para uso del CMS y soporte post-lanzamiento inicial", "assignee": "Javier López", "hours": 6, "depends_on": ["Lanzamiento del sitio web en entorno de producción"]}
       ]
     }
   ],
   "budget": {
     "total": 25000,
     "breakdown": {
-      "design": 6000,
-      "development": 15000,
-      "testing": 4000
+      "design": 7500,
+      "development": 13750,
+      "testing": 3750
     }
   }
 }

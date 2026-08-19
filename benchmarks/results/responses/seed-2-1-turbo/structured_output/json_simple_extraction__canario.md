@@ -2,8 +2,8 @@
 
 - model_id: `bytedance-seed/seed-2-1-turbo`
 - success: True  | final: 8.89 | quality: 10.0
-- latency_total: 5.396s | tokens_per_second: 42.3
-- input_tokens: 140 | output_tokens: 228
+- latency_total: 5.707s | tokens_per_second: 39.6
+- input_tokens: 140 | output_tokens: 226
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -22,4 +22,4 @@ Formato: {"name": "", "age": 0, "role": "", "company": "", "email": "", "salary"
 
 ## Respuesta completa
 
-{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
+{"name":"Maria Garcia","age":28,"role":"ingeniera de software","company":"Google Chile","email":"maria@google.com","salary":95000}

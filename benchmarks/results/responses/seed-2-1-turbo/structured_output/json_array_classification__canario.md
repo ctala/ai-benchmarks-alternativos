@@ -1,9 +1,9 @@
 # Seed 2.1 Turbo — structured_output/json_array_classification
 
 - model_id: `bytedance-seed/seed-2-1-turbo`
-- success: True  | final: 8.21 | quality: 10.0
-- latency_total: 115.103s | tokens_per_second: 47.7
-- input_tokens: 220 | output_tokens: 5495
+- success: True  | final: 8.47 | quality: 10.0
+- latency_total: 57.061s | tokens_per_second: 55.0
+- input_tokens: 220 | output_tokens: 3140
 
 ## Entrada exacta (lo que recibió el modelo)
 

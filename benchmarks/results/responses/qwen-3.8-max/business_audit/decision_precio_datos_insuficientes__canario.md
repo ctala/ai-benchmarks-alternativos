@@ -1,9 +1,9 @@
 # Qwen 3.8 Max — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `qwen/qwen3.8-max`
-- success: True  | final: 2.98 | quality: 2.0
-- latency_total: 7.449s | tokens_per_second: 25.1
-- input_tokens: 149 | output_tokens: 187
+- success: True  | final: 3.02 | quality: 2.0
+- latency_total: 9.99s | tokens_per_second: 36.6
+- input_tokens: 149 | output_tokens: 366
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,4 +20,4 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-No
+Datos

@@ -1,9 +1,9 @@
 # Qwen 3.8 Max — structured_output/json_simple_extraction
 
 - model_id: `qwen/qwen3.8-max`
-- success: True  | final: 8.92 | quality: 10.0
-- latency_total: 4.218s | tokens_per_second: 33.2
-- input_tokens: 156 | output_tokens: 140
+- success: True  | final: 8.9 | quality: 10.0
+- latency_total: 4.232s | tokens_per_second: 38.3
+- input_tokens: 156 | output_tokens: 162
 
 ## Entrada exacta (lo que recibió el modelo)
 

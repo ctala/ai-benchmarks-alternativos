@@ -9,6 +9,12 @@
 > cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
 > Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
 
+- Re-medición del lote de agosto con el presupuesto por tarea: los modelos que antes se
+  cortaban en 2.048 ahora generan hasta 32.768 tokens, y el truncamiento de los runs
+  nuevos bajó a 2-5% (dentro de lo normal: un test largo puede tocar el techo en
+  cualquier modelo). Los 1.096 runs cortados con el techo viejo quedan en
+  `_archive-truncados-20260818/` con su original al lado — son evidencia de que pasó, no
+  se borran.
 - **El presupuesto de salida pasa a ser por TAREA**, calibrado contra la demanda real:
   2.748 runs de la ruta sin nuestro techo dan p95 8.313 y p99 18.735, y lo que supera 16k
   se concentra en `agent_long_horizon` (19%, p95 29.927) mientras 26 de 31 suites no
