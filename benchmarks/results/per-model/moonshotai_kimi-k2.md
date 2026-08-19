@@ -1,13 +1,13 @@
 # Kimi K2
 
 - **model_id**: `moonshotai/kimi-k2`
-- **Total tests**: 183/205 exitosos (22 errores)
-- **Score final**: 7.27
-- **Calidad**: 8.02
+- **Total tests**: 207/229 exitosos (22 errores)
+- **Score final**: 6.81
+- **Calidad**: 7.39
 - **Judge score (Phi-4)**: 4.29/10
-- **Velocidad**: 32 tok/s
-- **Latencia primera token**: 18.25s
-- **Costo promedio por test**: $0.00321
+- **Velocidad**: 31 tok/s
+- **Latencia primera token**: 17.39s
+- **Costo promedio por test**: $0.00356
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.31 | 7.92 |
 | deep_reasoning | 6 | 6 | 7.04 | 7.92 |
 | hallucination | 4 | 3 | 6.73 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.24 | 9.61 |
 | multi_turn | 10 | 8 | 7.61 | 8.38 |
 | news_seo_writing | 12 | 7 | 5.75 | 6.14 |
 | ocr_extraction | 11 | 10 | 8.25 | 9.43 |
 | orchestration | 9 | 5 | 6.55 | 6.90 |
 | policy_adherence | 11 | 8 | 7.69 | 8.38 |
 | presentation | 4 | 3 | 8.19 | 9.55 |
+| prompt_injection_es | 20 | 20 | 2.27 | 1.15 |
 | reasoning | 3 | 3 | 8.06 | 9.28 |
 | sales_outreach | 3 | 3 | 6.91 | 7.56 |
 | startup_content | 10 | 9 | 8.03 | 9.43 |
@@ -3033,5 +3035,9 @@ SEMANA 0 – DÍA 0 (Ki
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

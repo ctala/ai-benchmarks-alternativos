@@ -1,13 +1,13 @@
 # Qwen 3-Next 80B Thinking
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-thinking`
-- **Total tests**: 156/156 exitosos (0 errores)
-- **Score final**: 7.12
-- **Calidad**: 7.56
+- **Total tests**: 180/180 exitosos (0 errores)
+- **Score final**: 6.60
+- **Calidad**: 6.78
 - **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 154 tok/s
-- **Latencia primera token**: 21.74s
-- **Costo promedio por test**: $0.00586
+- **Velocidad**: 150 tok/s
+- **Latencia primera token**: 19.82s
+- **Costo promedio por test**: $0.00542
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 7 | 7 | 7.74 | 8.31 |
 | deep_reasoning | 6 | 6 | 4.97 | 4.71 |
 | hallucination | 3 | 3 | 6.43 | 6.33 |
+| integridad_idioma | 4 | 4 | 5.25 | 5.03 |
 | multi_turn | 4 | 4 | 6.00 | 6.00 |
 | news_seo_writing | 9 | 9 | 5.73 | 5.88 |
 | ocr_extraction | 5 | 5 | 8.16 | 9.27 |
 | orchestration | 5 | 5 | 7.06 | 7.58 |
 | policy_adherence | 4 | 4 | 8.04 | 8.67 |
 | presentation | 2 | 2 | 8.29 | 9.52 |
+| prompt_injection_es | 20 | 20 | 2.81 | 1.07 |
 | reasoning | 5 | 5 | 7.91 | 9.03 |
 | sales_outreach | 3 | 3 | 8.36 | 9.33 |
 | startup_content | 5 | 5 | 8.13 | 9.15 |
@@ -2481,5 +2483,9 @@ Sales: $2.3M total, 18% increase from Q4 2025's $1.9
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

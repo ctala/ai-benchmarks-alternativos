@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)</title>
-<meta name="description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.74, costo $10/$50 por millón, 205 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta name="description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.96, costo $10/$50 por millón, 213 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
 <meta name="keywords" content="Claude Fable 5 review, Fable 5 benchmark, Fable 5 vs Opus 4.8, Fable 5 vs Sonnet 4.6, Mythos 5 anthropic, Claude Fable 5 español, Fable 5 vale la pena">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/fable-5-review/">
 <meta property="og:title" content="Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)">
-<meta property="og:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.74, costo $10/$50 por millón, 205 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta property="og:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.96, costo $10/$50 por millón, 213 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/fable-5-review/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Review de Claude Fable 5 comparado con Opus 4.8 y Sonnet 4.6">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)">
-<meta name="twitter:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.74, costo $10/$50 por millón, 205 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta name="twitter:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.96, costo $10/$50 por millón, 213 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,14 +32,14 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)",
-  "description": "Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.74, costo $10/$50 por millón, 205 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.",
+  "description": "Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 5.96, costo $10/$50 por millón, 213 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-08-17",
+  "dateModified": "2026-08-19",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/fable-5-review/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/fable-5-review/",
@@ -144,13 +144,13 @@
     <h1>Claude Fable 5: review con benchmark real (Agosto 2026)</h1>
     <p class="lead">
       <strong>Claude Fable 5</strong> es la nueva línea "Mythos" de Anthropic, lanzada en junio de 2026.
-      Lo corrimos por <strong>205 tests reales</strong> con juez neutral Phi-4: obtiene
-      <strong>score global 5.74</strong> (calidad 8.35 — el score compuesto carga su costo), con un precio de
+      Lo corrimos por <strong>213 tests reales</strong> con juez neutral Phi-4: obtiene
+      <strong>score global 5.96</strong> (calidad 8.39 — el score compuesto carga su costo), con un precio de
       <strong>$10.00 / $50.00 por millón de tokens</strong>. ¿Vale la pena? La respuesta corta:
       <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
     </p>
     <p class="meta">
-      Última actualización: 2026-08-17 ·
+      Última actualización: 2026-08-19 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -160,9 +160,9 @@
   <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
   Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
   costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong><!-- AUTO:total_models -->192<!-- /AUTO --> modelos catalogados</strong>,
-  <strong><!-- AUTO:tested_count -->139<!-- /AUTO --> testeados</strong> y
-  <strong><!-- AUTO:tests_marketing -->31,000+<!-- /AUTO --> tests reales</strong> evaluados por un
+  <p>Contamos con <strong><!-- AUTO:total_models -->205<!-- /AUTO --> modelos catalogados</strong>,
+  <strong><!-- AUTO:tested_count -->156<!-- /AUTO --> testeados</strong> y
+  <strong><!-- AUTO:tests_marketing -->56,000+<!-- /AUTO --> tests reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
@@ -170,7 +170,7 @@
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
     <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
-  <p>El <strong>score global v4.5.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
+  <p>El <strong>score global v4.6.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
   Tool calling se reporta como badge de capacidad, no entra en el score. Mide <em>valor para producción</em>, no solo capacidad bruta.
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
@@ -178,7 +178,7 @@
   <section class="results">
     <div class="results-header">
       <h2>Fable 5 vs alternativas directas</h2>
-      <p class="meta">Score ponderado v4.5.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">Score ponderado v4.6.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
     </div>
 
     <div class="table-scroll"><table class="results-table">
@@ -186,8 +186,8 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>Claude Fable 5</strong></td><td>5.74</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>openrouter (43 tok/s)</td></tr>
-        <tr><td>2</td><td>DeepSeek R1 (reasoning)</td><td>6.71</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>1</td><td><strong>Claude Fable 5</strong></td><td>5.96</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>openrouter (44 tok/s)</td></tr>
+        <tr><td>2</td><td>DeepSeek R1 (reasoning)</td><td>6.59</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
       </tbody>
     </table></div>
 
@@ -205,7 +205,7 @@
       con velocidad similar a Opus (~60 tok/s) y un precio que lo acerca más a Opus que a Sonnet.
     </p>
     <ul>
-      <li><strong>Score global:</strong> 5.74 — hundido por el costo más caro del catálogo y los bloqueos de política en API.</li>
+      <li><strong>Score global:</strong> 5.96 — hundido por el costo más caro del catálogo y los bloqueos de política en API.</li>
       <li><strong>Calidad por pilar:</strong> Contenido 7.41, Agentes 6.17, Coding 7.28, Razonamiento 6.79.</li>
       <li><strong>Costo:</strong> $10.00 input / $50.00 output por millón.</li>
       <li><strong>Velocidad:</strong> ~60 tok/s en suscripción Anthropic.</li>

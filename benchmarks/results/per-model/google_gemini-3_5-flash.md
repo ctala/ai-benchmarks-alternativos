@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash
 
 - **model_id**: `google/gemini-3.5-flash`
-- **Total tests**: 361/376 exitosos (15 errores)
-- **Score final**: 6.38
-- **Calidad**: 7.02
+- **Total tests**: 373/388 exitosos (15 errores)
+- **Score final**: 6.45
+- **Calidad**: 7.11
 - **Judge score (Phi-4)**: 2.78/10
-- **Velocidad**: 105 tok/s
-- **Latencia primera token**: 6.37s
-- **Costo promedio por test**: $0.07278
+- **Velocidad**: 107 tok/s
+- **Latencia primera token**: 6.44s
+- **Costo promedio por test**: $0.07084
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,7 +25,10 @@
 | creativity | 4 | 4 | 7.50 | 8.62 |
 | customer_support | 7 | 7 | 6.74 | 7.01 |
 | deep_reasoning | 6 | 6 | 3.67 | 3.17 |
+| dominio_entidad | 3 | 3 | 8.97 | 10.00 |
+| extraer_claims | 5 | 5 | 8.20 | 9.42 |
 | hallucination | 3 | 3 | 6.08 | 6.33 |
+| integridad_idioma | 4 | 4 | 8.23 | 9.68 |
 | multi_turn | 4 | 4 | 7.50 | 8.50 |
 | news_seo_writing | 5 | 5 | 4.21 | 3.99 |
 | niah_es | 110 | 110 | 7.99 | 9.76 |
@@ -2418,5 +2421,11 @@ Aquí tienes la información extraída de los perfiles de los candidatos en form
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### extraer_claims
+
+#### dominio_entidad
+
+#### integridad_idioma
 
 #### verificar_claim

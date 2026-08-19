@@ -1,13 +1,13 @@
 # DeepSeek V3
 
 - **model_id**: `deepseek/deepseek-v3.2`
-- **Total tests**: 154/154 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 8.25
+- **Total tests**: 178/178 exitosos (0 errores)
+- **Score final**: 7.08
+- **Calidad**: 7.46
 - **Judge score (Phi-4)**: 4.47/10
-- **Velocidad**: 31 tok/s
-- **Latencia primera token**: 20.96s
-- **Costo promedio por test**: $0.00070
+- **Velocidad**: 29 tok/s
+- **Latencia primera token**: 19.01s
+- **Costo promedio por test**: $0.00095
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 6.73 | 6.72 |
 | deep_reasoning | 6 | 6 | 7.14 | 7.78 |
 | hallucination | 3 | 3 | 7.47 | 7.67 |
+| integridad_idioma | 4 | 4 | 8.66 | 9.66 |
 | multi_turn | 4 | 4 | 7.49 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.87 | 7.38 |
 | ocr_extraction | 5 | 5 | 8.66 | 9.75 |
 | orchestration | 5 | 5 | 8.14 | 9.04 |
 | policy_adherence | 4 | 4 | 7.06 | 7.33 |
 | presentation | 2 | 2 | 8.45 | 9.48 |
+| prompt_injection_es | 20 | 20 | 2.25 | 1.00 |
 | reasoning | 4 | 4 | 8.53 | 9.57 |
 | sales_outreach | 3 | 3 | 6.91 | 7.11 |
 | startup_content | 8 | 8 | 8.37 | 9.36 |
@@ -2585,5 +2587,9 @@ Aquí tienes un plan semanal detallado, respetando tus restricciones y asignando
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

@@ -1,13 +1,13 @@
 # Llama 3.3 70B
 
 - **model_id**: `meta-llama/llama-3.3-70b-instruct`
-- **Total tests**: 160/160 exitosos (0 errores)
-- **Score final**: 7.48
-- **Calidad**: 7.89
+- **Total tests**: 184/184 exitosos (0 errores)
+- **Score final**: 7.25
+- **Calidad**: 7.57
 - **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 31 tok/s
-- **Latencia primera token**: 22.08s
-- **Costo promedio por test**: $0.00030
+- **Velocidad**: 30 tok/s
+- **Latencia primera token**: 20.06s
+- **Costo promedio por test**: $0.00037
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.50 | 8.05 |
 | deep_reasoning | 6 | 6 | 5.92 | 5.83 |
 | hallucination | 3 | 3 | 7.44 | 7.67 |
+| integridad_idioma | 4 | 4 | 8.62 | 9.63 |
 | multi_turn | 4 | 4 | 7.21 | 7.38 |
 | news_seo_writing | 5 | 5 | 6.93 | 7.19 |
 | ocr_extraction | 5 | 5 | 8.36 | 8.70 |
 | orchestration | 5 | 5 | 7.66 | 8.40 |
 | policy_adherence | 4 | 4 | 7.45 | 7.58 |
 | presentation | 2 | 2 | 8.55 | 9.41 |
+| prompt_injection_es | 20 | 20 | 5.12 | 4.60 |
 | reasoning | 3 | 3 | 8.19 | 9.15 |
 | sales_outreach | 3 | 3 | 8.41 | 9.33 |
 | startup_content | 5 | 5 | 8.39 | 9.19 |
@@ -2261,5 +2263,9 @@ Aquí te dejo la información de los candidatos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

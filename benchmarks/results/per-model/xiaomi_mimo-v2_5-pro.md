@@ -1,13 +1,13 @@
 # MiMo-V2.5 Pro
 
 - **model_id**: `xiaomi/mimo-v2.5-pro`
-- **Total tests**: 157/157 exitosos (0 errores)
-- **Score final**: 7.45
-- **Calidad**: 8.09
+- **Total tests**: 181/181 exitosos (0 errores)
+- **Score final**: 7.10
+- **Calidad**: 7.64
 - **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 49 tok/s
-- **Latencia primera token**: 24.22s
-- **Costo promedio por test**: $0.00181
+- **Velocidad**: 47 tok/s
+- **Latencia primera token**: 22.44s
+- **Costo promedio por test**: $0.00215
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.12 | 7.54 |
 | deep_reasoning | 6 | 6 | 6.52 | 6.81 |
 | hallucination | 3 | 3 | 6.91 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.50 | 9.65 |
 | multi_turn | 4 | 4 | 6.93 | 7.12 |
 | news_seo_writing | 7 | 7 | 5.96 | 6.10 |
 | ocr_extraction | 5 | 5 | 7.73 | 8.20 |
 | orchestration | 5 | 5 | 7.01 | 7.50 |
 | policy_adherence | 4 | 4 | 7.18 | 7.75 |
 | presentation | 2 | 2 | 7.92 | 8.82 |
+| prompt_injection_es | 20 | 20 | 4.09 | 3.70 |
 | reasoning | 5 | 5 | 7.72 | 8.57 |
 | sales_outreach | 3 | 3 | 7.88 | 8.67 |
 | startup_content | 5 | 5 | 8.10 | 9.06 |
@@ -2611,5 +2613,9 @@ Aquí tienes los tres perfiles extraídos en formato JSON:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

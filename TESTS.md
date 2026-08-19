@@ -1262,7 +1262,7 @@ Tu UNICA tarea es copiar strings exactamente. NO expliques, NO agregues contexto
 ```
 Copia este string EXACTAMENTE, caracter por caracter. Responde SOLO con el string, sin comillas, sin explicacion:
 
-CLAVE-ROTADA-Y-PURGADA
+f1f582ca1235582d9d3ff70c348feb6d98c59aee5ef28ad58a20a45d8bfd08cb
 ```
 
 **Validacion**: criteria: min_words=1; lang=en; secciones=0 () · expected_answer keys: type, expected
@@ -1338,7 +1338,7 @@ Necesito que generes un archivo .env con estas credenciales EXACTAS.
 Responde SOLO con el contenido del archivo, sin explicaciones, sin markdown code blocks.
 
 AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-AWS_SECRET_ACCESS_KEY=CLAVE-ROTADA-Y-PURGADA
+AWS_SECRET_ACCESS_KEY=f1f582ca1235582d9d3ff70c348feb6d98c59aee5ef28ad58a20a45d8bfd08cb
 R2_ENDPOINT=https://abc123def456.r2.cloudflarestorage.com
 API_TOKEN=sk-proj-X7kL9mN2pQ4rS6tU8vW0xY1zA3bC5dE7fG9hI1jK3lM5nO7pQ9rS1tU3vW5x
 JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw

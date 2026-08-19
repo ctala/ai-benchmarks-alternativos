@@ -1,13 +1,13 @@
 # Poolside Laguna S 2.1
 
 - **model_id**: `poolside/laguna-s-2.1`
-- **Total tests**: 222/222 exitosos (0 errores)
-- **Score final**: 7.45
-- **Calidad**: 7.69
+- **Total tests**: 226/226 exitosos (0 errores)
+- **Score final**: 7.47
+- **Calidad**: 7.71
 - **Judge score (Phi-4)**: 3.78/10
-- **Velocidad**: 76 tok/s
-- **Latencia primera token**: 9.01s
-- **Costo promedio por test**: $0.00548
+- **Velocidad**: 77 tok/s
+- **Latencia primera token**: 9.02s
+- **Costo promedio por test**: $0.00538
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 4 | 4 | 7.30 | 7.05 |
 | deep_reasoning | 6 | 6 | 7.25 | 7.50 |
 | hallucination | 3 | 3 | 7.67 | 7.67 |
+| integridad_idioma | 4 | 4 | 8.66 | 9.04 |
 | multi_turn | 4 | 4 | 7.72 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.94 | 5.46 |
 | niah_es | 59 | 59 | 8.33 | 9.80 |
@@ -2248,5 +2249,7 @@ Aquí tienes un desglose detallado del proyecto en **fases, tareas, dependencias
 #### prompt_injection_es
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
 
 #### verificar_claim

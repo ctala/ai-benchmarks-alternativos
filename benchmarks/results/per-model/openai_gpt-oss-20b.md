@@ -1,13 +1,13 @@
 # GPT-OSS 20B
 
 - **model_id**: `openai/gpt-oss-20b`
-- **Total tests**: 150/150 exitosos (0 errores)
-- **Score final**: 7.75
-- **Calidad**: 7.86
+- **Total tests**: 174/174 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.24
 - **Judge score (Phi-4)**: 4.38/10
-- **Velocidad**: 94 tok/s
-- **Latencia primera token**: 17.47s
-- **Costo promedio por test**: $0.00023
+- **Velocidad**: 89 tok/s
+- **Latencia primera token**: 15.79s
+- **Costo promedio por test**: $0.00020
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.51 | 7.49 |
 | deep_reasoning | 6 | 6 | 6.98 | 7.08 |
 | hallucination | 3 | 3 | 7.31 | 7.00 |
+| integridad_idioma | 4 | 4 | 9.01 | 9.64 |
 | multi_turn | 4 | 4 | 7.28 | 7.00 |
 | news_seo_writing | 5 | 5 | 7.25 | 7.46 |
 | ocr_extraction | 5 | 5 | 8.55 | 8.80 |
 | orchestration | 5 | 5 | 7.56 | 7.62 |
 | policy_adherence | 4 | 4 | 6.08 | 5.33 |
 | presentation | 2 | 2 | 8.21 | 8.88 |
+| prompt_injection_es | 20 | 20 | 3.70 | 2.13 |
 | reasoning | 5 | 5 | 8.66 | 9.26 |
 | sales_outreach | 3 | 3 | 6.43 | 6.00 |
 | startup_content | 8 | 8 | 8.68 | 9.33 |
@@ -2391,5 +2393,9 @@ We need to respond in Spanish per rule. The user requests: publish article, appr
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

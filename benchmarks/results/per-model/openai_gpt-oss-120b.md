@@ -1,13 +1,13 @@
 # GPT-OSS 120B
 
 - **model_id**: `openai/gpt-oss-120b`
-- **Total tests**: 154/154 exitosos (0 errores)
-- **Score final**: 7.68
-- **Calidad**: 8.14
+- **Total tests**: 178/178 exitosos (0 errores)
+- **Score final**: 7.39
+- **Calidad**: 7.67
 - **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 29.55s
-- **Costo promedio por test**: $0.00033
+- **Velocidad**: 52 tok/s
+- **Latencia primera token**: 26.44s
+- **Costo promedio por test**: $0.00034
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.09 | 7.40 |
 | deep_reasoning | 6 | 6 | 7.00 | 7.08 |
 | hallucination | 3 | 3 | 6.65 | 6.33 |
+| integridad_idioma | 4 | 4 | 8.32 | 8.80 |
 | multi_turn | 4 | 4 | 7.75 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.95 | 7.20 |
 | ocr_extraction | 5 | 5 | 8.53 | 8.95 |
 | orchestration | 5 | 5 | 7.34 | 7.73 |
 | policy_adherence | 4 | 4 | 6.34 | 6.17 |
 | presentation | 3 | 3 | 8.72 | 9.75 |
+| prompt_injection_es | 20 | 20 | 4.93 | 3.82 |
 | reasoning | 5 | 5 | 8.56 | 9.46 |
 | sales_outreach | 3 | 3 | 7.18 | 7.56 |
 | startup_content | 9 | 9 | 8.74 | 9.52 |
@@ -2560,5 +2562,9 @@ user says "Procesa el reembolso del cliente." It's a request to process a refund
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

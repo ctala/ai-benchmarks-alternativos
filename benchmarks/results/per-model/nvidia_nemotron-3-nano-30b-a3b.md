@@ -1,13 +1,13 @@
 # Nemotron 3 Nano 30B
 
 - **model_id**: `nvidia/nemotron-3-nano-30b-a3b`
-- **Total tests**: 152/155 exitosos (3 errores)
-- **Score final**: 7.53
-- **Calidad**: 7.65
+- **Total tests**: 176/179 exitosos (3 errores)
+- **Score final**: 7.11
+- **Calidad**: 7.00
 - **Judge score (Phi-4)**: 4.09/10
-- **Velocidad**: 115 tok/s
-- **Latencia primera token**: 18.76s
-- **Costo promedio por test**: $0.00074
+- **Velocidad**: 118 tok/s
+- **Latencia primera token**: 16.56s
+- **Costo promedio por test**: $0.00069
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 6.65 | 6.34 |
 | deep_reasoning | 6 | 6 | 6.83 | 6.95 |
 | hallucination | 3 | 3 | 6.62 | 6.33 |
+| integridad_idioma | 4 | 4 | 9.14 | 9.58 |
 | multi_turn | 4 | 4 | 7.71 | 8.00 |
 | news_seo_writing | 5 | 5 | 7.00 | 7.14 |
 | ocr_extraction | 5 | 5 | 8.58 | 9.35 |
 | orchestration | 5 | 5 | 4.54 | 3.53 |
 | policy_adherence | 4 | 4 | 6.58 | 6.17 |
 | presentation | 2 | 2 | 8.48 | 9.16 |
+| prompt_injection_es | 20 | 20 | 3.52 | 1.53 |
 | reasoning | 3 | 3 | 8.19 | 8.87 |
 | sales_outreach | 3 | 3 | 6.71 | 6.44 |
 | startup_content | 5 | 5 | 8.56 | 9.29 |
@@ -2164,5 +2166,9 @@ A continuación tienes un desglose completo en **fases**, con sus **tareas**, **
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

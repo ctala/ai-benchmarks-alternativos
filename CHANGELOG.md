@@ -6,6 +6,25 @@
 ## [No publicado]
 
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
+> cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
+
+## [v4.7.0] - 2026-08-19 — Cuatro modelos frontier estaban al fondo por un techo nuestro
+
+Esta versión no agrega un eje: **arregla la medición**. Y el titular es cuánto se movió
+el ranking al arreglarla:
+
+    Gemini 3.6 Flash    +57 puestos
+    Claude Opus 5 Fast  +44
+    Claude Opus 5       +37     (estaba #79 de 83)
+    Claude Sonnet 5     +26
+
+Ninguno había cambiado: cambió el presupuesto de salida que les dábamos.
+
+**91 modelos rankeados** (antes 83) · 205 catalogados · cero truncamiento en los 167 con
+muestra suficiente.
+
+
+> Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
 > Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
 

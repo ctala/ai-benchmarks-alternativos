@@ -1,13 +1,13 @@
 # DeepSeek V3.2
 
 - **model_id**: `deepseek/deepseek-chat`
-- **Total tests**: 274/274 exitosos (0 errores)
-- **Score final**: 7.58
-- **Calidad**: 8.49
+- **Total tests**: 309/309 exitosos (0 errores)
+- **Score final**: 7.30
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 4.37/10
 - **Velocidad**: 27 tok/s
-- **Latencia primera token**: 19.75s
-- **Costo promedio por test**: $0.00324
+- **Latencia primera token**: 18.04s
+- **Costo promedio por test**: $0.00305
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,13 +25,17 @@
 | creativity | 4 | 4 | 7.60 | 8.25 |
 | customer_support | 6 | 6 | 7.83 | 8.42 |
 | deep_reasoning | 6 | 6 | 7.14 | 7.78 |
+| dominio_entidad | 6 | 6 | 9.16 | 10.00 |
+| extraer_claims | 5 | 5 | 8.57 | 9.17 |
 | hallucination | 3 | 3 | 6.79 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.62 | 9.66 |
 | multi_turn | 4 | 4 | 7.13 | 7.50 |
 | news_seo_writing | 7 | 7 | 6.09 | 6.30 |
 | ocr_extraction | 5 | 5 | 8.84 | 10.00 |
 | orchestration | 6 | 6 | 7.39 | 8.06 |
 | policy_adherence | 4 | 4 | 7.49 | 8.08 |
 | presentation | 2 | 2 | 7.96 | 8.96 |
+| prompt_injection_es | 20 | 20 | 2.32 | 1.00 |
 | reasoning | 3 | 3 | 8.07 | 9.28 |
 | sales_outreach | 3 | 3 | 6.70 | 7.11 |
 | startup_content | 5 | 5 | 8.06 | 9.14 |
@@ -2331,5 +2335,13 @@ Aquí tienes un plan detallado para lanzar tu landing page en **4 semanas** con 
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### extraer_claims
+
+#### dominio_entidad
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

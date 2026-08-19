@@ -1,13 +1,13 @@
 # Qwen 3.5 397B
 
 - **model_id**: `qwen/qwen3.5-397b-a17b`
-- **Total tests**: 154/154 exitosos (0 errores)
-- **Score final**: 7.04
-- **Calidad**: 7.93
+- **Total tests**: 178/178 exitosos (0 errores)
+- **Score final**: 6.37
+- **Calidad**: 7.05
 - **Judge score (Phi-4)**: 4.41/10
-- **Velocidad**: 65 tok/s
-- **Latencia primera token**: 48.30s
-- **Costo promedio por test**: $0.01044
+- **Velocidad**: 59 tok/s
+- **Latencia primera token**: 58.34s
+- **Costo promedio por test**: $0.01039
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 7.96 | 8.57 |
 | deep_reasoning | 6 | 6 | 5.36 | 5.65 |
 | hallucination | 3 | 3 | 5.40 | 5.67 |
+| integridad_idioma | 4 | 4 | 3.68 | 3.37 |
 | multi_turn | 4 | 4 | 7.22 | 8.12 |
 | news_seo_writing | 5 | 5 | 5.52 | 5.67 |
 | ocr_extraction | 5 | 5 | 7.88 | 9.35 |
 | orchestration | 5 | 5 | 6.97 | 7.43 |
 | policy_adherence | 4 | 4 | 7.68 | 9.00 |
 | presentation | 2 | 2 | 7.22 | 8.16 |
+| prompt_injection_es | 20 | 20 | 1.71 | 1.00 |
 | reasoning | 4 | 4 | 7.20 | 8.26 |
 | sales_outreach | 3 | 3 | 8.02 | 9.33 |
 | startup_content | 9 | 9 | 7.50 | 8.72 |
@@ -2560,5 +2562,9 @@ Thinking Process:
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

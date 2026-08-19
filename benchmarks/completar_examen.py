@@ -83,13 +83,23 @@ def bloqueados() -> list[dict]:
     return sorted(out, key=lambda x: -(x["calidad"] or 0))
 
 
-def armar_resume(model_id: str, destino: Path) -> int:
+def armar_resume(model_id: str, destino: Path, model_name: str | None = None) -> int:
     """Consolida TODOS los runs existentes de un modelo en un solo JSON.
 
     `--resume` del runner saltea los tests ya completados, pero toma UN archivo. Los runs
     de un modelo viven repartidos en decenas de `benchmark_*.json`, así que hay que
     juntarlos primero. Sin esto, completar un examen significa re-correrlo entero y
     duplicar runs que ya estaban bien.
+
+    ⚠️ `model_name` NO es opcional en la práctica (19-ago-2026). Filtrar sólo por
+    `model_id` mete los runs de las VARIANTES DE PROVEEDOR, que comparten id: el resume
+    de `or-kimi-k2.5` traía 5.229 runs de «Kimi K2.5 (NIM)» junto a los 6.125 propios.
+    El runner entonces ve el test «ya hecho» —por un run de OTRO modelo— y lo saltea.
+
+    Costó seis intentos de cierre sin avanzar un solo test, con el log diciendo
+    `SKIP (resume)` cuarenta veces y nadie mirándolo. Es el mismo principio que el repo
+    ya tenía escrito para el export —«un (id, name) = UNA config»— aplicado al lugar
+    donde nadie lo había mirado.
     """
     runs = []
     for f in glob.glob(str(RESULTS / "*.json")):
@@ -102,6 +112,9 @@ def armar_resume(model_id: str, destino: Path) -> int:
             if not isinstance(r, dict):
                 continue
             if r.get("model_id") != model_id and r.get("model") != model_id:
+                continue
+            # El id NO alcanza: las variantes de proveedor lo comparten.
+            if model_name and r.get("model") != model_name:
                 continue
             # SOLO los EXITOSOS. Consolidar también los fallidos hacía que este script no
             # pudiera hacer su único trabajo, y lo hacía en silencio.

@@ -1,13 +1,13 @@
 # Gemini 2.5 Flash
 
 - **model_id**: `google/gemini-2.5-flash`
-- **Total tests**: 162/162 exitosos (0 errores)
-- **Score final**: 7.63
-- **Calidad**: 8.05
+- **Total tests**: 203/203 exitosos (0 errores)
+- **Score final**: 7.26
+- **Calidad**: 7.52
 - **Judge score (Phi-4)**: 4.16/10
-- **Velocidad**: 102 tok/s
-- **Latencia primera token**: 6.31s
-- **Costo promedio por test**: $0.00443
+- **Velocidad**: 93 tok/s
+- **Latencia primera token**: 5.48s
+- **Costo promedio por test**: $0.00394
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,13 +25,17 @@
 | creativity | 4 | 4 | 8.04 | 8.50 |
 | customer_support | 7 | 7 | 7.56 | 7.67 |
 | deep_reasoning | 6 | 6 | 6.89 | 7.36 |
+| dominio_entidad | 6 | 6 | 9.42 | 10.00 |
+| extraer_claims | 5 | 5 | 8.73 | 9.00 |
 | hallucination | 3 | 3 | 7.55 | 7.67 |
+| integridad_idioma | 4 | 4 | 8.66 | 9.60 |
 | multi_turn | 4 | 4 | 7.58 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.96 | 7.28 |
 | ocr_extraction | 5 | 5 | 8.27 | 8.70 |
 | orchestration | 5 | 5 | 7.92 | 8.18 |
 | policy_adherence | 4 | 4 | 8.49 | 9.08 |
 | presentation | 2 | 2 | 7.86 | 8.68 |
+| prompt_injection_es | 20 | 20 | 2.49 | 1.07 |
 | reasoning | 3 | 3 | 7.82 | 8.67 |
 | sales_outreach | 3 | 3 | 6.56 | 6.44 |
 | startup_content | 9 | 9 | 8.24 | 9.30 |
@@ -44,6 +48,7 @@
 | tool_calling_adversarial | 10 | 10 | 6.66 | 6.54 |
 | translation | 3 | 3 | 8.42 | 8.57 |
 | verificar_claim | 10 | 10 | 8.59 | 8.80 |
+| verificar_claims_lote | 6 | 6 | 8.81 | 9.54 |
 
 ## Detalle por test
 
@@ -2364,5 +2369,15 @@ TechFlow cerró el Q1 2026 con un sólido crecimiento, alcanzando $2.3M en venta
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### extraer_claims
+
+#### dominio_entidad
+
+#### integridad_idioma
+
+#### verificar_claims_lote
+
+#### prompt_injection_es
 
 #### verificar_claim

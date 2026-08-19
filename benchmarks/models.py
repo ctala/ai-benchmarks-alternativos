@@ -364,6 +364,20 @@ MODELS = {
         "publisher": "ByteDance Seed",
     },
     "sakana-namazu": {
+        # 19-ago-2026 · NO tiene endpoint con herramientas, verificado midiendo.
+        # Las CINCO suites que mandan `tools` fallaron con `404 - No endpoints found`
+        # —tool_calling, tool_calling_adversarial, orchestration, agent_capabilities,
+        # customer_support: 484 errores— mientras el resto del examen corría normal.
+        #
+        # Ojo con el diagnóstico fácil: el catálogo de OpenRouter declara `tools` para
+        # este id, y un ping sin herramientas responde perfecto. Lo que falta no es el
+        # modelo: es un PROVEEDOR que las exponga. Mismo caso que Hermes 4 405B, cuyo
+        # propio desarrollador recomienda usar otro para tool calling.
+        #
+        # Queda fuera del ranking solo por el criterio de examen completo — que es la
+        # respuesta correcta: un modelo que no puede ejecutar herramientas no se compara
+        # de igual a igual con uno que sí, y recomendarlo para un agente sería mentir.
+        "sirve_para_agentes": False,
         "id": "sakana/sakana-namazu",
         "name": "Sakana Namazu",
         "cost_input": 0.95, "cost_output": 4.00,

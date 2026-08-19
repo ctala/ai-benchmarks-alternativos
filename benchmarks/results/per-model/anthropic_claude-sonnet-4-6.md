@@ -1,13 +1,13 @@
 # Claude Sonnet 4.6
 
 - **model_id**: `anthropic/claude-sonnet-4-6`
-- **Total tests**: 175/175 exitosos (0 errores)
-- **Score final**: 6.99
-- **Calidad**: 7.94
+- **Total tests**: 223/223 exitosos (0 errores)
+- **Score final**: 7.16
+- **Calidad**: 8.25
 - **Judge score (Phi-4)**: 4.35/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 13.71s
-- **Costo promedio por test**: $0.01994
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 12.30s
+- **Costo promedio por test**: $0.02293
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 7 | 7 | 7.30 | 8.32 |
 | deep_reasoning | 6 | 6 | 6.09 | 6.94 |
 | hallucination | 3 | 3 | 5.95 | 6.33 |
+| integridad_idioma | 8 | 8 | 7.97 | 9.64 |
 | multi_turn | 4 | 4 | 7.01 | 7.92 |
 | news_seo_writing | 7 | 7 | 5.50 | 6.23 |
 | ocr_extraction | 5 | 5 | 7.97 | 9.27 |
 | orchestration | 7 | 7 | 6.81 | 7.60 |
 | policy_adherence | 4 | 4 | 7.50 | 8.67 |
 | presentation | 2 | 2 | 7.54 | 9.06 |
+| prompt_injection_es | 40 | 40 | 7.73 | 9.31 |
 | reasoning | 3 | 3 | 7.56 | 9.00 |
 | sales_outreach | 3 | 3 | 7.84 | 9.33 |
 | startup_content | 5 | 5 | 7.57 | 9.17 |
@@ -2770,3 +2772,7 @@ Para los puntos **1** y **2** puedo actuar ahora mismo (uno ejecutándolo, otro 
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### integridad_idioma
+
+#### prompt_injection_es

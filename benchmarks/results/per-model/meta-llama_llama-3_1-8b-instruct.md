@@ -1,13 +1,13 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 173/173 exitosos (0 errores)
-- **Score final**: 7.28
-- **Calidad**: 7.04
+- **Total tests**: 197/197 exitosos (0 errores)
+- **Score final**: 6.97
+- **Calidad**: 6.62
 - **Judge score (Phi-4)**: 3.65/10
-- **Velocidad**: 88 tok/s
-- **Latencia primera token**: 9.96s
-- **Costo promedio por test**: $0.00009
+- **Velocidad**: 84 tok/s
+- **Latencia primera token**: 9.12s
+- **Costo promedio por test**: $0.00013
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 4 | 4 | 8.56 | 8.32 |
 | deep_reasoning | 6 | 6 | 5.58 | 5.00 |
 | hallucination | 3 | 3 | 6.07 | 5.67 |
+| integridad_idioma | 4 | 4 | 9.05 | 9.61 |
 | multi_turn | 4 | 4 | 7.78 | 7.88 |
 | news_seo_writing | 5 | 5 | 6.87 | 6.95 |
 | ocr_extraction | 5 | 5 | 8.39 | 9.10 |
 | orchestration | 5 | 5 | 6.36 | 5.15 |
 | policy_adherence | 4 | 4 | 5.59 | 4.50 |
 | presentation | 2 | 2 | 7.93 | 8.06 |
+| prompt_injection_es | 20 | 20 | 3.87 | 2.33 |
 | reasoning | 3 | 3 | 8.24 | 8.69 |
 | retrieval_distractores | 18 | 18 | 7.30 | 7.17 |
 | sales_outreach | 3 | 3 | 8.73 | 9.33 |
@@ -2299,5 +2301,9 @@ Aquí está la información de los 3 candidatos en formato JSON:
 #### tool_calling_adversarial
 
 #### retrieval_distractores
+
+#### integridad_idioma
+
+#### prompt_injection_es
 
 #### verificar_claim

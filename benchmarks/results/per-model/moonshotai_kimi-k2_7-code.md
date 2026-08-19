@@ -1,13 +1,13 @@
 # Kimi K2.7 Code
 
 - **model_id**: `moonshotai/kimi-k2.7-code`
-- **Total tests**: 245/273 exitosos (28 errores)
-- **Score final**: 7.05
-- **Calidad**: 8.10
+- **Total tests**: 256/284 exitosos (28 errores)
+- **Score final**: 7.11
+- **Calidad**: 8.17
 - **Judge score (Phi-4)**: 3.78/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 42.03s
-- **Costo promedio por test**: $0.02063
+- **Velocidad**: 48 tok/s
+- **Latencia primera token**: 41.47s
+- **Costo promedio por test**: $0.02005
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -25,7 +25,10 @@
 | creativity | 4 | 4 | 7.24 | 8.50 |
 | customer_support | 4 | 4 | 7.07 | 7.64 |
 | deep_reasoning | 6 | 6 | 5.63 | 6.25 |
+| dominio_entidad | 2 | 2 | 9.07 | 10.00 |
+| extraer_claims | 5 | 5 | 8.71 | 10.00 |
 | hallucination | 3 | 3 | 6.04 | 6.33 |
+| integridad_idioma | 4 | 4 | 8.17 | 9.63 |
 | multi_turn | 4 | 4 | 6.31 | 6.88 |
 | news_seo_writing | 5 | 5 | 6.26 | 7.25 |
 | niah_es | 90 | 68 | 8.07 | 9.95 |
@@ -2254,5 +2257,11 @@ TechFlow cerró Q1 2026 con ventas de **$2.3M (+18% vs Q4 2025)**, impulsadas po
 #### agent_long_horizon
 
 #### tool_calling_adversarial
+
+#### extraer_claims
+
+#### dominio_entidad
+
+#### integridad_idioma
 
 #### verificar_claim

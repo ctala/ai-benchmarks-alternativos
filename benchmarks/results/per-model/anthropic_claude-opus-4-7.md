@@ -1,13 +1,13 @@
 # Claude Opus 4.7
 
 - **model_id**: `anthropic/claude-opus-4-7`
-- **Total tests**: 210/210 exitosos (0 errores)
-- **Score final**: 7.07
-- **Calidad**: 8.30
+- **Total tests**: 258/258 exitosos (0 errores)
+- **Score final**: 7.15
+- **Calidad**: 8.47
 - **Judge score (Phi-4)**: 4.38/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 15.53s
-- **Costo promedio por test**: $0.05659
+- **Velocidad**: 55 tok/s
+- **Latencia primera token**: 14.57s
+- **Costo promedio por test**: $0.06112
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,12 +26,14 @@
 | customer_support | 7 | 7 | 6.40 | 7.20 |
 | deep_reasoning | 6 | 6 | 6.08 | 6.99 |
 | hallucination | 3 | 3 | 6.08 | 6.56 |
+| integridad_idioma | 8 | 8 | 7.83 | 9.51 |
 | multi_turn | 4 | 4 | 6.67 | 7.67 |
 | news_seo_writing | 9 | 9 | 5.53 | 6.32 |
 | ocr_extraction | 5 | 5 | 8.28 | 9.87 |
 | orchestration | 9 | 9 | 6.78 | 7.86 |
 | policy_adherence | 4 | 4 | 7.06 | 8.17 |
 | presentation | 4 | 4 | 7.45 | 9.06 |
+| prompt_injection_es | 40 | 40 | 7.42 | 9.18 |
 | reasoning | 6 | 6 | 7.68 | 9.31 |
 | sales_outreach | 3 | 3 | 7.78 | 9.33 |
 | startup_content | 10 | 10 | 7.51 | 9.15 |
@@ -3213,3 +3215,7 @@ Asumiendo jornada de **9 AM - 6 PM** con almuerzo 12-1 PM (salvo excepciones).
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### integridad_idioma
+
+#### prompt_injection_es
