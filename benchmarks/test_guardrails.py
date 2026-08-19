@@ -46,8 +46,23 @@ resultados: list[tuple[str, bool, str]] = []
 
 
 def _correr(script: str, *args) -> int:
-    return subprocess.run([PY, str(ROOT / "benchmarks" / script), *args],
-                          cwd=ROOT, capture_output=True, text=True).returncode
+    """El exit code del guardrail — con el exit 2 de argparse tratado como FALLO del test.
+
+    19-ago-2026. `_t_truncamiento` pasaba `--todos`, un flag que se había renombrado a
+    `--solo-rankeados` el día anterior. argparse salía con 2, la prueba leía «≠ 0 → el
+    guardrail cazó el caso» y daba VERDE. Nunca corrió el detector.
+
+    Es el mismo falso verde que este archivo existe para evitar, una capa más arriba: el
+    guardrail tenía quién lo probara, y la prueba no tenía quién la probara a ella. Un
+    error de USO no es una detección, así que acá explota en vez de contar como éxito.
+    """
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / script), *args],
+                       cwd=ROOT, capture_output=True, text=True)
+    if r.returncode == 2 and "unrecognized arguments" in r.stderr:
+        raise AssertionError(
+            f"{script}: la prueba lo invoca con un flag que ya no existe "
+            f"({' '.join(args)}). {r.stderr.strip().splitlines()[-1]}")
+    return r.returncode
 
 
 class Sabotaje:
@@ -182,10 +197,25 @@ def _t_cortes():
         return False
     with Sabotaje(pg):
         import re as _re
-        pg.write_text(_re.sub(r"(<tr><td>1</td><td>(?:<strong>)?)[^<]+",
+        pg.write_text(_re.sub(r"(<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?)[^<]+",
                               r"\1Modelo Inventado", pg.read_text(encoding="utf-8"), count=1),
                       encoding="utf-8")
         return _correr("check_cortes.py") != 0
+
+
+@prueba("check_fichas_alcanzables", "una página que lista modelos sin dejar llegar a su ficha")
+def _t_fichas():
+    # Se le quita el enlace a la ficha a UNA página de ranking, dejando el nombre pelado.
+    # Es el estado exacto en que estaban las 16 páginas antes del 19-ago: publicaban al
+    # modelo, y el lector que quería el detalle no tenía a dónde ir.
+    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    if not pg.exists():
+        return False
+    with Sabotaje(pg):
+        import re as _re
+        pg.write_text(_re.sub(r'<a class="a-ficha"[^>]*>(.*?)</a>', r"\1",
+                              pg.read_text(encoding="utf-8")), encoding="utf-8")
+        return _correr("check_fichas_alcanzables.py") != 0
 
 
 @prueba("check_claims", "un doc vivo afirmando lo que una decisión vigente reemplazó")
@@ -294,9 +324,10 @@ def _t_truncamiento():
                  "output_tokens": 2048 if i % 2 else 700}
                 for i in range(60)]
         tmp.write_text(_json.dumps({"metadata": {"timestamp": "prueba"}, "results": runs}))
-        # --todos porque el modelo inventado no está en models.json (no es rankeado);
-        # lo que se prueba es que el umbral dispare, no la lista de rankeados.
-        return _correr("check_truncamiento.py", "--todos", "--duro") != 0
+        # Sin `--solo-rankeados`: el modelo inventado no está en models.json, y desde el
+        # 18-ago el default ya mira TODO lo que haya en disco. Lo que se prueba es que el
+        # umbral dispare, no la lista de rankeados.
+        return _correr("check_truncamiento.py", "--duro") != 0
     finally:
         tmp.unlink(missing_ok=True)
 

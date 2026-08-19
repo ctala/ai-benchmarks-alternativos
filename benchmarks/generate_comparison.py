@@ -570,7 +570,7 @@ def pcell(m, p):
 
 
 def row(rank, m, top=False):
-    nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
+    nm = enlace_ficha(m, bold=top)
     # La salvedad va EN LA FILA, no solo en la sección eje-por-eje. Un modelo que no
     # rankea puede aparecer alto por calidad —las variantes PRO lo hacen— y el lector que
     # solo mira la tabla se lleva una recomendación que el repo decidió no hacer.
@@ -931,6 +931,29 @@ def faq(a_name, b_name, A, B):
   <h2>Preguntas frecuentes</h2>
   {details}
 </section>"""
+
+
+def enlace_ficha(m, texto=None, bold=False):
+    """El nombre del modelo, enlazado a SU ficha. El helper existe para que no haya
+    que acordarse en cada generador.
+
+    POR QUÉ (19-ago-2026)
+    Se generan 91 fichas por modelo y estaban HUÉRFANAS: 16 de 16 páginas de ranking y
+    40 de 40 comparaciones listaban modelos sin un solo enlace a ellas. Sólo se llegaba
+    desde la tabla de la home, y eso porque se conectó ese mismo día. Cristian, mirando
+    la tabla: *"desde acá deberíamos ser capaces de llegar al card del modelo"* — y valía
+    para todas las superficies, no sólo para la que estaba mirando.
+
+    ⚠️ Sólo los RANKEADOS tienen ficha (`generate_model_cards` no genera las demás), así
+    que a los otros se les devuelve el nombre pelado. Enlazar sin condicionar sería
+    sembrar 404s en las páginas de más tráfico.
+    """
+    nombre = esc(texto if texto is not None else (m.get("name") or ""))
+    if bold:
+        nombre = f"<strong>{nombre}</strong>"
+    if not m.get("ranked") or not m.get("key"):
+        return nombre
+    return f'<a class="a-ficha" href="/modelo/{m["key"]}/">{nombre}</a>'
 
 
 def page_shell(title, desc, kw, url, body, contrato=None):

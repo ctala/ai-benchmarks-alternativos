@@ -298,6 +298,15 @@ def main() -> int:
             print("\n❌ Los cortes por eje no coinciden con los datos. Ver arriba.")
             return 1
 
+        # Cada página que publica un modelo tiene que dejar llegar a su ficha. Va acá y
+        # no al principio porque verifica el HTML que este mismo pipeline acaba de
+        # escribir: al principio estaría mirando el de la corrida anterior.
+        print()
+        rc = run_script("check_fichas_alcanzables.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Hay páginas que publican modelos sin salida hacia su ficha. Ver arriba.")
+            return 1
+
         print()
         rc = run_script("check_claims.py", [], dry_run=False, allow_fail=True)
         if rc != 0:

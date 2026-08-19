@@ -29,6 +29,20 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Cómo se lee el nombre del modelo en una fila de tabla generada.
+#
+# 19-ago-2026: vive acá y no inline porque el 19-ago las tablas pasaron a envolver el
+# nombre en `<a class="a-ficha">` para llegar a la ficha, y el patrón —copiado en dos
+# lugares— dejó de matchear. Este chequeo no se puso rojo: se puso CIEGO. `m1` daba None,
+# el `if publicado and …` no entraba y la página se saltaba sin decir nada.
+#
+# Es el modo de fallo más caro que tiene un guardrail que parsea HTML generado: el HTML
+# cambia por una razón buena y el control deja de mirar. Por eso además de unificar el
+# patrón, C1 ahora EXIGE encontrar la fila (ver abajo): si no la encuentra, es un fallo,
+# no un silencio.
+FILA_1 = re.compile(r"<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
+FILA_N = re.compile(r"<tr><td>\d+</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
 sys.path.insert(0, str(ROOT))
 
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
@@ -94,8 +108,13 @@ def main() -> int:
         esperado = max(vals, key=lambda x: x[1])[0]
         html = path.read_text(errors="replace")
         # el #1 de la tabla
-        m1 = re.search(r"<tr><td>1</td><td>(?:<strong>)?([^<]+)", html)
-        publicado = m1.group(1).strip() if m1 else None
+        m1 = FILA_1.search(html)
+        if not m1:
+            fallos.append(f"`{suite}`: no se pudo leer el #1 de {path.parent.name} — el "
+                          f"HTML cambió de forma y este chequeo quedó ciego. Actualizar "
+                          f"FILA_1, no ignorar.")
+            continue
+        publicado = m1.group(1).strip()
         if publicado and esperado not in publicado and publicado not in esperado:
             # puede diferir legítimamente si el #1 quedó excluido por el filtro agéntico
             aptos = [(n, v) for n, v in vals
@@ -112,7 +131,7 @@ def main() -> int:
         if suite not in SUITES_AGENTICAS or not path.exists():
             continue
         html = path.read_text(errors="replace")
-        filas = re.findall(r"<tr><td>\d+</td><td>(?:<strong>)?([^<]+)", html)
+        filas = FILA_N.findall(html)
         colados = [f.strip() for f in filas if f.strip() in no_aptos]
         if colados:
             fallos.append(f"`{suite}`: el corte recomienda a {', '.join(colados)}, que NO "

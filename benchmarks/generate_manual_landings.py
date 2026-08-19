@@ -30,6 +30,12 @@ import re
 import re
 from datetime import date
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+# El enlace a la ficha se resuelve en UN solo lugar (19-ago-2026): `enlace_ficha` decide
+# si el modelo tiene ficha y omite el enlace si no, para no sembrar 404s. Definirlo acá
+# de nuevo sería la tercera copia del mismo criterio.
+from generate_comparison import enlace_ficha  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 DOCS = ROOT / "docs"
@@ -293,7 +299,7 @@ def _badge_no_rankea(m):
 
 def row_alt(rank, m):
     top = rank == 1
-    name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
+    name = enlace_ficha(m, bold=top)
     name += _badge_no_rankea(m)
     return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"
             f"<td>{fmt_cost(m)}</td><td>{esc(fmt_license(m))}</td><td>{esc(fmt_provider_speed(m))}</td></tr>")
@@ -666,7 +672,7 @@ def gen_alternativas_gemini(data):
 # ---------------------------------------------------------------------------
 def row_n8n(rank, m):
     top = rank == 1
-    name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
+    name = enlace_ficha(m, bold=top)
     speed = m.get("tokens_per_second") or 0
     speed_str = f"{round(speed)} ⚡" if speed >= 200 else (f"{round(speed)}" if speed else "—")
     # La columna que ORDENA, no el compuesto: la tabla mostraba `score_global` y ordenaba
@@ -839,7 +845,7 @@ def gen_modelos_n8n(data):
 # ---------------------------------------------------------------------------
 def row_cheap(rank, m):
     top = rank == 1
-    name = f"<strong>{esc(m['name'])}</strong>" if top else esc(m['name'])
+    name = enlace_ficha(m, bold=top)
     name += _badge_no_rankea(m)
     cost_1k = m.get("cost_per_1k_calls_usd") or 0
     cost_str = f"~${cost_1k * 5:.2f}" if cost_1k else "—"

@@ -21,7 +21,7 @@ import json
 from datetime import date
 from generate_comparison import (
     load_models, pillar, fmt_cost, esc, methodology, page_shell, SITE, DOCS, PILLARS,
-    get_counts, fmt_k, get_meta, fmt_pct, existing_published,
+    get_counts, fmt_k, get_meta, fmt_pct, existing_published, enlace_ficha,
 )
 
 
@@ -469,6 +469,19 @@ def score_for(m, cfg):
 
 def score_label(cfg):
     if cfg["criterion"] == "pillar":
+        # AGENTES se ordena por la TAREA REAL (lo que el modelo logró ejecutando el
+        # trabajo, con el piso adentro), no por el pilar — que mide prosa SOBRE agentes
+        # y correlaciona −0,20 con el desempeño real.
+        #
+        # 19-ago-2026: las dos cosas se llamaban casi igual —«Calidad en Agentes» la que
+        # ordena y «Agentes» la columna del pilar— y la tabla se leía como un error.
+        # Cristian: *"¿el ranking no se movió de mejor llm para agentes?"*, al ver a
+        # DeepSeek V3.2 en el puesto #63 con 8,70, el número MÁS ALTO de su fila.
+        # Ambos números eran correctos; lo que fallaba era que nada decía que medían
+        # cosas distintas. Nombrar bien no es cosmética: acá era la diferencia entre
+        # una tabla que se entiende y una que parece rota.
+        if cfg["pillar"] == "Agentes":
+            return "Tarea real ejecutada"
         return f"Calidad en {cfg['pillar']}"   # capacidad pura, sin costo ni velocidad
     if cfg["criterion"] == "suite":
         return cfg["suite"].replace("_", " ").title()
@@ -535,7 +548,7 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
     recomendado es una fila VISIBLE y MARCADA de su propia evidencia.
     """
     badge = (badges or {}).get(m.get("name"))
-    nm = f"<strong>{esc(m.get('name'))}</strong>" if top else esc(m.get("name"))
+    nm = enlace_ficha(m, bold=top)
     if badge:
         nm += f' <span class="row-badge">{esc(badge)}</span>'
     relevant = score_for(m, cfg)
@@ -1083,7 +1096,7 @@ def tabla_valor(cfg, models):
     vals.sort(key=lambda x: -x[0])
     filas = []
     for i, (v, q, m) in enumerate(vals[:8], 1):
-        nm = f"<strong>{esc(m['name'])}</strong>" if i == 1 else esc(m["name"])
+        nm = enlace_ficha(m, bold=(i == 1))
         filas.append(
             f"<tr><td>{i}</td><td>{nm}</td><td><strong>{v:.2f}</strong></td>"
             f"<td>{q:.1f}</td><td>{fmt_usd(cost_for_calls(m))}</td>"
@@ -1158,7 +1171,7 @@ def render_ranking(cfg, models):
   <section class="results">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>
-      <p class="meta">{({'pillar':'Ordenado por <strong>capacidad pura en esta tarea</strong>: solo calidad, sin ponderar costo ni velocidad. Quien busca el mejor para esta tarea pregunta quién la hace mejor — el precio se muestra aparte, para decidir después.','suite':'Ordenado por calidad en esta suite, sin ponderar costo ni velocidad.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
+      <p class="meta">{(cfg.get('pillar') == 'Agentes' and 'Ordenado por <strong>lo que el modelo logró HACIENDO el trabajo</strong>: tareas reales de negocio ejecutadas dentro de un agente, con herramientas, en Docker. Cuenta el PEOR de los intentos, no el promedio — para algo que corre solo, «a veces falla» y «no falla» no son lo mismo. La columna «Agentes» de más a la derecha es otra cosa: mide escribir <em>sobre</em> agentes, y por eso puede ir al revés.' or {'pillar':'Ordenado por <strong>capacidad pura en esta tarea</strong>: solo calidad, sin ponderar costo ni velocidad. Quien busca el mejor para esta tarea pregunta quién la hace mejor — el precio se muestra aparte, para decidir después.','suite':'Ordenado por calidad en esta suite, sin ponderar costo ni velocidad.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
     </div>
     {table_head(cfg)}
       <tbody>

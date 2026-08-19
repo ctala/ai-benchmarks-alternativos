@@ -8,6 +8,33 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **Las 61 páginas que publican modelos ahora dejan llegar a su ficha, y hay quien lo
+  verifica.** Cristian: *"desde acá deberíamos ser capaces de llegar al card del modelo"*.
+  Se resolvió con UN helper compartido (`enlace_ficha` en `generate_comparison.py`), que
+  además omite el enlace si el modelo no tiene ficha — así el arreglo no siembra 404s. Van
+  197 enlaces en 16 rankings, 172 en 40 comparaciones y las 5 páginas que faltaban
+  (`alternativas-*` y `grok-4-1-vs-4-5`, hasta 20 modelos listados cada una) las encontró
+  el guardrail nuevo `check_fichas_alcanzables.py`, no yo. Es bloqueante en `qa.py` y en el
+  pipeline desde el primer día, y se puede porque nació en verde.
+
+- **`check_cortes.py` llevaba una corrida entera CIEGO y no se puso rojo: se puso mudo.**
+  Envolver el nombre del modelo en `<a class="a-ficha">` rompió el regex que leía el #1 de
+  cada tabla —copiado en dos lugares—, así que `m1` daba `None`, el `if` no entraba y las
+  8 páginas se saltaban sin decir nada. Ahora el patrón vive en una constante y **C1 exige
+  encontrar la fila**: si el HTML cambia de forma otra vez, es un fallo, no un silencio.
+  Es el modo de fallo propio de un guardrail que parsea HTML generado — el HTML cambia por
+  una razón buena y el control deja de mirar.
+
+- **Un test de guardrail daba verde por ver a argparse rechazar un flag muerto.**
+  `_t_truncamiento` invocaba `--todos`, renombrado a `--solo-rankeados` el día anterior:
+  argparse salía con 2, el test leía «≠ 0 → cazó el caso» y pasaba **sin correr el
+  detector**. `_correr` ahora trata el exit 2 de argparse como fallo del test. El archivo
+  que existe para que ningún guardrail sea una promesa era, él mismo, una promesa.
+
+- **Un `--duro` opcional habría hecho de `check_fichas_alcanzables` un bloqueante falso.**
+  `qa.py` lo declara bloqueante y lo invoca sin el flag: habría devuelto 0 para siempre.
+  Se le quitó la palanca — falla y punto.
+
 - **El veredicto destacado de tres páginas recomendaba un modelo que corre en el Spark.**
   DiffusionGemma 26B-A4B aparecía como «La mejor calidad medida · ≈$2/mes» en
   `/mejor-llm-para-agentes/`, `/mejor-llm-para-n8n/` y `/mejor-llm-para-razonamiento/`, y

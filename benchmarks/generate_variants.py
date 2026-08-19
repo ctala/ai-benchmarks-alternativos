@@ -29,7 +29,7 @@ from datetime import date
 
 from generate_comparison import (
     load_models, fmt_cost, esc, methodology, page_shell, SITE, DOCS, PILLARS,
-    get_counts, fmt_k, pillar, funnel_block,
+    get_counts, fmt_k, pillar, funnel_block, enlace_ficha,
 )
 
 # Familias a generar. Añadir una = un dict acá, cero HTML a mano.
@@ -244,7 +244,7 @@ def ladder_block(vs, cfg):
     cols = ""
     for m in vs:
         precio = m.get("cost_per_1k_calls_usd") or 0
-        cols += ("<th>" + esc(short(m, cfg))
+        cols += ("<th>" + enlace_ficha(m, texto=short(m, cfg))
                  + '<span class="lad-price">${:.2f}</span></th>'.format(precio))
 
     tabla = ('<div class="table-scroll"><table class="results-table ladder">'
@@ -302,7 +302,7 @@ def render(cfg, models):
         badge = ' <span class="row-badge">← el más barato</span>' if is_cheap else ""
         tr_cls = ' class="win"' if is_cheap else ""
         rows.append(
-            f'<tr{tr_cls}><td><strong>{esc(short(m, cfg))}</strong>{badge}</td>'
+            f'<tr{tr_cls}><td>{enlace_ficha(m, texto=short(m, cfg), bold=True)}{badge}</td>'
             f'<td>{(m.get("quality_avg") or 0):.2f}</td>'
             f'<td>{pillar(m,"Coding"):.1f}</td><td>{pillar(m,"Contenido"):.1f}</td>'
             f'<td>{pillar(m,"Razonamiento"):.1f}</td><td>{pillar(m,"Agentes"):.1f}</td>'

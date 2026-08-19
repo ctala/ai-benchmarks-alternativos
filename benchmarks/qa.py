@@ -90,6 +90,11 @@ CHEQUEOS = [
     # ignorarlo, que es peor que no tenerlo.
     ("datos", "ninguna nota se construyó sobre respuestas cortadas",
      [PY, "benchmarks/check_truncamiento.py"], False, False),
+    # Bloqueante desde el día uno, y se puede porque nació en verde: la primera corrida
+    # encontró 5 páginas huérfanas y se arreglaron en el mismo commit. Un chequeo que
+    # entra ya rojo se aprende a ignorar; uno que entra verde protege lo que costó cerrar.
+    ("paginas", "toda página que lista un modelo deja llegar a su ficha",
+     [PY, "benchmarks/check_fichas_alcanzables.py"], True, True),
     ("datos", "cobertura del núcleo sobre el piso",
      [PY, "benchmarks/cobertura.py", "--duro"], False, False),
 ]
