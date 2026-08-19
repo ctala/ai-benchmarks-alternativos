@@ -138,12 +138,17 @@
   @media (min-width: 720px) { .bar-track { grid-column: auto; } }
   .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
               background: linear-gradient(90deg, var(--cyan), var(--green)); }
-  .bar-fill.bajo { background: linear-gradient(90deg, #4a4a5e, var(--magenta)); }
+  /* 19-ago-2026: era magenta. Un 8,71 sobre 10 se pintaba del mismo rojo que un
+     error, porque queda 0,35 bajo la MEDIANA de un grupo que entero cabe en 1,4
+     puntos. El color decía «reprobado» de un número muy bueno. Hoy el verde marca
+     lo que sobresale y el resto es neutro: estar bajo la mediana de esta población
+     no es una falla, es el promedio. */
+  .bar-fill.bajo { background: linear-gradient(90deg, #3a3a4e, #6f7690); }
   .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
                 background: var(--gray); opacity: .7; }
   .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
                     font-weight: 700; color: var(--green); white-space: nowrap; }
-  .bar-row .b-val.bajo { color: var(--magenta); }
+  .bar-row .b-val.bajo { color: var(--muted); }
   .bar-row .b-val .delta { color: var(--gray); font-weight: 400; font-size: .72rem; }
   .perfil .leyenda { font-size: .75rem; color: var(--gray); margin-top: -.35rem; }
 
@@ -209,23 +214,25 @@
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#22<span class="k-unit"> de 91</span></span><span class="k-sub">mejor que el 77% de los rankeados</span></div>
-    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">8.17<span class="k-unit">/10</span></span><span class="k-sub">40 modelos por encima</span></div>
+    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">8.17<span class="k-unit">/10</span></span><span class="k-sub">#22 de 91 · del mejor al peor hay 1.3 puntos</span></div>
     <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$2.40</span><span class="k-sub">más barato que 49 de 91</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Al mes, uso típico</span><span class="k-value">$3.60</span><span class="k-sub">50 llamadas por día, todos los días</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">99<span class="k-unit"> tok/s</span></span><span class="k-sub">6.7 s de espera media</span></div>
   </div>
   <div class="badges">
     <span class="badge ">⬡ Propietario</span>
-    <span class="badge on">⚒ Tool calling</span>
-    <span class="badge info">◨ Multimodal</span>
-    <span class="badge info">◈ Thinking</span>
-    <span class="badge on">⛨ Prompt injection 7.5/10</span>
+    <span class="badge on">⚒ Puede usar herramientas</span>
+    <span class="badge info">◨ Entiende imágenes</span>
+    <span class="badge info">◈ Razona antes de responder</span>
+    <span class="badge on">⛨ Resiste instrucciones ocultas · 7.5/10</span>
   </div>
   <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
-    <p class="leyenda">Cada barra va de peor a mejor del ranking, no de 0 a 10 —
-    la población entera cabe en poco más de un punto y en escala absoluta todas
-    se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
+    <p class="leyenda"><strong>La nota de la derecha es sobre 10.</strong> La barra
+    compara contra los demás modelos del ranking, no contra el cero: entre el mejor y el
+    peor de esta lista hay poco más de un punto, así que en escala 0-10 se verían todas
+    iguales. La marca vertical es la <strong>mediana</strong> — quedar por debajo acá no
+    es una mala nota, es estar en el promedio de un grupo muy parejo.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
       <span class="bar-track"><span class="bar-fill" style="width:68.5%"></span><span class="bar-median" style="left:67.9%"></span></span>
@@ -246,6 +253,38 @@
       <span class="bar-track"><span class="bar-fill bajo" style="width:48.3%"></span><span class="bar-median" style="left:52.5%"></span></span>
       <span class="b-val bajo">7.44 <span class="delta">(-0.10 vs mediana)</span></span>
     </div>
+  </section>
+  <section>
+    <h2>Qué hace bien y qué no</h2>
+    <p>Su media entre las 31 tareas medidas es <strong>7.82</strong>. Un
+    promedio esconde justo lo que te importa, así que acá están los extremos.</p>
+    <h3>Donde rinde por encima de sí mismo</h3>
+    <ul>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.11 (+1.29 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>OCR / extracción desde imágenes</strong> — 8.91 (+1.09 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
+        <li><strong>Estrategia (pricing, planificación)</strong> — 8.78 (+0.96 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
+        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.75 (+0.93 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
+    </ul>
+    <h3>Donde se cae</h3>
+    <ul>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 5.73 (-2.09 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.34 (-1.48 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 6.48 (-1.34 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 6.96 (-0.86 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+    </ul>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Si GPT-5.4 Mini no te cierra</h2>
+      <p class="meta">Alternativas elegidas por contraste con este modelo, no por ranking general.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nex-N2-Mini</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>8.13</td><td>$0.158</td><td>17.1 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
+        <tr><td><strong>GPT-5.6 Luna</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.52</td><td>$0.930</td><td>10.6 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
+      </tbody>
+    </table></div>
   </section>
   <section class="results">
     <div class="results-header">
@@ -337,38 +376,6 @@
       </tbody>
     </table></div>
     
-  </section>
-  <section>
-    <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 31 tareas medidas es <strong>7.82</strong>. Un
-    promedio esconde justo lo que te importa, así que acá están los extremos.</p>
-    <h3>Donde rinde por encima de sí mismo</h3>
-    <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.11 (+1.29 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>OCR / extracción desde imágenes</strong> — 8.91 (+1.09 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
-        <li><strong>Estrategia (pricing, planificación)</strong> — 8.78 (+0.96 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
-        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.75 (+0.93 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
-    </ul>
-    <h3>Donde se cae</h3>
-    <ul>
-        <li><strong>Noticias + SEO (artículos completos)</strong> — 5.73 (-2.09 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.34 (-1.48 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 6.48 (-1.34 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Resistencia a prompt injection</strong> — 6.96 (-0.86 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-    </ul>
-  </section>
-  <section class="results">
-    <div class="results-header">
-      <h2>Si GPT-5.4 Mini no te cierra</h2>
-      <p class="meta">Alternativas elegidas por contraste con este modelo, no por ranking general.</p>
-    </div>
-    <div class="table-scroll"><table class="results-table">
-      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Nex-N2-Mini</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>8.13</td><td>$0.158</td><td>17.1 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
-        <tr><td><strong>GPT-5.6 Luna</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.52</td><td>$0.930</td><td>10.6 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
-      </tbody>
-    </table></div>
   </section>
 
   <section class="cta-block">

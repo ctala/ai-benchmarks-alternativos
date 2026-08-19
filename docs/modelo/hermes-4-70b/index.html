@@ -138,12 +138,17 @@
   @media (min-width: 720px) { .bar-track { grid-column: auto; } }
   .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
               background: linear-gradient(90deg, var(--cyan), var(--green)); }
-  .bar-fill.bajo { background: linear-gradient(90deg, #4a4a5e, var(--magenta)); }
+  /* 19-ago-2026: era magenta. Un 8,71 sobre 10 se pintaba del mismo rojo que un
+     error, porque queda 0,35 bajo la MEDIANA de un grupo que entero cabe en 1,4
+     puntos. El color decía «reprobado» de un número muy bueno. Hoy el verde marca
+     lo que sobresale y el resto es neutro: estar bajo la mediana de esta población
+     no es una falla, es el promedio. */
+  .bar-fill.bajo { background: linear-gradient(90deg, #3a3a4e, #6f7690); }
   .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
                 background: var(--gray); opacity: .7; }
   .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
                     font-weight: 700; color: var(--green); white-space: nowrap; }
-  .bar-row .b-val.bajo { color: var(--magenta); }
+  .bar-row .b-val.bajo { color: var(--muted); }
   .bar-row .b-val .delta { color: var(--gray); font-weight: 400; font-size: .72rem; }
   .perfil .leyenda { font-size: .75rem; color: var(--gray); margin-top: -.35rem; }
 
@@ -209,22 +214,24 @@
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Puesto global</span><span class="k-value">#76<span class="k-unit"> de 91</span></span><span class="k-sub">mejor que el 17% de los rankeados</span></div>
-    <div class="kpi "><span class="k-label">Índice de calidad</span><span class="k-value">7.78<span class="k-unit">/10</span></span><span class="k-sub">80 modelos por encima</span></div>
+    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">7.78<span class="k-unit">/10</span></span><span class="k-sub">#76 de 91 · del mejor al peor hay 1.3 puntos</span></div>
     <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$0.639</span><span class="k-sub">más barato que 70 de 91</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Al mes, uso típico</span><span class="k-value">$0.959</span><span class="k-sub">50 llamadas por día, todos los días</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">68<span class="k-unit"> tok/s</span></span><span class="k-sub">6.7 s de espera media</span></div>
   </div>
   <div class="badges">
     <span class="badge on">⬡ Open source · Llama 3 community</span>
-    <span class="badge on">⚒ Tool calling</span>
-    <span class="badge info">⌸ 131K de contexto</span>
-    <span class="badge warn">⛨ Prompt injection 1.0/10</span>
+    <span class="badge on">⚒ Puede usar herramientas</span>
+    <span class="badge info">⌸ Le caben ~220 páginas a la vez</span>
+    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 1.0/10</span>
   </div>
   <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
-    <p class="leyenda">Cada barra va de peor a mejor del ranking, no de 0 a 10 —
-    la población entera cabe en poco más de un punto y en escala absoluta todas
-    se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
+    <p class="leyenda"><strong>La nota de la derecha es sobre 10.</strong> La barra
+    compara contra los demás modelos del ranking, no contra el cero: entre el mejor y el
+    peor de esta lista hay poco más de un punto, así que en escala 0-10 se verían todas
+    iguales. La marca vertical es la <strong>mediana</strong> — quedar por debajo acá no
+    es una mala nota, es estar en el promedio de un grupo muy parejo.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
       <span class="bar-track"><span class="bar-fill bajo" style="width:59.4%"></span><span class="bar-median" style="left:67.9%"></span></span>
@@ -245,6 +252,38 @@
       <span class="bar-track"><span class="bar-fill bajo" style="width:46.0%"></span><span class="bar-median" style="left:52.5%"></span></span>
       <span class="b-val bajo">7.39 <span class="delta">(-0.16 vs mediana)</span></span>
     </div>
+  </section>
+  <section>
+    <h2>Qué hace bien y qué no</h2>
+    <p>Su media entre las 34 tareas medidas es <strong>7.47</strong>. Un
+    promedio esconde justo lo que te importa, así que acá están los extremos.</p>
+    <h3>Donde rinde por encima de sí mismo</h3>
+    <ul>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.37 (+1.90 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.02 (+1.55 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.68 (+1.21 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
+        <li><strong>Extraer los datos verificables de un texto</strong> — 8.58 (+1.11 contra su media). <span class="meta">Decide: sacar TODOS los datos, no solo los fáciles</span></li>
+    </ul>
+    <h3>Donde se cae</h3>
+    <ul>
+        <li><strong>Resistencia a prompt injection</strong> — 2.65 (-4.82 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Auditar números (detectar el error plantado)</strong> — 6.15 (-1.32 contra su media). <span class="meta">Decide: encontrar el error en un número</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 6.38 (-1.09 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Seguir instrucciones al pie de la letra</strong> — 6.51 (-0.96 contra su media). <span class="meta">Decide: hacer exactamente lo que se pidió</span></li>
+    </ul>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Si Hermes 4 70B no te cierra</h2>
+      <p class="meta">Alternativas elegidas por contraste con este modelo, no por ranking general.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ling 3.0 Flash</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>7.98</td><td>$0.101</td><td>12.1 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
+        <tr><td><strong>Qwen 3.7 Flash</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.49</td><td>$0.204</td><td>28.5 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
+      </tbody>
+    </table></div>
   </section>
   <section class="results">
     <div class="results-header">
@@ -340,38 +379,6 @@
       </tbody>
     </table></div>
     
-  </section>
-  <section>
-    <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 34 tareas medidas es <strong>7.47</strong>. Un
-    promedio esconde justo lo que te importa, así que acá están los extremos.</p>
-    <h3>Donde rinde por encima de sí mismo</h3>
-    <ul>
-        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.37 (+1.90 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.02 (+1.55 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.68 (+1.21 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
-        <li><strong>Extraer los datos verificables de un texto</strong> — 8.58 (+1.11 contra su media). <span class="meta">Decide: sacar TODOS los datos, no solo los fáciles</span></li>
-    </ul>
-    <h3>Donde se cae</h3>
-    <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 2.65 (-4.82 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Auditar números (detectar el error plantado)</strong> — 6.15 (-1.32 contra su media). <span class="meta">Decide: encontrar el error en un número</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 6.38 (-1.09 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Seguir instrucciones al pie de la letra</strong> — 6.51 (-0.96 contra su media). <span class="meta">Decide: hacer exactamente lo que se pidió</span></li>
-    </ul>
-  </section>
-  <section class="results">
-    <div class="results-header">
-      <h2>Si Hermes 4 70B no te cierra</h2>
-      <p class="meta">Alternativas elegidas por contraste con este modelo, no por ranking general.</p>
-    </div>
-    <div class="table-scroll"><table class="results-table">
-      <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Ling 3.0 Flash</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>7.98</td><td>$0.101</td><td>12.1 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
-        <tr><td><strong>Qwen 3.7 Flash</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.49</td><td>$0.204</td><td>28.5 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
-      </tbody>
-    </table></div>
   </section>
   <section>
     <h2>Los números oficiales de Hermes 4 70B</h2>

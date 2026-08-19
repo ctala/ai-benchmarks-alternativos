@@ -124,12 +124,17 @@ BRAND_CSS = """<style>
   @media (min-width: 720px) { .bar-track { grid-column: auto; } }
   .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
               background: linear-gradient(90deg, var(--cyan), var(--green)); }
-  .bar-fill.bajo { background: linear-gradient(90deg, #4a4a5e, var(--magenta)); }
+  /* 19-ago-2026: era magenta. Un 8,71 sobre 10 se pintaba del mismo rojo que un
+     error, porque queda 0,35 bajo la MEDIANA de un grupo que entero cabe en 1,4
+     puntos. El color decía «reprobado» de un número muy bueno. Hoy el verde marca
+     lo que sobresale y el resto es neutro: estar bajo la mediana de esta población
+     no es una falla, es el promedio. */
+  .bar-fill.bajo { background: linear-gradient(90deg, #3a3a4e, #6f7690); }
   .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
                 background: var(--gray); opacity: .7; }
   .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
                     font-weight: 700; color: var(--green); white-space: nowrap; }
-  .bar-row .b-val.bajo { color: var(--magenta); }
+  .bar-row .b-val.bajo { color: var(--muted); }
   .bar-row .b-val .delta { color: var(--gray); font-weight: 400; font-size: .72rem; }
   .perfil .leyenda { font-size: .75rem; color: var(--gray); margin-top: -.35rem; }
 
@@ -221,6 +226,16 @@ def veredicto(m: dict, ranked: list) -> str:
 
 
 # ── lo que se responde sin bajar: cuatro números y las propiedades binarias ───
+# El uso típico con el que se traduce el precio a plata mensual.
+#
+# 50 llamadas al día es un workflow de n8n corriendo cada media hora en horario hábil, o
+# un agente que atiende el feed dos veces al día con varias vueltas cada vez — la escala
+# real del ICP de este benchmark, no la de una empresa con tráfico. Se declara acá porque
+# el número aparece en 91 fichas: cambiarlo a ojo en una sola sería publicar dos verdades.
+LLAMADAS_DIA = 50
+LLAMADAS_MES = LLAMADAS_DIA * 30
+
+
 def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
     """Los cuatro que deciden si el modelo entra a la lista corta.
 
@@ -229,23 +244,42 @@ def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
     tamaño de la población en la cabeza.
     """
     tiles = []
-    if puesto:
-        pct = round(100 * (1 - (puesto - 1) / max(total - 1, 1)))
-        tiles.append(("", "Puesto global", f"#{puesto}<span class=\"k-unit\"> de {total}</span>",
-                      f"mejor que el {pct}% de los rankeados"))
+    # 19-ago-2026 · POR QUÉ LA CALIDAD VA PRIMERA Y EL PUESTO ES SU SUBTÍTULO.
+    #
+    # Hasta hoy el tile #1, el más grande y el primero que se lee, era «Puesto global
+    # #59 de 91 · mejor que el 36% de los rankeados». Un founder lee eso y cierra la
+    # pestaña — y se va con la conclusión equivocada, porque ese mismo modelo saca 8,21
+    # sobre 10 y es #3 de 91 en Contenido.
+    #
+    # El puesto global comprime en 91 posiciones una población que ENTERA cabe en ~1,4
+    # puntos: es la misma trampa que hizo abandonar el z-score en v4.1, servida en el
+    # lugar más visible de la página. Es información legítima, así que no se borra: baja
+    # a subtítulo y viaja con el dato que desarma la mala lectura (el rango real).
     q = m.get("quality_avg")
     if q is not None:
-        qs = sorted((x.get("quality_avg") or 0) for x in ranked)
-        mejores = sum(1 for x in qs if x > q)
-        tiles.append(("", "Índice de calidad", f"{q:.2f}<span class=\"k-unit\">/10</span>",
-                      f"{mejores} modelo{'s' if mejores != 1 else ''} por encima"))
+        qs = sorted((x.get("quality_avg") or 0) for x in ranked if x.get("quality_avg"))
+        # El rango se MIDE, no se escribe a mano: cambia con cada modelo nuevo.
+        rango = (qs[-1] - qs[0]) if len(qs) > 1 else 0
+        sub = f"#{puesto} de {total}" if puesto else f"{sum(1 for x in qs if x > q)} por encima"
+        if rango:
+            sub += f" · del mejor al peor hay {rango:.1f} puntos"
+        tiles.append(("", "Nota de calidad", f"{q:.2f}<span class=\"k-unit\">/10</span>", sub))
     c = m.get("cost_per_1k_calls_usd")
     if c is not None:
         cs = sorted(x.get("cost_per_1k_calls_usd") or 0 for x in ranked
                     if x.get("cost_per_1k_calls_usd"))
-        mas_baratos = sum(1 for x in cs if x < c)
-        tiles.append(("is-cyan", "Por 1.000 llamadas", _usd(c),
-                      f"más barato que {len(cs) - mas_baratos - 1} de {len(cs)}"))
+        mas_caros = len(cs) - sum(1 for x in cs if x < c) - 1
+        # «más barato que 7 de 91» es una forma cortés de decir que es el 8º más caro, y
+        # obliga a hacer la resta. Si está en la mitad cara, se dice derecho.
+        sub = (f"el {mas_caros + 1}º más caro de {len(cs)}" if mas_caros < len(cs) / 2
+               else f"más barato que {mas_caros} de {len(cs)}")
+        tiles.append(("is-cyan", "Por 1.000 llamadas", _usd(c), sub))
+        # Un founder no razona en «1.000 llamadas»: razona en cuánto le llega a fin de
+        # mes. El supuesto va escrito en el tile — es una estimación, y una estimación
+        # sin su supuesto a la vista es un número inventado.
+        tiles.append(("is-cyan", "Al mes, uso típico",
+                      _usd(c * LLAMADAS_MES / 1000),
+                      f"{LLAMADAS_DIA} llamadas por día, todos los días"))
     v = m.get("tokens_per_second")
     if v:
         lat = m.get("latency_avg_s")
@@ -263,19 +297,38 @@ def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
         b.append(("on", f"⬡ Open source{' · ' + m['license'] if m.get('license') else ''}"))
     else:
         b.append(("", "⬡ Propietario"))
-    b.append(("on" if m.get("tool_calling") else "", "⚒ Tool calling"
-              + ("" if m.get("tool_calling") else " no disponible")))
+    # 19-ago-2026 · los badges dicen la capacidad, no su nombre técnico.
+    #
+    # Decían «Tool calling», «Multimodal», «1000K de contexto» y «Prompt injection
+    # 8.7/10». Los cuatro son correctos y los cuatro son opacos para quien viene a
+    # decidir qué modelo pone en su n8n: no sabe si 8.7 en prompt injection es bueno,
+    # ni qué hace con un contexto de 1000K. El término técnico queda entre paréntesis
+    # —el que lo busca lo encuentra, y el que no, igual entiende qué compra.
+    b.append(("on" if m.get("tool_calling") else "",
+              "⚒ Puede usar herramientas" if m.get("tool_calling")
+              else "⚒ No usa herramientas (sin tool calling)"))
     if m.get("multimodal"):
-        b.append(("info", "◨ Multimodal"))
+        b.append(("info", "◨ Entiende imágenes"))
     if m.get("thinking"):
-        b.append(("info", "◈ Thinking"))
+        b.append(("info", "◈ Razona antes de responder"))
     if m.get("context_window"):
         k = m["context_window"] // 1000
-        b.append(("info", f"⌸ {k}K de contexto"))
+        # ~750 palabras por cada 1.000 tokens, ~450 palabras por página. Se redondea a
+        # dos cifras significativas a propósito: «~1.666 páginas» suena a medición y es
+        # una regla de tres. Lo que se comunica es el ORDEN DE MAGNITUD.
+        pags = m["context_window"] * 0.75 / 450
+        paso = 10 ** max(0, len(str(int(pags))) - 2)
+        b.append(("info", f"⌸ Le caben ~{round(pags / paso) * paso:,.0f}".replace(",", ".")
+                  + " páginas a la vez"))
     sec = m.get("security_score")
     if sec is not None:
+        # «Prompt injection» es el ataque; lo que importa es si AGUANTA. Y 8.7 sin
+        # escala no dice nada: se agrega el veredicto en una palabra.
+        # «Resiste» / «Cae ante», no «aguanta»: aguantar algo se puede leer como
+        # tolerarlo, que es justo lo contrario de lo que mide la nota.
+        v = "Resiste bien" if sec >= 8 else "Resiste" if sec >= 7 else "Cae ante"
         b.append(("on" if sec >= 7 else "warn",
-                  f"⛨ Prompt injection {sec:.1f}/10"))
+                  f"⛨ {v} instrucciones ocultas · {sec:.1f}/10"))
     badges = "\n    ".join(f'<span class="badge {c}">{esc(t)}</span>' for c, t in b)
     return f"""  <div class="kpi-strip">
     {html}
@@ -316,9 +369,11 @@ def perfil(m: dict, ranked: list) -> str:
         return ""
     return f"""  <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
-    <p class="leyenda">Cada barra va de peor a mejor del ranking, no de 0 a 10 —
-    la población entera cabe en poco más de un punto y en escala absoluta todas
-    se verían iguales. La marca vertical es la <strong>mediana</strong>.</p>
+    <p class="leyenda"><strong>La nota de la derecha es sobre 10.</strong> La barra
+    compara contra los demás modelos del ranking, no contra el cero: entre el mejor y el
+    peor de esta lista hay poco más de un punto, así que en escala 0-10 se verían todas
+    iguales. La marca vertical es la <strong>mediana</strong> — quedar por debajo acá no
+    es una mala nota, es estar en el promedio de un grupo muy parejo.</p>
 {chr(10).join(filas)}
   </section>"""
 
@@ -669,11 +724,11 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
   </section>
 {kpis(m, puesto, len(ranked), ranked)}
 {perfil(m, ranked)}
+{por_tarea(m)}
+{alt_html}
 {ficha(m, puesto, len(ranked))}
 {contra_frontier(m, ranked)}
 {presupuesto(m)}
-{por_tarea(m)}
-{alt_html}
 {oficial(m)}
   <section class="cta-block">
     <h2>¿Es el mejor para TU caso?</h2>

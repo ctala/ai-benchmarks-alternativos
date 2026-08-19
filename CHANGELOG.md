@@ -8,6 +8,38 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **La ficha abría con el número que hace cerrar la pestaña.** El tile más grande y
+  primero era «Puesto global #59 de 91 · mejor que el 36% de los rankeados». Ese mismo
+  modelo saca 8,21/10 y es #3 de 91 en Contenido: el puesto global comprime en 91
+  posiciones una población que entera cabe en 1,3 puntos — la misma trampa que hizo
+  abandonar el z-score en v4.1, servida en el lugar más visible. Ahora abre la **nota de
+  calidad**, con el puesto de subtítulo y el rango real al lado, que es el dato que
+  desarma la mala lectura. El rango se mide, no se escribe.
+
+- **Un tile nuevo: cuánto sale al mes.** «$39,00 por 1.000 llamadas» no es una unidad en
+  la que un founder piense; «$58,50 al mes con 50 llamadas por día» sí. El supuesto va
+  escrito dentro del tile — una estimación sin su supuesto a la vista es un número
+  inventado — y vive en una constante porque aparece en las 91 fichas. También se cambió
+  «más barato que 7 de 91», que es la forma cortés de decir «el 8º más caro» y obliga a
+  hacer la resta.
+
+- **El color de las barras decía «reprobado» de un 8,71 sobre 10.** Se pintaba magenta
+  por quedar 0,35 bajo la MEDIANA de un grupo que entero cabe en 1,3 puntos. Ahora el
+  verde marca lo que sobresale y el resto es neutro, y la leyenda arranca diciendo que la
+  nota de la derecha es sobre 10 en vez de pedir que se entienda la escala primero.
+
+- **Los badges dicen la capacidad, no su nombre técnico.** «Tool calling» → «Puede usar
+  herramientas»; «1000K de contexto» → «Le caben ~1.700 páginas a la vez»; «Prompt
+  injection 8.7/10» → «Resiste bien instrucciones ocultas · 8.7/10». El término técnico
+  queda entre paréntesis donde hace falta: el que lo busca lo encuentra y el que no,
+  igual entiende qué está comprando.
+
+- **El orden de la ficha sigue la decisión, no la disponibilidad del dato.** «Qué hace
+  bien y qué no» —la única sección escrita en el idioma del lector, la que dice *«Decide:
+  emitir JSON válido a la primera»*— venía después de tres bloques de números. Sube
+  detrás del panorama por pilar, y las alternativas justo después: quien decide que no le
+  sirve tiene su salida ahí mismo, no a mitad de scroll.
+
 - **Las 61 páginas que publican modelos ahora dejan llegar a su ficha, y hay quien lo
   verifica.** Cristian: *"desde acá deberíamos ser capaces de llegar al card del modelo"*.
   Se resolvió con UN helper compartido (`enlace_ficha` en `generate_comparison.py`), que
