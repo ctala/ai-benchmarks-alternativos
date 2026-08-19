@@ -717,7 +717,11 @@ def _fila_eje(sid, s, va, vb):
     def cel(v, otro):
         if v is None:
             return '<td class="num sin-dato" title="No rindió este eje">—</td>'
-        gana = otro is not None and v > otro
+        # La misma tolerancia que decide la columna «Gana» (0,005 = la resolución de los
+        # dos decimales que se publican). Sin ella, con 9,201 vs 9,199 la columna decía
+        # «empate» y la celda igual salía resaltada como ganadora: dos partes de la misma
+        # fila afirmando cosas distintas.
+        gana = otro is not None and v > otro and abs(v - otro) >= 0.005
         return f'<td class="num{" gana" if gana else ""}">{v:.2f}</td>'
 
     if va is None and vb is None:

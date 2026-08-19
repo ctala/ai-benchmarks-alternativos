@@ -302,6 +302,12 @@ def main() -> int:
         # no al principio porque verifica el HTML que este mismo pipeline acaba de
         # escribir: al principio estaría mirando el de la corrida anterior.
         print()
+        rc = run_script("check_ganadores.py", [], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ Alguna página corona a un ganador que su tabla no sostiene.")
+            return 1
+
+        print()
         rc = run_script("check_fichas_alcanzables.py", [], dry_run=False, allow_fail=True)
         if rc != 0:
             print("\n❌ Hay páginas que publican modelos sin salida hacia su ficha. Ver arriba.")

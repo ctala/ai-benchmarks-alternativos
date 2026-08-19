@@ -5,6 +5,31 @@
 
 ## [No publicado]
 
+- **«¿Lo mismo no nos pasa en otras páginas?»** — Cristian, después del fix de agentes. Sí
+  pasaba, en otra forma. Las páginas de variantes coronaban por columna: `Gana 4.20` sobre
+  **[8,80 · 9,20 · 9,20 · 9,20]**, tres celdas idénticas y el texto nombrando a una;
+  `Gana Terra` sobre dos 10,00. La causa era distinta —`spread` medía máximo menos mínimo
+  de la fila entera, así que un rezagado abajo tapaba el empate de arriba— pero el efecto
+  para el lector es exactamente el mismo: la tabla muestra números iguales y el texto
+  corona a uno. Ahora el empate se mide **en la cima** y el resaltado va a todos los
+  empatados, no solo al primero (que era el más barato, por el orden de columnas).
+
+- **Lo que se auditó, y lo que no.** Los 7 rankings: veredicto y tabla coinciden
+  (`mejor-llm-open-source` no corona a nadie a propósito — «cuando la medición no
+  distingue, lo honesto es no recomendar»). Las 40 comparaciones X-vs-Y ya declaraban
+  empate con la tolerancia correcta; solo se alineó el resaltado de celda, que marcaba
+  ganador aunque la columna dijera «empate». Las variantes eran las rotas.
+
+- **`check_ganadores.py`** unifica las dos formas bajo una regla: **no se corona a nadie
+  por una diferencia que no publicamos.** G1 verifica que el veredicto nombre al #1 de su
+  tabla; G2, que ninguna fila con «Gana X» tenga un empate visible en la cima. 23
+  afirmaciones bajo vigilancia. Verificado saboteando los dos casos reales.
+
+- **La primera auditoría que corrí dio un falso verde y era mía.** El extractor de cards
+  no matcheaba el HTML y devolvía `None` en las 7 páginas, o sea «✅ ninguna discrepa»
+  sobre cero datos leídos. Cuarto del día, y el más fácil de creerse porque el resultado
+  era el que uno quiere ver.
+
 - **`check_changelog.py` se hacía un bug a sí mismo, y era peligroso.** `_sh()` hace
   `.strip()` del stdout completo, y `git status --porcelain` arranca con un espacio
   (` M archivo`): ese strip **le comía el primer carácter a la primera línea**. El

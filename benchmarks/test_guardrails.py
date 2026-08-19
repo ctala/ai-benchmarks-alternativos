@@ -203,6 +203,20 @@ def _t_cortes():
         return _correr("check_cortes.py") != 0
 
 
+@prueba("check_ganadores", "una página que corona a quien su propia tabla no sostiene")
+def _t_ganadores():
+    # Los DOS casos reales del 19-ago: el veredicto que nombraba a un #73 como líder,
+    # y el «Gana X» sobre tres celdas idénticas. Distinta causa, mismo efecto para
+    # el lector — la tabla dice una cosa y el texto otra.
+    pg = ROOT / "docs" / "grok-4-1-vs-4-5" / "index.html"
+    if not pg.exists():
+        return False
+    with Sabotaje(pg):
+        pg.write_text(pg.read_text(encoding="utf-8").replace(
+            "Empatan arriba 3 de 4", "Gana 4.20", 1), encoding="utf-8")
+        return _correr("check_ganadores.py") != 0
+
+
 @prueba("check_paleta", "un color inventado que el manual de marca no tiene")
 def _t_paleta():
     # El caso real: alguien necesita «un amarillo para advertencia», lo escribe en una

@@ -215,11 +215,35 @@ def ladder_block(vs, cfg):
         vals = [(m, q(m, suite)) for m in vs]
         if any(v is None for _, v in vals):
             continue
-        mejor = max(vals, key=lambda x: x[1])[0]
-        spread = max(v for _, v in vals) - min(v for _, v in vals)
+        # 19-ago-2026 · EL EMPATE QUE IMPORTA ES EL DE ARRIBA, NO EL DE TODA LA FILA.
+        #
+        # `spread` mide máximo − mínimo de la fila entera. Con [8,80 · 9,20 · 9,20 · 9,20]
+        # da 0,40, no entra al empate, y la fila coronaba «Gana 4.20» — el primero de
+        # TRES idénticos, elegido nada más que por ser el más barato (las columnas van
+        # por precio). En la tabla se veían tres «9.20» y el veredicto nombraba a uno.
+        #
+        # Es la misma contradicción que Cristian encontró en /mejor-llm-para-agentes/
+        # («¿por qué gana DeepSeek si no tiene el mejor puesto?»), servida por columna en
+        # vez de por página: declarar un ganador donde la propia tabla muestra un empate.
+        #
+        # La tolerancia es la RESOLUCIÓN PUBLICADA: las celdas salen con dos decimales,
+        # así que dos valores a menos de 0,005 se ven iguales y no se pueden separar.
+        TOL_VISIBLE = 0.005
+        maxv = max(v for _, v in vals)
+        cima = [m for m, v in vals if v >= maxv - TOL_VISIBLE]
+        mejor = cima[0]
+        spread = maxv - min(v for _, v in vals)
 
         if spread < 0.25:
             cls, veredicto = "lad-tie", "Empatan — el precio no compra nada"
+            empates += 1
+        elif len(cima) > 1:
+            # Empatan arriba aunque la fila entera esté dispersa: hay un tier que se
+            # queda atrás, pero entre los punteros no hay diferencia publicable.
+            nombres = " y ".join(short(m, cfg) for m in cima)
+            cls = "lad-tie"
+            veredicto = (f"Empatan {nombres}" if len(cima) == 2
+                         else f"Empatan arriba {len(cima)} de {len(vals)}")
             empates += 1
         elif mejor is priciest:
             cls, veredicto = "lad-yes", "El precio compra algo"
@@ -231,7 +255,7 @@ def ladder_block(vs, cfg):
 
         celdas = ""
         for m, v in vals:
-            td = '<td class="win">' if m is mejor else "<td>"
+            td = '<td class="win">' if m in cima else "<td>"
             celdas += td + "{:.2f}</td>".format(v)
 
         rows.append(
