@@ -130,13 +130,19 @@
   </section>
   <section class="verdict">
     <h2>La respuesta corta</h2>
-    <p class="verdict-lead"><strong>DeepSeek V3.2</strong> encabeza la tabla en calidad <em>y</em> es el más barato de los 1 que empatan con él. Caso fácil: no hay que elegir entre calidad y precio.</p>
+    <p class="verdict-lead"><strong>2 modelos empatan</strong> en calidad para esta tarea: la diferencia entre ellos es más chica que el margen de error de la medición. Cuando la calidad empata, <strong>la decisión es de precio</strong>.</p>
     <div class="verdict-grid">
       <div class="verdict-card verdict-best">
-        <span class="verdict-tag">El mejor, y además el más barato</span>
-        <strong>DeepSeek V3.2</strong>
-        <span class="verdict-cost">≈$5/mes</span>
-        <span class="verdict-note">calidad 8.70/10</span>
+        <span class="verdict-tag">La mejor compra</span>
+        <strong>Gemma 4 31B</strong>
+        <span class="verdict-cost">≈$2/mes</span>
+        <span class="verdict-note">calidad 9.36/10 · empata con Claude Sonnet 4.6, que encabeza la tabla, y cuesta menos</span>
+        
+      </div><div class="verdict-card">
+        <span class="verdict-tag">La mejor calidad medida</span>
+        <strong>Claude Sonnet 4.6</strong>
+        <span class="verdict-cost">≈$70/mes</span>
+        <span class="verdict-note">calidad 9.40/10 · es el #1 de la tabla. La diferencia con el de arriba está dentro del margen de error</span>
         
       </div>
     </div>
@@ -156,15 +162,14 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Tarea real ejecutada</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><a class="a-ficha" href="/modelo/claude-sonnet-4.6/"><strong>Claude Sonnet 4.6</strong></a></td><td><strong>9.4</strong></td><td>8.2</td><td>8.6</td><td>7.6</td><td>7.5</td><td>$3.00 / $15.00</td><td>47 tok/s</td></tr>
-        <tr><td>2</td><td><a class="a-ficha" href="/modelo/or-gemma-4-31b/">Gemma 4 31B</a></td><td><strong>9.4</strong></td><td>9.8</td><td>8.8</td><td>8.1</td><td>7.6</td><td>$0.10 / $0.34</td><td>47 tok/s</td></tr>
+        <tr><td>1</td><td><a class="a-ficha" href="/modelo/claude-sonnet-4.6/"><strong>Claude Sonnet 4.6</strong></a> <span class="row-badge">← el caro</span></td><td><strong>9.4</strong></td><td>8.2</td><td>8.6</td><td>7.6</td><td>7.5</td><td>$3.00 / $15.00</td><td>47 tok/s</td></tr>
+        <tr><td>2</td><td><a class="a-ficha" href="/modelo/or-gemma-4-31b/">Gemma 4 31B</a> <span class="row-badge">← la mejor compra</span></td><td><strong>9.4</strong></td><td>9.8</td><td>8.8</td><td>8.1</td><td>7.6</td><td>$0.10 / $0.34</td><td>47 tok/s</td></tr>
         <tr><td>3</td><td><a class="a-ficha" href="/modelo/claude-opus-4.8/">Claude Opus 4.8</a></td><td><strong>9.3</strong></td><td>9.1</td><td>8.9</td><td>8.5</td><td>7.7</td><td>$5.00 / $25.00</td><td>60 tok/s</td></tr>
         <tr><td>4</td><td><a class="a-ficha" href="/modelo/claude-opus-4.7/">Claude Opus 4.7</a></td><td><strong>9.3</strong></td><td>9.2</td><td>8.6</td><td>8.3</td><td>7.8</td><td>$5.00 / $25.00</td><td>57 tok/s</td></tr>
         <tr><td>5</td><td><a class="a-ficha" href="/modelo/qwen-3.7-max/">Qwen 3.7 Max</a></td><td><strong>9.3</strong></td><td>8.6</td><td>8.7</td><td>8.1</td><td>7.8</td><td>$1.48 / $4.42</td><td>56 tok/s</td></tr>
         <tr><td>6</td><td><a class="a-ficha" href="/modelo/kimi-k2/">Kimi K2</a></td><td><strong>9.3</strong></td><td>9.0</td><td>8.3</td><td>8.0</td><td>7.5</td><td>$0.57 / $2.30</td><td>33 tok/s</td></tr>
         <tr><td>7</td><td><a class="a-ficha" href="/modelo/mimo-v2.5-pro-or/">MiMo-V2.5 Pro</a></td><td><strong>9.3</strong></td><td>8.5</td><td>8.3</td><td>8.1</td><td>7.7</td><td>$0.43 / $0.87</td><td>49 tok/s</td></tr>
         <tr><td>8</td><td><a class="a-ficha" href="/modelo/kimi-k3/">Kimi K3</a></td><td><strong>9.3</strong></td><td>8.6</td><td>8.5</td><td>8.1</td><td>7.2</td><td>$3.00 / $15.00</td><td>37 tok/s</td></tr>
-        <tr><td>73</td><td><a class="a-ficha" href="/modelo/deepseek-v3/">DeepSeek V3.2</a> <span class="row-badge">← la mejor compra</span></td><td><strong>7.4</strong></td><td>9.2</td><td>7.9</td><td>7.6</td><td>8.7</td><td>$0.26 / $1.03</td><td>27 tok/s</td></tr>
       </tbody>
     </table></div>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
@@ -218,7 +223,7 @@
 </section>
   <section>
   <h2>Por qué Claude Sonnet 4.6 lidera</h2>
-  <p><strong>Claude Sonnet 4.6</strong> encabeza el ranking para agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / Hermes) con 9.4/10, a $3.00 / $15.00 por millón de tokens (47 tok/s, openrouter). Recuerda que el score global v4.7.0 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
+  <p><strong>Claude Sonnet 4.6</strong> encabeza el ranking para agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / Hermes) con 9.4/10, a $3.00 / $15.00 por millón de tokens (47 tok/s, openrouter). Recuerda que el score global v4.7.1 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
   sino el que mejor rinde en producción para este caso.</p>
   <h3>Cuándo conviene este modelo</h3>
   <ul>

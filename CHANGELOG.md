@@ -5,8 +5,41 @@
 
 ## [No publicado]
 
+## [v4.7.1] - 2026-08-19 — la ficha se lee, el wizard se ve, y la página de agentes deja de contradecirse
+
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
+
+- **La página de agentes se contradecía a sí misma, y lo vio Cristian.** Publicaba
+  *«DeepSeek V3.2 encabeza la tabla en calidad»* con DeepSeek V3.2 **#73, en 7,4**,
+  contra 9,4 del primero: *"no entiendo, ¿por qué gana DeepSeek si no tiene el mejor
+  puesto? Esto es lo que te decía, tiene que quedar claro para cualquiera"*. No es que
+  no se entendiera — era falso.
+
+  Causa: el 16-ago la **tabla** pasó a ordenarse por la tarea real ejecutada (Harbor +
+  tool calling) porque el pilar «Agentes» mide escribir *sobre* agentes y **correlaciona
+  −0,20 con el desempeño real**. El **veredicto** se quedó calculando por el pilar. Dos
+  criterios en una misma página, con el texto afirmando que eran el mismo — y el
+  veredicto recomendando por la métrica que va casi al revés de lo que la página
+  promete. Ahora el veredicto usa el mismo score que ordena la tabla.
+
+- **Y el empate se declara a la resolución de lo que publicamos.** Sonnet 4.6 (9,4040) y
+  Gemma 4 31B (9,3560) caían en bandas distintas por **0,048** — una diferencia que la
+  tabla ni puede mostrar: ahí salen «9.4» y «9.4». El texto habría dicho «nadie empata
+  con él» encima de dos números idénticos a la vista. Con el margen ajustado al
+  redondeo, el veredicto cambia y contesta la duda que lo destapó: **Sonnet 4.6 no le
+  gana a los nuevos en agentes — empata con Gemma 4 31B, que cuesta $2/mes contra $70.**
+
+- **«el más barato de los 1 que empatan con él».** Con `band_size = 1` el texto decía que
+  el modelo empata consigo mismo, y por el otro camino «1 modelos empatan». Un modelo
+  solo en su banda es el caso más limpio que hay y se contaba como el más raro.
+
+- **`C5` en `check_cortes.py`: el veredicto no puede contradecir a su tabla.** C1 no lo
+  cazaba porque mira la tabla contra los datos, y la tabla estaba bien: lo que mentía era
+  el párrafo de arriba. **C5 se estrenó dando un falso verde** —recorría solo las páginas
+  de `criterion == "suite"` y la de agentes es `pillar`, o sea que miraba donde el bug no
+  podía estar— y lo detecté saboteando la página a propósito. Tercer falso verde del
+  mismo patrón en el día: un guardrail sin su prueba de sabotaje es una promesa.
 
 - **La puerta de entrada era más chica que lo que hay detrás.** Medido: el wizard vivía
   en `max-width: 640px` de los 1100 que da el `main` —el 58% del ancho— mientras la

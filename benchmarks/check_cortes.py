@@ -72,6 +72,21 @@ def _cortes_publicados() -> dict[str, Path]:
             for p in RANKINGS if p.get("criterion") == "suite"}
 
 
+def _paginas_con_veredicto() -> dict[str, Path]:
+    """slug → path, de TODAS las páginas de ranking.
+
+    19-ago-2026: C5 se estrenó recorriendo `_cortes_publicados()`, que devuelve SOLO
+    las de `criterion == "suite"` — y el bug que vino a cazar estaba en
+    `/mejor-llm-para-agentes/`, que es `criterion == "pillar"`. O sea que el chequeo
+    corría, daba verde, y miraba un conjunto donde el problema no podía estar.
+    Lo detecté saboteando la página a propósito: el sabotaje pasó. Es el tercer falso
+    verde del mismo patrón en el día — la lección no es «revisar mejor», es que un
+    guardrail sin su prueba de sabotaje es una promesa.
+    """
+    from benchmarks.generate_rankings import RANKINGS  # noqa: E402
+    return {p["slug"]: DOCS / p["slug"] / "index.html" for p in RANKINGS}
+
+
 def main() -> int:
     d = json.loads(MODELS_JSON.read_text())
     ranked = [m for m in d["models"] if m.get("ranked")]
@@ -138,6 +153,40 @@ def main() -> int:
                           f"corre dentro de un agente. Esta suite mide sostener el hilo "
                           f"SIN herramientas — lucirse acá y romper el bucle es compatible")
 
+
+    # ── C5 · el veredicto y su propia tabla no pueden contradecirse ────────
+    #
+    # 19-ago-2026. `/mejor-llm-para-agentes/` publicaba «DeepSeek V3.2 encabeza la tabla
+    # en calidad» y la tabla lo ponía **#73 con 7,4**, contra 9,4 del primero. Lo vio
+    # Cristian: *"no entiendo, ¿por qué gana DeepSeek si no tiene el mejor puesto?"*.
+    #
+    # Causa: el 16-ago la TABLA pasó a ordenarse por la tarea real ejecutada y el
+    # VEREDICTO se quedó calculando por el pilar —que mide escribir sobre agentes y
+    # correlaciona −0,20 con el desempeño real—. Dos criterios en una página, y el texto
+    # afirmando que eran el mismo. C1 no lo caza porque C1 mira la tabla contra los
+    # datos, y la tabla estaba bien: lo que estaba mal era el párrafo de arriba.
+    for suite, path in _paginas_con_veredicto().items():
+        if not path.exists():
+            continue
+        html = path.read_text(errors="replace")
+        if "verdict-lead" not in html:
+            continue
+        lead = re.search(r'<p class="verdict-lead">(.*?)</p>', html, re.S)
+        m1 = FILA_1.search(html)
+        if not lead or not m1:
+            continue
+        texto = re.sub(r"<[^>]+>", "", lead.group(1))
+        # Solo se verifica cuando el texto AFIRMA encabezar. «N modelos empatan» no
+        # nombra a nadie como primero y no tiene nada que contradecir.
+        if "encabeza la tabla" not in texto:
+            continue
+        primero = m1.group(1).strip()
+        nombrado = re.search(r"^\s*([^,]+?)\s+encabeza la tabla", texto.strip())
+        if nombrado and primero not in nombrado.group(1):
+            fallos.append(
+                f"`{suite}`: el veredicto dice que «{nombrado.group(1).strip()}» encabeza "
+                f"la tabla y el #1 de la tabla es «{primero}». El veredicto y el orden "
+                f"están usando criterios distintos.")
 
     # ── C4 · la segunda tabla se decide con el dato, no a mano ─────────────
     #

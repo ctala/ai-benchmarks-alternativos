@@ -921,6 +921,54 @@ def _verdict_data(cfg, models):
     if crit == "open_source":
         pool = [m for m in pool if m.get("open_source")]
     pil = cfg.get("pillar") if crit == "pillar" else None
+
+    # ── 19-ago-2026 · EL VEREDICTO Y SU TABLA MEDÍAN COSAS DISTINTAS ──────────
+    #
+    # `/mejor-llm-para-agentes/` publicaba: «DeepSeek V3.2 encabeza la tabla en calidad»
+    # — y la tabla lo ponía **#73 con 7,4**, contra 9,4 del primero. Lo vio Cristian:
+    # *"no entiendo, ¿por qué gana DeepSeek si no tiene el mejor puesto?"*. No era que
+    # no se entendiera: la página se contradecía a sí misma.
+    #
+    # La causa: el 16-ago la TABLA pasó a ordenarse por la tarea real ejecutada
+    # (`score_for` → Harbor + tool calling) porque el pilar «Agentes» mide escribir
+    # SOBRE agentes y **correlaciona −0,20 con el desempeño real**. El veredicto se
+    # quedó calculando por el pilar. O sea que no solo discrepaban: el veredicto
+    # recomendaba por la métrica que va casi al revés de lo que la página promete, y
+    # encima afirmaba que ese modelo encabezaba una tabla que él no encabeza.
+    #
+    # Ahora el veredicto se calcula con EL MISMO score que ordena la tabla. Se inyecta
+    # como calidad del pilar sobre una copia —no se muta el modelo original— para
+    # reutilizar la maquinaria de bandas. Sin `ci95`, dos modelos solo empatan si su
+    # score es idéntico, que es justo lo que hay que decir cuando la tarea satura.
+    if crit == "pillar" and pil == "Agentes":
+        inyectado = []
+        for m in pool:
+            sc = score_for(m, cfg)
+            if sc is None:
+                continue          # sin tarea real medida no entra al veredicto
+            c = dict(m)
+            c["dims_by_pillar"] = dict(c.get("dims_by_pillar") or {})
+            # El margen: la RESOLUCIÓN DE LO QUE PUBLICAMOS es el piso del empate.
+            #
+            # Sin esto, Sonnet 4.6 (9,4040) y Gemma 4 31B (9,3560) quedaban en bandas
+            # distintas por **0,048** — una diferencia que la tabla ni siquiera puede
+            # mostrar: ahí salen «9.4» y «9.4». El texto habría dicho «nadie empata con
+            # él» encima de dos números idénticos a la vista, que es la misma clase de
+            # contradicción que este bloque vino a arreglar.
+            #
+            # `_indistinguishable` declara empate si delta ≤ √2 · ci95; para cubrir el
+            # redondeo a un decimal (0,05) hace falta ci95 = 0,05/√2 ≈ 0,035. No es un
+            # intervalo de confianza real —la tarea Harbor no da uno—: es la promesa de
+            # no coronar a nadie por una diferencia que no mostramos.
+            #
+            # Y cambia la recomendación, que era el punto: con el empate declarado, el
+            # más barato de la banda es **Gemma 4 31B a $0,10/$0,34 contra $3/$15**.
+            # Cristian venía diciendo «me llama la atención que Sonnet 4.6 le gane a los
+            # nuevos en agentes». No les gana: empata, y cuesta 30 veces más.
+            c["dims_by_pillar"]["Agentes"] = {"quality_avg": sc, "quality_ci95": 0.035}
+            inyectado.append(c)
+        pool = inyectado
+
     v = _verdict(pool, pil, calls_per_month=3000)
     return v if (v and "best" in v) else None
 
@@ -999,13 +1047,23 @@ def verdict_block(cfg, models):
               "Contenido": "contenido", "Razonamiento": "razonamiento"}.get(pil or "", "")
     qs = f"?preset={preset}&amp;calls=3000" if preset else "?calls=3000"
 
-    lead = (f"<strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea: "
-            f"la diferencia entre ellos es más chica que el margen de error de la medición. "
-            f"Cuando la calidad empata, <strong>la decisión es de precio</strong>.")
-    if same:
-        lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla en calidad "
-                f"<em>y</em> es el más barato de los {v['band_size']} que empatan con él. "
-                f"Caso fácil: no hay que elegir entre calidad y precio.")
+    # 19-ago-2026 · el texto daba por hecho que SIEMPRE hay empate. Con `band_size = 1`
+    # salía «es el más barato de los 1 que empatan con él» —o sea, empata consigo mismo—
+    # y en el otro camino «1 modelos empatan». Un modelo solo en su banda es el caso
+    # más limpio que existe y se estaba contando como el más raro.
+    solo = (v["band_size"] or 0) <= 1
+    if solo:
+        lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla y "
+                f"<strong>nadie empata con él</strong>: la diferencia con el siguiente es "
+                f"mayor que el margen de error de la medición.")
+    else:
+        lead = (f"<strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea: "
+                f"la diferencia entre ellos es más chica que el margen de error de la medición. "
+                f"Cuando la calidad empata, <strong>la decisión es de precio</strong>.")
+        if same:
+            lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla en calidad "
+                    f"<em>y</em> es el más barato de los {v['band_size']} que empatan con él. "
+                    f"Caso fácil: no hay que elegir entre calidad y precio.")
 
     return f"""  <section class="verdict">
     <h2>La respuesta corta</h2>
