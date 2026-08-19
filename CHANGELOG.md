@@ -5,6 +5,17 @@
 
 ## [No publicado]
 
+- **`check_changelog.py` se hacía un bug a sí mismo, y era peligroso.** `_sh()` hace
+  `.strip()` del stdout completo, y `git status --porcelain` arranca con un espacio
+  (` M archivo`): ese strip **le comía el primer carácter a la primera línea**. El
+  síntoma era ruido —`.coverage` llegaba como `coverage` y no matcheaba la lista de
+  irrelevantes—, pero la consecuencia no lo es: los prefijos de `NIVEL_POR_PATH` se
+  comparan con `startswith`, así que si el primer archivo listado hubiera sido
+  `benchmarks/suites.py` se habría leído `enchmarks/suites.py` y **un cambio de medición
+  habría pasado como PATCH**, que es lo único que ese chequeo existe para impedir.
+  Además `.coverage` sale del control de versiones: lo reescribe el propio QA al correr
+  pytest, así que el chequeo modificaba el archivo que después reportaba como pendiente.
+
 ## [v4.7.1] - 2026-08-19 — la ficha se lee, el wizard se ve, y la página de agentes deja de contradecirse
 
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al

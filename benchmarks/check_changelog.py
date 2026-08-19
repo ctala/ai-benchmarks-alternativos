@@ -93,7 +93,20 @@ def cambios_desde(tag: str) -> list[str]:
     if tag:
         paths.update(_sh("git", "diff", "--name-only", f"{tag}..HEAD").splitlines())
     # `--porcelain` trae modificados, staged y sin trackear, con el estado en 2 columnas.
-    for linea in _sh("git", "status", "--porcelain").splitlines():
+    #
+    # 19-ago-2026 · NO se usa `_sh` acá, y el motivo es un bug que este chequeo se hacía
+    # a sí mismo: `_sh` hace `.strip()` del stdout completo, y el porcelain arranca con
+    # un espacio (` M archivo`). Ese strip se comía el primer carácter de la PRIMERA
+    # línea, así que `.coverage` llegaba como `coverage` y no matcheaba IRRELEVANTES.
+    #
+    # El síntoma era ruido; la consecuencia, no. Los prefijos de `NIVEL_POR_PATH` se
+    # comparan con `startswith`: si el primer archivo del listado hubiera sido
+    # `benchmarks/suites.py`, se habría leído `enchmarks/suites.py` y **el cambio de
+    # medición habría pasado como PATCH sin que nadie se enterara** — que es
+    # literalmente lo único que C2 existe para impedir.
+    crudo = subprocess.run(["git", "status", "--porcelain"], capture_output=True,
+                           text=True, cwd=ROOT).stdout
+    for linea in crudo.splitlines():
         if len(linea) > 3:
             paths.add(linea[3:].strip().strip('"'))
     return sorted(p for p in paths if p and not p.startswith(IRRELEVANTES))

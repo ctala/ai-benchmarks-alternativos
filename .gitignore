@@ -24,3 +24,4 @@ benchmarks/results/_backups/
 
 # Harbor: artefactos de corridas (contienen trayectorias completas de agentes)
 jobs/
+.coverage
