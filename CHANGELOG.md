@@ -9,6 +9,18 @@
 > cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
 > Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
 
+- **A1 del validador acusaba una regresión que no existía**, y bloqueaba el export desde
+  el lunes. Decidía si un run era «nuevo» comparando el NOMBRE DEL ARCHIVO contra
+  `benchmark_20260716`: como texto, `"benchmark_remedir_…" > "benchmark_20260716"` (la `r`
+  va después del `2`), así que 36 runs de ABRIL consolidados por `armar_resume` en
+  archivos sin fecha pasaban por nuevos. Ahora se mira la fecha del run, que está en el
+  run. `validate.py` quedó en verde: el benchmark se puede publicar.
+- Las **14 variantes `-thinking`** quedan declaradas `effort_variant` + `no_medir`, y
+  **GPT-4o y Claude Sonnet 4** como `no_medir` por antigüedad. Estaban fuera del ranking
+  por casualidad, no por decisión — y cualquier barrido los habría levantado, como pasó
+  con los GPT-5.6 Pro y Qwen 2.5 72B. Los quince modelos viejos que SÍ medimos (Llama 4,
+  DeepSeek V3, Kimi K2, Gemini 2.5…) se quedan: son opciones vigentes con examen completo,
+  y la regla es no EMPEZAR uno viejo, no jubilar los que ya están.
 - Re-medición del lote de agosto con el presupuesto por tarea: los modelos que antes se
   cortaban en 2.048 ahora generan hasta 32.768 tokens, y el truncamiento de los runs
   nuevos bajó a 2-5% (dentro de lo normal: un test largo puede tocar el techo en

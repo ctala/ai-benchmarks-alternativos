@@ -108,10 +108,25 @@ def a1_procedencia(runs, verbose):
     # del runner volvió a omitir el stamp — la clase de bug que dejó a
     # agent_long_horizon entera sin marca y produjo "comparar cosas distintas".
     # El aviso blando no alcanzó: esto tiene que DOLER en el momento, no meses después.
-    EPOCA_PROCEDENCIA = "benchmark_20260716"  # todo archivo >= esta fecha DEBE stampear
+    EPOCA_PROCEDENCIA = "20260716"  # todo run desde esta fecha DEBE stampear
+    #
+    # ⚠️ 19-ago-2026: esto comparaba el NOMBRE DEL ARCHIVO, no la fecha del run, y por
+    # eso acusó una regresión que no existía. `armar_resume` consolida runs históricos
+    # dentro de archivos llamados `benchmark_remedir_*` / `benchmark_completar_*`, y
+    # como texto `"benchmark_remedir_…" > "benchmark_20260716"` (la `r` va después del
+    # `2`). Resultado: 36 runs de ABRIL, legítimamente sin sello porque la marca no
+    # existía entonces, se reportaban como «un path del runner omite el stamp» y
+    # bloqueaban el export.
+    #
+    # La fecha de un run está en el run. Usar el nombre del archivo como proxy funcionó
+    # mientras todos los archivos se llamaban `benchmark_<fecha>_…`, y se rompió en
+    # silencio el día que aparecieron nombres sin fecha — que es justamente lo que hacen
+    # las herramientas de consolidación.
+    def _fecha(r):
+        return str(r.get("timestamp") or "")[:8]
     nuevos_sin = [r for r in runs
                   if r.get("quality") is not None and not r.get("scoring")
-                  and str(r.get("_archivo", "")) >= EPOCA_PROCEDENCIA]
+                  and _fecha(r) >= EPOCA_PROCEDENCIA]
     if nuevos_sin:
         ejemplos = {r.get("_archivo") for r in list(nuevos_sin)[:3]}
         fallo("A1 · procedencia (runs NUEVOS)",

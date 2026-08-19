@@ -49,6 +49,11 @@ SANCIONADOS = {
     # que hable de proveedores le llama la atención, y eso es preferible a que se
     # le escape uno que sí mide.
     "benchmarks/check_secretos.py",
+    # Consulta el SALDO (`/api/v1/key`), no mide nada: ni un modelo, ni un prompt.
+    # Lo delata que habla con openrouter.ai, que es la señal que este chequeo busca —
+    # y prefiero que se sobresalte con cualquier archivo que toque esa URL a que deje
+    # pasar uno que sí mida.
+    "benchmarks/check_presupuesto.py",
     "benchmarks/rejudge.py",
     "benchmarks/rescore_all.py",
     "benchmarks/judge_bakeoff.py",

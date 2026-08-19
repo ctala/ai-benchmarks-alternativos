@@ -210,6 +210,14 @@ MODELS = {
         "tier": "cheap",
     },
     "gemini-flash-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash (thinking)",
         "cost_input": 0.30,
@@ -428,6 +436,14 @@ MODELS = {
     # con los mismos runs contados dos veces). El precio vigente vive en la or-.
     # (dedup 14-jul-2026)
     "kimi-k2.5-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
         "cost_input": 0.57,
@@ -451,6 +467,14 @@ MODELS = {
         "notes": "Thinking model. Pesos públicos en HF (1.1T params). Precio corregido may 2026 vía OpenRouter API ($0.73/$3.49).",
     },
     "kimi-k2.6-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
         "cost_input": 0.5795,
@@ -643,6 +667,14 @@ MODELS = {
         "notes": "Haiku 4.5 vía suscripción Claude Code.",
     },
     "claude-opus-4.7-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",
         "cost_input": 5.00,
@@ -744,6 +776,11 @@ MODELS = {
         "tier": "medium",
     },
     "gpt-4o": {
+        # Más de un año y NUNCA se empezó a medir (decisión 15-ago-2026: el
+        # benchmark responde qué usar HOY). Declarado el 19-ago: estaba fuera por
+        # casualidad. Los viejos que SÍ medimos —Llama 4, DeepSeek V3, Kimi K2,
+        # Gemini 2.5— se quedan: son opciones vigentes con examen completo.
+        "no_medir": True,
         "id": "openai/gpt-4o",
         "name": "GPT-4o",
         "cost_input": 2.50,
@@ -751,6 +788,11 @@ MODELS = {
         "tier": "medium",
     },
     "claude-sonnet": {
+        # Más de un año y NUNCA se empezó a medir (decisión 15-ago-2026: el
+        # benchmark responde qué usar HOY). Declarado el 19-ago: estaba fuera por
+        # casualidad. Los viejos que SÍ medimos —Llama 4, DeepSeek V3, Kimi K2,
+        # Gemini 2.5— se quedan: son opciones vigentes con examen completo.
+        "no_medir": True,
         "id": "anthropic/claude-sonnet-4",
         "name": "Claude Sonnet 4",
         "cost_input": 3.00,
@@ -849,6 +891,14 @@ MODELS = {
         "tier": "medium",
     },
     "claude-sonnet-4.6-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6 (thinking)",
         "cost_input": 3.00,
@@ -867,6 +917,14 @@ MODELS = {
         "notes": "Anthropic Haiku family. Hybrid (extended thinking opt-in).",
     },
     "claude-haiku-4.5-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5 (thinking)",
         "cost_input": 1.00,
@@ -1197,6 +1255,14 @@ MODELS = {
         "notes": "Próxima generación Qwen — pendiente desde Lote 4",
     },
     "nim-qwen3-next-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
         "provider_variant": True,
@@ -1222,6 +1288,14 @@ MODELS = {
         "notes": "Colaboración Mistral × NVIDIA, optimizado en Nemo",
     },
     "nim-kimi-k2-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # Variante de proveedor: el modelo se mide en OpenRouter (plano común).
         # Esta fila conserva la medición vía NVIDIA NIM para comparar infraestructuras.
         "provider_variant": True,
@@ -1442,6 +1516,14 @@ MODELS = {
         "tier": "cheap",
     },
     "gemini-3.1-flash-lite-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-3.1-flash-lite-preview",
         "name": "Gemini 3.1 Flash Lite (thinking)",
         "cost_input": 0.25, "cost_output": 1.50,
@@ -1457,6 +1539,14 @@ MODELS = {
         "tier": "medium",
     },
     "gemini-3.1-pro-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "google/gemini-3.1-pro-preview",
         "name": "Gemini 3.1 Pro (thinking)",
         "cost_input": 2.00, "cost_output": 12.00,
@@ -1872,6 +1962,14 @@ MODELS = {
         "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
     },
     "hermes-4-70b-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
         # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
         # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
@@ -1910,6 +2008,14 @@ MODELS = {
         "notes": "Flagship Hermes 4 con reasoning híbrido. Sin reasoning explícito en este config.",
     },
     "hermes-4-405b-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
         # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
         # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
@@ -2192,6 +2298,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-qwen3-next-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking",
         "cost_input": 0.15, "cost_output": 1.2,
@@ -2199,6 +2313,14 @@ MODELS = {
         "open_source": True, "license": "Apache 2.0",
     },
     "or-kimi-k2-thinking": {
+        # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
+        # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
+        # medimos los default del thinking de cada modelo"*). El criterio es el
+        # PRECIO, no el nombre: cuesta igual que su base. Declarado el 19-ago —
+        # estaba sin medir por casualidad, no por decisión, y cualquier barrido
+        # lo habría levantado igual que levantó a los GPT-5.6 Pro.
+        "effort_variant": True,
+        "no_medir": True,
         "id": "moonshotai/kimi-k2-thinking",
         "name": "Kimi K2 Thinking",
         "cost_input": 0.6, "cost_output": 2.5,
