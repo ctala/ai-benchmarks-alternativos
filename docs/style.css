@@ -5,16 +5,37 @@
    Mobile-first: estilos base son para mobile, @media min-width sube tamaños
    ==================================================================== */
 
+/* Manual de Marca v2 — https://assets.cristiantala.com/brand/ctala.html
+   FUENTE ÚNICA. El manual manda; esto es su espejo. «NUNCA inventar colores».
+
+   19-ago-2026: la auditoría encontró 30 hex distintos en el sitio, 22 fuera del manual
+   — 7 fondos oscuros casi idénticos y 6 acentos compitiendo (dorado var(--cyan) ×17,
+   naranja, morado claro, rojo). No era una paleta agresiva: era la ausencia de sistema,
+   acumulada regla a regla. Cristian: «a nivel de colores creo que cansa».
+
+   Tres valores estaban DESVIADOS del manual y se corrigieron acá:
+     card   #14142a → #1a1a2e   (--color-surface)
+     prosa  var(--prose) → #dbdbe5   (--color-text-body, ratio 9.5:1 AAA)
+     y el morado se usaba ACLARADO (#b478ff) como color de TEXTO, que el manual
+     prohíbe explícitamente: «púrpura acento glow/grid, nunca en texto principal».
+
+   Los roles NO son decorativos, son el contrato:
+     verde   primario   headings, CTAs, un highlight por bloque
+     cyan    secundario links, badges
+     morado  acento     SOLO glow y grid — jamás texto
+     magenta alerta     uso escaso, de verdad escaso                              */
 :root {
-  --bg: #0a0a1a;
-  --bg-grid: #1a0a2e;
-  --bg-card: #14142a;
-  --green: #39ff14;
-  --cyan: #00d4ff;
-  --magenta: #ff006e;
-  --white: #ffffff;
-  --gray: #b0b0b0;
-  --gray-dark: #4a4a5e;
+  --bg: #0a0a1a;          /* Negro profundo · fondo principal */
+  --bg-grid: #1a0a2e;     /* --color-inset · code blocks, fondos alternativos */
+  --bg-card: #1a1a2e;     /* --color-surface · cards y superficies de lectura */
+  --green: #39ff14;       /* primario · 14.8:1 AAA sobre el fondo */
+  --cyan: #00d4ff;        /* secundario · 10.2:1 AAA */
+  --purple: #7a00df;      /* acento · glow y grid. NUNCA texto */
+  --magenta: #ff006e;     /* alertas · uso escaso */
+  --white: #ffffff;       /* 19.3:1 AAA */
+  --prose: #dbdbe5;       /* prosa body · 9.5:1 AAA */
+  --gray: #b0b0b0;        /* secundario, captions */
+  --gray-dark: #4a4a5e;   /* UI apagada (deshabilitado, líneas) */
   --border: #2a2a3e;
 }
 
@@ -129,10 +150,10 @@ nav .cta-mini:hover {
   font-size: 1.5rem;
   line-height: 1.15;
   margin-bottom: 1rem;
-  background: linear-gradient(120deg, var(--green) 0%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* El manual de marca es explícito: «Cero degradados decorativos en la tipografía».
+     El h1 iba con un verde→cyan clipeado al texto, que además lo lavaba justo donde
+     el degradado cruza al cyan. El verde sólido es el primario y da 14.8:1 AAA. */
+  color: var(--green);
 }
 .hero .lead {
   font-size: 0.95rem;
@@ -428,18 +449,21 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .tag.os { color: var(--green); border-color: rgba(57, 255, 20, 0.3); }
 .tag.thinking { color: var(--magenta); border-color: rgba(255, 0, 110, 0.3); }
 .tag.tools { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
-.tag.multimodal { color: #ffaa00; border-color: rgba(255, 170, 0, 0.3); }
+.tag.multimodal { color: var(--cyan); border-color: rgba(0, 212, 255, 0.3); }
 /* Frontera de Pareto: morado de marca (brand.json #7a00df, aclarado para contraste
    sobre fondo oscuro). Es el tag más "fuerte" del set a propósito — marca a 13 de 82. */
 .tag.pareto {
-  color: #b478ff;
+  /* El manual prohíbe el morado en texto («nunca en texto principal»); antes se usaba
+     aclarado a #b478ff para que contrastara, que es la señal de que no correspondía.
+     El morado se queda donde sí manda —borde y fondo—, y el texto va en cyan. */
+  color: var(--cyan);
   border-color: rgba(122, 0, 223, 0.45);
   background: rgba(122, 0, 223, 0.08);
 }
 .tag.tag-warn {
-  color: #ffd700;
-  border-color: rgba(255, 215, 0, 0.4);
-  background: rgba(255, 215, 0, 0.06);
+  color: var(--cyan);
+  border-color: rgba(255, 0, 110, 0.4);
+  background: rgba(255, 0, 110, 0.06);
 }
 /* Agéntico. El ✓ usa el verde neón de marca; el ⛔ es el único tag rojo del set,
    a propósito: es la advertencia más cara que da el sitio —"esto no corre en un
@@ -451,9 +475,9 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   background: rgba(57, 255, 20, 0.07);
 }
 .tag.tag-danger {
-  color: #ff5c5c;
-  border-color: rgba(255, 92, 92, 0.5);
-  background: rgba(255, 92, 92, 0.09);
+  color: var(--magenta);
+  border-color: rgba(255, 0, 110, 0.5);
+  background: rgba(255, 0, 110, 0.09);
   font-weight: 600;
 }
 
@@ -487,9 +511,9 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   border-color: rgba(0, 212, 255, 0.35);
 }
 .cb-badge.cb-ok {         /* 25-49% — aceptable */
-  color: #ffd700;
-  background: rgba(255, 215, 0, 0.06);
-  border-color: rgba(255, 215, 0, 0.3);
+  color: var(--cyan);
+  background: rgba(255, 0, 110, 0.06);
+  border-color: rgba(0, 212, 255, 0.3);
 }
 .cb-badge.cb-poor {       /* <25% — caro */
   color: var(--magenta);
@@ -819,12 +843,12 @@ input[type="range"]::-moz-range-thumb {
 .cap-card.cap-tools .cap-icon-large { filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)); }
 .cap-card.cap-thinking    { border-left-color: var(--magenta); }
 .cap-card.cap-thinking .cap-icon-large { filter: drop-shadow(0 0 8px rgba(255, 0, 110, 0.5)); }
-.cap-card.cap-multimodal  { border-left-color: #ffaa00; }
-.cap-card.cap-multimodal .cap-icon-large { filter: drop-shadow(0 0 8px rgba(255, 170, 0, 0.5)); }
+.cap-card.cap-multimodal  { border-left-color: var(--cyan); }
+.cap-card.cap-multimodal .cap-icon-large { filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)); }
 .cap-card.cap-os          { border-left-color: var(--green); }
 .cap-card.cap-os .cap-icon-large { filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.5)); }
-.cap-card.cap-speed       { border-left-color: #ffd700; }
-.cap-card.cap-speed .cap-icon-large { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5)); }
+.cap-card.cap-speed       { border-left-color: var(--cyan); }
+.cap-card.cap-speed .cap-icon-large { filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)); }
 .cap-card.cap-coverage    { border-left-color: var(--gray); }
 
 .cap-header {
@@ -1052,6 +1076,14 @@ input[type="range"]::-moz-range-thumb {
 .results-table tbody tr:last-child td { border-bottom: none; }
 .results-table tbody tr:hover { background: rgba(57, 255, 20, 0.04); }
 .results-table strong { color: var(--white); }
+/* 19-ago-2026 · el #1 de cada ranking no parecía clickeable.
+   `enlace_ficha` envuelve el nombre destacado como <a class="a-ficha"><strong>…</strong></a>,
+   y la regla de arriba pintaba el <strong> de blanco POR ENCIMA del cyan del enlace. O sea:
+   justo el modelo que más gente quiere abrir —el primero— era el único que no se veía
+   enlazado. El resto de la columna sí. */
+.results-table a.a-ficha strong { color: inherit; }
+a.a-ficha { text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
+a.a-ficha:hover { text-decoration: underline; }
 
 @media (max-width: 640px) {
   .results-table { font-size: 0.78rem; }
@@ -1140,9 +1172,9 @@ input[type="range"]::-moz-range-thumb {
   border-color: rgba(0, 212, 255, 0.3);
 }
 .ctx-badge.ctx-ok {
-  color: #ffd700;
+  color: var(--cyan);
   background: rgba(255, 215, 0, 0.08);
-  border-color: rgba(255, 215, 0, 0.3);
+  border-color: rgba(0, 212, 255, 0.3);
 }
 .ctx-badge.ctx-low {
   color: var(--magenta);
@@ -1175,9 +1207,9 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 0 6px rgba(57, 255, 20, 0.12);
 }
 .sec-badge.sec-mid {
-  color: #ffd700;
+  color: var(--cyan);
   background: rgba(255, 215, 0, 0.08);
-  border-color: rgba(255, 215, 0, 0.3);
+  border-color: rgba(0, 212, 255, 0.3);
 }
 .sec-badge.sec-low {
   color: var(--magenta);
@@ -1386,12 +1418,20 @@ main.container > section {
   border-top: 1px solid var(--border);
 }
 /* El hero y los bloques que ya tienen caja propia no llevan la linea divisoria. */
-main.container > section.hero,
 main.container > section.verdict,
 main.container > section.funnel {
   border-top: none;
   padding-top: 0;
 }
+/* 19-ago-2026 · el hero salía SIN línea divisoria y sin aire, pegado al header.
+   Estaba en la regla de arriba, y el `padding-top: 0` era daño colateral: lo que se
+   quería quitar era el borde, no el respiro. Cristian: «los títulos de las páginas
+   están muy pegados arriba». Medido antes del fix: 0 px entre el header y el h1. */
+main.container > section.hero {
+  border-top: none;
+  padding-top: 2.25rem;
+}
+@media (min-width: 720px) { main.container > section.hero { padding-top: 3.25rem; } }
 main.container > section.hero { margin-bottom: 1.5rem; }
 
 /* 3. Jerarquia de titulos: el h2 marca el corte, no compite con el cuerpo. */
@@ -1531,7 +1571,7 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
   background: linear-gradient(160deg, rgba(57,255,20,.07), rgba(0,212,255,.05));
   border: 1px solid var(--border); border-left: 3px solid var(--green);
   border-radius: 12px; padding: 14px 16px; margin: 0 0 20px;
-  font-size: 14.5px; line-height: 1.55; color: #dcdcec;
+  font-size: 14.5px; line-height: 1.55; color: var(--prose);
 }
 .wiz-thesis b { color: #fff; } .wiz-thesis .hi { color: var(--green); font-weight: 700; }
 .wiz-steps { display: flex; gap: 6px; margin: 0 0 18px; }
@@ -1542,31 +1582,31 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-hint { color: var(--gray); font-size: 13px; margin: 0 0 15px; }
 .wiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
 .wiz-opt {
-  text-align: left; background: linear-gradient(180deg, #181830, #12121f);
+  text-align: left; background: linear-gradient(180deg, var(--bg-card), var(--bg));
   border: 1px solid var(--border); border-radius: 14px; padding: 14px; cursor: pointer;
   color: inherit; font-family: inherit; transition: .16s; display: flex; gap: 11px; align-items: flex-start;
 }
 .wiz-opt:hover { border-color: var(--gray-dark); transform: translateY(-2px); }
-.wiz-opt.sel { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 0 26px -6px rgba(57,255,20,.5); background: linear-gradient(180deg, #1a2418, #12121f); }
+.wiz-opt.sel { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 0 26px -6px rgba(57,255,20,.5); background: linear-gradient(180deg, color-mix(in srgb, var(--green) 7%, var(--bg-card)), var(--bg)); }
 .wiz-opt .ic { font-size: 21px; line-height: 1; flex: none; }
 .wiz-opt .ic + span { display: flex; flex-direction: column; min-width: 0; }
 .wiz-opt .ot { font-weight: 700; font-size: 14.5px; display: block; }
 .wiz-opt .od { color: var(--gray); font-size: 12px; margin-top: 2px; display: block; line-height: 1.35; }
 .wiz-toggle {
   display: flex; align-items: center; gap: 13px; width: 100%; text-align: left;
-  background: linear-gradient(180deg, #161628, #111120); border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-card), var(--bg)); border: 1px solid var(--border);
   border-radius: 14px; padding: 13px 15px; cursor: pointer; margin-bottom: 11px; transition: .16s; color: inherit; font-family: inherit;
 }
 .wiz-toggle:hover { border-color: var(--gray-dark); }
 .wiz-toggle[aria-pressed="true"] { border-color: var(--magenta); box-shadow: 0 0 0 1px rgba(255,0,110,.5), 0 0 24px -8px rgba(255,0,110,.5); }
-.wiz-sw { width: 44px; height: 26px; border-radius: 99px; background: #2a2a42; position: relative; flex: none; transition: .2s; }
+.wiz-sw { width: 44px; height: 26px; border-radius: 99px; background: var(--border); position: relative; flex: none; transition: .2s; }
 .wiz-toggle[aria-pressed="true"] .wiz-sw { background: var(--magenta); }
 .wiz-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: .2s; }
 .wiz-toggle[aria-pressed="true"] .wiz-sw::after { transform: translateX(18px); }
 .wiz-tt { font-weight: 650; font-size: 14px; display: block; } .wiz-td { color: var(--gray); font-size: 12px; margin-top: 1px; display: block; }
 .wiz-nav { display: flex; gap: 10px; margin-top: 18px; }
 .wiz-btn { flex: 1; border: none; font-family: inherit; font-weight: 750; font-size: 15px; border-radius: 12px; padding: 14px; cursor: pointer; transition: .16s; }
-.wiz-btn.primary { background: linear-gradient(120deg, var(--green), #8fff5c); color: #04120a; box-shadow: 0 10px 30px -10px rgba(57,255,20,.6); }
+.wiz-btn.primary { background: linear-gradient(120deg, var(--green), var(--green)); color: var(--bg); box-shadow: 0 10px 30px -10px rgba(57,255,20,.6); }
 .wiz-btn.primary:hover { transform: translateY(-2px); } .wiz-btn.primary:disabled { opacity: .4; transform: none; cursor: not-allowed; box-shadow: none; }
 .wiz-btn.ghost { flex: 0 0 auto; background: transparent; border: 1px solid var(--gray-dark); color: var(--gray); padding: 14px 18px; }
 .wiz-btn.ghost:hover { color: var(--white); border-color: var(--gray); }
@@ -1574,20 +1614,20 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-rec { animation: wizpop .4s cubic-bezier(.2,.9,.3,1.2); }
 @keyframes wizpop { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
 .wiz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--green); margin: 18px 0 8px; }
-.wiz-hero { background: linear-gradient(160deg, #16241a, #101020 62%); border: 1px solid var(--green); border-radius: 20px; padding: 22px; box-shadow: 0 18px 50px -20px rgba(0,0,0,.8), 0 0 40px -18px rgba(57,255,20,.5); position: relative; overflow: hidden; }
+.wiz-hero { background: linear-gradient(160deg, color-mix(in srgb, var(--green) 7%, var(--bg-card)), var(--bg) 62%); border: 1px solid var(--green); border-radius: 20px; padding: 22px; box-shadow: 0 18px 50px -20px rgba(0,0,0,.8), 0 0 40px -18px rgba(57,255,20,.5); position: relative; overflow: hidden; }
 .wiz-pick-name { font-size: 26px; font-weight: 830; letter-spacing: -.03em; line-height: 1.05; }
 .wiz-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 11px 0 13px; }
 .wiz-bdg { font-size: 11px; font-weight: 700; border-radius: 99px; padding: 4px 10px; }
 .wiz-bdg.os { background: rgba(57,255,20,.12); color: var(--green); border: 1px solid rgba(57,255,20,.3); }
 .wiz-bdg.price { background: rgba(0,212,255,.12); color: var(--cyan); border: 1px solid rgba(0,212,255,.3); }
 .wiz-bdg.q { background: rgba(255,0,110,.12); color: var(--magenta); border: 1px solid rgba(255,0,110,.3); }
-.wiz-why { font-size: 14.5px; color: #dcdcec; margin: 0 0 15px; line-height: 1.55; } .wiz-why b { color: #fff; }
+.wiz-why { font-size: 14.5px; color: var(--prose); margin: 0 0 15px; line-height: 1.55; } .wiz-why b { color: #fff; }
 .wiz-cost { display: flex; gap: 16px; padding: 13px 0 2px; border-top: 1px solid rgba(255,255,255,.09); margin-top: 4px; }
 .wiz-cost div { flex: 1; } .wiz-cost .k { font-size: 10.5px; color: var(--gray); text-transform: uppercase; letter-spacing: .05em; }
 .wiz-cost .v { font-size: 19px; font-weight: 800; letter-spacing: -.02em; margin-top: 2px; font-variant-numeric: tabular-nums; } .wiz-cost .v.green { color: var(--green); }
 .wiz-deeper { margin-top: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
 .wiz-deeper .dh { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--cyan); margin-bottom: 9px; }
-.wiz-deeper a { display: flex; align-items: center; gap: 9px; color: #dcdcec; text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.05); transition: .15s; }
+.wiz-deeper a { display: flex; align-items: center; gap: 9px; color: var(--prose); text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.05); transition: .15s; }
 .wiz-deeper a:first-of-type { border-top: none; } .wiz-deeper a:hover { color: var(--green); } .wiz-deeper a .ar { margin-left: auto; color: var(--gray-dark); }
 .wiz-restart { display: block; margin: 14px auto 0; background: none; border: none; color: var(--gray); font-family: inherit; font-size: 13px; cursor: pointer; text-decoration: underline; }
 .wiz-restart:hover { color: var(--white); }
@@ -1615,10 +1655,12 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
    El contraste se resalta solo cuando el modelo está en la mitad de abajo del
    índice general: es el caso que la columna existe para mostrar — bueno en el
    eje elegido, escondido por el promedio. */
-.results-table td.contraste { color: #b478ff; font-weight: 700; }
+/* Iba en morado aclarado, que el manual prohíbe en texto. Marca un HALLAZGO bueno
+   («bueno en este eje, escondido por el promedio»), así que le toca el primario. */
+.results-table td.contraste { color: var(--green); font-weight: 700; }
 .results-table td.ag-ok    { color: var(--green); }
-.results-table td.ag-medio { color: #ffd700; }
-.results-table td.ag-bajo  { color: #ff5c5c; font-weight: 600; }
+.results-table td.ag-medio { color: var(--cyan); }
+.results-table td.ag-bajo  { color: var(--magenta); font-weight: 600; }
 .results-table td small { color: var(--muted); font-weight: 400; font-size: .78em; }
 
 /* ── Tabla eje por eje de las comparaciones (v4.3) ─────────────────────────
@@ -1644,13 +1686,13 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
   font-size: .88rem; line-height: 1.5;
 }
 .cobertura.ok      { background: rgba(57,255,20,.07);  border-left: 3px solid var(--green); }
-.cobertura.parcial { background: rgba(255,215,0,.07);  border-left: 3px solid #ffd700; }
+.cobertura.parcial { background: rgba(255,215,0,.07);  border-left: 3px solid var(--cyan); }
 
 /* Un modelo que no rankea puede salir alto por calidad —las variantes PRO lo
    hacen— y el lector que solo mira la tabla se llevaba una recomendación que el
    repo había decidido no hacer. La salvedad va en la fila, no en una nota al pie. */
 .results-table .row-badge.no-rankea {
-  background: rgba(255,215,0,.14); color: #ffd700; border: 1px solid rgba(255,215,0,.3);
+  background: rgba(255,215,0,.14); color: var(--cyan); border: 1px solid rgba(255,215,0,.3);
   border-radius: 4px; padding: 1px 6px; font-size: .7em; font-weight: 600;
   margin-left: 6px; white-space: nowrap; cursor: help;
 }
@@ -1682,10 +1724,10 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .ficha-alertas { margin: 14px 0 0; padding: 0 0 0 18px; list-style: none; }
 .ficha-alertas li {
   position: relative; margin: 7px 0; font-size: .87rem; line-height: 1.5;
-  color: #ffd9a8;
+  color: var(--prose);
 }
 .ficha-alertas li::before {
-  content: "⚠"; position: absolute; left: -18px; color: #ffb340;
+  content: "⚠"; position: absolute; left: -18px; color: var(--magenta);
 }
 .ficha-pie { margin-top: 12px; font-size: .74rem; color: var(--muted); font-family: var(--mono, monospace); }
 

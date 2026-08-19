@@ -136,35 +136,6 @@
       pruebas reales sobre <strong id="hero-models" aria-live="polite">170</strong> modelos de IA.
       Cuéntanos qué quieres hacer y cuánto lo vas a usar; te decimos cuál conviene —y cuánto cuesta.
     </p>
-    <p class="hero-note">
-      ¿Recién empiezas con la IA y no tienes claro qué diferencia a un modelo de otro?
-      En la comunidad tenemos un
-      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">curso gratis de introducción a los LLMs</a>.
-      Empieza por ahí y después vuelve a la calculadora.
-    </p>
-    <details class="hero-details">
-      <summary>Qué es este benchmark (y qué no es)</summary>
-      <p>
-        No reemplaza a los benchmarks académicos (HumanEval, MMLU, SWE-bench, LMSYS Arena): los
-        <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
-        proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
-        Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
-        Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
-        precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
-        Si querés que el precio pese, movés los pesos vos. La escala es <strong>absoluta</strong>:
-        es la nota media del examen, donde 10 sería perfecto en todo. No se compara contra los
-        otros modelos, así que <strong>agregar uno nuevo no mueve el score de nadie</strong> y una
-        cifra citada no caduca sola. Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: sí,
-        están apretados — es el dato, no un defecto del gráfico. Parte del examen ya no los
-        distingue (<a href="#como-se-mide">5 de 28 suites</a> las resuelven casi todos con nota
-        perfecta), y eso se arregla con pruebas más difíciles, no estirando la escala.
-        <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
-      </p>
-    </details>
-    <p class="meta">
-      Dataset <strong>v4.7.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
-      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
-    </p>
   </section>
 
   <!-- ============ WIZARD GUIADO (v4.0) ============
@@ -228,6 +199,46 @@
     <!-- Resultado -->
     <div id="wiz-result" hidden></div>
   </section>
+
+  <!-- 19-ago-2026 · ESTE BLOQUE ESTABA ARRIBA, ENTRE EL TITULAR Y EL WIZARD.
+       Medido: el wizard arrancaba a 471 px — debajo del titular, el párrafo, la caja del
+       curso gratis, el acordeón «qué es este benchmark» y la tesis. En un laptop de 768 px
+       de alto quedaba justo al borde, y en móvil bastante más abajo.
+       Cristian: «la gente no entiende lo del wizard». No es que fuera confuso: es que
+       había que buscarlo. Quien llega ahora ve de inmediato que esto se USA, no que se lee;
+       el contexto sigue estando, una pantalla más abajo, para quien lo quiera. -->
+  <section class="hero hero-contexto">
+    <p class="hero-note">
+      ¿Recién empiezas con la IA y no tienes claro qué diferencia a un modelo de otro?
+      En la comunidad tenemos un
+      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">curso gratis de introducción a los LLMs</a>.
+      Empieza por ahí y después vuelve a la calculadora.
+    </p>
+    <details class="hero-details">
+      <summary>Qué es este benchmark (y qué no es)</summary>
+      <p>
+        No reemplaza a los benchmarks académicos (HumanEval, MMLU, SWE-bench, LMSYS Arena): los
+        <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
+        proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
+        Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
+        Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
+        precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
+        Si querés que el precio pese, movés los pesos vos. La escala es <strong>absoluta</strong>:
+        es la nota media del examen, donde 10 sería perfecto en todo. No se compara contra los
+        otros modelos, así que <strong>agregar uno nuevo no mueve el score de nadie</strong> y una
+        cifra citada no caduca sola. Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: sí,
+        están apretados — es el dato, no un defecto del gráfico. Parte del examen ya no los
+        distingue (<a href="#como-se-mide">5 de 28 suites</a> las resuelven casi todos con nota
+        perfecta), y eso se arregla con pruebas más difíciles, no estirando la escala.
+        <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/BENCHMARKS_EXTERNOS.md" target="_blank" rel="noopener">Cross-references con los oficiales</a>.
+      </p>
+    </details>
+    <p class="meta">
+      Dataset <strong>v4.7.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
+    </p>
+  </section>
+
 
   <nav class="landing-nav" aria-label="Navegación por caso de uso">
     <strong>Por caso de uso:</strong>

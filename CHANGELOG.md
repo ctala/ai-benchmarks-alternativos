@@ -8,6 +8,47 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **El sitio tenía 30 colores; el manual de marca tiene 10.** Cristian: *"a nivel de
+  colores creo que cansa"*. La auditoría: **22 hex fuera del manual** — siete fondos
+  oscuros casi idénticos y seis acentos compitiendo (dorado `#ffd700` ×17, naranja,
+  morado claro, rojo). Nadie decidió tener 30: cada uno entró en una regla, resolviendo
+  un caso puntual, y se quedó. El manual decía «NUNCA inventar colores», estaba escrito,
+  y nada lo verificaba. Ahora quedan 13 (10 de marca + 3 grises de UI) y lo hace cumplir
+  **`check_paleta.py`**, bloqueante en el QA.
+
+  Tres desvíos que solo aparecen comparando contra la fuente: la card era `#14142a` y el
+  manual dice `#1a1a2e`; la prosa era `#dcdcec` contra `#dbdbe5`; y el **morado se usaba
+  aclarado a `#b478ff` como color de texto**, que el manual prohíbe explícitamente
+  («púrpura acento glow/grid, nunca en texto principal») — que hubiera que aclararlo para
+  que contrastara era la señal de que no correspondía. El guardrail estrenó cazando dos
+  colores inventados **ese mismo día, por mí**, en el fix de las barras.
+
+- **El h1 llevaba un degradado, que el manual prohíbe.** «Cero degradados decorativos en
+  la tipografía»: el titular iba verde→cyan clipeado al texto y se lavaba justo donde
+  cruza al cyan. Verde sólido, 14.8:1 AAA.
+
+- **Los títulos nacían pegados al header: 0 px de aire, medido.** Una regla que quitaba
+  la línea divisoria del hero se había llevado de paso su `padding-top` — el borde era lo
+  que se quería quitar, no el respiro. Y el grid morado del hero se cortaba en línea
+  recta porque la máscara se desvanecía sólo hacia arriba; ahora se apaga antes de los
+  dos bordes.
+
+- **El wizard estaba enterrado a 471 px**, debajo del titular, el párrafo, la caja del
+  curso gratis, el acordeón y la tesis — en un laptop de 768 px quedaba al borde.
+  Cristian: *"la gente no entiende lo del wizard"*. No era confuso: había que buscarlo.
+  Sube a lo primero después del titular y ahora entra completo en la primera pantalla; el
+  contexto baja detrás, para quien lo quiera.
+
+- **La ficha no parecía una ficha, y era cierto.** Eran cuatro elementos sueltos flotando
+  en el scroll —titular, KPIs, badges, barras— separados por aire y divisorias: un
+  artículo que empieza con datos. Ahora viven dentro de UN marco con borde, las cajas
+  internas pierden su propio borde (un borde dentro de otro es ruido) y la procedencia
+  cierra abajo, como el pie de una tabla. Mismos datos, un objeto.
+
+- **El #1 de cada ranking era el único que no parecía clickeable.** `enlace_ficha` lo
+  envuelve como `<a><strong>…</strong></a>` y `.results-table strong` pintaba blanco por
+  encima del cyan del enlace. Justo el modelo que más gente quiere abrir.
+
 - **La ficha abría con el número que hace cerrar la pestaña.** El tile más grande y
   primero era «Puesto global #59 de 91 · mejor que el 36% de los rankeados». Ese mismo
   modelo saca 8,21/10 y es #3 de 91 en Contenido: el puesto global comprime en 91

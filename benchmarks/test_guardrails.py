@@ -203,6 +203,18 @@ def _t_cortes():
         return _correr("check_cortes.py") != 0
 
 
+@prueba("check_paleta", "un color inventado que el manual de marca no tiene")
+def _t_paleta():
+    # El caso real: alguien necesita «un amarillo para advertencia», lo escribe en una
+    # regla y se queda. Así llegaron los 22 colores fuera de manual que había el 19-ago
+    # — ninguno por decisión, todos por acumulación.
+    css = ROOT / "docs" / "style.css"
+    with Sabotaje(css):
+        css.write_text(css.read_text(encoding="utf-8") +
+                       "\n.inventado { color: #ffcc00; }\n", encoding="utf-8")
+        return _correr("check_paleta.py") != 0
+
+
 @prueba("check_fichas_alcanzables", "una página que lista modelos sin dejar llegar a su ficha")
 def _t_fichas():
     # Se le quita el enlace a la ficha a UNA página de ranking, dejando el nombre pelado.

@@ -93,6 +93,8 @@ CHEQUEOS = [
     # Bloqueante desde el día uno, y se puede porque nació en verde: la primera corrida
     # encontró 5 páginas huérfanas y se arreglaron en el mismo commit. Un chequeo que
     # entra ya rojo se aprende a ignorar; uno que entra verde protege lo que costó cerrar.
+    ("paginas", "ningún color inventado fuera del manual de marca",
+     [PY, "benchmarks/check_paleta.py"], True, True),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",
      [PY, "benchmarks/check_fichas_alcanzables.py"], True, True),
     ("datos", "cobertura del núcleo sobre el piso",

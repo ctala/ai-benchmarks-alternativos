@@ -82,6 +82,8 @@
     background:
       radial-gradient(ellipse 70% 60% at 12% 8%, rgba(122,0,223,.28) 0%, transparent 60%),
       radial-gradient(ellipse 60% 50% at 92% 95%, rgba(0,212,255,.10) 0%, transparent 55%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 30%);
+    mask-image: linear-gradient(to top, transparent 0%, #000 30%);
   }
   .hero::after {
     content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -89,10 +91,42 @@
       linear-gradient(rgba(122,0,223,.18) 1px, transparent 1px),
       linear-gradient(90deg, rgba(122,0,223,.18) 1px, transparent 1px);
     background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 75%);
-    mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+    /* 19-ago-2026 · la máscara se desvanecía hacia arriba y quedaba SÓLIDA abajo, así
+       que el `overflow: hidden` del hero la cortaba en línea recta: se veía un rectángulo
+       más claro terminando de golpe detrás del titular. El manual pide el grid
+       «masked hacia arriba»; lo que faltaba era apagarlo también antes del borde de
+       abajo, para que el efecto no tenga ningún canto duro. */
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 26%, transparent 82%);
+    mask-image: linear-gradient(to top, transparent 0%, #000 26%, transparent 82%);
   }
   .hero > * { position: relative; z-index: 1; }
+
+  /* ── EL BLOQUE FICHA ────────────────────────────────────────────────────
+     Un marco, no cuatro piezas flotando. Los KPIs, las barras por pilar y la
+     procedencia del dato viven DENTRO de un rectángulo con borde: eso es lo que
+     hace que se lea como ficha y no como el arranque de un artículo.
+     Las cajas internas pierden su propio borde —un borde dentro de otro borde es
+     ruido— y quedan separadas por líneas finas, como las filas de una ficha real. */
+  .ficha-bloque { background: var(--bg-card); border: 1px solid var(--border);
+                  border-radius: 14px; padding: 1.25rem; margin: 0 0 2rem; }
+  @media (min-width: 720px) { .ficha-bloque { padding: 1.6rem 1.75rem; } }
+  .ficha-bloque .kpi-strip { margin: 0 0 1.1rem; }
+  .ficha-bloque .kpi { background: transparent; border: 0; border-radius: 0;
+                       padding: .2rem 0 .2rem .85rem; }
+  .ficha-bloque .badges { margin: 0 0 1.15rem; padding-bottom: 1.15rem;
+                          border-bottom: 1px solid var(--border); }
+  .ficha-bloque .perfil { margin: 0; padding: 0; border: 0; }
+  .ficha-bloque .perfil h2 { font-size: .78rem; letter-spacing: .08em;
+                             text-transform: uppercase; color: var(--gray);
+                             margin: 0 0 .35rem; }
+  .ficha-bloque .perfil h2::before { content: none; }
+  .ficha-bloque .leyenda { font-size: .78rem; margin: 0 0 1rem; }
+  /* La procedencia cierra la ficha, como el pie de una tabla: quién la midió y cuándo.
+     Arriba, entre el titular y los datos, solo estorbaba. */
+  .ficha-fuente { font-size: .76rem; color: var(--gray); margin: 1.1rem 0 0;
+                  padding-top: .9rem; border-top: 1px solid var(--border); }
+  /* El titular ya no lleva la caja con grid morado: la caja ahora es la ficha. */
+  .ficha-hero { padding-bottom: .75rem !important; }
 
   /* ── Tira de KPIs: lo que se responde sin bajar ──────────────────────────
      Una tabla de 15 filas trata «puesto #45» y «ventana de contexto» como si
@@ -143,7 +177,9 @@
      puntos. El color decía «reprobado» de un número muy bueno. Hoy el verde marca
      lo que sobresale y el resto es neutro: estar bajo la mediana de esta población
      no es una falla, es el promedio. */
-  .bar-fill.bajo { background: linear-gradient(90deg, #3a3a4e, #6f7690); }
+  /* 19-ago: se estrenó con dos hex inventados (#3a3a4e→#6f7690) y los cazó
+     `check_paleta.py` el mismo día. Es el gris de UI del sistema, sin degradado. */
+  .bar-fill.bajo { background: var(--gray-dark); }
   .bar-median { position: absolute; top: -5px; bottom: -5px; width: 2px;
                 background: var(--gray); opacity: .7; }
   .bar-row .b-val { font-family: 'JetBrains Mono', monospace; font-size: .82rem;
@@ -206,13 +242,11 @@
   </div>
 </header>
 <main class="container">
-  <section class="hero">
+  <section class="hero ficha-hero">
     <h1>MiniMax M3: para qué sirve de verdad (benchmark en español)</h1>
     <p class="lead">Donde mejor rinde es <strong>Coding</strong> (#48 de 91 entre los que rinden el examen completo), y donde menos rinde es <strong>Agentes</strong> (7.58 contra 9.05). Cuesta $1.89 por cada 1.000 llamadas.</p>
-    <p class="meta">Medido con <strong>230 runs</strong> que puntúan, juez Phi-4 local.
-    Última actualización: 2026-08-19 ·
-    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
+  <section class="ficha-bloque" aria-label="Ficha de MiniMax M3">
   <div class="kpi-strip">
     <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">8.17<span class="k-unit">/10</span></span><span class="k-sub">#45 de 91 · del mejor al peor hay 1.3 puntos</span></div>
     <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$1.89</span><span class="k-sub">más barato que 55 de 91</span></div>
@@ -253,6 +287,10 @@
       <span class="bar-track"><span class="bar-fill" style="width:53.9%"></span><span class="bar-median" style="left:52.5%"></span></span>
       <span class="b-val">7.58 <span class="delta">(+0.04 vs mediana)</span></span>
     </div>
+  </section>
+    <p class="ficha-fuente">Medido con <strong>230 runs</strong> que puntúan,
+    juez Phi-4 local · actualizado 2026-08-19 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
