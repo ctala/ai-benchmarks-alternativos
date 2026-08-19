@@ -1388,7 +1388,10 @@ const WIZ = {
     { id: "contenido", ic: "✍️", ot: "Escribir contenido", od: "Blogs, copy, emails, marketing", pillar: "Contenido", page: "/mejor-llm-para-contenido/" },
     { id: "agentes", ic: "🔧", ot: "Agentes / automatizar", od: "N8N, flujos multi-paso, tareas", pillar: "Agentes", page: "/mejor-llm-para-agentes/" },
     { id: "razonamiento", ic: "🧠", ot: "Razonar / analizar", od: "Análisis, decisiones, matemática", pillar: "Razonamiento", page: "/mejor-llm-para-razonamiento/" },
-    { id: "chat", ic: "💬", ot: "Chat en vivo", od: "Respuesta rápida, conversación", pillar: null, page: null, latency: true },
+    { id: "chat", ic: "💬", ot: "Chat en vivo", od: "Respuesta rápida, conversación",
+      // Chat en vivo se decide por latencia y por precio (es lo que más volumen genera),
+      // así que el ranking barato es la continuación natural.
+      pillar: null, page: "/mejor-llm-barato/", latency: true },
     // TAREAS FINAS, puntuadas por las suites que de verdad las miden (17-ago-2026).
     //
     // Las seis de arriba son los pilares, y un pilar promedia hasta 29 ejes: sirve para
@@ -1401,9 +1404,17 @@ const WIZ = {
     // esas suites medidas NO aparece: recomendar sin evidencia del eje que se pregunta es
     // exactamente lo que este benchmark existe para no hacer.
     { id: "verificar", ic: "🔍", ot: "Verificar datos", od: "Que no publique lo que la fuente no dice",
-      pillar: null, page: null, suites: ["verificar_claim", "content_verificable", "hallucination"] },
+      // 19-ago-2026: tenía `page: null` y la página existía hace rato. Cristian, probando
+      // los flujos: *"los distintos flujos del wizard no te llevan al «mejor llm para…»"*.
+      // El campo estaba y nadie lo llenaba — el mismo patrón que el `piso`: el dato
+      // existe, el consumidor lo consulta, y el hueco está en el medio.
+      pillar: null, page: "/mejor-llm-para-datos-exactos/",
+      suites: ["verificar_claim", "content_verificable", "hallucination"] },
     { id: "noticias", ic: "📰", ot: "Escribir noticias", od: "Nota con fuentes, en español que no suene traducido",
-      pillar: null, page: null, suites: ["news_seo_writing", "verificar_claim", "integridad_idioma"] },
+      // La suite `integridad_idioma` pesa acá, y el ranking en español es el que mejor
+      // continúa la consulta de quien elige esta tarea.
+      pillar: null, page: "/mejor-llm-en-espanol/",
+      suites: ["news_seo_writing", "verificar_claim", "integridad_idioma"] },
   ],
   budgets: [
     { id: "personal", ic: "🧑", ot: "Poco", od: "~$5/mes · uso personal", w: { quality: 85, cost: 5, speed: 5, latency: 5 } },

@@ -8,6 +8,11 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **El wizard ya continúa hacia su ranking en 7 de 8 tareas.** El campo `page` existía en
+  `WIZ.tasks` y cuatro tareas lo tenían en `null` con las páginas ya publicadas: verificar
+  → `/mejor-llm-para-datos-exactos/`, noticias → `/mejor-llm-en-espanol/`, chat →
+  `/mejor-llm-barato/`. «Un poco de todo» sigue sin enlace, que es correcto. Lo vigila W15.
+
 - **La fila desplegable ahora se anuncia.** Cristian: *"me gustó lo de tener la row
   desplegable, pero no se entiende que hay una hasta que le haces click"*. Un affordance
   que sólo se descubre por accidente no existe para la mayoría — el mismo problema que el

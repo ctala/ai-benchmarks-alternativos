@@ -742,6 +742,26 @@ chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar"
   return malas;
 });
 
+// ── W15 · cada tarea del wizard continúa hacia su ranking ───────────────────
+// El campo `page` existía en `WIZ.tasks` desde siempre y CUATRO de las ocho tareas lo
+// tenían en `null` — con las páginas ya generadas y publicadas. Cristian, probando los
+// flujos: *"los distintos flujos del wizard no te llevan al «mejor llm para…», pensé
+// que ya habíamos generado esas páginas"*. Estaban generadas; faltaba conectarlas.
+//
+// Es el tercer caso del mismo patrón en un día (el `piso`, el enlace a la ficha, esto):
+// el dato existe, el consumidor sabe leerlo, y el hueco está en que nadie lo llenó.
+// Por eso el chequeo no pregunta «¿alguien usa el campo?» sino «¿está completo?».
+chequeo("W15 · cada tarea del wizard enlaza a un ranking que existe", () => {
+  const malas = [];
+  for (const t of app.WIZ.tasks) {
+    if (t.id === "general") continue;      // no hay ranking de «un poco de todo»
+    if (!t.page) { malas.push(`la tarea «${t.id}» no continúa hacia ningún ranking`); continue; }
+    const dir = join(ROOT, "docs", t.page.replace(/^\/|\/$/g, ""));
+    if (!existsSync(dir)) malas.push(`«${t.id}» apunta a ${t.page} y esa página no existe`);
+  }
+  return malas;
+});
+
 // ── W14 · el enlace a la ficha no puede ser un 404 ──────────────────────────
 // La tabla enlaza a `/modelo/<key>/`, que sólo existe para los RANKEADOS —
 // `generate_model_cards` no genera los demás—. Y la tabla muestra también no
