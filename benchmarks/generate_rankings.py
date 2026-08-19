@@ -888,11 +888,23 @@ def _verdict_data(cfg, models):
     figurar ahi. Donde no puedo sostener el veredicto, no lo invento: lo omito.
     """
     from bands import verdict as _verdict
+    from benchmarks import elegibilidad as eleg
 
     crit = cfg.get("criterion")
     if crit not in ("pillar", "open_source"):
         return None
-    pool = [m for m in models if (m.get("runs") or 0) >= 50]
+    # 19-ago-2026: esto filtraba SÓLO por cantidad de runs, y por eso el veredicto
+    # destacado de tres páginas recomendaba **DiffusionGemma 26B-A4B (DGX Spark Q8_0)**
+    # como «La mejor calidad medida · ≈$2/mes» — un modelo que corre en el Spark de
+    # Cristian. Nadie que lea la página puede usarlo, y esos $2 son su electricidad.
+    # Encima el texto decía «que encabeza la tabla» y no estaba en la tabla, porque
+    # ESA sí filtra bien.
+    #
+    # El dato lo decía: `elegible.catalogo = False`, motivo `examen_incompleto`, y
+    # `ranking = False` por `self_hosted`. La regla estaba en el dato y este generador
+    # no la leía — el mismo filtro a mano que esta semana ya dejó entrar a los GPT-5.6
+    # Pro y a Qwen 2.5. Por eso ahora se usa `elegibilidad.filtrar`, que es LA función.
+    pool = [m for m in eleg.filtrar(models, "catalogo") if (m.get("runs") or 0) >= 50]
     if crit == "open_source":
         pool = [m for m in pool if m.get("open_source")]
     pil = cfg.get("pillar") if crit == "pillar" else None

@@ -8,6 +8,14 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **El veredicto destacado de tres páginas recomendaba un modelo que corre en el Spark.**
+  DiffusionGemma 26B-A4B aparecía como «La mejor calidad medida · ≈$2/mes» en
+  `/mejor-llm-para-agentes/`, `/mejor-llm-para-n8n/` y `/mejor-llm-para-razonamiento/`, y
+  el texto afirmaba que «encabeza la tabla» estando fuera de ella. Nadie que lea esas
+  páginas puede usarlo y esos $2 son electricidad ajena. El dato lo decía —
+  `elegible.catalogo = False`— y `_verdict_data` filtraba sólo por cantidad de runs. Ahora
+  usa `elegibilidad.filtrar`, que es LA función. Lo encontró Cristian mirando el sitio.
+
 - **El wizard ya continúa hacia su ranking en 7 de 8 tareas.** El campo `page` existía en
   `WIZ.tasks` y cuatro tareas lo tenían en `null` con las páginas ya publicadas: verificar
   → `/mejor-llm-para-datos-exactos/`, noticias → `/mejor-llm-en-espanol/`, chat →
