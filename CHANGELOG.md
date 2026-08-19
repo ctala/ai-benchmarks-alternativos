@@ -9,6 +9,17 @@
 > cerrar la versión. El release convierte esta sección en `[vX.Y.Z] - fecha`.
 > Estándar y por qué: [VERSIONADO.md](VERSIONADO.md). Lo verifica `check_changelog.py`.
 
+- **El presupuesto de salida pasa a ser por TAREA**, calibrado contra la demanda real:
+  2.748 runs de la ruta sin nuestro techo dan p95 8.313 y p99 18.735, y lo que supera 16k
+  se concentra en `agent_long_horizon` (19%, p95 29.927) mientras 26 de 31 suites no
+  llegan ni a 16k. `agent_long_horizon` 65.536 · cuatro suites medias 32.768 · resto
+  24.576. No rompe el `max_tokens` uniforme de LiveBench: ese principio pide el mismo
+  límite para todos los MODELOS, no para todas las tareas.
+- El multiplicador ×4 sólo aplica ya a los call sites que no pasan la suite: encima del
+  presupuesto nuevo daba 131.072 tokens, que varios proveedores rechazan con 400.
+- El canario escribe recibo **también cuando falla**. Un rojo dejaba en su lugar el verde
+  anterior, y por eso un lote arrancó pese a un «NO lanzar»: el script leyó un recibo de
+  12 horas antes, de otro modelo. Ahora además se exige frescura, no sólo `ok`.
 - `VERSIONADO.md` + `check_changelog.py`: el estándar de versionado y CHANGELOG, con el
   instrumento que lo hace cumplir. Nace de una sesión con once commits cuyo CHANGELOG se
   escribió al final y de memoria — y del `git reset --hard` del mismo día, que probó que
