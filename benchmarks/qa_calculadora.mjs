@@ -742,6 +742,33 @@ chequeo("W11 · las tareas finas recomiendan por su eje medido, no por el pilar"
   return malas;
 });
 
+// ── W13 · nunca recomendar para un agente algo que falla la tarea ENTERA ────
+// `piso` es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al
+// menos una vez el modelo no hizo el trabajo. Para algo desatendido eso no es «peor»,
+// es «no sirve».
+//
+// La regla ya existía dentro de `scoreAgentico`, pero sólo se aplicaba cuando el usuario
+// elegía TIPO de agente; sin tipo, `wizDecidir` cae a `computeZScore` y la ponderación
+// del presupuesto la diluía. El 19-ago el preset «producción» —el más exigente en
+// fiabilidad— recomendaba Llama 4 Scout con piso 0,00 por delante de tres modelos con
+// piso 0,44 / 0,89 / 1,00, y ni siquiera por precio.
+chequeo("W13 · lo agéntico nunca recomienda a quien falla la tarea entera", () => {
+  const malas = [];
+  for (const b of app.WIZ.budgets) {
+    for (const ag of [null, ...(app.WIZ_AGENTES || []).map(a => a.id)]) {
+      const r = app.wizDecidir("agentes", b.id, ag);
+      if (!r || !r.length) continue;
+      for (const { m } of r.slice(0, 3)) {
+        const t = Object.values(m.agentico?.tareas || {});
+        if (!t.length) { malas.push(`agentes/${b.id}/${ag}: ${m.name} sin evidencia`); continue; }
+        const piso = Math.min(...t.map(x => x.piso == null ? 0 : x.piso));
+        if (piso <= 0) malas.push(`agentes/${b.id}/${ag ?? "sin tipo"}: ${m.name} tiene piso ${piso}`);
+      }
+    }
+  }
+  return malas;
+});
+
 // ── W12 · las tareas que se juzgan por SUITES, no por pilar ─────────────────
 // `verificar` y `noticias` no tienen pilar: su promesa se apoya en suites concretas
 // (`verificar_claim`, `content_verificable`, `news_seo_writing`…). W9 cubre las tareas

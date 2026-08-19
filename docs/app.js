@@ -1488,6 +1488,31 @@ function wizCandidatos(todos, { os = false, tools = false, pillar = null } = {})
     // pasar a leer las tres, GPT-5.4 Mini apareció en el top 10 sin haber rendido
     // ninguna. Recomendar para un agente a quien nunca se probó en uno es adivinar.
     models = models.filter(m => Object.keys(m.agentico?.tareas || {}).length > 0);
+    // Y QUE NO FALLE LA TAREA ENTERA EN NINGÚN INTENTO (19-ago-2026).
+    //
+    // `piso` es el peor de los k intentos de esa tarea — el `pass^k` que este repo
+    // adoptó de τ-bench. Un piso de 0,00 significa que al menos una vez el modelo no
+    // hizo el trabajo: no lo hizo peor, no lo hizo.
+    //
+    // `scoreAgentico` ya lo pondera, pero ese camino sólo se usa cuando el usuario
+    // elige TIPO de agente. Sin tipo, `wizDecidir` cae a `computeZScore` con los pesos
+    // del presupuesto — y ahí el piso desaparece. Resultado medido ese día: en el preset
+    // «producción», el más exigente en fiabilidad, el wizard recomendaba Llama 4 Scout
+    // (piso 0,00) por delante de tres modelos con piso 0,44 / 0,89 / 1,00, y ni siquiera
+    // por precio: Qwen 3.7 Flash cuesta menos y tiene piso 0,89.
+    //
+    // La regla existía en una capa y otra posterior la pisaba — la misma forma del bug
+    // que dejó al runner midiendo modelos que el catálogo vetaba. Por eso el criterio
+    // sube ACÁ, al filtro de candidatos, donde ninguna ponderación puede diluirlo.
+    //
+    // Saca 13 de 84 y deja 71 candidatos: no vacía la lista, quita a los que no aguantan
+    // trabajo desatendido. Sus datos siguen publicados; lo que no reciben es la
+    // recomendación.
+    models = models.filter(m => {
+      const t = Object.values(m.agentico?.tareas || {});
+      if (!t.length) return false;
+      return Math.min(...t.map(x => x.piso == null ? 0 : x.piso)) > 0;
+    });
   }
   if (tools) models = models.filter(m => (m.tool_calling_score_avg || 0) >= TOOL_CALLING_MIN);
   return models;

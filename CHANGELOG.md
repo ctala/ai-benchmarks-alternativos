@@ -8,6 +8,16 @@
 > Cada commit que toca código o datos agrega su línea acá, **en el momento**, no al
 > cerrar la versión. Estándar: [VERSIONADO.md](VERSIONADO.md).
 
+- **El wizard recomendaba para «producción» un modelo que falla la tarea entera.** `piso`
+  es el peor de los k intentos (el `pass^k` de τ-bench): 0,00 significa que al menos una
+  vez el modelo no hizo el trabajo. `scoreAgentico` ya lo ponderaba, pero ese camino sólo
+  corre si el usuario elige TIPO de agente; sin tipo, `wizDecidir` cae a `computeZScore`
+  con los pesos del presupuesto y el piso desaparece. Resultado: en el preset más
+  exigente en fiabilidad salía Llama 4 Scout (piso 0,00) por delante de tres con piso
+  0,44 / 0,89 / 1,00 — y ni por precio, porque Qwen 3.7 Flash cuesta menos y tiene 0,89.
+  El criterio sube al filtro de candidatos, donde ninguna ponderación puede diluirlo:
+  saca 13 de 84 y deja 71. Con su prueba, W13.
+
 ## [v4.7.0] - 2026-08-19 — Cuatro modelos frontier estaban al fondo por un techo nuestro
 
 Esta versión no agrega un eje: **arregla la medición**. Y el titular es cuánto se movió
