@@ -7,6 +7,7 @@ import json
 import glob
 from collections import defaultdict
 from pathlib import Path
+from benchmarks.suites import del_indice as _del_indice
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
@@ -33,7 +34,7 @@ def main():
     # Tests generales (no niah, no prompt_injection)
     general_tests_by_model = {}
     for (mid, mname), runs in by_model.items():
-        general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+        general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
         if len(general) >= 50:
             general_tests_by_model[mname] = {
                 "id": mid,

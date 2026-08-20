@@ -25,7 +25,9 @@ import benchmarks.export_for_pages as E
 
 RESULTS = Path(__file__).parent / "results"
 ARCHIVE = RESULTS / "_archive-polluted-20260716"
-APARTE = ("niah", "prompt_injection")
+# 20-ago-2026: era una tupla de prefijos que cubría 2 de las 6 suites fuera
+# del índice. La respuesta única vive en suites.del_indice().
+from benchmarks.suites import del_indice as _del_indice
 
 
 def _empty(r):
@@ -38,7 +40,7 @@ def _polluted(r):
     if r.get("empty_persistent"):
         return None
     s = str(r.get("suite", ""))
-    if s.startswith(APARTE) or s == "tool_calling":
+    if s not in _del_indice() or s == "tool_calling":
         return None
     if _empty(r):
         return "E1"                       # vacío-basura

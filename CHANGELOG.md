@@ -5,6 +5,29 @@
 
 ## [No publicado]
 
+> ⚠️ **El próximo release es MINOR (v4.8.0), no un patch.** Lo exige `check_changelog
+> --nivel` y tiene razón: el criterio de elegibilidad cambió (el ranking pasa de 91 a 94)
+> y se tocó `suites.py`. Es presentación + medición, no un arreglo.
+
+- **A Nemotron 3 Super sí le faltaba algo, y a otros diez también.** Cristian: *"¿pero a
+  Nemotron no le falta nada?"*. Rankea con el examen completo —`integridad_idioma` no
+  cuenta para el índice— y **a la vez publica `integridad_idioma = 7,56` calculado sobre
+  3 de 4 tests**. Al medirlo aparecieron **11 cifras publicadas sobre parte de su
+  examen**, dos incómodas: Kimi K2.7 Code publica `dominio_entidad` **9,03 sobre 2 de 6**,
+  y Qwen 3.5 35B publica seguridad **2,7 sobre 13 de 20** — la dimensión que alimenta el
+  badge «resiste instrucciones ocultas» de las fichas. `completar_examen.py` ahora las
+  reporta aparte: completar el ranking y completar una cifra publicada son dos trabajos
+  distintos, y mostrarlos como uno solo fue lo que hizo medir de más.
+
+- **«¿Cómo hacemos que no nos pase de nuevo?» → `suites.del_indice()`, y `S5` que la
+  protege.** La causa raíz no era una regla mal escrita: `SUITES[s]["en_promedio"]` ya
+  decía cuáles cuentan. Lo que faltaba era **una función a la que llamar**, así que cinco
+  archivos se escribieron la suya con la misma heurística de prefijos —`("niah",
+  "prompt_injection")`— que cubre 2 de las 6 suites fuera del índice. Ahora hay una sola
+  definición, los 6 consumidores la usan, y **`S5` en `check_suites.py`** falla si alguien
+  vuelve a escribir la tupla. Es la misma forma que ya tenía S2 para las etiquetas: el
+  registro es uno y nadie mantiene una copia.
+
 - **«Revisá que todos sean modelos que sí queremos re-medir»** — y tres de los cinco no
   hacía falta medirlos. `completar_examen.py` reportaba como bloqueados a Gemini 3.7
   Flash, Step 3.5 Flash y Nemotron 3 Super por tests de **`integridad_idioma`, una suite

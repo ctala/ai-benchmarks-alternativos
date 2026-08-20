@@ -984,7 +984,6 @@ def build_export(recalibrate=False, scoring_version=None):
         # Exámenes incompletos que SÍ alimentan la calidad. Los pilares aparte (contexto
         # largo, seguridad) no cuentan acá: su score se reporta por separado y un examen
         # incompleto ahí se marca «no medido», no contamina el ranking.
-        _PILARES_APARTE = ("niah", "prompt_injection")
         _incompletas_que_puntuan = {
             s: i for s, i in (metrics.get("suites_incompletas") or {}).items()
             # Una suite EXCLUIDA del score por baja cobertura tampoco puede decidir

@@ -14,6 +14,7 @@ import glob
 import statistics
 from collections import defaultdict
 from pathlib import Path
+from benchmarks.suites import del_indice as _del_indice
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
@@ -42,7 +43,7 @@ def main():
     print("\n=== COBERTURA (runs generales: excluyendo niah y prompt_injection) ===")
     coverage = []
     for (mid, mname), runs in by_model.items():
-        general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+        general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
         niah = [r for r in runs if str(r.get("suite", "")).startswith("niah")]
         sec = [r for r in runs if str(r.get("suite", "")).startswith("prompt_injection")]
         coverage.append({
@@ -59,8 +60,8 @@ def main():
 
     # 2. Suites disponibles por modelo
     print("\n=== SUITES POR MODELO (top modelos por cobertura) ===")
-    for (mid, mname), runs in sorted(by_model.items(), key=lambda x: -len([r for r in x[1] if not str(r.get('suite','')).startswith(('niah','prompt_injection'))]))[:10]:
-        general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+    for (mid, mname), runs in sorted(by_model.items(), key=lambda x: -len([r for r in x[1] if str(r.get('suite','')) in _del_indice()]))[:10]:
+        general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
         suites = sorted(set(r.get("suite") for r in general))
         print(f"\n{mname}: {len(general)} runs, {len(suites)} suites")
         print(", ".join(suites))
@@ -69,7 +70,7 @@ def main():
     print("\n=== SCORE LINEAL (promedio de final recalc) VS RANKING ===")
     model_scores = []
     for (mid, mname), runs in by_model.items():
-        general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+        general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
         if len(general) < 50:
             continue
         finals = [r.get("final", 0) for r in general if r.get("final") is not None]
@@ -147,7 +148,7 @@ def main():
             continue
         avgs = []
         for fname, runs in files.items():
-            general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+            general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
             if general:
                 avgs.append((fname, sum(r.get("quality", 0) for r in general)/len(general)))
         if len(avgs) >= 2:

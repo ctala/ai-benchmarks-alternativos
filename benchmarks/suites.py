@@ -353,6 +353,41 @@ SUITES = {
 PILARES = ["Razonamiento", "Coding", "Contenido", "Agentes"]
 
 
+def del_indice() -> set[str]:
+    """Las suites que CUENTAN para el examen completo y para el índice de calidad.
+
+    ES LA ÚNICA DEFINICIÓN. Todo lo demás —`niah_es`, `prompt_injection_es`,
+    `integridad_idioma`, `dominio_entidad`, `extraer_claims`, `verificar_claims_lote`—
+    se reporta como dimensión aparte y no bloquea a nadie.
+
+    POR QUÉ EXISTE (20-ago-2026)
+    ----------------------------
+    Esto estaba resuelto por PREFIJO de nombre en cinco archivos:
+
+        APARTE = ("niah", "prompt_injection")
+
+    y esa tupla cubre 2 de las 6 suites que están fuera del índice. Las otras cuatro no
+    empiezan con esos prefijos, así que cada consumidor que usaba la heurística creía
+    que `integridad_idioma` contaba. Consecuencias reales del mismo día:
+
+      · `completar_examen.py` mandó a medir tres modelos por tests de una suite que no
+        cuenta para nada — Gemini 3.7 Flash, Step 3.5 Flash y Nemotron 3 Super.
+      · `export_for_pages.py` publicó las dos respuestas a la vez para Nemotron 3 Super:
+        `examen_completo: true` y `ranked: false`, sin ningún otro motivo, porque adentro
+        del MISMO archivo convivían las dos definiciones.
+
+    El criterio no era ambiguo ni estaba sin escribir: `SUITES[s]["en_promedio"]` ya lo
+    decía. Lo que faltaba era una función a la que llamar, así que cada quien se
+    escribió la suya. `check_suites.py` S5 impide que vuelva a haber una segunda.
+    """
+    return {s for s, v in SUITES.items() if v.get("en_promedio")}
+
+
+def fuera_del_indice(suite: str) -> bool:
+    """¿Esta suite se reporta aparte y NO bloquea el ranking?"""
+    return suite not in del_indice()
+
+
 def pilar_del_promedio(suite: str) -> str | None:
     """El pilar al que esta suite SUMA. `None` si está medida pero no promedia.
 

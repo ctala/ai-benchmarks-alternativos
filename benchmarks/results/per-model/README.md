@@ -60,7 +60,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 52 | [Gemma 4 31B (DGX Spark Q4_K_M)](gemma4_31b.md) | 7.45 | 8.40 | 9 | 88/90 | [ver detalles](gemma4_31b.md) |
 | 53 | [Nemotron 3.5 Lightning](nvidia_nemotron-3_5-lightning.md) | 7.43 | 7.46 | 319 | 757/774 | [ver detalles](nvidia_nemotron-3_5-lightning.md) |
 | 54 | [GPT-5.4](gpt-5_4.md) | 7.42 | 8.39 | 54 | 187/187 | [ver detalles](gpt-5_4.md) |
-| 55 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.42 | 8.34 | 57 | 203/203 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
+| 55 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.42 | 8.36 | 57 | 421/421 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
 | 56 | [DeepSeek V4 Flash 0731](deepseek_deepseek-v4-flash-0731.md) | 7.40 | 7.97 | 45 | 232/232 | [ver detalles](deepseek_deepseek-v4-flash-0731.md) |
 | 57 | [GPT-OSS 120B](openai_gpt-oss-120b.md) | 7.39 | 7.67 | 52 | 178/178 | [ver detalles](openai_gpt-oss-120b.md) |
 | 58 | [Nemotron 3 Base 33B (DGX Spark Q4_K_M)](nemotron3_33b-q4_k_m.md) | 7.37 | 7.72 | 63 | 90/90 | [ver detalles](nemotron3_33b-q4_k_m.md) |
@@ -113,16 +113,16 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 105 | [Qwen 3.6 35B base (OpenRouter FP8)](qwen_qwen3_6-35b-a3b.md) | 7.10 | 7.54 | 128 | 226/232 | [ver detalles](qwen_qwen3_6-35b-a3b.md) |
 | 106 | [MiMo-V2.5 Pro](xiaomi_mimo-v2_5-pro.md) | 7.10 | 7.64 | 47 | 181/181 | [ver detalles](xiaomi_mimo-v2_5-pro.md) |
 | 107 | [Grok 4.6](x-ai_grok-4_6.md) | 7.10 | 8.17 | 54 | 178/178 | [ver detalles](x-ai_grok-4_6.md) |
-| 108 | [Mistral Large 3 675B](mistralai_mistral-large-2512.md) | 7.09 | 7.46 | 49 | 176/176 | [ver detalles](mistralai_mistral-large-2512.md) |
-| 109 | [Gemini 3.7 Flash](google_gemini-3_7-flash.md) | 7.09 | 7.39 | 102 | 322/322 | [ver detalles](google_gemini-3_7-flash.md) |
+| 108 | [Gemini 3.7 Flash](google_gemini-3_7-flash.md) | 7.09 | 7.40 | 102 | 646/646 | [ver detalles](google_gemini-3_7-flash.md) |
+| 109 | [Mistral Large 3 675B](mistralai_mistral-large-2512.md) | 7.09 | 7.46 | 49 | 176/176 | [ver detalles](mistralai_mistral-large-2512.md) |
 | 110 | [Step 3.5 Flash (NIM)](stepfun-ai_step-3_5-flash.md) | 7.09 | 7.96 | 42 | 72/82 | [ver detalles](stepfun-ai_step-3_5-flash.md) |
-| 111 | [DeepSeek V3](deepseek_deepseek-v3_2.md) | 7.08 | 7.46 | 29 | 178/178 | [ver detalles](deepseek_deepseek-v3_2.md) |
-| 112 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 7.08 | 7.75 | 89 | 1299/1388 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
+| 111 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 7.08 | 7.75 | 89 | 1560/1650 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
+| 112 | [DeepSeek V3](deepseek_deepseek-v3_2.md) | 7.08 | 7.46 | 29 | 178/178 | [ver detalles](deepseek_deepseek-v3_2.md) |
 | 113 | [Mistral Large 3 675B (NIM)](mistralai_mistral-large-3-675b-instruct-2512.md) | 7.08 | 8.38 | 11 | 86/100 | [ver detalles](mistralai_mistral-large-3-675b-instruct-2512.md) |
 | 114 | [Nemotron Super 49B v1.5 (NIM)](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | 7.07 | 7.61 | 28 | 96/101 | [ver detalles](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) |
 | 115 | [Qwen 3.5 35B](qwen_qwen3_5-35b-a3b.md) | 7.07 | 7.33 | 140 | 314/314 | [ver detalles](qwen_qwen3_5-35b-a3b.md) |
 | 116 | [GLM 5 (NIM)](z-ai_glm5.md) | 7.05 | 8.21 | 7 | 88/99 | [ver detalles](z-ai_glm5.md) |
-| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.05 | 7.95 | 43 | 7879/7943 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.05 | 7.95 | 43 | 15374/15438 | [ver detalles](moonshotai_kimi-k2_5.md) |
 | 118 | [KAT Coder Pro v2.5](kwaipilot_kat-coder-pro-v2_5.md) | 7.03 | 7.42 | 83 | 332/332 | [ver detalles](kwaipilot_kat-coder-pro-v2_5.md) |
 | 119 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 7.02 | 8.16 | 12 | 101/101 | [ver detalles](z-ai_glm-5_1.md) |
 | 120 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 7.02 | 8.39 | 41 | 265/265 | [ver detalles](anthropic_claude-opus-4-6.md) |
@@ -131,8 +131,8 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 123 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.01 | 7.11 | 54 | 190/190 | [ver detalles](gpt-4_1-mini.md) |
 | 124 | [Qwen 3.5 (Ollama Cloud default)](qwen3_5_cloud.md) | 7.01 | 7.61 | 73 | 56/66 | [ver detalles](qwen3_5_cloud.md) |
 | 125 | [Gemini 3.6 Flash](google_gemini-3_6-flash.md) | 6.99 | 7.38 | 150 | 303/303 | [ver detalles](google_gemini-3_6-flash.md) |
-| 126 | [Qwen 3.6 27B base (DGX Spark)](qwen3_6_27b.md) | 6.98 | 8.45 | 10 | 4/4 | [ver detalles](qwen3_6_27b.md) |
-| 127 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | 6.98 | 7.05 | 57 | 797/799 | [ver detalles](stepfun_step-3_5-flash.md) |
+| 126 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | 6.99 | 7.05 | 57 | 1470/1472 | [ver detalles](stepfun_step-3_5-flash.md) |
+| 127 | [Qwen 3.6 27B base (DGX Spark)](qwen3_6_27b.md) | 6.98 | 8.45 | 10 | 4/4 | [ver detalles](qwen3_6_27b.md) |
 | 128 | [Qwen 3.6 Max](qwen_qwen3_6-max-preview.md) | 6.97 | 8.34 | 40 | 295/413 | [ver detalles](qwen_qwen3_6-max-preview.md) |
 | 129 | [Llama 3.1 8B Instant](meta-llama_llama-3_1-8b-instruct.md) | 6.97 | 6.62 | 84 | 197/197 | [ver detalles](meta-llama_llama-3_1-8b-instruct.md) |
 | 130 | [MiniMax M3 (directo / sub)](minimax-m3.md) | 6.95 | 7.98 | 30 | 243/251 | [ver detalles](minimax-m3.md) |
@@ -157,7 +157,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 149 | [DeepSeek R1 (reasoning)](deepseek_deepseek-r1.md) | 6.66 | 7.57 | 21 | 223/227 | [ver detalles](deepseek_deepseek-r1.md) |
 | 150 | [Mistral Large](mistralai_mistral-large.md) | 6.66 | 7.27 | 49 | 193/201 | [ver detalles](mistralai_mistral-large.md) |
 | 151 | [Claude Fable 5](anthropic_claude-fable-5.md) | 6.61 | 7.99 | 42 | 237/237 | [ver detalles](anthropic_claude-fable-5.md) |
-| 152 | [Kimi K2.5 (NIM)](moonshotai_kimi-k2_5.md) | 6.60 | 7.37 | 27 | 747/747 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 152 | [Kimi K2.5 (NIM)](moonshotai_kimi-k2_5.md) | 6.60 | 7.37 | 27 | 581/581 | [ver detalles](moonshotai_kimi-k2_5.md) |
 | 153 | [Qwen 3-Next 80B Thinking](qwen_qwen3-next-80b-a3b-thinking.md) | 6.60 | 6.78 | 150 | 180/180 | [ver detalles](qwen_qwen3-next-80b-a3b-thinking.md) |
 | 154 | [Qwen 3.7 Max](qwen_qwen3_7-max.md) | 6.58 | 7.43 | 55 | 182/182 | [ver detalles](qwen_qwen3_7-max.md) |
 | 155 | [Kimi K3](moonshotai_kimi-k3.md) | 6.56 | 7.89 | 36 | 167/167 | [ver detalles](moonshotai_kimi-k3.md) |

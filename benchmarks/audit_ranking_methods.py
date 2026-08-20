@@ -12,6 +12,7 @@ import math
 import statistics
 from collections import defaultdict
 from pathlib import Path
+from benchmarks.suites import del_indice as _del_indice
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
@@ -44,7 +45,7 @@ def main():
     # Modelos con cobertura ≥50 tests generales
     models = {}
     for (mid, mname), runs in by_model.items():
-        general = [r for r in runs if not str(r.get("suite", "")).startswith(("niah", "prompt_injection"))]
+        general = [r for r in runs if str(r.get("suite", "")) in _del_indice()]
         if len(general) >= 50:
             models[mname] = {"id": mid, "runs": general}
 

@@ -43,7 +43,9 @@ PY = str(ROOT / ".venv" / "bin" / "python")
 
 # Los pilares que se reportan aparte NO bloquean el ranking (su score va por separado),
 # así que un examen incompleto ahí no es una falencia que corresponda completar acá.
-PILARES_APARTE = ("niah", "prompt_injection")
+# 20-ago-2026 · la lista de suites que NO cuentan ya no se escribe acá: cada
+# entrada de `suites_incompletas` trae `fuera_del_indice`, y la definición
+# canónica es `suites.del_indice()`. La tupla de prefijos cubría 2 de 6.
 
 
 def bloqueados() -> list[dict]:
@@ -158,6 +160,45 @@ def armar_resume(model_id: str, destino: Path, model_name: str) -> int:
     return len(runs)
 
 
+def dimensiones_parciales(d) -> None:
+    """Cifras que YA se publican, calculadas sobre parte de su examen.
+
+    20-ago-2026. Cristian, después de que midiéramos tres modelos que no lo necesitaban:
+    *"¿a Nemotron no le falta nada? ¿cómo podemos hacer que no nos pase de nuevo, para no
+    medir lo que no corresponde?"*.
+
+    Las dos mitades de esa pregunta tienen respuestas distintas, y ésta es la primera:
+    a Nemotron 3 Super **sí le falta algo**, sólo que no es lo que bloquea el ranking.
+    Rankea con el examen completo —`integridad_idioma` no cuenta para el índice— y al
+    mismo tiempo publica `integridad_idioma = 7,56` calculado sobre **3 de 4 tests**.
+
+    No es un caso aislado: al medirlo aparecieron 11, y dos incómodos —Kimi K2.7 Code
+    publica `dominio_entidad` 9,03 sobre **2 de 6**, y Qwen 3.5 35B publica seguridad
+    2,7 sobre **13 de 20**, la dimensión que alimenta el badge «resiste instrucciones
+    ocultas» de la ficha—.
+
+    Por eso este reporte existe aparte del de bloqueados: **completar el ranking y
+    completar una cifra publicada son dos trabajos distintos**, y mostrarlos como uno
+    solo fue exactamente lo que hizo medir de más y lo que dejó estas once sin mirar.
+    """
+    filas = []
+    for m in d["models"]:
+        if not m.get("tested"):
+            continue
+        sb = m.get("score_by_suite") or {}
+        for s, i in (m.get("suites_incompletas") or {}).items():
+            if i.get("fuera_del_indice") and sb.get(s) is not None:
+                filas.append((m["name"], m.get("ranked"), s, i["rindio"], i["total"], sb[s]))
+    if not filas:
+        print("\n  ✅ ninguna dimensión aparte se publica con el examen a medias.")
+        return
+    print(f"\n  ℹ️  {len(filas)} cifra(s) publicadas sobre PARTE de su examen.")
+    print("      No bloquean el ranking —esas suites se reportan aparte— pero el lector")
+    print("      las está viendo. Completarlas no mueve puestos: corrige un número.\n")
+    for n, rk, s, r, t, v in sorted(filas, key=lambda x: (x[3] / x[4])):
+        print(f"  {'RANK' if rk else '    '} {n[:30]:<32} {s:<22} {r}/{t} tests → publica {v}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--judge-model", default="phi4-or",
@@ -200,16 +241,25 @@ def main() -> int:
         print("  ✅ ningún modelo con muestra suficiente está bloqueado por exámenes a medias.")
         return 0
 
-    print(f"\n  ⚠️  {len(b)} modelo(s) con ≥50 runs FUERA del ranking por exámenes a medias:\n")
+    # 20-ago-2026 · el reporte separa PARA QUÉ sirve cada cosa, que es la pregunta que
+    # este script no contestaba. Cristian, tras medir tres modelos que no lo necesitaban:
+    # *"¿cómo podemos hacer que no nos pase de nuevo, para no medir lo que no
+    # corresponde?"*. La respuesta no es «medir menos»: es decir qué cambia cada test
+    # antes de gastar. Desbloquear el ranking y completar una cifra ya publicada son dos
+    # trabajos distintos, con urgencias distintas, y antes se mostraban como uno solo.
+    bloq = b
     total = 0
-    for x in b:
-        total += x["faltan"]
-        print(f"  {x['name'][:34]:<36} calidad {str(x['calidad']):>5} · {x['runs']:>3} runs · "
-              f"faltan {x['faltan']:>2} tests")
-        for s, i in x["incompletas"].items():
-            print(f"        {s:<26} {i['rindio']}/{i['total']}")
-    print(f"\n  {total} tests sueltos para desbloquear a los {len(b)}.")
-    print("  No es «falta medir»: es un examen empezado y no terminado, y cuesta centavos.")
+    if bloq:
+        print(f"\n  ⚠️  {len(bloq)} modelo(s) FUERA DEL RANKING por exámenes a medias:\n")
+        for x in bloq:
+            total += x["faltan"]
+            print(f"  {x['name'][:34]:<36} calidad {str(x['calidad']):>5} · {x['runs']:>3} runs · "
+                  f"faltan {x['faltan']:>2} tests")
+            for s, i in x["incompletas"].items():
+                print(f"        {s:<26} {i['rindio']}/{i['total']}")
+        print(f"\n  {total} tests sueltos para desbloquear a los {len(bloq)}.")
+        print("  No es «falta medir»: es un examen empezado y no terminado, y cuesta centavos.")
+    dimensiones_parciales(json.loads(MODELS_JSON.read_text()))
 
     if not a.correr:
         print("\n  (solo reporte — correr con --correr para completarlos)")

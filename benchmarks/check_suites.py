@@ -48,8 +48,43 @@ MODELS_JSON = ROOT / "docs" / "data" / "models.json"
 APP_JS = ROOT / "docs" / "app.js"
 
 
+def s5_nadie_reimplementa_el_indice(verbose=False) -> list[str]:
+    """Nadie decide «qué suites cuentan» con una heurística de nombres.
+
+    20-ago-2026. El criterio vivía en `SUITES[s]["en_promedio"]` desde siempre, pero no
+    había una FUNCIÓN a la que llamar — así que cinco archivos se escribieron la suya:
+
+        APARTE = ("niah", "prompt_injection")
+
+    Esa tupla cubre 2 de las 6 suites fuera del índice. Las otras cuatro
+    (`integridad_idioma`, `dominio_entidad`, `extraer_claims`, `verificar_claims_lote`)
+    quedaban del lado equivocado. Costó medir tres modelos para nada y publicar un
+    `examen_completo: true` junto a un `ranked: false` en el mismo JSON.
+
+    Hoy la respuesta es `suites.del_indice()`. Este chequeo existe para que no vuelva a
+    haber una segunda: es barato escribir la tupla de nuevo y carísimo descubrirlo.
+    """
+    patron = re.compile(r'\(\s*["\']niah["\']\s*,\s*["\']prompt_injection["\']')
+    malos = []
+    for f in sorted(ROOT.glob("benchmarks/*.py")):
+        if f.name in ("check_suites.py", "suites.py"):
+            continue
+        txt = f.read_text(errors="ignore")
+        # los comentarios explican por qué NO se usa; no cuentan como uso
+        codigo = re.sub(r"#.*", "", re.sub(r'"""[\s\S]*?"""', "", txt))
+        if patron.search(codigo):
+            malos.append(f.name)
+    if malos:
+        return [f"S5 · {len(malos)} archivo(s) deciden qué suites cuentan por prefijo de "
+                f"nombre en vez de llamar a `suites.del_indice()`: {', '.join(malos)}"]
+    if verbose:
+        print("  ✅ S5 · nadie reimplementa el índice de suites")
+    return []
+
+
 def main() -> int:
     fallos, avisos = [], []
+    fallos += s5_nadie_reimplementa_el_indice(True)
     d = json.loads(MODELS_JSON.read_text())
 
     # ── S1 · toda suite medida está en el registro ─────────────────────────
