@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 8.83 | quality: 10.0
-- latency_total: 13.524s | tokens_per_second: 100.6
-- input_tokens: 242 | output_tokens: 1361
+- success: True  | final: 6.02 | quality: 6.0
+- latency_total: 13.579s | tokens_per_second: 107.8
+- input_tokens: 242 | output_tokens: 1464
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,46 +27,33 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-Tu capacidad real para este trimestre no son 8 semanas: son **160 horas de construcción** (8 semanas × 5 días × 4h/día). Esto equivale a solo **4 semanas de trabajo a tiempo completo**.
+Hagamos los números reales primero:
+* **Capacidad real:** 8 semanas × 5 días × 4h = **160 horas de construcción** (equivalente a solo **4 semanas a tiempo completo**).
+* La iniciativa **A** te tomaría ~480 horas (3 meses a tiempo completo). A tu ritmo actual te tomaría **24 semanas (medio año)** sin hacer nada más. 
 
-Con esos números en la mano, esta es tu realidad y el plan de ejecución:
+Con los números sobre la mesa, la reescritura es inviable y suicida para este trimestre. Y como **C depende de A**, ambas quedan descartadas de inmediato.
 
----
-
-### Lo que se descarta de inmediato
-
-* **DESCARTADO: A) Reescribir la plataforma**
-  * **Por qué:** Pide ~3 meses a tiempo completo (~480 horas). Tienes 160 horas. Si lo intentas, terminarás el trimestre con el código a medias, sin lanzar nada, frustrado y con la plataforma vieja igual de rota.
-* **DESCARTADO: C) Panel de métricas**
-  * **Por qué:** Depende de A (que no harás) y consumiría 120 de tus 160 horas disponibles. Cero margen de error.
+Aquí tienes el orden de tu trimestre:
 
 ---
 
-### Tu plan de trimestre (Las 8 semanas)
+### 1. Semanas 1 y 2: Iniciativa B (Arreglar el flujo de alta)
+* **Por qué:** Tienes un balde con un agujero gigante (60% de fuga). Llevar tráfico o crear contenido antes de arreglar esto es tirar tu tiempo a la basura.
+* **Ajuste realista:** Te llevará 2 semanas reales a 4h/día (40 horas). Deja el flujo simple, sin florituras, enfocado solo en eliminar la fricción del paso 2.
 
-Tu único foco debe ser: **tapar la fuga de dinero y luego meterle gente.**
+### 2. Semanas 3 a 5: Iniciativa D (Grabar 10 videos)
+* **Por qué:** Ahora que el balde ya retiene agua (alta optimizada), tiene sentido meterle usuarios arriba del embudo.
+* **Ajuste realista:** 2 semanas a tiempo completo son **3 semanas a tu ritmo de 4h/día** (guiones, grabación, edición mínima y publicación).
 
-#### **Fase 1: Semanas 1 y 2 (40 horas) → Iniciativa B (Arreglar el alta)**
-* **Por qué primero:** Tienes un cubo agujereado perdiendo el 60% de los usuarios. Cualquier esfuerzo de marketing hoy es tirar el dinero.
-* **Estimación real:** 1 semana a tiempo completo = 2 semanas a tu ritmo de 4h/día.
-* **Meta:** Reducir la caída del paso 2 al menos a la mitad y medir el impacto directo en altas completadas.
+### 3. Semanas 6 y 7: Reducir las 2h diarias de soporte (Iniciativa no listada pero urgente)
+* **Por qué:** Tu mayor cuello de botella no es el framework, es que el 33% de tu tiempo se va en soporte. 
+* **Qué hacer:** Con 40 horas libres aquí, documenta FAQs, crea emails automáticos de bienvenida que resuelvan dudas típicas o implementa un chatbot básico. Si reduces el soporte a 1h/día, ganas un 25% más de capacidad de desarrollo para el próximo trimestre.
 
-#### **Fase 2: Semanas 3 a 6 (80 horas) → Iniciativa D (10 Videos de contenido)**
-* **Por qué segundo:** Ahora que el embudo no pierde al 60% de la gente, tiene sentido atraer tráfico.
-* **Estimación real:** 2 semanas a tiempo completo = 4 semanas a tu ritmo de 4h/día.
-* **Consejo de solo founder:** No grabes y edites uno por uno. Agrupa por bloques: Semana 3 (guiones de los 10), Semana 4 (grabación en bloque), Semanas 5 y 6 (edición y programación).
-
-#### **Fase 3: Semanas 7 y 8 (40 horas) → Buffer / Deuda técnica quirúrgica**
-* **Qué hacer aquí:** **NO agregues features nuevas.**
-* Utiliza estas 40 horas para:
-  1. Atender los bugs que surjan de B y el tráfico de D.
-  2. Automatizar o crear documentación para las partes más repetitivas de tus 2h diarias de soporte (para intentar liberar 30 min/día el próximo trimestre).
-  3. Resolver *solamente* los cuellos de botella críticos de rendimiento del framework actual (parches, no reescritura).
+### 4. Semana 8: Buffer y estabilización
+* **Por qué:** Como solo-founder, te vas a enfermar, saldrá un bug crítico o soporte te comerá días enteros. No planifiques features para la última semana.
 
 ---
 
-### Resumen ejecutivo
-1. **Semanas 1-2:** Arregla el alta (B).
-2. **Semanas 3-6:** Produce los 10 videos (D).
-3. **Semanas 7-8:** Margen de seguridad y optimización de soporte.
-4. **A y C:** Fuera del roadmap hasta que tengas ingresos para contratar o capacidad real liberada.
+### Resumen de descartes:
+* **A (Reescritura): DESCARTADA.** No se reescribe código en fase de supervivencia a menos que el sistema esté literalmente caído 24/7.
+* **C (Métricas): DESCARTADA.** Depende de A. Si tus clientes te lo exigen a gritos, dáselas manualmente en un Google Sheet o Notion una vez por semana antes de picar código.

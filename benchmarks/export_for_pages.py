@@ -993,7 +993,20 @@ def build_export(recalibrate=False, scoring_version=None):
             # los 10 modelos que sospechábamos bloqueados por `integridad_idioma`
             # estaban fuera por otra cosa: exámenes parciales en suites que SÍ puntúan
             # (GPT-5.5 rindió 3 de 4 en customer_support). Ahí el sistema funciona bien.
-            if not s.startswith(_PILARES_APARTE) and s not in low_coverage
+            # 20-ago-2026 · se lee `fuera_del_indice`, el MISMO criterio con el que se
+            # calcula `examen_completo` unas líneas más arriba.
+            #
+            # Antes filtraba por prefijo, y eso cubre 2 de las 6 suites que no entran al
+            # examen: quedaban afuera `integridad_idioma`, `dominio_entidad`,
+            # `extraer_claims` y `verificar_claims_lote`. El resultado era que este mismo
+            # archivo publicaba las dos cosas a la vez para Nemotron 3 Super:
+            # `examen_completo: true` y `ranked: false`, sin ningún otro motivo. Dos
+            # definiciones del mismo concepto en el mismo módulo, discrepando.
+            #
+            # `low_coverage` se mantiene aparte y con su razón original: una suite
+            # excluida del score por baja cobertura no puede decidir quién rankea —no
+            # valdría para sumar y sí para restar.
+            if not i.get("fuera_del_indice") and s not in low_coverage
         }
 
         models_export.append({

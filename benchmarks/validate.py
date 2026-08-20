@@ -263,6 +263,46 @@ def b2_rankeable(models, verbose):
         print("  ✅ B2 · el ranking solo tiene modelos vivos, con muestra y en el plano común")
 
 
+def b3_examen_completo_implica_rankeado(models, verbose):
+    """Examen completo ⟹ rankeado, salvo un motivo ESTRUCTURAL declarado.
+
+    20-ago-2026. `export_for_pages.py` publicaba las dos cosas a la vez para Nemotron
+    3 Super: `examen_completo: true` y `ranked: false`, sin ningún otro motivo. Adentro
+    del mismo archivo convivían DOS definiciones del mismo concepto — `examen_completo`
+    miraba las 29 suites del índice; `_incompletas_que_puntuan` filtraba por prefijo de
+    nombre, que cubre 2 de las 6 suites que no cuentan.
+
+    Un modelo puede tener el examen completo y no rankear: si murió su endpoint, si es
+    variante de proveedor, si corre en hardware propio, si se midió en `:free`. Todos
+    esos son motivos declarados y verificables. Lo que no puede pasar es que no haya
+    NINGUNO — eso significa que dos criterios se separaron y nadie se enteró.
+    """
+    # Los motivos se leen de models.py, no del JSON: `effort_variant` y `no_medir` NO se
+    # exportan, así que mirando sólo el JSON esta invariante marcaba como contradicción
+    # a los tres modelos vetados a mano (los dos GPT-5.6 Pro y un Thinking). El flag
+    # existe y está bien puesto; lo que faltaba era mirarlo donde vive.
+    from benchmarks.models import MODELS as _CFG
+    motivos = ("retired", "provider_variant", "effort_variant", "self_hosted",
+               "medido_en_free", "unavailable", "no_medir", "legacy")
+    malos = []
+    for m in models:
+        if not m.get("examen_completo") or m.get("ranked"):
+            continue
+        cfg = _CFG.get(m.get("key") or "", {})
+        if any(m.get(x) or cfg.get(x) for x in motivos):
+            continue
+        si = m.get("suites_incompletas") or {}
+        if any(not i.get("fuera_del_indice") for i in si.values()):
+            continue
+        malos.append(f"{m['name']} (suites a medias: {list(si)})")
+    if malos:
+        fallo("B3 · completo pero fuera",
+              f"{len(malos)} modelo(s) con el examen completo y sin motivo para no "
+              f"rankear: {malos[:3]}")
+    elif verbose:
+        print("  ✅ B3 · todo examen completo rankea, o dice por qué no")
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # C · LO QUE SE PUBLICA
 # ─────────────────────────────────────────────────────────────────────────────
@@ -388,6 +428,7 @@ def main():
     a3_sin_doble_conteo(args.verbose)
     b1_examen_completo(models, args.verbose)
     b2_rankeable(models, args.verbose)
+    b3_examen_completo_implica_rankeado(models, args.verbose)
     c1_nada_muerto_recomendado(models, args.verbose)
     c2_docs_cuadran(args.verbose)
     c3_superficies_coinciden(models, args.verbose)

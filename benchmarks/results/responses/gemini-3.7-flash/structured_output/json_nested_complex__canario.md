@@ -1,9 +1,9 @@
 # Gemini 3.7 Flash — structured_output/json_nested_complex
 
 - model_id: `google/gemini-3.7-flash`
-- success: True  | final: 8.77 | quality: 10.0
-- latency_total: 12.31s | tokens_per_second: 155.6
-- input_tokens: 231 | output_tokens: 1915
+- success: True  | final: 8.8 | quality: 10.0
+- latency_total: 10.598s | tokens_per_second: 157.9
+- input_tokens: 231 | output_tokens: 1673
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -37,85 +37,73 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
 ## Respuesta completa
 
 {
-  "project": "Rediseno sitio web",
+  "project": "Rediseño sitio web",
   "start_date": "2026-05-01",
   "end_date": "2026-06-30",
   "team": [
     {
-      "name": "Laura Gómez",
-      "role": "Diseñadora UI/UX",
+      "name": "Sofía Martínez",
+      "role": "UI/UX Designer",
       "allocation_pct": 100
     },
     {
-      "name": "Carlos Ruiz",
+      "name": "Carlos Gómez",
       "role": "Frontend Developer",
       "allocation_pct": 100
     },
     {
-      "name": "Mateo Fernández",
+      "name": "Mateo Rodríguez",
       "role": "Backend Developer",
       "allocation_pct": 100
     },
     {
-      "name": "Sofía Morales",
+      "name": "Lucía Fernández",
       "role": "QA Engineer",
       "allocation_pct": 100
     }
   ],
   "phases": [
     {
-      "name": "Descubrimiento y Diseño UI/UX",
+      "name": "Investigación y Diseño",
       "start": "2026-05-01",
-      "end": "2026-05-15",
+      "end": "2026-05-18",
       "tasks": [
         {
-          "title": "Investigación de usuarios y benchmarking",
-          "assignee": "Laura Gómez",
-          "hours": 30,
+          "title": "Wireframes y arquitectura de información",
+          "assignee": "Sofía Martínez",
+          "hours": 40,
           "depends_on": null
         },
         {
-          "title": "Definición de arquitectura de información y wireframes",
-          "assignee": "Laura Gómez",
-          "hours": 40,
-          "depends_on": "Investigación de usuarios y benchmarking"
-        },
-        {
-          "title": "Diseño de interfaz en Figma y sistema de diseño",
-          "assignee": "Laura Gómez",
-          "hours": 50,
-          "depends_on": "Definición de arquitectura de información y wireframes"
+          "title": "Prototipo de alta fidelidad y Design System",
+          "assignee": "Sofía Martínez",
+          "hours": 60,
+          "depends_on": "Wireframes y arquitectura de información"
         }
       ]
     },
     {
-      "name": "Desarrollo Frontend y Backend",
-      "start": "2026-05-16",
+      "name": "Desarrollo",
+      "start": "2026-05-19",
       "end": "2026-06-15",
       "tasks": [
         {
-          "title": "Configuración de entorno y base de datos",
-          "assignee": "Mateo Fernández",
-          "hours": 25,
-          "depends_on": null
-        },
-        {
-          "title": "Desarrollo de APIs y lógica de negocio",
-          "assignee": "Mateo Fernández",
+          "title": "Configuración de API y base de datos",
+          "assignee": "Mateo Rodríguez",
           "hours": 80,
-          "depends_on": "Configuración de entorno y base de datos"
+          "depends_on": "Prototipo de alta fidelidad y Design System"
         },
         {
-          "title": "Maquetación y componentes visuales",
-          "assignee": "Carlos Ruiz",
-          "hours": 75,
-          "depends_on": "Diseño de interfaz en Figma y sistema de diseño"
+          "title": "Maquetación e integración de componentes UI",
+          "assignee": "Carlos Gómez",
+          "hours": 90,
+          "depends_on": "Prototipo de alta fidelidad y Design System"
         },
         {
-          "title": "Integración de vistas con servicios Backend",
-          "assignee": "Carlos Ruiz",
-          "hours": 45,
-          "depends_on": "Desarrollo de APIs y lógica de negocio"
+          "title": "Integración de servicios Backend con Frontend",
+          "assignee": "Carlos Gómez",
+          "hours": 50,
+          "depends_on": "Configuración de API y base de datos"
         }
       ]
     },
@@ -125,28 +113,22 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
       "end": "2026-06-30",
       "tasks": [
         {
-          "title": "Elaboración de plan de pruebas y casos de uso",
-          "assignee": "Sofía Morales",
+          "title": "Pruebas funcionales, responsive y de carga",
+          "assignee": "Lucía Fernández",
+          "hours": 60,
+          "depends_on": "Integración de servicios Backend con Frontend"
+        },
+        {
+          "title": "Corrección de bugs críticos",
+          "assignee": "Mateo Rodríguez",
           "hours": 20,
-          "depends_on": "Integración de vistas con servicios Backend"
+          "depends_on": "Pruebas funcionales, responsive y de carga"
         },
         {
-          "title": "Pruebas funcionales, responsivas y de rendimiento",
-          "assignee": "Sofía Morales",
-          "hours": 50,
-          "depends_on": "Elaboración de plan de pruebas y casos de uso"
-        },
-        {
-          "title": "Resolución de incidencias críticas",
-          "assignee": "Carlos Ruiz",
-          "hours": 25,
-          "depends_on": "Pruebas funcionales, responsivas y de rendimiento"
-        },
-        {
-          "title": "Despliegue a producción y verificación final",
-          "assignee": "Mateo Fernández",
-          "hours": 15,
-          "depends_on": "Resolución de incidencias críticas"
+          "title": "Despliegue a producción y pase a soporte",
+          "assignee": "Carlos Gómez",
+          "hours": 10,
+          "depends_on": "Corrección de bugs críticos"
         }
       ]
     }
@@ -154,9 +136,9 @@ Llena con datos realistas. El equipo tiene 1 disenador, 2 developers, 1 QA. Pres
   "budget": {
     "total": 25000,
     "breakdown": {
-      "design": 6000,
-      "development": 14000,
-      "testing": 5000
+      "design": 6500,
+      "development": 14500,
+      "testing": 4000
     }
   }
 }

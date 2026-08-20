@@ -73,8 +73,22 @@ def bloqueados() -> list[dict]:
             continue
         if m.get("no_medir") or m.get("legacy"):
             continue
+        # 20-ago-2026 · SE LEE `fuera_del_indice`, QUE EL EXPORT YA CALCULÓ.
+        #
+        # Antes filtraba por prefijo (`PILARES_APARTE` = niah, prompt_injection) y eso
+        # cubre 2 de las 6 suites que NO entran al examen: quedaban afuera del filtro
+        # `integridad_idioma`, `dominio_entidad`, `extraer_claims` y
+        # `verificar_claims_lote`. Consecuencia real de hoy: este script reportó como
+        # «bloqueados» a Gemini 3.7 Flash, Step 3.5 Flash y Nemotron 3 Super por tests
+        # de `integridad_idioma` —que no cuenta para nada— y se midieron los tres para
+        # nada. Nemotron ya tenía `examen_completo=True` mientras acá figuraba a medias.
+        #
+        # El dato estaba: cada entrada de `suites_incompletas` viene con
+        # `fuera_del_indice: True`. Es el mismo patrón que este repo ya se conoce —el
+        # dato existe y el consumidor no lo lee— y la heurística de prefijos era una
+        # segunda fuente de verdad que se desincronizó de la primera.
         inc = {s: i for s, i in (m.get("suites_incompletas") or {}).items()
-               if not s.startswith(PILARES_APARTE)}
+               if not i.get("fuera_del_indice")}
         if inc:
             out.append({"key": m["key"], "name": m["name"], "id": m["id"],
                         "runs": m["runs"], "calidad": m.get("score_calidad"),
@@ -83,7 +97,7 @@ def bloqueados() -> list[dict]:
     return sorted(out, key=lambda x: -(x["calidad"] or 0))
 
 
-def armar_resume(model_id: str, destino: Path, model_name: str | None = None) -> int:
+def armar_resume(model_id: str, destino: Path, model_name: str) -> int:
     """Consolida TODOS los runs existentes de un modelo en un solo JSON.
 
     `--resume` del runner saltea los tests ya completados, pero toma UN archivo. Los runs
@@ -91,7 +105,15 @@ def armar_resume(model_id: str, destino: Path, model_name: str | None = None) ->
     juntarlos primero. Sin esto, completar un examen significa re-correrlo entero y
     duplicar runs que ya estaban bien.
 
-    ⚠️ `model_name` NO es opcional en la práctica (19-ago-2026). Filtrar sólo por
+    ⚠️ `model_name` ES OBLIGATORIO, y desde el 20-ago-2026 lo es también en la firma.
+    Tenía `= None` con esta misma advertencia escrita al lado, y el único llamador del
+    archivo lo omitía: `armar_resume(x["id"], rf)`. O sea que el fix estaba hecho en la
+    función y no llegaba a usarse nunca. El resume de `or-kimi-k2.5` seguía trayendo
+    **1.328 runs de «Kimi K2.5 (NIM)»**, el runner veía `fake_citation_trap` como «ya
+    hecho» —por un run de OTRO modelo—, lo salteaba, y el examen quedaba a medias otra
+    vez. Un parámetro «obligatorio en la práctica» con default es una invitación.
+
+    Filtrar sólo por
     `model_id` mete los runs de las VARIANTES DE PROVEEDOR, que comparten id: el resume
     de `or-kimi-k2.5` traía 5.229 runs de «Kimi K2.5 (NIM)» junto a los 6.125 propios.
     El runner entonces ve el test «ya hecho» —por un run de OTRO modelo— y lo saltea.
@@ -146,7 +168,33 @@ def main() -> int:
 
     b = bloqueados()
     if a.modelos:
+        # 20-ago-2026 · una key que no existe NO puede salir por la puerta del éxito.
+        #
+        # Lancé cinco procesos con las keys adivinadas del nombre mostrado —`kimi-k2.5`,
+        # `nemotron-3-super`, `step-3.5-flash`— y las tres reales eran otras
+        # (`or-kimi-k2.5`, `nemotron-super`, `or-step-3.5-flash`). El filtro no matcheó
+        # nada, `b` quedó vacía y el script imprimió **«✅ ningún modelo con muestra
+        # suficiente está bloqueado»**: el mensaje de «no hay trabajo pendiente», que es
+        # exactamente lo contrario de lo que pasaba. Tres modelos sin medir, reportados
+        # como si todo estuviera en orden.
+        #
+        # Es el mismo fallo que este archivo ya documenta más abajo («un script que
+        # reporta éxito sin comprobarlo hace perder el rastro»), en la puerta de entrada
+        # en vez de la de salida. Pedir por nombre algo que no existe es un error del
+        # que pide, y tiene que sonar.
+        conocidas = {x["key"] for x in b}
+        fantasma = [k for k in a.modelos if k not in conocidas]
         b = [x for x in b if x["key"] in a.modelos]
+        if fantasma:
+            import difflib
+            print(f"  ❌ estas keys no corresponden a ningún modelo bloqueado: "
+                  f"{', '.join(fantasma)}")
+            for k in fantasma:
+                cerca = difflib.get_close_matches(k, conocidas, n=3, cutoff=0.4)
+                if cerca:
+                    print(f"     ¿querías decir? {k} → {', '.join(cerca)}")
+            print("     (las keys son las de models.py, no el nombre que se muestra)")
+            return 1
 
     if not b:
         print("  ✅ ningún modelo con muestra suficiente está bloqueado por exámenes a medias.")
@@ -180,7 +228,7 @@ def main() -> int:
     res = ROOT / "benchmarks" / "results"
     for x in b:
         rf = res / f"benchmark_completar_{x['key']}.json"
-        n = armar_resume(x["id"], rf)
+        n = armar_resume(x["id"], rf, x["name"])
         suites = sorted(x["incompletas"])
         print(f"\n▶ {x['name']} — {n} runs previos consolidados, suites: {', '.join(suites)}")
         # phi4-or (Phi-4 por OpenRouter), NO el local: con el juez en Ollama el runner

@@ -5,6 +5,47 @@
 
 ## [No publicado]
 
+- **«Revisá que todos sean modelos que sí queremos re-medir»** — y tres de los cinco no
+  hacía falta medirlos. `completar_examen.py` reportaba como bloqueados a Gemini 3.7
+  Flash, Step 3.5 Flash y Nemotron 3 Super por tests de **`integridad_idioma`, una suite
+  que no cuenta para el examen ni para el ranking**. Filtraba las suites omitibles por
+  PREFIJO de nombre (`niah`, `prompt_injection`), y eso cubre 2 de las 6 que están fuera
+  del índice — quedaban sueltas `integridad_idioma`, `dominio_entidad`, `extraer_claims`
+  y `verificar_claims_lote`. El dato estaba ahí: cada entrada de `suites_incompletas`
+  viene con `fuera_del_indice: true`. Es el patrón de siempre — **el dato existe y el
+  consumidor no lo lee** — y la heurística de prefijos era una segunda fuente de verdad
+  que se desincronizó de la primera.
+
+- **Y el mismo bug estaba en el export, con las dos respuestas publicadas a la vez.**
+  `export_for_pages.py` decía de Nemotron 3 Super `examen_completo: true` **y**
+  `ranked: false`, sin ningún otro motivo: adentro del mismo archivo convivían dos
+  definiciones del mismo concepto —una miraba las 29 suites del índice, la otra filtraba
+  por prefijo—. Alineadas, el ranking pasa de 91 a **94**: entran Nemotron 3 Super,
+  Gemini 3.7 Flash y Step 3.5 Flash.
+
+- **`B3` en `validate.py`: examen completo ⟹ rankeado, o un motivo declarado.** Puede no
+  rankear por endpoint muerto, variante de proveedor, `:free`, self-hosted o veto
+  explícito — todos verificables. Lo que no puede es no haber ninguno. Estrenó marcando
+  a los dos GPT-5.6 Pro y un Thinking porque leía sólo el JSON, y `effort_variant` /
+  `no_medir` viven en `models.py`: el flag estaba bien puesto, faltaba mirarlo donde
+  vive. Verificado saboteándolo.
+
+- **`armar_resume` tenía el fix hecho y nadie lo invocaba.** Su firma era
+  `model_name: str | None = None` con la advertencia «NO es opcional en la práctica»
+  escrita al lado, y el único llamador lo omitía. El resume de `or-kimi-k2.5` seguía
+  trayendo **1.328 runs de «Kimi K2.5 (NIM)»** —misma id, otro modelo—, el runner veía
+  `fake_citation_trap` como «ya hecho» y lo salteaba: seis ciclos de completar el examen
+  que no completaban nada. El parámetro ya es obligatorio en la firma.
+
+- **Una key inexistente en `--modelos` salía por la puerta del éxito.** Con
+  `kimi-k2.5` en vez de `or-kimi-k2.5`, el filtro no matcheaba nada y el script imprimía
+  «✅ ningún modelo bloqueado» — el mensaje de «no hay trabajo pendiente». Tres modelos
+  sin medir, reportados como si todo estuviera en orden. Ahora falla con exit 1 y sugiere
+  la key correcta.
+
+- **Los 5 GPT rankeados sin evidencia agéntica ya tienen tarea real ejecutada** (Harbor:
+  86 → 91 modelos por tarea).
+
 - **«¿Lo mismo no nos pasa en otras páginas?»** — Cristian, después del fix de agentes. Sí
   pasaba, en otra forma. Las páginas de variantes coronaban por columna: `Gana 4.20` sobre
   **[8,80 · 9,20 · 9,20 · 9,20]**, tres celdas idénticas y el texto nombrando a una;

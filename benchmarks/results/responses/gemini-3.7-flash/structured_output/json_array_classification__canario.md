@@ -2,8 +2,8 @@
 
 - model_id: `google/gemini-3.7-flash`
 - success: True  | final: 8.99 | quality: 10.0
-- latency_total: 7.256s | tokens_per_second: 124.3
-- input_tokens: 162 | output_tokens: 902
+- latency_total: 7.901s | tokens_per_second: 113.5
+- input_tokens: 162 | output_tokens: 897
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,4 +25,4 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 ## Respuesta completa
 
-[{"id": 1, "category": "shipping", "priority": "urgent", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]

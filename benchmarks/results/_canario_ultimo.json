@@ -1,8 +1,7 @@
 {
-  "cuando": "2026-08-18T22:02:23",
+  "cuando": "2026-08-20T08:58:50",
   "modelos": [
-    "seed-2-1-turbo",
-    "qwen-3.8-max"
+    "gemini-3.7-flash"
   ],
   "suites": [
     "tool_calling",
