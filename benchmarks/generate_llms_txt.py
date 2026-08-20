@@ -80,7 +80,7 @@ def main():
         out += ["## Otras páginas", *others, ""]
     out += ["## Sobre el autor",
             "- [Cristian Tala](https://cristiantala.com): founder; mantiene este benchmark abierto.",
-            "- [Comunidad Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite): emprendimiento + IA en español.",
+            "- [Comunidad Cágala, Aprende, Repite](https://www.skool.com/cagala-aprende-repite/about): emprendimiento + IA en español.",
             ""]
     (DOCS / "llms.txt").write_text("\n".join(out), encoding="utf-8")
     print(f"OK: docs/llms.txt — {len(rankings)} rankings, {len(comparisons)} comparaciones, {len(others)} otras")

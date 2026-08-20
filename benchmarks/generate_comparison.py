@@ -882,7 +882,7 @@ def funnel_block():
   <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
   Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
   El ganador de hoy puede no serlo el mes que viene.</p>
-  <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
+  <p><a href="https://www.skool.com/cagala-aprende-repite/about?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
   Ver la comunidad →</a></p>
   <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
   crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
@@ -1083,7 +1083,7 @@ def page_shell(title, desc, kw, url, body, contrato=None):
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
     </nav>
   </div>
 </header>
@@ -1095,7 +1095,7 @@ def page_shell(title, desc, kw, url, body, contrato=None):
   <div class="container">
     <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
-    <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a></p>
+    <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener">Skool</a></p>
   </div>
 </footer>
 </body>

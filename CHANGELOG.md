@@ -1737,7 +1737,7 @@ Se detectó que varios precios del catálogo estaban stale (pricing viejo copiad
 
 ### QR codes embebidos
 - QR principal: https://benchmarks.cristiantala.com/ (calculadora interactiva)
-- QR comunidad: https://www.skool.com/cagala-aprende-repite (Cágala, Aprende, Repite)
+- QR comunidad: https://www.skool.com/cagala-aprende-repite/about (Cágala, Aprende, Repite)
 - Generación con qrcode[pil] (`pip install "qrcode[pil]"`)
 
 ### Convención release mensual

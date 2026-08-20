@@ -880,7 +880,7 @@ def funnel_block():
     <p class="funnel-note">Y una advertencia sobre este ranking: se recalcula con cada lote de modelos
     nuevos. Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve
     a todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
-    <p><a href="https://www.skool.com/cagala-aprende-repite?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=ranking" target="_blank" rel="noopener" class="cta-primary">
+    <p><a href="https://www.skool.com/cagala-aprende-repite/about?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=ranking" target="_blank" rel="noopener" class="cta-primary">
     Ver la comunidad →</a></p>
     <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
     crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.

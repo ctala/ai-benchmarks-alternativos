@@ -223,7 +223,7 @@ def header(title, desc, kw, url, og_alt=None, extra_head="", contrato=""):
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
     </nav>
   </div>
 </header>
@@ -241,7 +241,7 @@ FOOTER = """
     <p>
       Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
-      <a href="https://www.skool.com/cagala-aprende-repite" target="_blank" rel="noopener">Skool</a>
+      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener">Skool</a>
     </p>
   </div>
 </footer>

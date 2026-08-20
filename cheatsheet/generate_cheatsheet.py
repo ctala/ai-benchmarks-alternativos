@@ -40,7 +40,7 @@ YEAR = now.year
 
 URL_CALC = "https://benchmarks.cristiantala.com/"
 URL_REPO = "https://github.com/ctala/ai-benchmarks-alternativos"
-URL_SKOOL = "https://www.skool.com/cagala-aprende-repite"
+URL_SKOOL = "https://www.skool.com/cagala-aprende-repite/about"
 
 
 def qr_b64(url: str, size: int = 200) -> str:
