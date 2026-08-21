@@ -17,7 +17,7 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 ### Agentes y automatizaciones (n8n, Hermes)
 
-_El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling._
+_El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
 - **Usá:** **DeepSeek V3.2** — ≈$5/mes (calidad en Agentes 8.70/10)
 - _1 modelos empatan en calidad en este pilar._
@@ -52,7 +52,7 @@ _Análisis, decisiones, problemas con varios pasos._
 
 ## Por presupuesto
 
-Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Ordenado por calidad dentro de lo que te alcanza.
+Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Ordenado por calidad dentro de lo que te alcanza.
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|

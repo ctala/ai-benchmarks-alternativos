@@ -779,8 +779,8 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
 {oficial(m)}
   <section class="cta-block">
     <h2>¿Es el mejor para TU caso?</h2>
-    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabés si
-    {esc(nombre)} es tu opción o hay algo mejor para lo que hacés.</p>
+    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabes si
+    {esc(nombre)} es tu opción o hay algo mejor para lo que haces.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
     contrato = emitir(

@@ -186,7 +186,7 @@ def build():
     body = f"""
 <h1>El mismo modelo no rinde igual según quién lo sirva</h1>
 
-<p class="verdict-lead">Elegís un modelo mirando un ranking. Después lo llamás por el proveedor
+<p class="verdict-lead">Eliges un modelo mirando un ranking. Después lo llamas por el proveedor
 que tenías a mano. Y resulta que <strong>esa segunda decisión, la que nadie te ayuda a
 tomar, te puede costar más calidad que la primera.</strong></p>
 

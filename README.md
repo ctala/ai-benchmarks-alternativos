@@ -66,7 +66,7 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
-Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo de calidad media a $0,10 le gana a uno excelente a $1. Mirá la columna *Calidad* para ver qué estás resignando.
+Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo de calidad media a $0,10 le gana a uno excelente a $1. Mira la columna *Calidad* para ver qué estás resignando.
 
 | # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |
 |---|---|---:|---:|---:|---|
@@ -107,7 +107,7 @@ Los **13 de 96** modelos que nadie domina: para el resto existe otro que es **a 
 
 > **La frontera es frágil a propósito, y conviene saberlo.** Basta un modelo nuevo, bueno y barato para que varios de esta lista queden dominados de un día para otro. Eso es lo que debe pasar. Pero también significa que **depende de que los datos del líder sean correctos**: si la calidad del tope está sobreestimada, la frontera se ensancha.
 
-> **Nada de esto es tu caso exacto.** Si corrés batch de noche, la latencia no te importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas por caso de uso en [MODELOS.md](MODELOS.md).
+> **Nada de esto es tu caso exacto.** Si corres batch de noche, la latencia no te importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mira las tablas por caso de uso en [MODELOS.md](MODELOS.md).
 
 <!-- AUTO-RANKING-END -->
 

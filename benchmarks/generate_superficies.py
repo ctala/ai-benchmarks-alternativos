@@ -48,7 +48,7 @@ CLASES = [
         "fuente": "`docs/data/models.json`",
         "guardrail": "benchmarks/sync_doc_counts.py",
         "como": "reescribe los bloques `<!-- AUTO:campo -->…<!-- /AUTO -->`. "
-                "**Un conteo fuera de un bloque AUTO no se sincroniza**: si lo escribís a "
+                "**Un conteo fuera de un bloque AUTO no se sincroniza**: si lo escribes a "
                 "mano, caduca solo.",
     },
     {

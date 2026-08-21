@@ -1758,13 +1758,34 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
    El chevron va junto al número, gira al abrir, y la fila se levanta al pasar
    por encima para que se lea como algo accionable. */
 .fila-modelo { cursor: pointer; transition: background .12s ease; }
+/* 21-ago-2026 · seguía sin verse. Era `.8em` en `--gray-dark` (#4a4a5e) DESPUÉS del
+   número: del tamaño de un signo de puntuación y del color de un borde. Ahora va
+   ADELANTE —donde el ojo entra a la fila—, en el cyan de los enlaces y con un área de
+   click propia. Cristian, otra vez: *"el desplegable debería ser más notorio"*. */
 .fila-modelo .chev {
-  display: inline-block; color: var(--gray-dark); font-size: .8em;
-  transition: transform .15s ease, color .15s ease; margin-left: .15rem;
+  display: inline-block; color: var(--cyan); font-size: 1.05em; font-weight: 700;
+  transition: transform .15s ease, color .15s ease; margin-right: .35rem;
+  width: .7em; text-align: center;
 }
 .fila-modelo:hover .chev { color: var(--green); }
 .fila-modelo.abierta .chev { transform: rotate(90deg); color: var(--green); }
 .fila-modelo:hover { background: rgba(57, 255, 20, 0.06); }
+.results-table td.n-fila { white-space: nowrap; }
+
+/* La ficha pasa a ser una COLUMNA, no un enlace escondido bajo el nombre.
+   El anterior (`.ir-ficha`) vivía con `opacity: 0` y sólo aparecía al pasar el mouse:
+   en móvil no existía, y en desktop había que descubrirlo por accidente. */
+.results-table th.col-ficha-h { text-align: center; }
+.results-table td.col-ficha { text-align: center; white-space: nowrap; }
+.btn-ficha {
+  display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .68rem;
+  color: var(--cyan); text-decoration: none; white-space: nowrap;
+  border: 1px solid rgba(0, 212, 255, .35); border-radius: 7px;
+  padding: .25rem .5rem; transition: .14s ease;
+}
+.btn-ficha:hover { background: rgba(0, 212, 255, .12); border-color: var(--cyan); }
+.fila-modelo:hover .btn-ficha { border-color: var(--cyan); }
+.sin-ficha { color: var(--gray-dark); }
 
 /* Enlace a la ficha del modelo. `stopPropagation` en el onclick evita que
    además despliegue la fila: son dos acciones distintas y el usuario elige. */

@@ -88,7 +88,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260717">
+<link rel="stylesheet" href="style.css?v=522bd7c6">
 <!-- GTM: mismo container que cristiantala.com, para seguir el funnel cruzado
      blog → benchmark → comunidad desde un solo lugar. Diferido (primera
      interacción o 3.5s idle) para no cargarlo en la ruta crítica del LCP. -->
@@ -223,10 +223,11 @@
         Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
         Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
         precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
-        Si querés que el precio pese, movés los pesos vos. La escala es <strong>absoluta</strong>:
+        Si quieres que el precio pese, mueves los pesos tú. La escala es <strong>absoluta</strong>:
         es la nota media del examen, donde 10 sería perfecto en todo. No se compara contra los
         otros modelos, así que <strong>agregar uno nuevo no mueve el score de nadie</strong> y una
-        cifra citada no caduca sola. Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: sí,
+        cifra citada no caduca sola. Los <strong id="rk-n">96</strong> rankeados caen entre
+        <strong id="rk-rango">7,26 y 8,52</strong>: sí,
         están apretados — es el dato, no un defecto del gráfico. Parte del examen ya no los
         distingue (<a href="#como-se-mide">5 de 28 suites</a> las resuelven casi todos con nota
         perfecta), y eso se arregla con pruebas más difíciles, no estirando la escala.
@@ -358,10 +359,13 @@
 
       <div class="filter">
         <label for="quality">Calidad mínima: <output id="quality-out">8.0</output></label>
-        <input type="range" id="quality" min="7" max="8.7" step="0.05" value="8.0">
+        <input type="range" id="quality" min="7" max="8.7" step="0.05" value="7">
         <small>Nota media del examen, escala absoluta 0-10 (10 = perfecto en todo).
-        Los 82 rankeados caen entre <strong>7,26 y 8,65</strong>: están más cerca entre sí
-        de lo que un ranking sugiere, y por eso el slider se mueve en ese tramo.</small>
+        Los <strong id="rk-n2">96</strong> rankeados caen entre
+        <strong id="rk-rango2">7,26 y 8,52</strong>: están más cerca entre sí
+        de lo que un ranking sugiere, y por eso el slider se mueve en ese tramo.
+        <strong>Arranca en el mínimo a propósito: la tabla muestra el catálogo
+        entero y desde acá lo recortas</strong>, no al revés.</small>
       </div>
 
       <div class="filter">
@@ -452,7 +456,7 @@
           <option value="512000">≥512K tokens</option>
           <option value="800000">≥800K tokens</option>
         </select>
-        <small id="min-context-hint">Filtra por contexto <em>usable real</em> (retrieval ≥7 en NIAH-es en español), no el declarado por el proveedor. Ej. MiniMax M3 declara 1M pero su ctx efectivo es 512K. Modelos sin medir no aparecen si elegís un umbral.</small>
+        <small id="min-context-hint">Filtra por contexto <em>usable real</em> (retrieval ≥7 en NIAH-es en español), no el declarado por el proveedor. Ej. MiniMax M3 declara 1M pero su ctx efectivo es 512K. Modelos sin medir no aparecen si eliges un umbral.</small>
       </div>
 
       <div class="filter checkboxes">
@@ -617,7 +621,7 @@
   </section>
 
   <section class="cta-block">
-    <h2>¿Querés ir más a fondo?</h2>
+    <h2>¿Quieres ir más a fondo?</h2>
     <p>
       En la comunidad <strong>Cágala, Aprende, Repite</strong> compartimos workshops, casos reales y
       el behind-the-scenes de cómo emprendedores latinoamericanos están usando IA para crecer sin financiamiento.
@@ -889,6 +893,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20260813d"></script>
+<script src="app.js?v=e7caca79"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ Este archivo existe porque **un resultado sin su entrada no es auditable**: no s
 puede reproducir ni discutir. Cada test se lista con el texto exacto que recibe el
 modelo y con su `prompt_sha`, la misma huella que cada run guarda en el JSON.
 
-**Cómo se usa:** tomá el `prompt_sha` de un run y buscalo acá. Si no aparece, ese run
+**Cómo se usa:** toma el `prompt_sha` de un run y buscalo acá. Si no aparece, ese run
 se midió con un prompt que ya no existe — y entonces **no es comparable** con los
 actuales, por más que el nombre del test sea el mismo.
 

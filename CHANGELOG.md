@@ -5,6 +5,38 @@
 
 ## [No publicado]
 
+- **La tabla abría con 71 de 96 modelos, y los 25 que faltaban no eran malos.** El
+  umbral de calidad venía en 8,0 por defecto y el peor modelo de todo el catálogo mide
+  **7,26**: quedaban fuera por un default que nadie eligió. Cristian: *"deberíamos
+  mostrar todos los modelos"*. Ahora el default es **`null` = el mínimo real de la
+  población**, que resuelve `clampUmbralAlEje()` al cargar los datos — no se escribe un
+  número, porque cualquier literal caduca con el próximo lote. Lo probó el propio
+  guardrail: al poner 7,0 a mano, `check_calculator` C1 avisó que el primer tramo del
+  slider no filtraba a nadie.
+
+- **La ficha pasa a ser una columna; el desplegable, visible.** El enlace vivía bajo el
+  nombre del modelo con **`opacity: 0`** —sólo aparecía al pasar el mouse, o sea que en
+  móvil no existía— y el chevron era `.8em` en el color de un borde, DESPUÉS del número.
+  Cristian: *"el ver la ficha debería ser más notorio y el desplegable también"*. El
+  chevron va adelante, en cyan y con área propia; la ficha tiene su columna con botón.
+
+- **`app.js` llegaba a los navegadores con la versión del 13 de agosto.** El HTML lo
+  cargaba con `?v=20260813d`, un cache-bust escrito a mano: entre esa fecha y hoy el
+  archivo cambió muchas veces —wizard, enlaces a fichas, W16, la columna nueva— y cada
+  cambio llegó con el JS viejo a quien ya había entrado al sitio. Se descubrió porque la
+  columna «Ficha» no aparecía en local. **`sync_cachebust.py`** lo calcula del hash del
+  contenido: el archivo ya sabe cuándo cambió.
+
+- **El sitio publicaba voseo, contra el estándar de español neutro.** *«¿Querés ir más a
+  fondo?»* como encabezado de sección y *«movés los pesos vos»* en el bloque de
+  metodología — 12 casos en 8 archivos, varios en generadores, o sea replicados en
+  decenas de páginas. El estándar existe hace meses y nada lo verificaba.
+  **`check_espanol_neutro.py`** revisa las 90 superficies publicables.
+
+- **El bloque de metodología citaba «Los 82 rankeados caen entre 7,26 y 8,65»** — los
+  tres números caducados, en la página más visitada y con forma de dato metodológico.
+  Ahora salen de `models.json` en runtime.
+
 ## [v4.8.0] - 2026-08-21 — el examen se mide con una sola definición, y el ranking pasa a 96
 
 - **DeepSeek V4 Pro (0813) y Kimi K2.5 completaron el examen.** El primero entra

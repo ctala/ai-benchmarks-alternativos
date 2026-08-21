@@ -144,8 +144,17 @@ const state = {
   filters: {
     budget: 500,        // Default para emprendedor con producto en producción
     calls: 2000,
-    quality: 8.0,   // escala absoluta: deja pasar 58 de 82. Antes 6.5, que en
-                    // la escala nueva no filtra a nadie (el peor mide 7,26).
+    // 21-ago-2026 · arranca en el MÍNIMO. Cristian: *"deberíamos mostrar todos los
+    // modelos en la página del benchmark"*. Con 8,0 la tabla abría en «71 de 96» y los
+    // 25 que faltaban no eran malos —el peor de todo el catálogo mide 7,26—: quedaban
+    // fuera por un default que nadie eligió. Esto es una calculadora: el visitante
+    // recorta, no al revés. El resumen ya explica qué filtro corta cuando mueve algo.
+    // `null` = "el mínimo real de la población", que resuelve `clampUmbralAlEje` al
+    // cargar los datos. No se escribe un número acá a propósito: cualquier literal
+    // caduca con el próximo lote (pasó con 8,0, que dejaba 25 de 96 fuera sin que nadie
+    // lo hubiera elegido, y con 7,0, que quedó bajo el peor modelo real —7,26— y volvía
+    // muerto el primer tramo del slider).
+    quality: null,
     speed: 0,
     task: "score_calidad",
     subtask: "",  // suite específica (opcional). Vacío = promedio del pilar
@@ -193,6 +202,28 @@ async function load() {
   document.getElementById("hero-updated").textContent =
     state.data.generated_at?.replace("T", " ") || "—";
 
+  // 21-ago-2026 · el conteo y el rango de calidad salen del JSON.
+  //
+  // Estaban escritos a mano en DOS lugares del index —«Los 82 rankeados caen entre 7,26
+  // y 8,65»— y ya habían caducado los tres números: hoy son 96 y el techo es 8,52.
+  // Es exactamente lo que la regla del repo prohíbe («nunca escribir un score a mano en
+  // un doc vivo»), en la página más visitada del sitio y con un texto que se lee como
+  // metodología. Ahora no se puede desincronizar: no existe la cifra fija.
+  const _rk = state.data.models.filter(m => m.ranked && m.quality_avg != null);
+  if (_rk.length) {
+    const qs = _rk.map(m => m.quality_avg).sort((a, b) => a - b);
+    const n1 = qs[0].toFixed(2).replace(".", ",");
+    const n2 = qs[qs.length - 1].toFixed(2).replace(".", ",");
+    ["rk-n", "rk-n2"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = _rk.length;
+    });
+    ["rk-rango", "rk-rango2"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = `${n1} y ${n2}`;
+    });
+  }
+
   // Structured data en sync con la data viva: dateModified + versión + conteos.
   // Señal de frescura para Google (sabe que la página se actualizó) y evita que el
   // schema caduque — todo dinámico desde models.json, nada hardcodeado que envejezca.
@@ -201,6 +232,10 @@ async function load() {
   bindFilters();
   applyUrlContext();   // el usuario llega con un caso de uso ya declarado: respetarlo
   bindAnalytics();
+  // ANTES del primer render: el umbral por defecto es `null` («el mínimo real de la
+  // población») y es esta función la que lo resuelve. Sólo se llamaba desde los
+  // handlers de cambio, así que la primera pintada habría mostrado «calidad ≥null».
+  clampUmbralAlEje();
   render();
   wizInit();           // wizard guiado (usa state.data + computeZScore)
 }
@@ -609,6 +644,23 @@ function clampUmbralAlEje() {
   }
   if (f.quality > max) {
     f.quality = Math.round(mediana * 100) / 100;
+    if (slider) slider.value = f.quality;
+    const out = document.getElementById("quality-val");
+    if (out) out.textContent = f.quality.toFixed(2);
+  }
+  // 21-ago-2026 · el caso simétrico, que faltaba.
+  //
+  // Esta función ya bajaba el umbral cuando quedaba POR ENCIMA del máximo del eje, pero
+  // no lo subía cuando quedaba por DEBAJO del mínimo. Al poner el default en 7 —para
+  // que la tabla abra con los 96 modelos— quedó bajo el peor de la población (7,26): el
+  // primer tramo del slider no filtraba a nadie, y `check_calculator` C1 lo marcó bien
+  // («no filtran a NADIE»). Un control muerto en parte de su recorrido enseña que
+  // moverlo no sirve.
+  //
+  // Se corrige acá y no en un bloque nuevo: esta es LA función que alinea el umbral con
+  // el eje, y escribir una segunda al lado es cómo se llega a tener dos criterios.
+  if (f.quality == null || f.quality < vals[0]) {
+    f.quality = Math.floor(vals[0] * 100) / 100;
     if (slider) slider.value = f.quality;
     const out = document.getElementById("quality-val");
     if (out) out.textContent = f.quality.toFixed(2);
@@ -1250,16 +1302,15 @@ function render() {
           <th class="num" title="Tareas de negocio resueltas de punta a punta DENTRO de un agente (Docker + herramientas), verificadas por tests. Media y PISO — el peor de los intentos.">Tarea real</th>
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th>Tier</th>
+          <th class="col-ficha-h">Ficha</th>
         </tr>
       </thead>
       <tbody>
         ${sorted.map((m, i) => `
           <tr class="fila-modelo" onclick="toggleFicha(${i})" title="Click para ver velocidad, latencia, seguridad y por qué quedó acá">
-            <td class="num">${i + 1} <span class="chev" aria-hidden="true">▸</span></td>
+            <td class="num n-fila"><span class="chev" aria-hidden="true">▸</span>${i + 1}</td>
             <td>
               <span class="model-name">${m.name}</span>${notRankedBadge(m)}
-              ${m.ranked ? `<a class="ir-ficha" href="/modelo/${m.key}/" onclick="event.stopPropagation()"
-                 title="Ver la ficha completa de ${m.name}">ficha ↗</a>` : ""}
               <div class="model-meta">${modelTags(m)} · ${m.id}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
@@ -1272,6 +1323,10 @@ function render() {
             ${celdaAgentica(m)}
             <td class="num">$${m._cost_month.toFixed(2)}</td>
             <td>${m.tier}</td>
+            <td class="col-ficha">${m.ranked
+              ? `<a class="btn-ficha" href="/modelo/${m.key}/" onclick="event.stopPropagation()"
+                   title="Ficha completa de ${m.name}: pilares, qué hace bien, alternativas">Ver ficha ↗</a>`
+              : `<span class="sin-ficha" title="Sin ficha: no rindió el examen completo">—</span>`}</td>
           </tr>
           <tbody id="ficha-${i}" class="ficha-wrap">${fichaModelo(m)}</tbody>
         `).join("")}
@@ -1758,8 +1813,8 @@ function wizResult() {
       </div>
       <!-- Arriba Y abajo. Cristian: «el empezar de nuevo no se nota». Estaba solo al
            final, después de la tabla de ejes y los enlaces — o sea, fuera de pantalla
-           justo cuando querés probar otra combinación, que es el momento en que lo
-           buscás. El de arriba es el que se usa; el de abajo queda para quien leyó todo. -->
+           justo cuando quieres probar otra combinación, que es el momento en que lo
+           buscas. El de arriba es el que se usa; el de abajo queda para quien leyó todo. -->
       <button class="wiz-restart abajo" id="wiz-restart" type="button">↺ Probar con otro caso</button>
     </div>`;
   wrap.hidden = false;

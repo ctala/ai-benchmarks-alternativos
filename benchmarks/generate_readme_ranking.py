@@ -95,7 +95,7 @@ def build_block(ranked: list[dict], data: dict) -> str:
         "### Calidad por dólar — ¿cuánto rinde cada peso?",
         "",
         "Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo "
-        "de calidad media a $0,10 le gana a uno excelente a $1. Mirá la columna *Calidad* "
+        "de calidad media a $0,10 le gana a uno excelente a $1. Mira la columna *Calidad* "
         "para ver qué estás resignando.",
         "",
         "| # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |",
@@ -148,9 +148,9 @@ def build_block(ranked: list[dict], data: dict) -> str:
         f"líder sean correctos**: si la calidad del tope está sobreestimada, la frontera se "
         f"ensancha.",
         "",
-        f"> **Nada de esto es tu caso exacto.** Si corrés batch de noche, la latencia no te "
+        f"> **Nada de esto es tu caso exacto.** Si corres batch de noche, la latencia no te "
         f"importa y acá está pesando; si atendés usuarios en vivo, te importa el doble. Ajustá "
-        f"los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mirá las tablas "
+        f"los pesos en la [calculadora](https://benchmarks.cristiantala.com/) o mira las tablas "
         f"por caso de uso en [MODELOS.md](MODELOS.md).",
         "",
         END,

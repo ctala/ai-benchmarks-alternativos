@@ -203,7 +203,7 @@ def build_cost_efficiency_table(models: list[dict]) -> str:
 
     lines = table_header(
         "Calidad por dólar — cuánta calidad rinde cada peso "
-        "(calidad ÷ $/1k calls; premia lo barato a propósito, mirá la columna Calidad)"
+        "(calidad ÷ $/1k calls; premia lo barato a propósito, mira la columna Calidad)"
     )
     # Cabecera propia: acá el número que ordena NO es un score 0-10, es un ratio.
     lines[2] = "| Modelo | OS | $ in/out | Calidad/$ | Frontera | Runs | Per-model MD | Responses |"
@@ -403,7 +403,7 @@ def main():
             "7.5% velocidad, 7.5% latencia) — **es un punto de partida, no un veredicto**. "
             "Un modelo puede quedar bajo en el global y ser el correcto para vos: si tu caso es "
             "batch nocturno, la latencia no te importa y el ranking la está penalizando igual. "
-            "Mirá las tablas por caso de uso, y para tus propios pesos usá la "
+            "Mira las tablas por caso de uso, y para tus propios pesos usá la "
             "[calculadora](https://benchmarks.cristiantala.com/).\n\n"
             "> **Piso de ranking: 50 runs.** Los modelos con menos muestra van a *En evaluación* "
             "al final — su score es indicativo, no comparable.\n\n"

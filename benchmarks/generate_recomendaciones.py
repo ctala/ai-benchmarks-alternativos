@@ -42,7 +42,7 @@ CALLS = 3000  # ~100/dia
 # Casos de negocio -> pilar del benchmark que los mide.
 CASOS = [
     ("Agentes y automatizaciones (n8n, Hermes)", "Agentes",
-     "El modelo decide y llama herramientas. Necesitás fiabilidad en tool calling."),
+     "El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling."),
     ("Contenido y marketing (blog, SEO, copy)", "Contenido",
      "Texto largo en español neutro. El costo manda: es alto volumen."),
     ("Código y debugging", "Coding",
@@ -128,7 +128,7 @@ def main():
         if "open" in v:
             A(f"- **Mejor open-source:** {fmt(v, 'open', pilar=pilar)}")
         if "local" in v:
-            A(f"- **Si tenés hardware propio:** {fmt(v, 'local', pilar=pilar)}")
+            A(f"- **Si tienes hardware propio:** {fmt(v, 'local', pilar=pilar)}")
         A(f"- _{v['band_size']} modelos empatan en calidad en este pilar._")
         A("")
 
@@ -136,7 +136,7 @@ def main():
     A("")
     A("## Por presupuesto")
     A("")
-    A("Lo mejor que podés comprar con cada techo de gasto, a "
+    A("Lo mejor que puedes comprar con cada techo de gasto, a "
       f"{CALLS:,} llamadas/mes. Ordenado por calidad dentro de lo que te alcanza.")
     A("")
     A("| Presupuesto | Modelo | Calidad | Costo real |")

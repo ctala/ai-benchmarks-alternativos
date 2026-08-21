@@ -72,7 +72,7 @@ Y dos condiciones más, que no son archivos:
 
 ### Detalle de cada una
 
-**Conteos** — reescribe los bloques `<!-- AUTO:campo -->…<!-- /AUTO -->`. **Un conteo fuera de un bloque AUTO no se sincroniza**: si lo escribís a mano, caduca solo.
+**Conteos** — reescribe los bloques `<!-- AUTO:campo -->…<!-- /AUTO -->`. **Un conteo fuera de un bloque AUTO no se sincroniza**: si lo escribes a mano, caduca solo.
 
 **Scores citados en prosa** — compara lo citado contra el dato. Ignora a propósito los snapshots con fecha (CHANGELOG, DATASHEET_*, INSIGHTS): ésos DEBEN conservar el valor del momento — reescribir la historia sería el bug, no el fix.
 
