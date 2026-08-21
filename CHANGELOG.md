@@ -5,9 +5,12 @@
 
 ## [No publicado]
 
-> ⚠️ **El próximo release es MINOR (v4.8.0), no un patch.** Lo exige `check_changelog
-> --nivel` y tiene razón: el criterio de elegibilidad cambió (el ranking pasa de 91 a 94)
-> y se tocó `suites.py`. Es presentación + medición, no un arreglo.
+## [v4.8.0] - 2026-08-21 — el examen se mide con una sola definición, y el ranking pasa a 96
+
+- **DeepSeek V4 Pro (0813) y Kimi K2.5 completaron el examen.** El primero entra
+  directo al **#13 de 96** con 8,41 — llevaba semanas fuera del ranking por 41 tests
+  sueltos, no por su nota. Kimi K2.5 arrastraba **seis ciclos** de completar-el-examen
+  que no completaban nada, por el resume que le mezclaba runs de la variante NIM.
 
 - **A Nemotron 3 Super sí le faltaba algo, y a otros diez también.** Cristian: *"¿pero a
   Nemotron no le falta nada?"*. Rankea con el examen completo —`integridad_idioma` no

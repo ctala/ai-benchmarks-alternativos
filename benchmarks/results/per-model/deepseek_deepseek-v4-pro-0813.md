@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro (0813)
 
 - **model_id**: `deepseek/deepseek-v4-pro-0813`
-- **Total tests**: 421/421 exitosos (0 errores)
+- **Total tests**: 447/447 exitosos (0 errores)
 - **Score final**: 7.42
-- **Calidad**: 8.36
-- **Judge score (Phi-4)**: 4.24/10
+- **Calidad**: 8.34
+- **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 57 tok/s
-- **Latencia primera token**: 49.73s
-- **Costo promedio por test**: $0.00802
+- **Latencia primera token**: 48.83s
+- **Costo promedio por test**: $0.00791
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 20 | 20 | 6.64 | 7.27 |
-| agent_long_horizon | 38 | 38 | 7.82 | 9.34 |
+| agent_long_horizon | 40 | 40 | 7.78 | 9.28 |
 | business_audit | 37 | 37 | 6.66 | 7.42 |
 | business_strategy | 17 | 17 | 7.99 | 9.41 |
 | code_generation | 13 | 13 | 7.47 | 8.64 |
@@ -28,20 +28,22 @@
 | hallucination | 12 | 12 | 6.65 | 7.00 |
 | multi_turn | 16 | 16 | 6.59 | 7.17 |
 | news_seo_writing | 17 | 17 | 6.11 | 6.74 |
-| ocr_extraction | 12 | 12 | 8.51 | 9.86 |
+| ocr_extraction | 14 | 14 | 8.32 | 9.65 |
 | orchestration | 20 | 20 | 6.98 | 7.81 |
 | policy_adherence | 16 | 16 | 7.74 | 8.53 |
 | presentation | 5 | 5 | 7.98 | 9.52 |
 | reasoning | 9 | 9 | 8.06 | 9.55 |
-| sales_outreach | 8 | 8 | 6.35 | 6.78 |
+| sales_outreach | 9 | 9 | 6.47 | 6.99 |
 | startup_content | 14 | 14 | 8.07 | 9.49 |
-| strategy | 8 | 8 | 7.12 | 8.33 |
+| strategy | 9 | 9 | 7.24 | 8.52 |
 | string_precision | 24 | 24 | 9.02 | 10.00 |
 | structured_output | 16 | 16 | 8.89 | 10.00 |
 | summarization | 8 | 8 | 7.24 | 8.07 |
 | task_management | 6 | 6 | 7.85 | 9.14 |
 | tool_calling | 16 | 16 | 6.35 | 6.49 |
+| tool_calling_adversarial | 10 | 10 | 6.71 | 6.87 |
 | translation | 12 | 12 | 7.85 | 8.70 |
+| verificar_claim | 10 | 10 | 8.19 | 8.90 |
 
 ## Detalle por test
 
@@ -829,6 +831,7 @@ Para un MVP de marketplace freelance con 1 solo dev, 6 semanas y $5,000, es la o
 | business_model_validation | 8.30 | 10.00 | - | 42 | 139.87s | OK |
 | competitor_analysis | 5.95 | 6.67 | - | 69 | 174.66s | OK |
 | business_model_validation | 8.30 | 10.00 | - | 42 | 139.87s | OK |
+| pricing_strategy | 8.19 | 10.00 | - | 64 | 269.20s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 5.95</summary>
 
@@ -963,6 +966,27 @@ Como VC escéptico, tu hipótesis me parece débil: “los restaurantes pierden 
 ```
 
 **Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/strategy/business_model_validation__20260817_n3.md`](../results/responses/deepseek-v4-pro-0813/strategy/business_model_validation__20260817_n3.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 8.19</summary>
+
+**Stats**: latencia 269.20s · 64 tok/s · 262→17309 tokens · $0.03300
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. LTV/CAC actual y cómo cambiaría
+
+Tu LTV de **$840** es un **LTV de ingresos** (\(14 \times 60\)). Para decisiones de pricing conviene también calcular el **LTV con margen bruto**, porque tienes un costo por usuario de ~$8/mes.
+
+### Actual con $60/mes
+
+| Métrica | Cálculo | Valor |
+|---|---:|--
+```
+
+**Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/strategy/pricing_strategy__20260820_090154_19293.md`](../results/responses/deepseek-v4-pro-0813/strategy/pricing_strategy__20260820_090154_19293.md)
 
 </details>
 
@@ -2016,6 +2040,8 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | invoice_extraction | 8.75 | 10.00 | - | 63 | 10.75s | OK |
 | business_card_extraction | 8.26 | 9.58 | - | 55 | 29.39s | OK |
 | handwritten_notes_extraction | 8.51 | 10.00 | - | 137 | 54.81s | OK |
+| receipt_math_verification | 7.54 | 8.75 | - | 66 | 80.62s | OK |
+| screenshot_table_extraction | 6.88 | 8.00 | - | 64 | 138.00s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.75</summary>
 
@@ -2262,6 +2288,65 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 ```
 
 **Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/ocr_extraction/handwritten_notes_extraction__20260817_n3.md`](../results/responses/deepseek-v4-pro-0813/ocr_extraction/handwritten_notes_extraction__20260817_n3.md)
+
+</details>
+
+<details><summary><code>receipt_math_verification</code> — score 7.54</summary>
+
+**Stats**: latencia 80.62s · 66 tok/s · 417→6430 tokens · $0.01100
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "items": [
+    {
+      "nombre": "Lomo vetado",
+      "cantidad": 2,
+      "precio_unitario": 18900,
+      "total": 37800
+    },
+    {
+      "nombre": "Ensalada cesar",
+      "cantidad": 1,
+      "precio_unitario": 7500,
+      "total": 7500
+    },
+    {
+      "nombre": "Pisco sour",
+      "canti
+```
+
+**Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/ocr_extraction/receipt_math_verification__20260820_090154_19293.md`](../results/responses/deepseek-v4-pro-0813/ocr_extraction/receipt_math_verification__20260820_090154_19293.md)
+
+</details>
+
+<details><summary><code>screenshot_table_extraction</code> — score 6.88</summary>
+
+**Stats**: latencia 138.00s · 64 tok/s · 386→5366 tokens · $0.01900
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "dashboard": "KPIs Marzo 2026",
+  "metricas": [
+    {
+      "metrica": "MRR",
+      "unidad": "USD",
+      "enero": 45200,
+      "febrero": 48700,
+      "marzo": 52100,
+      "var_mm": "+7.0%"
+    },
+    {
+      "metrica": "Churn Rate",
+      "unidad": "%",
+      "enero": 4.2,
+      "febrero": 3
+```
+
+**Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/ocr_extraction/screenshot_table_extraction__20260820_090154_19293.md`](../results/responses/deepseek-v4-pro-0813/ocr_extraction/screenshot_table_extraction__20260820_090154_19293.md)
 
 </details>
 
@@ -3469,6 +3554,7 @@ Carlos en Ciudad de México vendió su startup de IA a un fondo gringo por fin. 
 | lead_qualification | 5.45 | 5.55 | - | 92 | 49.65s | OK |
 | cold_email_personalized | 7.26 | 8.00 | - | 64 | 23.64s | OK |
 | lead_qualification | 5.45 | 5.55 | - | 92 | 49.65s | OK |
+| campaign_optimization | 7.37 | 8.67 | - | 60 | 162.69s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.26</summary>
 
@@ -3647,6 +3733,27 @@ He notado que algunas fintechs en etapa similar a FintechCo ya están resolviend
 ```
 
 **Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/sales_outreach/lead_qualification__20260817_n3.md`](../results/responses/deepseek-v4-pro-0813/sales_outreach/lead_qualification__20260817_n3.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 7.37</summary>
+
+**Stats**: latencia 162.69s · 60 tok/s · 351→7045 tokens · $0.01900
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. Métricas por campaña
+
+| Campaña | CTR | CPC | CPA | Conversion rate |
+|---|---:|---:|---:|---:|
+| A — Landing principal | 3.0% | $1.40 | $46.67 | 3.0% |
+| B — Blog content | 4.0% | $0.38 | $75.00 | 0.5% |
+| C — Competidor | 6.0% | $3.56 | $88.89 | 4.0% |
+| **Total actual** | **3.9%** | **$0.99
+```
+
+**Respuesta completa**: [`results/responses/deepseek-v4-pro-0813/sales_outreach/campaign_optimization__20260820_090154_19293.md`](../results/responses/deepseek-v4-pro-0813/sales_outreach/campaign_optimization__20260820_090154_19293.md)
 
 </details>
 
@@ -6501,3 +6608,7 @@ Resumen ejecutivo Q1 2026 – TechFlow
 #### content_verificable
 
 #### agent_long_horizon
+
+#### verificar_claim
+
+#### tool_calling_adversarial

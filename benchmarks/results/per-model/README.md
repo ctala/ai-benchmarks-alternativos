@@ -60,7 +60,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 52 | [Gemma 4 31B (DGX Spark Q4_K_M)](gemma4_31b.md) | 7.45 | 8.40 | 9 | 88/90 | [ver detalles](gemma4_31b.md) |
 | 53 | [Nemotron 3.5 Lightning](nvidia_nemotron-3_5-lightning.md) | 7.43 | 7.46 | 319 | 757/774 | [ver detalles](nvidia_nemotron-3_5-lightning.md) |
 | 54 | [GPT-5.4](gpt-5_4.md) | 7.42 | 8.39 | 54 | 187/187 | [ver detalles](gpt-5_4.md) |
-| 55 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.42 | 8.36 | 57 | 421/421 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
+| 55 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.42 | 8.34 | 57 | 447/447 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
 | 56 | [DeepSeek V4 Flash 0731](deepseek_deepseek-v4-flash-0731.md) | 7.40 | 7.97 | 45 | 232/232 | [ver detalles](deepseek_deepseek-v4-flash-0731.md) |
 | 57 | [GPT-OSS 120B](openai_gpt-oss-120b.md) | 7.39 | 7.67 | 52 | 178/178 | [ver detalles](openai_gpt-oss-120b.md) |
 | 58 | [Nemotron 3 Base 33B (DGX Spark Q4_K_M)](nemotron3_33b-q4_k_m.md) | 7.37 | 7.72 | 63 | 90/90 | [ver detalles](nemotron3_33b-q4_k_m.md) |
@@ -122,7 +122,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 114 | [Nemotron Super 49B v1.5 (NIM)](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | 7.07 | 7.61 | 28 | 96/101 | [ver detalles](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) |
 | 115 | [Qwen 3.5 35B](qwen_qwen3_5-35b-a3b.md) | 7.07 | 7.33 | 140 | 314/314 | [ver detalles](qwen_qwen3_5-35b-a3b.md) |
 | 116 | [GLM 5 (NIM)](z-ai_glm5.md) | 7.05 | 8.21 | 7 | 88/99 | [ver detalles](z-ai_glm5.md) |
-| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.05 | 7.95 | 43 | 15374/15438 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.05 | 7.95 | 43 | 15379/15443 | [ver detalles](moonshotai_kimi-k2_5.md) |
 | 118 | [KAT Coder Pro v2.5](kwaipilot_kat-coder-pro-v2_5.md) | 7.03 | 7.42 | 83 | 332/332 | [ver detalles](kwaipilot_kat-coder-pro-v2_5.md) |
 | 119 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 7.02 | 8.16 | 12 | 101/101 | [ver detalles](z-ai_glm-5_1.md) |
 | 120 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 7.02 | 8.39 | 41 | 265/265 | [ver detalles](anthropic_claude-opus-4-6.md) |
