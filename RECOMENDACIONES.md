@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-20 · 94 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-21 · 96 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -64,7 +64,7 @@ Lo mejor que podés comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**37 modelos empatan en calidad** en la cima del ranking global.
+**38 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.
