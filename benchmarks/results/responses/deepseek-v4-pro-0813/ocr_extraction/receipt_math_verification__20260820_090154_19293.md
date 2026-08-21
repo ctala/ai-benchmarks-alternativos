@@ -1,9 +1,9 @@
 # DeepSeek V4 Pro (0813) — ocr_extraction/receipt_math_verification
 
 - model_id: `deepseek/deepseek-v4-pro-0813`
-- success: True  | final: 7.5 | quality: 8.75
-- latency_total: 102.495s | tokens_per_second: 62.7
-- input_tokens: 417 | output_tokens: 6430
+- success: True  | final: 7.55 | quality: 8.75
+- latency_total: 68.501s | tokens_per_second: 71.1
+- input_tokens: 417 | output_tokens: 4870
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -92,8 +92,8 @@ Responde en JSON con formato:
   "propina_correcta": false,
   "total_correcto": false,
   "errores": [
-    "El subtotal facturado es $73.000, pero la suma de los items da $75.000.",
-    "La propina sugerida del 10% está calculada sobre el subtotal facturado incorrecto; debería ser $7.500.",
-    "El total debería ser $82.500 ($75.000 + $7.500), no $80.300."
+    "El subtotal facturado es $73.000, pero la suma de los items es $75.000.",
+    "La propina sugerida es $7.300 sobre un subtotal incorrecto; con el subtotal correcto debería ser $7.500.",
+    "El total debería ser $82.500, no $80.300."
   ]
 }

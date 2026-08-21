@@ -3,7 +3,7 @@
 
 **Versión v4.7.1** | Última actualización: 19 de agosto de 2026 | [📊 Datasheet junio](DATASHEET_2026-06.md) · [📄 CheatSheet PDF julio](cheatsheet/AI_Model_Benchmark_CheatSheet_Julio_2026.pdf) · [📄 Executive Brief julio](cheatsheet/AI_Model_Benchmark_ExecutiveBrief_July_2026.pdf)
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->56,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->65,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
 > 📍 **Qué es este benchmark (y qué NO es)**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original en inglés, MT-Bench, LMSYS Arena). Es un **complemento** diseñado específicamente para **emprendedores hispanohablantes** que necesitan decidir qué modelo usar en situaciones reales (N8N, Hermes, blogs de actualidad, soporte cliente, agentes, contenido en español neutro). Para investigación académica o capacidades fundamentales del modelo, prioriza los benchmarks oficiales — citados en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md). Para **decidir qué modelo poner en producción para un caso de uso aplicado en español**, esto suma información que los benchmarks oficiales no cubren: costo en provider real, latencia desde Latam, español neutro, agentes multi-turno, y debugging real (que medimos vía cross-ref con SWE-bench/Hermes-Eval, NO replicamos).
 
@@ -83,7 +83,7 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **13 de 91** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **13 de 94** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
@@ -101,7 +101,7 @@ Los **13 de 91** modelos que nadie domina: para el resto existe otro que es **a 
 | **Llama 4 Scout 17B** | 7.88 | $0.48 | 8s | openrouter |
 | **Gemini 2.5 Flash Lite** | 7.84 | $0.63 | 5s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 91 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 94 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 
@@ -129,7 +129,7 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->156<!-- /AUTO -->** |
 | Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **186 tests en 31 suites** (incluye multi-turno) |
-| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->56,000+<!-- /AUTO -->** (con éxito) |
+| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->65,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
 | **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |
@@ -242,7 +242,7 @@ Cero conflicto de interés (ningún proveedor del benchmark es también el juez)
 Ver [Quick Start](#quick-start) y [Como Replicar el Benchmark](#como-replicar-el-benchmark). Necesitás Python 3.10+, Ollama (para Phi-4 judge) y al menos OPENROUTER_API_KEY para empezar.
 
 **¿Puedo usar este benchmark para decidir qué modelo poner en producción?**
-Sí — fue diseñado para eso. Pero validá en tu caso específico: replicá 5-10 prompts típicos de tu producto contra los 2-3 finalistas. Ningún benchmark sustituye prompts reales de tu negocio. En la [comunidad Skool](https://www.skool.com/cagala-aprende-repite) compartimos plantillas y workshops para esa validación.
+Sí — fue diseñado para eso. Pero validá en tu caso específico: replicá 5-10 prompts típicos de tu producto contra los 2-3 finalistas. Ningún benchmark sustituye prompts reales de tu negocio. En la [comunidad Skool](https://www.skool.com/cagala-aprende-repite/about) compartimos plantillas y workshops para esa validación.
 
 ## Para agentes IA consumidores (Claude Code, Cursor, etc.)
 
@@ -271,7 +271,7 @@ Si construís un agente que recomiende modelos, leé AGENTS.md primero — la re
 
 ## Comunidad y soporte
 
-- 💬 **[Cágala, Aprende, Repite (Skool)](https://www.skool.com/cagala-aprende-repite)** — comunidad de emprendedores latinoamericanos usando IA
+- 💬 **[Cágala, Aprende, Repite (Skool)](https://www.skool.com/cagala-aprende-repite/about)** — comunidad de emprendedores latinoamericanos usando IA
 - 📧 **[Newsletter Cristian Tala](https://cristiantala.com/newsletter/)** — análisis de modelos y casos reales
 - 📺 **[YouTube](https://www.youtube.com/@cristiantalasanchez)** — workshops y tutoriales
 - 💼 **[LinkedIn](https://linkedin.com/in/ctala)** — ecosistema startup chileno

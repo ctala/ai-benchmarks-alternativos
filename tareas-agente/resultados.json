@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-19T18:04:40",
+  "generado": "2026-08-20T10:14:20",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -686,6 +686,75 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "openai/gpt-4.1": {
+          "media": 0.6296,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.8889,
+            0.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.06,
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
+        },
+        "openai/gpt-4.1-mini": {
+          "media": 0.963,
+          "piso": 0.8889,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.8889,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.04
+        },
+        "openai/gpt-5.4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.4-mini": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -1152,12 +1221,12 @@
       "task_checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 86,
-        "corridas": 273,
-        "perfectos": 58,
+        "modelos": 91,
+        "corridas": 288,
+        "perfectos": 61,
         "ceros": 5,
-        "media_global": 0.9101,
-        "costo_usd": 2.66,
+        "media_global": 0.9106,
+        "costo_usd": 2.76,
         "descartadas_por_checksum": 2
       }
     },
@@ -1864,6 +1933,75 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "openai/gpt-4.1": {
+          "media": 0.6667,
+          "piso": 0.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.06,
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
+        },
+        "openai/gpt-4.1-mini": {
+          "media": 0.9744,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            0.9231,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.04
+        },
+        "openai/gpt-5.4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.4-mini": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.5": {
+          "media": 0.9744,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9231,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -2302,12 +2440,12 @@
       "task_checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 82,
-        "corridas": 265,
-        "perfectos": 66,
+        "modelos": 87,
+        "corridas": 280,
+        "perfectos": 68,
         "ceros": 1,
-        "media_global": 0.9568,
-        "costo_usd": 2.8,
+        "media_global": 0.9549,
+        "costo_usd": 2.9,
         "descartadas_por_checksum": 216
       }
     },
@@ -2941,6 +3079,71 @@
             "hizo_mal_la_tarea"
           ]
         },
+        "openai/gpt-4.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.32
+        },
+        "openai/gpt-4.1-mini": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.06
+        },
+        "openai/gpt-5.4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.4-mini": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
+        "openai/gpt-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
           "piso": 1.0,
@@ -3374,12 +3577,12 @@
       "task_checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 81,
-        "corridas": 267,
-        "perfectos": 72,
+        "modelos": 86,
+        "corridas": 282,
+        "perfectos": 77,
         "ceros": 0,
-        "media_global": 0.9831,
-        "costo_usd": 4.23,
+        "media_global": 0.9841,
+        "costo_usd": 4.61,
         "descartadas_por_checksum": 16
       }
     }
