@@ -56,9 +56,21 @@ jobs:
         with:
           python-version: '3.11'
 
+      # 22-ago-2026 · SE INSTALA `openai` Y `httpx`, Y NO ES CAPRICHO.
+      #
+      # Este Action llevaba **40 días fallando** —último verde el 13 de julio, 52 de los
+      # últimos 60 runs en rojo— y nadie se enteró: los avisos van por correo, y ahí se
+      # pierden. El seguro que existe para regenerar los artefactos cuando a alguien se
+      # le olvida no estaba corriendo desde hace mes y medio.
+      #
+      # La causa: `export_for_pages.py` importa `THINKING_MODELS` de
+      # `providers/adapters.py`, y ese módulo hace `from openai import OpenAI` en su
+      # cabecera. O sea que leer una CONSTANTE de configuración arrastra el SDK entero.
+      # Acá se instala; lo correcto de fondo es que esas constantes vivan en un módulo
+      # sin dependencias, y queda anotado como deuda.
       - name: Instalar dependencias mínimas
         run: |
-          pip install python-dotenv
+          pip install python-dotenv openai httpx rich
 
       # Tras refactor abril 2026: benchmarks/models.py + benchmarks/config.py
       # estan ambos en git. CI usa los mismos archivos que dev local. No se

@@ -93,6 +93,11 @@ CHEQUEOS = [
     # Bloqueante desde el día uno, y se puede porque nació en verde: la primera corrida
     # encontró 5 páginas huérfanas y se arreglaron en el mismo commit. Un chequeo que
     # entra ya rojo se aprende a ignorar; uno que entra verde protege lo que costó cerrar.
+    # Informativo: `gh` puede no estar autenticado, y el estado del CI no invalida
+    # ningún dato. Lo que sí hace es decir si el SEGURO existe — que es justo lo que
+    # nadie supo durante 40 días.
+    ("version", "el Action de artefactos no lleva semanas en rojo",
+     [PY, "benchmarks/check_ci.py"], False, False),
     ("datos", "ningún rankeado se publicó sin su tarea agéntica",
      [PY, "benchmarks/check_agentico_publicado.py"], False, True),
     ("paginas", "ninguna página corona a un ganador que su tabla no sostiene",

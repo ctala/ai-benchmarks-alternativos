@@ -5,6 +5,26 @@
 
 ## [No publicado]
 
+- **El Action que regenera los artefactos llevaba 40 días en rojo, y nadie lo sabía.**
+  Cristian reenvió el correo de GitHub del último fallo; al mirar el historial, **el
+  último run verde fue el 13 de julio**, con 52 de los últimos 60 en rojo. Es el seguro
+  del repo —regenera `models.json`, MODELOS.md, el sitemap y corre los guardrails cuando
+  alguien no lo hace a mano— y estuvo mes y medio sin correr, mientras `CLAUDE.md` seguía
+  diciendo que «el bot regenera los artefactos al hacer push».
+
+  La causa técnica era trivial: `export_for_pages.py` importa `THINKING_MODELS` de
+  `providers/adapters.py`, y ese módulo hace `from openai import OpenAI` en su cabecera —
+  o sea que **leer una constante de configuración arrastra el SDK entero**, que el Action
+  no instalaba. Se agregaron `openai httpx rich` y se verificaron **los 14 pasos en un
+  venv limpio**, no solo el que fallaba.
+
+  Lo que no era trivial es por qué nadie se enteró en 40 días: el aviso llega por correo,
+  a una bandeja con 118.000 mensajes. **Un canal que se pierde en el ruido es un canal
+  que no existe.** Por eso `check_ci.py` vive en el QA local, donde sí se mira.
+
+  Deuda anotada: esas constantes deberían vivir en un módulo sin dependencias. Instalar
+  el SDK para leer una tupla es tratar el síntoma.
+
 - **Tercera vez que se publica un modelo sin correrle la tarea agéntica.** Cristian, el
   día del release de GLM 5.3: *"¿de nuevo no usaste harbor antes de publicar un
   modelo?"*. **De nuevo** es la palabra: pasó con 12 modelos, después con 5 GPT, y ahora
