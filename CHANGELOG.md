@@ -5,6 +5,30 @@
 
 ## [No publicado]
 
+- **GLM 5.3 entra al #2 con 8,52 — y el triple de precio SÍ compró calidad.** Se agregó
+  el 21-ago porque es la versión nueva del GLM 5.2 que está #6 del leaderboard de
+  OpenRouter, y porque su precio de lista llamaba la atención: **$1,40/$4,40 por millón
+  contra $0,97/$3,04** de su antecesor. La pregunta era si eso se justificaba. Se
+  justifica: **8,52 contra 8,36, y del puesto 20 al 2**. Empata en calidad con GPT-5.6
+  Luna, que cuesta **$0,93 por 1.000 llamadas contra $7,02** — o sea que sigue habiendo
+  una decisión de precio, pero ya no es «pagás más por lo mismo».
+
+- **LFM2 24B A2B queda anotado sin medir, con su motivo.** Pedido por Cristian.
+  Verificado el 21-ago: no está en el catálogo de OpenRouter (422 modelos) y llamarlo da
+  404 — la página que aparece al buscarlo es una landing sin proveedor. Tampoco está en
+  NIM, y ésas son las dos credenciales activas. Lo sirve Together AI. Va en `models.py`
+  con `pendiente_proveedor` y no en una lista aparte, para que cuando alguien pregunte
+  «¿lo tenemos?» la respuesta incluya qué falta para medirlo.
+
+- **Auditoría del catálogo contra OpenRouter: del leaderboard no falta ninguno.** Los 20
+  modelos del top-10 semanal y mensual están todos. El que parecía faltar —«DeepSeek V4
+  Flash 0423»— es el alias base `deepseek/deepseek-v4-flash`, que ya estaba con otro
+  nombre. Del catálogo general quedan 13 sin medir, todos de febrero a junio y ninguno
+  con tracción: se listan en el reporte, no se miden. Los `Hy-MT2` de Tencent quedaron
+  fuera por decisión de Cristian —no hay categoría de traducción— y el dato lo respalda:
+  con contexto de 8K reprobarían las suites de contexto largo por formato, no por
+  capacidad.
+
 - **La tabla abría con 71 de 96 modelos, y los 25 que faltaban no eran malos.** El
   umbral de calidad venía en 8,0 por defecto y el peor modelo de todo el catálogo mide
   **7,26**: quedaban fuera por un default que nadie eligió. Cristian: *"deberíamos

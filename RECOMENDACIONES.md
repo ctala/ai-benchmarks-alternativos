@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-21 · 96 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-08-22 · 97 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -29,7 +29,7 @@ _Texto largo en español neutro. El costo manda: es alto volumen._
 - **Usá:** **GPT-5.6 Luna** — ≈$3/mes (calidad en Contenido 8.84/10)
 - **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**83.9× más**) por apenas +0.25 de calidad — dentro del margen de error.
 - **Mejor open-source:** **GLM 5** — ≈$12/mes (calidad en Contenido 8.90/10)
-- _11 modelos empatan en calidad en este pilar._
+- _12 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -64,7 +64,7 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**38 modelos empatan en calidad** en la cima del ranking global.
+**39 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.

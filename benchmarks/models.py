@@ -535,6 +535,56 @@ MODELS = {
         "open_source": True,
         "license": "MIT",
     },
+    "lfm2-24b-a2b": {
+        # 21-ago-2026 · PEDIDO POR CRISTIAN, SIN RUTA PARA MEDIRLO.
+        #
+        # Verificado ese día: no está en el catálogo de OpenRouter (422 modelos) y
+        # llamarlo devuelve 404 — la página `openrouter.ai/liquid/lfm-2-24b-a2b` que
+        # aparece al buscarlo es una landing sin proveedor sirviéndolo. Tampoco está en
+        # NVIDIA NIM. Nuestras dos credenciales activas son ésas, así que hoy no hay
+        # forma de medirlo en el plano común.
+        #
+        # Sí lo sirven Together AI (`liquid-ai/lfm2-24b-a2b`), WaveSpeedAI, ModelsLab y
+        # Puter. Decisión de Cristian: esperar a que llegue a OpenRouter en vez de dar
+        # de alta un proveedor nuevo por un solo modelo.
+        #
+        # Queda acá y no en una lista aparte para que aparezca cuando alguien busque
+        # «lo tenemos?»: la respuesta es «sí, y esto es lo que falta para medirlo».
+        "id": "liquid/lfm-2-24b-a2b",
+        "name": "LFM2 24B A2B",
+        "cost_input": 0.0, "cost_output": 0.0,   # sin precio conocido en el plano común
+        "tier": "cheap",
+        "open_source": True,
+        "license": "LFM Open License",
+        "context_window": 65536,
+        "no_medir": True,
+        "pendiente_proveedor": True,
+        "notes": (
+            "MoE de Liquid AI: 24B totales, ~2B activos por token. SIN RUTA MEDIBLE al "
+            "21-ago-2026 — no está en OpenRouter ni en NIM. Lo sirve Together AI. "
+            "Revisar el catálogo de OpenRouter cada tanto: entra solo cuando aparezca."
+        ),
+    },
+    "glm-5.3": {
+        # 21-ago-2026 · versión nueva de GLM 5.2, que está #6 del leaderboard de
+        # OpenRouter esta semana. Distinto id = distinto modelo, así que se mide
+        # (regla del repo). Emite `reasoning`, y el patrón `glm-5` de THINKING_MODELS
+        # ya lo cubre: sin eso agotaría el presupuesto razonando y devolvería vacío.
+        "id": "z-ai/glm-5.3",
+        "name": "GLM 5.3",
+        "cost_input": 1.40,
+        "cost_output": 4.40,
+        "tier": "medium",
+        "open_source": True,
+        "license": "MIT",
+        "context_window": 1048576,
+        "notes": (
+            "Sucesor de GLM 5.2 (18-ago-2026). Precio de lista en OpenRouter: "
+            "$1.40/$4.40 por M — casi el triple que su antecesor, que cuesta "
+            "$0.97/$3.04. Si la calidad no sube en proporción, la comparación "
+            "entre las dos versiones es justamente lo interesante de medir."
+        ),
+    },
     "glm-5.2": {
         "id": "z-ai/glm-5.2",
         "name": "GLM 5.2",
