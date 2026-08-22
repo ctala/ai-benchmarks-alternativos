@@ -5,6 +5,24 @@
 
 ## [No publicado]
 
+## [v4.9.0] - 2026-08-22 — los 97 rankeados tienen tarea agéntica, y el CI vuelve a correr
+
+- **«No debería faltar ninguno con tarea agéntica» — y tenía razón, con un argumento que
+  ya estaba escrito en el repo.** Faltaban 5: los GPT medidos por `openai_direct`. El
+  export exigía `provider == openrouter` para asociar el resultado de Harbor, y a esos
+  modelos les aplicaba el criterio de un tercero. Pero la regla de first-party de
+  `CLAUDE.md` dice justo lo contrario para la calidad: *«OpenRouter es un intermediario y
+  la calidad es la misma… esto SOLO vale para first-party: en Groq/NIM/Ollama Cloud la
+  calidad SÍ cambia por serving»*. Cuando OpenRouter enruta `openai/gpt-5.4`, la petición
+  termina en OpenAI — misma casa, misma config.
+
+  Ahora heredan sólo los proveedores que son la API del creador. Heredaron **7**: los 5
+  GPT y los 2 MiMo de Xiaomi. **Ningún NIM, Groq ni Ollama Cloud**, que es la mitad que
+  importa: esos sirven pesos de terceros con su propia cuantización, y ahí la diferencia
+  está medida (Qwen 3.5 397B: 8,42 en NIM contra 7,97 en Ollama Cloud).
+
+  **97 de 97 rankeados con tarea real ejecutada.**
+
 - **El Action que regenera los artefactos llevaba 40 días en rojo, y nadie lo sabía.**
   Cristian reenvió el correo de GitHub del último fallo; al mirar el historial, **el
   último run verde fue el 13 de julio**, con 52 de los últimos 60 en rojo. Es el seguro

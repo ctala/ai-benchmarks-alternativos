@@ -1354,6 +1354,15 @@ def build_export(recalibrate=False, scoring_version=None):
     #
     # `estado` importa más que `media`, y por eso se publica aparte: un 0,00 por falta
     # de endpoint NO es el mismo hecho que un 0,00 por entregar mal el trabajo.
+    # Proveedores que son la API DEL CREADOR del modelo. Sólo estos heredan un resultado
+    # agéntico medido en OpenRouter: la petición termina en el mismo sitio.
+    #
+    # `nvidia_nim`, `groq_direct` y `ollama_cloud` NO están, y no es un olvido: sirven
+    # pesos de terceros con su propia cuantización y config —Qwen 3.5 397B da 8,42 en NIM
+    # y 7,97 en Ollama Cloud, medido—. `claude_code` tampoco: es una ruta por suscripción
+    # (el CLI), que el repo ya trata aparte del plano común.
+    _FIRST_PARTY = {"openai_direct", "openai_responses", "minimax_direct",
+                    "moonshot", "xiaomi_direct"}
     _agentico = {}
     _p_ag = Path(__file__).resolve().parent.parent / "tareas-agente" / "resultados.json"
     if _p_ag.exists():
@@ -1376,7 +1385,32 @@ def build_export(recalibrate=False, scoring_version=None):
         # la calidad —Qwen 3.5 397B da 8,42 en NIM y 7,97 en Ollama Cloud, medido— y no
         # hay razón para que la capacidad agéntica sea la excepción. Sin este filtro, la
         # variante NIM de Qwen 3-Next heredaba un "no apto" que nadie midió en NIM.
-        _r = _agentico.get(m["id"]) if m.get("provider", "openrouter") == "openrouter" else None
+        # 22-ago-2026 · FIRST-PARTY HEREDA; UN TERCERO NO.
+        #
+        # Cristian: *"no debería faltar ninguno con tarea agéntica"*. Faltaban 5 —los GPT
+        # medidos por `openai_direct`— porque esta línea exigía `provider == openrouter`
+        # y punto. Pero el repo YA tiene resuelta esa distinción para la calidad, y decía
+        # lo contrario: «First-party = misma calidad por OpenRouter... OpenRouter es un
+        # intermediario y la calidad es la misma. Esto SOLO vale para first-party: en
+        # Groq/NIM/Ollama Cloud la calidad SÍ cambia por serving».
+        #
+        # O sea que a los GPT se les aplicaba el criterio de un tercero. Cuando OpenRouter
+        # enruta `openai/gpt-5.4`, la petición termina en OpenAI: es la misma casa, el
+        # mismo modelo y la misma config. Que NIM sirva Qwen con su cuantización es otra
+        # cosa, y por eso esos siguen sin heredar nada.
+        #
+        # El id no coincide entre rutas —el catálogo guarda `gpt-5.4` y Harbor midió
+        # `openai/gpt-5.4`— así que se busca por sufijo `/{id}`, y sólo si el proveedor
+        # es la API del creador.
+        _prov = m.get("provider", "openrouter")
+        if _prov == "openrouter":
+            _r = _agentico.get(m["id"])
+        elif _prov in _FIRST_PARTY:
+            _suf = "/" + str(m["id"])
+            _cand = [v for k, v in _agentico.items() if k.endswith(_suf)]
+            _r = _cand[0] if len(_cand) == 1 else None   # ambiguo ⇒ no se adivina
+        else:
+            _r = None
         if not _r:
             m["agentico"] = None
             m["sirve_para_agentes"] = None
