@@ -5,6 +5,30 @@
 
 ## [No publicado]
 
+- **Tercera vez que se publica un modelo sin correrle la tarea agéntica.** Cristian, el
+  día del release de GLM 5.3: *"¿de nuevo no usaste harbor antes de publicar un
+  modelo?"*. **De nuevo** es la palabra: pasó con 12 modelos, después con 5 GPT, y ahora
+  con GLM 5.3 — arreglado a mano las tres veces, sin dejar nada que lo detectara.
+
+  No rompe ninguna página, y por eso no se nota: el modelo entra al ranking, se ve
+  completo, y lo único que ocurre es que **el eje agéntico y el wizard no pueden
+  recomendarlo**, sin decir por qué. Ahora lo mira `check_agentico_publicado.py` en el
+  QA. Al estrenarlo mostró **11 rankeados sin evidencia**, no uno: se corrieron los 6
+  medibles (GLM 5.3, DeepSeek V4 Pro 0813, Gemini 3.7 Flash, Step 3.5 Flash, Kimi K2.5,
+  Nemotron 3 Super) y quedan **92 de 97** cubiertos. Los 5 restantes son los GPT por
+  `openai_direct`: no pueden heredar un resultado medido en OpenRouter —es otro
+  endpoint— así que el chequeo los lista como deuda declarada, no como fallo.
+
+- **Los snapshots nuevos de DeepSeek: uno sí, el otro no.** Comparados sobre los MISMOS
+  tests, no sobre sus promedios. **Pro 0813 vs el anterior: +0,26** (IC95 [−0,018,
+  +0,527]) — la mayor diferencia entre snapshots que hemos medido, y aun así el intervalo
+  toca el cero por 0,018. **Flash 0731 vs el anterior: −0,04** (IC95 [−0,319, +0,233]):
+  indistinguibles. Lo notable es que esas diferencias mueven **25 y 18 puestos** en la
+  tabla sin ser significativas — la mejor ilustración de por qué esta población apretada
+  engaña cuando se lee por posición. Se evaluó subirle muestra al Pro base para resolver
+  el empate y Cristian lo descartó: es el snapshot viejo, y confirmar una diferencia
+  contra algo que igual no se va a usar no cambia ninguna decisión.
+
 - **GLM 5.3 entra al #2 con 8,52 — y el triple de precio SÍ compró calidad.** Se agregó
   el 21-ago porque es la versión nueva del GLM 5.2 que está #6 del leaderboard de
   OpenRouter, y porque su precio de lista llamaba la atención: **$1,40/$4,40 por millón

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T05:31:58",
+  "generated_at": "2026-08-22T10:45:50",
   "total_models": 207,
   "tested_count": 157,
   "ranked_count": 97,
@@ -2770,15 +2770,35 @@
       "score_global_linear": 7.37,
       "score_calidad": 8.52,
       "pareto": true,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -6577,15 +6597,35 @@
       "score_global_linear": 7.44,
       "score_calidad": 8.41,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 0.9744,
+            "piso": 0.9231,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -6999,15 +7039,35 @@
       "score_global_linear": 7.67,
       "score_calidad": 8.3,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -28173,15 +28233,35 @@
       "score_global_linear": 7.48,
       "score_calidad": 8.03,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.9259,
+            "piso": 0.7778,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 0.9333,
+            "piso": 0.8,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -31561,15 +31641,35 @@
       "score_global_linear": 7.09,
       "score_calidad": 8.1,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.2593,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "inestable"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -35446,15 +35546,35 @@
       "score_global_linear": 7.27,
       "score_calidad": 7.91,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": true,
         "ranking": true,
-        "agentico": false,
-        "motivos": {
-          "agentico": "sin_evidencia_agentica"
-        }
+        "agentico": true,
+        "motivos": {}
       }
     },
     {
@@ -67514,16 +67634,37 @@
       "total_output_tokens": 0,
       "score_calidad": null,
       "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 0.2593,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "inestable"
+      },
+      "sirve_para_agentes": true,
       "elegible": {
         "catalogo": false,
         "ranking": false,
-        "agentico": false,
+        "agentico": true,
         "motivos": {
           "ranking": "examen_incompleto",
-          "catalogo": "examen_incompleto",
-          "agentico": "sin_evidencia_agentica"
+          "catalogo": "examen_incompleto"
         }
       }
     },
