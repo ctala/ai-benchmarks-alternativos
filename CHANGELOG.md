@@ -5,6 +5,19 @@
 
 ## [No publicado]
 
+- **El QA local y el CI daban veredictos distintos sobre el mismo commit.** El Action
+  falló v4.9.0 con «se declaró un MINOR y lo tocado exige MAJOR (scoring_reference.json)»
+  mientras en local pasaba en verde. La causa: `scoring_reference.json` declara **dos
+  cosas** —qué calibración es (`score_method`, `computed_at`, los mean/std) y de qué
+  release es (`version`)— y la segunda se bumpea en CADA release por precedente. En
+  local el tag ya existía y el archivo caía del lado viejo del diff; en el CI no, y ahí
+  sí lo veía. Mismo commit, dos respuestas, según dónde se corriera.
+
+  Ahora `check_changelog` compara el CONTENIDO ignorando `version`: recalibrar sigue
+  exigiendo MAJOR —que es lo único que la regla quería proteger— y ponerle la etiqueta
+  del release, no. Verificado con sabotaje: cambiar `score_method` de v4 a v5 vuelve a
+  exigir MAJOR.
+
 ## [v4.9.0] - 2026-08-22 — los 97 rankeados tienen tarea agéntica, y el CI vuelve a correr
 
 - **«No debería faltar ninguno con tarea agéntica» — y tenía razón, con un argumento que

@@ -112,12 +112,48 @@ def cambios_desde(tag: str) -> list[str]:
     return sorted(p for p in paths if p and not p.startswith(IRRELEVANTES))
 
 
-def nivel_minimo(paths: list[str]) -> str:
+def _calibracion_cambio(tag: str | None) -> bool:
+    """¿Cambió la CALIBRACIÓN, o sólo la etiqueta de versión del archivo?
+
+    22-ago-2026 · `scoring_reference.json` está en la fila MAJOR, y con razón: contiene
+    los mean/std con los que se puntúa todo. Pero el archivo declara DOS cosas —qué
+    calibración es (`score_method`, `computed_at`, los valores) y de qué release es
+    (`version`)— y la segunda se bumpea en CADA release por precedente (v4.6.0 → v4.7.0
+    → v4.8.0). Resultado: todo release MINOR disparaba «exige MAJOR» por haber cambiado
+    una etiqueta.
+
+    Lo descubrió el CI: en local el tag ya existía y el archivo quedaba del lado viejo
+    del diff, así que el QA pasaba y el Action fallaba. Dos veredictos distintos sobre
+    el mismo commit, según dónde se corriera.
+
+    Acá se compara el CONTENIDO ignorando `version`. Recalibrar sigue exigiendo MAJOR
+    —que es lo único que la regla quería proteger—; ponerle la etiqueta del release, no.
+    """
+    if not tag:
+        return True                     # sin punto de comparación, se asume lo peor
+    import json
+    try:
+        viejo = json.loads(_sh("git", "show", f"{tag}:scoring_reference.json") or "{}")
+        nuevo = json.loads((ROOT / "scoring_reference.json").read_text())
+    except Exception:
+        return True                     # si no se puede leer, no se relaja la regla
+    viejo.pop("version", None)
+    nuevo.pop("version", None)
+    return viejo != nuevo
+
+
+def nivel_minimo(paths: list[str], tag: str | None = None) -> str:
     peor = "patch"
     for nivel, prefijos in NIVEL_POR_PATH:
-        if any(p.startswith(prefijos) for p in paths):
-            if ORDEN[nivel] > ORDEN[peor]:
-                peor = nivel
+        tocados = [p for p in paths if p.startswith(prefijos)]
+        if not tocados:
+            continue
+        # scoring_reference.json sólo exige MAJOR si cambió la calibración de verdad
+        if nivel == "major" and tocados == ["scoring_reference.json"]:
+            if not _calibracion_cambio(tag):
+                continue
+        if ORDEN[nivel] > ORDEN[peor]:
+            peor = nivel
     return peor
 
 
@@ -181,7 +217,7 @@ def main() -> int:
 
     # C2 · el bump alcanza para lo que se tocó
     if a.nivel and paths:
-        exige = nivel_minimo(paths)
+        exige = nivel_minimo(paths, tag)
         hizo = salto_de_version(tag)
         print(f"\n  nivel exigido por lo tocado: {exige.upper()}"
               f" · salto declarado: {(hizo or '—').upper()}")
