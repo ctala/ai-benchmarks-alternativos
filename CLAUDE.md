@@ -310,6 +310,39 @@ auditar ni revertir.**
   `tools` a proveedores que las ignoran; y "no modificar prompts" no tenía quién lo
   verificara. **Las cinco eran reglas correctas y escritas.** Al agregar o revisar una
   regla, la pregunta no es si está documentada: es **qué falla ruidoso si se viola**.
+- **El instrumento tampoco se cree solo: se rompe a propósito.** Corolario de la regla
+  de arriba, pagado **cinco veces entre el 19 y el 22-ago-2026** — y cuatro fueron en la
+  VERIFICACIÓN, no en el código: un test daba verde por ver a argparse rechazar un flag
+  muerto (nunca corrió el detector); `check_cortes` quedó **ciego y no rojo** cuando el
+  HTML cambió de forma; `C5` se estrenó recorriendo el conjunto donde el bug no podía
+  estar; una auditoría reportó «ninguna discrepa» con el extractor roto, o sea sobre
+  **cero datos leídos**; y un exit code medido con `cmd | tail; echo $?` capturaba el de
+  `tail`. Por eso: **todo guardrail entra con su prueba en `test_guardrails.py`**, que
+  rompe lo que dice cazar y exige que falle (hoy 24, todos verificados así). Y antes de
+  reportar un verde, preguntarse **dónde se está mirando** — los cuatro fueron el mismo
+  error, mirar en el lugar equivocado y creerle al resultado porque decía lo que uno
+  quiere leer.
+- **Un chequeo que nace en verde puede ser bloqueante; uno que nace en rojo, no.** Un
+  bloqueante que arranca fallando se aprende a ignorar, que es peor que no tenerlo. Si hay
+  deuda, entra informativo y con su motivo escrito. Y **un `--duro` opcional en un chequeo
+  que `qa.py` declara bloqueante es un bloqueante de mentira**: `qa.py` lo invoca sin el
+  flag y devuelve 0 para siempre.
+- **El dato existe y el consumidor no lo lee.** Otra forma de romper una regla correcta:
+  el `export` ya marcaba `fuera_del_indice: true` en cada suite, y `completar_examen.py`
+  filtraba con una heurística de prefijos (`niah`, `prompt_injection`) que cubre 2 de las
+  6 — así mandó a medir tres modelos por una suite que no cuenta. Peor: el MISMO archivo
+  publicaba `examen_completo: true` y `ranked: false` para Nemotron, porque adentro
+  convivían dos definiciones del mismo concepto. **Antes de escribir un criterio, buscar
+  si ya hay una función que lo responda** — hoy es `suites.del_indice()`, y `check_suites`
+  S5 falla si alguien vuelve a escribir la tupla a mano.
+- **Un canal que se pierde en el ruido es un canal que no existe.** El Action que regenera
+  los artefactos —el seguro del repo— estuvo **40 días en rojo** (último verde el 13-jul,
+  52 de 60 runs fallidos) y nadie se enteró: el aviso llega por correo, a una bandeja con
+  118.000 mensajes. La causa era trivial (leer una constante de `providers/adapters.py`
+  arrastra `from openai import OpenAI`, que el CI no instalaba); lo caro fue el mes y
+  medio sin seguro mientras el README lo prometía. `check_ci.py` lo mira desde el QA
+  local, que es donde sí se mira. **Al arreglar un CI, correr TODOS sus pasos en un venv
+  limpio** — el segundo faltante (`rich`) sólo aparece cuando el primero pasa.
 - **Los detectores cazan AUSENCIA; la contaminación es PRESENCIA.** E1 vacíos, E3 sin
   procedencia, E4 tasa de fallo, E5 rutas muertas, E6 precio $0 — todos detectan lo que
   falta. Un run contaminado tiene número, tiene forma válida y pasa `validate.py`. Por eso
@@ -460,7 +493,7 @@ auditar ni revertir.**
 - Ubicado en Chile (latencia a servidores USA)
 - Suscripciones activas: OpenRouter, MiniMax (Agent Pro / highspeed), Anthropic (Claude Code), Kimi / MoonshotAI, Ollama Cloud, Xiaomi MiMo, xAI SuperGrok
 
-## Estado actual (v4.0.0, 17 Julio 2026) — ver ROADMAP.md para plan completo
+## Estado actual (v4.9.0, 23 Agosto 2026) — ver ROADMAP.md para plan completo
 
 ### Ranking actual — NO se copia acá, se lee de la fuente
 
@@ -494,10 +527,26 @@ r=sorted([m for m in d['models'] if m['ranked']],key=lambda x:-x['score_global']
 - **Pipeline maestro**: `benchmarks/regenerate_all.py` regenera todos los artefactos desde `docs/data/models.json`.
 - **Calculadora web**: https://benchmarks.cristiantala.com/ — sirve `docs/data/models.json` desde GitHub Pages.
 
-### Próximo trabajo inmediato (ver ROADMAP.md)
-- **Release julio 2026**: DATASHEET_2026-07.md, CheatSheet PDF mensual julio, tag semver.
-- **Tier 1 pendientes**: Nemotron 3 Ultra 550B, Qwen 3.7 Plus, Cohere North Mini Code, Poolside Laguna, Claude Opus 4.8 Fast, Grok 4.3.
-- **Tech debt**:TESTS_FALTANTES.md auto-regen, drift de ids (devstral-small, grok-4.1-fast), suite multimodal/visión.
+### Próximo trabajo inmediato (23-ago-2026)
+
+> El detalle con su **motivo** —incluidas las decisiones ya tomadas, para no reabrirlas—
+> vive en la memoria `project-estado-y-pendientes-benchmark`. Acá sólo el titular.
+
+- **Suite de «responder a un miembro de la comunidad»** — el hueco más valioso detectado.
+  `customer_support` mide un ticket de soporte, no a alguien con contexto propio. Hay una
+  pregunta abierta a Cristian que decide qué construir (¿no personaliza, o no sabe de qué
+  habla?). Memoria: `project-hueco-responder-a-la-comunidad`.
+- **Cobertura de tests: 68% contra el piso de 80%** — único ⚠️ del QA. Peores:
+  `simular_pilares.py` (17%), `export_harbor.py` (36%).
+- **11 dimensiones publicadas con examen parcial** — la peor, Qwen 3.5 35B publicando
+  seguridad 2,7 sobre 13 de 20 tests, y esa cifra alimenta un badge de las fichas. Las
+  lista `completar_examen.py`, que separa «bloquea el ranking» de «cifra a medias».
+- **Tech debt**: `THINKING_MODELS` y las constantes de medición viven en
+  `providers/adapters.py`, que importa el SDK de OpenAI en su cabecera — leer una
+  constante arrastra la dependencia entera, y eso tuvo el CI 40 días roto. Mover a un
+  módulo sin dependencias. También: TESTS_FALTANTES.md auto-regen, suite multimodal.
+- **Roster de ~100 modelos con caducidad** (idea de Cristian): hoy conviven dos snapshots
+  del mismo modelo y el viejo ocupa lugar sin aportar decisión.
 
 ### Contexto del usuario (actualizado)
 - Cristian usa **N8N y Hermes** para agentes AI; genera contenido para **ecosistemastartup.com**.

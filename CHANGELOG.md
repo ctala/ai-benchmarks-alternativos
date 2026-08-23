@@ -5,6 +5,19 @@
 
 ## [No publicado]
 
+- **Cierre de sesión: las lecciones de estos días entran a `CLAUDE.md`, no a un
+  post-mortem que nadie relee.** Cuatro reglas nuevas, todas pagadas esta semana: (1) *el
+  instrumento tampoco se cree solo, se rompe a propósito* — cinco falsos verdes entre el
+  19 y el 22-ago, **cuatro en la verificación y no en el código**; (2) *un chequeo que
+  nace en verde puede ser bloqueante, uno que nace en rojo no*, y un `--duro` opcional en
+  algo que `qa.py` declara bloqueante es un bloqueante de mentira; (3) *el dato existe y
+  el consumidor no lo lee* — `fuera_del_indice` estaba en el JSON y dos módulos filtraban
+  por prefijo; (4) *un canal que se pierde en el ruido no existe* — el CI, 40 días en rojo
+  avisando por correo a una bandeja de 118.000 mensajes.
+- **El estado en `CLAUDE.md` decía v4.0.0 de julio**, con «Tier 1 pendientes» que ya
+  estaban medidos hace semanas. Actualizado a v4.9.0 y apuntando a las memorias, que es
+  donde vive el porqué de cada pendiente.
+
 - **El QA local y el CI daban veredictos distintos sobre el mismo commit.** El Action
   falló v4.9.0 con «se declaró un MINOR y lo tocado exige MAJOR (scoring_reference.json)»
   mientras en local pasaba en verde. La causa: `scoring_reference.json` declara **dos
