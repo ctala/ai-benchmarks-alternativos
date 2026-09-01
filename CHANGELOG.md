@@ -5,6 +5,30 @@
 
 ## [No publicado]
 
+- **Reporte de septiembre publicado** (`DATASHEET_2026-09.md`), el primero desde junio.
+  Titular: **la versión cara dejó de comprar calidad, y este mes se puede probar dentro
+  de la misma familia** — GLM 5.3 saca 8,52 a $21/mes y su Flash 8,51 a $1; en escribir
+  contenido, Claude Opus 5 Fast 9,11 a $234 contra Qwen 3.8 Flash 9,10 a $2. Cada cifra
+  del documento se verificó contra `models.json` antes de publicar, incluidas las 12
+  filas del top por categoría.
+
+- **`release_diff.py` llevaba desde junio generando el release con el score equivocado.**
+  Usaba `score_global` —el z-score que se abandonó en v4.1— así que habría publicado
+  «7,18» donde el sitio dice «8,53». No se notó porque el script no se corría desde el
+  último datasheet: **un generador que se usa una vez al mes se desincroniza en silencio.**
+  Ahora lee `quality_avg`.
+
+- **Y su sección de movimientos era ruido.** Bastaba con moverse 3 puestos para entrar,
+  así que al sumar tres modelos nuevos arriba listaba **cuarenta filas con «(+0.00)»**:
+  bajaron de puesto porque la lista creció, no porque cambiara nada. El puesto es
+  relativo a quién más hay; la nota es del modelo. Ahora sólo entra quien cambió su nota.
+
+- **Al escribir el reporte inventé tres cifras de junio** (catálogo 128, 61 completos,
+  20.011 runs) citándolas de memoria. Las reales eran **143, 91 y 10.508**, y el grep
+  contra el datasheet de junio las desmintió antes de publicar. Es exactamente lo que el
+  documento denuncia de los modelos: un número que suena plausible no es un número
+  medido.
+
 - **La versión cara de GLM 5.3 no compra nada medible, y ahora está demostrado dentro de
   la misma familia.** `GLM 5.3` saca **8,52** y cuesta **$21 al mes**; `GLM 5.3 Flash`
   saca **8,51** y cuesta **$1**. Una centésima de diferencia, **18 veces el precio**. Es
