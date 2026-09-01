@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-08-21T18:46:48",
+  "cuando": "2026-09-01T11:15:49",
   "modelos": [
-    "glm-5.3"
+    "qwen3.8-flash"
   ],
   "suites": [
     "tool_calling",

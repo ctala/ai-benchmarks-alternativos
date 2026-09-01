@@ -53,6 +53,32 @@ El juez `phi4-or` (Phi-4 por OpenRouter) NO es el cuello — pero OJO: **rompe c
 sin puntuar = gap sistemático en varios modelos. Si un test es gap en 3+ modelos a la vez,
 sospechar del VERIFICADOR, no de los modelos.
 
+## Regla 0.3 — un modelo RECIÉN LANZADO aguanta menos paralelismo (1-sep-2026)
+
+La Regla 0 dice paralelizar, y sigue valiendo. Pero **el número de runners no es el
+mismo para un modelo con meses de servicio que para uno estrenado hace días**: la cuota
+por cliente todavía es chica y el proveedor la defiende con 429.
+
+Medido con **Qwen 3.8 Flash**, publicado cinco días antes:
+
+| runners | errores 429 |
+|---|---|
+| 4 | **64** — se perdieron 40 tests |
+| 2 | 1 |
+| 1 | 0 |
+
+Y lo caro no fue perder los tests, fue **cuáles** se perdieron: `business_strategy` 0 de
+5, `business_audit` 4 de 10, `deep_reasoning` 3 de 6 — los de prompt pesado y razonamiento
+largo, justo donde todos los modelos puntúan más bajo. El promedio de los que
+sobrevivieron dio **8,61**, el mejor número del catálogo. Con el examen completo bajó a
+**8,53**. Un liderazgo inventado por sesgo de supervivencia, que sólo frenó el criterio
+de examen completo (`ranked=False` mientras faltara un test).
+
+**Qué hacer:** para un modelo con menos de ~2 semanas en el proveedor, arrancar con **2
+runners** y mirar el log. Si aparecen 429, bajar a 1. El tiempo extra es barato; volver a
+correr los tests perdidos, no — y publicar el promedio de los que sobrevivieron es peor
+que no medir.
+
 ## Regla 0.4 — ¿alcanza el presupuesto? (18-ago-2026, se pagó caro)
 
 ```bash

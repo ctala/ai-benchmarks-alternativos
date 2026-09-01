@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-08-23 · 97 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-09-01 · 99 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -26,10 +26,9 @@ _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **GPT-5.6 Luna** — ≈$3/mes (calidad en Contenido 8.84/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**83.9× más**) por apenas +0.25 de calidad — dentro del margen de error.
-- **Mejor open-source:** **GLM 5** — ≈$12/mes (calidad en Contenido 8.90/10)
-- _12 modelos empatan en calidad en este pilar._
+- **Usá:** **GLM 5.3 Flash** — ≈$1/mes (calidad en Contenido 8.92/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**196.6× más**) por apenas +0.17 de calidad — dentro del margen de error.
+- _14 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -38,7 +37,7 @@ _Generación y corrección de código._
 - **Usá:** **Solar Pro 4** — ≈$1/mes (calidad en Coding 9.84/10)
 - **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**50.5× más**) por apenas -0.18 de calidad — dentro del margen de error.
 - **Mejor open-source:** **Poolside Laguna XS 2.1** — ≈$1/mes (calidad en Coding 9.71/10)
-- _11 modelos empatan en calidad en este pilar._
+- _12 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -56,15 +55,15 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
-| Hasta $30/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
-| Hasta $100/mes | **GPT-5.6 Luna** | 8.52 | ≈$3/mes |
+| Menos de $10/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
+| Hasta $30/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
+| Hasta $100/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**39 modelos empatan en calidad** en la cima del ranking global.
+**40 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.

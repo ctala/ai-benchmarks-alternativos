@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-22T09:23:14",
+  "generado": "2026-09-01T17:52:11",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -1099,6 +1099,19 @@
             "sin_credencial"
           ]
         },
+        "qwen/qwen3.8-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "qwen/qwen3.8-max": {
           "media": 1.0,
           "piso": 1.0,
@@ -1297,16 +1310,29 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0
+        },
+        "z-ai/glm-5.3-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         }
       },
       "task_checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 97,
-        "corridas": 306,
-        "perfectos": 65,
+        "modelos": 99,
+        "corridas": 312,
+        "perfectos": 67,
         "ceros": 5,
-        "media_global": 0.9077,
+        "media_global": 0.9096,
         "costo_usd": 2.95,
         "descartadas_por_checksum": 2
       }
@@ -2400,6 +2426,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "qwen/qwen3.8-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "qwen/qwen3.8-max": {
           "media": 1.0,
           "piso": 1.0,
@@ -2594,16 +2633,29 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0
+        },
+        "z-ai/glm-5.3-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         }
       },
       "task_checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 93,
-        "corridas": 298,
-        "perfectos": 73,
+        "modelos": 95,
+        "corridas": 304,
+        "perfectos": 75,
         "ceros": 1,
-        "media_global": 0.9575,
+        "media_global": 0.9584,
         "costo_usd": 3.17,
         "descartadas_por_checksum": 216
       }
@@ -3615,6 +3667,19 @@
           "estado": "ok_siempre",
           "costo_usd": 0.0
         },
+        "qwen/qwen3.8-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
+        },
         "qwen/qwen3.8-max": {
           "media": 1.0,
           "piso": 1.0,
@@ -3809,16 +3874,29 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0
+        },
+        "z-ai/glm-5.3-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0
         }
       },
       "task_checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 92,
-        "corridas": 300,
-        "perfectos": 82,
+        "modelos": 94,
+        "corridas": 306,
+        "perfectos": 84,
         "ceros": 0,
-        "media_global": 0.9844,
+        "media_global": 0.9848,
         "costo_usd": 4.84,
         "descartadas_por_checksum": 16
       }

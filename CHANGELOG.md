@@ -5,6 +5,36 @@
 
 ## [No publicado]
 
+- **La versión cara de GLM 5.3 no compra nada medible, y ahora está demostrado dentro de
+  la misma familia.** `GLM 5.3` saca **8,52** y cuesta **$21 al mes**; `GLM 5.3 Flash`
+  saca **8,51** y cuesta **$1**. Una centésima de diferencia, **18 veces el precio**. Es
+  la tesis del benchmark —«los de arriba dan casi la misma calidad; lo que cambia es el
+  precio»— probada entre dos SKU del mismo proveedor, que es el caso más difícil de
+  discutir.
+
+- **Qwen 3.8 Flash entra como #1 con 8,53, a $2 al mes.** Y con eso el top-4 completo
+  cuesta entre $1 y $3 mensuales, mientras **Claude Opus 4.8 queda #8 con 8,48 y $117 al
+  mes**: 58 veces más caro por 0,05 puntos menos.
+
+- **El susto: ese #1 estuvo a punto de publicarse inflado.** El primer lote de Qwen 3.8
+  Flash devolvió **8,61** —que habría sido el mejor número del catálogo— pero con sólo
+  **107 runs de 213 tests**: 64 errores 429 de Alibaba se llevaron 40 tests, y no
+  cualquiera, sino los pesados (`business_strategy` 0 de 5, `business_audit` 4 de 10,
+  `deep_reasoning` 3 de 6). Al completarlos, la nota **bajó a 8,53**. Sesgo de
+  supervivencia de 0,08 puntos, suficiente para inventar un liderazgo que no existía.
+  Lo frenó el criterio de examen completo: con `ranked=False` el número no llegó a
+  ninguna página.
+
+  La causa del 429 fue nuestra: cuatro runners simultáneos contra un modelo estrenado
+  hacía cinco días. Con uno: cero errores. Con dos: uno. **Un modelo recién lanzado
+  aguanta menos paralelismo**, y eso ahora está en el runbook.
+
+- **Nombres que confunden, anotado para la próxima:** lo que Qwen anunció el 26-ago como
+  «Qwen3.8-Flash-Next» son los **pesos abiertos** (HuggingFace, 125B, preview de la
+  arquitectura Qwen4). El SKU servido por API se llama `qwen3.8-flash` a secas, y es el
+  que se puede comparar en el plano común — correr los pesos abiertos sería `self_hosted`
+  y no rankearía.
+
 - **Cierre de sesión: las lecciones de estos días entran a `CLAUDE.md`, no a un
   post-mortem que nadie relee.** Cuatro reglas nuevas, todas pagadas esta semana: (1) *el
   instrumento tampoco se cree solo, se rompe a propósito* — cinco falsos verdes entre el

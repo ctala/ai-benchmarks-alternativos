@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-23T18:03:57",
-  "total_models": 207,
-  "tested_count": 157,
-  "ranked_count": 97,
-  "total_runs_measured": 65506,
-  "total_runs_active": 61134,
+  "generated_at": "2026-09-01T18:09:09",
+  "total_models": 209,
+  "tested_count": 159,
+  "ranked_count": 99,
+  "total_runs_measured": 67035,
+  "total_runs_active": 62663,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -117,144 +117,144 @@
   },
   "norm_stats_by_suite": {
     "agent_capabilities": {
-      "mean": 6.5964,
-      "std": 0.7738
+      "mean": 6.6046,
+      "std": 0.7681
     },
     "agent_long_horizon": {
-      "mean": 7.503,
-      "std": 0.5872
+      "mean": 7.4992,
+      "std": 0.582
     },
     "business_audit": {
-      "mean": 6.882,
-      "std": 0.445
+      "mean": 6.8897,
+      "std": 0.4439
     },
     "business_strategy": {
-      "mean": 7.8367,
-      "std": 0.4501
+      "mean": 7.8425,
+      "std": 0.4474
     },
     "code_generation": {
-      "mean": 7.8649,
-      "std": 0.5357
+      "mean": 7.8707,
+      "std": 0.5319
     },
     "content_generation": {
-      "mean": 7.9791,
-      "std": 0.4141
+      "mean": 7.9822,
+      "std": 0.4105
     },
     "content_verificable": {
-      "mean": 7.5614,
-      "std": 0.7689
+      "mean": 7.5774,
+      "std": 0.7694
     },
     "creativity": {
-      "mean": 7.756,
-      "std": 0.409
+      "mean": 7.762,
+      "std": 0.4072
     },
     "customer_support": {
-      "mean": 7.2211,
-      "std": 0.6804
+      "mean": 7.2055,
+      "std": 0.6859
     },
     "deep_reasoning": {
-      "mean": 6.4393,
-      "std": 0.7885
+      "mean": 6.4403,
+      "std": 0.7805
     },
     "dominio_entidad": {
-      "mean": 8.9208,
-      "std": 0.2949
+      "mean": 8.9118,
+      "std": 0.2869
     },
     "extraer_claims": {
-      "mean": 8.6592,
-      "std": 0.3767
+      "mean": 8.6707,
+      "std": 0.3656
     },
     "hallucination": {
-      "mean": 6.7178,
-      "std": 0.6881
+      "mean": 6.7277,
+      "std": 0.6855
     },
     "integridad_idioma": {
-      "mean": 7.7785,
-      "std": 1.2685
+      "mean": 7.7862,
+      "std": 1.2563
     },
     "multi_turn": {
-      "mean": 7.072,
-      "std": 0.4843
+      "mean": 7.0798,
+      "std": 0.4826
     },
     "news_seo_writing": {
-      "mean": 6.1353,
-      "std": 0.7434
+      "mean": 6.152,
+      "std": 0.7451
     },
     "niah_es": {
-      "mean": 8.1597,
-      "std": 0.3178
+      "mean": 8.1423,
+      "std": 0.3194
     },
     "ocr_extraction": {
-      "mean": 8.2134,
-      "std": 0.6036
+      "mean": 8.2194,
+      "std": 0.5995
     },
     "orchestration": {
-      "mean": 6.5884,
-      "std": 0.9038
+      "mean": 6.5914,
+      "std": 0.896
     },
     "policy_adherence": {
-      "mean": 7.4747,
-      "std": 0.6068
+      "mean": 7.4817,
+      "std": 0.6031
     },
     "presentation": {
-      "mean": 7.9134,
-      "std": 0.6038
+      "mean": 7.9241,
+      "std": 0.6023
     },
     "prompt_injection_es": {
-      "mean": 3.8638,
-      "std": 1.92
+      "mean": 3.9165,
+      "std": 1.9335
     },
     "reasoning": {
-      "mean": 7.9996,
-      "std": 0.4264
+      "mean": 8.0077,
+      "std": 0.4259
     },
     "sales_outreach": {
-      "mean": 7.276,
-      "std": 0.7255
+      "mean": 7.2939,
+      "std": 0.729
     },
     "startup_content": {
-      "mean": 7.9873,
-      "std": 0.4478
+      "mean": 7.9935,
+      "std": 0.4456
     },
     "strategy": {
-      "mean": 7.4548,
-      "std": 0.7051
+      "mean": 7.4607,
+      "std": 0.7034
     },
     "string_precision": {
-      "mean": 7.9102,
-      "std": 0.8415
+      "mean": 7.9301,
+      "std": 0.8444
     },
     "structured_output": {
-      "mean": 8.4907,
-      "std": 0.9119
+      "mean": 8.498,
+      "std": 0.9041
     },
     "summarization": {
-      "mean": 7.1348,
-      "std": 0.4682
+      "mean": 7.1486,
+      "std": 0.4744
     },
     "task_management": {
-      "mean": 8.0367,
-      "std": 0.4568
+      "mean": 8.0457,
+      "std": 0.4565
     },
     "tool_calling": {
-      "mean": 5.9894,
-      "std": 0.6491
+      "mean": 5.9767,
+      "std": 0.6483
     },
     "tool_calling_adversarial": {
-      "mean": 6.4369,
-      "std": 0.5471
+      "mean": 6.4441,
+      "std": 0.544
     },
     "translation": {
-      "mean": 7.4856,
-      "std": 0.4902
+      "mean": 7.4887,
+      "std": 0.4862
     },
     "verificar_claim": {
-      "mean": 8.072,
-      "std": 0.2934
+      "mean": 8.0735,
+      "std": 0.2916
     },
     "verificar_claims_lote": {
-      "mean": 8.3467,
-      "std": 0.416
+      "mean": 8.44,
+      "std": 0.3549
     }
   },
   "score_rescale": {
@@ -1882,6 +1882,482 @@
       }
     },
     {
+      "key": "qwen3.8-flash",
+      "id": "qwen/qwen3.8-flash",
+      "name": "Qwen 3.8 Flash",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.15,
+      "cost_output_per_M": 0.47,
+      "cost_per_1k_calls_usd": 0.75,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "MoE multimodal, preview de la arquitectura Qwen4. Un ping con max_tokens=30 devuelve content vacío y reasoning lleno: razona antes de responder, y el patrón `qwen3.8` de THINKING_MODELS ya lo cubre.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 823,
+      "total_runs": 1272,
+      "score_global": 7.91,
+      "score_by_pillar": {
+        "Razonamiento": 7.46,
+        "Contenido": 8.05,
+        "Coding": 8.69,
+        "Agentes": 7.07
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.201,
+          "speed_score_avg": 8.497,
+          "latency_score_avg": 1.011,
+          "cost_score_avg": 6.427,
+          "quality_ci95": 0.472
+        },
+        "Contenido": {
+          "quality_avg": 9.096,
+          "speed_score_avg": 8.347,
+          "latency_score_avg": 1.591,
+          "cost_score_avg": 7.102,
+          "quality_ci95": 0.157
+        },
+        "Coding": {
+          "quality_avg": 9.847,
+          "speed_score_avg": 7.322,
+          "latency_score_avg": 2.328,
+          "cost_score_avg": 7.41,
+          "quality_ci95": 0.075
+        },
+        "Agentes": {
+          "quality_avg": 7.637,
+          "speed_score_avg": 7.318,
+          "latency_score_avg": 1.822,
+          "cost_score_avg": 7.338,
+          "quality_ci95": 0.194
+        }
+      },
+      "score_by_suite": {
+        "hallucination": 7.45,
+        "creativity": 8.15,
+        "ocr_extraction": 8.69,
+        "policy_adherence": 7.99,
+        "niah_es": 7.74,
+        "code_generation": 8.09,
+        "reasoning": 8.33,
+        "startup_content": 8.18,
+        "string_precision": 8.93,
+        "news_seo_writing": 6.89,
+        "agent_capabilities": 6.96,
+        "integridad_idioma": 8.42,
+        "verificar_claim": 8.32,
+        "tool_calling_adversarial": 6.87,
+        "business_audit": 7.19,
+        "content_verificable": 8.48,
+        "presentation": 8.5,
+        "customer_support": 5.95,
+        "structured_output": 8.92,
+        "orchestration": 7.06,
+        "sales_outreach": 8.11,
+        "translation": 7.8,
+        "agent_long_horizon": 7.4,
+        "dominio_entidad": 8.88,
+        "deep_reasoning": 6.52,
+        "multi_turn": 7.4,
+        "strategy": 8.29,
+        "verificar_claims_lote": 8.73,
+        "extraer_claims": 8.87,
+        "prompt_injection_es": 5.98,
+        "business_strategy": 8.14,
+        "summarization": 7.59,
+        "content_generation": 8.16,
+        "tool_calling": 5.48,
+        "task_management": 8.54
+      },
+      "quality_by_suite": {
+        "hallucination": 8.19,
+        "creativity": 9.08,
+        "ocr_extraction": 9.83,
+        "policy_adherence": 8.81,
+        "niah_es": 9.89,
+        "code_generation": 9.25,
+        "reasoning": 9.42,
+        "startup_content": 9.27,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.54,
+        "agent_capabilities": 7.25,
+        "integridad_idioma": 9.63,
+        "verificar_claim": 9.1,
+        "tool_calling_adversarial": 7.17,
+        "business_audit": 7.88,
+        "content_verificable": 9.56,
+        "presentation": 9.64,
+        "customer_support": 5.77,
+        "structured_output": 10.0,
+        "orchestration": 7.38,
+        "sales_outreach": 8.96,
+        "translation": 8.39,
+        "agent_long_horizon": 8.33,
+        "dominio_entidad": 10.0,
+        "deep_reasoning": 6.9,
+        "multi_turn": 8.0,
+        "strategy": 9.63,
+        "verificar_claims_lote": 9.58,
+        "extraer_claims": 10.0,
+        "prompt_injection_es": 5.95,
+        "business_strategy": 9.2,
+        "summarization": 8.12,
+        "content_generation": 8.96,
+        "tool_calling": 4.98,
+        "task_management": 9.64
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 27,
+          "total": 29,
+          "fuera_del_indice": true
+        },
+        "verificar_claims_lote": {
+          "rindio": 5,
+          "total": 6,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 8.53,
+      "quality_ci95": 0.315,
+      "cost_score_avg": 7.09,
+      "speed_score_avg": 7.87,
+      "latency_score_avg": 1.66,
+      "tool_calling_score_avg": 6.7,
+      "judge_score_avg": 4.23,
+      "tokens_per_second": 74.7,
+      "latency_avg_s": 64.8,
+      "total_input_tokens": 2177730,
+      "total_output_tokens": 4425853,
+      "presupuesto_salida": {
+        "p50": 732,
+        "p90": 11896,
+        "max": 32765,
+        "sugerido": 40956,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 810,
+            "p90": 1346,
+            "max": 1346,
+            "sugerido": 1682,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 14105,
+            "p90": 24415,
+            "max": 29463,
+            "sugerido": 36828,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 5601,
+            "p90": 12878,
+            "max": 12878,
+            "sugerido": 16097,
+            "piso": true
+          },
+          "business_strategy": {
+            "p50": 8821,
+            "p90": 31431,
+            "max": 31431,
+            "sugerido": 39288,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 7919,
+            "p90": 14723,
+            "max": 19929,
+            "sugerido": 24911,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 1792,
+            "p90": 6880,
+            "max": 6880,
+            "sugerido": 8600,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 4637,
+            "p90": 11627,
+            "max": 11627,
+            "sugerido": 14533,
+            "piso": true
+          },
+          "creativity": {
+            "p50": 3307,
+            "p90": 12524,
+            "max": 12524,
+            "sugerido": 15655,
+            "piso": true
+          },
+          "customer_support": {
+            "p50": 258,
+            "p90": 680,
+            "max": 680,
+            "sugerido": 850,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 10489,
+            "p90": 13718,
+            "max": 31055,
+            "sugerido": 38818,
+            "piso": true
+          },
+          "dominio_entidad": {
+            "p50": 174,
+            "p90": 269,
+            "max": 269,
+            "sugerido": 336,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 2213,
+            "p90": 3723,
+            "max": 3723,
+            "sugerido": 4653,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 732,
+            "p90": 6753,
+            "max": 6753,
+            "sugerido": 8441,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 7536,
+            "p90": 19118,
+            "max": 19118,
+            "sugerido": 23897,
+            "piso": true
+          },
+          "multi_turn": {
+            "p50": 1159,
+            "p90": 1953,
+            "max": 9669,
+            "sugerido": 12086,
+            "piso": true
+          },
+          "news_seo_writing": {
+            "p50": 9969,
+            "p90": 23189,
+            "max": 23189,
+            "sugerido": 28986,
+            "piso": true
+          },
+          "niah_es": {
+            "p50": 221,
+            "p90": 249,
+            "max": 275,
+            "sugerido": 343,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1575,
+            "p90": 11882,
+            "max": 11882,
+            "sugerido": 14852,
+            "piso": true
+          },
+          "orchestration": {
+            "p50": 824,
+            "p90": 1205,
+            "max": 1205,
+            "sugerido": 1506,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 1773,
+            "p90": 2585,
+            "max": 2585,
+            "sugerido": 3231,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 6053,
+            "p90": 6053,
+            "max": 6053,
+            "sugerido": 7566,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 373,
+            "p90": 1238,
+            "max": 1924,
+            "sugerido": 2405,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 14436,
+            "p90": 20429,
+            "max": 20429,
+            "sugerido": 25536,
+            "piso": true
+          },
+          "sales_outreach": {
+            "p50": 1762,
+            "p90": 11896,
+            "max": 11896,
+            "sugerido": 14870,
+            "piso": true
+          },
+          "startup_content": {
+            "p50": 11083,
+            "p90": 12666,
+            "max": 12666,
+            "sugerido": 15832,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 15746,
+            "p90": 32765,
+            "max": 32765,
+            "sugerido": 40956,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 137,
+            "p90": 627,
+            "max": 627,
+            "sugerido": 783,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 562,
+            "p90": 3428,
+            "max": 3428,
+            "sugerido": 4285,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1970,
+            "p90": 1970,
+            "max": 1970,
+            "sugerido": 2462,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 5571,
+            "p90": 9125,
+            "max": 9125,
+            "sugerido": 11406,
+            "piso": true
+          },
+          "tool_calling": {
+            "p50": 240,
+            "p90": 1025,
+            "max": 1025,
+            "sugerido": 1281,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 208,
+            "p90": 1489,
+            "max": 1489,
+            "sugerido": 1861,
+            "piso": false
+          },
+          "translation": {
+            "p50": 1196,
+            "p90": 5091,
+            "max": 5091,
+            "sugerido": 6363,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 269,
+            "p90": 1405,
+            "max": 1405,
+            "sugerido": 1756,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 903,
+            "p90": 2276,
+            "max": 2276,
+            "sugerido": 2845,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 189,
+      "long_context_quality": 9.89,
+      "long_context_score": 7.74,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "agentic_runs": 84,
+      "agentic_quality": 8.33,
+      "multiturno_score": 7.4,
+      "agentic_score": 7.4,
+      "security_runs": 140,
+      "security_score": 5.95,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.74,
+      "score_calidad": 8.53,
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": true,
+        "motivos": {}
+      }
+    },
+    {
       "key": "tencent-hy3",
       "id": "tencent/hy3",
       "name": "Tencent Hy3",
@@ -2311,6 +2787,471 @@
             "media": 1.0,
             "piso": 1.0,
             "intentos": 6,
+            "estado": "ok_siempre"
+          },
+          "harbor-reunion": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          }
+        },
+        "estado": "apto"
+      },
+      "sirve_para_agentes": true,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": true,
+        "motivos": {}
+      }
+    },
+    {
+      "key": "glm-5.3-flash",
+      "id": "z-ai/glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "MIT",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.07,
+      "cost_output_per_M": 0.25,
+      "cost_per_1k_calls_usd": 0.396,
+      "context_window": 1310720,
+      "subscriptions": [],
+      "notes": "Variante flash de GLM 5.3. 18× más barata que el modelo grande.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 143,
+      "total_runs": 213,
+      "score_global": 7.59,
+      "score_by_pillar": {
+        "Razonamiento": 7.35,
+        "Agentes": 6.98,
+        "Contenido": 7.96,
+        "Coding": 8.56
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.137,
+          "speed_score_avg": 5.922,
+          "latency_score_avg": 1.044,
+          "cost_score_avg": 7.565,
+          "quality_ci95": 0.946
+        },
+        "Agentes": {
+          "quality_avg": 7.645,
+          "speed_score_avg": 5.36,
+          "latency_score_avg": 1.17,
+          "cost_score_avg": 7.604,
+          "quality_ci95": 0.488
+        },
+        "Contenido": {
+          "quality_avg": 8.919,
+          "speed_score_avg": 6.155,
+          "latency_score_avg": 1.287,
+          "cost_score_avg": 7.742,
+          "quality_ci95": 0.51
+        },
+        "Coding": {
+          "quality_avg": 9.699,
+          "speed_score_avg": 6.281,
+          "latency_score_avg": 1.912,
+          "cost_score_avg": 7.741,
+          "quality_ci95": 0.257
+        }
+      },
+      "score_by_suite": {
+        "business_strategy": 8.11,
+        "task_management": 8.42,
+        "hallucination": 6.96,
+        "creativity": 7.96,
+        "ocr_extraction": 8.33,
+        "policy_adherence": 7.65,
+        "niah_es": 7.88,
+        "content_generation": 8.11,
+        "tool_calling": 5.28,
+        "summarization": 8.04,
+        "deep_reasoning": 6.46,
+        "multi_turn": 7.52,
+        "strategy": 7.2,
+        "verificar_claims_lote": 8.43,
+        "extraer_claims": 8.77,
+        "prompt_injection_es": 6.7,
+        "business_audit": 7.34,
+        "content_verificable": 8.22,
+        "presentation": 8.39,
+        "customer_support": 6.94,
+        "structured_output": 8.78,
+        "orchestration": 6.42,
+        "sales_outreach": 8.22,
+        "translation": 7.48,
+        "agent_long_horizon": 7.23,
+        "dominio_entidad": 8.71,
+        "code_generation": 8.21,
+        "reasoning": 8.47,
+        "startup_content": 8.41,
+        "string_precision": 8.86,
+        "news_seo_writing": 7.04,
+        "agent_capabilities": 7.05,
+        "integridad_idioma": 7.83,
+        "verificar_claim": 7.98,
+        "tool_calling_adversarial": 6.72
+      },
+      "quality_by_suite": {
+        "business_strategy": 9.2,
+        "task_management": 9.7,
+        "hallucination": 7.44,
+        "creativity": 9.0,
+        "ocr_extraction": 9.43,
+        "policy_adherence": 8.5,
+        "niah_es": 9.68,
+        "content_generation": 9.03,
+        "tool_calling": 5.12,
+        "summarization": 8.94,
+        "deep_reasoning": 6.94,
+        "multi_turn": 8.33,
+        "strategy": 8.06,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "prompt_injection_es": 7.22,
+        "business_audit": 8.07,
+        "content_verificable": 9.24,
+        "presentation": 9.67,
+        "customer_support": 7.63,
+        "structured_output": 10.0,
+        "orchestration": 6.79,
+        "sales_outreach": 9.33,
+        "translation": 8.23,
+        "agent_long_horizon": 8.1,
+        "dominio_entidad": 9.83,
+        "code_generation": 9.28,
+        "reasoning": 9.76,
+        "startup_content": 9.74,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.71,
+        "agent_capabilities": 7.66,
+        "integridad_idioma": 8.93,
+        "verificar_claim": 8.8,
+        "tool_calling_adversarial": 7.31
+      },
+      "suites_incompletas": {},
+      "examen_completo": true,
+      "quality_avg": 8.51,
+      "quality_ci95": 0.315,
+      "cost_score_avg": 7.62,
+      "speed_score_avg": 5.88,
+      "latency_score_avg": 1.26,
+      "tool_calling_score_avg": 8.03,
+      "judge_score_avg": 4.55,
+      "tokens_per_second": 39.5,
+      "latency_avg_s": 116.11,
+      "total_input_tokens": 212979,
+      "total_output_tokens": 642673,
+      "presupuesto_salida": {
+        "p50": 1128,
+        "p90": 8888,
+        "max": 37708,
+        "sugerido": 47135,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 1352,
+            "p90": 2026,
+            "max": 2026,
+            "sugerido": 2532,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 12120,
+            "p90": 23242,
+            "max": 37708,
+            "sugerido": 47135,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 3538,
+            "p90": 5161,
+            "max": 5161,
+            "sugerido": 6451,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 5097,
+            "p90": 9565,
+            "max": 9565,
+            "sugerido": 11956,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 6953,
+            "p90": 23317,
+            "max": 23317,
+            "sugerido": 29146,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 1607,
+            "p90": 4850,
+            "max": 4850,
+            "sugerido": 6062,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 3201,
+            "p90": 4056,
+            "max": 4056,
+            "sugerido": 5070,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 5028,
+            "p90": 9210,
+            "max": 9210,
+            "sugerido": 11512,
+            "piso": true
+          },
+          "customer_support": {
+            "p50": 598,
+            "p90": 852,
+            "max": 852,
+            "sugerido": 1065,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 7420,
+            "p90": 15422,
+            "max": 15422,
+            "sugerido": 19277,
+            "piso": true
+          },
+          "dominio_entidad": {
+            "p50": 206,
+            "p90": 3098,
+            "max": 3098,
+            "sugerido": 3872,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 1111,
+            "p90": 2284,
+            "max": 2284,
+            "sugerido": 2855,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 492,
+            "p90": 4889,
+            "max": 4889,
+            "sugerido": 6111,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 9309,
+            "p90": 24576,
+            "max": 24576,
+            "sugerido": 30720,
+            "piso": true
+          },
+          "multi_turn": {
+            "p50": 3058,
+            "p90": 3240,
+            "max": 3240,
+            "sugerido": 4050,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 6190,
+            "p90": 16406,
+            "max": 16406,
+            "sugerido": 20507,
+            "piso": true
+          },
+          "niah_es": {
+            "p50": 280,
+            "p90": 483,
+            "max": 1506,
+            "sugerido": 1882,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 2284,
+            "p90": 8888,
+            "max": 8888,
+            "sugerido": 11110,
+            "piso": true
+          },
+          "orchestration": {
+            "p50": 827,
+            "p90": 1186,
+            "max": 1186,
+            "sugerido": 1482,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 1418,
+            "p90": 1827,
+            "max": 1827,
+            "sugerido": 2283,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 6021,
+            "p90": 6021,
+            "max": 6021,
+            "sugerido": 7526,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 584,
+            "p90": 3047,
+            "max": 3214,
+            "sugerido": 4017,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 6119,
+            "p90": 6952,
+            "max": 6952,
+            "sugerido": 8690,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1851,
+            "p90": 8423,
+            "max": 8423,
+            "sugerido": 10528,
+            "piso": true
+          },
+          "startup_content": {
+            "p50": 5878,
+            "p90": 16457,
+            "max": 16457,
+            "sugerido": 20571,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 9983,
+            "p90": 10763,
+            "max": 10763,
+            "sugerido": 13453,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 159,
+            "p90": 992,
+            "max": 992,
+            "sugerido": 1240,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 488,
+            "p90": 1986,
+            "max": 1986,
+            "sugerido": 2482,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 2737,
+            "p90": 2737,
+            "max": 2737,
+            "sugerido": 3421,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 5633,
+            "p90": 15620,
+            "max": 15620,
+            "sugerido": 19525,
+            "piso": true
+          },
+          "tool_calling": {
+            "p50": 336,
+            "p90": 1082,
+            "max": 1082,
+            "sugerido": 1352,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 339,
+            "p90": 938,
+            "max": 938,
+            "sugerido": 1172,
+            "piso": false
+          },
+          "translation": {
+            "p50": 1379,
+            "p90": 3703,
+            "max": 3703,
+            "sugerido": 4628,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 485,
+            "p90": 819,
+            "max": 819,
+            "sugerido": 1023,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 1302,
+            "p90": 2786,
+            "max": 2786,
+            "sugerido": 3482,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 29,
+      "long_context_quality": 9.68,
+      "long_context_score": 7.88,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 9.44,
+        "512000": 9.17,
+        "800000": 9.17
+      },
+      "effective_context": 800000,
+      "agentic_runs": 12,
+      "agentic_quality": 8.1,
+      "multiturno_score": 7.23,
+      "agentic_score": 7.23,
+      "security_runs": 20,
+      "security_score": 7.22,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.64,
+      "score_calidad": 8.51,
+      "pareto": true,
+      "agentico": {
+        "tareas": {
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
             "estado": "ok_siempre"
           },
           "harbor-reunion": {
@@ -2769,7 +3710,7 @@
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.37,
       "score_calidad": 8.52,
-      "pareto": true,
+      "pareto": false,
       "agentico": {
         "tareas": {
           "harbor-cotizar": {

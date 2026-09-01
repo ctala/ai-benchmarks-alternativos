@@ -565,6 +565,43 @@ MODELS = {
             "Revisar el catálogo de OpenRouter cada tanto: entra solo cuando aparezca."
         ),
     },
+    "qwen3.8-flash": {
+        # 1-sep-2026 · la versión de PRODUCCIÓN por API. Ojo con el nombre: lo que Qwen
+        # anunció el 26-ago como «Qwen3.8-Flash-Next» son los PESOS ABIERTOS (HuggingFace,
+        # 125B, preview de la arquitectura Qwen4); el SKU servido por API se llama
+        # `qwen3.8-flash` a secas, y es este. Mismo precio que publica QwenCloud
+        # ($0,16/$0,47 por millón), servido acá por Alibaba.
+        #
+        # Correr el open-weights sería `self_hosted` y no rankearía —su velocidad sería la
+        # del Spark, no comparable—. Este sí entra al plano común.
+        "id": "qwen/qwen3.8-flash",
+        "name": "Qwen 3.8 Flash",
+        "cost_input": 0.15,
+        "cost_output": 0.47,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "multimodal": True,
+        "notes": (
+            "MoE multimodal, preview de la arquitectura Qwen4. Un ping con max_tokens=30 "
+            "devuelve content vacío y reasoning lleno: razona antes de responder, y el "
+            "patrón `qwen3.8` de THINKING_MODELS ya lo cubre."
+        ),
+    },
+    "glm-5.3-flash": {
+        # 1-sep-2026 · la variante barata del GLM 5.3 que entró al #2 del ranking. Cuesta
+        # $0,07/$0,25 contra $1,40/$4,40 del grande: 18 veces menos. Si sostiene buena
+        # parte de la calidad, es el tipo de hallazgo que este benchmark existe para
+        # mostrar. También razona (`glm-5` ya está en THINKING_MODELS).
+        "id": "z-ai/glm-5.3-flash",
+        "name": "GLM 5.3 Flash",
+        "cost_input": 0.07,
+        "cost_output": 0.25,
+        "tier": "ultra_cheap",
+        "open_source": True,
+        "license": "MIT",
+        "context_window": 1310720,
+        "notes": "Variante flash de GLM 5.3. 18× más barata que el modelo grande.",
+    },
     "glm-5.3": {
         # 21-ago-2026 · versión nueva de GLM 5.2, que está #6 del leaderboard de
         # OpenRouter esta semana. Distinto id = distinto modelo, así que se mide
