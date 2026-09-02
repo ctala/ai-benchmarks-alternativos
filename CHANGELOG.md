@@ -5,6 +5,41 @@
 
 ## [No publicado]
 
+- **Se midió si conviene forzar el esfuerzo de razonamiento. No conviene, y ahora está
+  probado.** La política del repo era medir «el modo por defecto de cada proveedor», y
+  las filas del 15 y 18-ago pedían **verificarlo empíricamente** — con la nota de que el
+  dato no se capturaba porque *«0 runs tienen `reasoning_tokens` registrados»*. Ya se
+  capturan, así que se corrió el experimento: 3 modelos × 9 tests de razonamiento con
+  `reasoning: {effort: medium}`, contra su propio histórico.
+
+  **Resultado: Δ calidad −0,45 (n=24) y −1.407 tokens de respuesta, con el 79% de las
+  respuestas más cortas.** El segundo número es el que manda, porque no pasa por el juez.
+  El mecanismo es aritmético: **el effort no agrega presupuesto, reparte el que hay.**
+  Sobre `THINKING_MIN_TOKENS = 8.192`, lo que el modelo gasta pensando se lo quita a la
+  respuesta — Qwen 3.7 Flash pasó de 5.845 a 1.265 tokens en `business_analysis`.
+
+  Y `high` sería peor: dejaría **1.639 tokens para responder**, truncando el **86% de
+  `strategy`**, el 80% de `agent_long_horizon` y el 76% de `startup_content` (medido
+  sobre los 59.128 runs exitosos en disco). Es el fallo de abril —165 runs vacíos— pero
+  peor, porque **una respuesta cortada puntúa y una vacía no**.
+
+  Queda la bandera `BENCH_REASONING_EFFORT` (default `off`) para re-medirlo el día que
+  se suba el presupuesto, sin tener que volver a escribir el envío.
+
+- **El envío del parámetro estaba escrito de una forma que habría tumbado el lote.** Iba
+  como `kwargs["reasoning"]`, y `reasoning` no es parámetro del SDK de OpenAI: cada
+  llamada a un thinking model moría con *«unexpected keyword argument»*. El módulo
+  importa sin ruido, el linter calla y **los modelos normales siguen verdes** — la forma
+  más cara de romperse. Lo destapó espiar el request real, no leer el código. Va en
+  `extra_body`.
+
+  De ahí el guardrail: **3 tests que espían el request armado sin tocar la red**, y los
+  cuatro modos de romperlo verificados en rojo a propósito (default encendido · el
+  parámetro arriba · mandado a los no-thinking · mandado a otro proveedor). Se declaró
+  `test_unitarios.py` en `check_caminos.py:SANCIONADOS` con su razón: construye la
+  llamada para inspeccionarla, y corta antes de la red.
+
+
 - **Tencent Hy4 preview: examen en curso.** Entró al catálogo el 2-sep por el cruce con
   el uso real —es #6 del mundo por tokens y no lo medíamos— y su lote sigue corriendo
   mientras esto se publica: ~13 h a dos runners, porque razona y tiene 1M de contexto.

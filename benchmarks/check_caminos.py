@@ -54,6 +54,13 @@ SANCIONADOS = {
     # y prefiero que se sobresalte con cualquier archivo que toque esa URL a que deje
     # pasar uno que sí mida.
     "benchmarks/check_presupuesto.py",
+    # NO mide: instancia el provider para ESPIAR el request que se armaría y corta
+    # con una excepción antes de que salga a la red (ver `_espiar_request`). Está acá
+    # justamente porque el 2-sep se descubrió que la única forma de comprobar que un
+    # parámetro llega bien es mirar el request real — leer el código no lo mostró: el
+    # `reasoning` iba como kwarg del SDK, importaba sin ruido y habría reventado todos
+    # los thinking models del lote. Un test que espía necesita construir la llamada.
+    "benchmarks/test_unitarios.py",
     "benchmarks/rejudge.py",
     "benchmarks/rescore_all.py",
     "benchmarks/judge_bakeoff.py",

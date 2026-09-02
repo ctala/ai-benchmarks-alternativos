@@ -9,6 +9,7 @@ Manejo robusto de timeouts:
 - Si un modelo no responde, se marca como error y se sigue al siguiente
 """
 
+import os
 import signal
 import time
 from dataclasses import dataclass, field
@@ -74,6 +75,14 @@ THINKING_MODELS = (
     "nex-n2",                               # Nex AGI N2 Mini
     "laguna",                               # Poolside Laguna XS/S 2.1
     "tencent/hy3",                          # Tencent Hy3 (id completo: "hy3" solo es ambiguo)
+    # 2-sep-2026 · los tres nuevos de esta semana. Los tres agotan el presupuesto
+    # razonando si no entran acá: verificado con un ping de 40 tokens, devuelven
+    # `content: None`. Mercury lo disimula —su campo `reasoning` viene vacío— pero el
+    # `usage` lo delata: 198 de 198 tokens de salida fueron reasoning, y `finish_reason:
+    # length`. Sin patrón, los tres publicarían respuestas cortadas como Opus 5 en agosto.
+    "gemini-3.8",                           # Google Gemini 3.8 Flash
+    "mercury-2",                            # Inception Mercury 2.5 (diffusion LLM)
+    "granite-4",                            # IBM Granite 4.2
     "tencent/hy4",                          # Hy4 preview (2-sep-2026): declara `reasoning`
                                             # en OpenRouter y no estaba cubierto. Entró al
                                             # catálogo porque es #6 en USO mundial —5,72T
@@ -317,11 +326,54 @@ class UnifiedProvider:
                 kwargs["tools"] = tools
                 kwargs["tool_choice"] = "auto"
 
+            # ── EFFORT EXPLÍCITO EN LOS THINKING MODELS (2-sep-2026) ──────────
+            #
+            # ── effort de razonamiento: por qué NO se manda ──────────────────
+            #
+            # Decisión vigente (DECISIONES.md, 15 y 18-ago-2026): se mide el **modo por
+            # defecto** de cada proveedor, nunca un esfuerzo forzado — es lo que recibe
+            # quien llama a la API sin configurar nada, que es nuestro lector.
+            #
+            # El 2-sep se implementó mandar `medium` fijo y se midió antes de dejarlo
+            # puesto. El piloto (3 modelos × 9 tests de `reasoning` y `deep_reasoning`,
+            # contra su propio histórico) dice que **empeora la medición**:
+            #
+            #     Δ calidad          −0,45   (n=24, desv 2,12 → ruidoso por sí solo)
+            #     Δ tokens de respuesta −1.407, y 79% de las respuestas se acortaron
+            #                              ↑ esto NO depende del juez
+            #
+            # El mecanismo es aritmético y no tiene vuelta: el effort no agrega
+            # presupuesto, REPARTE el que hay. Sobre THINKING_MIN_TOKENS = 8.192 el
+            # razonamiento se come la salida y la respuesta sale mutilada. Qwen 3.7
+            # Flash pasó de 5.845 a 1.265 tokens de respuesta en `business_analysis`.
+            #
+            # Y con `high` sería mucho peor: deja 1.639 tokens para responder, con lo
+            # que se truncaría el 86% de `strategy`, el 80% de `agent_long_horizon` y
+            # el 76% de `startup_content` — medido sobre los 59.128 runs en disco. Sería
+            # el fallo de abril (165 runs vacíos) pero peor, porque **una respuesta
+            # cortada puntúa** y una vacía no.
+            #
+            # Para forzar effort algún día hay que SUBIR el presupuesto primero. Con
+            # 8.192 no se mide más razonamiento: se miden respuestas más cortas.
+            #
+            # La bandera queda para poder RE-MEDIR esto cuando se suba el presupuesto,
+            # sin volver a escribir el envío (que es donde estuvo el bug: `reasoning` no
+            # es parámetro del SDK de OpenAI y como kwarg revienta todos los thinking).
+            #   BENCH_REASONING_EFFORT = off (default) | medium | high | low
+            _ef = os.getenv("BENCH_REASONING_EFFORT", "off").strip().lower()
+            reasoning_effort = (
+                {"effort": _ef}
+                if (is_thinking and self.provider_name == "openrouter"
+                    and _ef not in ("off", "none", "")) else None
+            )
+
             # Ollama (local o cloud) acepta `keep_alive` como extension del body.
             # Mantiene el modelo cargado en VRAM 30 min entre requests durante el
             # benchmark (91 tests por modelo) — evita cold start repetido. Default
             # Ollama es 5min, queda corto si el run es lento.
             extra_body = {}
+            if reasoning_effort:
+                extra_body["reasoning"] = reasoning_effort
 
             # ── OpenRouter: exigir que el proveedor SOPORTE lo que le mandamos ──
             #

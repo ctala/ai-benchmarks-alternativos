@@ -541,6 +541,13 @@ r=sorted([m for m in d['models'] if m['ranked']],key=lambda x:-x['score_global']
 - **11 dimensiones publicadas con examen parcial** — la peor, Qwen 3.5 35B publicando
   seguridad 2,7 sobre 13 de 20 tests, y esa cifra alimenta un badge de las fichas. Las
   lista `completar_examen.py`, que separa «bloquea el ranking» de «cifra a medias».
+- **Falta un campo `params_b`** (parámetros en miles de millones) en `models.py` para los
+  open-source. Hoy el tamaño se infiere del NOMBRE, y eso funciona con «Qwen 3.8 27B»
+  pero no con «GLM 5.3»: **29 de los 49 open-source no lo tienen legible, incluidos los
+  tres mejores**. Por eso la sección «Estrategia Local» del cheatsheet —qué modelo corre
+  en 8/16/32/128 GB— sigue escrita a mano: al derivarla (2-sep-2026) recomendaba Qwen 3.8
+  27B para una máquina de 128 GB y omitía a GLM 5.3, GLM 5.3 Flash y Hy3. Más nueva y
+  peor. Con el campo, la sección se deriva sola.
 - **Tech debt**: `THINKING_MODELS` y las constantes de medición viven en
   `providers/adapters.py`, que importa el SDK de OpenAI en su cabecera — leer una
   constante arrastra la dependencia entera, y eso tuvo el CI 40 días roto. Mover a un

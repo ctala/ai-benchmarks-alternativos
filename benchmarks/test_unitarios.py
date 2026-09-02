@@ -1136,3 +1136,93 @@ def test_todo_rankeado_publica_su_presupuesto_de_salida(datos):
         f"{faltan[:5]}. Sin ese dato, quien los integre no sabe qué max_tokens darles, "
         f"y quedarse corto no falla: entrega de menos."
     )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# effort de razonamiento: que salga, y que salga DONDE el SDK lo acepta
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# POR QUÉ EXISTE (2-sep-2026). Se decidió mandar `reasoning: {effort: medium}` a los
+# thinking models por OpenRouter, y se escribió como `kwargs["reasoning"]`. El import
+# no falla, el linter no dice nada y el módulo carga perfecto — pero el SDK de OpenAI
+# no conoce ese parámetro, así que TODA llamada a un thinking model reventaba con
+# «unexpected keyword argument». Habría tumbado el lote entero y sólo a los thinking:
+# los normales seguían verdes, que es la forma más cara de romperse.
+#
+# Lo destapó espiar el request real, no leer el código. De ahí que el test espíe.
+
+def _espiar_request(model, provider="openrouter", effort=None):
+    """Arma la llamada y devuelve (extra_body, kwargs) sin tocar la red."""
+    import sys, os
+    _prev = os.environ.get("BENCH_REASONING_EFFORT")
+    if effort is not None:
+        os.environ["BENCH_REASONING_EFFORT"] = effort
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from providers.adapters import UnifiedProvider
+
+    p = UnifiedProvider(provider, "sk-falsa", "https://openrouter.ai/api/v1")
+    capturado = {}
+
+    class _Corta(Exception):
+        pass
+
+    def espia(**kw):
+        capturado["extra_body"] = kw.get("extra_body") or {}
+        capturado["kwargs_top"] = {k: v for k, v in kw.items() if k == "reasoning"}
+        raise _Corta()          # no queremos la red, ya tenemos lo que importa
+
+    p.client.chat.completions.create = espia
+    try:
+        p.chat(model=model, messages=[{"role": "user", "content": "hola"}], max_tokens=100)
+    except Exception:
+        pass
+    finally:
+        if effort is not None:
+            if _prev is None:
+                os.environ.pop("BENCH_REASONING_EFFORT", None)
+            else:
+                os.environ["BENCH_REASONING_EFFORT"] = _prev
+    return capturado
+
+
+def test_por_defecto_NO_se_fuerza_effort():
+    """Decisión vigente (15 y 18-ago): se mide el default del proveedor.
+
+    Y el piloto del 2-sep lo respaldó con dato: forzar `medium` acortó las respuestas
+    1.407 tokens (79% de los casos) porque el effort no agrega presupuesto, lo reparte.
+    """
+    c = _espiar_request("z-ai/glm-5.3")
+    assert "reasoning" not in c.get("extra_body", {}), (
+        "se está forzando effort por defecto: contradice DECISIONES.md y el piloto "
+        "midió que degrada la medición con el presupuesto actual"
+    )
+
+
+def test_si_se_enciende_la_bandera_va_en_extra_body():
+    """Cuando se re-mida con presupuesto mayor, el envío tiene que ir donde el SDK lo pasa."""
+    c = _espiar_request("z-ai/glm-5.3", effort="medium")
+    assert c.get("extra_body", {}).get("reasoning") == {"effort": "medium"}, (
+        f"el thinking no llevó effort=medium en extra_body: {c.get('extra_body')}"
+    )
+    # el fallo real: iba arriba, donde el SDK lo rechaza
+    assert not c.get("kwargs_top"), (
+        "`reasoning` viajó como kwarg de primer nivel: el SDK de OpenAI lo rechaza "
+        "con «unexpected keyword argument» y revienta TODOS los thinking models"
+    )
+
+
+def test_modelo_normal_no_recibe_effort():
+    """Mandar effort a uno que no razona es pedirle un parámetro que no tiene."""
+    c = _espiar_request("meta-llama/llama-3.3-70b-instruct", effort="medium")
+    assert "reasoning" not in c.get("extra_body", {}), (
+        "un modelo no-thinking recibió effort: con `require_parameters` eso puede "
+        "dejarlo sin proveedor que lo sirva"
+    )
+
+
+def test_effort_solo_por_openrouter():
+    """Los proveedores directos no exponen el mismo parámetro: no se les manda."""
+    c = _espiar_request("z-ai/glm-5.3", provider="groq", effort="medium")
+    assert "reasoning" not in c.get("extra_body", {}), (
+        "se mandó `reasoning` a un proveedor que no es OpenRouter"
+    )
