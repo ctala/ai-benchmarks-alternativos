@@ -5,7 +5,15 @@
 
 ## [No publicado]
 
-- **Tencent Hy4 preview: examen en curso** (136 de 213). Entra al ranking en la próxima regeneración.
+- **Tencent Hy4 preview: examen en curso** (144 de 213 al momento de escribir esto).
+  Entra al ranking en la próxima regeneración.
+
+  ⚠️ **Se está midiendo con la configuración ANTERIOR a v4.12.0** —sin `effort` y con los
+  presupuestos viejos—, y eso es lo correcto: sus runners arrancaron a las 08:24 y los
+  cambios entraron a las 14:44, así que Python ya tenía los módulos cargados. Queda
+  **comparable con los otros 99**, que es lo que importa para publicarlo. El lote que
+  venga después será el primero medido con `effort=medium`, y ahí empieza la brecha de
+  comparabilidad que hay que resolver (re-medir los 46 thinking o declararlo en la ficha).
 
 ## [v4.12.0] - 2026-09-02 — se manda effort=medium, y el presupuesto sube para absorberlo
 
