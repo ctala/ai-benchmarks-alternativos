@@ -3,6 +3,11 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
+## [No publicado]
+
+- **Tencent Hy4 preview: examen en curso** (122 de 213 tests al momento de este bump).
+  Entra al ranking en la próxima regeneración; sin examen completo no rankea.
+
 ## [v4.11.0] - 2026-09-02 — el esfuerzo de razonamiento no se fuerza, y ahora está medido
 
 - **Se midió si conviene forzar el esfuerzo de razonamiento. No conviene, y ahora está
