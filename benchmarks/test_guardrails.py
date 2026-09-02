@@ -217,6 +217,26 @@ def _t_ganadores():
         return _correr("check_ganadores.py") != 0
 
 
+@prueba("check_release_mensual", "un reporte del mes que le atribuye a un modelo una cifra que no es suya")
+def _t_release():
+    # El caso real: cifras escritas a mano dentro de un generador data-driven. El PDF
+    # publicaba «GPT-OSS 120B · 8.15» cuando el valor vivo era 8,03, y lo reimprimía
+    # cada mes. Se prueba cambiando una nota del datasheet por la de otro modelo —7,18
+    # existe 15 veces en el JSON, así que sólo lo caza quien verifica la PAREJA.
+    from datetime import date
+    ds = ROOT / f"DATASHEET_{date.today().strftime('%Y-%m')}.md"
+    if not ds.exists():
+        return False
+    with Sabotaje(ds):
+        t = ds.read_text(encoding="utf-8")
+        import re as _re
+        t2 = _re.sub(r"\| \*\*Qwen 3\.8 Flash\*\* \| 9,85", "| **Qwen 3.8 Flash** | 7,18", t, count=1)
+        if t2 == t:
+            return False
+        ds.write_text(t2, encoding="utf-8")
+        return _correr("check_release_mensual.py") != 0
+
+
 @prueba("check_paleta", "un color inventado que el manual de marca no tiene")
 def _t_paleta():
     # El caso real: alguien necesita «un amarillo para advertencia», lo escribe en una

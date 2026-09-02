@@ -102,6 +102,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_agentico_publicado.py"], False, True),
     ("paginas", "ninguna página corona a un ganador que su tabla no sostiene",
      [PY, "benchmarks/check_ganadores.py"], True, True),
+    # Informativo: si no hay release de este mes no hay nada que verificar, y eso no es
+    # un fallo del repo. Cuando SÍ hay, compara cada pareja modelo↔cifra con models.json.
+    ("paginas", "el reporte y el PDF del mes citan las cifras del benchmark",
+     [PY, "benchmarks/check_release_mensual.py"], False, True),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",

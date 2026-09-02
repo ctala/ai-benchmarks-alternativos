@@ -5,6 +5,37 @@
 
 ## [No publicado]
 
+- **El PDF del mes publicaba cifras que ningún modelo tiene.** Cristian: *"revisa que no
+  haya problemas con la data del datasheet… debemos usar la misma data del benchmark en
+  todos lados"*. Al mirarlo aparecieron **tres clases de desfase en los dos generadores
+  del release**, ninguno roto — todos VIEJOS:
+
+  1. `generate_cheatsheet.py` ordenaba el top 10 por `score_global`, el z-score
+     abandonado en v4.1, y citaba «7,18» donde el sitio dice «8,53».
+  2. Usaba `score_by_pillar` en las tablas por categoría: para Qwen 3.8 27B en Coding
+     eso da **8,25**, y lo publicado es **9,95**. Doce usos.
+  3. La sección de recomendaciones tenía **las cifras escritas a mano dentro de un
+     generador data-driven**: «GPT-OSS 120B · 8.15» cuando el valor vivo es 8,03, y
+     «Qwen3 Coder · calidad 7.85» cuando es 7,78. Cada mes el PDF reimprimía el número
+     del día en que alguien lo tecleó.
+
+  Los tres sobrevivieron por la misma razón: **son generadores que se corren una vez al
+  mes.** Entre corrida y corrida nadie los mira, así que un cambio de criterio los deja
+  atrás sin hacer ruido. `check_consistency.py` no los cubría a propósito —los datasheet
+  son snapshots y deben conservar su valor histórico— y ese «a propósito» dejaba un hueco
+  justo el día en que el snapshot se crea.
+
+- **`check_release_mensual.py` cierra ese hueco, y costó tres intentos:**
+  · «¿la cifra existe en models.json?» — inútil: «7.18» aparece **15 veces** en el JSON.
+  · «buscar el nombre y mirar lo que sigue» — falsos positivos, «GLM 5.3» matchea dentro
+    de «GLM 5.3 Flash».
+  · lo que funciona: leer **filas de tabla** y verificar la PAREJA modelo↔cifra, que es lo
+    único que puede mentir. Hoy vigila 87 parejas entre el datasheet y el PDF.
+
+- **CheatSheet PDF de septiembre generado** (10 páginas). WeasyPrint no encontraba
+  `libpango` pese a estar instalado por brew — se resuelve con
+  `DYLD_FALLBACK_LIBRARY_PATH=$(brew --prefix)/lib`, anotado para la próxima.
+
 - **Reporte de septiembre publicado** (`DATASHEET_2026-09.md`), el primero desde junio.
   Titular: **la versión cara dejó de comprar calidad, y este mes se puede probar dentro
   de la misma familia** — GLM 5.3 saca 8,52 a $21/mes y su Flash 8,51 a $1; en escribir
