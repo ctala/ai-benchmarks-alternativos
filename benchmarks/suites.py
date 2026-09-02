@@ -92,13 +92,30 @@ contra los runs en disco, que cuesta $0 (`PLAN-ESTABILIDAD.md` R1).
 # `max_tokens` desproporcionado. Por eso los valores siguen anclados a la demanda medida
 # (máx observado 61.741) y no a un número arbitrariamente enorme.
 PRESUPUESTO_SALIDA = {
-    "agent_long_horizon": 65536,   # 8 y 12 turnos. Cubre el máximo observado (61.741)
-    "strategy": 32768,
-    "deep_reasoning": 32768,
-    "code_generation": 32768,
-    "business_strategy": 32768,
+    "agent_long_horizon": 98304,   # 8 y 12 turnos. Máximo observado: 61.741
+    "strategy": 49152,
+    "deep_reasoning": 49152,
+    "code_generation": 49152,
+    "business_strategy": 49152,
 }
-PRESUPUESTO_DEFECTO = 24576        # 26 suites no llegan ni a 16k; esto es aire de sobra
+PRESUPUESTO_DEFECTO = 32768        # 26 suites no llegan ni a 16k; esto es aire de sobra
+
+# 2-sep-2026 — POR QUÉ SE SUBIÓ (de 24.576/32.768/65.536).
+# Cristian: *"igual podemos crecer el max tokens de todo, ya que no quiere decir que lo
+# vayan a ocupar todo"*. Es correcto y ya estaba escrito en `adapters.py`: **se factura
+# lo que el modelo genera, no el límite.** Subir el techo no encarece por sí mismo.
+#
+# El motivo para subirlo ahora: desde hoy se manda `reasoning: {effort: medium}` a los
+# thinking models, y el effort **no agrega presupuesto, reparte el que hay** (~50% en
+# medium, ~80% en high). Con los techos viejos, medium dejaba 12.288 tokens de respuesta
+# en la mayoría de las suites; con éstos deja 16.384, y `high` —si algún día se declara
+# en un test— pasa de dejar 4.915 a 6.553.
+#
+# El límite NO es el precio, es qué acepta el proveedor: el comentario viejo de
+# `presupuesto_efectivo` avisa que 131.072 «varios proveedores lo rechazan de plano».
+# Probado el 2-sep contra 7 modelos repartidos por el catálogo (GLM 5.3, Qwen 3.8 Flash,
+# Luna, DeepSeek V4 Flash, Gemma 4 31B, Llama 3.3 70B, Kimi K2.7 Code) en 32k/48k/64k/96k:
+# **los 7 aceptan los cuatro techos.** Por eso 98.304 y no 131.072.
 
 
 def presupuesto_de(suite: str) -> int:

@@ -1185,22 +1185,46 @@ def _espiar_request(model, provider="openrouter", effort=None):
     return capturado
 
 
-def test_por_defecto_NO_se_fuerza_effort():
-    """Decisión vigente (15 y 18-ago): se mide el default del proveedor.
-
-    Y el piloto del 2-sep lo respaldó con dato: forzar `medium` acortó las respuestas
-    1.407 tokens (79% de los casos) porque el effort no agrega presupuesto, lo reparte.
+def test_todos_los_providers_aceptan_lo_que_el_runner_manda():
+    """El runner llama a los 4 providers con la MISMA firma. Si uno no acepta un
+    parámetro, no falla el import ni el linter: falla en runtime y **sólo para los
+    modelos de esa ruta** — Opus/Sonnet/Fable por `claude_code`, los `-pro` por
+    `openai_responses`— mientras el resto del lote sigue verde. Es la forma más cara
+    de romperse, y pasó el 2-sep al agregar `reasoning_effort`.
     """
-    c = _espiar_request("z-ai/glm-5.3")
-    assert "reasoning" not in c.get("extra_body", {}), (
-        "se está forzando effort por defecto: contradice DECISIONES.md y el piloto "
-        "midió que degrada la medición con el presupuesto actual"
+    import inspect, sys, os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from providers import adapters
+
+    CLASES = [adapters.UnifiedProvider, adapters.ClaudeCodeProvider,
+              adapters.OpenAIResponsesProvider, adapters.DiffusionGemmaProvider]
+    # lo que el runner pasa en sus call sites
+    EXIGIDOS = ("model", "messages", "tools", "temperature", "max_tokens", "timeout",
+                "force_reasoning", "reasoning_effort")
+    faltan = {}
+    for C in CLASES:
+        ps = inspect.signature(C.chat).parameters
+        if any(p.kind == p.VAR_KEYWORD for p in ps.values()):
+            continue                      # **kwargs los absorbe
+        f = [p for p in EXIGIDOS if p not in ps]
+        if f:
+            faltan[C.__name__] = f
+    assert not faltan, (
+        f"providers que no aceptan lo que el runner manda: {faltan}. "
+        "Sería un TypeError en runtime, sólo para los modelos de esa ruta."
     )
 
 
-def test_si_se_enciende_la_bandera_va_en_extra_body():
-    """Cuando se re-mida con presupuesto mayor, el envío tiene que ir donde el SDK lo pasa."""
-    c = _espiar_request("z-ai/glm-5.3", effort="medium")
+def test_por_defecto_se_manda_effort_medium():
+    """Decisión de Cristian (2-sep-2026): medium por defecto a los thinking.
+
+    Revierte la política del 15 y 18-ago de «medir el default del proveedor». Motivo:
+    ese default lo elegía cada proveedor y no lo controlábamos, así que dos modelos
+    podían estar rindiendo el examen en modos distintos sin que se notara.
+
+    Y va en `extra_body`, que es donde el SDK lo pasa — arriba revienta.
+    """
+    c = _espiar_request("z-ai/glm-5.3")
     assert c.get("extra_body", {}).get("reasoning") == {"effort": "medium"}, (
         f"el thinking no llevó effort=medium en extra_body: {c.get('extra_body')}"
     )

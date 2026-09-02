@@ -5,6 +5,68 @@
 
 ## [No publicado]
 
+- **Tencent Hy4 preview: examen en curso** (136 de 213). Entra al ranking en la próxima regeneración.
+
+## [v4.12.0] - 2026-09-02 — se manda effort=medium, y el presupuesto sube para absorberlo
+
+- **El `effort` no significa lo mismo entre proveedores, y eso limita lo que compra
+  mandarlo.** Cristian planteó que *"quizás el por defecto siempre fue high"* — que sería
+  la mejor noticia posible, porque haría comparables los 46 thinking ya medidos. Se probó:
+  5 modelos × 4 niveles × 5 preguntas, midiendo `reasoning_tokens` reales.
+
+  | modelo | sin param | low | medium | high |
+  |---|---:|---:|---:|---:|
+  | GLM 5.3 | **619** | 0 | 0 | 112 |
+  | GPT-5.6 Luna | 117 | 127 | 123 | 149 |
+  | DeepSeek V4 Pro | 457 | 411 | 388 | **369** |
+  | Qwen 3.8 Flash | 720 | **1.630** | 731 | 244 |
+  | Kimi K2.7 Code | 161 | 414 | **550** | 126 |
+
+  **No hay monotonía en 3 de 5**: en Qwen `low` produce 6,7× más razonamiento que `high`;
+  en DeepSeek la pendiente va al revés; en GLM `low` y `medium` lo apagan mientras el
+  default razona 619. El default no es `high` — ni ningún nivel fijo.
+
+  Consecuencia: mandar `medium` uniformemente **estandariza el string que enviamos, no el
+  esfuerzo real**. Sigue siendo preferible a no mandar nada (el request queda explícito y
+  reproducible), pero no compra la comparabilidad entre modelos que uno esperaría. Datos
+  crudos en `results/experimento_effort_por_proveedor_20260902.json`.
+
+
+- ⚠️ **Corrección: las cifras de truncamiento publicadas en v4.11.0 eran falsas.** Decían
+  «21,3% de los runs no cabría con `high`» y «se truncaría el 86% de `strategy`». Se
+  calcularon sobre `THINKING_MIN_TOKENS = 8.192`, cuando el presupuesto real viene
+  **calibrado por suite** desde el 18-ago (32.768 en `strategy`, 65.536 en
+  `agent_long_horizon`). Las cifras reales con aquellos techos eran **2,6% y 0,2%**.
+
+  **La conclusión que sostenían se cae con el error**: no había riesgo de truncamiento
+  que justificara no forzar el effort. La lección, que ya es regla del repo en otra
+  forma: **un techo se lee de `presupuesto_de(suite)`, nunca de la constante** — la
+  constante es un piso para call sites viejos, no el presupuesto.
+
+- **Se manda `reasoning: {effort: medium}` a los thinking models** (Cristian, 2-sep).
+  Revierte explícitamente la política del 15 y 18-ago de medir «el default del
+  proveedor». Motivo: ese default lo elige cada proveedor y no lo controlamos ni lo
+  sabemos, así que dos modelos podían estar rindiendo el examen en modos distintos sin
+  que se notara. **Un test puede pedir otro** (`"reasoning_effort": "high"` en su dict).
+
+  ⚠️ **Cambia el examen** (PLAN-ESTABILIDAD R2): los 46 thinking rankeados se midieron
+  sin el parámetro.
+
+- **Presupuesto de salida subido**: defecto 24.576→32.768, suites largas 32.768→49.152,
+  `agent_long_horizon` 65.536→98.304. Cristian: *"igual podemos crecer el max tokens de
+  todo, ya que no quiere decir que lo vayan a ocupar todo"* — y es así, **se factura lo
+  generado, no el límite**. Hace falta porque el effort **reparte** el presupuesto en vez
+  de agregarlo. El techo lo pone el proveedor, no el precio (131.072 «varios lo rechazan
+  de plano»), así que se probó: **7 modelos repartidos por el catálogo aceptan
+  32k/48k/64k/96k, los cuatro**. Con esto no cabe el **0,03% con medium** y 1,11% con high.
+
+- **El parámetro nuevo casi rompe tres rutas enteras.** El runner llama a los 4 providers
+  con la misma firma, y sólo `UnifiedProvider` aceptaba `reasoning_effort`: los otros tres
+  habrían dado `TypeError` en runtime **sólo para sus modelos** —Opus/Sonnet/Fable por
+  `claude_code`, los `-pro` por `openai_responses`— con el resto del lote en verde. Los
+  cuatro alineados y con `test_todos_los_providers_aceptan_lo_que_el_runner_manda`.
+
+
 - **Tencent Hy4 preview: examen en curso** (122 de 213 tests al momento de este bump).
   Entra al ranking en la próxima regeneración; sin examen completo no rankea.
 

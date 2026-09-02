@@ -246,6 +246,7 @@ class UnifiedProvider:
         max_tokens: int = 2048,
         timeout: int = 90,
         force_reasoning: bool = False,
+        reasoning_effort: str | None = None,
     ) -> BenchmarkResult:
         """
         Llama al modelo SIN streaming (mas confiable para benchmarks).
@@ -328,40 +329,46 @@ class UnifiedProvider:
 
             # ── EFFORT EXPLÍCITO EN LOS THINKING MODELS (2-sep-2026) ──────────
             #
-            # ── effort de razonamiento: por qué NO se manda ──────────────────
+            # ── effort de razonamiento ───────────────────────────────────────
             #
-            # Decisión vigente (DECISIONES.md, 15 y 18-ago-2026): se mide el **modo por
-            # defecto** de cada proveedor, nunca un esfuerzo forzado — es lo que recibe
-            # quien llama a la API sin configurar nada, que es nuestro lector.
+            # Decisión de Cristian (2-sep-2026): **de ahora en adelante se manda
+            # `medium` por defecto** a los thinking models por OpenRouter, salvo que
+            # un test declare otra cosa (`reasoning_effort` en el dict del test).
             #
-            # El 2-sep se implementó mandar `medium` fijo y se midió antes de dejarlo
-            # puesto. El piloto (3 modelos × 9 tests de `reasoning` y `deep_reasoning`,
-            # contra su propio histórico) dice que **empeora la medición**:
+            # Revierte explícitamente las filas del 15 y 18-ago que decían «se mide el
+            # default del proveedor, nunca un esfuerzo forzado». El motivo de la
+            # reversión: sin el parámetro, el default lo elige cada proveedor y no lo
+            # controlamos ni lo sabemos, así que dos modelos podían estar rindiendo el
+            # examen en modos distintos sin que se notara. Fijarlo hace el examen
+            # explícito y reproducible.
             #
-            #     Δ calidad          −0,45   (n=24, desv 2,12 → ruidoso por sí solo)
-            #     Δ tokens de respuesta −1.407, y 79% de las respuestas se acortaron
-            #                              ↑ esto NO depende del juez
+            # POR QUÉ `medium` Y NO `high` — con dato, no con criterio. El effort no
+            # agrega presupuesto: REPARTE el de salida (~50% medium, ~80% high). Sobre
+            # el presupuesto calibrado POR SUITE (`suites.PRESUPUESTO_SALIDA`, subido el
+            # 2-sep) y los 59.183 runs exitosos en disco, cuántas respuestas no cabrían:
             #
-            # El mecanismo es aritmético y no tiene vuelta: el effort no agrega
-            # presupuesto, REPARTE el que hay. Sobre THINKING_MIN_TOKENS = 8.192 el
-            # razonamiento se come la salida y la respuesta sale mutilada. Qwen 3.7
-            # Flash pasó de 5.845 a 1.265 tokens de respuesta en `business_analysis`.
+            #     medium →  15 runs (0,03%)   ← holgado
+            #     high   → 655 runs (1,11%)   ← y 7,6% en `agent_long_horizon`
             #
-            # Y con `high` sería mucho peor: deja 1.639 tokens para responder, con lo
-            # que se truncaría el 86% de `strategy`, el 80% de `agent_long_horizon` y
-            # el 76% de `startup_content` — medido sobre los 59.128 runs en disco. Sería
-            # el fallo de abril (165 runs vacíos) pero peor, porque **una respuesta
-            # cortada puntúa** y una vacía no.
+            # ⚠️ Una versión anterior de este comentario decía «21,3% con high, 86% de
+            # `strategy`». Era FALSO: se calculó sobre `THINKING_MIN_TOKENS = 8.192`
+            # cuando el presupuesto real viene calibrado por suite desde el 18-ago. Si
+            # vas a citar un techo, sacalo de `presupuesto_de(suite)`, no de la constante.
             #
-            # Para forzar effort algún día hay que SUBIR el presupuesto primero. Con
-            # 8.192 no se mide más razonamiento: se miden respuestas más cortas.
+            # `medium` es además lo que OpenRouter aplica con `reasoning.enabled: true`,
+            # o sea el default declarado de la plataforma.
             #
-            # La bandera queda para poder RE-MEDIR esto cuando se suba el presupuesto,
-            # sin volver a escribir el envío (que es donde estuvo el bug: `reasoning` no
-            # es parámetro del SDK de OpenAI y como kwarg revienta todos los thinking).
-            #   BENCH_REASONING_EFFORT = off (default) | medium | high | low
-            _ef = os.getenv("BENCH_REASONING_EFFORT", "off").strip().lower()
-            reasoning_effort = (
+            # ⚠️ ESTO CAMBIA EL EXAMEN (PLAN-ESTABILIDAD R2). Los 46 thinking rankeados
+            # se midieron SIN el parámetro. Un modelo medido con `medium` y otro sin él
+            # no rindieron el mismo examen: hay que re-medirlos o declararlo.
+            #
+            # ⚠️ Va en `extra_body`, NO en kwargs: `reasoning` no es parámetro del SDK
+            # de OpenAI y arriba revienta con «unexpected keyword argument» en TODOS los
+            # thinking models mientras los normales siguen verdes. Así se escribió
+            # primero y sólo lo destapó espiar el request real.
+            _ef = (reasoning_effort
+                   or os.getenv("BENCH_REASONING_EFFORT", "medium")).strip().lower()
+            _effort = (
                 {"effort": _ef}
                 if (is_thinking and self.provider_name == "openrouter"
                     and _ef not in ("off", "none", "")) else None
@@ -372,8 +379,8 @@ class UnifiedProvider:
             # benchmark (91 tests por modelo) — evita cold start repetido. Default
             # Ollama es 5min, queda corto si el run es lento.
             extra_body = {}
-            if reasoning_effort:
-                extra_body["reasoning"] = reasoning_effort
+            if _effort:
+                extra_body["reasoning"] = _effort
 
             # ── OpenRouter: exigir que el proveedor SOPORTE lo que le mandamos ──
             #
@@ -607,7 +614,13 @@ class ClaudeCodeProvider:
         self.cli = cli
 
     def chat(self, model, messages, tools=None, temperature=0.7,
-             max_tokens=2048, timeout=90, force_reasoning=False):
+             max_tokens=2048, timeout=90, force_reasoning=False,
+             reasoning_effort=None):
+        # `reasoning_effort` se acepta y se IGNORA a propósito: esta ruta va por el CLI
+        # de Anthropic, que no expone el parámetro. Está en la firma porque el runner lo
+        # pasa a todos los providers por igual, y sin él sería un TypeError que sólo
+        # revienta a los modelos de esta ruta (Opus, Sonnet, Fable) — la forma cara de
+        # romperse. Lo vigila `test_todos_los_providers_aceptan_reasoning_effort`.
         import subprocess
         import json as _json
         import os as _os
@@ -725,7 +738,15 @@ class OpenAIResponsesProvider:
         temperature: float = 0.7,
         max_tokens: int = 2048,
         timeout: int = 90,
+        force_reasoning: bool = False,
+        reasoning_effort: str | None = None,
     ) -> BenchmarkResult:
+        # `force_reasoning`/`reasoning_effort` se aceptan y se IGNORAN: /v1/responses
+        # tiene su propio `reasoning`, con otra forma, y los modelos de esta ruta
+        # (gpt-5.5-pro, o1-pro) ya vienen en su modo de razonamiento. Están en la firma
+        # porque el runner los pasa a todos los providers por igual — sin ellos sería un
+        # TypeError que sólo mata a los modelos de ESTA ruta. Si algún día se quiere
+        # forzar el effort acá, va dentro del body de responses, no como kwarg.
         result = BenchmarkResult(
             provider=self.provider_name,
             model=model,
@@ -885,6 +906,7 @@ class DiffusionGemmaProvider:
         max_tokens: int = 2048,
         timeout: int = 90,
         force_reasoning: bool = False,
+        reasoning_effort: str | None = None,   # aceptado e ignorado: corre local
     ) -> BenchmarkResult:
         import subprocess
         import re as _re

@@ -253,6 +253,11 @@ def run_single_test(
         return r
 
     force_reasoning = bool((model_config or {}).get("force_reasoning", False))
+    # Un test puede pedir OTRO esfuerzo de razonamiento que el `medium` por defecto
+    # (Cristian, 2-sep-2026: *"a menos que definamos que el test tenga que ser con high
+    # o xhigh, u otro"*). Se declara en el dict del test: `"reasoning_effort": "high"`.
+    # Vale sólo para thinking models por OpenRouter; el adapter lo ignora en el resto.
+    reasoning_effort = test.get("reasoning_effort")
     # TOOL CALLING PROMPT-BASED: modelos entrenados para function calling pero sin el
     # parámetro `tools` nativo en su ruta (Hermes 4 en OpenRouter). Se inyectan las tools
     # en el system prompt y se parsea el <tool_call> de la respuesta → se MIDE de verdad
@@ -266,7 +271,7 @@ def run_single_test(
             _msgs.insert(0, {"role": "system", "content": _prompt_tools_system(tools).lstrip()})
         result = provider.chat(
             model=model_id, messages=_msgs, tools=None, temperature=0.7,
-            max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
+            max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning, reasoning_effort=reasoning_effort,
         )
     else:
         result = provider.chat(
@@ -276,7 +281,7 @@ def run_single_test(
             temperature=0.7,
             max_tokens=presupuesto_de(suite),
             timeout=timeout,
-            force_reasoning=force_reasoning,
+            force_reasoning=force_reasoning, reasoning_effort=reasoning_effort,
         )
     result.test_name = test["name"]
     if prompt_tools and result.success:
@@ -313,7 +318,7 @@ def run_single_test(
         retry = provider.chat(
             model=model_id, messages=test["messages"], tools=tools,
             temperature=0.7, max_tokens=presupuesto_de(suite), timeout=timeout,
-            force_reasoning=force_reasoning,
+            force_reasoning=force_reasoning, reasoning_effort=reasoning_effort,
         )
         retry.test_name = test["name"]
         if retry.success and ((retry.response or "").strip() or (retry.tool_calls_made and tools)):
@@ -362,6 +367,7 @@ def run_multi_turn_script(
     manteniendo historial completo. La trayectoria se guarda en metadata.
     """
     force_reasoning = bool((model_config or {}).get("force_reasoning", False))
+    reasoning_effort = test.get("reasoning_effort")   # ver run_single_test
     messages = [{"role": "system", "content": test["system_prompt"]}]
     trajectory = []  # lista de (user_turn, assistant_response)
     last_result = None
@@ -379,7 +385,7 @@ def run_multi_turn_script(
             temperature=0.7,
             max_tokens=presupuesto_de(suite),
             timeout=timeout,
-            force_reasoning=force_reasoning,
+            force_reasoning=force_reasoning, reasoning_effort=reasoning_effort,
         )
         # Guard de turno, versión multi-turn (el de run_single_test no cubre este path).
         # Un turno vacío (success=True sin texto) O un fallo transitorio del provider
@@ -390,7 +396,7 @@ def run_multi_turn_script(
         if (not last_result.success) or not (last_result.response or "").strip():
             retry = provider.chat(
                 model=model_id, messages=messages, tools=None, temperature=0.7,
-                max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning,
+                max_tokens=presupuesto_de(suite), timeout=timeout, force_reasoning=force_reasoning, reasoning_effort=reasoning_effort,
             )
             if retry.success and (retry.response or "").strip():
                 last_result = retry            # transitorio: el reintento lo trae
