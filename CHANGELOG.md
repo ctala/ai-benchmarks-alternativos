@@ -3,7 +3,7 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado]
+## [v4.11.0] - 2026-09-02 — el esfuerzo de razonamiento no se fuerza, y ahora está medido
 
 - **Se midió si conviene forzar el esfuerzo de razonamiento. No conviene, y ahora está
   probado.** La política del repo era medir «el modo por defecto de cada proveedor», y

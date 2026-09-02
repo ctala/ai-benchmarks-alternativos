@@ -22,7 +22,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.10.0",
+  "scoring_version": "v4.11.0",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
