@@ -54,14 +54,14 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 | # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
 |---|---|---:|---:|---:|---|---:|
 | 1 | **Qwen 3.8 Flash** | **8.53** | $0.75 | 65s | openrouter | 823 |
-| 2 | **GPT-5.6 Luna** | **8.52** | $0.93 | 11s | openrouter | 162 |
-| 3 | **GLM 5.3** | **8.52** | $7.02 | 69s | openrouter | 193 |
-| 4 | **GLM 5.3 Flash** | **8.51** | $0.40 | 116s | openrouter | 143 |
-| 5 | **Qwen 3.7 Flash** | **8.49** | $0.20 | 29s | openrouter | 163 |
+| 2 | **GLM 5.3** | **8.52** | $7.02 | 69s | openrouter | 193 |
+| 3 | **GLM 5.3 Flash** | **8.51** | $0.40 | 116s | openrouter | 143 |
+| 4 | **GPT-5.6 Luna** | **8.49** | $0.93 | 11s | openrouter | 171 |
+| 5 | **Qwen 3.7 Flash** | **8.49** | $0.20 | 29s | openrouter | 172 |
 | 6 | **Tencent Hy3** | **8.49** | $0.83 | 62s | openrouter | 143 |
-| 7 | **Gemma 4 31B** | **8.48** | $0.54 | 17s | openrouter | 143 |
-| 8 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
-| 9 | **Claude Opus 4.6** | **8.48** | $39.00 | 33s | openrouter | 213 |
+| 7 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
+| 8 | **Claude Opus 4.6** | **8.48** | $39.00 | 33s | openrouter | 213 |
+| 9 | **Gemma 4 31B** | **8.47** | $0.54 | 21s | openrouter | 152 |
 | 10 | **Qwen 3.8 27B** | **8.47** | $4.93 | 65s | openrouter | 686 |
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
@@ -88,11 +88,11 @@ Los **15 de 99** modelos que nadie domina: para el resto existe otro que es **a 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
 | **Qwen 3.8 Flash** | 8.53 | $0.75 | 65s | openrouter |
-| **GPT-5.6 Luna** | 8.52 | $0.93 | 11s | openrouter |
 | **GLM 5.3 Flash** | 8.51 | $0.40 | 116s | openrouter |
+| **GPT-5.6 Luna** | 8.49 | $0.93 | 11s | openrouter |
 | **Qwen 3.7 Flash** | 8.49 | $0.20 | 29s | openrouter |
 | **Tencent Hy3** | 8.49 | $0.83 | 62s | openrouter |
-| **Gemma 4 31B** | 8.48 | $0.54 | 17s | openrouter |
+| **Gemma 4 31B** | 8.47 | $0.54 | 21s | openrouter |
 | **Poolside Laguna XS 2.1** | 8.26 | $0.20 | 10s | openrouter |
 | **Gemini 3.5 Flash Lite** | 8.23 | $3.84 | 5s | openrouter |
 | **GPT-5.4 Mini** | 8.17 | $2.40 | 7s | openai_direct |
