@@ -319,34 +319,39 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Hallazgos clave de Septiembre 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Insights del benchmark v4.9.0. El cambio grande del mes es metodológico: la referencia del score quedó
-        <strong>congelada por versión</strong> — los números dejan de moverse solos. Y medimos un flagship nuevo (Kimi K3)
-        que ilustra la tesis entera: calidad frontier ≠ valor.
+        Lo que muestran los datos de v4.9.0, con 99 modelos que rindieron el examen completo.
+        El hallazgo del mes se puede probar dentro de una misma familia, que es donde no cabe
+        la réplica de «son modelos distintos».
     </p>
 
     <div class="two-col">
         <div>
-            <h3>❄️ La referencia quedó congelada (v4.9.0)</h3>
-            <p style="font-size:9pt;">Antes, medir un modelo nuevo <strong>recalculaba el score de todos</strong> (z-score contra la
-            población viva) → cualquier número publicado caducaba solo. Desde v4.9.0 la referencia (media/desviación por dimensión)
-            se <strong>congela por versión</strong>: agregar o medir un modelo nuevo ya <strong>NO mueve</strong> a los demás.
-            <strong>Validado en la práctica</strong>: medimos Kimi K3 y los otros 118 modelos no cambiaron ni un decimal.</p>
+            <h3>💸 La versión cara dejó de comprar calidad</h3>
+            <p style="font-size:9pt;">Que un barato le gane a un caro siempre admite el reproche de
+            «son modelos distintos». Este mes pasa <strong>dentro de la misma familia</strong>:
+            <strong>Qwen 3.6 Max</strong> saca 8.46 y cuesta $29/mes;
+            <strong>Qwen 3.7 Flash</strong> saca 8.49 y cuesta $1/mes.
+            Una diferencia de 0.03 por <strong>47× el precio</strong>.</p>
 
-            <h3>💡 Calidad ≠ valor: los de arriba empatan</h3>
-            <p style="font-size:9pt;">Los modelos de la cima <strong>empatan en calidad</strong> (el top ~10 cabe en ~0.2 puntos).
-            Lo que cambia —<strong>hasta 100×</strong>— es el precio. Pagar premium no compra más calidad de respuesta; a lo sumo
-            compra <strong>seguridad</strong> y <strong>agéntico</strong>. Por eso esto es una calculadora con TUS pesos, no un ranking único.</p>
+            <h3>💡 Arriba están todos empatados</h3>
+            <p style="font-size:9pt;">El top 10 entero cabe en <strong>0.06 puntos</strong>, y del
+            primero al último de los 99 hay 1.27. La calidad está
+            apretada; el precio no. Por eso esto es una calculadora con TUS pesos y no un ranking único:
+            leer la tabla por posición engaña cuando la distancia real es de centésimas.</p>
 
             <h3>📏 Contexto USABLE ≠ declarado</h3>
-            <p style="font-size:9pt;">El contexto de marketing miente. <strong>MiniMax M3 declara 1M pero su contexto usable real es 512K</strong>
-            (OpenRouter lo corta a 256K). Con needles neutros, los modelos top retrievean parejo hasta su techo real —
+            <p style="font-size:9pt;">El contexto de marketing miente: <strong>41 de los 99 rankeados
+            entregan menos de lo que declaran</strong>. El caso más extremo hoy es
+            <strong>Muse Spark 1.2</strong>, que anuncia 1M
+            y en la práctica sostiene 128K. Con needles neutros, los modelos top retrievean parejo hasta su techo real —
             el diferenciador no es el número declarado, sino dónde deja de funcionar de verdad.</p>
         </div>
         <div>
-            <h3>🚀 Kimi K3: frontier en calidad, premium en valor <span style="font-size:8pt;color:#b0b0b0;">(jul 2026)</span></h3>
-            <p style="font-size:9pt;">El nuevo flagship de Moonshot (1M ctx, $3/$15) entra <strong>#11 en calidad pura</strong> (8.22, a solo
-            0.17 del #1) — clúster frontier, <strong>coincide con los benchmarks públicos</strong>. Pero en el score de valor cae a
-            <strong>#31</strong>: premium + lento (34 tok/s). Calidad frontier no es lo mismo que buen valor — la historia entera del benchmark en un modelo.</p>
+            <h3>🆕 Lo que entró este mes</h3>
+            <p style="font-size:9pt;"><strong>Qwen 3.8 Flash</strong> entra #1 con 8.53 a $2/mes. <strong>GLM 5.3 Flash</strong> entra #4 con 8.51 a $1/mes. 
+            El #1 del catálogo es <strong>Qwen 3.8 Flash</strong> (8.53) y cuesta
+            $2 al mes: <strong>lo barato dejó de ser la opción de compromiso</strong>,
+            hoy es la que encabeza.</p>
 
             <h3>🛡️ Seguridad: premium NO filtra, cheap sí</h3>
             <p style="font-size:9pt;">Suite <strong>prompt_injection_es</strong> (secreto plantado en un doc, ¿lo filtra?):
@@ -367,7 +372,7 @@ strong { color: #ffffff; }
 <!-- TOP 10 RANKING GLOBAL (P3) -->
 <!-- ============================================================ -->
 <div class="page">
-    <h2>Top 10 Score Compuesto</h2>
+    <h2>Top 10 por calidad</h2>
     <table>
         <thead>
             <tr><th>#</th><th>Modelo</th><th>Calidad</th><th>Al mes</th><th>Costo$</th><th>Tool</th><th>Speed</th><th>Lat</th><th>Provider</th></tr>
@@ -486,34 +491,37 @@ strong { color: #ffffff; }
         </tbody>
     </table>
 
-    <h3>Top 5 Quality (sin pesar costo)</h3>
+    <h3>Lo más barato que se mantiene arriba</h3>
+    <p class="nota">Calidad ≥ 8,4 —el clúster de cabeza— ordenado por lo que cuesta al mes.
+    Es la pregunta que el ranking no responde: no cuál es el mejor, sino cuál es el más
+    barato de los que están arriba.</p>
     <table>
         <thead><tr><th>#</th><th>Modelo</th><th>Calidad</th><th>Al mes</th></tr></thead>
         <tbody>
             <tr>
-                <td>1</td><td>Qwen 3.8 Flash</td>
-                <td><strong>8.53</strong></td>
-                <td>$2/mes</td>
+                <td>1</td><td>Qwen 3.7 Flash</td>
+                <td>8.49</td>
+                <td><strong>$1/mes</strong></td>
             </tr>
             <tr>
-                <td>2</td><td>GPT-5.6 Luna</td>
-                <td><strong>8.52</strong></td>
-                <td>$3/mes</td>
+                <td>2</td><td>GLM 5.3 Flash</td>
+                <td>8.51</td>
+                <td><strong>$1/mes</strong></td>
             </tr>
             <tr>
-                <td>3</td><td>GLM 5.3</td>
-                <td><strong>8.52</strong></td>
-                <td>$21/mes</td>
+                <td>3</td><td>Gemma 4 31B</td>
+                <td>8.48</td>
+                <td><strong>$2/mes</strong></td>
             </tr>
             <tr>
-                <td>4</td><td>GLM 5.3 Flash</td>
-                <td><strong>8.51</strong></td>
-                <td>$1/mes</td>
+                <td>4</td><td>Qwen 3.8 Flash</td>
+                <td>8.53</td>
+                <td><strong>$2/mes</strong></td>
             </tr>
             <tr>
-                <td>5</td><td>Qwen 3.7 Flash</td>
-                <td><strong>8.49</strong></td>
-                <td>$1/mes</td>
+                <td>5</td><td>Tencent Hy3</td>
+                <td>8.49</td>
+                <td><strong>$2/mes</strong></td>
             </tr>
         </tbody>
     </table>
@@ -591,7 +599,7 @@ strong { color: #ffffff; }
                 <thead><tr><th>Modelo</th><th>Contexto usable real</th></tr></thead>
                 <tbody>
                     <tr><td><strong>Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash, Llama 4 Maverick</strong></td><td>800K ✅</td></tr>
-                    <tr><td>MiniMax M3</td><td>declara 1M, usable 512K ⚠️</td></tr>
+                    <tr><td>{_peor_ctx["name"]}</td><td>declara {_k(_peor_ctx["context_window"])}, usable {_k(_peor_ctx["effective_context"])} ⚠️</td></tr>
                 </tbody>
             </table>
             <p style="font-size:8pt;color:#b0b0b0;">El retrieval NO discrimina (todos ~10 hasta su techo); lo que importa es el contexto <em>usable</em> (declarado ≠ real). Ver Hallazgos.</p>

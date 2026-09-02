@@ -409,6 +409,68 @@ def render(models: dict, runs: list) -> str:
     qr_calc = qr_b64(URL_CALC)
     qr_skool = qr_b64(URL_SKOOL)
 
+    # ── 2-sep-2026 · LOS HALLAZGOS SE DERIVAN, NO SE TECLEAN ─────────────────
+    #
+    # Esta sección estaba escrita a mano y había quedado en JULIO. Publicaba cuatro
+    # afirmaciones falsas: «los otros 118 modelos» (son 209), «el top 10 cabe en ~0,2
+    # puntos» (0,06), «Kimi K3 #11 con 8,22, a 0,17 del #1» (es #66 con 8,06, a 0,47) y
+    # «el cambio grande del mes es la referencia congelada», que fue v4.0 y no septiembre.
+    #
+    # Lo encontró Cristian leyendo el PDF, no un guardrail: `check_release_mensual`
+    # verifica parejas modelo↔cifra en TABLAS, y esto es prosa. Por eso ahora las cifras
+    # salen del JSON y el mes se arma solo.
+    _q = lambda m: m.get("quality_avg") or 0
+    _mes = lambda m: (m.get("cost_per_1k_calls_usd") or 0) * 3
+    _top = ranked[:10]
+    _spread10 = _q(_top[0]) - _q(_top[-1]) if len(_top) > 1 else 0
+    _lider = _top[0]
+    # el par más elocuente: dos modelos de la MISMA familia con notas casi iguales y
+    # precios muy distintos. Se busca, no se elige a dedo.
+    _par = None
+    for a_ in ranked:
+        for b_ in ranked:
+            if a_ is b_ or not a_.get("cost_per_1k_calls_usd") or not b_.get("cost_per_1k_calls_usd"):
+                continue
+            raiz = a_["name"].split()[0]
+            if not b_["name"].startswith(raiz):
+                continue
+            if abs(_q(a_) - _q(b_)) > 0.05:
+                continue
+            ratio = _mes(a_) / max(_mes(b_), 0.01)
+            if ratio > 3 and (not _par or ratio > _par[2]):
+                _par = (a_, b_, ratio)
+    _baratos_top = sorted([m for m in ranked if _q(m) >= 8.4 and m.get("cost_per_1k_calls_usd")],
+                          key=_mes)
+    # El caso más extremo de contexto declarado vs usable. Estaba tecleado —«MiniMax M3
+    # declara 1M pero usable 512K»— y el valor real de ese modelo es 256K, no 512K. Son
+    # 41 los rankeados con esa brecha; se elige el peor por diferencia, no a dedo.
+    _ctx = [m for m in ranked
+            if m.get("effective_context") and m.get("context_window")
+            and m["effective_context"] < m["context_window"]]
+    _ctx.sort(key=lambda m: -(m["context_window"] - m["effective_context"]))
+    _peor_ctx = _ctx[0] if _ctx else None
+    _k = lambda v: f"{v // 1000}K" if v < 1_000_000 else f"{v / 1_000_000:.0f}M"
+
+    # ── LOS MODELOS NUEVOS SON LA NOTICIA DEL MES ────────────────────────────
+    # Cristian: *"usemos los más nuevos también como palanca en insights"*. Un cheatsheet
+    # mensual que no dice qué entró no cuenta el mes; y saber cuáles son no se teclea:
+    # se compara `models.json` contra el del release anterior, que git ya guarda.
+    _nuevos = []
+    try:
+        import subprocess as _sp, json as _json
+        _tags = _sp.run(["git", "tag", "--sort=-v:refname"], cwd=ROOT,
+                        capture_output=True, text=True).stdout.split()
+        if _tags:
+            _prev = _sp.run(["git", "show", f"{_tags[0]}:docs/data/models.json"], cwd=ROOT,
+                            capture_output=True, text=True)
+            if _prev.returncode == 0:
+                _antes = {m.get("key") for m in _json.loads(_prev.stdout).get("models", [])}
+                _nuevos = [m for m in ranked if m.get("key") not in _antes]
+                _nuevos.sort(key=lambda m: -_q(m))
+    except Exception:
+        _nuevos = []          # sin git no hay noticia, pero el PDF igual se genera
+    _pos = {m["key"]: i + 1 for i, m in enumerate(ranked)}
+
     html = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -474,34 +536,39 @@ def render(models: dict, runs: list) -> str:
 <div class="page">
     <h2>Hallazgos clave de {MONTH} {YEAR}</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Insights del benchmark {ver}. El cambio grande del mes es metodológico: la referencia del score quedó
-        <strong>congelada por versión</strong> — los números dejan de moverse solos. Y medimos un flagship nuevo (Kimi K3)
-        que ilustra la tesis entera: calidad frontier ≠ valor.
+        Lo que muestran los datos de {ver}, con {len(ranked)} modelos que rindieron el examen completo.
+        El hallazgo del mes se puede probar dentro de una misma familia, que es donde no cabe
+        la réplica de «son modelos distintos».
     </p>
 
     <div class="two-col">
         <div>
-            <h3>❄️ La referencia quedó congelada ({ver})</h3>
-            <p style="font-size:9pt;">Antes, medir un modelo nuevo <strong>recalculaba el score de todos</strong> (z-score contra la
-            población viva) → cualquier número publicado caducaba solo. Desde {ver} la referencia (media/desviación por dimensión)
-            se <strong>congela por versión</strong>: agregar o medir un modelo nuevo ya <strong>NO mueve</strong> a los demás.
-            <strong>Validado en la práctica</strong>: medimos Kimi K3 y los otros 118 modelos no cambiaron ni un decimal.</p>
+            <h3>💸 La versión cara dejó de comprar calidad</h3>
+            <p style="font-size:9pt;">Que un barato le gane a un caro siempre admite el reproche de
+            «son modelos distintos». Este mes pasa <strong>dentro de la misma familia</strong>:
+            <strong>{_par[0]["name"]}</strong> saca {_q(_par[0]):.2f} y cuesta ${_mes(_par[0]):.0f}/mes;
+            <strong>{_par[1]["name"]}</strong> saca {_q(_par[1]):.2f} y cuesta ${_mes(_par[1]):.0f}/mes.
+            Una diferencia de {abs(_q(_par[0])-_q(_par[1])):.2f} por <strong>{_par[2]:.0f}× el precio</strong>.</p>
 
-            <h3>💡 Calidad ≠ valor: los de arriba empatan</h3>
-            <p style="font-size:9pt;">Los modelos de la cima <strong>empatan en calidad</strong> (el top ~10 cabe en ~0.2 puntos).
-            Lo que cambia —<strong>hasta 100×</strong>— es el precio. Pagar premium no compra más calidad de respuesta; a lo sumo
-            compra <strong>seguridad</strong> y <strong>agéntico</strong>. Por eso esto es una calculadora con TUS pesos, no un ranking único.</p>
+            <h3>💡 Arriba están todos empatados</h3>
+            <p style="font-size:9pt;">El top 10 entero cabe en <strong>{_spread10:.2f} puntos</strong>, y del
+            primero al último de los {len(ranked)} hay {_q(ranked[0])-_q(ranked[-1]):.2f}. La calidad está
+            apretada; el precio no. Por eso esto es una calculadora con TUS pesos y no un ranking único:
+            leer la tabla por posición engaña cuando la distancia real es de centésimas.</p>
 
             <h3>📏 Contexto USABLE ≠ declarado</h3>
-            <p style="font-size:9pt;">El contexto de marketing miente. <strong>MiniMax M3 declara 1M pero su contexto usable real es 512K</strong>
-            (OpenRouter lo corta a 256K). Con needles neutros, los modelos top retrievean parejo hasta su techo real —
+            <p style="font-size:9pt;">El contexto de marketing miente: <strong>{len(_ctx)} de los {len(ranked)} rankeados
+            entregan menos de lo que declaran</strong>. El caso más extremo hoy es
+            <strong>{_peor_ctx["name"]}</strong>, que anuncia {_k(_peor_ctx["context_window"])}
+            y en la práctica sostiene {_k(_peor_ctx["effective_context"])}. Con needles neutros, los modelos top retrievean parejo hasta su techo real —
             el diferenciador no es el número declarado, sino dónde deja de funcionar de verdad.</p>
         </div>
         <div>
-            <h3>🚀 Kimi K3: frontier en calidad, premium en valor <span style="font-size:8pt;color:#b0b0b0;">(jul {YEAR})</span></h3>
-            <p style="font-size:9pt;">El nuevo flagship de Moonshot (1M ctx, $3/$15) entra <strong>#11 en calidad pura</strong> (8.22, a solo
-            0.17 del #1) — clúster frontier, <strong>coincide con los benchmarks públicos</strong>. Pero en el score de valor cae a
-            <strong>#31</strong>: premium + lento (34 tok/s). Calidad frontier no es lo mismo que buen valor — la historia entera del benchmark en un modelo.</p>
+            <h3>🆕 Lo que entró este mes</h3>
+            <p style="font-size:9pt;">{"".join(f"<strong>{m['name']}</strong> entra #{_pos[m['key']]} con {_q(m):.2f} a ${_mes(m):.0f}/mes. " for m in _nuevos[:3]) if _nuevos else "Sin modelos nuevos en el ranking desde el release anterior. "}
+            El #1 del catálogo es <strong>{_lider["name"]}</strong> ({_q(_lider):.2f}) y cuesta
+            ${_mes(_lider):.0f} al mes: <strong>lo barato dejó de ser la opción de compromiso</strong>,
+            hoy es la que encabeza.</p>
 
             <h3>🛡️ Seguridad: premium NO filtra, cheap sí</h3>
             <p style="font-size:9pt;">Suite <strong>prompt_injection_es</strong> (secreto plantado en un doc, ¿lo filtra?):
@@ -522,7 +589,7 @@ def render(models: dict, runs: list) -> str:
 <!-- TOP 10 RANKING GLOBAL (P3) -->
 <!-- ============================================================ -->
 <div class="page">
-    <h2>Top 10 Score Compuesto</h2>
+    <h2>Top 10 por calidad</h2>
     <table>
         <thead>
             <tr><th>#</th><th>Modelo</th><th>Calidad</th><th>Al mes</th><th>Costo$</th><th>Tool</th><th>Speed</th><th>Lat</th><th>Provider</th></tr>
@@ -546,16 +613,29 @@ def render(models: dict, runs: list) -> str:
     html += """        </tbody>
     </table>
 
-    <h3>Top 5 Quality (sin pesar costo)</h3>
+    <h3>Lo más barato que se mantiene arriba</h3>
+    <p class="nota">Calidad ≥ 8,4 —el clúster de cabeza— ordenado por lo que cuesta al mes.
+    Es la pregunta que el ranking no responde: no cuál es el mejor, sino cuál es el más
+    barato de los que están arriba.</p>
     <table>
         <thead><tr><th>#</th><th>Modelo</th><th>Calidad</th><th>Al mes</th></tr></thead>
         <tbody>
 """
-    for i, m in enumerate(top_quality[:5], 1):
+    # 2-sep-2026 · esta tabla mostraba «Top 5 Quality (sin pesar costo)» y, tras alinear
+    # la primera a `quality_avg`, las dos quedaron ordenadas por lo mismo: dos tablas
+    # idénticas con distinto título. Lo vio Cristian —«tenemos el compuesto y el de
+    # calidad que muestran lo mismo»—, y el arreglo no es cambiarle el nombre a una: es
+    # que la segunda responda algo que la primera no. El top por calidad ya está arriba;
+    # lo que falta es quién de ese grupo cuesta menos.
+    _UMBRAL = 8.4
+    _baratos = sorted([m for m in ranked
+                       if (m.get("quality_avg") or 0) >= _UMBRAL and m.get("cost_per_1k_calls_usd")],
+                      key=lambda x: x["cost_per_1k_calls_usd"])
+    for i, m in enumerate(_baratos[:5], 1):
         html += f"""            <tr>
                 <td>{i}</td><td>{m["name"]}</td>
-                <td><strong>{m.get("quality_avg")}</strong></td>
-                <td>{f"${(m.get('cost_per_1k_calls_usd') or 0) * 3:.0f}/mes"}</td>
+                <td>{m.get("quality_avg")}</td>
+                <td><strong>{f"${(m.get('cost_per_1k_calls_usd') or 0) * 3:.0f}/mes"}</strong></td>
             </tr>\n"""
 
     html += f"""        </tbody>
@@ -643,7 +723,7 @@ def render(models: dict, runs: list) -> str:
                 <thead><tr><th>Modelo</th><th>Contexto usable real</th></tr></thead>
                 <tbody>
                     <tr><td><strong>Gemini 2.5/3.5 Flash Lite, DeepSeek V4 Flash, Llama 4 Maverick</strong></td><td>800K ✅</td></tr>
-                    <tr><td>MiniMax M3</td><td>declara 1M, usable 512K ⚠️</td></tr>
+                    <tr><td>{_peor_ctx["name"]}</td><td>declara {_k(_peor_ctx["context_window"])}, usable {_k(_peor_ctx["effective_context"])} ⚠️</td></tr>
                 </tbody>
             </table>
             <p style="font-size:8pt;color:#b0b0b0;">El retrieval NO discrimina (todos ~10 hasta su techo); lo que importa es el contexto <em>usable</em> (declarado ≠ real). Ver Hallazgos.</p>
