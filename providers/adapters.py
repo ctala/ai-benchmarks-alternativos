@@ -74,6 +74,10 @@ THINKING_MODELS = (
     "nex-n2",                               # Nex AGI N2 Mini
     "laguna",                               # Poolside Laguna XS/S 2.1
     "tencent/hy3",                          # Tencent Hy3 (id completo: "hy3" solo es ambiguo)
+    "tencent/hy4",                          # Hy4 preview (2-sep-2026): declara `reasoning`
+                                            # en OpenRouter y no estaba cubierto. Entró al
+                                            # catálogo porque es #6 en USO mundial —5,72T
+                                            # tokens/semana— y no lo medíamos.
     "inkling",                              # Thinking Machines Inkling / Inkling Small
     "muse-spark",                            # Meta Muse Spark 1.2 — 297 reasoning tokens
                                             # y content vacío en el pre-vuelo del 12-ago.

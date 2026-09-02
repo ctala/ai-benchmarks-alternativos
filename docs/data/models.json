@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-01T22:10:44",
-  "total_models": 209,
+  "generated_at": "2026-09-02T09:07:54",
+  "total_models": 210,
   "tested_count": 159,
   "ranked_count": 99,
-  "total_runs_measured": 67035,
-  "total_runs_active": 62663,
+  "total_runs_measured": 67044,
+  "total_runs_active": 62672,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -22,7 +22,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.9.0",
+  "scoring_version": "v4.10.0",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
@@ -67399,6 +67399,243 @@
         "agentico": false,
         "motivos": {
           "ranking": "variante_proveedor",
+          "catalogo": "examen_incompleto",
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
+      "key": "hy4-preview",
+      "id": "tencent/hy4-preview",
+      "name": "Tencent Hy4 preview",
+      "tier": "cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.83,
+      "cost_output_per_M": 2.5,
+      "cost_per_1k_calls_usd": 3.999,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "Sucesor de Hy3, que está #6 en nuestro ranking de calidad y #5 en uso mundial. Es «preview»: el proveedor puede cambiarlo sin aviso, así que conviene re-verificar la procedencia de sus runs antes de citarlo.",
+      "tested": false,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": true,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "preliminary",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 9,
+      "total_runs": 9,
+      "score_global": 7.6,
+      "score_by_pillar": {
+        "Razonamiento": 7.6
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 9.0,
+          "speed_score_avg": 7.63,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 4.331,
+          "quality_ci95": 1.067
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.62,
+        "business_strategy": 7.57
+      },
+      "quality_by_suite": {
+        "business_audit": 9.0,
+        "business_strategy": 9.0
+      },
+      "suites_incompletas": {
+        "reasoning": {
+          "rindio": 0,
+          "total": 3
+        },
+        "deep_reasoning": {
+          "rindio": 0,
+          "total": 6
+        },
+        "hallucination": {
+          "rindio": 0,
+          "total": 3
+        },
+        "strategy": {
+          "rindio": 0,
+          "total": 3
+        },
+        "business_audit": {
+          "rindio": 5,
+          "total": 10
+        },
+        "business_strategy": {
+          "rindio": 4,
+          "total": 5
+        },
+        "code_generation": {
+          "rindio": 0,
+          "total": 4
+        },
+        "structured_output": {
+          "rindio": 0,
+          "total": 4
+        },
+        "string_precision": {
+          "rindio": 0,
+          "total": 6
+        },
+        "ocr_extraction": {
+          "rindio": 0,
+          "total": 5
+        },
+        "content_generation": {
+          "rindio": 0,
+          "total": 4
+        },
+        "content_verificable": {
+          "rindio": 0,
+          "total": 5
+        },
+        "summarization": {
+          "rindio": 0,
+          "total": 2
+        },
+        "presentation": {
+          "rindio": 0,
+          "total": 2
+        },
+        "startup_content": {
+          "rindio": 0,
+          "total": 5
+        },
+        "creativity": {
+          "rindio": 0,
+          "total": 4
+        },
+        "news_seo_writing": {
+          "rindio": 0,
+          "total": 5
+        },
+        "sales_outreach": {
+          "rindio": 0,
+          "total": 3
+        },
+        "translation": {
+          "rindio": 0,
+          "total": 3
+        },
+        "tool_calling": {
+          "rindio": 0,
+          "total": 4
+        },
+        "tool_calling_adversarial": {
+          "rindio": 0,
+          "total": 10
+        },
+        "agent_long_horizon": {
+          "rindio": 0,
+          "total": 12
+        },
+        "orchestration": {
+          "rindio": 0,
+          "total": 5
+        },
+        "multi_turn": {
+          "rindio": 0,
+          "total": 4
+        },
+        "agent_capabilities": {
+          "rindio": 0,
+          "total": 5
+        },
+        "policy_adherence": {
+          "rindio": 0,
+          "total": 4
+        },
+        "task_management": {
+          "rindio": 0,
+          "total": 3
+        },
+        "customer_support": {
+          "rindio": 0,
+          "total": 4
+        },
+        "verificar_claim": {
+          "rindio": 0,
+          "total": 10
+        }
+      },
+      "examen_completo": false,
+      "quality_avg": 9.0,
+      "quality_ci95": 1.067,
+      "cost_score_avg": 4.33,
+      "speed_score_avg": 7.63,
+      "latency_score_avg": 1.0,
+      "tool_calling_score_avg": null,
+      "judge_score_avg": null,
+      "tokens_per_second": 52.9,
+      "latency_avg_s": 158.89,
+      "total_input_tokens": 2343,
+      "total_output_tokens": 82602,
+      "presupuesto_salida": {
+        "p50": 11300,
+        "p90": 22229,
+        "max": 22229,
+        "sugerido": 27786,
+        "piso": true,
+        "por_tarea": {
+          "business_audit": {
+            "p50": 11300,
+            "p90": 13808,
+            "max": 13808,
+            "sugerido": 17260,
+            "piso": true
+          },
+          "business_strategy": {
+            "p50": 11954,
+            "p90": 22229,
+            "max": 22229,
+            "sugerido": 27786,
+            "piso": true
+          }
+        }
+      },
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "agentic_runs": 0,
+      "agentic_quality": null,
+      "multiturno_score": null,
+      "agentic_score": null,
+      "security_runs": 0,
+      "security_score": null,
+      "policy_refusal_rate": 0.0,
+      "score_calidad": 9.0,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": false,
+        "ranking": false,
+        "agentico": false,
+        "motivos": {
+          "ranking": "examen_incompleto",
           "catalogo": "examen_incompleto",
           "agentico": "sin_evidencia_agentica"
         }

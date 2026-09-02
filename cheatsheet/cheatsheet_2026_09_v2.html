@@ -270,7 +270,7 @@ strong { color: #ffffff; }
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">Septiembre 2026</div>
-    <p class="meta">159 modelos medidos (209 catalogados, 99 rankeados) · 67,035+ runs reales · v4.9.0</p>
+    <p class="meta">159 modelos medidos (210 catalogados, 99 rankeados) · 67,044+ runs reales · v4.10.0</p>
 
     <div class="stats">
         <div class="stat-box">
@@ -286,7 +286,7 @@ strong { color: #ffffff; }
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">67,035+</span>
+            <span class="stat-number">67,044+</span>
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
@@ -294,7 +294,7 @@ strong { color: #ffffff; }
     <p class="meta">Medido desde Santiago, Chile · 9 vías (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax, suscripción Claude Code)</p>
 
     <div class="score-formula">
-        <div class="title">Como se calcula el Score (v4.9.0 · z-score congelado)</div>
+        <div class="title">Como se calcula el Score (v4.10.0 · z-score congelado)</div>
         <div class="row"><span class="pct">70%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
         <div class="row"><span class="pct">15%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
         <div class="row"><span class="pct">7.5%</span>Velocidad (tokens por segundo)</div>
@@ -302,7 +302,7 @@ strong { color: #ffffff; }
         <div class="row"><span class="pct">0%</span>Tool Calling — sale del compuesto, queda como badge</div>
     </div>
     <p class="meta" style="margin-top:8px;font-size:7.5pt;max-width:700px;">
-        <strong>v4.9.0 · referencia congelada</strong>: cada dimensión se <strong>estandariza (z-score)</strong> contra una
+        <strong>v4.10.0 · referencia congelada</strong>: cada dimensión se <strong>estandariza (z-score)</strong> contra una
         referencia <strong>congelada por versión</strong>, así agregar o medir un modelo nuevo ya NO recalcula el score de
         los demás (los números dejan de caducar solos). Fórmula: score = clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10).
     </p>
@@ -319,7 +319,7 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Hallazgos clave de Septiembre 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Lo que muestran los datos de v4.9.0, con 99 modelos que rindieron el examen completo.
+        Lo que muestran los datos de v4.10.0, con 99 modelos que rindieron el examen completo.
         El hallazgo del mes se puede probar dentro de una misma familia, que es donde no cabe
         la réplica de «son modelos distintos».
     </p>
@@ -358,9 +358,9 @@ strong { color: #ffffff; }
             los <strong>premium rehúsan</strong> (Opus 4.8 ~8.8), varios <strong>baratos filtran</strong> (~2). Si tu agente procesa
             documentos de terceros, la seguridad pesa más que ganar 0.2 de calidad — y ahí el orden del ranking cambia.</p>
 
-            <h3>🤖 El agéntico ahora es un eje propio (v4.9.0)</h3>
+            <h3>🤖 El agéntico ahora es un eje propio (v4.10.0)</h3>
             <p style="font-size:9pt;">Las tareas agénticas (multi-turno, orquestación, horizonte largo) son donde los premium se
-            diferencian de verdad. En v4.9.0 el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
+            diferencian de verdad. En v4.10.0 el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
             (<code>agentic_score</code>), para rankear por "qué tan buen agente es" sin que lo tape el promedio.</p>
         </div>
     </div>
@@ -824,7 +824,7 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Mapa de Proveedores</h2>
     <p style="font-size:9pt; color:#b0b0b0; margin-bottom:10px;">
-        9 providers (incl. suscripción Claude Code) — Septiembre 2026. Ordenados por costo (de más barato a más caro).
+        11 providers (incl. suscripción Claude Code) — Septiembre 2026. Ordenados por costo (de más barato a más caro).
     </p>
 
     <table>
@@ -1030,7 +1030,7 @@ strong { color: #ffffff; }
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · Septiembre 2026 · v4.9.0 · MIT
+            cristiantala.com · Septiembre 2026 · v4.10.0 · MIT
         </p>
     </div>
 

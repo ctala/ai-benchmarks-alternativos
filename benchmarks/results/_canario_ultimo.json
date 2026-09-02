@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-09-01T11:15:49",
+  "cuando": "2026-09-02T08:22:57",
   "modelos": [
-    "qwen3.8-flash"
+    "hy4-preview"
   ],
   "suites": [
     "tool_calling",

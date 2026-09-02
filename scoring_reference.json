@@ -1,5 +1,5 @@
 {
-  "version": "v4.9.0",
+  "version": "v4.10.0",
   "computed_at": "2026-08-13T06:18:15",
   "score_method": "zscore_frozen_v4",
   "norm_stats": {

@@ -579,6 +579,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Calidad (indic.) | Frontera | Runs | Per-model MD | Responses |
 |---|---|---:|---:|:-:|---:|---|---|
+| `tencent/hy4-preview` | ❌  | $0.83/2.5 | **9.00** |  | 9 | — | [responses](benchmarks/results/responses/hy4-preview/) |
 | `sakana/sakana-namazu` | ❌  | $0.95/4.0 | **8.59** |  | 1728 | [per-model](benchmarks/results/per-model/sakana_sakana-namazu.md) | [responses](benchmarks/results/responses/sakana-namazu/) |
 | `meituan/longcat-2.0` | ❌  | $0.3/1.2 | **8.52** |  | 22 | [per-model](benchmarks/results/per-model/meituan_longcat-2_0.md) | [responses](benchmarks/results/responses/longcat-2.0/) |
 | `openai/gpt-5.6-luna-pro` | ❌  | $0.1/0.6 | **8.50** |  | 264 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna-pro.md) | [responses](benchmarks/results/responses/gpt-5.6-luna-pro/) |

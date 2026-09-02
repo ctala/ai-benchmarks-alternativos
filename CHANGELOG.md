@@ -5,6 +5,33 @@
 
 ## [No publicado]
 
+- **Tencent Hy4 preview: examen en curso.** Entró al catálogo el 2-sep por el cruce con
+  el uso real —es #6 del mundo por tokens y no lo medíamos— y su lote sigue corriendo
+  mientras esto se publica: ~13 h a dos runners, porque razona y tiene 1M de contexto.
+  **No aparece en v4.10.0 a propósito**: sin examen completo no rankea. Entra en la
+  próxima regeneración, que son dos minutos.
+
+## [v4.10.0] - 2026-09-02 — el cruce con el uso real, y el release del mes verificado contra la fuente
+
+- **`USO_VS_CALIDAD.md`: el cruce entre lo que el mundo usa y lo que rinde.** Los
+  benchmarks académicos no daban para un documento —solo 3 de nuestro top 20 tienen score
+  en `BENCHMARKS_EXTERNOS.md`, que es de abril, y varios modelos nuevos ni tienen paper—,
+  así que el cruce se hizo contra el **ranking de uso real de OpenRouter** (tokens
+  procesados, semana al 1-sep). El hallazgo: **el modelo más usado del planeta —12,1T
+  tokens/semana— está #67 de 99 en calidad.** Pero en la cima sí coinciden (GLM 5.3 Flash
+  #2/#4, Luna #3/#2): el uso no es ciego, es lento.
+
+  La mitad del valor del documento es que **obliga a mostrar lo que nos falta**: tres de
+  los diez más usados no están en nuestro ranking —uno sin medir, uno *stealth* que no es
+  medible con nuestro estándar, dos por la política de `:free`—. Un ranking que solo se
+  compara consigo mismo nunca descubre eso.
+
+- **Tencent Hy4 preview entra al catálogo**, a pedido de Cristian y antes del lanzamiento
+  del mes. Es **#6 en uso mundial** (5,72T tokens/semana) y no lo medíamos. Declara
+  `reasoning` y **no estaba en `THINKING_MODELS`**: sin ese patrón se habría publicado con
+  las respuestas cortadas, como le pasó a Opus 5 en agosto. Canario 18/18; el examen corre
+  con 2 runners por la Regla 0.3 del runbook.
+
 - **El PDF del mes publicaba cifras que ningún modelo tiene.** Cristian: *"revisa que no
   haya problemas con la data del datasheet… debemos usar la misma data del benchmark en
   todos lados"*. Al mirarlo aparecieron **tres clases de desfase en los dos generadores

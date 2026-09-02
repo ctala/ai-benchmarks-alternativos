@@ -450,6 +450,15 @@ def render(models: dict, runs: list) -> str:
     _ctx.sort(key=lambda m: -(m["context_window"] - m["effective_context"]))
     _peor_ctx = _ctx[0] if _ctx else None
     _k = lambda v: f"{v // 1000}K" if v < 1_000_000 else f"{v / 1_000_000:.0f}M"
+    # 2-sep-2026 · el conteo decía «9» y son 11. Se deriva del CATÁLOGO VIVO
+    # (`models.py`), no de `models.json`: el export arrastra un residuo —DiffusionGemma,
+    # con provider `diffusion_cli`— que ya no está en el catálogo, y contarlo daba 12.
+    # El primer intento cayó al fallback porque desde `cheatsheet/` el root no está en
+    # `sys.path`, y publicó el número equivocado sin avisar.
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT))
+    from benchmarks.models import MODELS as _CFG
+    _n_prov = len({v.get("provider", "openrouter") for v in _CFG.values()})
 
     # ── LOS MODELOS NUEVOS SON LA NOTICIA DEL MES ────────────────────────────
     # Cristian: *"usemos los más nuevos también como palanca en insights"*. Un cheatsheet
@@ -953,7 +962,7 @@ def render(models: dict, runs: list) -> str:
 <div class="page">
     <h2>Mapa de Proveedores</h2>
     <p style="font-size:9pt; color:#b0b0b0; margin-bottom:10px;">
-        9 providers (incl. suscripción Claude Code) — {MONTH} {YEAR}. Ordenados por costo (de más barato a más caro).
+        {_n_prov} providers (incl. suscripción Claude Code) — {MONTH} {YEAR}. Ordenados por costo (de más barato a más caro).
     </p>
 
     <table>

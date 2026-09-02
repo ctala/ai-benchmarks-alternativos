@@ -565,6 +565,25 @@ MODELS = {
             "Revisar el catálogo de OpenRouter cada tanto: entra solo cuando aparezca."
         ),
     },
+    "hy4-preview": {
+        # 2-sep-2026 · entró por el cruce con el ranking de USO de OpenRouter: es el
+        # **#6 del mundo por tokens procesados** (5,72T/semana) y no lo teníamos medido.
+        # Un benchmark que solo se compara consigo mismo no descubre lo que le falta.
+        #
+        # Razona (`reasoning` en OpenRouter) y el patrón `tencent/hy4` ya está en
+        # THINKING_MODELS: sin eso agotaría el presupuesto pensando y devolvería vacío.
+        "id": "tencent/hy4-preview",
+        "name": "Tencent Hy4 preview",
+        "cost_input": 0.83,
+        "cost_output": 2.50,
+        "tier": "cheap",
+        "context_window": 1048576,
+        "notes": (
+            "Sucesor de Hy3, que está #6 en nuestro ranking de calidad y #5 en uso "
+            "mundial. Es «preview»: el proveedor puede cambiarlo sin aviso, así que "
+            "conviene re-verificar la procedencia de sus runs antes de citarlo."
+        ),
+    },
     "qwen3.8-flash": {
         # 1-sep-2026 · la versión de PRODUCCIÓN por API. Ojo con el nombre: lo que Qwen
         # anunció el 26-ago como «Qwen3.8-Flash-Next» son los PESOS ABIERTOS (HuggingFace,
