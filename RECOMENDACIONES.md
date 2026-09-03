@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-09-02 · 99 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-09-03 · 100 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -37,7 +37,7 @@ _Generación y corrección de código._
 - **Usá:** **Solar Pro 4** — ≈$1/mes (calidad en Coding 9.84/10)
 - **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**50.5× más**) por apenas -0.18 de calidad — dentro del margen de error.
 - **Mejor open-source:** **Poolside Laguna XS 2.1** — ≈$1/mes (calidad en Coding 9.71/10)
-- _12 modelos empatan en calidad en este pilar._
+- _13 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
@@ -45,7 +45,7 @@ _Análisis, decisiones, problemas con varios pasos._
 
 - **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.33/10)
 - **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas +0.00 de calidad — dentro del margen de error.
-- _14 modelos empatan en calidad en este pilar._
+- _13 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -63,7 +63,7 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**40 modelos empatan en calidad** en la cima del ranking global.
+**41 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.

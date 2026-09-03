@@ -5,15 +5,43 @@
 
 ## [No publicado]
 
-- **Tencent Hy4 preview: examen en curso** (144 de 213 al momento de escribir esto).
-  Entra al ranking en la próxima regeneración.
+## [v4.13.0] - 2026-09-03 — Hy4 entra al ranking (100 modelos), y las fichas dejan de publicar el puesto de otra escala
 
-  ⚠️ **Se está midiendo con la configuración ANTERIOR a v4.12.0** —sin `effort` y con los
-  presupuestos viejos—, y eso es lo correcto: sus runners arrancaron a las 08:24 y los
-  cambios entraron a las 14:44, así que Python ya tenía los módulos cargados. Queda
-  **comparable con los otros 99**, que es lo que importa para publicarlo. El lote que
-  venga después será el primero medido con `effort=medium`, y ahí empieza la brecha de
-  comparabilidad que hay que resolver (re-medir los 46 thinking o declararlo en la ficha).
+- ⚠️ **95 de las 100 fichas publicaban un puesto que no correspondía a su nota.**
+  `generate_model_cards.py` ordenaba por `score_global` —el z-score interno, abandonado
+  como escala publicable en v4.1— mientras el tile dice «Nota de calidad 8,39 /10 · #28
+  de 100». La nota de una escala junto al puesto de otra, en la misma línea. Desvío medio
+  **8,6 posiciones, máximo 29**: Gemini 3.5 Flash Lite se publicaba **#10 cuando por su
+  nota es #39**.
+
+  Tercera aparición del mismo error en dos días (cheatsheet, `release_diff.py`, fichas).
+  Por eso el test no comprueba el sort: **lee el HTML publicado** y compara el puesto que
+  imprime contra el orden por `quality_avg`. Verificado rompiéndolo.
+
+- **`MAPA.md`: dónde vive cada artefacto, quién lo escribe y quién lo vigila.** Cristian,
+  después de verme buscar las fichas en tres rutas equivocadas: *"tenemos que tener ese
+  mapa listo y no construirlo cada vez"*. Lo caro no fueron los tres intentos — fue que
+  en uno **concluí que faltaban 95 fichas cuando estaban las 100**. El dato ya vivía en
+  el código (`check_fichas_alcanzables.py` sabe la ruta); faltaba poder leerlo sin leer
+  el código.
+
+  Se **genera** y cada fila se verifica contra el disco: si una ruta no existe, si el
+  generador desapareció o si un guardrail fue renombrado, falla ruidoso. Entra al
+  pipeline maestro con `--check`. Saboteado en sus tres modos (artefacto movido,
+  guardrail renombrado, fila nueva sin regenerar).
+
+- **Tencent Hy4 preview entra al ranking: 8,39, puesto 19 de 100.** Terminó su examen
+  completo (213 tests, **cero errores**) y sus 4 tareas agénticas en Harbor (3 perfectas,
+  una 0,92 → eje agéntico 9,06, #28). Se midió con la configuración ANTERIOR a v4.12.0
+  —sin `effort`, presupuestos viejos—, así que **es comparable con los otros 99**: sus
+  runners arrancaron a las 08:24 y el cambio entró a las 14:44.
+
+  El cruce con el uso real se sostiene: Hy4 es **#6 del mundo por tokens procesados y
+  rinde #19**. Y contra su antecesor, el titular no es el que parece: Hy3 sale mejor en
+  el índice (8,49 vs 8,39), pero **sobre los 193 tests que rindieron ambos el Δ es +0,27
+  A FAVOR de Hy4, con t≈1,77 — dentro del ruido** (gana 41, pierde 47, empata 105). O
+  sea: son indistinguibles en calidad y **Hy4 cuesta 4,8 veces más**. Mismo hallazgo del
+  mes que GLM 5.3 vs su Flash, ahora dentro de Tencent.
 
 ## [v4.12.0] - 2026-09-02 — se manda effort=medium, y el presupuesto sube para absorberlo
 

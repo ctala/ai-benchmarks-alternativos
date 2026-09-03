@@ -1250,3 +1250,36 @@ def test_effort_solo_por_openrouter():
     assert "reasoning" not in c.get("extra_body", {}), (
         "se mandó `reasoning` a un proveedor que no es OpenRouter"
     )
+
+
+def test_las_fichas_ordenan_por_la_nota_que_muestran():
+    """El puesto de una ficha tiene que corresponder a la nota que publica al lado.
+
+    POR QUÉ (3-sep-2026). `generate_model_cards.py` ordenaba por `score_global` —el
+    z-score interno, abandonado como escala publicable en v4.1— mientras el tile dice
+    «Nota de calidad 8,39 /10 · #28 de 100». **95 de 100 fichas publicaban un puesto
+    que no correspondía a su nota**, desvío medio 8,6 posiciones y máximo 29: Gemini
+    3.5 Flash Lite salía #10 cuando por su nota es #39.
+
+    Tercera aparición del mismo error en dos días (cheatsheet, release_diff, fichas).
+    """
+    import json, re, pathlib
+    raiz = pathlib.Path(__file__).resolve().parent.parent
+    d = json.loads((raiz / "docs/data/models.json").read_text())
+    R = [m for m in d["models"] if m.get("ranked")]
+    orden = sorted(R, key=lambda x: -(x.get("quality_avg") or 0))
+    esperado = {m["key"]: i + 1 for i, m in enumerate(orden)}
+
+    malas = []
+    for m in R:
+        f = raiz / "docs/modelo" / m["key"] / "index.html"
+        if not f.exists():
+            continue
+        txt = re.sub(r"<[^>]+>", " ", f.read_text())
+        mt = re.search(r"Nota de calidad\s+[\d.,]+\s*/10\s+#(\d+) de (\d+)", re.sub(r"\s+", " ", txt))
+        if mt and int(mt.group(1)) != esperado[m["key"]]:
+            malas.append((m["name"], int(mt.group(1)), esperado[m["key"]]))
+    assert not malas, (
+        f"{len(malas)} ficha(s) publican un puesto que no corresponde a su nota de "
+        f"calidad (ordenadas por otra escala): {malas[:5]}"
+    )
