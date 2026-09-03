@@ -5,6 +5,13 @@
 
 ## [No publicado]
 
+- **El PDF del mes quedó desactualizado al entrar Hy4, y su guardrail lo cazó.** Con 100
+  modelos en vez de 99 se movieron cifras que el cheatsheet ya tenía impresas
+  (`check_release_mensual` marcó 3 parejas modelo↔cifra sin respaldo en `models.json`).
+  Regenerado: **68 parejas verificadas, 0 sin cuadrar**. Es justo el caso para el que se
+  construyó ese chequeo — un release se desincroniza solo cuando cambia el dato debajo.
+
+
 - **`MAPA.md` no declaraba su estado, y eso rompía el guardrail de OTRO chequeo.** Sin
   `<!-- doc: generado -->`, `check_docs` lo contaba como doc sin estado y devolvía 1;
   eso hacía fallar la prueba de sabotaje de `check_docs`, que exige verde cuando no hay

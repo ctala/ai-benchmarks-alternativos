@@ -270,11 +270,11 @@ strong { color: #ffffff; }
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">Septiembre 2026</div>
-    <p class="meta">159 modelos medidos (210 catalogados, 99 rankeados) · 67,044+ runs reales · v4.10.0</p>
+    <p class="meta">160 modelos medidos (210 catalogados, 100 rankeados) · 67,275+ runs reales · v4.13.0</p>
 
     <div class="stats">
         <div class="stat-box">
-            <span class="stat-number">159</span>
+            <span class="stat-number">160</span>
             <span class="stat-label">Modelos medidos</span>
         </div>
         <div class="stat-box">
@@ -286,7 +286,7 @@ strong { color: #ffffff; }
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">67,044+</span>
+            <span class="stat-number">67,275+</span>
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
@@ -294,7 +294,7 @@ strong { color: #ffffff; }
     <p class="meta">Medido desde Santiago, Chile · 9 vías (OpenRouter, OpenAI, Anthropic, Groq, NVIDIA NIM, Xiaomi, Ollama Cloud, MiniMax, suscripción Claude Code)</p>
 
     <div class="score-formula">
-        <div class="title">Como se calcula el Score (v4.10.0 · z-score congelado)</div>
+        <div class="title">Como se calcula el Score (v4.13.0 · z-score congelado)</div>
         <div class="row"><span class="pct">70%</span>Calidad (formato + sustancia + LLM-as-Judge Phi-4 14B local, MIT)</div>
         <div class="row"><span class="pct">15%</span>Costo (curva log inversa: $0.001/call=8.0, $0.01=5.0, $0.10=2.0)</div>
         <div class="row"><span class="pct">7.5%</span>Velocidad (tokens por segundo)</div>
@@ -302,7 +302,7 @@ strong { color: #ffffff; }
         <div class="row"><span class="pct">0%</span>Tool Calling — sale del compuesto, queda como badge</div>
     </div>
     <p class="meta" style="margin-top:8px;font-size:7.5pt;max-width:700px;">
-        <strong>v4.10.0 · referencia congelada</strong>: cada dimensión se <strong>estandariza (z-score)</strong> contra una
+        <strong>v4.13.0 · referencia congelada</strong>: cada dimensión se <strong>estandariza (z-score)</strong> contra una
         referencia <strong>congelada por versión</strong>, así agregar o medir un modelo nuevo ya NO recalcula el score de
         los demás (los números dejan de caducar solos). Fórmula: score = clamp(5.5 + 3.3·Σ wᵢ·z(dimᵢ), 0, 10).
     </p>
@@ -319,7 +319,7 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Hallazgos clave de Septiembre 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Lo que muestran los datos de v4.10.0, con 99 modelos que rindieron el examen completo.
+        Lo que muestran los datos de v4.13.0, con 100 modelos que rindieron el examen completo.
         El hallazgo del mes se puede probar dentro de una misma familia, que es donde no cabe
         la réplica de «son modelos distintos».
     </p>
@@ -335,12 +335,12 @@ strong { color: #ffffff; }
 
             <h3>💡 Arriba están todos empatados</h3>
             <p style="font-size:9pt;">El top 10 entero cabe en <strong>0.06 puntos</strong>, y del
-            primero al último de los 99 hay 1.27. La calidad está
+            primero al último de los 100 hay 1.27. La calidad está
             apretada; el precio no. Por eso esto es una calculadora con TUS pesos y no un ranking único:
             leer la tabla por posición engaña cuando la distancia real es de centésimas.</p>
 
             <h3>📏 Contexto USABLE ≠ declarado</h3>
-            <p style="font-size:9pt;">El contexto de marketing miente: <strong>41 de los 99 rankeados
+            <p style="font-size:9pt;">El contexto de marketing miente: <strong>42 de los 100 rankeados
             entregan menos de lo que declaran</strong>. El caso más extremo hoy es
             <strong>Muse Spark 1.2</strong>, que anuncia 1M
             y en la práctica sostiene 128K. Con needles neutros, los modelos top retrievean parejo hasta su techo real —
@@ -348,7 +348,7 @@ strong { color: #ffffff; }
         </div>
         <div>
             <h3>🆕 Lo que entró este mes</h3>
-            <p style="font-size:9pt;"><strong>Qwen 3.8 Flash</strong> entra #1 con 8.53 a $2/mes. <strong>GLM 5.3 Flash</strong> entra #4 con 8.51 a $1/mes. 
+            <p style="font-size:9pt;">Sin modelos nuevos en el ranking desde el release anterior. 
             El #1 del catálogo es <strong>Qwen 3.8 Flash</strong> (8.53) y cuesta
             $2 al mes: <strong>lo barato dejó de ser la opción de compromiso</strong>,
             hoy es la que encabeza.</p>
@@ -358,9 +358,9 @@ strong { color: #ffffff; }
             los <strong>premium rehúsan</strong> (Opus 4.8 ~8.8), varios <strong>baratos filtran</strong> (~2). Si tu agente procesa
             documentos de terceros, la seguridad pesa más que ganar 0.2 de calidad — y ahí el orden del ranking cambia.</p>
 
-            <h3>🤖 El agéntico ahora es un eje propio (v4.10.0)</h3>
+            <h3>🤖 El agéntico ahora es un eje propio (v4.13.0)</h3>
             <p style="font-size:9pt;">Las tareas agénticas (multi-turno, orquestación, horizonte largo) son donde los premium se
-            diferencian de verdad. En v4.10.0 el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
+            diferencian de verdad. En v4.13.0 el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
             (<code>agentic_score</code>), para rankear por "qué tan buen agente es" sin que lo tape el promedio.</p>
         </div>
     </div>
@@ -391,17 +391,6 @@ strong { color: #ffffff; }
             </tr>
             <tr>
                 <td>2</td>
-                <td><strong>GPT-5.6 Luna</strong></td>
-                <td><strong>8.52</strong></td>
-                <td>$3/mes</td>
-                <td>7.75</td>
-                <td>6.36</td>
-                <td>8.52</td>
-                <td>3.0</td>
-                <td>openrouter</td>
-            </tr>
-            <tr>
-                <td>3</td>
                 <td><strong>GLM 5.3</strong></td>
                 <td><strong>8.52</strong></td>
                 <td>$21/mes</td>
@@ -412,7 +401,7 @@ strong { color: #ffffff; }
                 <td>openrouter</td>
             </tr>
             <tr>
-                <td>4</td>
+                <td>3</td>
                 <td><strong>GLM 5.3 Flash</strong></td>
                 <td><strong>8.51</strong></td>
                 <td>$1/mes</td>
@@ -423,14 +412,25 @@ strong { color: #ffffff; }
                 <td>openrouter</td>
             </tr>
             <tr>
+                <td>4</td>
+                <td><strong>GPT-5.6 Luna</strong></td>
+                <td><strong>8.49</strong></td>
+                <td>$3/mes</td>
+                <td>7.74</td>
+                <td>6.36</td>
+                <td>8.52</td>
+                <td>2.91</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
                 <td>5</td>
                 <td><strong>Qwen 3.7 Flash</strong></td>
                 <td><strong>8.49</strong></td>
                 <td>$1/mes</td>
                 <td>7.94</td>
                 <td>8.18</td>
-                <td>9.41</td>
-                <td>1.58</td>
+                <td>9.44</td>
+                <td>1.55</td>
                 <td>openrouter</td>
             </tr>
             <tr>
@@ -446,17 +446,6 @@ strong { color: #ffffff; }
             </tr>
             <tr>
                 <td>7</td>
-                <td><strong>Gemma 4 31B</strong></td>
-                <td><strong>8.48</strong></td>
-                <td>$2/mes</td>
-                <td>7.93</td>
-                <td>8.39</td>
-                <td>6.55</td>
-                <td>2.9</td>
-                <td>openrouter</td>
-            </tr>
-            <tr>
-                <td>8</td>
                 <td><strong>Claude Opus 4.8</strong></td>
                 <td><strong>8.48</strong></td>
                 <td>$117/mes</td>
@@ -467,7 +456,7 @@ strong { color: #ffffff; }
                 <td>openrouter</td>
             </tr>
             <tr>
-                <td>9</td>
+                <td>8</td>
                 <td><strong>Claude Opus 4.6</strong></td>
                 <td><strong>8.48</strong></td>
                 <td>$117/mes</td>
@@ -475,6 +464,17 @@ strong { color: #ffffff; }
                 <td>7.6</td>
                 <td>6.32</td>
                 <td>1.62</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><strong>Gemma 4 31B</strong></td>
+                <td><strong>8.47</strong></td>
+                <td>$2/mes</td>
+                <td>7.92</td>
+                <td>8.39</td>
+                <td>6.55</td>
+                <td>2.79</td>
                 <td>openrouter</td>
             </tr>
             <tr>
@@ -510,7 +510,7 @@ strong { color: #ffffff; }
             </tr>
             <tr>
                 <td>3</td><td>Gemma 4 31B</td>
-                <td>8.48</td>
+                <td>8.47</td>
                 <td><strong>$2/mes</strong></td>
             </tr>
             <tr>
@@ -532,7 +532,7 @@ strong { color: #ffffff; }
         Opus/Gemini/Hermes 4 suben fuerte. Si el costo importa: top compuesto.
     </div>
 
-    <p class="guino">Ranking completo de 99 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
+    <p class="guino">Ranking completo de 100 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
 </div>
 
 <!-- ============================================================ -->
@@ -626,10 +626,10 @@ strong { color: #ffffff; }
             <h3>Razonamiento (single-turn)</h3>
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
 <tr><td>1</td><td>MiniMax M3</td><td><strong>8.60</strong></td></tr>
-<tr><td>2</td><td>GPT-5.6 Luna</td><td><strong>8.58</strong></td></tr>
-<tr><td>3</td><td>GLM 5</td><td><strong>8.56</strong></td></tr>
-<tr><td>4</td><td>Claude Opus 4.6</td><td><strong>8.47</strong></td></tr>
-<tr><td>5</td><td>DeepSeek R1 (reasoni</td><td><strong>8.47</strong></td></tr>
+<tr><td>2</td><td>GLM 5</td><td><strong>8.56</strong></td></tr>
+<tr><td>3</td><td>Claude Opus 4.6</td><td><strong>8.47</strong></td></tr>
+<tr><td>4</td><td>DeepSeek R1 (reasoni</td><td><strong>8.47</strong></td></tr>
+<tr><td>5</td><td>Claude Opus 4.8</td><td><strong>8.46</strong></td></tr>
             </tbody></table>
 
             <h3>Coding</h3>
@@ -1002,7 +1002,7 @@ strong { color: #ffffff; }
             <div class="qr-label">🎛 Calculadora interactiva</div>
             <div class="qr-url">https://benchmarks.cristiantala.com/</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
-                Filtra por presupuesto, calidad, velocidad. Top 99 modelos actualizados.
+                Filtra por presupuesto, calidad, velocidad. Top 100 modelos actualizados.
             </p>
         </div>
         <div class="qr-box">
@@ -1030,7 +1030,7 @@ strong { color: #ffffff; }
             github.com/ctala/ai-benchmarks-alternativos
         </p>
         <p style="font-family: 'JetBrains Mono', monospace; color: #00d4ff; font-size: 10pt; margin-top: 4px;">
-            cristiantala.com · Septiembre 2026 · v4.10.0 · MIT
+            cristiantala.com · Septiembre 2026 · v4.13.0 · MIT
         </p>
     </div>
 
