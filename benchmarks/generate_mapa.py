@@ -148,7 +148,8 @@ def construir() -> tuple[str, list[str]]:
             f"| {a['que']} | {ruta} | {detalle} | `{a['genera']}` | `{a['vigila']}` |"
         )
 
-    out = ["<!-- GENERADO por benchmarks/generate_mapa.py — NO editar a mano -->",
+    out = ["<!-- doc: generado -->",
+           "<!-- GENERADO por benchmarks/generate_mapa.py — NO editar a mano -->",
            "# Mapa de artefactos — dónde vive cada cosa\n",
            "> **Este doc se GENERA y cada fila se verifica contra el disco.** Si una ruta",
            "> no existe o el script que la declara desapareció, `generate_mapa.py --check`",

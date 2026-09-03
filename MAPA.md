@@ -1,3 +1,4 @@
+<!-- doc: generado -->
 <!-- GENERADO por benchmarks/generate_mapa.py — NO editar a mano -->
 # Mapa de artefactos — dónde vive cada cosa
 

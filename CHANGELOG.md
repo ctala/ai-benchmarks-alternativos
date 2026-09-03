@@ -5,6 +5,14 @@
 
 ## [No publicado]
 
+- **`MAPA.md` no declaraba su estado, y eso rompía el guardrail de OTRO chequeo.** Sin
+  `<!-- doc: generado -->`, `check_docs` lo contaba como doc sin estado y devolvía 1;
+  eso hacía fallar la prueba de sabotaje de `check_docs`, que exige verde cuando no hay
+  vencidos. Un doc nuevo tumbando el guardrail de otro es un acople que sólo aparece
+  corriendo la suite entera, no el chequeo que uno acaba de tocar — y lo cazó el
+  pre-push, no yo.
+
+
 ## [v4.13.0] - 2026-09-03 — Hy4 entra al ranking (100 modelos), y las fichas dejan de publicar el puesto de otra escala
 
 - ⚠️ **95 de las 100 fichas publicaban un puesto que no correspondía a su nota.**
