@@ -14,7 +14,7 @@ otra es medir. **Casi nunca dan lo mismo**, y este documento es el cruce.
 
 A la izquierda, el ranking de OpenRouter por **tokens procesados** — la evidencia más
 directa que existe de qué está corriendo hoy en producción, sobre millones de
-desarrolladores. A la derecha, nuestro **índice de calidad**: 99 modelos que rindieron el
+desarrolladores. A la derecha, nuestro **índice de calidad**: 100 modelos que rindieron el
 mismo examen en español, con tareas de negocio y agentes reales.
 
 ## El cruce
@@ -26,7 +26,7 @@ mismo examen en español, con tareas de negocio y agentes reales.
 | **#3** | GPT-5.6 Luna | 9,52T | 8,52 | **#2** |
 | **#4** | MiMo-V2.5 | 7,2T | 8,10 | **#60** |
 | **#5** | Tencent Hy3 | 5,89T | 8,49 | **#6** |
-| **#6** | Hy4 preview | 5,72T | — | *sin medir* |
+| **#6** | Hy4 preview | 5,72T | 8,39 | **#19** |
 | **#7** | DeepSeek V4 Flash 0423 | 5,16T | 8,16 | **#49** |
 | **#8** | Nemotron 3 Ultra *(free)* | 4,63T | 8,01 | **#74** |
 | **#9** | Ox Alpha *(stealth)* | 4,0T | — | *no medible* |
@@ -68,11 +68,12 @@ funciona.
 
 ## Lo incómodo para nosotros
 
-**Tres de los diez modelos más usados del mundo no están en nuestro ranking**, y cada uno
+**Dos de los diez modelos más usados del mundo no están en nuestro ranking**, y cada uno
 por una razón distinta:
 
-- **Hy4 preview** (#6, 5,72T tokens) — está en OpenRouter y simplemente **no lo medimos
-  todavía**. Es un hueco nuestro, y se corrige midiéndolo.
+- **Hy4 preview** (#6, 5,72T tokens) — **ya está medido** (3-sep-2026): saca
+  8,39 y queda **#19 de 100**. Era un hueco nuestro y se corrigió midiéndolo,
+  que es exactamente para lo que sirve publicar este cruce.
 - **Ox Alpha** (#9, 4T tokens) — un modelo *stealth*: no figura en el catálogo público, no
   se sabe quién lo hace ni qué versión sirve. **No es medible con nuestro estándar**, que
   exige poder repetir el examen contra el mismo endpoint.

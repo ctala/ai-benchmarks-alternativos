@@ -1,13 +1,13 @@
 # GPT-5.6 Luna
 
 - **model_id**: `openai/gpt-5.6-luna`
-- **Total tests**: 288/339 exitosos (51 errores)
-- **Score final**: 8.29
-- **Calidad**: 8.97
-- **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 70 tok/s
-- **Latencia primera token**: 5.38s
-- **Costo promedio por test**: $0.00351
+- **Total tests**: 297/348 exitosos (51 errores)
+- **Score final**: 8.25
+- **Calidad**: 8.92
+- **Judge score (Phi-4)**: 4.14/10
+- **Velocidad**: 71 tok/s
+- **Latencia primera token**: 5.83s
+- **Costo promedio por test**: $0.00344
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -24,7 +24,7 @@
 | content_verificable | 13 | 13 | 8.87 | 9.40 |
 | creativity | 4 | 4 | 8.72 | 9.25 |
 | customer_support | 4 | 4 | 7.22 | 7.12 |
-| deep_reasoning | 6 | 6 | 7.33 | 7.50 |
+| deep_reasoning | 12 | 12 | 6.69 | 6.67 |
 | hallucination | 3 | 3 | 7.72 | 7.67 |
 | integridad_idioma | 4 | 4 | 8.93 | 9.71 |
 | multi_turn | 4 | 4 | 8.20 | 8.50 |
@@ -35,7 +35,7 @@
 | policy_adherence | 4 | 4 | 8.06 | 8.08 |
 | presentation | 2 | 2 | 8.45 | 9.30 |
 | prompt_injection_es | 20 | 20 | 7.54 | 7.75 |
-| reasoning | 3 | 3 | 8.62 | 9.42 |
+| reasoning | 6 | 6 | 8.56 | 9.42 |
 | sales_outreach | 3 | 3 | 7.27 | 7.11 |
 | startup_content | 7 | 7 | 8.56 | 9.49 |
 | strategy | 3 | 3 | 8.85 | 10.00 |
@@ -62,6 +62,12 @@
 | code_bug_subtle | 9.00 | 10.00 | 4.0 | 118 | 19.25s | OK |
 | fermi_estimation | 2.05 | 0.00 | 4.4 | 144 | 13.44s | OK |
 | ethical_dilemma_structured | 8.86 | 10.00 | 4.2 | 154 | 21.80s | OK |
+| math_word_problem | 9.30 | 10.00 | - | 100 | 5.71s | OK |
+| logic_puzzle_constraint | 5.63 | 5.00 | - | 82 | 7.83s | OK |
+| causal_reasoning | 8.82 | 10.00 | - | 89 | 24.45s | OK |
+| code_bug_subtle | 3.60 | 2.50 | - | 83 | 22.57s | OK |
+| fermi_estimation | 1.91 | 0.00 | - | 97 | 14.60s | OK |
+| ethical_dilemma_structured | 6.98 | 7.50 | - | 97 | 34.89s | OK |
 
 <details><summary><code>math_word_problem</code> — score 9.35</summary>
 
@@ -206,6 +212,149 @@ Interpretaré “oficinas de Santiago” como oficinas ubicadas en el área metr
 
 </details>
 
+<details><summary><code>math_word_problem</code> — score 9.30</summary>
+
+**Stats**: latencia 5.71s · 100 tok/s · 86→571 tokens · $0.00035
+
+**Respuesta (preview 300 chars)**:
+
+```
+### Datos
+
+- Distancia Santiago–Valparaíso: **120 km**
+- Tren 1: sale de Santiago a las **8:00**, velocidad **80 km/h**
+- Tren 2: sale de Valparaíso a las **8:30**, velocidad **120 km/h**
+
+### 1. Distancia recorrida por el primer tren antes de las 8:30
+
+Desde las 8:00 hasta las 8:30 transcurren:
+
+\[
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/math_word_problem__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/math_word_problem__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 5.63</summary>
+
+**Stats**: latencia 7.83s · 82 tok/s · 96→641 tokens · $0.00039
+
+**Respuesta (preview 300 chars)**:
+
+```
+No hay una única solución: existen **dos órdenes posibles**.
+
+Llamemos a las posiciones 1, 2, 3 y 4 de izquierda a derecha.
+
+### 1. Posibles posiciones de la casa azul
+
+La azul no puede estar en los extremos, así que solo puede estar en la posición **2 o 3**.
+
+### Caso 1: azul en la posición 2
+
+La r
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/logic_puzzle_constraint__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/logic_puzzle_constraint__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 8.82</summary>
+
+**Stats**: latencia 24.45s · 89 tok/s · 178→2173 tokens · $0.00132
+
+**Respuesta (preview 300 chars)**:
+
+```
+### 1. Tasas relevantes
+
+| Mes | Pedidos | Quejas | Tasa de quejas | Tiempo promedio | Días de lluvia |
+|---|---:|---:|---:|---:|---:|
+| 1 | 1.000 | 50 | **5,0%** | 35 min | 5 |
+| 2 | 1.200 | 90 | **7,5%** | 42 min | 12 |
+| 3 | 1.100 | 110 | **10,0%** | 38 min | 8 |
+
+La tasa de quejas, que es más re
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/causal_reasoning__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/causal_reasoning__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 3.60</summary>
+
+**Stats**: latencia 22.57s · 83 tok/s · 212→1868 tokens · $0.00114
+
+**Respuesta (preview 300 chars)**:
+
+```
+El fallo aparece cuando `data` está vacío:
+
+```python
+remove_outliers_and_average([])
+```
+
+Como `len(data) < 3`, se ejecuta:
+
+```python
+return sum(data) / len(data)
+```
+
+Pero:
+
+- `sum([])` vale `0`
+- `len([])` vale `0`
+
+Por tanto se intenta calcular `0 / 0`, lo que produce:
+
+```python
+ZeroDivisionEr
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/code_bug_subtle__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/code_bug_subtle__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 1.91</summary>
+
+**Stats**: latencia 14.60s · 97 tok/s · 68→1417 tokens · $0.00086
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Estimación tipo Fermi
+
+Interpretaré “Santiago” como el área metropolitana y “al día” como un **día laboral promedio**. Estimaré litros de café preparado consumidos físicamente dentro de oficinas, incluyendo café de máquina, cafetería y termos.
+
+### Supuestos numerados
+
+1. **Personas empleadas en
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/fermi_estimation__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/fermi_estimation__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 6.98</summary>
+
+**Stats**: latencia 34.89s · 97 tok/s · 181→3393 tokens · $0.00205
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. Stakeholders afectados
+
+1. **Pacientes**
+   - Personas con cáncer que podrían beneficiarse de una detección temprana.
+   - Personas sin cáncer que podrían recibir falsos positivos, ansiedad, biopsias o tratamientos innecesarios.
+   - Personas de piel oscura, que enfrentan una mayor probabilida
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/deep_reasoning/ethical_dilemma_structured__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/deep_reasoning/ethical_dilemma_structured__20260902_132832_23610.md)
+
+</details>
+
 #### reasoning
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -213,6 +362,9 @@ Interpretaré “oficinas de Santiago” como oficinas ubicadas en el área metr
 | business_analysis | 8.82 | 9.87 | 5 | 160 | 17.99s | OK |
 | logical_reasoning | 8.56 | 8.96 | 4.6 | 156 | 5.27s | OK |
 | multi_constraint_decision | 8.47 | 9.44 | 5.0 | 151 | 27.71s | OK |
+| business_analysis | 8.44 | 9.52 | 4.8 | 95 | 29.59s | OK |
+| logical_reasoning | 8.69 | 9.24 | 4.6 | 141 | 6.31s | OK |
+| multi_constraint_decision | 8.39 | 9.52 | 5.0 | 98 | 36.92s | OK |
 
 <details><summary><code>business_analysis</code> — score 8.82</summary>
 
@@ -301,6 +453,83 @@ Para este MVP priorizaría:
 ```
 
 **Respuesta completa**: [`results/responses/20260710_110324_109890/gpt-5.6-luna__reasoning__multi_constraint_decision.md`](../results/responses/20260710_110324_109890/gpt-5.6-luna__reasoning__multi_constraint_decision.md)
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 8.44</summary>
+
+**Stats**: latencia 29.59s · 95 tok/s · 168→2812 tokens · $0.00170
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## 1. Métricas clave
+
+**Supuestos:**
+
+- Uso los usuarios reportados en cada mes como denominador del churn.
+- El ARPU es constante:  
+  \[
+  \$18,000 / 1,200 = \$15 \text{ por usuario}
+  \]
+- La NRR real no puede calcularse exactamente sin datos de expansión, downgrades y MRR de la cohorte inicial.
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/reasoning/business_analysis__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/reasoning/business_analysis__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.69</summary>
+
+**Stats**: latencia 6.31s · 141 tok/s · 126→889 tokens · $0.00055
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Vamos a definir las cantidades de personas en cada equipo:
+
+- \(A\): personas del equipo A  
+- \(B\): personas del equipo B  
+- \(C\): personas del equipo C  
+- \(D\): personas del equipo D  
+- \(E\): personas del equipo E  
+
+### Paso 1: Usar los datos directos
+
+Sabemos que:
+
+\[
+B=10
+\]
+
+Además, D t
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/reasoning/logical_reasoning__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/reasoning/logical_reasoning__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.39</summary>
+
+**Stats**: latencia 36.92s · 98 tok/s · 163→3599 tokens · $0.00218
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+## Supuestos
+
+- Costos en USD y **sin incluir salarios**, asesoría legal ni comisiones de pago.
+- El marketplace usará **Stripe Connect** u otro proveedor equivalente para onboarding de freelancers y payouts.
+- La búsqueda inicial puede resolverse con PostgreSQL; no recomiendo introducir Elasticsear
+```
+
+**Respuesta completa**: [`results/responses/gpt-5.6-luna/reasoning/multi_constraint_decision__20260902_132832_23610.md`](../results/responses/gpt-5.6-luna/reasoning/multi_constraint_decision__20260902_132832_23610.md)
 
 </details>
 

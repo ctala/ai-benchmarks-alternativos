@@ -1,13 +1,13 @@
 # Qwen 3.7 Flash
 
 - **model_id**: `qwen/qwen3.7-flash`
-- **Total tests**: 306/307 exitosos (1 errores)
+- **Total tests**: 315/316 exitosos (1 errores)
 - **Score final**: 7.89
 - **Calidad**: 8.16
-- **Judge score (Phi-4)**: 4.49/10
-- **Velocidad**: 107 tok/s
-- **Latencia primera token**: 17.61s
-- **Costo promedio por test**: $0.00124
+- **Judge score (Phi-4)**: 4.51/10
+- **Velocidad**: 109 tok/s
+- **Latencia primera token**: 18.03s
+- **Costo promedio por test**: $0.00123
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -24,7 +24,7 @@
 | content_verificable | 5 | 5 | 7.76 | 8.00 |
 | creativity | 4 | 4 | 8.26 | 8.75 |
 | customer_support | 4 | 4 | 8.65 | 8.90 |
-| deep_reasoning | 6 | 6 | 7.41 | 7.50 |
+| deep_reasoning | 12 | 12 | 7.39 | 7.50 |
 | dominio_entidad | 12 | 11 | 8.15 | 8.18 |
 | extraer_claims | 5 | 5 | 9.26 | 10.00 |
 | hallucination | 3 | 3 | 7.18 | 7.00 |
@@ -37,7 +37,7 @@
 | policy_adherence | 4 | 4 | 7.75 | 7.75 |
 | presentation | 2 | 2 | 8.89 | 9.70 |
 | prompt_injection_es | 20 | 20 | 3.32 | 1.45 |
-| reasoning | 3 | 3 | 9.00 | 9.81 |
+| reasoning | 6 | 6 | 8.95 | 9.75 |
 | retrieval_distractores | 44 | 44 | 8.47 | 8.64 |
 | sales_outreach | 3 | 3 | 7.23 | 7.11 |
 | startup_content | 5 | 5 | 8.70 | 9.36 |
@@ -65,6 +65,12 @@
 | code_bug_subtle | 5.51 | 5.00 | - | 127 | 64.35s | OK |
 | fermi_estimation | 5.67 | 5.00 | - | 117 | 32.01s | OK |
 | ethical_dilemma_structured | 9.17 | 10.00 | - | 112 | 32.71s | OK |
+| math_word_problem | 9.22 | 10.00 | - | 175 | 15.86s | OK |
+| logic_puzzle_constraint | 5.61 | 5.00 | - | 193 | 26.02s | OK |
+| causal_reasoning | 9.23 | 10.00 | - | 151 | 17.37s | OK |
+| code_bug_subtle | 8.91 | 10.00 | - | 184 | 75.58s | OK |
+| fermi_estimation | 2.14 | 0.00 | - | 152 | 28.31s | OK |
+| ethical_dilemma_structured | 9.13 | 10.00 | - | 138 | 33.01s | OK |
 
 <details><summary><code>math_word_problem</code> — score 9.24</summary>
 
@@ -174,6 +180,113 @@ A continuación presento una estimación tipo **problema de Fermi**, desglosada 
 
 </details>
 
+<details><summary><code>math_word_problem</code> — score 9.22</summary>
+
+**Stats**: latencia 15.86s · 175 tok/s · 104→2771 tokens · $0.00036
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el razonamiento paso a paso:
+
+### 🔹 Paso 1: Identificar los datos conocidos
+- Distancia total entre Santiago y Valparaíso: `D = 120 km`
+- Velocidad del Tren 1 (Santiago → Valparaíso): `v₁ = 80 km/h`
+- Hora de salida del Tren 1: `8:00 AM`
+- Velocidad del Tren 2 (Valparaíso → Santiago): `v
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/math_word_problem__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/math_word_problem__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 5.61</summary>
+
+**Stats**: latencia 26.02s · 193 tok/s · 104→5010 tokens · $0.00065
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para resolver este acertijo, asignaremos posiciones numéricas del 1 al 4 (de izquierda a derecha) y aplicaremos las pistas de forma lógica, probando sistemáticamente cada posibilidad como solicitaste.
+
+### 🔹 Paso 1: Fijar el espacio disponible
+Tenemos 4 posiciones: `[1] [2] [3] [4]`
+Colores disponib
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/logic_puzzle_constraint__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/logic_puzzle_constraint__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 9.23</summary>
+
+**Stats**: latencia 17.37s · 151 tok/s · 205→2621 tokens · $0.00035
+
+**Respuesta (preview 300 chars)**:
+
+```
+### 🔍 Análisis Cuantitativo
+
+| Mes | Pedidos | Quejas | **Tasa de quejas** | Lluvia (días) | Tiempo prom. (min) |
+|-----|---------|--------|-------------------|---------------|-------------------|
+| 1   | 1.000   | 50     | **5.0%**          | 5             | 35                |
+| 2   | 1.200   | 90
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/causal_reasoning__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/causal_reasoning__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 8.91</summary>
+
+**Stats**: latencia 75.58s · 184 tok/s · 228→13932 tokens · $0.00182
+
+**Respuesta (preview 300 chars)**:
+
+```
+El bug sutil aparece cuando **`mad == 0`** (y, de forma más trivial, cuando `data` está vacío). A continuación explico exactamente cuándo falla y por qué:
+
+### 🔍 Cuándo falla
+1. **Caso crítico**: Cuando la desviación absoluta mediana (`mad`) resulta ser `0`. Esto ocurre típicamente en datasets donde
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/code_bug_subtle__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/code_bug_subtle__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 2.14</summary>
+
+**Stats**: latencia 28.31s · 152 tok/s · 76→4303 tokens · $0.00056
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para estimar el consumo diario de café en litros en las oficinas de Santiago de Chile, aplico un método de descomposición tipo Fermi. Desgloso el problema en tres variables fundamentales, cada una con un rango conservador, un valor central y uno optimista, basándome en datos macroeconómicos chilenos
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/fermi_estimation__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/fermi_estimation__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 9.13</summary>
+
+**Stats**: latencia 33.01s · 138 tok/s · 192→4552 tokens · $0.00060
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis Decisón: Lanzamiento de Modelo IA para Detección de Cáncer
+
+## 1. Stakeholders Afectados
+| Grupo | Interés Principal | Riesgo/Beneficio Clave |
+|-------|-------------------|------------------------|
+| **Pacientes (piel clara)** | Diagnóstico temprano, acceso rápido | Beneficio directo por
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/deep_reasoning/ethical_dilemma_structured__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/deep_reasoning/ethical_dilemma_structured__20260902_132832_23610.md)
+
+</details>
+
 #### reasoning
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -181,6 +294,9 @@ A continuación presento una estimación tipo **problema de Fermi**, desglosada 
 | business_analysis | 9.08 | 10.00 | 5.0 | 110 | 52.88s | OK |
 | logical_reasoning | 8.84 | 9.44 | 4.6 | 141 | 18.83s | OK |
 | multi_constraint_decision | 9.07 | 10.00 | 5 | 108 | 57.29s | OK |
+| business_analysis | 9.12 | 10.00 | 5.0 | 142 | 32.29s | OK |
+| logical_reasoning | 8.51 | 9.04 | 4.6 | 183 | 18.38s | OK |
+| multi_constraint_decision | 9.05 | 10.00 | 5.0 | 152 | 45.30s | OK |
 
 <details><summary><code>business_analysis</code> — score 9.08</summary>
 
@@ -247,6 +363,67 @@ Aquí tienes un análisis estructurado para tomar una decisión informada, aline
 ```
 
 **Respuesta completa**: [`results/responses/20260812_qwen3.7-flash/qwen3.7-flash__reasoning__multi_constraint_decision.md`](../results/responses/20260812_qwen3.7-flash/qwen3.7-flash__reasoning__multi_constraint_decision.md)
+
+</details>
+
+<details><summary><code>business_analysis</code> — score 9.12</summary>
+
+**Stats**: latencia 32.29s · 142 tok/s · 206→4579 tokens · $0.00060
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis estructurado con fórmulas, supuestos claros y recomendaciones accionables:
+
+### 🔢 1. Métricas Clave Calculadas
+*(Se asume que la columna "usuarios" corresponde al cierre mensual. Para churn y crecimiento se usa el usuario del mes anterior como base de inicio. El ARPU es const
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/reasoning/business_analysis__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/reasoning/business_analysis__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.51</summary>
+
+**Stats**: latencia 18.38s · 183 tok/s · 135→3362 tokens · $0.00044
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la resolución paso a paso, con razonamiento lógico y matemático claro:
+
+### 🔹 Paso 1: Traducir las condiciones a expresiones matemáticas
+Asignamos una variable a cada equipo: `A, B, C, D, E` representan el número de miembros.
+Según el enunciado:
+1. `B < A < C`
+2. `D = A`
+3. `E < A, E < B
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/reasoning/logical_reasoning__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/reasoning/logical_reasoning__20260902_132832_23610.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 9.05</summary>
+
+**Stats**: latencia 45.30s · 152 tok/s · 180→6878 tokens · $0.00090
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un análisis estructurado para tomar una decisión técnica alineada con tus restricciones reales. He priorizado **velocidad de entrega, baja carga operativa y escalabilidad progresiva**, ya que son los factores críticos para un equipo de 1 persona y 6 semanas.
+
+---
+### 📊 Tabla Comparativa
+```
+
+**Respuesta completa**: [`results/responses/qwen3.7-flash/reasoning/multi_constraint_decision__20260902_132832_23610.md`](../results/responses/qwen3.7-flash/reasoning/multi_constraint_decision__20260902_132832_23610.md)
 
 </details>
 

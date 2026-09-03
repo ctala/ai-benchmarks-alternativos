@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-09-02",
+  "dateModified": "2026-09-03",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/mejor-llm-open-source/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/mejor-llm-open-source/",
@@ -125,7 +125,7 @@
   <section class="hero">
     <h1>Mejor LLM open source (2026)</h1>
     <p class="lead">Si quieres correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el benchmark — ordenados por score global. Verificamos la licencia (cuidado con los "Plus" propietarios).</p>
-    <p class="meta">Última actualización: 2026-09-02 ·
+    <p class="meta">Última actualización: 2026-09-03 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
   </section>
   <section class="verdict verdict-open">
@@ -151,7 +151,7 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Global</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><a class="a-ficha" href="/modelo/or-gemma-4-31b/"><strong>Gemma 4 31B</strong></a></td><td>7.92</td><td>9.8</td><td>8.8</td><td>8.1</td><td>7.6</td><td>$0.10 / $0.34</td><td>47 tok/s</td></tr>
+        <tr><td>1</td><td><a class="a-ficha" href="/modelo/or-gemma-4-31b/"><strong>Gemma 4 31B</strong></a></td><td>7.84</td><td>9.8</td><td>8.8</td><td>8.1</td><td>7.6</td><td>$0.10 / $0.34</td><td>50 tok/s</td></tr>
         <tr><td>2</td><td><a class="a-ficha" href="/modelo/tencent-hy3/">Tencent Hy3</a></td><td>7.60</td><td>9.5</td><td>8.6</td><td>8.3</td><td>8.1</td><td>$0.13 / $0.53</td><td>66 tok/s</td></tr>
         <tr><td>3</td><td><a class="a-ficha" href="/modelo/glm-5.3-flash/">GLM 5.3 Flash</a></td><td>7.59</td><td>9.7</td><td>8.9</td><td>8.1</td><td>7.6</td><td>$0.07 / $0.25</td><td>40 tok/s</td></tr>
         <tr><td>4</td><td><a class="a-ficha" href="/modelo/glm-5.3/">GLM 5.3</a> <span class="row-badge">← el caro</span></td><td>7.21</td><td>9.6</td><td>8.9</td><td>7.9</td><td>7.7</td><td>$1.40 / $4.40</td><td>69 tok/s</td></tr>
@@ -169,7 +169,7 @@
   <p>Este ranking no mide "inteligencia general" ni el score global ponderado. Mide qué modelo rinde mejor para
   <strong>modelos open source</strong> en casos reales: ejecución local, privacidad de datos, evitar vendor lock-in, finetuning propio, deploy en infraestructura propia. El orden depende únicamente del score de esa
   tarea puntual, no del costo, la velocidad ni la latencia.</p>
-  <p>En esta dimensión <strong>Gemma 4 31B</strong> lidera, pero la diferencia con el segundo es pequeña (7.9/10 vs 7.6/10). Eso no significa que sea el único
+  <p>En esta dimensión <strong>Gemma 4 31B</strong> lidera, pero la diferencia con el segundo es pequeña (7.8/10 vs 7.6/10). Eso no significa que sea el único
   válido: si tu prioridad es costo, velocidad o privacidad, el orden puede cambiar. El score global del benchmark
   pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%, pero acá estamos mirando solo la calidad de la
   tarea. Ajusta esos pesos en la <a href="/">calculadora</a> para tu caso.</p>
@@ -177,9 +177,9 @@
 </section>
   <section>
   <h2>Top 3 explicado: por qué están arriba</h2>
-  <h3>1. Gemma 4 31B — 7.9/10</h3>
+  <h3>1. Gemma 4 31B — 7.8/10</h3>
   <p>Gemma 4 31B (openrouter, open source) cuesta $0.10 / $0.34 por millón de tokens y rinde a
-  47 tok/s. Su score en Score global es 7.9/10.
+  50 tok/s. Su score en Score global es 7.8/10.
   Es la opción a vencer en esta dimensión. Tiene pesos abiertos, así que puedes correrlo en varios providers o local.</p>
   <h3>2. Tencent Hy3 — 7.6/10</h3>
   <p>Tencent Hy3 (openrouter, open source) cuesta $0.13 / $0.53 por millón de tokens y rinde a
@@ -192,7 +192,7 @@
 </section>
   <section>
   <h2>Por qué Gemma 4 31B lidera</h2>
-  <p><strong>Gemma 4 31B</strong> encabeza el ranking para open source (pesos abiertos — corres local o en cualquier provider, sin lock-in) con 7.9/10, a $0.10 / $0.34 por millón de tokens (47 tok/s, openrouter). Recuerda que el score global v4.10.0 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
+  <p><strong>Gemma 4 31B</strong> encabeza el ranking para open source (pesos abiertos — corres local o en cualquier provider, sin lock-in) con 7.8/10, a $0.10 / $0.34 por millón de tokens (50 tok/s, openrouter). Recuerda que el score global v4.12.0 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
   sino el que mejor rinde en producción para este caso.</p>
   <h3>Cuándo conviene este modelo</h3>
   <ul>
@@ -218,7 +218,7 @@
   <p>Mucha gente llega buscando GPT-5.6, Claude Opus/Fable o Grok. Acá está dónde quedan
   <strong>en esta tarea concreta</strong>, ordenados por calidad — no por lo que cuestan:</p>
   <ul class="frontier-list">
-    <li><strong>GPT-5.6 Luna</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">8.4/10</span><span class="frontier-cost">$0.10 / $0.60 por millón</span></li><li><strong>Claude Opus 4.8</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">7.0/10</span><span class="frontier-cost">$5.00 / $25.00 por millón</span></li><li><strong>GPT-5.6 Terra</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">6.7/10</span><span class="frontier-cost">$1.00 / $6.00 por millón</span></li><li><strong>Claude Fable 5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">6.0/10</span><span class="frontier-cost">$10.00 / $50.00 por millón</span></li><li><strong>GPT-5.6 Sol</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.7/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>Grok 4.5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.3/10</span><span class="frontier-cost">$2.00 / $6.00 por millón</span></li><li><strong>GPT-5.5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.1/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li>
+    <li><strong>GPT-5.6 Luna</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">8.2/10</span><span class="frontier-cost">$0.10 / $0.60 por millón</span></li><li><strong>Claude Opus 4.8</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">7.0/10</span><span class="frontier-cost">$5.00 / $25.00 por millón</span></li><li><strong>GPT-5.6 Terra</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">6.7/10</span><span class="frontier-cost">$1.00 / $6.00 por millón</span></li><li><strong>Claude Fable 5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">6.0/10</span><span class="frontier-cost">$10.00 / $50.00 por millón</span></li><li><strong>GPT-5.6 Sol</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.7/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li><li><strong>Grok 4.5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.3/10</span><span class="frontier-cost">$2.00 / $6.00 por millón</span></li><li><strong>GPT-5.5</strong><span class="frontier-pos">sin cobertura</span><span class="frontier-score">5.1/10</span><span class="frontier-cost">$5.00 / $30.00 por millón</span></li>
   </ul>
   <p class="meta">Si te interesa una comparación cara a cara, prueba las <a href="/gpt-5.6-vs-claude-opus-4-8/">comparativas específicas</a> o ajusta los pesos en la calculadora.</p>
 </section>
@@ -244,7 +244,7 @@
   <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
   producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
   velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong>210 modelos catalogados</strong>, <strong>159 testeados</strong>
+  <p>Contamos con <strong>210 modelos catalogados</strong>, <strong>160 testeados</strong>
   y <strong>67.000+ runs reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
@@ -285,7 +285,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-09-02",
+  "dateModified": "2026-09-03",
   "license": "https://opensource.org/licenses/MIT",
   "distribution": [
     {
@@ -307,7 +307,7 @@
       "name": "¿Cuál es el mejor LLM para open source hoy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Según nuestro benchmark, Gemma 4 31B lidera en modelos open source con 7.9/10, pero el ranking completo te deja elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal."
+        "text": "Según nuestro benchmark, Gemma 4 31B lidera en modelos open source con 7.8/10, pero el ranking completo te deja elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal."
       }
     },
     {
@@ -347,7 +347,7 @@
 </script>
   <h2>Preguntas frecuentes sobre modelos open source</h2>
   <details><summary><strong>¿Cuál es el mejor LLM para open source hoy?</strong></summary>
-  <p>Según nuestro benchmark, <strong>Gemma 4 31B</strong> lidera en modelos open source con 7.9/10, pero el ranking completo te deja elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal.</p></details>
+  <p>Según nuestro benchmark, <strong>Gemma 4 31B</strong> lidera en modelos open source con 7.8/10, pero el ranking completo te deja elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal.</p></details>
   <details><summary><strong>¿Por qué un modelo barato gana en modelos open source a modelos frontier?</strong></summary>
   <p>Porque el score global pondera calidad, costo, velocidad y latencia. Un modelo más barato y rápido puede tener mejor valor de producción que uno caro y lento, aunque el frontier tenga más capacidad bruta en algunas tareas.</p></details>
   <details><summary><strong>¿Para qué casos NO sirve el #1 de este ranking?</strong></summary>

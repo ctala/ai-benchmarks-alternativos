@@ -275,6 +275,16 @@ def main() -> int:
             print("   Corré: python benchmarks/generate_superficies.py")
             return 1
 
+        # MAPA.md: dónde vive cada artefacto. Cada fila se verifica contra el disco, así
+        # que esto falla si alguien movió un artefacto, renombró su generador o agregó
+        # uno nuevo sin regenerar. Existe porque el 3-sep busqué las fichas en tres
+        # rutas equivocadas y concluí que faltaban 95 cuando estaban las 100.
+        rc = run_script("generate_mapa.py", ["--check"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ El mapa de artefactos quedó desactualizado o apunta a algo que no existe.")
+            print("   Corré: python benchmarks/generate_mapa.py")
+            return 1
+
         # QA FUNCIONAL: check_calculator hace chequeos estáticos (que el campo exista,
         # que el umbral caiga en rango) pero NUNCA ejecuta el filtrado. Un filtro que
         # devuelve cero resultados no rompe nada: la página carga, no hay error en

@@ -16,7 +16,7 @@ audiencia: "Quien tiene que decidir hoy qué modelo pone en producción, con un 
 
 ## TL;DR
 
-**99 modelos con el examen completo. Los cuatro primeros están dentro de dos centésimas
+**100 modelos con el examen completo. Los cuatro primeros están dentro de dos centésimas
 y tres de ellos cuestan menos de $3 al mes.**
 
 - **Qwen 3.8 Flash es el nuevo #1** con 8,53, a unos **$2 al mes**.
@@ -25,7 +25,7 @@ y tres de ellos cuestan menos de $3 al mes.**
   mismo proveedor.
 - **Claude Opus 4.8 queda #8** con 8,48 y **$117 al mes**: cincuenta y ocho veces el
   precio del líder por cinco centésimas menos.
-- Del primero al último de los 99 hay **1,27 puntos sobre 10**. La calidad está apretada;
+- Del primero al último de los 100 hay **1,27 puntos sobre 10**. La calidad está apretada;
   el precio no.
 
 ## El hallazgo del mes: la versión cara ya no compra calidad, y se puede probar
@@ -118,16 +118,16 @@ antes. Medido — 4 procesos: 64 errores. 2: uno. 1: ninguno.
 | | Junio (v3.0.1) | **Septiembre (v4.9)** |
 |---|---:|---:|
 | Catálogo | 143 | **209** |
-| En el ranking | 91 | **99** |
+| En el ranking | 91 | **100** |
 | Runs válidos | 10.508 | **67.035** |
-| Con tarea de agente ejecutada | — | **99 de 99** |
+| Con tarea de agente ejecutada | — | **100 de 100** |
 
 **Los dos «91» no significan lo mismo, y conviene decirlo.** En junio bastaban 50 runs
 para rankear; desde agosto hace falta **rendir el examen entero** —las 29 pruebas que
 puntúan, con todos sus casos—. El criterio se endureció y aun así el número subió, porque
 lo que creció fue la medición: seis veces más runs válidos que en junio.
 
-Los 99 tienen además **una tarea real ejecutada dentro de un agente**, en Docker y con
+Los 100 tienen además **una tarea real ejecutada dentro de un agente**, en Docker y con
 herramientas. Hasta agosto había once publicados sin eso.
 
 ## Caveats honestos

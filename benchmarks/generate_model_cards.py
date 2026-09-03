@@ -803,7 +803,20 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
 def main() -> int:
     d = json.loads(MODELS_JSON.read_text())
     ranked = [m for m in d["models"] if m.get("ranked")]
-    ranked.sort(key=lambda x: -(x.get("score_global") or 0))
+    # 3-sep-2026 · ORDENAR POR LO QUE LA FICHA MUESTRA, NO POR LA ESCALA VIEJA.
+    #
+    # Esto ordenaba por `score_global` —el z-score congelado, que el sitio DEJÓ de
+    # publicar en v4.1— mientras el tile dice «Nota de calidad 8,39 /10 · #28 de 100».
+    # O sea: la nota de una escala junto al puesto de otra, en la misma línea.
+    #
+    # Medido antes de arreglarlo: **95 de las 100 fichas publicaban un puesto que no
+    # correspondía a su nota**, con desvío medio de 8,6 posiciones y máximo de 29
+    # (Gemini 3.5 Flash Lite se publicaba #10 cuando por su nota es #39).
+    #
+    # Es la tercera copia del mismo error en dos días: ya estaba en el cheatsheet y en
+    # `release_diff.py`. Regla: en cualquier cosa que se publique, el orden sale de
+    # `quality_avg`. `score_global` es interno y no se muestra ni se ordena por él.
+    ranked.sort(key=lambda x: -(x.get("quality_avg") or 0))
     puestos = {m["key"]: i + 1 for i, m in enumerate(ranked)}
 
     out = DOCS / "modelo"
