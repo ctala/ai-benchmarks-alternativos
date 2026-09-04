@@ -90,6 +90,30 @@ def correr(model_key: str, extra: list[str]) -> list[dict]:
                   f"runs que alcanzó a medir (suficiente para los invariantes)")
         return runs
     finally:
+        # 4-sep-2026 · SI ALGO FALLÓ, LA EVIDENCIA SE GUARDA.
+        #
+        # Antes se borraba SIEMPRE. El 4-sep el canario salió 🔴 con «1 de 4 tests con
+        # herramientas fallaron (parcial, revisar por qué)» — y no había con qué
+        # revisarlo: el archivo con el error ya no existía. Hubo que reproducir el
+        # fallo aparte para descubrir que era transitorio.
+        #
+        # Un detector que te manda a investigar y borra la prueba te obliga a repetir
+        # el experimento para saber qué pasó, y un fallo intermitente puede no volver a
+        # aparecer. Se conserva sólo cuando hay algo que mirar: si todo salió bien, no
+        # deja basura.
+        try:
+            fallos = [r for r in (runs or []) if not r.get("success")]
+        except Exception:
+            fallos = []
+        if fallos:
+            destino = ROOT / "benchmarks/results" / f"_canario_fallo_{model_key}.json"
+            destino.write_text(json.dumps(
+                {"metadata": {"timestamp": "canario", "modelo": model_key,
+                              "por_que": "runs fallidos del canario, conservados para "
+                                         "diagnosticar el 🔴"},
+                 "results": runs}, ensure_ascii=False, indent=1))
+            print(f"  📋 evidencia de los {len(fallos)} fallo(s): "
+                  f"{destino.relative_to(ROOT)}")
         tmp.unlink(missing_ok=True)
 
 

@@ -5,6 +5,24 @@
 
 ## [No publicado]
 
+- **El canario ahora CONSERVA la evidencia de lo que falla.** Salió 🔴 con «1 de 4 tests
+  con herramientas fallaron (parcial, **revisar por qué**)» — y no había con qué
+  revisarlo: borraba su archivo temporal siempre, así que el error se iba con él. Hubo
+  que reproducir el fallo aparte para descubrir que era transitorio.
+
+  Un detector que te manda a investigar y borra la prueba te obliga a repetir el
+  experimento, y un fallo intermitente puede no volver a aparecer. Ahora, **sólo si algo
+  falló**, deja `benchmarks/results/_canario_fallo_<modelo>.json` con los runs completos.
+  Verificado con un fallo simulado.
+
+- **Descartado que `effort=medium` rompa el tool calling.** Era la hipótesis obvia —
+  `reasoning` en `extra_body` + `require_parameters` podría dejar al modelo sin proveedor
+  con herramientas— y es falsa: la reproducción directa dio 4/4 con tool calls emitidas,
+  y la segunda pasada del canario ✅ 16/18. **Queda sin explicar** que con `medium` fallaran
+  5 y 2 de 18 mientras sin effort fue 0 de 18; con n=2 no prueba nada, pero es la señal a
+  vigilar y ahora hay evidencia guardada para mirarla.
+
+
 - **El PDF del mes quedó desactualizado al entrar Hy4, y su guardrail lo cazó.** Con 100
   modelos en vez de 99 se movieron cifras que el cheatsheet ya tenía impresas
   (`check_release_mensual` marcó 3 parejas modelo↔cifra sin respaldo en `models.json`).

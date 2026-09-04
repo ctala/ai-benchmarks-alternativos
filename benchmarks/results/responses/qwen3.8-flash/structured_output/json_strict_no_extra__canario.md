@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — structured_output/json_strict_no_extra
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.95 | quality: 10.0
-- latency_total: 6.625s | tokens_per_second: 18.7
-- input_tokens: 123 | output_tokens: 124
+- success: True  | final: 9.4 | quality: 10.0
+- latency_total: 2.243s | tokens_per_second: 52.2
+- input_tokens: 123 | output_tokens: 117
 
 ## Entrada exacta (lo que recibió el modelo)
 

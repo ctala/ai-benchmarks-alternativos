@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/roast_oferta_sin_cliches
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 7.23 | quality: 8.0
-- latency_total: 126.379s | tokens_per_second: 57.0
-- input_tokens: 214 | output_tokens: 7207
+- success: True  | final: 7.13 | quality: 8.0
+- latency_total: 179.52s | tokens_per_second: 69.9
+- input_tokens: 214 | output_tokens: 12545
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,494 +36,632 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-## Veredicto sin piedad
+## Veredicto brutal
 
-Tu oferta tiene **1.5/10**.
+Tu oferta **no es una oferta**. Es un folleto genérico de suscripción a un club de IA.
 
-No porque sea “fea”, sino porque **no vende nada**. Es una oferta genérica para “emprendedores” que quieren “transformar su negocio” con “IA”. Eso es exactamente lo que dicen 10.000 páginas más. Nadie va a pagar $49/mes por una caja vacía.
+No dice **qué problema resuelve**, **para quién**, **qué resultado concreto da**, **en cuánto tiempo**, **por qué pagar $49/mes** y **por qué no hacerlo gratis en YouTube**.
 
-El problema principal: **no dices para quién es, qué resultado concreto va a obtener, en cuánto tiempo, con qué mecanismo, por qué debería confiar y qué pasa si no funciona**.
+Tiene 7 palabras de relleno: *transforma*, *poder*, *emprendedores como tú*, *siguiente nivel*, *comunidad*, *exclusivos*, *recursos*. Todas son comodines. Todas suenan a lo que ya existe.
 
-Si no arreglas esto, vas a atraer curiosos, convertir mal y sufrir churn en 30 días.
+Si yo viera esto, pensaría:
+
+> “Ok, comunidad con cursos y plantillas. ¿Y qué? ¿Para qué negocio? ¿Qué resultado obtengo? ¿Por qué no busco tutoriales gratis? ¿Por qué $49/mes?”
+
+Esa es tu oferta hoy: **acceso, no transformación**.
 
 ---
 
-# Autopsia elemento por elemento
+# Golpes con arreglo
 
-## 1. Título: “Transforma tu negocio con el poder de la IA”
+## 1. El título no promete nada
 
-### Qué está mal
-- **“Transforma tu negocio”** no significa nada. ¿Más ventas? ¿menos tiempo? ¿automatizar soporte? ¿generar leads? ¿reducir costes? ¿mejorar operaciones?
-- **“Con el poder de la IA”** es humo. Todo el mundo dice “poder de la IA”. No hay mecanismo, no hay método, no hay diferenciación.
-- No defines **nicho**. “Negocio” puede ser una panadería, una agencia, un SaaS, un coach o un e-commerce. Tú no puedes servir bien a todos.
-- No hay **resultado medible**.
-- No hay **tiempo**.
-- No hay **razón para creer**.
+**Lo que tienes:**
 
-### Arreglo concreto
-Cambia el título por una fórmula:
+> Transforma tu negocio con el poder de la IA
 
-> **[Resultado específico] para [nicho concreto] en [tiempo] usando [mecanismo].**
+**Problema concreto:**
+
+“Transforma” es vacío. “El poder de la IA” es marketing genérico. No hay nicho, no hay resultado, no hay plazo, no hay diferenciación.
+
+**Arreglo:**
+
+Cambia el título por una promesa específica.
+
+Fórmula:
+
+> **Instala [sistema concreto] en tu negocio en [tiempo] para [resultado medible], sin [fricción principal].**
 
 Ejemplos:
 
-- “Ahorra 10 horas semanales automatizando soporte, emails y reportes con IA para dueños de e-commerce de $10k–$50k/mes.”
-- “IA para coaches y consultores: crea contenido, capta leads y llena tu agenda en 30 días con plantillas y automatizaciones.”
-- “Reduce un 30% el tiempo de operaciones de tu agencia con IA: prompts, SOPs y sesiones semanales de implementación.”
+> **Instala 5 automatizaciones de IA en tu negocio en 14 días, sin contratar equipo ni saber programar.**
 
-### Qué no hacer
-No pongas “IA”, “transformación”, “siguiente nivel”, “poder”, “potencia” sin un resultado concreto detrás.
+> **Automatiza soporte, ventas y contenido con IA en 14 días, aunque no seas técnico.**
+
+> **Sistema de IA para dueños de ecommerce: ahorra 10+ horas/semana y responde leads más rápido.**
+
+No vendas “transformación”. Vende **resultado + plazo + dificultad resuelta**.
 
 ---
 
-## 2. Subtítulo: “Únete a la comunidad donde emprendedores como tú están usando inteligencia artificial para llevar su negocio al siguiente nivel.”
+## 2. El subtítulo vende comunidad, no beneficio
 
-### Qué está mal
-- **“Emprendedores como tú”** es débil. No dice quién eres ni a quién sirve.
-- **“Llevar su negocio al siguiente nivel”** es otra frase vacía.
-- **“Únete a la comunidad”** no es una promesa. La gente no paga por “unirse”. Paga por resultados, acceso, implementación, reducción de riesgo o velocidad.
-- No hay prueba social concreta.
-- No hay resultado.
-- No hay razón para creer.
+**Lo que tienes:**
 
-### Arreglo concreto
-Sustituye por una prueba social específica + resultado + nicho.
+> Únete a la comunidad donde emprendedores como tú están usando inteligencia artificial para llevar su negocio al siguiente nivel.
+
+**Problema concreto:**
+
+Estás vendiendo “unirse”, no un resultado. “Emprendedores como tú” es difuso. “Siguiente nivel” no significa nada. Nadie compra “nivel”; compra tiempo, dinero, clientes, reducción de estrés o crecimiento.
+
+**Arreglo:**
+
+El subtítulo debe decir **para quién es** y **qué obtiene**.
 
 Ejemplo:
 
-> “Más de 214 dueños de tiendas online están usando nuestras plantillas de IA para automatizar soporte, emails y análisis de ventas, ahorrando entre 8 y 12 horas semanales.”
-
-Si todavía no tienes números, no mientas. Usa esto:
-
-> “Únete a un grupo pequeño de dueños de e-commerce que están implementando IA en soporte, marketing y operaciones con sesiones semanales guiadas.”
-
-### Qué no hacer
-No digas “emprendedores como tú”. No digas “al siguiente nivel”. No digas “comunidad” como si fuera el valor principal.
-
----
-
-## 3. “Qué incluye”
-
-Tus bullets:
-
-- Acceso a la comunidad
-- Cursos exclusivos
-- Sesiones en vivo
-- Plantillas y recursos
-- Soporte de la comunidad
-
-### Qué está mal
-
-Esto es un **listado de features**, no de beneficios.
-
-#### “Acceso a la comunidad”
-Problema: cualquier grupo de Telegram/Discord tiene eso. No justifica $49/mes.  
-Arreglo: especifica quiénes están, qué hacen y por qué vale la pena.
-
-> “Comunidad privada para dueños de e-commerce con acceso directo a implementadores de IA, casos reales y debates semanales.”
-
-#### “Cursos exclusivos”
-Problema: “exclusivo” no significa nada si no dices qué contiene, cuánto dura, qué resultado produce o por qué no puede ser YouTube.  
-Arreglo: convierte en un sistema.
-
-> “Playbook de IA para e-commerce: 6 módulos, 40 videos, automatizaciones paso a paso y ejemplos reales aplicados a soporte, emails y reportes.”
-
-#### “Sesiones en vivo”
-Problema: ¿cuándo? ¿cada cuánto? ¿para qué? ¿coaching? ¿preguntas? ¿implementación? ¿hot seats?  
-Arreglo: define cadencia y objetivo.
-
-> “1 sesión semanal en vivo de implementación: revisamos tus automatizaciones, prompts y errores en tiempo real.”
-
-#### “Plantillas y recursos”
-Problema: demasiado vago. ¿Prompts? ¿Notion? ¿Zapier? ¿Make? ¿SOPs? ¿scripts?  
-Arreglo: cuenta qué entregables concretos recibe.
-
-> “Incluye 37 prompts probados, 12 automatizaciones para Notion/Make/Zapier, SOPs de soporte y plantillas de emails.”
-
-#### “Soporte de la comunidad”
-Problema: si dependes de otros usuarios, puede ser lento, malo o inexistente. Además, “soporte de la comunidad” suena a que nadie se responsabiliza.  
-Arreglo: define nivel de soporte y compromiso.
-
-> “Soporte prioritario con respuesta en menos de 24h por expertos en IA aplicada, no solo otros miembros.”
-
-### Regla general
-Cada bullet debe responder una de estas preguntas:
-
-- ¿Qué obtengo exactamente?
-- ¿Cuánto?
-- ¿Con qué frecuencia?
-- ¿Qué problema resuelve?
-- ¿Qué resultado me acerca?
-- ¿Por qué esto vale más de $49/mes?
-
-### Ejemplo de bullets arreglados
-
-En vez de:
-
-- Acceso a la comunidad
-- Cursos exclusivos
-- Sesiones en vivo
-- Plantillas y recursos
-- Soporte de la comunidad
-
-Usa:
-
-- **Comunidad privada de dueños de e-commerce** que implementan IA para soporte, marketing y operaciones.
-- **Playbook de IA aplicada**: automatizaciones, prompts y SOPs listos para usar en tu tienda.
-- **Sesión semanal de implementación** donde revisamos tus casos reales y arreglamos bloqueos.
-- **Biblioteca de plantillas**: 37 prompts, 12 automatizaciones, 8 reportes y 15 emails listos.
-- **Soporte con respuesta <24h** por expertos en IA aplicada, no solo por otros usuarios.
-
----
-
-## 4. Precio: “$49/mes”
-
-### Qué está mal
-- No hay **ancla de valor**. ¿Por qué $49 es barato, justo o una ganga?
-- No hay **compromiso**. Mensual suena a que mañana te vas.
-- No hay **garantía**.
-- No hay **onboarding**.
-- No hay **diferenciación frente a cursos gratuitos, ChatGPT, YouTube, Discord o otras comunidades**.
-- No hay **riesgo reducido**.
-
-### Arreglo concreto
-Necesitas justificar el precio con valor percibido y reducir el riesgo.
-
-Opción 1: garantía clara
-
-> “Pruébalo durante 14 días. Si no ahorras al menos 3 horas implementando una automatización, te devolvemos el dinero.”
-
-Opción 2: trial de bajo riesgo
-
-> “Primeros 7 días por $1. Si no ves valor, cancela.”
-
-Opción 3: valor ancla
-
-> “Valor real: $297/mes entre plantillas, sesiones, soporte y comunidad. Hoy: $49/mes.”
-
-Pero ojo: no inventes un valor falso. Si dices que vale $297, debes poder demostrarlo: horas de coaching, recursos, acceso a expertos, comunidad, implementaciones.
-
-### Qué no hacer
-No pongas solo “$49/mes” sin explicar por qué es una oferta inteligente.
-
----
-
-## 5. Botón: “EMPIEZA HOY”
-
-### Qué está mal
-- Es genérico.
-- No comunica beneficio.
-- No reduce fricción.
-- No crea urgencia real.
-- No dice qué pasa después de hacer clic.
-- “Hoy” no es una razón.
-
-### Arreglo concreto
-El botón debe decir qué obtienen y con qué riesgo.
-
-Ejemplos:
-
-- “Empieza por $1 durante 7 días”
-- “Únete y ahorra 10 horas esta semana”
-- “Accede a las plantillas y sesión de implementación”
-- “Quiero automatizar mi negocio con IA”
-- “Empezar con garantía de 14 días”
-
-Si el riesgo sigue siendo alto, usa un CTA de menor fricción:
-
-- “Ver el playbook”
-- “Recibir 5 prompts para e-commerce”
-- “Unirme a la sesión gratuita”
-
----
-
-# Los 7 errores mortales de tu oferta
-
-## 1. No tienes nicho
-“Emprendedores” no es un cliente. Es una categoría.
-
-Arreglo: elige un segmento.
-
-Ejemplos:
-
-- Dueños de e-commerce.
-- Coaches y consultores.
-- Agencias de marketing.
-- SaaS early-stage.
-- Negocios de servicios locales.
-- Creadores de contenido.
-- Equipos de soporte.
-
-No puedes vender “IA para negocios” contra todo YouTube, ChatGPT y miles de comunidades. Debes vender “IA para X, para resolver Y”.
-
----
-
-## 2. No tienes resultado medible
-“Transforma tu negocio” no es un resultado.
-
-Arreglo: define métricas.
-
-Ejemplos:
-
-- Ahorrar 10 horas/semana.
-- Reducir tickets de soporte un 30%.
-- Generar 5 leads/semana.
-- Publicar 15 piezas de contenido al mes.
-- Automatizar reportes de ventas.
-- Crear 20 emails segmentados.
-- Reducir costes operativos un 20%.
-
----
-
-## 3. No tienes mecanismo único
-“Poder de la IA” no es un método.
-
-Arreglo: crea un sistema con nombre o estructura clara.
-
-Ejemplo:
-
-> “Sistema IA-30: implementaciones en 30 días para automatizar soporte, marketing y operaciones.”
+> Para dueños de ecommerce, servicios o consultoras que quieren automatizar tareas repetitivas, responder más rápido y vender sin aumentar costos.
 
 O:
 
-> “Framework de 4 automatizaciones para e-commerce: soporte, emails, reportes y contenido.”
+> Aprende a usar IA como un sistema operativo de negocio: menos horas manuales, más leads, más seguimiento y menos tareas perdidas.
 
-No hace falta inventar una marca enorme. Pero sí necesitas un método que la gente entienda y pueda seguir.
+La comunidad no es el producto principal. La comunidad es el soporte para ejecutar el producto principal.
 
 ---
 
-## 4. No tienes prueba
-No dices cuántos miembros, resultados, casos, testimonios, automatizaciones implementadas o horas ahorradas.
+## 3. No tienes nicho, tienes “todo el mundo”
 
-Arreglo: añade prueba concreta.
+**Problema concreto:**
+
+“Emprendedores” no es un nicho. Es una categoría demasiado amplia.
+
+No es lo mismo vender IA a:
+
+- dueños de ecommerce,
+- agencias de marketing,
+- consultores,
+- tiendas físicas,
+- creadores de contenido,
+- clínicas,
+- inmobiliarias,
+- freelancers.
+
+Cada uno tiene dolores distintos.
+
+**Arreglo:**
+
+Elige uno para tu oferta principal.
 
 Ejemplos:
 
-- “214 miembros activos.”
-- “Más de 1.200 automatizaciones implementadas.”
-- “Tiempo medio ahorrado: 8,4 horas/semana.”
-- “Casos reales de tiendas de $5k–$50k/mes.”
-- “Testimonios con capturas y métricas.”
+> Para dueños de ecommerce que quieren automatizar soporte, recuperación de carritos y contenido.
 
-Si no tienes prueba todavía, haz un grupo piloto con 10–20 usuarios a cambio de testimonios y casos.
+> Para agencias que quieren entregar más clientes sin contratar más gente.
+
+> Para consultores que quieren generar leads, propuestas y seguimiento con IA.
+
+Si no puedes elegir, no tienes oferta. Tienes un hobby con landing page.
 
 ---
 
-## 5. Vendes “comunidad” como si fuera el producto principal
-La comunidad sola no vale $49/mes a menos que tenga acceso directo a expertos, accountability, resultados y networking útil.
+## 4. Tus bullets son features, no beneficios
 
-Arreglo: vende implementación guiada, no solo pertenencia.
+**Lo que tienes:**
+
+- Acceso a la comunidad
+- Cursos exclusivos
+- Sesiones en vivo
+- Plantillas y recursos
+- Soporte de la comunidad
+
+**Problema concreto:**
+
+Ningún bullet dice qué va a lograr el cliente. Son entregables genéricos. Cualquiera puede poner esa lista.
+
+“Acceso a la comunidad” no es un beneficio. Es una condición.
+
+“Cursos exclusivos” no es un beneficio si no dices qué curso, para qué, cómo se implementa.
+
+“Sesiones en vivo” no es un beneficio si no dices qué hacen, cada cuánto, y qué resultado generan.
+
+“Plantillas y recursos” no es un beneficio si no dices qué plantillas, para qué tareas, y si son listas para usar.
+
+**Arreglo:**
+
+Cada bullet debe responder:
+
+> ¿Qué obtengo?  
+> ¿Para qué me sirve?  
+> ¿Qué problema me quita?  
+> ¿Qué me ahorra?
+
+Versión arreglada:
+
+> - **5 automatizaciones listas para copiar:** WhatsApp, propuestas, contenido, seguimiento y reporting.
+> - **Playbooks de implementación:** videos cortos + checklists para instalar sin perderte.
+> - **Oficina en vivo semanal:** implementamos juntos y resolvemos bloqueos en tiempo real.
+> - **Comunidad de ejecución:** no un chat genérico, sino un grupo con retos, resultados y feedback.
+> - **Biblioteca de prompts y flujos actualizada:** herramientas probadas para tareas reales de negocio.
+
+No vendas “acceso”. Vende **ejecución**.
+
+---
+
+## 5. No tienes un mecanismo único
+
+**Problema concreto:**
+
+“IA” no es un mecanismo. Es una categoría.
+
+Hay miles de personas diciendo “usa IA”. Si no tienes un método con nombre, pasos y estructura, eres uno más.
+
+**Arreglo:**
+
+Crea un sistema.
 
 Ejemplo:
 
-> “No es una comunidad de IA. Es un sistema de implementación donde sales con automatizaciones funcionando en tu negocio.”
+> **Sistema IA Operativa en 3 fases:**
+> 1. Diagnóstico de tareas repetitivas.
+> 2. Automatización de 5 procesos clave.
+> 3. Medición y mejora semanal.
+
+O:
+
+> **Método 5-14-10:**
+> - 5 automatizaciones,
+> - en 14 días,
+> - para ahorrar 10+ horas/semana.
+
+El mecanismo hace que tu oferta no parezca “un curso más”.
 
 ---
 
-## 6. No reduces el riesgo
-No hay garantía, no hay trial, no hay onboarding, no hay claridad sobre cancelación.
+## 6. No hay prueba social ni credibilidad
 
-Arreglo: añade una garantía clara y un primer paso de bajo riesgo.
+**Problema concreto:**
+
+Dices “emprendedores como tú están usando IA”, pero no muestras evidencia.
+
+No hay testimonios, casos, capturas, resultados, autoridad del fundador, demo, ni prueba de implementación.
+
+**Arreglo:**
+
+Si tienes casos:
+
+> “María, tienda online: ahorró 12 horas/semana con automatización de soporte.”
+
+> “Andrés, agencia: redujo 30% el tiempo de propuestas usando flujos de IA.”
+
+Si no tienes casos:
+
+No inventes. Haz una beta.
+
+> “Grupo beta: 10 miembros por $19/mes durante 3 meses. A cambio, queremos feedback, testimonios y casos.”
+
+O:
+
+> “Prueba 7 días por $1. Si no instalas tu primera automatización, no pagas.”
+
+La prueba puede ser:
+
+- testimonios,
+- capturas,
+- video,
+- caso real,
+- demo,
+- resultados de miembros,
+- tu propia autoridad,
+- garantía fuerte.
+
+Sin prueba, $49/mes se siente caro.
+
+---
+
+## 7. El precio está huérfano
+
+**Lo que tienes:**
+
+> Precio: $49/mes
+
+**Problema concreto:**
+
+No hay ancla, no hay valor comparado, no hay explicación de por qué $49/mes.
+
+$49/mes puede ser barato para ti, pero caro para el cliente si no ve ROI.
+
+**Arreglo:**
+
+Construye un stack de valor.
 
 Ejemplo:
 
-> “Garantía de 14 días: si no implementas al menos una automatización que te ahorre 2 horas, te devolvemos el dinero.”
+> **Valor real:**
+> - Curso de automatización: $497
+> - Plantillas y prompts: $297
+> - Oficina en vivo semanal: $197
+> - Comunidad: $147
+> - Onboarding: $97  
+> **Total: $1,235**
+
+> **Hoy:**
+> $49/mes  
+> o $397/año  
+> o 3 pagos de $149
+
+Si no puedes justificar $49/mes, baja el riesgo:
+
+> $19/mes durante 3 meses.
+
+O sube el valor:
+
+> $99/mes con auditoría mensual.
+
+No pongas precio sin contexto.
 
 ---
 
-## 7. No dices qué pasa en los primeros 7 días
-La gente no sabe si esto es un curso muerto, un grupo abandonado o un sistema real.
+## 8. El CTA es débil
 
-Arreglo: define un onboarding.
+**Lo que tienes:**
 
-Ejemplo:
+> Botón: EMPIEZA HOY
 
-> “Primeros 7 días:  
-> Día 1: diagnóstico de tu negocio.  
-> Día 2: eliges 3 procesos a automatizar.  
-> Día 3: instalas plantillas.  
-> Día 4: sesión de implementación.  
-> Día 7: tienes 1 automatización funcionando.”
+**Problema concreto:**
 
-Esto aumenta muchísimo la conversión y reduce churn.
+“Empieza hoy” no dice qué pasa, no reduce riesgo, no vende el siguiente paso.
 
----
+Es un botón genérico. No genera acción.
 
-# Ejemplo de oferta reescrita
+**Arreglo:**
 
-## Opción A: e-commerce
+El CTA debe vender el resultado inmediato.
 
-### Título
-**Ahorra 10 horas semanales automatizando soporte, emails y reportes con IA**
-
-### Subtítulo
-**Comunidad privada para dueños de e-commerce de $5k–$50k/mes que quieren implementar IA sin contratar más personal ni perderse en tutoriales.**
-
-### Qué incluye
-- **Playbook de IA para e-commerce**: 6 módulos con automatizaciones reales para soporte, marketing y operaciones.
-- **37 prompts probados** para emails, fichas de producto, análisis de ventas y atención al cliente.
-- **12 automatizaciones** con Notion, Make, Zapier y ChatGPT/Claude.
-- **Sesión semanal en vivo de implementación** donde revisamos tus casos y bloqueos.
-- **Comunidad privada** con dueños de tiendas que ya están usando IA, no solo curiosos.
-- **Soporte con respuesta <24h** por expertos en IA aplicada.
-
-### Oferta
-**$49/mes**  
-Primeros 7 días por $1.  
-Garantía: si en 14 días no ahorras al menos 3 horas con una automatización implementada, te devolvemos el dinero.
-
-### Botón
-**Empieza por $1 y ahorra 10 horas esta semana**
-
----
-
-## Opción B: coaches/consultores
-
-### Título
-**IA para coaches y consultores: llena tu agenda con contenido y automatizaciones en 30 días**
-
-### Subtítulo
-**Únete a la comunidad donde coaches y consultores implementan IA para crear contenido, captar leads, automatizar seguimiento y vender más sin trabajar más horas.**
-
-### Qué incluye
-- **Sistema IA para coaches**: prompts, guiones y automatizaciones para contenido, emails y captación.
-- **40 plantillas listas**: reels, carousels, newsletters, DMs, lead magnets y follow-ups.
-- **Sesiones semanales de hot seat** para revisar tu estrategia y contenido.
-- **Biblioteca de automatizaciones** con Make/Zapier/Notion para tu negocio de servicios.
-- **Comunidad privada** de coaches y consultores implementando IA en sus funnels.
-- **Soporte prioritario** con respuesta <24h por expertos en IA aplicada a servicios.
-
-### Oferta
-**$49/mes**  
-Pruébalo 14 días con garantía.  
-Si no creas al menos 3 activos que te ahorren tiempo o generen leads, cancelas y te devolvemos el dinero.
-
-### Botón
-**Únete y crea tu primer sistema con IA esta semana**
-
----
-
-# Lo que debes arreglar antes de publicar nada
-
-## 1. Elige un cliente ideal
-Responde:
-
-- ¿Quién exactamente?
-- ¿Qué negocio tiene?
-- ¿Cuánto factura?
-- ¿Qué problema urgente tiene?
-- ¿Qué resultado quiere en 30 días?
-- ¿Qué ya ha intentado?
-
-## 2. Define una promesa medible
 Ejemplos:
 
-- “Ahorra 10 horas/semana.”
-- “Reduce soporte un 30%.”
-- “Genera 5 leads/semana.”
-- “Automatiza 3 procesos en 14 días.”
-- “Crea 15 piezas de contenido/mes.”
+> **Quiero instalar mi sistema**
 
-## 3. Convierte cada feature en un resultado
-No: “cursos exclusivos”.  
-Sí: “playbook con 40 videos para automatizar X”.
+> **Quiero automatizar mi negocio**
 
-No: “plantillas”.  
-Sí: “37 prompts y 12 automatizaciones listas”.
+> **Empezar mi primera automatización**
 
-No: “sesiones en vivo”.  
-Sí: “1 sesión semanal para implementar contigo”.
+> **Unirme al grupo beta**
 
-## 4. Añade prueba social
-Aunque sea pequeña:
+> **Prueba 7 días por $1**
 
-- “50 miembros.”
-- “12 automatizaciones creadas.”
-- “3 casos documentados.”
-- “Testimonios de los primeros usuarios.”
+Si puedes, añade microcopy debajo:
 
-## 5. Añade riesgo invertido
-Algunas opciones:
-
-- Garantía de 14 días.
-- Primeros 7 días por $1.
-- “Si no ahorras 3 horas, te devolvemos el dinero.”
-- “Primera sesión de implementación gratuita.”
-
-## 6. Define onboarding
-Nadie cancela si en los primeros 7 días siente progreso.
-
-Ejemplo:
-
-> “Primeros 7 días:  
-> 1. Auditoría de procesos.  
-> 2. Elige 1 automatización.  
-> 3. Instala plantilla.  
-> 4. Asiste a sesión.  
-> 5. Publica resultado.”
-
-## 7. Mejora el CTA
-No: “EMPIEZA HOY”.  
-Sí: “Empieza por $1 y ahorra 10 horas esta semana”.
+> “Sin permanencia. Garantía de 14 días.”
 
 ---
 
-# Versión brutalmente corta de tu oferta actual
+## 9. No hay reducción de riesgo
 
-Lo que dices ahora:
+**Problema concreto:**
 
-> “Únete a una comunidad genérica de IA donde hay cursos, sesiones, plantillas y soporte. Cuesta $49/mes. Empieza hoy.”
+Estás pidiendo suscripción mensual sin garantía, sin prueba, sin riesgo cero.
 
-Lo que un cliente entiende:
+El cliente piensa:
 
-> “Otro curso/comunidad más. No sé para quién es, no sé qué resultado voy a obtener, no sé si funciona, no sé si voy a usarlo, no sé por qué pagar.”
+> “¿Y si no funciona para mi negocio?”  
+> “¿Y si no tengo tiempo?”  
+> “¿Y si no sé usar IA?”  
+> “¿Y si cancelo y pierdo dinero?”
 
-Lo que deberías decir:
+**Arreglo:**
 
-> “Para dueños de e-commerce que quieren ahorrar 10 horas/semana implementando IA en soporte, emails y reportes. Incluye playbook, plantillas, automatizaciones, sesión semanal y soporte. Empieza por $1 durante 7 días y si no ahorras 3 horas, te devolvemos el dinero.”
+Añade una garantía honesta.
 
----
+Ejemplos:
 
-# Si quieres una oferta que venda, usa esta estructura
+> “14 días de garantía: si no instalas tu primera automatización, te devuelvo el dinero.”
 
-## Fórmula
-**Para [nicho], consigue [resultado específico] en [tiempo] con [mecanismo], sin [objeción principal].**
+> “Prueba 7 días por $1. Si no ves valor, cancelas.”
 
-Ejemplo:
+> “Garantía de implementación: si completas el onboarding y no logras tu primer sistema, te ayudamos gratis hasta que funcione.”
 
-> “Para dueños de e-commerce, ahorra 10 horas/semana con IA en soporte, emails y reportes en 30 días, sin contratar más personal ni aprender código.”
-
-## Oferta
-**Incluye:**
-- [Sistema/playbook específico]
-- [Plantillas/recurso concreto]
-- [Sesiones con cadencia]
-- [Soporte con SLA]
-- [Comunidad con nicho]
-- [Onboarding]
-- [Garantía]
-- [Prueba social]
-
-## CTA
-**[Acción] + [beneficio] + [riesgo bajo]**
-
-Ejemplo:
-
-> “Empieza por $1 y automatiza tu primer proceso esta semana”
+No pongas una garantía que no puedas cumplir. Pero sin garantía, tu conversión será baja.
 
 ---
 
-# Conclusión sin suavizar
+## 10. No hay onboarding
 
-Tu oferta no está “casi lista”. Está **incompleta y genérica**.
+**Problema concreto:**
 
-No arreglarás esto cambiando el botón o el título. Tienes que decidir:
+No dices qué pasa después de pagar.
 
-1. **A quién sirves exactamente.**
-2. **Qué resultado concreto entregas.**
-3. **Cómo lo entregas.**
-4. **Por qué deberían creerte.**
-5. **Qué pasa si no funciona.**
-6. **Qué hace el cliente en los primeros 7 días.**
+El cliente no sabe si entra a un Discord, a una plataforma, a un grupo de WhatsApp, si recibe un email, si hay una llamada, si debe esperar, si tiene que investigar solo.
 
-Si no respondes eso, tu oferta sigue siendo una comunidad más de IA. Y las comunidades más de IA se mueren por falta de resultados, falta de nicho y falta de implementación.
+**Arreglo:**
+
+Explica el primer paso.
+
+Ejemplo:
+
+> **Al unirte:**
+> 1. Recibes tu onboarding en 24 horas.
+> 2. Haces un diagnóstico rápido de tareas repetitivas.
+> 3. Instalas tu primera automatización en 72 horas.
+> 4. Participas en la primera oficina en vivo.
+
+O:
+
+> “En menos de 10 minutos tienes tu primer flujo de IA funcionando.”
+
+La gente no compra acceso. Compra claridad.
+
+---
+
+## 11. No hay urgencia ni razón para actuar ahora
+
+**Problema concreto:**
+
+Tu oferta es eterna. No hay fecha, no hay cohorte, no hay bonus, no hay cierre.
+
+**Arreglo:**
+
+Usa urgencia honesta.
+
+Ejemplos:
+
+> “Inscripciones abiertas hasta el 15 de este mes.”
+
+> “Cohorte limitada a 25 personas para mantener soporte.”
+
+> “Bonus de auditoría rápida solo para quienes entren esta semana.”
+
+> “El precio sube a $79/mes al cerrar el grupo.”
+
+No inventes escasez falsa. Pero si no hay razón para actuar hoy, no hay conversión.
+
+---
+
+## 12. No manejas objeciones
+
+**Problema concreto:**
+
+Tu oferta no responde las dudas obvias.
+
+**Arreglo:**
+
+Añade una sección de FAQ con objeciones reales.
+
+Ejemplos:
+
+> **¿No sé nada de IA, sirve para mí?**  
+> Sí. El sistema está pensado para no técnicos. Instalas con plantillas y acompañamiento.
+
+> **¿Cuánto tiempo necesito?**  
+> Entre 1 y 2 horas por semana para implementar.
+
+> **¿Y si ya veo tutoriales gratis en YouTube?**  
+> Los tutoriales dan información. Aquí tienes implementación, soporte, plantillas actualizadas, comunidad y accountability.
+
+> **¿Sirve para mi negocio?**  
+> Sí, si tienes tareas repetitivas: leads, soporte, propuestas, contenido, seguimiento, reporting.
+
+> **¿Puedo cancelar?**  
+> Sí. Cancelas cuando quieras.
+
+> **¿Qué pasa si no veo resultados?**  
+> Garantía de 14 días / prueba de 7 días / ayuda de implementación.
+
+---
+
+## 13. No defines el resultado mínimo
+
+**Problema concreto:**
+
+No dices qué es “empezar” o “funcionar”.
+
+**Arreglo:**
+
+Define una victoria rápida.
+
+Ejemplo:
+
+> “Tu primer resultado en 7 días: automatizar respuestas de WhatsApp, generar 5 propuestas en minutos o crear un calendario de contenido.”
+
+O:
+
+> “En la primera semana instalas 1 sistema útil para tu negocio.”
+
+La victoria rápida reduce la ansiedad de pagar.
+
+---
+
+## 14. No tienes diferenciación frente a gratis
+
+**Problema concreto:**
+
+Hoy cualquier persona puede buscar “IA para negocios” y encontrar miles de videos, prompts y comunidades gratuitas.
+
+Si tu oferta solo dice “acceso a cursos y comunidad”, no justifica el pago.
+
+**Arreglo:**
+
+Vende lo que YouTube no da:
+
+- implementación guiada,
+- accountability,
+- soporte,
+- plantillas actualizadas,
+- comunidad activa,
+- casos específicos,
+- auditoría,
+- reto semanal,
+- oficina en vivo,
+- promesa de resultado.
+
+Ejemplo:
+
+> “No es un curso. Es un sistema de implementación con soporte, plantillas y comunidad para que tu negocio no se quede en teoría.”
+
+---
+
+## 15. La comunidad está mal posicionada
+
+**Problema concreto:**
+
+“Acceso a la comunidad” es el primer bullet. Error mortal.
+
+La comunidad no es el beneficio principal. La comunidad es el medio para ejecutar.
+
+**Arreglo:**
+
+Pon la comunidad más abajo, con un rol claro.
+
+Ejemplo:
+
+> **Comunidad de implementación:**  
+> No un chat genérico, sino un espacio donde miembros comparten resultados, bloqueos, automatizaciones y mejoras semanales.
+
+Si la comunidad aún no existe, no la vendas como si fuera un activo probado.
+
+Mejor:
+
+> **Grupo de implementación en vivo.**
+
+---
+
+# Oferta reescrita
+
+Aquí tienes una versión arreglada, sin suavizar.
+
+---
+
+## TÍTULO
+
+**Instala 5 automatizaciones de IA en tu negocio en 14 días, sin contratar equipo ni saber programar**
+
+## SUBTÍTULO
+
+**Para dueños de ecommerce, servicios o consultoras que quieren ahorrar 10+ horas/semana, responder leads más rápido y vender sin aumentar costos.**
+
+## QUÉ INCLUYE
+
+- **Sistema IA Operativa:** 5 automatizaciones listas para copiar: soporte, propuestas, contenido, seguimiento y reporting.
+- **Playbooks de implementación:** videos cortos + checklists para instalar sin perderte.
+- **Oficina en vivo semanal:** implementamos juntos y resolvemos bloqueos en tiempo real.
+- **Comunidad de ejecución:** no un chat genérico, sino un grupo con retos, resultados y feedback.
+- **Biblioteca de prompts y flujos:** actualizada cada mes para tareas reales de negocio.
+- **Onboarding en 24 horas:** diagnóstico rápido + primera automatización.
+- **Garantía de implementación:** si en 14 días no instalas tu primer sistema, te devuelvo el dinero.
+
+## OFERTA
+
+**Valor real:** $1,197  
+**Hoy:** $49/mes  
+**Plan anual:** $397/año  
+**Prueba:** 7 días por $1
+
+## BOTÓN
+
+**Quiero instalar mi sistema**
+
+## MICROCOPY
+
+**Cancela cuando quieras. Sin permanencia.**
+
+---
+
+# Versión si aún no tienes casos ni comunidad fuerte
+
+Si tu oferta está empezando, no vendas $49/mes como si fuera una academia probada. Vende beta.
+
+## TÍTULO
+
+**Grupo beta: instala tu primera automatización de IA para tu negocio en 7 días**
+
+## SUBTÍTULO
+
+**Para dueños de negocio que quieren ahorrar tiempo, automatizar tareas repetitivas y validar IA con acompañamiento directo.**
+
+## QUÉ INCLUYE
+
+- Sesión de diagnóstico en vivo.
+- 3 automatizaciones simples para tu negocio.
+- Plantillas de prompts y flujos.
+- Grupo de implementación.
+- Feedback directo del fundador.
+- Precio beta por 3 meses.
+
+## OFERTA
+
+**Solo 10 personas**  
+**$19/mes durante 3 meses**  
+**Luego $49/mes**
+
+## BOTÓN
+
+**Quiero entrar al grupo beta**
+
+## CONDICIÓN
+
+**A cambio del precio, pido feedback, testimonios y permiso para usar tu caso.**
+
+---
+
+# Lo que debes eliminar ya
+
+No uses:
+
+- “Transforma tu negocio”
+- “El poder de la IA”
+- “Siguiente nivel”
+- “Emprendedores como tú”
+- “Cursos exclusivos” sin explicar qué
+- “Recursos” sin especificar
+- “Soporte de la comunidad” si no hay soporte real
+- “Acceso a la comunidad” como primer bullet
+- “EMPIEZA HOY” sin riesgo reducido
+- “$49/mes” sin ancla ni prueba
+
+---
+
+# Regla simple para tu oferta
+
+Tu oferta debe responder esto en 5 segundos:
+
+1. **¿Para quién es?**
+2. **¿Qué problema resuelve?**
+3. **¿Qué resultado concreto da?**
+4. **¿En cuánto tiempo?**
+5. **¿Por qué no hacerlo gratis?**
+6. **¿Qué incluye exactamente?**
+7. **¿Qué pasa si no funciona?**
+8. **¿Qué hace el usuario después de pagar?**
+9. **¿Por qué ahora?**
+10. **¿Por qué te creen a ti?**
+
+Si tu oferta no responde esas 10 preguntas, no está lista.
+
+---
+
+# Veredicto final
+
+Tu oferta actual es un **buffet genérico**: comunidad + cursos + plantillas + soporte.
+
+No es una mala idea, pero sí una mala ejecución.
+
+Para vender $49/mes necesitas una de estas tres cosas:
+
+1. **Un resultado claro y medible.**
+2. **Una prueba social fuerte.**
+3. **Un sistema único con implementación guiada.**
+
+Ahora mismo tienes las tres débiles.
+
+Si no corriges eso, tu conversión será baja, tu churn será alto y la gente percibirá tu oferta como “otro club de IA más”.
+
+Arregla el mensaje:
+
+> No vendas acceso.  
+> No vendas cursos.  
+> No vendas comunidad.  
+> No vendas “poder de la IA”.
+
+Vende:
+
+> **Instalar un sistema de IA que ahorre tiempo, aumente ventas o reduzca costos en un plazo concreto.**

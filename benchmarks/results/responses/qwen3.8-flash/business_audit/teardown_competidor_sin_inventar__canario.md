@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/teardown_competidor_sin_inventar
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 4.3 | quality: 4.0
-- latency_total: 161.204s | tokens_per_second: 91.3
-- input_tokens: 231 | output_tokens: 14714
+- success: True  | final: 7.12 | quality: 8.0
+- latency_total: 193.43s | tokens_per_second: 67.8
+- input_tokens: 231 | output_tokens: 13112
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,896 +27,784 @@ Quiero saber cuánto factura, qué tan sano es el negocio y cómo les compito.
 
 ## Respuesta completa
 
-# Teardown competitivo — basado solo en señal pública
+# Teardown competitivo — solo con datos públicos
 
-**Importante:** esto es un análisis con *muy poca evidencia*, así que separo claramente:
+**Respuesta corta:**  
+- **Facturación bruta probable:** entre **$550k y $900k ARR** si asumimos que una parte relevante de los 2.400 miembros son pagantes.  
+- **Techo visible:** **$1.12M ARR** si los 2.400 miembros pagaran todos $39/mes sin descuentos ni membresías antiguas.  
+- **Salud del negocio:** parece **moderadamente sano**, con ventaja de distribución y modelo recurrente, pero **no puedo confirmar retención, churn, engagement real ni rentabilidad**.  
+- **Cómo competir:** no por volumen de cursos ni por precio; por **nicho, resultado rápido, comunidad guiada, prueba social y servicio**.
 
-- **[Hecho]**: lo que sí se puede afirmar desde lo público.
-- **[Inferencia]**: lo que probablemente sea, pero no está confirmado.
-- **[Desconocido]**: lo que no puedo saber.
-- **Certeza**: Alta / Media / Baja.
-
-Asumo que el símbolo `$` es USD. Si no, cambia la escala.
-
----
-
-## 1. Resumen rápido
-
-Lo que parece ser:
-
-- Una **comunidad de pago** sobre automatización.
-- Un modelo de **membresía recurrente**.
-- Un negocio **founder-led**, con tracción aparente.
-- Probablemente **rentable o con buen margen**, pero con salud real incierta.
-- Un competidor vulnerable si no tiene retención, engagement privado y una propuesta clara de resultado.
-
-Mi lectura:
-
-> **No veo una máquina imbatible. Veo un negocio de membresía con escala aparente, probablemente mid-six figures ARR, pero muy dependiente del fundador y con señales insuficientes sobre churn, actividad real y valor entregado.**
+Asumo que “$” es USD o tu moneda de referencia.
 
 ---
 
-## 2. Lo que sé, lo que infiero y lo que no sé
+## 1. Lo que sabes vs. lo que infieres
 
-| Señal pública | Hecho | Inferencia probable | Certeza | Implicación competitiva |
-|---|---|---|---|---|
-| Comunidad de pago sobre automatización en plataforma tipo membresía | **[Hecho]** El modelo es recurring revenue | **[Inferencia]** Probablemente el negocio vive de suscripciones mensuales, no de ventas puntuales | Alta | Debes competir con retención y valor continuo, no solo con tráfico |
-| Muestra “2.400 miembros” | **[Hecho]** Hay un número visible de miembros | **[Inferencia]** Puede ser miembros actuales, históricos, free + paid, o miembros que alguna vez pagaron | Baja | Ese número es social proof, pero no prueba facturación ni salud |
-| Precio visible: $39/mes | **[Hecho]** El precio público es $39/mes | **[Inferencia]** Si no se ve plan anual, puede que prioricen mensual o que la página de precios esté incompleta | Media | Puedes atacar con anual, premium o implementación |
-| 3 posts por semana en feed público | **[Hecho]** Hay contenido público consistente | **[Inferencia]** Puede ser contenido de captación, no necesariamente actividad real de comunidad privada | Baja | Debes verificar engagement privado antes de asumir que es sano |
-| Fundador con 60.000 seguidores en una red social | **[Hecho]** Existe audiencia pública relevante | **[Inferencia]** El crecimiento probablemente depende mucho del fundador y su distribución | Alta | Su moat es audiencia, pero también su riesgo |
-| 12 cursos listados | **[Hecho]** Hay un catálogo visible | **[Inferencia]** Puede ser un activo grande, o contenido incompleto/desactualizado | Baja | Puedes atacar con cursos terminados, actualizados y con implementación |
+| Dato público | Qué es seguro | Qué se puede inferir | Certeza |
+|---|---|---|---|
+| Comunidad de pago sobre automatización, plataforma tipo membresía | [SABIDO] Venden acceso recurrente | [INFERIDO] Modelo B2C/B2B2C con ingresos mensuales | Alta |
+| “2.400 miembros” en portada | [SABIDO] Es la cifra que muestran | [INFERIDO] Puede ser total histórico, activos, free + paid, o solo pagantes | Media |
+| Precio visible: $39/mes | [SABIDO] Precio público | [INFERIDO] Puede haber anual, descuentos, founding members, lifetime deals, cupones, planes internos | Media |
+| 3 posts/semana en feed público | [SABIDO] Cadencia pública | [INFERIDO] Tienen contenido, pero no sabemos si la comunidad interna es activa | Baja |
+| Fundador con 60.000 seguidores | [SABIDO] Audiencia pública | [INFERIDO] Ventaja de distribución orgánica; posible dependencia del fundador | Alta |
+| 12 cursos listados | [SABIDO] Catálogo visible | [INFERIDO] Pueden ser assets de venta, contenido desactualizado, o cursos sin terminación visible | Media |
 
----
-
-## 3. Estimación de facturación
-
-### 3.1 Cálculo bruto si todo fuera literal
-
-Si:
-
-- 2.400 miembros = suscriptores activos de pago
-- Todos pagan $39/mes
-- No hay descuentos, gratuitos, bajas ni planes anuales
-
-Entonces:
-
-```text
-MRR = 2.400 × $39 = $93.600
-ARR = $93.600 × 12 = $1.123.200
-```
-
-Eso es:
-
-> **~$1.12M ARR si los 2.400 miembros son todos pagantes activos a precio completo.**
-
-Pero eso es una hipótesis fuerte y probablemente optimista.
+**Lo que NO sabemos y cambia todo:**  
+1. ¿2.400 son miembros pagantes o total histórico?  
+2. ¿Cuántos están activos vs. inactivos?  
+3. ¿Hay plan anual, descuento, lifetime deal o founding member?  
+4. ¿Cuál es el churn mensual?  
+5. ¿Qué porcentaje de miembros completa cursos o participa?  
+6. ¿Cuánto invierten en ads o afiliados?  
+7. ¿Cuántos empleados tienen?  
+8. ¿Los 12 cursos están actualizados?  
+9. ¿El feed público es el mismo feed interno o solo una muestra?  
+10. ¿Tienen live calls, soporte, templates, integraciones o comunidad activa?
 
 ---
 
-### 3.2 Por qué no puedo usar ese número como “facturación real”
+## 2. Estimación de facturación
 
-No sé:
+### Fórmula base
 
-- Si “2.400 miembros” incluye:
-  - miembros actuales
-  - miembros históricos
-  - trials
-  - gratuitos
-  - bajas
-  - miembros con descuento
-- Si hay plan anual oculto.
-- Si el precio efectivo promedio es menor.
-- Si hay reembolsos.
-- Si la plataforma cobra fees.
-- Si los impuestos están incluidos.
-- Si hay afiliados o descuentos.
+**MRR teórico = miembros pagantes × precio mensual**
 
-Por eso, el número visible es **indicador de escala aparente**, no prueba de facturación.
+Si los 2.400 miembros fueran todos pagantes a $39/mes:
+
+**MRR = 2.400 × $39 = $93.600/mes**  
+**ARR = $93.600 × 12 = $1.123.200/año**
+
+Pero eso es un **techo optimista**, no una certeza.
 
 ---
 
-### 3.3 Escenarios de facturación
+## 3. Escenarios de facturación bruta
 
-| Escenario | Supuestos | MRR estimado | ARR estimado | Probabilidad subjetiva |
-|---|---:|---:|---:|---:|
-| Optimista / literal | 2.400 miembros activos pagando $39 | $93.600 | $1.123.200 | 15% |
-| Base | ~1.700–1.900 miembros activos pagando ARPU efectivo $34–$36 | $58k–$68k | $700k–$820k | 45% |
-| Conservador | ~1.100–1.300 miembros activos pagando ARPU efectivo $30–$33 | $33k–$43k | $400k–$520k | 25% |
-| Pesimista | ~500–800 miembros activos pagando ARPU efectivo $28–$32 | $14k–$26k | $170k–$310k | 15% |
+| Escenario | Supuestos | MRR estimado | ARR estimado | Certeza |
+|---|---:|---:|---:|---|
+| **Techo visible** | 2.400 pagantes, todos a $39/mes, sin descuentos | $93.600 | $1.123.200 | Baja si la cifra incluye free/inactivos |
+| **Optimista** | 85% son pagantes activos | $79.560 | $954.720 | Media |
+| **Base probable** | 55–70% son pagantes activos | $51.480–$65.520 | $617.760–$786.240 | Media |
+| **Conservador** | 40% son pagantes activos | $37.440 | $449.280 | Media |
+| **Pesimista** | 25–30% son pagantes activos | $23.400–$28.080 | $280.800–$336.960 | Media |
+| **Realista para decisión competitiva** | 50–75% pagantes, con descuentos/annual mix | $45k–$75k MRR | $540k–$900k ARR | Media |
 
-**Mi mejor estimación responsable:**
+### Mi lectura probable
 
-> **ARR probable entre $500k y $900k**, con posibilidad de llegar a ~$1.1M si los 2.400 miembros son realmente activos y pagantes.
-
-Certeza: **Media-Baja**.
-
----
-
-## 4. ¿Cuánto margen probable tienen?
-
-No tengo datos de costos, pero por modelo de negocio puedo inferir.
-
-### 4.1 Señales de margen alto
-
-Un negocio de membresía suele tener:
-
-- costos variables bajos
-- plataforma tipo Circle, Mighty Networks, Kajabi, etc.
-- fees de procesamiento ~2.5%–3.5%
-- contenido que se puede reutilizar
-- comunidad que puede escalar con poca plantilla
-- fundador como principal activo de adquisición
-
-**Certeza: Media.**
-
-### 4.2 Costos probables
-
-| Concepto | Estimación posible |
-|---|---:|
-| Plataforma de membresía | $50–$500/mes |
-| Fees de pagos | ~3%–4% de MRR |
-| Email marketing | $50–$300/mes |
-| Herramientas de automatización | $100–$500/mes |
-| Editor / VA / community manager | $500–$3.000/mes |
-| Publicidad / afiliados | $0–$50.000+/mes |
-| Sueldos | $0–$20.000+/mes |
-
-Si son solo fundador + 1–2 personas, el margen operativo puede ser alto.
-
-### 4.3 Estimación de caja probable
-
-Con ARR base de $700k:
-
-```text
-Ingreso mensual promedio: ~$58k
-Fees pagos: ~$1.7k
-Plataforma + herramientas: ~$1k–$2k
-Equipo pequeño: ~$3k–$10k
-Marketing: variable
-```
-
-En un escenario founder-led con bajo equipo:
-
-> **Margen operativo probable: 50%–80%**, si no invierten fuerte en ads.
-
-Certeza: **Media-Baja**.
+**Facturación bruta anual probable: $550k–$900k ARR.**  
+**Techo visible: $1.12M ARR.**  
+**Si hay muchos lifetime deals o miembros inactivos, podría estar más cerca de $300k–$500k ARR.**
 
 ---
 
-## 5. ¿Qué tan sano es el negocio?
+## 4. ¿Facturación o caja? Cuidado con anual/lifetime
 
-Aquí es donde hay más incertidumbre.
+Si tienen plan anual, la caja puede ser mayor que el MRR mensual.
 
-### 5.1 Señales verdes
+Ejemplo:  
+- 2.400 miembros.  
+- 50% pagantes.  
+- 30% de los pagantes en anual con 20% descuento.
 
-| Señal | Por qué es positiva | Certeza |
-|---|---|---|
-| Modelo de membresía recurrente | Mejor que vender cursos sueltos | Alta |
-| Precio visible | Reduce fricción de compra | Alta |
-| 2.400 miembros mostrados | Social proof fuerte | Media |
-| 3 posts/semana en público | Consistencia de contenido | Media |
-| Fundador con 60k seguidores | Distribución orgánica | Alta |
-| 12 cursos listados | Profundidad aparente de oferta | Media |
+Precio mensual: $39.  
+Precio anual equivalente: $31.20/mes.
 
----
+MRR mixto aproximado:
 
-### 5.2 Señales de riesgo
+**MRR = 2.400 × 50% × [70% × $39 + 30% × $31.20]**  
+**= 1.200 × [$27.30 + $9.36]**  
+**= 1.200 × $36.66**  
+**= $43.992/mes**  
+**ARR = $527.904**
 
-| Riesgo | Por qué importa | Certeza |
-|---|---|---|
-| “2.400 miembros” puede no ser miembros activos | Infla la percepción de tracción | Alta |
-| No se ve plan anual | Puede perder caja o tener pricing incompleto | Media |
-| No se sabe churn | Una membresía puede morir en silencio | Alta |
-| No se sabe actividad privada | Comunidad puede estar muerta aunque el feed público sea bonito | Alta |
-| Dependencia del fundador | Si cambia algoritmo o se quema, el negocio sufre | Alta |
-| 12 cursos sin saber completitud | Puede ser catálogo, no producto terminado | Media |
-| Automatización es categoría amplia | Competidores pueden nichar más fuerte | Alta |
+Pero si cobran anual por adelantado, pueden tener **más caja que MRR**.
 
----
+Si vendieron **lifetime deals**, por ejemplo 500 miembros a $497:
 
-### 5.3 La variable que decide todo: churn
+**Caja upfront = $248.500**
 
-Para una comunidad de pago, el churn mensual es crítico.
-
-| Churn mensual | Vida media aproximada | Miembros nuevos necesarios para mantener 2.400 |
-|---:|---:|---:|
-| 2% | ~50 meses | ~48/mes |
-| 3% | ~33 meses | ~72/mes |
-| 5% | ~20 meses | ~120/mes |
-| 8% | ~12.5 meses | ~192/mes |
-| 12% | ~8.3 meses | ~288/mes |
-
-Con 60.000 seguidores del fundador:
-
-- Si churn es 5%, necesitan ~120 nuevos miembros/mes.
-- Eso equivale a ~0.2% de la audiencia cada mes.
-- Es plausible con contenido constante y confianza.
-- Si churn es 8%–12%, el negocio se vuelve más frágil.
-
-**Mi lectura:**
-
-> Si el churn está por debajo de 5% mensual, el negocio es razonablemente sano.  
-> Si está por encima de 8%, puede estar comprando crecimiento y perdiendo dinero a largo plazo.
-
-Certeza: **Baja**, porque no tengo datos de retención.
+Eso no es ARR. Puede inflar “2.400 miembros” sin generar recurrencia real.
 
 ---
 
-### 5.4 Scorecard de salud competitivo
+## 5. Salud del negocio: scorecard competitivo
 
-| Dimensión | Nota | Comentario |
-|---|---:|---|
-| Modelo de negocio | 9/10 | Membresía recurrente es excelente |
-| Tracción aparente | 8/10 | 2.400 miembros y $39/mes se ven fuertes, pero no confirmados |
-| Distribución | 7/10 | 60k seguidores es activo, pero depende de fundador |
-| Contenido | 6/10 | 12 cursos es mucho, pero no sabemos calidad/actualización |
-| Comunidad real | 4/10 | No veo actividad privada ni testimonios de engagement |
-| Retención | 3/10 | Churn desconocido; es la mayor incógnita |
-| Defensibilidad | 4/10 | Cursos y comunidad pueden replicarse si no hay nicho fuerte |
-| Riesgo fundador | 7/10 | Alto: el negocio parece depender mucho de una persona |
-| Oportunidad de competir | 7/10 | Hay hueco en nicho, implementación y acompañamiento |
+| Dimensión | Señal pública | Interpretación | Certeza |
+|---|---|---|---|
+| **Modelo de ingresos** | Membresía + cursos | Bueno: recurrencia + assets educativos | Alta |
+| **Escala** | 2.400 miembros | Comunidad mediana, no micro | Media |
+| **Precio** | $39/mes | Accesible, pero sensible a churn | Alta |
+| **Distribución** | Fundador con 60k seguidores | Ventaja competitiva importante | Alta |
+| **Contenido público** | 3 posts/semana | Cadencia consistente, pero no prueba engagement interno | Baja |
+| **Catálogo** | 12 cursos | Puede ser moat o “content sprawl” | Media |
+| **Retención** | No visible | Riesgo principal: churn desconocido | Baja |
+| **Dependencia del fundador** | Alta señal pública | Riesgo de marca personal y continuidad | Media |
+| **Rentabilidad** | No visible | Posible margen alto si es orgánico y sin equipo grande | Baja |
 
-**Veredicto de salud:**
+### Veredicto de salud
 
-> **Negocio probable: viable y con caja. Salud real: incierta. Riesgo principal: churn + dependencia del fundador.**
+**Salud percibida: 6.5/10 con certeza baja.**
 
-Certeza global: **Media**.
+Es un negocio que puede estar bien:  
+- Tiene audiencia.  
+- Tiene oferta recurrente.  
+- Tiene contenido escalable.  
+- Tiene prueba social visible.
 
----
-
-## 6. Cómo te posicionas contra ellos
-
-No intentes competir por “más cursos”. Eso suele ser una guerra de contenido y no siempre gana quien tiene más.
-
-Compites mejor por:
-
-1. **Nicho**
-2. **Resultado**
-3. **Velocidad de implementación**
-4. **Acompañamiento**
-5. **Prueba social específica**
-6. **Calidad de comunidad**
-7. **Precio/valor más claro**
+Pero tiene riesgos:  
+- No sabemos churn.  
+- No sabemos engagement real.  
+- “2.400 miembros” puede ser vanity metric.  
+- 12 cursos sin completion visible puede indicar falta de foco.  
+- Dependen mucho del fundador.  
+- $39/mes requiere volumen alto para crecer fuerte.
 
 ---
 
-## 7. Posicionamientos ganadores
+## 6. Unit economics estimados
 
-### 7.1 Ataque por nicho
+Supongamos escenario base:
 
-Ellos parecen generalistas: “automatización”.
+- Miembros pagantes: 1.500  
+- ARPU: $39/mes  
+- MRR: $58.500  
+- ARR: $702.000
 
-Tú puedes ser específico:
+Si el churn mensual es:
 
-- Automatización para agencias.
-- Automatización para e-commerce.
-- Automatización para SaaS.
-- Automatización para coaches.
-- Automatización para operaciones.
-- Automatización para equipos de soporte.
-- Automatización para pequeños negocios locales.
-- Automatización para creadores.
-- Automatización con n8n para freelancers.
-- Automatización con Make/Zapier para marketing.
+| Churn mensual | Membresía promedio | LTV bruto | LTV neto aproximado tras fees |
+|---:|---:|---:|---:|
+| 5% | 20 meses | $780 | $600–$650 |
+| 8% | 12.5 meses | $487 | $370–$400 |
+| 10% | 10 meses | $390 | $300–$330 |
+| 15% | 6.7 meses | $261 | $200–$220 |
 
-**Posicionamiento:**
+**Regla rápida:**  
+Si su CAC es menor a 1/3 del LTV, el negocio es sano.  
+Si su CAC está cerca o por encima del LTV, están quemando caja.
 
-> “No es una comunidad general de automatización. Es una comunidad para [nicho] que quiere automatizar [proceso] en [tiempo].”
+Con 1.500 pagantes y 10% churn, necesitan:
+
+**150 nuevos miembros pagantes/mes solo para mantenerse.**
+
+Con 60.000 seguidores, eso implica conversiones exigentes si no hay ads, afiliados o launches.
+
+Ejemplo:  
+- Si 3.000 seguidores ven la oferta/mes.  
+- Necesitan 150 conversiones.  
+- Conversión = 5%.
+
+Eso es alto para cold audience.  
+Puede funcionar con launches, retargeting, email, comunidad o pruebas sociales.
+
+---
+
+## 7. Fortalezas probables del competidor
+
+### [INFERIDO, certeza media-alta]
+
+1. **Distribución orgánica**  
+   Fundador con 60k seguidores. Eso reduce CAC si convierte bien.
+
+2. **Modelo recurrente**  
+   Comunidad + cursos genera MRR y assets educativos.
+
+3. **Prueba social visible**  
+   “2.400 miembros” funciona como confianza pública.
+
+4. **Precio accesible**  
+   $39/mes entra en rango de decisión rápida para profesionales.
+
+5. **Contenido evergreen**  
+   12 cursos pueden venderse durante mucho tiempo.
+
+6. **Cadencia pública**  
+   3 posts/semana mantienen presencia y top-of-mind.
+
+---
+
+## 8. Debilidades probables del competidor
+
+### [INFERIDO, certeza media]
+
+1. **No sabemos cuántos están activos**  
+   2.400 miembros puede ser histórico, no real.
+
+2. **No sabemos churn**  
+   En comunidades de $39/mes, el churn puede ser alto si no hay quick win.
+
+3. **Posible exceso de cursos sin foco**  
+   12 cursos sin completion visible pueden indicar:  
+   - contenido disperso  
+   - falta de learning path  
+   - baja actualización  
+   - mala experiencia de onboarding
+
+4. **Dependencia del fundador**  
+   Si el fundador deja de publicar, la adquisición puede caer.
+
+5. **Community engagement desconocido**  
+   3 posts públicos no garantizan que la comunidad interna sea viva.
+
+6. **Precio sin anual visible**  
+   Puede estar perdiendo cashflow y retención de planes anuales.
+
+7. **Posible commoditización**  
+   “Automatización” es un tema amplio. Si no tienen nicho claro, pueden ser vulnerables a ofertas más específicas.
+
+8. **Falta de prueba visible de resultados**  
+   Si no se ven casos, testimonios, wins o proyectos, la conversión puede depender solo del fundador.
+
+---
+
+## 9. Cómo les compites
+
+### Principio estratégico
+
+**No intentes ganarles en:**  
+- número de seguidores  
+- número de cursos  
+- número de posts públicos  
+- precio bajo  
+- “también tengo comunidad”
+
+**Gana en:**  
+- nicho más específico  
+- resultado más claro  
+- onboarding más rápido  
+- comunidad más activa  
+- prueba social más fuerte  
+- servicio más premium  
+- templates y frameworks accionables  
+- implementación guiada
+
+---
+
+## 10. Ángulos de ataque competitivos
+
+### A. Nicho vs. general
+
+Ellos parecen vender “automatización” amplia.
+
+Tú puedes atacar con:
+
+- automatización para agencias  
+- automatización para e-commerce  
+- automatización para servicios profesionales  
+- automatización con IA  
+- automatización no-code para PyMEs  
+- automatización para creadores  
+- automatización para reclutamiento  
+- automatización para soporte/customer success  
+- automatización para finanzas/ops  
+- automatización para marketing B2B
+
+**Oferta:**  
+“Automatización para [nicho] que quiere ahorrar X horas/semana en Y procesos.”
+
+---
+
+### B. Resultado vs. contenido
+
+Ellos muestran 12 cursos.  
+Tú puedes vender un resultado.
+
+Ejemplos:
+
+- “Implementa 3 automatizaciones en 14 días”  
+- “Convierte tu operación en un sistema sin contratar más gente”  
+- “Ahorra 10 horas/semana con workflows”  
+- “Automatiza tu onboarding de clientes en 30 días”  
+- “Deja de hacer tareas repetitivas con IA + no-code”
+
+**Clave:** no vendas acceso a cursos; vende velocidad hacia un resultado.
+
+---
+
+### C. Comunidad guiada vs. biblioteca
+
+Si tienen muchos cursos, compite con:
+
+- rutas de aprendizaje  
+- checkpoints  
+- retos semanales  
+- office hours  
+- peer accountability  
+- proyectos guiados  
+- plantillas descargables  
+- revisión de workflows  
+- casos reales
+
+**Diferenciador:**  
+“Menos biblioteca, más implementación.”
+
+---
+
+### D. Onboarding rápido
+
+La mayoría de comunidades mueren porque el miembro no obtiene valor en los primeros 7 días.
+
+Tu ventaja puede ser:
+
+- checklist de bienvenida  
+- video de 3 minutos  
+- primer resultado en 48 horas  
+- template descargable  
+- reto de activación  
+- small group de onboarding  
+- “quick win” garantizado
+
+**Promesa:**  
+“En tu primera semana montas una automatización útil.”
+
+---
+
+### E. Prueba social
+
+Ellos tienen “2.400 miembros”, pero no sabemos si hay wins públicos.
+
+Tú puedes competir con:
+
+- casos de estudio  
+- capturas de resultados  
+- videos de miembros  
+- métricas antes/después  
+- testimonios con contexto  
+- “member spotlight” semanal  
+- proyectos reales publicados
+
+**Regla:**  
+La prueba social es más fuerte que el número de miembros si el número no viene con resultados.
+
+---
+
+### F. Servicio premium
+
+Si ellos venden $39/mes, tú puedes vender más caro con más servicio.
 
 Ejemplo:
 
-> “Automatización para agencias: reduce 10 horas/semana en reporting, onboarding y seguimiento de clientes.”
+- $49/mes: comunidad + recursos  
+- $149/mes: comunidad + cohort + office hours  
+- $497/trimestre: programa guiado  
+- $1.500–$3.000: implementación/consultoría
 
-Certeza de oportunidad: **Alta**.
-
----
-
-### 7.2 Ataque por resultado
-
-Vender “automatización” es abstracto.
-
-Vender resultados es más fuerte:
-
-- Ahorrar 10 horas/semana.
-- Reducir soporte en 30%.
-- Automatizar facturación.
-- Eliminar tareas manuales de reporting.
-- Hacer onboarding de clientes en 1 día.
-- Responder leads en menos de 1 minuto.
-- Reducir errores humanos.
-- Escalar operaciones sin contratar.
-
-**Posicionamiento:**
-
-> “No vengo a enseñarte automatización. Vengo a ayudarte a automatizar tu operación en 30 días.”
-
-Certeza de oportunidad: **Alta**.
+**No compitas solo con precio bajo.**  
+Compite con claridad, velocidad y soporte.
 
 ---
 
-### 7.3 Ataque por implementación
+## 11. Arquitectura de oferta recomendada
 
-Muchas comunidades enseñan conceptos.
+### Nivel 0: Free
 
-Tú puedes vender ejecución:
+- Lead magnet: “Mapa de automatizaciones para [nicho]”  
+- Mini reto: “5 automatizaciones en 5 días”  
+- Newsletter  
+- Plantilla simple  
+- Webinar corto
 
-- Plantillas listas.
-- Workflows descargables.
-- Sesiones de implementación.
-- Office hours.
-- Revisión de automatizaciones.
-- Retos semanales.
-- Accountability groups.
-- Casos reales.
-- Integraciones paso a paso.
-
-**Posicionamiento:**
-
-> “Menos biblioteca de cursos. Más automatizaciones funcionando.”
-
-Certeza de oportunidad: **Alta**.
+**Objetivo:** captar email y demostrar valor rápido.
 
 ---
 
-### 7.4 Ataque por velocidad
+### Nivel 1: Low ticket
 
-Si ellos tienen 12 cursos, puede haber fricción: “por dónde empiezo”.
+- $27–$47: pack de templates  
+- $47–$97: mini curso práctico  
+- $97: taller en vivo + recursos
 
-Tú puedes simplificar:
-
-- Onboarding en 5 minutos.
-- Ruta recomendada por perfil.
-- Primer resultado en 7 días.
-- Plantilla inicial lista.
-- Checklist de implementación.
-- Soporte rápido.
-
-**Posicionamiento:**
-
-> “Tu primera automatización funcionando en 7 días o te ayudamos gratis.”
-
-Certeza de oportunidad: **Media-Alta**.
+**Objetivo:** convertir seguidores en compradores.
 
 ---
 
-### 7.5 Ataque por frescura de contenido
-
-12 cursos listados pueden ser un activo o una deuda.
-
-Puedes atacar si:
-
-- Los cursos están incompletos.
-- No se actualizan.
-- No reflejan cambios de herramientas.
-- No tienen ejemplos recientes.
-
-Tu propuesta:
-
-- Contenido actualizado mensualmente.
-- Changelog público.
-- Nuevas automatizaciones cada mes.
-- Casos con herramientas actuales.
-- Integraciones con IA.
-
-**Posicionamiento:**
-
-> “Una comunidad que se actualiza cada mes, no un repositorio de cursos congelados.”
-
-Certeza: **Media**, porque no sé si están desactualizados.
-
----
-
-### 7.6 Ataque por comunidad real
-
-Si su feed público tiene 3 posts/semana, no sé si la comunidad privada es activa.
-
-Tú puedes construir comunidad con rituales:
-
-- Office hours semanales.
-- AMA mensual.
-- Reto de 14 días.
-- accountability por roles.
-- presentación de casos.
-- revisión de workflows.
-- canales por herramienta.
-- eventos en vivo.
-- normas claras de participación.
-
-**Posicionamiento:**
-
-> “No solo contenido. Una comunidad que te ayuda a implementar.”
-
-Certeza de oportunidad: **Alta**.
-
----
-
-## 8. Estrategia de pricing
-
-Ellos tienen $39/mes visible.
-
-### Opción A: Igualar precio
-
-Puede funcionar si:
-
-- Tienes mejor nicho.
-- Tienes mejor onboarding.
-- Tienes más prueba social.
-- Tienes distribución propia.
-
-Pero competir solo por precio es débil.
-
-**Recomendación:** no lo hagas salvo que tengas una ventaja clara de distribución.
-
----
-
-### Opción B: Subir precio con más valor
-
-Puedes cobrar:
-
-- $59–$79/mes: comunidad + plantillas + office hours.
-- $99–$149/mes: comunidad + implementación guiada + grupos pequeños.
-- $299–$499/trimestre: programa corto + comunidad.
-- $997–$1.997: cohort o bootcamp de automatización.
-- $2.500+: done-for-you o consultoría.
-
-**Mi recomendación:**
-
-> Ve premium si puedes demostrar implementación.  
-> $39/mes es fácil de comparar. $99/mes con resultado claro es más defendible.
-
-Certeza: **Media-Alta**.
-
----
-
-### Opción C: Bajar precio y escalar
-
-$19–$29/mes con:
-
-- biblioteca de plantillas
-- acceso self-service
-- sin soporte humano
-- comunidad pasiva
-
-Puede funcionar si tienes tráfico masivo.
-
-Pero si no tienes distribución, es difícil.
-
-**Recomendación:** evitar a menos que tengas una ventaja de acquisition muy fuerte.
-
----
-
-## 9. Oferta recomendada para competir
-
-Una oferta simple y defendible:
-
-### Núcleo
-
-**Nombre posible:**
-
-- “Automatización Aplicada”
-- “Ops Automática”
-- “Automatiza Tu Negocio”
-- “Comunidad de Automatización para [nicho]”
-
-### Precio sugerido
-
-- $79/mes
-- o $199/trimestre
-- o $699/año con bonus
-
-### Incluye
-
-1. Comunidad privada.
-2. Plantillas de automatización.
-3. Office hours semanales.
-4. Reto de implementación mensual.
-5. Casos reales.
-6. Acceso a biblioteca actualizada.
-7. Onboarding por perfil.
-8. Soporte por preguntas.
-
-### Promesa
-
-> “Implementa tu primera automatización útil en 14 días.”
-
-### Garantía
-
-- 14 días.
-- O “si no automatizas un proceso real en 30 días, te ayudamos gratis”.
-
----
-
-## 10. Cómo explotar sus posibles debilidades
-
-### Debilidad 1: Número de miembros poco transparente
-
-Ataque:
-
-- Muestra miembros activos reales.
-- Publica testimonios recientes.
-- Muestra actividad semanal.
-- Usa “miembros activos esta semana” en lugar de “2.400 miembros totales”.
-
----
-
-### Debilidad 2: No se ve plan anual
-
-Ataque:
-
-- Crea plan anual atractivo.
-- Ofrece 2 meses gratis.
-- Incluye bonus de onboarding.
-- Usa anual para mejorar caja y retención.
-
-Ejemplo:
-
-```text
-Mensual: $79
-Anual: $690 (~$57.50/mes)
-Bonus: biblioteca de plantillas + sesión de implementación
-```
-
----
-
-### Debilidad 3: 12 cursos, pero completitud desconocida
-
-Ataque:
-
-- Ofrece rutas cortas.
-- “Empieza aquí si eres agencia”.
-- “Empieza aquí si eres e-commerce”.
-- “Empieza aquí si eres SaaS”.
-- Cursos de 10–15 minutos.
-- Checklist final.
-- Plantilla descargable.
-
----
-
-### Debilidad 4: Fundador como centro del negocio
-
-Ataque:
-
-- Construye equipo visible.
-- Mentores por nicho.
-- Community managers.
-- Casos de otros expertos.
-- Marca propia, no solo persona.
-
----
-
-### Debilidad 5: Automatización generalista
-
-Ataque:
-
-- Nicho específico.
-- Stack específico.
-- Resultado específico.
-- Caso específico.
-- Comparación honesta: “si quieres general, ve con X; si quieres automatizar [nicho], ve con Y”.
-
----
-
-## 11. Canales para competir sin tener 60k seguidores
-
-El fundador tiene audiencia. Tú puedes no tenerla.
-
-No necesitas igualar eso al inicio.
-
-### Canales recomendados
-
-| Canal | Uso |
-|---|---|
-| SEO | Páginas tipo “automatización para [nicho]” |
-| YouTube | Tutoriales de implementación |
-| LinkedIn | Casos, workflows, errores comunes |
-| X/Twitter | Mini-hilos con automatizaciones |
-| Lead magnet | Plantillas, calculadora, checklist |
-| Comparativas | “Alternativa a [competidor]” |
-| Alianzas | Agencias, herramientas, influencers micro |
-| Paid ads | Solo si tienes CAC controlado |
-| Email | Secuencia de onboarding y retención |
-
-### Lead magnets potentes
-
-- “10 automatizaciones para [nicho]”.
-- “Calculadora de horas ahorradas”.
-- “Plantilla de workflow para [proceso]”.
-- “Checklist de automatización sin romper tu operación”.
-- “Errores comunes al automatizar con Make/Zapier/n8n”.
-
----
-
-## 12. Métricas que debes vigilar
-
-No te obsesiones con “miembros totales”.
-
-Mira:
-
-### Adquisición
-
-- Visitantes → leads.
-- Leads → pruebas.
-- Pruebas → pagos.
-- CAC.
-- Conversión por canal.
-
-### Activación
-
-- % que completa onboarding.
-- % que instala su primera plantilla.
-- % que automatiza algo real en 14 días.
-- % que asiste a primera sesión.
-
-### Retención
-
-- Churn mensual.
-- Net revenue retention.
-- % activo semanal.
-- % que renueva.
-- Refund rate.
-
-### Comunidad
-
-- Posts por miembro activo.
-- Comentarios por post.
-- Asistencia a eventos.
-- Top 10% de miembros.
-- Sentimiento.
-
-### Valor
-
-- Casos publicados.
-- Horas ahorradas.
-- Resultados reportados.
-- Testimonios con métricas.
-
----
-
-## 13. Benchmarks aproximados
-
-Estos son rangos útiles, no verdades absolutas.
-
-| Métrica | Nivel aceptable | Nivel bueno | Nivel excelente |
-|---|---:|---:|---:|
-| Churn mensual | <8% | <5% | <3% |
-| Activación | >30% | >50% | >65% |
-| Actividad semanal | >20% | >30% | >40% |
-| NRR | >80% | >90% | >100% |
-| LTV/CAC | >2 | >3 | >5 |
-| Payback CAC | <6 meses | <3 meses | <1 mes |
-| Refund rate | <5% | <3% | <1% |
-
-Certeza: **Media**.
-
----
-
-## 14. Plan competitivo de 30 días
-
-### Semana 1: Validar el terreno
-
-- Comprar o auditar su comunidad si es posible.
-- Revisar testimonios recientes.
-- Ver actividad privada.
-- Revisar si los cursos están completos.
-- Verificar pricing, anual, reembolsos y soporte.
-- Identificar 10 quejas o gaps visibles.
-
-### Semana 2: Elegir tu wedge
-
-Define una sola posición:
-
-> “Para [nicho] que quiere [resultado] usando [herramienta] en [tiempo].”
-
-Ejemplo:
-
-> “Para agencias que quieren automatizar reporting y onboarding de clientes en 30 días.”
-
-### Semana 3: Construir oferta mínima
-
-Crea:
-
-- Landing page.
-- 3 casos o promesas claras.
-- 5 plantillas.
-- 1 sesión semanal.
-- Onboarding simple.
-- Precio de prueba o founding members.
-
-### Semana 4: Conseguir primeros 10–20 miembros
-
-Canales:
-
-- 50 mensajes directos a personas del nicho.
-- 3 posts con caso real.
-- 1 lead magnet.
-- 1 webinar corto.
-- 1 oferta founding member.
-
-Meta:
-
-> No necesitas 2.400 miembros. Necesitas 20 personas que implementen y te den prueba social.
-
----
-
-## 15. Qué datos faltan para mejorar el análisis
-
-Para pasar de “estimación” a “casi seguro”, necesitaría:
-
-1. **Definición de “2.400 miembros”**
-   - ¿Activos? ¿Históricos? ¿Free + paid?
-
-2. **Pricing page completa**
-   - ¿Hay anual?
-   - ¿Hay descuento?
-   - ¿Hay taxes?
-   - ¿Hay trial?
-
-3. **Churn estimado**
-   - ¿Cuántos renuevan?
-   - ¿Cuántos cancelan?
-
-4. **Actividad privada**
-   - Posts/día.
-   - Comentarios.
-   - Eventos.
-   - Asistencia.
-
-5. **Calidad de cursos**
-   - ¿Están terminados?
-   - ¿Actualizados?
-   - ¿Con plantillas?
-   - ¿Con casos?
-
-6. **Fuente de crecimiento**
-   - ¿Orgánico?
-   - ¿Ads?
-   - ¿Afiliados?
-   - ¿SEO?
-   - ¿YouTube?
-
-7. **Equipo**
-   - ¿Solo fundador?
-   - ¿Community manager?
-   - ¿Soporte?
-
-8. **Testimonios**
-   - ¿Recientes?
-   - ¿Con resultados medibles?
-   - ¿De distintos segmentos?
-
-9. **Refund policy**
-   - ¿Generosa?
-   - ¿Restringida?
-   - ¿Puede indicar churn alto?
-
-10. **Stack tecnológico**
-   - ¿Zapier?
-   - ¿Make?
-   - ¿n82?
-   - ¿IA?
-   - ¿Integraciones?
-
----
-
-## 16. Mi veredicto final
-
-### ¿Cuánto facturan?
-
-Mi estimación:
-
-> **Probablemente entre $500k y $900k ARR.**  
-> Podrían llegar a ~$1.1M ARR si los 2.400 miembros son activos y pagantes.  
-> Pero también podrían estar más cerca de $300k–$500k si el número incluye históricos, gratuitos o bajas.
-
-Certeza: **Media-Baja**.
-
----
-
-### ¿Qué tan sano es el negocio?
-
-Es un negocio con estructura sólida:
-
-- recurring revenue
-- social proof
-- audiencia del fundador
-- catálogo de contenido
-- precio claro
-
-Pero la salud real depende de datos que no se ven:
-
-- churn
-- actividad privada
-- completitud de cursos
-- renovación
-- dependencia del fundador
-- calidad de implementación
-
-Mi lectura:
-
-> **Probablemente es un negocio rentable y escalable, pero no necesariamente robusto. Su mayor riesgo no es la competencia directa; es la retención y la dependencia del fundador.**
-
-Certeza: **Media**.
-
----
-
-### ¿Cómo les compites?
-
-No los compitas con “más contenido”.
-
-Compite con:
-
-1. **Nicho claro**
-   - No “automatización”, sino “automatización para [nicho]”.
-
-2. **Resultado medible**
-   - No “aprende automatización”, sino “ahorra 10 horas/semana”.
-
-3. **Implementación acompañada**
-   - Office hours, plantillas, retos, revisiones.
-
-4. **Onboarding rápido**
-   - Primer resultado en 7–14 días.
-
-5. **Comunidad viva**
-   - Eventos, accountability, casos reales.
-
-6. **Pricing más inteligente**
-   - Sube a $79–$149/mes si aportas implementación.
-   - Ofrece anual si ellos no lo muestran.
-
-7. **Prueba social específica**
-   - Casos por vertical, no testimonios genéricos.
-
----
-
-## 17. Recomendación accionable
-
-Si yo tuviera que atacar a este competidor, haría esto:
-
-### Posicionamiento
-
-> “Comunidad de automatización aplicada para [nicho], donde implementas tu primer workflow en 14 días.”
-
-### Precio
-
-- $79/mes
-- o $199/trimestre
-- o $690/año con bonus
-
-### Oferta
+### Nivel 2: Core community
+
+- $49–$99/mes  
+- $497–$797/año  
+- $299–$499/trimestre
 
 Incluye:
 
-- biblioteca de plantillas
-- onboarding por perfil
-- office hours semanal
-- reto mensual
-- casos reales
-- revisión de automatizaciones
-- acceso a comunidad privada activa
+- comunidad  
+- biblioteca  
+- plantillas  
+- live calls  
+- retos mensuales  
+- onboarding  
+- member wins
 
-### Diferenciador
-
-> “No es una biblioteca de 12 cursos. Es un sistema para automatizar tu operación.”
-
-### Primer movimiento
-
-1. Elige un nicho.
-2. Crea una landing con promesa clara.
-3. Publica 3 casos o mini-casos.
-4. Ofrece 10 founding spots.
-5. Mide activación y retención.
-6. Si 30%–50% logran automatizar algo real en 14 días, tienes un negocio.
+**Objetivo:** recurrencia y engagement.
 
 ---
 
-## 18. TL;DR
+### Nivel 3: Premium cohort
 
-- **Facturación visible bruta:** ~$1.12M ARR si los 2.400 miembros son todos pagantes activos.
-- **Facturación probable:** entre **$500k y $900k ARR**.
-- **Certeza:** media-baja.
-- **Salud:** negocio probable rentable, pero con riesgo alto por churn desconocido y dependencia del fundador.
-- **Mayor debilidad:** no se sabe si los miembros están activos, si los cursos están completos y si la comunidad privada funciona.
-- **Mejor forma de competir:** nicho + resultado + implementación + comunidad viva.
-- **No compitas con más cursos.** Compite con: “aquí automatizas algo real en 14 días”.
+- $199–$399/mes  
+- $997–$1.997 por programa
+
+Incluye:
+
+- grupo pequeño  
+- implementation sprint  
+- revisión de workflows  
+- accountability  
+- proyectos guiados  
+- acceso directo
+
+**Objetivo:** mayor LTV y mejor retención.
+
+---
+
+### Nivel 4: High ticket
+
+- $2.000–$10.000+  
+- consultoría, auditoría, implementación, retainer
+
+**Objetivo:** caja, casos de estudio y autoridad.
+
+---
+
+## 12. Estrategia de precio contra ellos
+
+Ellos tienen $39/mes visible.
+
+Tú tienes 3 opciones:
+
+### Opción 1: Entrar igual o más barato
+
+- $29/mes o $39/mes.  
+- Riesgo: guerra de precios.  
+- Solo sirve si tienes mejor conversión y volumen.
+
+### Opción 2: Entrar un poco más caro
+
+- $49–$79/mes.  
+- Debes justificar con:  
+  - nicho  
+  - plantillas  
+  - live calls  
+  - onboarding  
+  - comunidad activa
+
+### Opción 3: Entrar más caro con más servicio
+
+- $99–$299/mes.  
+- Debes vender:  
+  - implementación  
+  - accountability  
+  - revisión  
+  - resultados medibles
+
+**Mi recomendación:**  
+No compitas en $39 como commodity.  
+Compite en $49–$99 con mejor claridad de resultado, o en $199+ con servicio.
+
+---
+
+## 13. Plan de contenido competitivo
+
+Ellos publican 3 posts/semana.  
+No necesitas publicar 10. Necesitas publicar mejor.
+
+### Mix semanal sugerido
+
+| Día | Tipo de contenido | Objetivo |
+|---|---|---|
+| Lunes | Caso real o win de miembro | Prueba social |
+| Miércoles | Framework o mini tutorial | Autoridad |
+| Viernes | Pregunta/reto/interacción | Engagement |
+
+### Contenido adicional
+
+- 1 live por semana o quincena  
+- 1 newsletter semanal  
+- 1 template descargable  
+- 1 video corto de workflow  
+- 1 testimonio cada 2 semanas  
+- 1 “before/after” por mes
+
+**No publiques “tips sueltos” sin contexto.**  
+Publica sistemas, resultados, procesos y pruebas.
+
+---
+
+## 14. Plan de comunidad competitivo
+
+Si su comunidad no muestra engagement, puedes ganar por experiencia.
+
+### Ritual semanal
+
+- Lunes: reto  
+- Miércoles: office hours  
+- Viernes: wins
+
+### Ritual mensual
+
+- Masterclass en vivo  
+- Case study de miembro  
+- Template pack  
+- Mini hackathon  
+- Peer review de automatizaciones
+
+### Estructura
+
+- Channel de onboarding  
+- Channel de preguntas  
+- Channel de wins  
+- Channel de templates  
+- Channel de proyectos  
+- Channel de feedback  
+- Channel de eventos
+
+### Grupos pequeños
+
+- Pods de 5–10 personas  
+- Accountability partners  
+- Cohorts trimestrales  
+- Grupos por industria o stack
+
+**Clave:**  
+Una comunidad de 300 miembros activos puede sentirse más viva que una de 2.400 inactivos.
+
+---
+
+## 15. Cómo atacar sus posibles puntos débiles
+
+### Si su problema es “muchos cursos, poca aplicación”
+
+Tu mensaje:
+
+> “No necesitas 12 cursos. Necesitas un sistema para implementar 3 automatizaciones este mes.”
+
+### Si su problema es “comunidad pasiva”
+
+Tu mensaje:
+
+> “Comunidad con retos, office hours y proyectos, no solo biblioteca.”
+
+### Si su problema es “precio sin anual”
+
+Tu oferta:
+
+> “Plan anual con 2 meses gratis + bonus de implementación.”
+
+### Si su problema es “falta de prueba”
+
+Tu estrategia:
+
+> Publica casos reales, métricas, testimonios y proyectos semanales.
+
+### Si su problema es “nicho demasiado amplio”
+
+Tu posicionamiento:
+
+> “Automatización para [nicho específico] con resultados concretos.”
+
+---
+
+## 16. Señales que debes monitorear semanalmente
+
+| Señal | Qué buscar | Qué significa |
+|---|---|---|
+| Cambio en “2.400 miembros” | Sube o baja | Crecimiento o churn aparente |
+| Nuevos testimonios | Casos públicos | Mejor conversión |
+| Cambios de precio | Nuevos planes | Estrategia de monetización |
+| Anuncios de launches | Cohortes, webinars | Picos de adquisición |
+| Frecuencia del fundador | Publicaciones | Actividad de distribución |
+| Cursos nuevos | Updates | Inversión en producto |
+| Live calls visibles | Calendario público | Compromiso operativo |
+| Reviews/comentarios | Reddit, LinkedIn, X | Sentimiento real |
+| Ads o afiliados | Ad libraries | Posible CAC alto |
+| Empleos contratados | LinkedIn | Expansión o mantenimiento |
+
+---
+
+## 17. Métricas que necesitas estimar para competir mejor
+
+No puedes saberlo todo, pero puedes acercarte:
+
+1. **MRR estimado**  
+   = miembros pagantes × precio efectivo.
+
+2. **Churn mensual**  
+   Si pierden X% cada mes, necesitan nuevos miembros para sostenerse.
+
+3. **CAC**  
+   Si venden orgánico, puede ser bajo.  
+   Si usan ads, puede ser alto.
+
+4. **LTV**  
+   ARPU × vida promedio.
+
+5. **Tasa de activación**  
+   % de miembros que completan una acción clave en 14 días.
+
+6. **Engagement rate**  
+   Posts, comentarios, live attendance, member wins.
+
+7. **Ratio free/paid**  
+   Cuántos miembros son reales vs. históricos.
+
+8. **Cohorte de nuevos miembros**  
+   Cuántos entran por mes.
+
+9. **Retention por cohort**  
+   Cuántos siguen a 30, 60, 90 días.
+
+10. **Margin**  
+   Gross margin después de pagos, plataforma, equipo y ads.
+
+---
+
+## 18. Si tú eres el entrante: posicionamiento recomendado
+
+### Posicionamiento fuerte
+
+> “Comunidad práctica de automatización para [nicho] que quiere implementar resultados en 30 días, con plantillas, retos, office hours y casos reales.”
+
+### Diferenciadores
+
+- Menos cursos, más implementación.  
+- Nicho claro.  
+- Primer resultado en 7 días.  
+- Comunidad viva con rituales.  
+- Templates y workflows descargables.  
+- Casos públicos.  
+- Acceso directo o small groups.  
+- Opción anual con descuento.  
+- Onboarding guiado.
+
+### Promesa
+
+> “Entra con un problema operativo y sale con una automatización funcionando.”
+
+---
+
+## 19. Plan 30/60/90 para competir
+
+### Días 1–30: validar y captar
+
+- Define nicho: no “automatización” genérica.  
+- Crea lead magnet: “10 automatizaciones para [nicho]”.  
+- Publica 3 contenidos/semana con prueba social.  
+- Haz 1 webinar o live por semana.  
+- Ofrece acceso founding a $29–$49/mes.  
+- Meta: 30–75 miembros iniciales.
+
+**Objetivo:**  
+Validar que la oferta convierte.
+
+---
+
+### Días 31–60: activar comunidad
+
+- Onboarding de 14 días.  
+- Reto semanal.  
+- Office hours.  
+- Template pack.  
+- Member spotlight.  
+- Primeros casos públicos.  
+- Meta: 100–200 miembros.
+
+**Objetivo:**  
+Crear engagement y prueba social.
+
+---
+
+### Días 61–90: monetizar mejor
+
+- Lanzar plan anual.  
+- Crear tier premium: $99–$199/mes.  
+- Abrir cohorte de implementación.  
+- Ofrecer high ticket: auditoría o implementación.  
+- Meta: $5k–$20k MRR, según conversión.
+
+**Objetivo:**  
+Subir ARPU y LTV.
+
+---
+
+## 20. Riesgos de competir contra ellos
+
+### Riesgo 1: El fundador tiene audiencia fuerte
+
+No compitas por alcance inmediato.  
+Compite por conversión, nicho y experiencia.
+
+### Riesgo 2: Tienen prueba social de “2.400 miembros”
+
+No ataques el número.  
+Ataca la profundidad del resultado.
+
+### Riesgo 3: Tienen muchos cursos
+
+No lances 12 cursos.  
+Lanza 3 caminos de implementación.
+
+### Riesgo 4: Precio bajo
+
+No bajes a $19.  
+Sube valor con servicio, templates, comunidad y resultados.
+
+### Riesgo 5: Automatización es commodity
+
+Nicho, stack o resultado.  
+Ejemplo: “automatización con Make + Notion + IA para agencias”.
+
+---
+
+## 21. Veredicto final
+
+### Facturación
+
+**Probable:** $550k–$900k ARR.  
+**Techo visible:** $1.12M ARR.  
+**Piso probable:** $300k–$500k ARR si hay muchos inactivos/lifetime/free.
+
+### Salud
+
+**Media, con potencial alto.**  
+Tienen distribución, recurrencia y contenido.  
+Pero el riesgo principal es churn/engagement desconocido.
+
+### Certeza general
+
+- Facturación: **media-baja**  
+- Rentabilidad: **baja**  
+- Salud real: **baja**  
+- Ventaja competitiva del fundador: **alta**  
+- Oportunidad para competir: **alta**
+
+### Cómo competir
+
+**No intentes ser “otro community de automatización”.**  
+Sé:
+
+> “La comunidad de automatización para [nicho] donde implementas tu primer sistema en 14 días.”
+
+Tu ataque debe ser:
+
+1. **Nicho más específico**  
+2. **Resultado más claro**  
+3. **Onboarding más rápido**  
+4. **Comunidad más activa**  
+5. **Más prueba social**  
+6. **Más servicio**  
+7. **Mejor oferta anual/premium**  
+8. **Menos cursos, más implementación**
+
+---
+
+## 22. Resumen ejecutivo para tu decisión
+
+| Pregunta | Respuesta |
+|---|---|
+| ¿Cuánto factura? | Probablemente **$550k–$900k ARR**, techo **$1.12M ARR** |
+| ¿Es negocio sano? | Parece **moderadamente sano**, pero **sin datos de churn/engagement** no se puede confirmar |
+| ¿Tiene ventaja? | Sí: **fundador con audiencia + recurrencia + contenido** |
+| ¿Tiene debilidad? | Posibles: **vanity metrics, falta de foco, community engagement desconocido, dependencia del fundador** |
+| ¿Cómo le compites? | Con **nicho, resultado rápido, comunidad guiada, prueba social y oferta premium** |
+| ¿Deberías entrar? | Sí, si puedes posicionarte más específico y ejecutar mejor onboarding/comunidad |
+| ¿Qué no debes hacer? | No compitas solo con precio bajo o número de cursos |

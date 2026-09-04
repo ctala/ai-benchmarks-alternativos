@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/churn_mezcla_free_y_pago
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.79 | quality: 10.0
-- latency_total: 36.264s | tokens_per_second: 87.1
-- input_tokens: 227 | output_tokens: 3159
+- success: True  | final: 8.72 | quality: 10.0
+- latency_total: 69.881s | tokens_per_second: 65.1
+- input_tokens: 227 | output_tokens: 4552
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -29,266 +29,562 @@ Detalle que encontré exportando la tabla:
 
 ## Respuesta completa
 
-Respira. **El 31% no es el número que estás interpretando mal por pánico: lo estás midiendo con la población equivocada.**
+Tranquilo: **no estás perdiendo el 31% de tu negocio**. Lo que pasó es que tu panel está midiendo una población mezclada: usuarios gratuitos + usuarios de pago. Eso infla muchísimo el churn y te está generando pánico innecesario.
 
-Tu panel está mezclando **usuarios gratuitos** con **clientes pagantes**. Eso infla artificialmente el churn si el objetivo es retención de negocio.
+Vamos a separarlo.
 
-## 1) El diagnóstico rápido
+---
 
-### Churn total reportado
+## 1. El 31% no es tu churn real de negocio
 
-- Bajas: 62
-- Base inicio: 200
-- Churn total: **62 / 200 = 31%**
+Tu cálculo actual:
 
-Pero ese 31% incluye principalmente usuarios gratuitos, que no necesariamente representan ingreso recurrente.
+```text
+62 bajas / 200 usuarios al inicio = 31%
+```
 
-### Churn de usuarios gratuitos
+Ese número es correcto **como churn total de usuarios**, pero no sirve para entender la salud del negocio si la mayoría de usuarios son gratuitos.
 
-- Gratuitos inicio: 178
-- Bajas gratuitas: 60
-- Churn gratuito: **60 / 178 = 33.7%**
+Tu base es esta:
 
-### Churn de usuarios de pago
+| Segmento | Usuarios inicio | Bajas | Churn |
+|---|---:|---:|---:|
+| Gratuito | 178 | 60 | 33.7% |
+| Pago | 22 | 2 | 9.1% |
+| Total | 200 | 62 | 31.0% |
 
-- Pagos inicio: 22
-- Bajas de pago: 2
-- Churn de pago: **2 / 22 = 9.1%**
+Es decir:
 
-## 2) ¿Qué tan grave es?
+- **Churn gratuito:** 60 / 178 = **33.7%**
+- **Churn de pago:** 2 / 22 = **9.1%**
+- **Churn total reportado:** 62 / 200 = **31%**
 
-**Depende de qué parte del negocio estás mirando.**
+El 31% está dominado por usuarios gratuitos.
 
-### Si tu negocio depende de usuarios pagantes:
+De hecho, **60 de las 62 bajas son del plan gratuito**, o sea:
 
-El churn relevante es **9.1% mensual**, no 31%.
+```text
+60 / 62 = 96.8% de las bajas son gratuitas
+```
 
-Eso es:
+Eso cambia completamente la interpretación.
 
-- **Mejor de lo que parecía.**
-- **Aún preocupante si se sostiene.**
-- **Muy sensible por muestra pequeña**: con 22 clientes, 1 cancelación más o menos cambia muchísimo el porcentaje.
+---
 
-Un churn mensual de 9.1% anualizado sería aproximadamente:
+## 2. ¿Qué tan grave es realmente?
 
-`1 - (1 - 0.091)^12 = 68.2%`
+### Churn total del 31%: no alarmante si incluye gratuitos
 
-Es decir, si ese ritmo se mantuviera, perderías alrededor de dos tercios de tu base pagante al año. Eso sí es grave para un SaaS, pero no es el apocalipsis que sugiere el 31% porque:
+Si tu plataforma tiene un plan gratuito grande, un churn alto de usuarios gratuitos puede ser normal, dependiendo del modelo.
 
-- Solo fueron 2 clientes.
-- No sabes todavía si fueron cancelaciones voluntarias, fallas de pago, usuarios no activados, churn de prueba, o ruido.
-- Un mes con 2 bajas no es tendencia.
+Muchos usuarios gratuitos:
 
-### Si tu negocio depende del plan gratuito como embudo:
+- prueban la herramienta,
+- no activan,
+- no usan,
+- abandonan,
+- crean cuenta y desaparecen.
 
-El 33.7% de churn gratuito puede indicar problemas de activación, expectativa, onboarding o usuarios basura/spam/inactivos.
+Eso no es necesariamente churn de negocio. Es churn de interés o de activación.
 
-Pero incluso ahí, **no es necesariamente malo**. En muchos modelos freemium, una parte de los gratuitos se va rápido porque nunca fueron usuarios reales o nunca iban a pagar.
+### Churn de pago del 9.1%: sí merece atención
 
-## 3) Lo que no debes hacer
+Este es el número importante.
 
-No tomes decisiones grandes basadas en el 31% general.
+```text
+2 de 22 clientes de pago se fueron = 9.1% mensual
+```
 
-Ese número está contaminado por la mezcla de poblaciones.
+¿Es grave? Depende de dos cosas:
 
-No deberías decir:
+1. **Cuánto MRR representaban esos 2 clientes.**
+2. **Si fueron bajas pequeñas o bajas grandes.**
 
-> “Estamos perdiendo el 31% de los clientes.”
+Con una base de 22 clientes, perder 2 puede ser ruido estadístico, pero también puede ser una señal fuerte.
 
-Deberías decir:
+Regla rápida:
 
-> “Perdimos 2 de 22 clientes pagantes, un churn de pago del 9.1%. También perdimos 60 usuarios gratuitos, pero eso no es churn de ingreso recurrente.”
+- Si los 2 churnados eran clientes pequeños, puede ser una mala racha.
+- Si eran clientes medianos o grandes, es alerta roja.
+- Si eran clientes muy grandes, puede ser un problema serio de retención o producto.
 
-## 4) Plan inmediato: próximos 48 horas
+Necesitas calcular **churn de ingresos**, no solo churn de logos.
 
-### Paso 1: Separar el KPI
+---
 
-Crea estas métricas por separado:
+## 3. La métrica que debes mirar ahora mismo
+
+No mires:
+
+```text
+Churn total = 31%
+```
+
+Mira:
+
+```text
+Churn de clientes de pago = bajas de pago / clientes de pago al inicio
+```
+
+Tu número real de negocio hoy es:
+
+```text
+2 / 22 = 9.1%
+```
+
+Pero todavía falta algo más importante:
+
+```text
+Churn de ingresos = MRR perdido / MRR al inicio
+```
+
+Por ejemplo, si el MRR total era $10,000 y los 2 clientes que se fueron representaban $1,500, tu churn de ingresos sería 15%. Si representaban $100, sería 1%.
+
+El número de clientes no te dice todo. El dinero sí.
+
+---
+
+## 4. Tu panel está midiendo mal la pregunta
+
+Tu panel está respondiendo:
+
+> ¿Qué porcentaje de usuarios se dieron de baja este mes?
+
+Pero tú necesitas saber:
+
+> ¿Qué porcentaje de clientes que pagan se dieron de baja este mes?
+
+Y además:
+
+> ¿Cuánto MRR perdimos con esas bajas?
+
+Y:
+
+> ¿Cuánto MRR ganamos con nuevos clientes?
+
+Por eso necesitas tres métricas separadas:
+
+### A. Churn de usuarios gratuitos
+
+```text
+Bajas gratuitas / usuarios gratuitos al inicio
+```
+
+Sirve para salud de activación, onboarding y engagement.
+
+No sirve para evaluar ingresos.
+
+### B. Churn de clientes de pago
+
+```text
+Bajas de pago / clientes de pago al inicio
+```
+
+Sirve para evaluar retención comercial.
+
+### C. Churn de ingresos
+
+```text
+MRR perdido / MRR al inicio
+```
+
+Es la métrica más importante para el negocio.
+
+---
+
+## 5. Plan inmediato: qué hacer hoy
+
+### Paso 1: Recalcula el churn por segmento
+
+Haz esta tabla en tu panel:
 
 | Métrica | Fórmula | Tu caso |
 |---|---:|---:|
-| Churn total | bajas / usuarios inicio | 31% |
-| Churn gratuito | bajas free / free inicio | 33.7% |
-| Churn de pago | bajas paid / paid inicio | 9.1% |
-| Churn de MRR | MRR perdido / MRR inicio | Falta calcular |
-| Churn voluntario | cancelaciones elegidas | Falta separar |
-| Churn involuntario | fallas de pago/billing | Falta separar |
+| Churn total | 62 / 200 | 31.0% |
+| Churn gratuito | 60 / 178 | 33.7% |
+| Churn de pago | 2 / 22 | 9.1% |
+| Churn de ingresos | MRR perdido / MRR inicio | Falta calcular |
 
-Tu panel debería mostrar primero **churn de pago**, no churn total.
+Si no puedes calcular MRR perdido todavía, hazlo hoy mismo.
 
-### Paso 2: Revisar las 2 bajas de pago
+Necesitas saber:
 
-Para cada usuario pagante cancelado, responde:
+- MRR total al inicio del mes.
+- MRR de cada cliente que se dio de baja.
+- MRR de nuevos clientes del mes.
+- MRR de expansiones o upgrades.
 
-1. ¿Cuánto tiempo llevaba pagando?
-2. ¿Qué plan tenía?
-3. ¿Cuánto MRR representaba?
-4. ¿Usaba el producto antes de cancelar?
-5. ¿Canceló por:
-   - falta de valor,
-   - precio,
-   - cambio de necesidad,
-   - bug,
-   - soporte,
-   - fallo de pago,
-   - prueba gratuita que no activó,
-   - usuario equivocado?
-6. ¿Se puede recuperar?
-7. ¿Era un cliente sano o un cliente mal segmentado?
+Con eso calculas:
 
-Con 2 bajas, el diagnóstico debe ser manual, no estadístico.
+```text
+Net Revenue Retention = (MRR inicio + expansiones - contracciones - churn) / MRR inicio
+```
 
-### Paso 3: Revisar si eran clientes reales
+Esa es la métrica que realmente importa si tienes ingresos recurrentes.
 
-Pregúntate:
+---
 
-- ¿Alguno era un trial que pagó una vez y se fue?
-- ¿Alguno era un usuario interno, de prueba, demo o spam?
-- ¿Alguno se dio de baja por un problema de facturación?
-- ¿Alguno nunca activó una función clave?
+### Paso 2: Identifica a los 2 clientes de pago que se fueron
 
-Si los 2 eran usuarios que nunca activaron valor, el problema puede ser **adquisición/onboarding**, no retención pura.
+Para cada uno, responde:
 
-### Paso 4: Revisar los 60 gratuitos
+1. ¿Cuánto pagaban al mes?
+2. ¿Cuánto tiempo fueron clientes?
+3. ¿Por qué se fueron?
+4. ¿Fueron downgrade o baja total?
+5. ¿Tuvieron contacto con soporte o ventas antes de irse?
+6. ¿Usaban el producto activamente?
+7. ¿Fueron churn por precio, falta de uso, competencia, bug, falta de feature o desinterés?
 
-No los trates como churn de negocio todavía. Clasifícalos:
+Si puedes, llámalos o escríbeles para una mini entrevista. No para venderles, sino para entender.
 
-| Tipo de gratuito | Acción |
+Pregunta simple:
+
+> “Vimos que dejaste el plan de pago. ¿Qué fue lo que más influyó en tu decisión?”
+
+Con solo 2 clientes, cada entrevista vale muchísimo.
+
+---
+
+### Paso 3: Revisa si los 60 gratuitos son realmente usuarios activos
+
+No todos los usuarios gratuitos que se dan de baja son iguales.
+
+Divide los 178 usuarios gratuitos en:
+
+| Tipo de gratuito | Descripción |
 |---|---|
-| Nunca entró o nunca hizo nada | No es churn relevante; es ruido |
-| Trial que no activó valor | Revisar onboarding |
-| Usuario inactivo >30 días | Limpia métricas |
-| Usuario que probó y se fue | Revisa expectativa/landing |
-| Usuario que podría convertir | No es pérdida, es pipeline |
-| Spam/bot/prueba | Excluye del KPI |
+| Inactivos | Nunca usaron o no usaron hace semanas |
+| Activos | Usan el producto con frecuencia |
+| En riesgo | Usaban y bajaron su actividad |
+| Trial recientes | Acaban de llegar |
+| Cuentas basura | Emails temporales, spam, cuentas sin uso |
 
-## 5) Plan de 2 semanas
+Si la mayoría de los 60 gratuitos eran inactivos, el churn gratuito es menos grave.
 
-### A. Arreglar el tablero
+Si muchos gratuitos activos se fueron, ahí sí hay una señal de problema de producto o onboarding.
 
-Tu panel principal debería mostrar:
+---
 
-1. **Churn de pago mensual**
-2. **Churn de MRR mensual**
-3. **Clientes pagantes activos**
-4. **MRR activo**
-5. **Nuevos pagos**
-6. **Reactivaciones**
-7. **Bajas voluntarias**
-8. **Bajas involuntarias**
-9. **Cohortes de pago**
-10. **Free-to-paid conversion**
+### Paso 4: No tomes decisiones por pánico
 
-No mezcles free y paid en el mismo número.
+Tu instinto puede ser:
 
-### B. Definir “cliente pagante activo”
+- hacer descuentos agresivos,
+- enviar emails masivos,
+- cambiar el pricing,
+- crear features nuevas,
+- contactar a todos los usuarios.
+
+Antes de eso, necesitas segmentar.
+
+No es lo mismo:
+
+- 60 usuarios gratuitos inactivos que se van,
+que
+- 2 clientes de pago importantes que se van.
+
+---
+
+## 6. Plan para esta semana
+
+### Día 1: Corregir la métrica
+
+Configura el dashboard con estas métricas:
+
+```text
+Churn total de usuarios
+Churn de usuarios gratuitos
+Churn de clientes de pago
+Churn de ingresos
+MRR perdido
+MRR ganado
+Net Revenue Retention
+```
+
+Elimina del título principal la palabra “churn” si no especifica segmento.
 
 Ejemplo:
 
-> Cliente pagante activo = cuenta con suscripción válida, plan de pago activo y no cancelada al cierre del mes.
+Mal:
 
-Si tienes trials que pagan una sola vez, sepáralos.
+```text
+Churn: 31%
+```
 
-### C. Medir MRR churn, no solo logo churn
+Mejor:
 
-El churn de cuentas puede mentir.
+```text
+Churn de clientes de pago: 9.1%
+Churn de usuarios gratuitos: 33.7%
+Churn de ingresos: pendiente
+```
 
-Si perdiste 2 clientes pequeños, es distinto a perder 1 cliente enterprise.
+---
 
-Calcula:
+### Día 2: Analizar los 2 clientes churnados
 
-- MRR inicio.
-- MRR perdido por cancelaciones.
-- MRR perdido por downgrade.
-- MRR recuperado.
-- MRR neto.
+Crea una ficha para cada uno:
+
+| Cliente | MRR | Antigüedad | Último uso | Motivo | Recuperable |
+|---|---:|---:|---:|---|---|
+| Cliente A | ? | ? | ? | ? | Sí/No/Posible |
+| Cliente B | ? | ? | ? | ? | Sí/No/Posible |
+
+Si fueron clientes pequeños y por falta de uso, puede ser normal.
+
+Si fueron clientes grandes y por problema de producto, es urgente.
+
+---
+
+### Día 3: Analizar los 60 gratuitos
+
+Pregunta:
+
+- ¿Se dieron de baja ellos o los borraste tú?
+- ¿Cuántos habían iniciado sesión el mes anterior?
+- ¿Cuántos completaron onboarding?
+- ¿Cuántos llegaron de una campaña específica?
+- ¿Cuántos eran trials que no convirtieron?
+- ¿Hay un patrón de fecha, fuente o comportamiento?
+
+Esto te dirá si el churn gratuito es ruido o señal.
+
+---
+
+### Día 4: Revisar cohortes
+
+No mires solo el mes actual. Mira por cohorte.
 
 Ejemplo:
 
-Si esos 2 clientes representaban $100 MRR y tu base era $2,000, el churn de MRR sería 5%, no 9.1%.
+| Cohorte | Usuarios inicio | Bajas | Churn pago | Churn free |
+|---|---:|---:|---:|---:|
+| Enero | ? | ? | ? | ? |
+| Febrero | ? | ? | ? | ? |
+| Marzo | ? | ? | ? | ? |
 
-### D. Revisar cohortes
+Con 22 clientes de pago, una sola baja mueve mucho el porcentaje.
 
-No mires solo “este mes”. Mira:
+Si en los últimos 3 meses tienes:
 
-- ¿Qué cohorte de pago canceló?
-- ¿Cuántos meses llevaban pagando?
-- ¿Qué plan tenían?
-- ¿Qué función usaban o no usaban?
-- ¿Qué canal de adquisición vino?
-- ¿Qué onboarding completaron?
+```text
+Mes 1: 1/20 = 5%
+Mes 2: 0/21 = 0%
+Mes 3: 2/22 = 9.1%
+```
 
-Con solo 2 bajas, revisa los últimos 3-6 meses para ver si hay patrón.
+Puede ser variabilidad normal.
 
-### E. Hacer entrevistas
+Pero si viene subiendo:
 
-Si puedes, contacta a los 2 usuarios de baja:
+```text
+Mes 1: 2%
+Mes 2: 5%
+Mes 3: 9%
+```
 
-> “Vimos que cancelaste tu plan. No quiero venderte nada. ¿Puedes contarme qué te hizo dar el paso? ¿Qué esperabas y qué faltó?”
+Ahí sí hay tendencia.
 
-Eso vale más que cualquier dashboard.
+---
 
-## 6) Qué reportar a tu equipo o inversores
+### Día 5: Definir usuarios de pago en riesgo
 
-Puedes decir esto:
+Crea una lista de clientes de pago que podrían ser las próximas bajas.
 
-> “El panel muestra 31% de churn total, pero ese número incluye usuarios gratuitos. El churn relevante para negocio es de pago: 2 de 22 clientes, equivalente a 9.1% mensual. El 97% de las bajas fueron usuarios gratuitos. Por tanto, el problema no es una fuga masiva de clientes pagantes, sino dos cosas: 1) estamos midiendo churn con la población equivocada, y 2) necesitamos diagnosticar manualmente las 2 cancelaciones de pago y revisar la calidad del embudo gratuito.”
+Señales de riesgo:
 
-## 7) ¿Cuándo sí sería grave?
+- No inician sesión en 7/14/30 días.
+- Usan menos features que antes.
+- Tienen tickets de soporte sin resolver.
+- No completaron onboarding.
+- Están en plan mensual y no anual.
+- Tuvieron downgrade.
+- No usan la función principal.
+- Su uso mensual cayó más de 30%.
+- Su equipo dejó de usarlo.
 
-Sería grave si:
+Con solo 22 clientes de pago, puedes hacer seguimiento manual. Eso es una ventaja.
 
-- Las 2 bajas de pago eran clientes sanos, activos y de alto valor.
-- El MRR perdido es grande.
-- Otras cuentas de pago están en riesgo.
-- La baja se repite en cohortes similares.
-- El churn de pago se mantiene >5% mensual durante varios meses.
-- No puedes explicar por qué se fueron.
-- El churn gratuito incluye muchos usuarios que sí pagaron o estaban cerca de pagar.
+---
 
-## 8) ¿Cuándo sería menos grave?
+## 7. Plan para el próximo mes
 
-Sería menos grave si:
+### 1. Medir churn solo sobre clientes de pago
 
-- Los 60 gratuitos eran inactivos, spam o trials mal calificados.
-- Los 2 pagos eran usuarios pequeños o no activados.
-- El churn de MRR es bajo.
-- El resto de clientes pagos está activo.
-- No hay señales de riesgo en otras cuentas.
-- El problema es definición de métrica, no fuga real.
+Tu métrica principal debería ser:
 
-## 9) Prioridades correctas
+```text
+Churn mensual de clientes de pago
+```
 
-### Prioridad 1: corregir la métrica
+No mezcles gratuitos.
 
-No uses 31% como churn de negocio.
+### 2. Medir revenue churn
 
-### Prioridad 2: diagnosticar las 2 bajas de pago
+Tu métrica financiera:
 
-Con 22 clientes, esto es manual, no automático.
+```text
+Churn mensual de ingresos
+```
 
-### Prioridad 3: limpiar el segmento gratuito
+### 3. Medir Net Revenue Retention
 
-Separa usuarios reales, inactivos, trials, spam y potenciales.
+```text
+NRR = (MRR inicio + expansiones - contracciones - churn) / MRR inicio
+```
 
-### Prioridad 4: empezar a medir retención por cohorte
+NRR es mejor que churn solo porque incluye expansiones.
 
-Mira si los clientes pagos siguen vivos a 30, 60, 90 días.
+### 4. Separar churn de activación
 
-### Prioridad 5: revisar activación
+Para usuarios gratuitos:
 
-Si muchos se van antes de activar valor, el problema no es retención: es onboarding o expectativa.
+```text
+Free users que nunca activan
+Free users activos que se van
+Free users que se convierten a pago
+```
 
-## Conclusión
+No midas “churn” como una sola cosa.
 
-**No estás perdiendo el 31% de tus clientes pagantes.**
+### 5. Crear una alerta temprana
 
-Estás perdiendo:
+Si un cliente de pago:
 
-- **9.1% de clientes de pago** si medimos solo cuentas pagantes.
-- **33.7% de usuarios gratuitos**, que no necesariamente afectan ingreso.
-- **31% de usuarios totales**, pero esa mezcla no es útil para decidir.
+- baja su uso,
+- no entra en 10 días,
+- abre un ticket crítico,
+- cancela sin hablar con soporte,
 
-La gravedad real depende de cuánto MRR representaban esas 2 bajas, cuánto llevaban activos, por qué se fueron y si hay más cuentas en riesgo.
+debe entrar en una lista de riesgo.
 
-Tu primer movimiento no es entrar en pánico. Es **separar free de paid, calcular churn de pago/MRR y hacer diagnóstico manual de las 2 cancelaciones**.
+---
+
+## 8. Diagnóstico rápido según tu caso
+
+Con los datos que tienes, mi lectura es:
+
+### Grave: no tanto como parece
+
+El 31% no es el problema real.
+
+El problema potencial es el churn de pago:
+
+```text
+9.1% mensual
+```
+
+Eso es alto si se sostiene, pero con solo 2 bajas sobre 22 clientes puede ser ruido.
+
+### Prioridad máxima:
+
+Investigar los 2 clientes de pago que se fueron.
+
+### Prioridad media:
+
+Entender por qué se van 60 usuarios gratuitos.
+
+### Prioridad baja:
+
+No obsesionarte con el 31% como si fuera churn comercial.
+
+---
+
+## 9. Cómo debería verse tu panel
+
+Te recomiendo este formato:
+
+```text
+Churn de clientes de pago: 9.1%
+Churn de ingresos: [pendiente]
+MRR perdido: [pendiente]
+Clientes de pago al inicio: 22
+Clientes de pago al final: 20
+Bajas de pago: 2
+
+Churn de usuarios gratuitos: 33.7%
+Usuarios gratuitos al inicio: 178
+Bajas gratuitas: 60
+```
+
+Y debajo, una tabla:
+
+| Segmento | Inicio | Bajas | Final | Churn |
+|---|---:|---:|---:|---:|
+| Gratuito | 178 | 60 | 118 | 33.7% |
+| Pago | 22 | 2 | 20 | 9.1% |
+| Total | 200 | 62 | 138 | 31.0% |
+
+Pero ojo: el total de usuarios finales depende de cuántos usuarios nuevos entraron durante el mes.
+
+---
+
+## 10. Un detalle importante que falta
+
+Tu panel dice:
+
+```text
+Usuarios totales a inicio de mes: 200
+Usuarios que se dieron de baja este mes: 62
+```
+
+Pero no dice:
+
+- ¿Cuántos usuarios nuevos entraron?
+- ¿Cuántos usuarios había al final?
+- ¿Cuántos usuarios gratuitos son activos?
+- ¿Cuántos usuarios de pago son anuales vs mensuales?
+- ¿Cuánto MRR tenían los 2 clientes que se fueron?
+
+Si entraron muchos usuarios nuevos, el churn sobre usuarios al inicio puede estar subestimando o distorsionando la realidad.
+
+Una fórmula más precisa para usuarios de pago es:
+
+```text
+Clientes de pago al final =
+Clientes de pago al inicio
+- bajas de pago
++ nuevos clientes de pago
+```
+
+Y para ingresos:
+
+```text
+MRR final =
+MRR inicio
++ MRR nuevo
++ MRR expansión
+- MRR contracción
+- MRR churn
+```
+
+Eso es lo que necesitas para saber si realmente estás creciendo o no.
+
+---
+
+## 11. Resumen ejecutivo
+
+No estás en una emergencia del 31%.
+
+Tu situación es:
+
+```text
+Churn total: 31% → métrica contaminada por usuarios gratuitos
+Churn gratuito: 33.7% → señal de activación/interés
+Churn de pago: 9.1% → métrica importante a vigilar
+Gravedad real: depende del MRR perdido
+```
+
+Tu siguiente acción no es “arreglar el churn”, es **dejar de medirlo mal**.
+
+Empieza hoy con esto:
+
+1. Separar free vs pago.
+2. Calcular churn de pago: 9.1%.
+3. Calcular churn de ingresos.
+4. Entrevistar a los 2 clientes de pago que se fueron.
+5. Revisar si los 60 gratuitos eran activos o inactivos.
+6. Crear un dashboard con churn de pago, MRR perdido y NRR.
+
+Si me pasas el MRR de los 2 clientes que se fueron y el MRR total del mes, puedo decirte si el problema es leve, moderado o serio.

@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 3.27 | quality: 2.0
-- latency_total: 12.15s | tokens_per_second: 28.0
-- input_tokens: 149 | output_tokens: 340
+- success: True  | final: 3.33 | quality: 2.0
+- latency_total: 24.455s | tokens_per_second: 64.8
+- input_tokens: 149 | output_tokens: 1585
 
 ## Entrada exacta (lo que recibió el modelo)
 

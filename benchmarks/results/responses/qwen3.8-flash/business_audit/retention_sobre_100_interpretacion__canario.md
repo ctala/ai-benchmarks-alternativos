@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/retention_sobre_100_interpretacion
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.83 | quality: 10.0
-- latency_total: 54.182s | tokens_per_second: 102.8
-- input_tokens: 181 | output_tokens: 5570
+- success: True  | final: 8.57 | quality: 10.0
+- latency_total: 108.3s | tokens_per_second: 92.6
+- input_tokens: 181 | output_tokens: 10025
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -22,213 +22,556 @@ Contexto: el mes pasado tenía 40 clientes de pago y este mes tengo 36, pero var
 
 ## Respuesta completa
 
-No. Tu lectura es demasiado optimista.
+**No, esa conclusión no es correcta.**  
+“Retención de ingresos: 114%” **no significa** que “no se te va nadie” ni que la retención de clientes esté por encima del 100%.
 
-Un **“Retención de ingresos: 114%”** normalmente se refiere a **Net Revenue Retention (NRR)**, no a retención de clientes. Y NRR > 100% **no significa que casi no se vaya nadie**. Significa que, dentro de la misma base de clientes, las **expansiones** de ingresos fueron suficientes para compensar las bajas y contracciones, y aún así dejar el ingreso recurrente por encima del nivel inicial.
+Lo más probable es que tu panel esté mostrando **Net Revenue Retention (NRR)** o una métrica similar: **los ingresos recurrentes de los clientes iniciales crecieron un 14% neta**, gracias a upgrades/expansiones, a pesar de que perdiste clientes.
 
-## Qué significa realmente el 114%
+En tu contexto:
 
-Si tu panel usa la definición estándar de **retención neta de ingresos**:
+- Mes pasado: **40 clientes de pago**
+- Este mes: **36 clientes de pago**
+- Varios subieron de plan
 
-\[
-NRR = \frac{MRR_{inicial} + expansiones - contracciones - churn}{MRR_{inicial}}
-\]
+Eso sugiere, como mínimo, una **retención de logos/clientes de alrededor del 90%** si no hubo altas nuevas dentro de esos 36.  
+Si hubo clientes nuevos incluidos en los 36, la retención de la cohorte inicial puede ser **peor que 90%**.
 
-Entonces 114% quiere decir:
+Y un 10% de churn mensual de logos no es “prácticamente no se va nadie”. Es una fuga relevante.
 
-> Del MRR que generaban tus clientes actuales al inicio del mes, este mes estás generando 114%.
+---
 
-Eso puede ocurrir aunque hayas perdido clientes, siempre que unos pocos clientes subieran mucho de plan, compraron add-ons, pagaron más por uso, etc.
+## 1. Qué significa realmente 114% de “retención de ingresos”
 
-No es lo mismo que:
+Hay que distinguir tres métricas:
 
-> “No se me fue nadie.”
+### Retención de logos / clientes
 
-Ni que:
+Mide cuántos clientes siguen activos.
 
-> “La retención de clientes está por encima del 100%.”
+Fórmula simple:
 
-## Tu contexto: 40 clientes → 36 clientes
+```text
+Retención de logos = clientes que siguen activos / clientes iniciales
+```
 
-Si el mes pasado tenías **40 clientes de pago** y este mes tienes **36**, y no hubo altas nuevas, eso implica que perdiste 4 logos:
+Si empezaste con 40 y siguen 36, y no hubo altas:
 
-\[
-Retención de logos = \frac{36}{40} = 90\%
-\]
+```text
+36 / 40 = 90%
+```
 
-\[
-Churn de logos = 10\%
-\]
+Churn de logos:
 
-Eso ya es una fuga de clientes. No es “prácticamente no se me va nadie”. Es una pérdida del 10% de tu base en un mes.
+```text
+4 / 40 = 10% mensual
+```
 
-Y si entre esos 36 sí hay clientes nuevos, la retención del cohort original puede ser **peor** que 90%, porque parte de la base nueva puede estar tapando cancelaciones.
+Esa es una fuga mensual alta.
 
-## Ejemplo ilustrativo
+---
 
-Supongamos que al inicio del mes tus 40 clientes generaban 10,000 USD de MRR.
+### Gross Revenue Retention, GRR
 
-Este mes:
+Mide cuánto ingreso recurrente conservas de la base inicial, **sin contar expansiones/upgrades**.
 
-- 4 clientes cancelan: pierdes 1,500 USD.
-- Varios clientes suben de plan: sumas 2,900 USD.
-- No hay downgrades.
+Solo descuenta:
 
-El MRR de esa misma base pasa de 10,000 a 11,400 USD.
+- cancelaciones
+- downgrades
+- recortes de seats o uso
 
-\[
-NRR = \frac{11,400}{10,000} = 114\%
-\]
+Por eso, el GRR normalmente no puede ser mayor de 100%.
 
-Pero al mismo tiempo:
+```text
+GRR = (MRR inicial - churn - downgrades) / MRR inicial
+```
 
-- Perdiste 4 clientes.
-- Tu retención de logos fue 90%.
-- Tu retención bruta de ingresos, GRR, sería aproximadamente:
+Si tu panel muestra 114% y lo llama “retención de ingresos”, casi seguro **no es GRR puro**, o está mal etiquetado.
 
-\[
-GRR = \frac{10,000 - 1,500}{10,000} = 85\%
-\]
+---
 
-Es decir: **estás reteniendo 114% en ingresos netos, pero perdiste 10% de clientes y 15% de ingreso base**.
+### Net Revenue Retention, NRR
 
-## ¿Por qué importa la diferencia?
+Mide cuánto ingreso recurrente conservas de la base inicial **después de restar churn/downgrades y sumar expansiones/upgrades**.
 
-Porque NRR > 100% puede esconder un problema serio de churn.
+```text
+NRR = (MRR inicial + expansiones - contracciones - churn) / MRR inicial
+```
 
-Imagina dos escenarios:
+El NRR sí puede ser mayor de 100% porque los upgrades de clientes existentes compensan las pérdidas.
 
-### Escenario A: buenísimo
+Por tanto:
 
-- Retención de clientes: 98%
-- Retención bruta de ingresos: 95%
-- Retención neta de ingresos: 114%
+```text
+Retención de ingresos: 114%
+```
 
-Aquí sí hay una base muy estable y las expansiones son adicionales.
+probablemente significa:
 
-### Escenario B: preocupante
+> De los ingresos recurrentes generados por los clientes que tenías al inicio, ahora tienes un 14% más, gracias a que varios subieron de plan, aunque otros hayan cancelado.
 
-- Retención de clientes: 90%
-- Retención bruta de ingresos: 80%
-- Retención neta de ingresos: 114%
+No significa:
 
-Aquí estás perdiendo muchos clientes o mucho ingreso base, pero unos pocos upgrades grandes compensan la pérdida. Eso puede ser frágil.
+> “No se va nadie”  
+> o  
+> “la retención de clientes es mayor del 100%”.
 
-Tu caso parece más cercano al segundo: perdiste 4 clientes de 40, pero varios subieron de plan.
+---
 
-## ¿Puedes dejar de preocuparte por el churn y meter todo el esfuerzo en captar gente nueva?
+## 2. Tu caso concreto: 40 a 36 clientes con upgrades
 
-No, no con esa lectura.
+Si pasaste de 40 a 36 clientes, perdiste 4 logos.
 
-Puedes priorizar adquisición, sí, pero no puedes tratar el churn como resuelto. De hecho, con 40 → 36 clientes, el churn de logos debería ser una señal de alerta.
+Eso ya es churn de clientes.
 
-Algunas preguntas que deberías hacerte:
+El hecho de que varios subieran de plan puede hacer que el ingreso de la base restante crezca. Pero eso no elimina el churn: lo compensa.
 
-1. **¿Los 4 clientes que faltaron cancelaron?**
-   Si sí, perdiste logos.
+Una analogía:
 
-2. **¿Bajaron a plan gratuito?**
-   También cuentan como churn de pago.
+> Tienes 40 mesas en un restaurante. Se van 4. Las 36 restantes gastan mucho más. La facturación sube, pero perdiste clientes.
 
-3. **¿Fueron clientes pequeños?**
-   Puede que el impacto económico sea bajo, pero sigue siendo fuga de clientes.
+Eso puede ser bueno si estás subiendo de segmento, aumentando ARPA o mejorando la calidad de la base. Pero no es lo mismo que decir que no hay churn.
 
-4. **¿Las subidas de plan vinieron de 1 o 2 clientes grandes?**
-   Si sí, tu NRR de 114% puede depender de pocos clientes.
+---
 
-5. **¿Esas subidas fueron recurrentes o puntuales?**
-   Un pago anual, un upsell único o un aumento temporal de uso puede inflar NRR este mes, pero no sostenerlo.
+## 3. Ejemplo numérico para ver por qué 114% puede esconder un problema
 
-6. **¿Cuánto cuesta reemplazar los clientes que pierdes?**
-   Si tu churn es alto, adquisición nueva puede convertirse en llenar un balde con agujero.
+Supón, simplificado, que cada uno de los 40 clientes pagaba $100 de MRR.
 
-## La confusión clave
+```text
+MRR inicial = 40 × $100 = $4,000
+```
 
-Tú estás leyendo:
+Si 4 cancelan:
 
-> “Retención de ingresos: 114% → retención de clientes > 100% → no hay churn.”
+```text
+Churn = 4 × $100 = $400
+```
 
-La lectura correcta es:
+Para que la retención de ingresos de esa cohorte sea 114%:
 
-> “Retención neta de ingresos: 114% → el ingreso de la base existente creció 14% neto, probablemente por expansiones. Pero eso no dice cuántos clientes se fueron ni qué tan estable es esa retención.”
+```text
+MRR final de la cohorte inicial = $4,000 × 114% = $4,560
+```
 
-La retención de clientes, para un cohort, normalmente no puede ser mayor que 100%. Si un panel te muestra “retención de clientes” > 100%, está midiendo otra cosa, probablemente crecimiento total incluyendo clientes nuevos, o está mal etiquetado.
+Perdiste $400 por cancelaciones, pero terminas con $4,560.
 
-## Qué métricas deberías mirar por separado
+Eso implica que las expansiones netas deben ser:
 
-### 1. Retención de logos / clientes
+```text
+$4,560 - $4,000 + $400 = $960
+```
 
-\[
-Logo Retention = \frac{Clientes del inicio que siguen pagando}{Clientes del inicio}
-\]
+Es decir, necesitas $960 de upgrades/expansiones para compensar los $400 de churn y aun así crecer un 14% sobre la base inicial.
 
-En tu caso, si no hubo altas:
+Eso no es malo automáticamente. Pero significa que el crecimiento depende de que los clientes que quedan gasten mucho más.
 
-\[
-36/40 = 90\%
-\]
+Y hay riesgos:
 
-### 2. Churn de logos
+- ¿Los upgrades son recurrentes o fueron movimientos puntuales?
+- ¿Vienen de muchos clientes o de uno o dos grandes?
+- ¿Los clientes que cancelaron eran de bajo valor o de alto valor?
+- ¿Puedes repetir ese nivel de expansión cada mes?
+- ¿Qué pasa si un cliente grande hace downgrade o cancela?
 
-\[
-1 - 90\% = 10\%
-\]
+Si 114% depende de pocos upgrades, es frágil.
 
-Si eso fuera una tasa mensual sostenida, sería muy alto para muchos modelos SaaS. No es lo mismo en SMB low-touch que en enterprise, pero 10% mensual de logos es una señal importante.
+---
 
-### 3. Retención bruta de ingresos, GRR
+## 4. Un 10% de churn mensual de logos es alto
 
-\[
-GRR = \frac{MRR inicial - churn - downgrades}{MRR inicial}
-\]
+Si efectivamente perdiste 4 de 40 clientes:
 
-GRR nunca debería pasar de 100% en una definición sana. Mide cuánto ingreso conservas sin contar expansiones.
+```text
+Churn mensual de logos = 10%
+Retención mensual de logos = 90%
+```
 
-### 4. Retención neta de ingresos, NRR
+Si anualizamos por compuesto:
 
-\[
-NRR = \frac{MRR inicial + expansiones - churn - downgrades}{MRR inicial}
-\]
+```text
+Retención anual aproximada = 0.90^12 = 31.4%
+```
 
-Puede superar 100% y es una excelente métrica de expansión, pero no sustituye al GRR ni al churn de logos.
+Eso implicaría perder alrededor del 69% de los logos en un año, si el patrón se mantiene y no hay reactivaciones.
 
-## Qué te dice tu número ahora mismo
+También, si el churn mensual es 10%, la vida media aproximada de un cliente sería:
 
-Con lo que cuentas:
+```text
+1 / 0.10 = 10 meses
+```
 
-- **114% de NRR** es una buena señal económica: estás monetizando mejor a los clientes que se quedan.
-- **40 → 36 clientes** es una mala señal de retención de logos: estás perdiendo clientes.
-- **Varios subieron de plan** explica por qué el ingreso neto subió pese a perder clientes.
-- **No puedes concluir que no hay churn.** De hecho, hay churn.
+Eso no significa que todos se vayan exactamente a los 10 meses, pero da una idea de la velocidad de fuga.
 
-## Recomendación práctica
+Por eso no puedes “dejar de preocuparte por el churn”.
 
-No digas:
+---
 
-> “Ya resolví el churn porque mi NRR es 114%.”
+## 5. ¿Puedes meter todo el esfuerzo en captar gente nueva?
 
-Di:
+No, no deberías.
 
-> “Mi NRR es 114%, pero mi retención de logos cayó de 40 a 36 clientes. Debo entender si las expansiones son sostenibles, si el churn es pequeño o grande, y si mi base está creciendo de forma saludable o si estoy tapando fugas con unos pocos upsells.”
+Puedes decidir que el churn actual es aceptable, pero solo si tienes evidencia de que:
 
-Antes de meter todo el esfuerzo en captar gente nueva, revisa:
+1. Los clientes que se van son de bajo valor o no-fit.
+2. Los upgrades son recurrentes y sostenibles.
+3. La expansión no depende de uno o dos clientes.
+4. El CAC se recupera rápido.
+5. Los clientes nuevos retienen bien.
+6. La base de clientes no se está concentrando demasiado.
+7. El NRR >100% no está inflado por un evento puntual.
 
-1. **Quién canceló y por qué.**
-2. **Si los 4 clientes perdidos eran relevantes o triviales.**
-3. **Si las subidas de plan son recurrentes.**
-4. **Si la expansión viene de muchos clientes o solo de uno o dos.**
-5. **Cuánto es tu GRR.**
-6. **Cuánto cuesta adquirir cada cliente nuevo vs. cuánto vale.**
-7. **Si tu modelo depende de reemplazar logos constantemente.**
+Si no, captar más clientes puede ser simplemente llenar un balde con agujero.
 
-## Resumen
+---
 
-No, **114% no significa que prácticamente no se te va nadie**.
+## 6. El riesgo principal: confundir crecimiento de ingresos con salud de retención
 
-Significa, si es NRR, que el ingreso de tu base existente creció 14% neto respecto al mes anterior. Pero tu contexto muestra que perdiste 4 clientes de 40, es decir, una retención de logos de 90% si no hubo altas. Eso es churn.
+Tu panel puede decir:
 
-La lectura precisa es:
+```text
+Retención de ingresos: 114%
+```
 
-> “Estoy reteniendo y expandiendo ingresos, pero estoy perdiendo clientes. El 114% de retención neta de ingresos está siendo impulsado por subidas de plan, no por una ausencia de churn.”
+y parecer muy positivo.
 
-Por eso, no puedes dejar de preocuparte por el churn. Puedes priorizar adquisición, sí, pero primero deberías entender si tu crecimiento actual es sostenible o si estás compensando una fuga de clientes con expansiones concentradas.
+Pero detrás puede haber:
+
+```text
+Clientes iniciales: 40
+Clientes que siguen: 36
+Churn de logos: 10% mensual
+Expansión: alta pero concentrada
+ARPA: subiendo
+Base de clientes: encogiéndose
+```
+
+Eso puede ser una buena señal si estás moviéndote hacia clientes más grandes.
+
+Pero puede ser una mala señal si:
+
+- pierdes clientes pequeños de forma constante,
+- dependes de upgrades de pocos clientes,
+- el churn no es intencional,
+- los clientes nuevos no duran,
+- la expansión no es recurrente.
+
+---
+
+## 7. Qué debes revisar antes de confiar en ese 114%
+
+### a) ¿La métrica es NRR o está mal etiquetada?
+
+Pregunta al sistema o revisa la definición:
+
+```text
+¿La “retención de ingresos” incluye expansiones?
+¿Incluye clientes nuevos?
+¿Es mensual o anual?
+¿Es sobre la cohorte inicial?
+¿Es GRR o NRR?
+```
+
+Si incluye clientes nuevos, no es retención. Es crecimiento de ingresos.
+
+Si excluye expansiones y aun así da 114%, algo está mal.
+
+---
+
+### b) Calcula la retención por cohorte
+
+Toma los 40 clientes del mes pasado.
+
+Pregunta:
+
+```text
+¿Cuántos de esos 40 siguen pagando este mes?
+¿Cuánto MRR aportaban hace un mes?
+¿Cuánto aportan ahora?
+```
+
+Ejemplo:
+
+```text
+MRR de los 40 iniciales el mes pasado = X
+MRR de los que siguen de esos 40 este mes = Y
+```
+
+Entonces:
+
+```text
+NRR = Y / X
+```
+
+Si entre los 36 actuales hay clientes nuevos, no los mezcles con los 40 iniciales.
+
+---
+
+### c) Separa churn de logos y churn de ingresos
+
+Necesitas ver:
+
+```text
+Churn de logos = clientes que cancelaron / clientes iniciales
+Churn de ingresos = MRR perdido por cancelaciones / MRR inicial
+Contracción = MRR perdido por downgrades / MRR inicial
+Expansión = MRR ganado por upgrades / MRR inicial
+```
+
+Porque puedes tener:
+
+```text
+Churn de logos: alto
+Churn de ingresos: bajo
+NRR: alto
+```
+
+o incluso:
+
+```text
+Churn de logos: alto
+Churn de ingresos: alto
+NRR: alto gracias a expansiones muy concentradas
+```
+
+La segunda situación es más peligrosa.
+
+---
+
+### d) Analiza los 4 clientes que se fueron
+
+Para cada cliente cancelado, mira:
+
+- MRR que aportaba
+- antigüedad
+- plan
+- segmento
+- motivo de cancelación
+- si era low-value o strategic
+- si el churn es intencional o no
+
+No es lo mismo perder 4 clientes de $20 que perder 4 clientes de $500.
+
+Tampoco es lo mismo perder clientes con poco engagement que perder clientes que amaban el producto pero no podían pagar.
+
+---
+
+### e) Analiza los upgrades
+
+Mira:
+
+- ¿cuántos clientes subieron de plan?
+- ¿cuánto MRR agregaron?
+- ¿fue un upgrade recurrente o una compra puntual?
+- ¿la expansión viene de muchos clientes o de uno/dos?
+- ¿los upgrades son sostenibles o fue un pico?
+- ¿hay riesgo de downgrade después?
+
+Si el 114% viene de un upgrade grande de un cliente, no puedes asumir que se repetirá.
+
+---
+
+## 8. Cómo leer el 114% con más precisión
+
+Una lectura honesta sería:
+
+> “La retención neta de ingresos de mi cohorte inicial es 114%. Eso significa que, a nivel de MRR, mis clientes iniciales están generando más dinero del que generaban, principalmente por expansiones. Pero mi retención de logos probablemente ronda el 90%, e incluso podría ser menor si hubo altas nuevas. Por tanto, el crecimiento de ingresos puede estar compensando una fuga de clientes, no eliminándola.”
+
+Una lectura incorrecta sería:
+
+> “114% de retención significa que no se va nadie y que la retención de clientes es mayor de 100%.”
+
+Eso no es correcto.
+
+---
+
+## 9. ¿Es buena señal entonces?
+
+Puede ser buena señal, pero con matices.
+
+### Es buena señal si:
+
+- El NRR es recurrente, no puntual.
+- Las expansiones vienen de varios clientes.
+- El churn de logos es de clientes de bajo valor o no-fit.
+- El ARPA está subiendo de forma sostenible.
+- Los clientes nuevos también retienen bien.
+- La base no está excesivamente concentrada.
+- El CAC se recupera rápido.
+- La estrategia es crecer con menos clientes pero más valor.
+
+### Es una alerta si:
+
+- Pierdes 4 de 40 clientes cada mes.
+- Los upgrades dependen de uno o dos clientes.
+- Los clientes que cancelan eran de alto valor.
+- El churn no tiene explicación clara.
+- Los clientes nuevos no duran.
+- El NRR mensual de 114% no se sostiene.
+- Estás comprando crecimiento con marketing mientras la base se encoge.
+- La expansión viene de movimientos puntuales, no de uso recurrente.
+
+---
+
+## 10. Qué deberías hacer ahora, en orden
+
+### Paso 1: Verificar la definición del panel
+
+Asegúrate de que “Retención de ingresos” sea realmente:
+
+```text
+NRR = (MRR inicial + expansión - contracción - churn) / MRR inicial
+```
+
+Y que no incluya clientes nuevos.
+
+---
+
+### Paso 2: Calcular churn de logos
+
+Si no hubo altas:
+
+```text
+Churn logos = 4 / 40 = 10% mensual
+```
+
+Si hubo altas, calcula sobre la cohorte inicial.
+
+Ejemplo:
+
+```text
+Empezaste con 40.
+De esos 40, ¿cuántos siguen?
+```
+
+Si de los 40 iniciales solo siguen 31 y tienes 5 nuevos, tu retención de logos de la cohorte inicial es:
+
+```text
+31 / 40 = 77.5%
+```
+
+No 90%.
+
+---
+
+### Paso 3: Calcular GRR y NRR por separado
+
+Si puedes sacar componentes:
+
+```text
+NRR = 114%
+```
+
+Pero necesitas saber:
+
+```text
+GRR = ?
+Expansión = ?
+Churn = ?
+Downgrades = ?
+```
+
+Porque:
+
+```text
+NRR = 1 + expansión% - contracción% - churn%
+```
+
+Si el NRR es 114%, puede significar:
+
+```text
+Expansión = 20%
+Churn = 8%
+Downgrades = 2%
+```
+
+Entonces:
+
+```text
+NRR = 100% + 20% - 2% - 8% = 110%
+```
+
+O:
+
+```text
+Expansión = 30%
+Churn = 12%
+Downgrades = 4%
+```
+
+Entonces:
+
+```text
+NRR = 100% + 30% - 4% - 12% = 114%
+```
+
+El resultado es el mismo, pero la salud del negocio es distinta.
+
+---
+
+### Paso 4: Revisar concentración
+
+Calcula:
+
+```text
+% del MRR aportado por el top 10% de clientes
+% del MRR aportado por el top 5% de clientes
+% del MRR aportado por los clientes que hicieron upgrade
+```
+
+Si un puñado de clientes explica el 114%, el riesgo es alto.
+
+---
+
+### Paso 5: Evaluar sostenibilidad
+
+Pregunta:
+
+> Si el próximo mes no hay upgrades, ¿qué pasa con el NRR?
+
+Si el churn se mantiene y no hay expansión, el NRR caerá.
+
+Ejemplo:
+
+```text
+Mes 1: NRR = 114%
+Mes 2: sin expansiones, pero churn del 10%
+```
+
+Entonces el NRR podría caer a:
+
+```text
+100% - 10% = 90%
+```
+
+o menos, si hay downgrades.
+
+---
+
+## 11. Conclusión directa
+
+**No, no es correcto interpretar 114% de retención de ingresos como “prácticamente no se me va nadie”.**
+
+Lo correcto es:
+
+> “Tengo una retención neta de ingresos superior al 100%, probablemente porque las expansiones de clientes actuales compensan el churn. Pero mi retención de clientes probablemente ronda el 90%, o menos si hay altas nuevas. Por tanto, el churn sigue siendo un problema y no puedo ignorarlo.”
+
+Y sobre tu pregunta:
+
+> ¿Puedo dejar de preocuparme por el churn y meter todo el esfuerzo en captar gente nueva?
+
+**No.**
+
+Puedes decidir priorizar adquisición, pero solo si el churn es intencional, de bajo valor, y si la expansión y la retención de clientes nuevos son saludables.
+
+Con 40 a 36 clientes, tienes una fuga de logos que merece análisis. El 114% puede ser una señal positiva de monetización, pero también puede estar ocultando una base de clientes que se encoge mientras el ingreso crece por upgrades.
+
+La lectura precisa sería:
+
+```text
+Ingresos desde la base inicial: creciendo.
+Clientes de la base inicial: cayendo.
+Dependencia de expansiones: alta.
+Riesgo de churn: presente.
+Conclusión: no es “no hay churn”; es “el churn está siendo compensado por upgrades”.
+```

@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.84 | quality: 10.0
-- latency_total: 46.672s | tokens_per_second: 114.4
-- input_tokens: 261 | output_tokens: 5341
+- success: True  | final: 8.68 | quality: 10.0
+- latency_total: 108.615s | tokens_per_second: 51.1
+- input_tokens: 261 | output_tokens: 5552
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -35,160 +35,108 @@ MARGEN: 40%
 
 ## Respuesta completa
 
-No me da todavía, porque **los números no cierran**.
+Primero, verifico si los números cierran. **No cierran.**
 
-## 1. Verificación: el resumen tiene un descuadre
+## 1) Cierre de números
 
-Costos listados:
+**Ingresos:**
 
-| Concepto | Monto |
-|---|---:|
-| Infraestructura | $1.250 |
-| Publicidad | $3.900 |
-| Herramientas SaaS | $780 |
-| Procesador de pagos | $620 |
-| Contenido freelance | $2.600 |
-| **Suma real de costos** | **$9.150** |
+- Suscripciones: $9.800  
+- Cursos sueltos: $2.600  
+- **Total ingresos: $12.400** ✅ cuadra
 
-Pero tú indicas:
+**Costos según los renglones:**
 
-| Concepto | Monto |
-|---|---:|
-| **Total costos declarados** | **$7.400** |
+- Infraestructura: $1.250  
+- Publicidad: $3.900  
+- Herramientas SaaS: $780  
+- Procesador de pagos: $620  
+- Contenido freelance: $2.600  
+- **Suma real de costos: $9.150**
 
-**Diferencia: $1.750.**
+Pero en tu resumen pones:
 
-Entonces, antes de decidir si contratas, hay que resolver cuál número es el correcto.
+> **Total costos: $7.400**
 
----
+Hay una diferencia de **$1.750**.
 
-## 2. Si el total de costos fuera $7.400
+Entonces, con el detalle que diste, la utilidad real sería:
 
-Ingresos: $12.400  
-Costos: $7.400  
-Margen: $5.000  
-Margen sobre ingresos: **40,3%**
+> $12.400 − $9.150 = **$3.250**
 
-Si contratas a alguien por **$2.500/mes**:
+Y el margen sería:
 
-| Concepto | Antes | Después de contratar |
-|---|---:|---:|
-| Ingresos | $12.400 | $12.400 |
-| Costos | $7.400 | $9.900 |
-| Margen | $5.000 | **$2.500** |
-| Margen % | 40,3% | **20,2%** |
+> $3.250 / $12.400 = **26,2%**
 
-Matemáticamente, **sí alcanza para pagar el sueldo**, pero te deja solo $2.500 de margen. Eso es usar **la mitad del margen actual** para una sola persona.
-
-Con ese escenario, yo diría: **sí, pero con condiciones muy estrictas**.
-
-Solo contrataría si:
-
-1. Esa persona **reemplaza al menos $2.500/mes de costos existentes**, por ejemplo:
-   - Contenido freelance: $2.600
-   - Herramientas que ya no se usarán
-   - Publicidad menos eficiente
-   - Procesos que ahorran tiempo y dinero
-
-2. O si esa persona **genera al menos $2.500/mes de margen incremental**, por ejemplo:
-   - Más ventas
-   - Mejor conversión
-   - Retención de suscriptores
-   - Automatizaciones que reducen costos
-
-3. Si el costo real no es solo $2.500.  
-   Debes verificar si hay cargas sociales, impuestos, bonos, software, gestión, vacaciones, etc. Si el costo real es $2.900 o $3.200, el margen se aprieta más.
+No **40%**.
 
 ---
 
-## 3. Si el total de costos fuera $9.150
+## 2) ¿Te da para contratar alguien por $2.500/mes?
 
-Ingresos: $12.400  
-Costos: $9.150  
-Margen: $3.250  
-Margen sobre ingresos: **26,2%**
+Con los números tal como están en el detalle de costos:
 
-Si contratas a alguien por $2.500/mes:
+- Utilidad actual: **$3.250**
+- Costo de contratar: **$2.500**
+- Utilidad restante: **$750**
+- Nuevo margen: **6,0%**
 
-| Concepto | Antes | Después de contratar |
-|---|---:|---:|
-| Ingresos | $12.400 | $12.400 |
-| Costos | $9.150 | $11.650 |
-| Margen | $3.250 | **$750** |
-| Margen % | 26,2% | **6,0%** |
+Eso es extremadamente ajustado.
 
-Con este escenario, **no contrataría**.
-
-Quedarías con solo $750 de margen mensual. Eso es muy frágil: una caída de ingresos, un reembolso, un aumento de publicidad, un problema técnico o un mes lento te puede dejar en números rojos.
+Y ojo: si los $2.500 no incluyen cargas sociales, beneficios, equipo, capacitación, software, previsión de desvinculación o impuestos laborales, el número real puede ser mayor y podrías quedar en cero o negativo.
 
 ---
 
-## 4. Regla rápida para este caso
+## 3) Si el total de costos de $7.400 fuera el correcto
 
-Con ingresos de $12.400, un margen del 40% significa aproximadamente:
+Si asumimos que el error está en los renglones y que los costos reales sí son $7.400, entonces:
 
-> $12.400 × 40% = **$4.960**
+- Ingresos: $12.400  
+- Costos: $7.400  
+- Utilidad: $5.000  
+- Margen: **40,3%**
 
-Ese es el margen bruto que estarías diciendo que tienes.
+Ahí sí redondea al 40%.
 
-Si quieres contratar a alguien por $2.500, estás comprometiendo más del 50% de ese margen.
+Pero si contratas a alguien por $2.500:
 
-Para que el negocio no quede apretado, yo normalmente querría:
+- Nuevos costos: $7.400 + $2.500 = **$9.900**
+- Nueva utilidad: $12.400 − $9.900 = **$2.500**
+- Nuevo margen: **20,2%**
 
-- Que el nuevo costo sea claramente recuperable.
-- Que quede margen para imprevistos.
-- Que no dependas de un solo mes bueno.
-- Que tengas caja para 3 a 6 meses si baja la facturación.
+Técnicamente “te da”, pero te deja el margen a la mitad.
 
----
+Para volver a un margen del 40% con $2.500 extra de costo, necesitarías:
 
-## 5. ¿Qué ingresos necesitarías para mantener el 40% después de contratar?
+> Ingresos = $9.900 / 0,60 = **$16.500**
 
-### Escenario A: costos actuales = $7.400 + $2.500 nuevo = $9.900
-
-Para mantener un margen del 40%:
-
-> Costos / (1 - 0,40)  
-> $9.900 / 0,60 = **$16.500**
-
-Necesitarías ingresos de **$16.500/mes**.
-
-Eso significa **$4.100 más de ingresos** sobre los actuales.
-
-### Escenario B: costos reales = $9.150 + $2.500 nuevo = $11.650
-
-Para mantener un margen del 40%:
-
-> $11.650 / 0,60 = **$19.417**
-
-Necesitarías ingresos de aproximadamente **$19.400/mes**.
-
-Eso significa **$7.000 más de ingresos** sobre los actuales.
+Es decir, tendrías que crecer desde $12.400 hasta **$16.500** para sostener ese 40% de margen después de contratar.
 
 ---
 
-## 6. Mi respuesta directa
+## Mi respuesta como controller financiero
 
-**No apruebo la contratación con el resumen como está.**
+**Con los números publicados, no te da.**  
+Primero porque el total de costos no cuadra con el detalle. Segundo porque, incluso si el total de $7.400 fuera correcto, contratar $2.500 te baja el margen de ~40% a ~20%, lo cual es riesgoso si no hay un plan claro de retorno.
 
-Primero tienes que corregir el descuadre de **$1.750**.
+### Veredicto: **No apruebo la contratación todavía.**
 
-Después:
+### Para que sí tenga sentido, necesitaría ver:
 
-- Si el total de costos es realmente **$7.400**, el número **sí da**, pero queda ajustado. Solo contrataría si la persona reemplaza costos, genera ventas o trae un retorno claro.
-- Si el total de costos es realmente **$9.150**, **no contrates** todavía. El margen no aguanta un fijo de $2.500.
+1. **Costos corregidos y cuadradoss.**  
+   Si el total real es $9.150, no hay margen.  
+   Si el total real es $7.400, hay margen, pero ajustado.
 
-## Recomendación práctica
+2. **Costo total real de la contratación.**  
+   No solo $2.500 de sueldo. Debe incluir cargas, beneficios, equipo, software, capacitación y contingencias.
 
-Antes de contratar, haz esta prueba:
+3. **Retorno esperado de la persona.**  
+   Si contrata a alguien por $2.500, esa persona debería generar o proteger al menos **$2.500 de contribución marginal**, idealmente más.
 
-1. Confirma el costo real mensual de la persona, incluyendo impuestos/cargas.
-2. Identifica qué costos elimina o reduce.
-3. Estima cuántos ingresos adicionales genera en 3 meses.
-4. Si el costo neto es menor o igual a $2.500 y hay evidencia de retorno, se puede evaluar.
-5. Si es un costo adicional puro, yo empezaría con:
-   - medio tiempo,
-   - prueba por 2 meses,
-   - o un rol con objetivos de ventas/productividad medibles.
+4. **Colchón de caja.**  
+   Necesitarías tener al menos 3 meses de costos fijos cubiertos, porque el margen contable no es caja disponible.
 
-**Respuesta corta: con los números tal como están, no. Primero cuadra los costos. Y si el costo real es $9.150, definitivamente no.**
+### En resumen:
+
+> **Si los costos reales son $9.150: no, no te da.**  
+> **Si los costos reales son $7.400: sí te da, pero apenas, y solo si la contratación tiene retorno claro y no incluye costos ocultos.**
