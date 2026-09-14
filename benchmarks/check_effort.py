@@ -21,10 +21,20 @@ E3. Sobre CADA modelo de la foto y CADA nivel:
       · nunca se le enciende el razonamiento a un modelo con `default_enabled: false`.
 E4. (aviso) la foto tiene más de 45 días: el default de un proveedor pudo cambiar.
     Se confirma con `python benchmarks/effort.py --vivo`.
+E5. Ningún archivo que lee el export trae runs con effort PEDIDO. Un experimento es otro
+    examen: si cae en `results/benchmark_*.json`, el export lo promedia con el índice. Así
+    entraron a lo publicado 27 runs con `medium` forzado (piloto del 2-sep), y el 4-sep
+    quedaron 92 más esperando la próxima regeneración. El export además los descarta.
+E6. Ningún `benchmark_*.json` con nombre de experimento (exp, piloto…). Los runs viejos
+    no tienen etiqueta de effort y E5 no los ve: el nombre es la única huella que dejan.
+
+Es contaminación por PRESENCIA: tiene número, tiene forma válida y pasa `validate.py`.
+Los detectores de ausencia del repo no la iban a ver.
 
 Uso:  python benchmarks/check_effort.py
 """
 import importlib.util
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -101,6 +111,26 @@ def e3_resolver(foto: dict) -> list[str]:
     return out
 
 
+# E6: el nombre después de `benchmark_` delata un experimento. `validacion_…` no entra: es
+# la validación de una suite nueva, medida en el default.
+EXPERIMENTO_EN_NOMBRE = re.compile(r"(^|_)(exp|piloto|experimento|prueba)(_|\.)", re.I)
+# E5: se busca en el texto crudo, sin parsear: son ~640 archivos y ~80 MB, y el QA rápido
+# no puede tardar lo que tarda cargarlos todos.
+EFFORT_PEDIDO = re.compile(rb'"reasoning_effort"\s*:\s*"pedido:')
+
+
+def e5_e6_indice_limpio() -> list[str]:
+    out = []
+    for f in sorted((ROOT / "benchmarks" / "results").glob("benchmark_*.json")):
+        if EXPERIMENTO_EN_NOMBRE.search(f.name[len("benchmark_"):]):
+            out.append(f"E6 {f.name}: nombre de experimento en la carpeta que lee el export "
+                       "— moverlo a results/_experimentos/")
+        if EFFORT_PEDIDO.search(f.read_bytes()):
+            out.append(f"E5 {f.name}: trae runs con effort pedido, o sea otro examen — "
+                       "moverlo a results/_experimentos/")
+    return out
+
+
 def main() -> int:
     foto = effort.cargar_foto()
     if not foto.get("modelos"):
@@ -110,7 +140,8 @@ def main() -> int:
 
     from benchmarks.models import MODELS
     tests = _tests_declarados()
-    fallos = e1_cobertura(foto, MODELS) + e2_niveles(tests) + e3_resolver(foto)
+    fallos = (e1_cobertura(foto, MODELS) + e2_niveles(tests) + e3_resolver(foto)
+              + e5_e6_indice_limpio())
 
     tomada = foto.get("tomada")
     if tomada and (date.today() - date.fromisoformat(tomada)).days > DIAS_AVISO:

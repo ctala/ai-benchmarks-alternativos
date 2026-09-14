@@ -17,6 +17,16 @@
   proveedor lo cambia. Instrumento: `check_effort.py` (bloqueante, con dos sabotajes en
   `test_guardrails.py`).
 
+- **Experimentos fuera del índice: 27 runs con effort forzado estaban en lo publicado.**
+  El export lee todo `benchmarks/results/benchmark_*.json`, y ahí habían caído el piloto
+  del 2-sep (27 runs con `medium` forzado de GPT-5.6 Luna, Qwen 3.7 Flash y Gemma 4 31B en
+  `deep_reasoning` y `reasoning`, que entraron en la regeneración del 3-sep) y el
+  experimento del 4-sep (92 runs que iban a entrar en la próxima). Se mueven a
+  `results/_experimentos/`, el export descarta todo run con effort pedido, y
+  `check_effort` suma **E5** (runs con effort pedido donde lee el export) y **E6** (nombre
+  de experimento), con sus sabotajes. Es contaminación por PRESENCIA: ningún detector de
+  ausencia la iba a ver.
+
 - **`check_presupuesto` daba verde en falso: miraba sólo el tope de la key.** Decía «✅ hay
   presupuesto» con $720 libres en la key y **$16,81 de saldo en la cuenta**: el primer lote
   de más de $17 habría muerto a mitad, como el 17-ago. Ahora consulta los dos

@@ -127,6 +127,12 @@ def load_all_results():
         for r in results:
             if not r.get("success"):
                 continue
+            # Un run con effort PEDIDO es de un experimento: rindió otro examen. El índice
+            # es el default de cada modelo (DECISIONES, 14-sep-2026), así que no se promedia
+            # con él aunque el archivo caiga en la carpeta equivocada. `check_effort` E5 lo
+            # reporta; esto impide que llegue a lo publicado mientras tanto.
+            if str(r.get("reasoning_effort") or "").startswith("pedido:"):
+                continue
             mid = r.get("model_id") or "?"
             mname = r.get("model") or ""
             by_id[mid].append(r)

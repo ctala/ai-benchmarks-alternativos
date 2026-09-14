@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-09-03 · 100 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-09-14 · 100 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -45,7 +45,7 @@ _Análisis, decisiones, problemas con varios pasos._
 
 - **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.33/10)
 - **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas +0.00 de calidad — dentro del margen de error.
-- _13 modelos empatan en calidad en este pilar._
+- _14 modelos empatan en calidad en este pilar._
 
 ---
 

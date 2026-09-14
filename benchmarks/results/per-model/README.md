@@ -7,13 +7,13 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | # | Modelo | Final | Calidad | tok/s | OK/Total | Ver |
 |---|--------|-------|---------|-------|----------|-----|
 | 1 | [DeepSeek V4 Flash](deepseek_deepseek-v4-flash.md) | 8.56 | 9.16 | 67 | 3/3 | [ver detalles](deepseek_deepseek-v4-flash.md) |
-| 2 | [GPT-5.6 Luna](openai_gpt-5_6-luna.md) | 8.25 | 8.92 | 71 | 297/348 | [ver detalles](openai_gpt-5_6-luna.md) |
+| 2 | [GPT-5.6 Luna](openai_gpt-5_6-luna.md) | 8.29 | 8.97 | 70 | 288/339 | [ver detalles](openai_gpt-5_6-luna.md) |
 | 3 | [Nex-N2-Mini](nex-agi_nex-n2-mini.md) | 8.16 | 8.33 | 130 | 212/212 | [ver detalles](nex-agi_nex-n2-mini.md) |
 | 4 | [Devstral Small](mistralai_devstral-small.md) | 8.06 | 7.96 | 147 | 42/126 | [ver detalles](mistralai_devstral-small.md) |
 | 5 | [GPT-5.6 Luna Pro](openai_gpt-5_6-luna-pro.md) | 7.94 | 8.76 | 124 | 402/404 | [ver detalles](openai_gpt-5_6-luna-pro.md) |
 | 6 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.93 | 7.38 | 367 | 87/181 | [ver detalles](llama-3_1-8b-instant.md) |
 | 7 | [Llama 3.3 70B (Groq)](llama-3_3-70b-versatile.md) | 7.90 | 7.73 | 239 | 87/171 | [ver detalles](llama-3_3-70b-versatile.md) |
-| 8 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.89 | 8.16 | 109 | 315/316 | [ver detalles](qwen_qwen3_7-flash.md) |
+| 8 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.89 | 8.16 | 107 | 306/307 | [ver detalles](qwen_qwen3_7-flash.md) |
 | 9 | [MiMo-V2-Flash](xiaomi_mimo-v2-flash.md) | 7.86 | 8.31 | 53 | 35/45 | [ver detalles](xiaomi_mimo-v2-flash.md) |
 | 10 | [MiMo V2.5 (Xiaomi)](mimo-v2_5.md) | 7.83 | 7.99 | 78 | 83/83 | [ver detalles](mimo-v2_5.md) |
 | 11 | [GPT-5.6 Terra](openai_gpt-5_6-terra.md) | 7.83 | 9.03 | 52 | 276/327 | [ver detalles](openai_gpt-5_6-terra.md) |
@@ -95,7 +95,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 87 | [Ministral 14B](mistralai_ministral-14b-2512.md) | 7.24 | 7.25 | 66 | 185/185 | [ver detalles](mistralai_ministral-14b-2512.md) |
 | 88 | [MiniMax M2.5](minimax_minimax-m2_5.md) | 7.24 | 7.54 | 59 | 176/176 | [ver detalles](minimax_minimax-m2_5.md) |
 | 89 | [Qwen 3-Next 80B Instruct (NIM)](qwen_qwen3-next-80b-a3b-instruct.md) | 7.24 | 7.75 | 42 | 164/170 | [ver detalles](qwen_qwen3-next-80b-a3b-instruct.md) |
-| 90 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 7.24 | 7.61 | 35 | 255/264 | [ver detalles](google_gemma-4-31b-it.md) |
+| 90 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 7.23 | 7.60 | 33 | 246/255 | [ver detalles](google_gemma-4-31b-it.md) |
 | 91 | [Qwen 3.5 397B (Ollama Cloud)](qwen3_5_397b-cloud.md) | 7.23 | 7.97 | 68 | 60/70 | [ver detalles](qwen3_5_397b-cloud.md) |
 | 92 | [Sakana Namazu](sakana_sakana-namazu.md) | 7.22 | 7.77 | 206 | 2352/2433 | [ver detalles](sakana_sakana-namazu.md) |
 | 93 | [Seed 2.1 Turbo](bytedance-seed_seed-2-1-turbo.md) | 7.22 | 8.11 | 53 | 1336/1336 | [ver detalles](bytedance-seed_seed-2-1-turbo.md) |

@@ -502,6 +502,27 @@ def _t_effort_foto():
         return _correr("check_effort.py") != 0
 
 
+@prueba("check_effort · E5", "un lote con effort pedido en la carpeta que lee el export")
+def _t_effort_experimento():
+    import json as _json
+    # Nombre neutro a propósito: si lo cazara E6 por el nombre, no probaría E5.
+    f = ROOT / "benchmarks" / "results" / "benchmark_zz_sabotaje_effort.json"
+    with Sabotaje(f):
+        f.write_text(_json.dumps({"metadata": {}, "results": [
+            {"model": "X", "success": True, "reasoning_effort": "pedido:low"}]}),
+            encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
+@prueba("check_effort · E6", "un experimento viejo, sin etiqueta, con nombre de experimento")
+def _t_effort_nombre():
+    # La forma exacta del 4-sep: `benchmark_exp_effort_low.json`, runs sin etiqueta.
+    f = ROOT / "benchmarks" / "results" / "benchmark_exp_sabotaje.json"
+    with Sabotaje(f):
+        f.write_text('{"metadata": {}, "results": []}', encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:
