@@ -270,11 +270,11 @@ strong { color: #ffffff; }
     <h1>AI Model Benchmark</h1>
     <div class="subtitle">Guia para Emprendedores Hispanohablantes</div>
     <div class="month">Septiembre 2026</div>
-    <p class="meta">160 modelos medidos (210 catalogados, 100 rankeados) · 67,248+ runs reales · v4.13.0</p>
+    <p class="meta">167 modelos medidos (217 catalogados, 107 rankeados) · 68,667+ runs reales · v4.13.0</p>
 
     <div class="stats">
         <div class="stat-box">
-            <span class="stat-number">160</span>
+            <span class="stat-number">167</span>
             <span class="stat-label">Modelos medidos</span>
         </div>
         <div class="stat-box">
@@ -286,7 +286,7 @@ strong { color: #ffffff; }
             <span class="stat-label">Tests/modelo</span>
         </div>
         <div class="stat-box">
-            <span class="stat-number">67,248+</span>
+            <span class="stat-number">68,667+</span>
             <span class="stat-label">Runs totales</span>
         </div>
     </div>
@@ -319,7 +319,7 @@ strong { color: #ffffff; }
 <div class="page">
     <h2>Hallazgos clave de Septiembre 2026</h2>
     <p style="font-size: 9pt; color: #b0b0b0; margin-bottom: 12px;">
-        Lo que muestran los datos de v4.13.0, con 100 modelos que rindieron el examen completo.
+        Lo que muestran los datos de v4.13.0, con 107 modelos que rindieron el examen completo.
         El hallazgo del mes se puede probar dentro de una misma familia, que es donde no cabe
         la réplica de «son modelos distintos».
     </p>
@@ -329,18 +329,18 @@ strong { color: #ffffff; }
             <h3>💸 La versión cara dejó de comprar calidad</h3>
             <p style="font-size:9pt;">Que un barato le gane a un caro siempre admite el reproche de
             «son modelos distintos». Este mes pasa <strong>dentro de la misma familia</strong>:
-            <strong>Qwen 3.6 Max</strong> saca 8.46 y cuesta $29/mes;
+            <strong>Qwen 3.8 Max 0902</strong> saca 8.46 y cuesta $29/mes;
             <strong>Qwen 3.7 Flash</strong> saca 8.49 y cuesta $1/mes.
             Una diferencia de 0.03 por <strong>47× el precio</strong>.</p>
 
             <h3>💡 Arriba están todos empatados</h3>
-            <p style="font-size:9pt;">El top 10 entero cabe en <strong>0.06 puntos</strong>, y del
-            primero al último de los 100 hay 1.27. La calidad está
+            <p style="font-size:9pt;">El top 10 entero cabe en <strong>0.05 puntos</strong>, y del
+            primero al último de los 107 hay 1.27. La calidad está
             apretada; el precio no. Por eso esto es una calculadora con TUS pesos y no un ranking único:
             leer la tabla por posición engaña cuando la distancia real es de centésimas.</p>
 
             <h3>📏 Contexto USABLE ≠ declarado</h3>
-            <p style="font-size:9pt;">El contexto de marketing miente: <strong>42 de los 100 rankeados
+            <p style="font-size:9pt;">El contexto de marketing miente: <strong>47 de los 107 rankeados
             entregan menos de lo que declaran</strong>. El caso más extremo hoy es
             <strong>Muse Spark 1.2</strong>, que anuncia 1M
             y en la práctica sostiene 128K. Con needles neutros, los modelos top retrievean parejo hasta su techo real —
@@ -348,7 +348,7 @@ strong { color: #ffffff; }
         </div>
         <div>
             <h3>🆕 Lo que entró este mes</h3>
-            <p style="font-size:9pt;">Sin modelos nuevos en el ranking desde el release anterior. 
+            <p style="font-size:9pt;"><strong>Fugu Max</strong> entra #7 con 8.49 a $29/mes. <strong>Qwen 3.8 Max 0902</strong> entra #12 con 8.46 a $29/mes. <strong>DeepSeek V4.1 Flash</strong> entra #15 con 8.44 a $3/mes. 
             El #1 del catálogo es <strong>Qwen 3.8 Flash</strong> (8.53) y cuesta
             $2 al mes: <strong>lo barato dejó de ser la opción de compromiso</strong>,
             hoy es la que encabeza.</p>
@@ -446,6 +446,17 @@ strong { color: #ffffff; }
             </tr>
             <tr>
                 <td>7</td>
+                <td><strong>Fugu Max</strong></td>
+                <td><strong>8.49</strong></td>
+                <td>$29/mes</td>
+                <td>5.23</td>
+                <td>5.96</td>
+                <td>7.57</td>
+                <td>1.9</td>
+                <td>openrouter</td>
+            </tr>
+            <tr>
+                <td>8</td>
                 <td><strong>Gemma 4 31B</strong></td>
                 <td><strong>8.48</strong></td>
                 <td>$2/mes</td>
@@ -456,7 +467,7 @@ strong { color: #ffffff; }
                 <td>openrouter</td>
             </tr>
             <tr>
-                <td>8</td>
+                <td>9</td>
                 <td><strong>Claude Opus 4.8</strong></td>
                 <td><strong>8.48</strong></td>
                 <td>$117/mes</td>
@@ -467,7 +478,7 @@ strong { color: #ffffff; }
                 <td>openrouter</td>
             </tr>
             <tr>
-                <td>9</td>
+                <td>10</td>
                 <td><strong>Claude Opus 4.6</strong></td>
                 <td><strong>8.48</strong></td>
                 <td>$117/mes</td>
@@ -475,17 +486,6 @@ strong { color: #ffffff; }
                 <td>7.6</td>
                 <td>6.32</td>
                 <td>1.62</td>
-                <td>openrouter</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td><strong>Qwen 3.8 27B</strong></td>
-                <td><strong>8.47</strong></td>
-                <td>$12/mes</td>
-                <td>6.85</td>
-                <td>6.79</td>
-                <td>4.98</td>
-                <td>1.4</td>
                 <td>openrouter</td>
             </tr>
         </tbody>
@@ -532,7 +532,7 @@ strong { color: #ffffff; }
         Opus/Gemini/Hermes 4 suben fuerte. Si el costo importa: top compuesto.
     </div>
 
-    <p class="guino">Ranking completo de 100 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
+    <p class="guino">Ranking completo de 107 modelos en https://benchmarks.cristiantala.com/ · datos crudos en https://github.com/ctala/ai-benchmarks-alternativos</p>
 </div>
 
 <!-- ============================================================ -->
@@ -628,8 +628,8 @@ strong { color: #ffffff; }
 <tr><td>1</td><td>MiniMax M3</td><td><strong>8.60</strong></td></tr>
 <tr><td>2</td><td>GPT-5.6 Luna</td><td><strong>8.58</strong></td></tr>
 <tr><td>3</td><td>GLM 5</td><td><strong>8.56</strong></td></tr>
-<tr><td>4</td><td>Claude Opus 4.6</td><td><strong>8.47</strong></td></tr>
-<tr><td>5</td><td>DeepSeek R1 (reasoni</td><td><strong>8.47</strong></td></tr>
+<tr><td>4</td><td>DeepSeek V4.1 Flash</td><td><strong>8.53</strong></td></tr>
+<tr><td>5</td><td>Qwen 3.8 Max 0902</td><td><strong>8.51</strong></td></tr>
             </tbody></table>
 
             <h3>Coding</h3>
@@ -637,8 +637,8 @@ strong { color: #ffffff; }
 <tr><td>1</td><td>Qwen 3.8 27B</td><td><strong>9.95</strong></td></tr>
 <tr><td>2</td><td>Qwen 3.8 Flash</td><td><strong>9.85</strong></td></tr>
 <tr><td>3</td><td>Gemma 4 31B</td><td><strong>9.84</strong></td></tr>
-<tr><td>4</td><td>Solar Pro 4</td><td><strong>9.84</strong></td></tr>
-<tr><td>5</td><td>Gemini 3.7 Flash</td><td><strong>9.82</strong></td></tr>
+<tr><td>4</td><td>Mercury 2.5</td><td><strong>9.84</strong></td></tr>
+<tr><td>5</td><td>Solar Pro 4</td><td><strong>9.84</strong></td></tr>
             </tbody></table>
         </div>
         <div>
@@ -648,7 +648,7 @@ strong { color: #ffffff; }
 <tr><td>2</td><td>Qwen 3.8 Flash</td><td><strong>9.10</strong></td></tr>
 <tr><td>3</td><td>Claude Fable 5</td><td><strong>9.09</strong></td></tr>
 <tr><td>4</td><td>Claude Opus 5</td><td><strong>9.04</strong></td></tr>
-<tr><td>5</td><td>Claude Opus 4.6</td><td><strong>8.93</strong></td></tr>
+<tr><td>5</td><td>Gemini 3.8 Flash</td><td><strong>8.93</strong></td></tr>
             </tbody></table>
 
             <h3>Agentes / Operaciones</h3>
@@ -674,9 +674,9 @@ strong { color: #ffffff; }
             <table><thead><tr><th>#</th><th>Modelo</th><th>Score</th></tr></thead><tbody>
 <tr><td>1</td><td>Nex-N2-Mini</td><td><strong>8.89</strong></td></tr>
 <tr><td>2</td><td>Poolside Laguna XS 2</td><td><strong>8.69</strong></td></tr>
-<tr><td>3</td><td>GPT-5.6 Luna</td><td><strong>8.57</strong></td></tr>
-<tr><td>4</td><td>Ling 3.0 Flash</td><td><strong>8.57</strong></td></tr>
-<tr><td>5</td><td>Tencent Hy3</td><td><strong>8.47</strong></td></tr>
+<tr><td>3</td><td>Mercury 2.5</td><td><strong>8.64</strong></td></tr>
+<tr><td>4</td><td>GPT-5.6 Luna</td><td><strong>8.57</strong></td></tr>
+<tr><td>5</td><td>Ling 3.0 Flash</td><td><strong>8.57</strong></td></tr>
             </tbody></table>
         </div>
     </div>
@@ -1002,7 +1002,7 @@ strong { color: #ffffff; }
             <div class="qr-label">🎛 Calculadora interactiva</div>
             <div class="qr-url">https://benchmarks.cristiantala.com/</div>
             <p style="font-size: 8pt; color: #b0b0b0; margin-top: 8px; line-height: 1.4;">
-                Filtra por presupuesto, calidad, velocidad. Top 100 modelos actualizados.
+                Filtra por presupuesto, calidad, velocidad. Top 107 modelos actualizados.
             </p>
         </div>
         <div class="qr-box">

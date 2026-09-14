@@ -5,6 +5,28 @@
 
 ## [No publicado]
 
+- **Siete modelos nuevos: el ranking pasa de 100 a 107.** Medidos con el mismo examen que
+  los rankeados —juez `phi4-or`, 35 suites, 1 run por test, effort default— y con sus tareas
+  agénticas de Harbor completas (4 tareas × 3 intentos, `mini-swe-agent` 2.4.6, 0
+  excepciones). Por calidad: **Fugu Max #7 (8,49)**, Qwen 3.8 Max 0902 #12 (8,46), DeepSeek
+  V4.1 Flash #15 (8,44; **#6 en el compuesto**), Granite 4.2 8B #29 (8,34), Muse Spark 1.3 #35
+  (8,29), Gemini 3.8 Flash #42 (8,26, por debajo de su antecesor 3.7 Flash y dentro del
+  intervalo) y Mercury 2.5 #44 (8,24; **#9 en el compuesto**). Lo que hay que saber:
+  - **Qwen 3.8 Max 0902 sin `niah_es`:** a $2/M la suite de contexto largo costaba ~$9 y
+    dejaba el lote sin saldo. Decisión de Cristian; está fuera del índice y el precedente es
+    Kimi K3.
+  - **Granite 4.2 8B sin `niah_es`:** su contexto (131K) no alcanza para los tests de 128K+.
+  - **Mercury 2.5** falla siempre igual en `inj_es_db_password_16000_p75` (0 tokens, respuesta
+    sin choices, también al reintentar): bloqueo del proveedor ante un secreto simulado, como
+    el precedente de Fable.
+  - **DeepSeek V4.1 Flash lo sirvieron 17 endpoints** de OpenRouter (de fp4 a fp8, uno
+    degradado). Cada uno rindió tests distintos, así que no se puede atribuir la nota a un
+    endpoint; mismo caso que V4 Flash 0731.
+  - **Fugu Max** corrió sin `max_tokens` en los tests con herramientas: su endpoint no lo
+    declara (ver el arreglo de Sakana).
+  En Harbor, DeepSeek V4.1 Flash, Muse Spark 1.3 y Qwen 3.8 Max 0902 resolvieron perfectas
+  las 12 corridas; `facturacion` es la tarea que más separa (0,62 en Gemini, Granite y Fugu).
+
 - **El examen de razonamiento es el default de cada modelo, y ahora se sabe cuál es.**
   Se deja de mandar `effort: medium` a todos. OpenRouter publica en `/api/v1/models` los
   niveles que soporta cada modelo y su default, y cruzado con los 100 rankeados `medium`

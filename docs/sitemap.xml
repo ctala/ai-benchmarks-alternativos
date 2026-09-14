@@ -134,7 +134,7 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/glm-5.2-explicado/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -481,6 +481,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/deepseek-v4.1-flash/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/fugu-max/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/modelo/gemini-3.1-flash-lite/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -512,6 +524,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/modelo/gemini-3.7-flash/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/gemini-3.8-flash/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -608,6 +626,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/modelo/gpt-5.6-terra/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/granite-4.2-8b/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -721,6 +745,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/mercury-2.5/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://benchmarks.cristiantala.com/modelo/mimo-v2.5-or/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -764,6 +794,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/modelo/muse-spark-1.2/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/muse-spark-1.3/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -890,7 +926,7 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/modelo/or-qwen3-next-thinking/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -938,6 +974,12 @@
   </url>
   <url>
     <loc>https://benchmarks.cristiantala.com/modelo/qwen-3.8-max/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://benchmarks.cristiantala.com/modelo/qwen-3.8-max-0902/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
