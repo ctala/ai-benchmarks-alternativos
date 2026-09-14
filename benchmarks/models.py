@@ -242,7 +242,7 @@ MODELS = {
         # si nos tocó bf16 o fp8, y eso sólo se puede saber después si quedó registrado.
         "id": "qwen/qwen3.8-27b",
         "name": "Qwen 3.8 27B",
-        "cost_input": 0.45, "cost_output": 3.20,
+        "cost_input": 0.214, "cost_output": 2.55,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -269,7 +269,7 @@ MODELS = {
     "gemini-3.7-flash": {
         "id": "google/gemini-3.7-flash",
         "name": "Gemini 3.7 Flash",
-        "cost_input": 0.38, "cost_output": 1.88,
+        "cost_input": 0.75, "cost_output": 3.75,
         "tier": "cheap", "context_window": 1048576, "multimodal": True,
         "publisher": "Google", "license": "Proprietary",
         "notes": "Publicado 13-ago-2026. Multimodal completo (texto/imagen/video/audio/archivo).",
@@ -341,7 +341,7 @@ MODELS = {
     "deepseek-v4-pro-0813": {
         "id": "deepseek/deepseek-v4-pro-0813",
         "name": "DeepSeek V4 Pro (0813)",
-        "cost_input": 0.66, "cost_output": 1.98,
+        "cost_input": 0.9834, "cost_output": 2.9502,
         "tier": "cheap", "context_window": 1048576,
         "publisher": "DeepSeek",
         "notes": ("Snapshot del 13-ago-2026. Se mide APARTE del V4 Pro que ya está: un "
@@ -460,8 +460,8 @@ MODELS = {
         "no_medir": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
-        "cost_input": 0.57,
-        "cost_output": 2.85,
+        "cost_input": 0.45,
+        "cost_output": 2.25,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -473,8 +473,8 @@ MODELS = {
     "kimi-k2.6": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6",
-        "cost_input": 0.5795,
-        "cost_output": 2.44,
+        "cost_input": 0.95,
+        "cost_output": 4,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -491,8 +491,8 @@ MODELS = {
         "no_medir": True,
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
-        "cost_input": 0.5795,
-        "cost_output": 2.44,
+        "cost_input": 0.95,
+        "cost_output": 4,
         "tier": "cheap",
         "open_source": True,
         "license": "Modified MIT",
@@ -515,8 +515,8 @@ MODELS = {
     "kimi-k3": {
         "id": "moonshotai/kimi-k3",
         "name": "Kimi K3",
-        "cost_input": 3.0,
-        "cost_output": 15.0,
+        "cost_input": 2.64814,
+        "cost_output": 13.2827,
         "tier": "premium",
         "open_source": True,  # open-weight anunciado por Moonshot; liberación de pesos 27-jul-2026 (el modelo abierto más grande hasta la fecha, 2.8B params MoE). Hasta el 27-jul solo API.
         "thinking": True,
@@ -529,8 +529,8 @@ MODELS = {
     "glm-5.1": {
         "id": "z-ai/glm-5.1",
         "name": "GLM-5.1",
-        "cost_input": 0.952,
-        "cost_output": 2.992,
+        "cost_input": 0.966,
+        "cost_output": 3.036,
         "tier": "cheap",
         "open_source": True,
         "license": "MIT",
@@ -613,8 +613,8 @@ MODELS = {
         # mostrar. También razona (`glm-5` ya está en THINKING_MODELS).
         "id": "z-ai/glm-5.3-flash",
         "name": "GLM 5.3 Flash",
-        "cost_input": 0.07,
-        "cost_output": 0.25,
+        "cost_input": 0.15,
+        "cost_output": 0.5,
         "tier": "ultra_cheap",
         "open_source": True,
         "license": "MIT",
@@ -644,8 +644,8 @@ MODELS = {
     "glm-5.2": {
         "id": "z-ai/glm-5.2",
         "name": "GLM 5.2",
-        "cost_input": 0.4886,
-        "cost_output": 1.5356,
+        "cost_input": 0.6832,
+        "cost_output": 2.1472,
         "tier": "cheap",
         "open_source": True,
         "license": "MIT",
@@ -928,8 +928,8 @@ MODELS = {
     "gemma-4-26b": {
         "id": "google/gemma-4-26b-a4b-it",
         "name": "Gemma 4 26B MoE (3.8B activos)",
-        "cost_input": 0.12,
-        "cost_output": 0.4,
+        "cost_input": 0.09,
+        "cost_output": 0.3,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -959,8 +959,8 @@ MODELS = {
     "qwen3.6-27b": {
         "id": "qwen/qwen3.6-27b",
         "name": "Qwen 3.6 27B base (OpenRouter FP8)",
-        "cost_input": 0.6,
-        "cost_output": 3.6,
+        "cost_input": 0.3,
+        "cost_output": 2,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -969,8 +969,8 @@ MODELS = {
     "qwen3.6-35b": {
         "id": "qwen/qwen3.6-35b-a3b",
         "name": "Qwen 3.6 35B base (OpenRouter FP8)",
-        "cost_input": 0.14,
-        "cost_output": 1.00,
+        "cost_input": 0.1,
+        "cost_output": 0.9,
         "tier": "cheap",
         "open_source": True,
         "license": "Apache 2.0",
@@ -1109,8 +1109,8 @@ MODELS = {
     "gpt-5.6-luna": {
         "id": "openai/gpt-5.6-luna",
         "name": "GPT-5.6 Luna",
-        "cost_input": 0.1,
-        "cost_output": 0.6,
+        "cost_input": 0.2,
+        "cost_output": 1.2,
         "tier": "cheap",
         "niah_max_context": 262144,
         "notes": "Variante rápida y económica de GPT-5.6 (GA 9 jul 2026). $1/$6 vía OpenRouter.",
@@ -1129,8 +1129,8 @@ MODELS = {
     "gpt-5.6-terra": {
         "id": "openai/gpt-5.6-terra",
         "name": "GPT-5.6 Terra",
-        "cost_input": 1,
-        "cost_output": 6,
+        "cost_input": 2,
+        "cost_output": 12,
         "tier": "medium",
         "niah_max_context": 262144,
         "notes": "Variante balanceada de GPT-5.6. OpenAI la ubica al nivel de GPT-5.5 a mitad de costo. $2.5/$15 vía OpenRouter.",
@@ -1138,8 +1138,8 @@ MODELS = {
     "gpt-5.6-sol": {
         "id": "openai/gpt-5.6-sol",
         "name": "GPT-5.6 Sol",
-        "cost_input": 5.00,
-        "cost_output": 30.00,
+        "cost_input": 2,
+        "cost_output": 10,
         "tier": "premium",
         "niah_max_context": 262144,
         "notes": "Flagship GPT-5.6 (GA 9 jul 2026). $5/$30 vía OpenRouter.",
@@ -1356,7 +1356,7 @@ MODELS = {
     "openrouter-nemotron-3-ultra-550b": {
         "id": "nvidia/nemotron-3-ultra-550b-a55b",
         "name": "Nemotron 3 Ultra 550B",
-        "cost_input": 0.6, "cost_output": 3.6,
+        "cost_input": 0.6, "cost_output": 2.4,
         "tier": "cloud",
         "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open Model",
@@ -1605,7 +1605,7 @@ MODELS = {
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (OpenRouter)",
-        "cost_input": 0.14, "cost_output": 0.28,
+        "cost_input": 0.088606, "cost_output": 0.177212,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
         "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio re-verificado vía OpenRouter API 1 jun 2026 ($0.098/$0.197, antes $0.112/$0.224).",
@@ -1622,7 +1622,7 @@ MODELS = {
     "deepseek-v4-pro": {
         "id": "deepseek/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro",
-        "cost_input": 0.63168, "cost_output": 1.26336,
+        "cost_input": 1.6, "cost_output": 3.2,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
         "notes": "1.6T params, 49B activos, 1M context. Flagship V4. Precio corregido may 2026 vía OpenRouter API ($0.435/$0.87, antes teníamos $1.74/$3.48 — 4x sobreprecio). Re-clasificado a tier cheap.",
@@ -1800,7 +1800,7 @@ MODELS = {
     "gpt-5.6-luna-pro": {
         "id": "openai/gpt-5.6-luna-pro",
         "name": "GPT-5.6 Luna Pro",
-        "cost_input": 0.10, "cost_output": 0.60,
+        "cost_input": 0.2, "cost_output": 1.2,
         "tier": "cheap",
         "context_window": 1050000,
         "niah_max_context": 262144,
@@ -1825,7 +1825,7 @@ MODELS = {
     "gpt-5.6-terra-pro": {
         "id": "openai/gpt-5.6-terra-pro",
         "name": "GPT-5.6 Terra Pro",
-        "cost_input": 1.00, "cost_output": 6.00,
+        "cost_input": 2, "cost_output": 12,
         "tier": "medium",
         "context_window": 1050000,
         "niah_max_context": 262144,
@@ -1864,7 +1864,7 @@ MODELS = {
     "nemotron-3.5-lightning": {
         "id": "nvidia/nemotron-3.5-lightning",
         "name": "Nemotron 3.5 Lightning",
-        "cost_input": 0.10, "cost_output": 0.25,
+        "cost_input": 0.08, "cost_output": 0.2,
         "tier": "ultra_cheap",
         "context_window": 262144,
         # MoE de 3B activos sobre 30B totales. En OpenRouter existe también como `:free`
@@ -1932,7 +1932,7 @@ MODELS = {
     "solar-pro4": {
         "id": "upstage/solar-pro4",
         "name": "Solar Pro 4",
-        "cost_input": 0.03, "cost_output": 0.12,
+        "cost_input": 0.09, "cost_output": 0.36,
         "tier": "ultra_cheap",
         "context_window": 524288,
         # El ÚNICO del lote que NO es thinking: 0 tokens de reasoning en el pre-vuelo.
@@ -1974,7 +1974,7 @@ MODELS = {
     "deepseek-v4-flash-0731": {
         "id": "deepseek/deepseek-v4-flash-0731",
         "name": "DeepSeek V4 Flash 0731",
-        "cost_input": 0.08, "cost_output": 0.18,
+        "cost_input": 0.06, "cost_output": 0.12,
         "tier": "ultra_cheap",
         "context_window": 1048576,
         # Snapshot distinto del V4 Flash que ya está medido → distinto id, distinto modelo,
@@ -2450,7 +2450,7 @@ MODELS = {
     "or-kimi-k2.5": {
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5",
-        "cost_input": 0.57, "cost_output": 2.85,
+        "cost_input": 0.45, "cost_output": 2.25,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Modified MIT",
     },
@@ -2479,7 +2479,7 @@ MODELS = {
     "or-glm5": {
         "id": "z-ai/glm-5",
         "name": "GLM 5",
-        "cost_input": 0.95, "cost_output": 2.55,
+        "cost_input": 0.6, "cost_output": 1.92,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "MIT",
     },
@@ -2519,7 +2519,7 @@ MODELS = {
     "or-qwen3.5-397b": {
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B",
-        "cost_input": 0.5, "cost_output": 3.6,
+        "cost_input": 0.55, "cost_output": 3.5,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -2544,7 +2544,7 @@ MODELS = {
     "or-qwen-3.5-35b": {
         "id": "qwen/qwen3.5-35b-a3b",
         "name": "Qwen 3.5 35B",
-        "cost_input": 0.14, "cost_output": 1.0,
+        "cost_input": 0.3125, "cost_output": 1.25,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
     },
@@ -2574,7 +2574,7 @@ MODELS = {
     "or-minimax-m2.5": {
         "id": "minimax/minimax-m2.5",
         "name": "MiniMax M2.5",
-        "cost_input": 0.22, "cost_output": 0.9,
+        "cost_input": 0.27, "cost_output": 1.08,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
     },

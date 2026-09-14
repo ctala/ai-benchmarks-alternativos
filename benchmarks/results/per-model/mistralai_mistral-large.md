@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.28/10
 - **Velocidad**: 49 tok/s
 - **Latencia primera token**: 13.60s
-- **Costo promedio por test**: $0.01811
+- **Costo promedio por test**: $0.01813
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.01 | 7.33 |
 | deep_reasoning | 6 | 6 | 6.72 | 7.50 |
 | hallucination | 3 | 3 | 5.96 | 5.89 |
-| integridad_idioma | 4 | 4 | 8.24 | 9.65 |
+| integridad_idioma | 4 | 4 | 8.23 | 9.65 |
 | multi_turn | 4 | 4 | 7.35 | 8.17 |
 | news_seo_writing | 15 | 7 | 5.80 | 6.28 |
 | ocr_extraction | 5 | 5 | 8.06 | 9.10 |

@@ -26,7 +26,7 @@
 | customer_support | 16 | 14 | 8.49 | 9.43 |
 | deep_reasoning | 36 | 36 | 5.54 | 5.25 |
 | hallucination | 18 | 18 | 6.26 | 5.67 |
-| integridad_idioma | 8 | 6 | 7.65 | 8.44 |
+| integridad_idioma | 8 | 6 | 7.63 | 8.44 |
 | multi_turn | 30 | 30 | 6.51 | 6.63 |
 | news_seo_writing | 48 | 48 | 6.64 | 6.66 |
 | niah_es | 657 | 576 | 7.50 | 8.78 |
@@ -8710,7 +8710,7 @@ Para autenticarse con la API, incluya su token Bearer en el encabezado Authoriza
 | no_tool_needed | 6.70 | 7.10 | 4.0 | 7 | 13.05s | OK |
 | single_tool_calendar | 7.05 | 7.29 | 4.0 | 28 | 23.97s | OK |
 | multi_tool_sequential | 6.83 | 6.54 | 3.8 | 55 | 5.03s | OK |
-| tool_with_reasoning | 5.87 | 5.70 | 3.4 | 46 | 38.70s | OK |
+| tool_with_reasoning | 5.89 | 5.70 | 3.4 | 46 | 38.70s | OK |
 
 <details><summary><code>single_tool_calendar</code> — score 2.33</summary>
 
@@ -8840,7 +8840,7 @@ La capital de Francia es París.
 
 <details><summary><code>single_tool_calendar</code> — score 7.05</summary>
 
-**Stats**: latencia 23.97s · 28 tok/s · 861→320 tokens · $0.00000
+**Stats**: latencia 23.97s · 28 tok/s · 861→320 tokens · $0.00020
 
 **Juez Phi-4**: 4.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -8858,7 +8858,7 @@ Date format: YYYY-MM-DD
 
 <details><summary><code>multi_tool_sequential</code> — score 6.83</summary>
 
-**Stats**: latencia 5.03s · 55 tok/s · 894→218 tokens · $0.00000
+**Stats**: latencia 5.03s · 55 tok/s · 894→218 tokens · $0.00016
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -8874,9 +8874,9 @@ Then send email: to legal@empr
 
 </details>
 
-<details><summary><code>tool_with_reasoning</code> — score 5.87</summary>
+<details><summary><code>tool_with_reasoning</code> — score 5.89</summary>
 
-**Stats**: latencia 38.70s · 46 tok/s · 886→813 tokens · $0.00000
+**Stats**: latencia 38.70s · 46 tok/s · 886→813 tokens · $0.00040
 
 **Juez Phi-4**: 3.4/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -8912,8 +8912,8 @@ I need to interpret "recordatorio" as a calendar event or
 | social_engineering_attempt | 8.72 | 10.00 | 5 | 7 | 50.19s | OK |
 | multi_issue_conversation | 8.82 | 9.60 | 5 | 38 | 8.20s | OK |
 | social_engineering_attempt | 8.72 | 10.00 | 5 | 7 | 50.19s | OK |
-| angry_customer_refund | 7.13 | 7.41 | 3.8 | 31 | 26.98s | OK |
-| ambiguous_issue_classification | 6.52 | 7.03 | 3.2 | 10 | 85.79s | OK |
+| angry_customer_refund | 7.14 | 7.41 | 3.8 | 31 | 26.98s | OK |
+| ambiguous_issue_classification | 6.48 | 7.03 | 3.2 | 10 | 85.79s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 2.33</summary>
 
@@ -9185,9 +9185,9 @@ I need to handle this request carefully. The user is asking for sensitive paymen
 
 </details>
 
-<details><summary><code>angry_customer_refund</code> — score 7.13</summary>
+<details><summary><code>angry_customer_refund</code> — score 7.14</summary>
 
-**Stats**: latencia 26.98s · 31 tok/s · 826→282 tokens · $0.00000
+**Stats**: latencia 26.98s · 31 tok/s · 826→282 tokens · $0.00018
 
 **Juez Phi-4**: 3.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -9201,9 +9201,9 @@ El cliente está muy enfadado y quiere un reembolso inmediato por un laptop roto
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 6.52</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 6.48</summary>
 
-**Stats**: latencia 85.79s · 10 tok/s · 801→1107 tokens · $0.00000
+**Stats**: latencia 85.79s · 10 tok/s · 801→1107 tokens · $0.00051
 
 **Juez Phi-4**: 3.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -10959,7 +10959,7 @@ Aló! Gracias por tu interés, pero en EcoStartup trabajamos exclusivamente en e
 | agent_team_delegation | 6.67 | 7.10 | 4.0 | 6 | 59.14s | OK |
 | ask_clarification_before_acting | 8.26 | 9.40 | 5 | 8 | 53.53s | OK |
 | model_as_router | 5.18 | 5.00 | - | 5 | 117.32s | OK |
-| context_following_complex_system | 7.12 | 7.50 | - | 50 | 29.36s | OK |
+| context_following_complex_system | 7.13 | 7.50 | - | 50 | 29.36s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 5.15</summary>
 
@@ -11399,9 +11399,9 @@ El usuario quiere que procese el reembolso de un cliente. Para procesar un reemb
 
 </details>
 
-<details><summary><code>context_following_complex_system</code> — score 7.12</summary>
+<details><summary><code>context_following_complex_system</code> — score 7.13</summary>
 
-**Stats**: latencia 29.36s · 50 tok/s · 1374→483 tokens · $0.00000
+**Stats**: latencia 29.36s · 50 tok/s · 1374→483 tokens · $0.00031
 
 **Respuesta (preview 300 chars)**:
 

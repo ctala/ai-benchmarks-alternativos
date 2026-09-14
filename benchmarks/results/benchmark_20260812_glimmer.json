@@ -1204,7 +1204,7 @@
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.25,
+      "final": 7.24,
       "test_name": "n8n_workflow_json",
       "model": "Muse Glimmer 30B",
       "model_id": "meta/muse-glimmer-30b",

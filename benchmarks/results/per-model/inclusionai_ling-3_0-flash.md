@@ -470,12 +470,12 @@ Necesitas restaurantes para atraer proveedores y proveedores para
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 9.07 | 9.52 | 4.8 | 385 | 8.36s | OK |
+| python_api_integration | 9.06 | 9.52 | 4.8 | 385 | 8.36s | OK |
 | n8n_workflow_json | 7.84 | 8.12 | 3.8 | 432 | 18.95s | OK |
 | sql_query_complex | 9.41 | 9.80 | 5.0 | 406 | 4.47s | OK |
 | debug_code | 9.41 | 9.80 | 5 | 367 | 3.17s | OK |
 
-<details><summary><code>python_api_integration</code> — score 9.07</summary>
+<details><summary><code>python_api_integration</code> — score 9.06</summary>
 
 **Stats**: latencia 8.36s · 385 tok/s · 140→3216 tokens · $0.00021
 
@@ -1157,13 +1157,13 @@ Bienvenidos a una nueva edición del newsletter de ecosistemastartup.com. Esta s
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 7.28 | 7.32 | 4.0 | 373 | 21.98s | OK |
+| news_seo_article_full | 7.27 | 7.32 | 4.0 | 373 | 21.98s | OK |
 | news_json_output_strict | 5.90 | 5.00 | 4.0 | 404 | 5.33s | OK |
 | news_spanish_only | 5.88 | 5.00 | 4.0 | 399 | 9.16s | OK |
 | news_no_hallucination_sources | 2.55 | 0.00 | 4.0 | 328 | 4.89s | OK |
 | news_perplexity_enrichment | 8.24 | 8.88 | 4.2 | 49 | 39.11s | OK |
 
-<details><summary><code>news_seo_article_full</code> — score 7.28</summary>
+<details><summary><code>news_seo_article_full</code> — score 7.27</summary>
 
 **Stats**: latencia 21.98s · 373 tok/s · 533→8192 tokens · $0.00053
 
@@ -1527,7 +1527,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | slide_outline | 8.15 | 8.40 | 4.0 | 403 | 11.22s | OK |
-| data_report | 9.07 | 9.52 | 4.8 | 412 | 6.51s | OK |
+| data_report | 9.06 | 9.52 | 4.8 | 412 | 6.51s | OK |
 
 <details><summary><code>slide_outline</code> — score 8.15</summary>
 
@@ -1556,7 +1556,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>data_report</code> — score 9.07</summary>
+<details><summary><code>data_report</code> — score 9.06</summary>
 
 **Stats**: latencia 6.51s · 412 tok/s · 206→2680 tokens · $0.00017
 
@@ -2055,7 +2055,7 @@ El plan Pro tiene un valor de **$149 USD/mes** e incluye funcionalidades avanzad
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | skill_execution_complex | 5.78 | 4.40 | 2.0 | 263 | 1.64s | OK |
-| agent_team_delegation | 7.61 | 7.22 | 3.8 | 320 | 3.03s | OK |
+| agent_team_delegation | 7.60 | 7.22 | 3.8 | 320 | 3.03s | OK |
 | ask_clarification_before_acting | 8.16 | 7.80 | 5 | 164 | 1.19s | OK |
 | context_following_complex_system | 7.80 | 7.50 | 4.6 | 299 | 2.23s | OK |
 | model_as_router | 6.05 | 5.00 | 5 | 343 | 2.99s | OK |
@@ -2078,7 +2078,7 @@ Voy a ejecutar el flujo de publicación del artículo sobre DeepSeek V4. Primero
 
 </details>
 
-<details><summary><code>agent_team_delegation</code> — score 7.61</summary>
+<details><summary><code>agent_team_delegation</code> — score 7.60</summary>
 
 **Stats**: latencia 3.03s · 320 tok/s · 1257→970 tokens · $0.00009
 

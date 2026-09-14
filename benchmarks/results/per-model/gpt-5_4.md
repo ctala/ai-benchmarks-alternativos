@@ -37,7 +37,7 @@
 | presentation | 2 | 2 | 7.43 | 8.81 |
 | prompt_injection_es | 20 | 20 | 7.49 | 8.95 |
 | reasoning | 3 | 3 | 7.75 | 9.31 |
-| sales_outreach | 3 | 3 | 6.48 | 7.11 |
+| sales_outreach | 3 | 3 | 6.47 | 7.11 |
 | startup_content | 5 | 5 | 7.47 | 8.90 |
 | strategy | 3 | 3 | 8.20 | 10.00 |
 | string_precision | 6 | 6 | 7.73 | 8.17 |
@@ -1347,7 +1347,7 @@ Mateo lanzó VeritasBot desde un coworking en Medellín, vendiéndola como “IA
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.33 | 8.00 | 4.8 | 38 | 3.92s | OK |
-| lead_qualification | 3.90 | 3.33 | 4.8 | 63 | 6.42s | OK |
+| lead_qualification | 3.89 | 3.33 | 4.8 | 63 | 6.42s | OK |
 | campaign_optimization | 8.20 | 10.00 | 4.8 | 64 | 31.78s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.33</summary>
@@ -1372,7 +1372,7 @@ En FintechCo, con el ritmo que suele exigir
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 3.90</summary>
+<details><summary><code>lead_qualification</code> — score 3.89</summary>
 
 **Stats**: latencia 6.42s · 63 tok/s · 242→403 tokens · $0.00726
 

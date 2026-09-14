@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.08/10
 - **Velocidad**: 32 tok/s
 - **Latencia primera token**: 16.85s
-- **Costo promedio por test**: $0.00001
+- **Costo promedio por test**: $0.00002
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -16,7 +16,7 @@
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
 | agent_capabilities | 25 | 24 | 7.09 | 6.95 |
-| agent_long_horizon | 12 | 12 | 7.62 | 8.03 |
+| agent_long_horizon | 12 | 12 | 7.63 | 8.03 |
 | business_audit | 98 | 96 | 5.71 | 5.29 |
 | business_strategy | 60 | 60 | 6.57 | 6.42 |
 | code_generation | 12 | 12 | 6.95 | 7.41 |

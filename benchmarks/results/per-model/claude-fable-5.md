@@ -55,7 +55,7 @@
 | logic_puzzle_constraint | 4.42 | 5.00 | 4.2 | 78 | 34.38s | OK |
 | causal_reasoning | 8.01 | 10.00 | 5.0 | 68 | 24.89s | OK |
 | code_bug_subtle | 4.46 | 5.00 | 4.6 | 74 | 28.82s | OK |
-| fermi_estimation | 5.72 | 6.67 | 4.4 | 68 | 19.22s | OK |
+| fermi_estimation | 5.73 | 6.67 | 4.4 | 68 | 19.22s | OK |
 | ethical_dilemma_structured | 7.96 | 10.00 | 4.8 | 66 | 49.02s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.21</summary>
@@ -158,7 +158,7 @@ Sigamos el flujo con
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 5.72</summary>
+<details><summary><code>fermi_estimation</code> — score 5.73</summary>
 
 **Stats**: latencia 19.22s · 68 tok/s · 2→1307 tokens · $0.06537
 

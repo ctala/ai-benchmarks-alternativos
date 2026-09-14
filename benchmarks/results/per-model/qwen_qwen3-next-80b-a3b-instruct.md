@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 8.76 | 8.81 |
 | deep_reasoning | 6 | 6 | 7.50 | 8.20 |
 | hallucination | 3 | 3 | 7.75 | 7.67 |
-| integridad_idioma | 4 | 4 | 7.28 | 7.33 |
+| integridad_idioma | 4 | 4 | 7.29 | 7.33 |
 | multi_turn | 4 | 4 | 8.19 | 8.50 |
 | news_seo_writing | 9 | 9 | 6.29 | 6.13 |
 | ocr_extraction | 5 | 5 | 8.88 | 9.35 |
@@ -59,7 +59,7 @@
 | logic_puzzle_constraint | 5.22 | 5.00 | 4.2 | 78 | 26.11s | OK |
 | causal_reasoning | 8.71 | 10.00 | 5 | 89 | 22.98s | OK |
 | code_bug_subtle | 7.11 | 7.50 | 2.2 | 200 | 10.24s | OK |
-| fermi_estimation | 6.42 | 6.67 | 4.4 | 79 | 20.97s | OK |
+| fermi_estimation | 6.43 | 6.67 | 4.4 | 79 | 20.97s | OK |
 | ethical_dilemma_structured | 8.86 | 10.00 | 5 | 101 | 20.27s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.68</summary>
@@ -165,7 +165,7 @@ mad = find_med
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.42</summary>
+<details><summary><code>fermi_estimation</code> — score 6.43</summary>
 
 **Stats**: latencia 20.97s · 79 tok/s · 80→1653 tokens · $0.00183
 
@@ -348,11 +348,11 @@ Esto es
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| factual_trap_companies | 9.66 | 10.00 | 4.0 | 149 | 1.49s | OK |
+| factual_trap_companies | 9.67 | 10.00 | 4.0 | 149 | 1.49s | OK |
 | context_faithfulness | 6.05 | 5.00 | 4.0 | 54 | 1.47s | OK |
 | fake_citation_trap | 7.53 | 8.00 | 5 | 134 | 10.71s | OK |
 
-<details><summary><code>factual_trap_companies</code> — score 9.66</summary>
+<details><summary><code>factual_trap_companies</code> — score 9.67</summary>
 
 **Stats**: latencia 1.49s · 149 tok/s · 149→222 tokens · $0.00026
 

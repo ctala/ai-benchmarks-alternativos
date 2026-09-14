@@ -52,7 +52,7 @@
 | logic_puzzle_constraint | 4.81 | 5.00 | 4.4 | 21 | 57.30s | OK |
 | causal_reasoning | 8.14 | 10.00 | 4.8 | 8 | 172.55s | OK |
 | code_bug_subtle | 4.72 | 5.00 | 1.6 | 6 | 151.62s | OK |
-| fermi_estimation | 5.96 | 6.67 | 4.4 | 17 | 79.45s | OK |
+| fermi_estimation | 5.97 | 6.67 | 4.4 | 17 | 79.45s | OK |
 | ethical_dilemma_structured | 8.07 | 10.00 | 4.8 | 9 | 217.75s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.26</summary>
@@ -136,7 +136,7 @@ El código falla específicamente cuando la lista `data` cumple estas dos condic
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 5.96</summary>
+<details><summary><code>fermi_estimation</code> — score 5.97</summary>
 
 **Stats**: latencia 79.45s · 17 tok/s · 73→1327 tokens · $0.00416
 
@@ -328,11 +328,11 @@ Aquí tienes los datos solicitados, con la desagregación exacta de certeza y m�
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 5.64 | 6.67 | 4.4 | 2 | 840.75s | OK |
+| competitor_analysis | 5.65 | 6.67 | 4.4 | 2 | 840.75s | OK |
 | pricing_strategy | 6.32 | 7.50 | 4.6 | 10 | 188.93s | OK |
 | business_model_validation | 8.07 | 10.00 | 4.8 | 7 | 263.21s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 5.64</summary>
+<details><summary><code>competitor_analysis</code> — score 5.65</summary>
 
 **Stats**: latencia 840.75s · 2 tok/s · 177→2126 tokens · $0.00672
 
@@ -483,12 +483,12 @@ El cálculo `average = total / len(processed)` fal
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 8.61 | 10.00 | 5 | 2 | 24.08s | OK |
+| json_simple_extraction | 8.60 | 10.00 | 5 | 2 | 24.08s | OK |
 | json_array_classification | 8.49 | 10.00 | 5 | 5 | 21.97s | OK |
 | json_nested_complex | 8.21 | 10.00 | 5 | 7 | 138.28s | OK |
 | json_strict_no_extra | 8.95 | 10.00 | 4.0 | 8 | 3.29s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 8.61</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.60</summary>
 
 **Stats**: latencia 24.08s · 2 tok/s · 101→56 tokens · $0.00027
 

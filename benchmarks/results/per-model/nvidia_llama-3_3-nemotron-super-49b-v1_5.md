@@ -1544,7 +1544,7 @@ Carlos, emprendedor colombiano, notó que su IA, *Veritas*, respondía con crude
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.59 | 8.00 | 5 | 38 | 11.72s | OK |
-| lead_qualification | 4.35 | 3.33 | 5 | 54 | 18.06s | OK |
+| lead_qualification | 4.34 | 3.33 | 5 | 54 | 18.06s | OK |
 | campaign_optimization | 8.80 | 10.00 | 5 | 54 | 63.34s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.59</summary>
@@ -1571,7 +1571,7 @@ Nuestra herramienta de IA aut
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.35</summary>
+<details><summary><code>lead_qualification</code> — score 4.34</summary>
 
 **Stats**: latencia 18.06s · 54 tok/s · 270→967 tokens · $0.00049
 

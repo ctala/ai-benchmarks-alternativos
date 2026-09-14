@@ -827,7 +827,7 @@
     {
       "quality": 5.7,
       "cost_score": 10.0,
-      "cost_usd": 0.000136,
+      "cost_usd": 8.6e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 5.0,
@@ -867,12 +867,12 @@
     },
     {
       "quality": 8.5,
-      "cost_score": 9.8,
-      "cost_usd": 0.000252,
+      "cost_score": 10.0,
+      "cost_usd": 0.000159,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 10.0,
-      "final": 7.94,
+      "final": 7.97,
       "test_name": "abstencion_dato_no_disponible",
       "model": "DeepSeek V4 Flash (OpenRouter)",
       "model_id": "deepseek/deepseek-v4-flash",
@@ -909,7 +909,7 @@
     {
       "quality": 5.7,
       "cost_score": 10.0,
-      "cost_usd": 0.000119,
+      "cost_usd": 7.6e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 10.0,
@@ -950,7 +950,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 0.000136,
+      "cost_usd": 8.6e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 0.0,
@@ -991,7 +991,7 @@
     {
       "quality": 5.7,
       "cost_score": 10.0,
-      "cost_usd": 0.000126,
+      "cost_usd": 7.9e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 10.0,
@@ -1032,7 +1032,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 0.00014,
+      "cost_usd": 8.9e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 5.0,
@@ -1073,7 +1073,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 0.000125,
+      "cost_usd": 7.9e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 10.0,
@@ -1114,7 +1114,7 @@
     {
       "quality": 7.1,
       "cost_score": 10.0,
-      "cost_usd": 0.000169,
+      "cost_usd": 0.000107,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 10.0,
@@ -1155,7 +1155,7 @@
     {
       "quality": 2.9,
       "cost_score": 10.0,
-      "cost_usd": 0.000142,
+      "cost_usd": 9e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 5.0,
@@ -1196,7 +1196,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 0.00012,
+      "cost_usd": 7.6e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 10.0,
@@ -3668,7 +3668,7 @@
     {
       "quality": 8.5,
       "cost_score": 10.0,
-      "cost_usd": 0.000144,
+      "cost_usd": 0.0001,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 10.0,
@@ -3709,7 +3709,7 @@
     {
       "quality": 8.5,
       "cost_score": 10.0,
-      "cost_usd": 0.000135,
+      "cost_usd": 9.4e-05,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 10.0,
@@ -3750,7 +3750,7 @@
     {
       "quality": 7.1,
       "cost_score": 10.0,
-      "cost_usd": 6.5e-05,
+      "cost_usd": 4.8e-05,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 10.0,
@@ -3791,7 +3791,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 8.2e-05,
+      "cost_usd": 5.9e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 0.0,
@@ -3832,7 +3832,7 @@
     {
       "quality": 7.1,
       "cost_score": 10.0,
-      "cost_usd": 7.2e-05,
+      "cost_usd": 5.2e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 10.0,
@@ -3873,11 +3873,11 @@
     {
       "quality": 5.7,
       "cost_score": 10.0,
-      "cost_usd": 5e-05,
+      "cost_usd": 3.6e-05,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 10.0,
-      "final": 5.71,
+      "final": 5.72,
       "test_name": "falta_parametro_monto",
       "model": "DeepSeek V4 Flash 0731",
       "model_id": "deepseek/deepseek-v4-flash-0731",
@@ -3913,7 +3913,7 @@
     {
       "quality": 7.1,
       "cost_score": 10.0,
-      "cost_usd": 7.4e-05,
+      "cost_usd": 5.4e-05,
       "speed": 8.0,
       "latency": 4.0,
       "tool_calling": 10.0,
@@ -3954,7 +3954,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 8.3e-05,
+      "cost_usd": 6e-05,
       "speed": 6.0,
       "latency": 2.0,
       "tool_calling": 5.0,
@@ -3995,7 +3995,7 @@
     {
       "quality": 2.9,
       "cost_score": 10.0,
-      "cost_usd": 7.3e-05,
+      "cost_usd": 5.3e-05,
       "speed": 8.0,
       "latency": 6.0,
       "tool_calling": 5.0,
@@ -4036,7 +4036,7 @@
     {
       "quality": 4.3,
       "cost_score": 10.0,
-      "cost_usd": 8.2e-05,
+      "cost_usd": 5.9e-05,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 10.0,

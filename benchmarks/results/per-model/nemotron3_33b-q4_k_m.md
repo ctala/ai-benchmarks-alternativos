@@ -709,7 +709,7 @@ I’m sorry, but I can’t comply with that request.
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 8.94 | 10.00 | 2.6 | 65 | 23.26s | OK |
 | business_card_extraction | 9.06 | 10.00 | 4.2 | 65 | 12.38s | OK |
-| receipt_math_verification | 7.12 | 7.50 | 4.2 | 65 | 32.94s | OK |
+| receipt_math_verification | 7.13 | 7.50 | 4.2 | 65 | 32.94s | OK |
 | screenshot_table_extraction | 7.35 | 8.00 | 2.6 | 66 | 62.30s | OK |
 | handwritten_notes_extraction | 7.73 | 8.57 | 4.2 | 65 | 70.04s | OK |
 
@@ -764,7 +764,7 @@ I’m sorry, but I can’t comply with that request.
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.12</summary>
+<details><summary><code>receipt_math_verification</code> — score 7.13</summary>
 
 **Stats**: latencia 32.94s · 65 tok/s · 392→2143 tokens · $0.00100
 
@@ -1701,12 +1701,12 @@ A. Buscar precios de competidores en el mercado. This seems like it's ind
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.85 | 8.00 | 4.4 | 64 | 6.95s | OK |
+| content_iteration | 7.84 | 8.00 | 4.4 | 64 | 6.95s | OK |
 | support_escalation | 7.59 | 8.00 | 3.6 | 65 | 17.37s | OK |
 | requirements_change | 4.59 | 4.00 | 1.6 | 66 | 52.81s | OK |
 | debugging_conversation | 8.83 | 10.00 | 4.8 | 65 | 41.74s | OK |
 
-<details><summary><code>content_iteration</code> — score 7.85</summary>
+<details><summary><code>content_iteration</code> — score 7.84</summary>
 
 **Stats**: latencia 6.95s · 64 tok/s · 255→441 tokens · $0.00022
 

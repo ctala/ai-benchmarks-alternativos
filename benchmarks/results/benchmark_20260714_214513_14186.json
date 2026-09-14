@@ -1864,7 +1864,7 @@
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 6.48,
+      "final": 6.49,
       "test_name": "fermi_estimation",
       "model": "Claude Haiku 4.5",
       "model_id": "anthropic/claude-haiku-4.5",

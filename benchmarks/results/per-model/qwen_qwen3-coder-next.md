@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 8.67 | 8.65 |
 | deep_reasoning | 6 | 6 | 6.78 | 6.95 |
 | hallucination | 3 | 3 | 7.31 | 7.00 |
-| integridad_idioma | 4 | 4 | 6.65 | 6.44 |
+| integridad_idioma | 4 | 4 | 6.64 | 6.44 |
 | multi_turn | 4 | 4 | 7.91 | 8.00 |
 | news_seo_writing | 5 | 5 | 7.14 | 7.30 |
 | niah_es | 51 | 45 | 8.35 | 10.00 |
@@ -38,7 +38,7 @@
 | reasoning | 3 | 3 | 8.05 | 8.67 |
 | sales_outreach | 3 | 3 | 7.82 | 8.22 |
 | startup_content | 8 | 8 | 8.53 | 9.51 |
-| strategy | 3 | 3 | 6.98 | 7.22 |
+| strategy | 3 | 3 | 6.99 | 7.22 |
 | string_precision | 6 | 6 | 8.14 | 8.17 |
 | structured_output | 4 | 4 | 9.55 | 10.00 |
 | summarization | 3 | 3 | 7.35 | 7.18 |
@@ -365,11 +365,11 @@ Gracias por tu solicitud. A continuación, te detallo cada una de las preguntas 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.59 | 6.67 | 4.6 | 108 | 19.02s | OK |
+| competitor_analysis | 6.60 | 6.67 | 4.6 | 108 | 19.02s | OK |
 | pricing_strategy | 5.43 | 5.00 | 5.0 | 144 | 14.20s | OK |
 | business_model_validation | 8.93 | 10.00 | 5.0 | 158 | 12.92s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.59</summary>
+<details><summary><code>competitor_analysis</code> — score 6.60</summary>
 
 **Stats**: latencia 19.02s · 108 tok/s · 190→2048 tokens · $0.00166
 
@@ -1459,7 +1459,7 @@ Vamos a analizar paso a paso cada campana con los datos que compartiste.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 8.15 | 8.00 | 5 | 54 | 1.34s | OK |
-| detect_language_issues | 7.08 | 6.67 | 5 | 141 | 3.58s | OK |
+| detect_language_issues | 7.09 | 6.67 | 5 | 141 | 3.58s | OK |
 | translate_marketing_es_en | 8.00 | 8.00 | 5 | 42 | 1.66s | OK |
 | translate_technical_en_es | 8.05 | 8.00 | 4.0 | 62 | 2.18s | OK |
 | detect_language_issues | 6.90 | 6.67 | 5 | 105 | 5.02s | OK |
@@ -1488,7 +1488,7 @@ When’s it yo
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 7.08</summary>
+<details><summary><code>detect_language_issues</code> — score 7.09</summary>
 
 **Stats**: latencia 3.58s · 141 tok/s · 213→504 tokens · $0.00043
 

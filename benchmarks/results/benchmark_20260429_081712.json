@@ -3061,7 +3061,7 @@
       "speed": 10.0,
       "latency": 2.0,
       "tool_calling": 7.0,
-      "final": 4.58,
+      "final": 4.57,
       "test_name": "lead_qualification",
       "model": "Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)",
       "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",

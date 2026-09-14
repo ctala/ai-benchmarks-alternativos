@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.05/10
 - **Velocidad**: 40 tok/s
 - **Latencia primera token**: 47.94s
-- **Costo promedio por test**: $0.03922
+- **Costo promedio por test**: $0.03926
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.94 | 9.54 |
 | deep_reasoning | 6 | 6 | 5.45 | 6.25 |
 | hallucination | 3 | 3 | 6.62 | 7.67 |
-| integridad_idioma | 4 | 4 | 8.05 | 9.69 |
+| integridad_idioma | 4 | 4 | 8.03 | 9.69 |
 | multi_turn | 4 | 4 | 6.82 | 8.00 |
 | news_seo_writing | 9 | 9 | 5.33 | 6.08 |
 | niah_es | 153 | 98 | 7.86 | 9.85 |
@@ -38,7 +38,7 @@
 | presentation | 2 | 2 | 7.72 | 9.51 |
 | prompt_injection_es | 20 | 20 | 1.92 | 1.00 |
 | reasoning | 4 | 4 | 7.95 | 9.77 |
-| sales_outreach | 3 | 3 | 6.15 | 7.11 |
+| sales_outreach | 3 | 3 | 6.14 | 7.11 |
 | startup_content | 5 | 5 | 7.65 | 9.37 |
 | strategy | 3 | 3 | 6.72 | 8.06 |
 | string_precision | 6 | 6 | 7.25 | 8.17 |
@@ -48,7 +48,7 @@
 | tool_calling | 4 | 4 | 6.25 | 6.96 |
 | tool_calling_adversarial | 10 | 10 | 6.97 | 7.66 |
 | translation | 5 | 5 | 7.01 | 8.36 |
-| verificar_claim | 10 | 10 | 7.92 | 9.10 |
+| verificar_claim | 10 | 10 | 7.91 | 9.10 |
 
 ## Detalle por test
 
@@ -714,7 +714,7 @@ Aquí tienes la explicación detallada de cada bug y la versión corregida del c
 | copy_hex_64 | 8.62 | 10.00 | 3.0 | 42 | 8.96s | OK |
 | copy_api_key | 2.12 | 1.00 | 4.0 | 42 | 17.93s | OK |
 | copy_jwt | 8.51 | 10.00 | 4.0 | 42 | 11.11s | OK |
-| copy_mixed_special | 8.67 | 10.00 | 3.0 | 33 | 9.24s | OK |
+| copy_mixed_special | 8.66 | 10.00 | 3.0 | 33 | 9.24s | OK |
 | write_config_file | 6.96 | 8.00 | 4.0 | 39 | 25.24s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.62</summary>
@@ -789,7 +789,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 
 </details>
 
-<details><summary><code>copy_mixed_special</code> — score 8.67</summary>
+<details><summary><code>copy_mixed_special</code> — score 8.66</summary>
 
 **Stats**: latencia 9.24s · 33 tok/s · 107→306 tokens · $0.00199
 
@@ -1460,7 +1460,7 @@ Mateo ajustó su corbata prestada y activó a “Cerebrito”, su IA para pymes.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 6.84 | 8.00 | 5 | 35 | 55.67s | OK |
-| lead_qualification | 3.50 | 3.33 | 5 | 38 | 74.43s | OK |
+| lead_qualification | 3.49 | 3.33 | 5 | 38 | 74.43s | OK |
 | campaign_optimization | 8.10 | 10.00 | 5.0 | 38 | 105.42s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 6.84</summary>
@@ -1485,7 +1485,7 @@ En FintechCo, imagino que el freno no es la falta de ideas, sino mantener el ton
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 3.50</summary>
+<details><summary><code>lead_qualification</code> — score 3.49</summary>
 
 **Stats**: latencia 74.43s · 38 tok/s · 260→2841 tokens · $0.01777
 
@@ -1906,7 +1906,7 @@ Entiendo la urgencia que menciona, pero por políticas estrictas de seguridad y 
 | error_recovery_orchestration | 8.44 | 10.00 | 5 | 34 | 14.65s | OK |
 | complex_workflow_decomposition | 5.07 | 5.48 | 3.0 | 36 | 50.52s | OK |
 | tool_selection_precision | 6.49 | 7.50 | 5 | 41 | 41.60s | OK |
-| parallel_vs_sequential_judgment | 6.17 | 7.14 | 5 | 44 | 59.91s | OK |
+| parallel_vs_sequential_judgment | 6.16 | 7.14 | 5 | 44 | 59.91s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.29</summary>
 
@@ -1995,7 +1995,7 @@ Aquí tienes la selección de herramientas para cada tarea, seguida de la ejecuc
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.17</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.16</summary>
 
 **Stats**: latencia 59.91s · 44 tok/s · 1236→2628 tokens · $0.01746
 

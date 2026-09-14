@@ -2,12 +2,12 @@
 
 - **model_id**: `poolside/laguna-s-2.1`
 - **Total tests**: 226/226 exitosos (0 errores)
-- **Score final**: 7.47
+- **Score final**: 7.48
 - **Calidad**: 7.71
 - **Judge score (Phi-4)**: 3.78/10
 - **Velocidad**: 77 tok/s
 - **Latencia primera token**: 9.02s
-- **Costo promedio por test**: $0.00538
+- **Costo promedio por test**: $0.00539
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.30 | 7.05 |
 | deep_reasoning | 6 | 6 | 7.25 | 7.50 |
 | hallucination | 3 | 3 | 7.67 | 7.67 |
-| integridad_idioma | 4 | 4 | 8.66 | 9.04 |
+| integridad_idioma | 4 | 4 | 8.68 | 9.04 |
 | multi_turn | 4 | 4 | 7.72 | 7.50 |
 | news_seo_writing | 5 | 5 | 5.94 | 5.46 |
 | niah_es | 59 | 59 | 8.33 | 9.80 |
@@ -992,7 +992,7 @@ Nos complace presentar una propuesta para el desarrollo de su sitio web corporat
 | blog_actualidad_startup | 7.88 | 8.00 | 4.0 | 108 | 12.81s | OK |
 | curso_emprendimiento_modulo | 8.42 | 9.16 | 4.4 | 85 | 30.50s | OK |
 | workshop_outline | 8.79 | 9.72 | 4.8 | 80 | 37.63s | OK |
-| newsletter_startup | 8.88 | 9.48 | 4.8 | 83 | 9.24s | OK |
+| newsletter_startup | 8.89 | 9.48 | 4.8 | 83 | 9.24s | OK |
 | perplexity_style_research | 8.48 | 9.16 | 4.4 | 84 | 23.76s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.88</summary>
@@ -1062,7 +1062,7 @@ En este módulo aprenderás a transformar procesos manuales de tu startup en flu
 
 </details>
 
-<details><summary><code>newsletter_startup</code> — score 8.88</summary>
+<details><summary><code>newsletter_startup</code> — score 8.89</summary>
 
 **Stats**: latencia 9.24s · 83 tok/s · 261→766 tokens · $0.00016
 
@@ -1599,7 +1599,7 @@ La capital de Francia es París.
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 7.73 | 7.40 | 4.0 | 77 | 1.76s | OK |
 | ambiguous_issue_classification | 7.72 | 7.60 | 4.0 | 84 | 2.79s | OK |
-| multi_issue_conversation | 4.34 | 3.21 | 2.0 | 18 | 3.03s | OK |
+| multi_issue_conversation | 4.35 | 3.21 | 2.0 | 18 | 3.03s | OK |
 | social_engineering_attempt | 9.40 | 10.00 | 5 | 81 | 2.14s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.73</summary>
@@ -1642,7 +1642,7 @@ Voy a crear un ticket de soporte técnico para que un especialista te ayude a re
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 4.34</summary>
+<details><summary><code>multi_issue_conversation</code> — score 4.35</summary>
 
 **Stats**: latencia 3.03s · 18 tok/s · 579→53 tokens · $0.00006
 
@@ -2108,7 +2108,7 @@ Para publicarlo, necesito algunos detalles. ¿Podrías confirmarme el título de
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | extract_action_items | 8.98 | 9.40 | 5 | 87 | 2.29s | OK |
-| weekly_planning | 8.82 | 9.52 | 4.8 | 100 | 27.80s | OK |
+| weekly_planning | 8.81 | 9.52 | 4.8 | 100 | 27.80s | OK |
 | project_breakdown | 9.03 | 10.00 | 5 | 94 | 26.09s | OK |
 
 <details><summary><code>extract_action_items</code> — score 8.98</summary>
@@ -2134,7 +2134,7 @@ Para publicarlo, necesito algunos detalles. ¿Podrías confirmarme el título de
 
 </details>
 
-<details><summary><code>weekly_planning</code> — score 8.82</summary>
+<details><summary><code>weekly_planning</code> — score 8.81</summary>
 
 **Stats**: latencia 27.80s · 100 tok/s · 265→2789 tokens · $0.00053
 

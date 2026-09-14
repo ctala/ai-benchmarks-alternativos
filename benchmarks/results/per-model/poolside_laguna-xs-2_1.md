@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.11/10
 - **Velocidad**: 151 tok/s
 - **Latencia primera token**: 6.35s
-- **Costo promedio por test**: $0.00141
+- **Costo promedio por test**: $0.00142
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,7 +20,7 @@
 | business_audit | 10 | 10 | 7.61 | 7.47 |
 | business_strategy | 5 | 5 | 8.74 | 9.20 |
 | code_generation | 4 | 4 | 8.85 | 9.45 |
-| content_generation | 4 | 4 | 8.84 | 9.23 |
+| content_generation | 4 | 4 | 8.83 | 9.23 |
 | content_verificable | 5 | 5 | 7.65 | 7.33 |
 | creativity | 4 | 4 | 8.30 | 8.38 |
 | customer_support | 4 | 4 | 7.41 | 6.79 |
@@ -829,12 +829,12 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 8.51 | 8.72 | 4.8 | 188 | 7.85s | OK |
+| blog_post_es | 8.50 | 8.72 | 4.8 | 188 | 7.85s | OK |
 | email_profesional | 9.40 | 10.00 | 5 | 182 | 5.26s | OK |
 | social_media_batch | 8.84 | 9.20 | 5 | 182 | 7.30s | OK |
 | product_description_en | 8.59 | 9.00 | 5 | 191 | 11.04s | OK |
 
-<details><summary><code>blog_post_es</code> — score 8.51</summary>
+<details><summary><code>blog_post_es</code> — score 8.50</summary>
 
 **Stats**: latencia 7.85s · 188 tok/s · 95→1476 tokens · $0.00018
 

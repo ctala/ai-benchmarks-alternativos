@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.82/10
 - **Velocidad**: 53 tok/s
 - **Latencia primera token**: 4.39s
-- **Costo promedio por test**: $0.00151
+- **Costo promedio por test**: $0.00152
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -17,7 +17,7 @@
 |-------|-------|----|----|----|
 | agent_capabilities | 37 | 30 | 6.95 | 6.54 |
 | agent_long_horizon | 36 | 36 | 8.11 | 8.62 |
-| business_audit | 30 | 30 | 6.45 | 5.85 |
+| business_audit | 30 | 30 | 6.44 | 5.85 |
 | business_strategy | 15 | 15 | 7.50 | 7.60 |
 | code_generation | 12 | 12 | 7.88 | 8.12 |
 | content_generation | 12 | 12 | 8.48 | 8.98 |
@@ -40,7 +40,7 @@
 | reasoning | 9 | 9 | 8.10 | 8.45 |
 | sales_outreach | 9 | 9 | 7.57 | 7.56 |
 | startup_content | 15 | 15 | 8.26 | 8.91 |
-| strategy | 9 | 9 | 8.10 | 8.56 |
+| strategy | 9 | 9 | 8.11 | 8.56 |
 | string_precision | 18 | 18 | 8.17 | 8.17 |
 | structured_output | 12 | 12 | 9.31 | 10.00 |
 | summarization | 6 | 6 | 7.66 | 7.52 |
@@ -1264,17 +1264,17 @@ Pros:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.84 | 6.67 | 4.4 | 73 | 9.83s | OK |
+| competitor_analysis | 6.85 | 6.67 | 4.4 | 73 | 9.83s | OK |
 | pricing_strategy | 9.12 | 10.00 | 4.6 | 60 | 10.87s | OK |
 | business_model_validation | 8.35 | 9.00 | 4.4 | 75 | 12.96s | OK |
-| competitor_analysis | 6.84 | 6.67 | 4.4 | 73 | 9.83s | OK |
+| competitor_analysis | 6.85 | 6.67 | 4.4 | 73 | 9.83s | OK |
 | pricing_strategy | 9.12 | 10.00 | 4.6 | 60 | 10.87s | OK |
 | business_model_validation | 8.35 | 9.00 | 4.4 | 75 | 12.96s | OK |
-| competitor_analysis | 6.84 | 6.67 | 4.4 | 73 | 9.83s | OK |
+| competitor_analysis | 6.85 | 6.67 | 4.4 | 73 | 9.83s | OK |
 | pricing_strategy | 9.12 | 10.00 | 4.6 | 60 | 10.87s | OK |
 | business_model_validation | 8.35 | 9.00 | 4.4 | 75 | 12.96s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.84</summary>
+<details><summary><code>competitor_analysis</code> — score 6.85</summary>
 
 **Stats**: latencia 9.83s · 73 tok/s · 190→718 tokens · $0.00031
 
@@ -1338,7 +1338,7 @@ Claro, aquí tienes un análisis detallado para tu startup de email marketing pa
 
 </details>
 
-<details><summary><code>competitor_analysis</code> — score 6.84</summary>
+<details><summary><code>competitor_analysis</code> — score 6.85</summary>
 
 **Stats**: latencia 9.83s · 73 tok/s · 190→718 tokens · $0.00031
 
@@ -1402,7 +1402,7 @@ Claro, aquí tienes un análisis detallado para tu startup de email marketing pa
 
 </details>
 
-<details><summary><code>competitor_analysis</code> — score 6.84</summary>
+<details><summary><code>competitor_analysis</code> — score 6.85</summary>
 
 **Stats**: latencia 9.83s · 73 tok/s · 190→718 tokens · $0.00031
 
@@ -5290,7 +5290,7 @@ Over 500 startups in LATAM already use it. When will you start?"
 
 <details><summary><code>single_tool_calendar</code> — score 7.42</summary>
 
-**Stats**: latencia 1.27s · 46 tok/s · 537→54 tokens · $0.00000
+**Stats**: latencia 1.27s · 46 tok/s · 537→54 tokens · $0.00009
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
 
@@ -5310,7 +5310,7 @@ Over 500 startups in LATAM already use it. When will you start?"
 
 <details><summary><code>multi_tool_sequential</code> — score 7.52</summary>
 
-**Stats**: latencia 1.74s · 64 tok/s · 572→102 tokens · $0.00000
+**Stats**: latencia 1.74s · 64 tok/s · 572→102 tokens · $0.00012
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
 
@@ -5332,7 +5332,7 @@ Over 500 startups in LATAM already use it. When will you start?"
 
 <details><summary><code>tool_with_reasoning</code> — score 7.42</summary>
 
-**Stats**: latencia 2.04s · 56 tok/s · 572→111 tokens · $0.00000
+**Stats**: latencia 2.04s · 56 tok/s · 572→111 tokens · $0.00012
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:4)
 
@@ -5354,7 +5354,7 @@ Over 500 startups in LATAM already use it. When will you start?"
 
 <details><summary><code>no_tool_needed</code> — score 4.35</summary>
 
-**Stats**: latencia 1.65s · 22 tok/s · 506→18 tokens · $0.00000
+**Stats**: latencia 1.65s · 22 tok/s · 506→18 tokens · $0.00007
 
 **Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:1, utilidad:1)
 

@@ -235,7 +235,7 @@
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.47,
+      "final": 7.46,
       "test_name": "multi_issue_conversation",
       "model": "Llama 3.3 70B",
       "model_id": "meta-llama/llama-3.3-70b-instruct",

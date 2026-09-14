@@ -17,6 +17,15 @@
   proveedor lo cambia. Instrumento: `check_effort.py` (bloqueante, con dos sabotajes en
   `test_guardrails.py`).
 
+- **Precios al día con OpenRouter: 25 rankeados tenían el costo desactualizado.**
+  `sync_prices` encontró 29 precios distintos, 22 de ellos rankeados con más de 15% de
+  diferencia y en las dos direcciones: GPT-5.6 Luna, GPT-5.6 Terra y Gemini 3.7 Flash
+  estaban costeados a la mitad (coinciden con el precio `:batch`), GLM 5.3 Flash también
+  (~$1/mes → ~$2/mes), y GPT-5.6 Sol, entre 2,5× y 3× de más. Aplicado con
+  `rescore_costs`: **ninguna nota de calidad cambia**; el score compuesto sí. Luna sigue #1
+  (8,37 → 8,30), Terra baja #21 → #27, DeepSeek V4 Pro #45 → #53, Sol sube #49 → #41 y
+  Qwen 3.8 27B entra al top 10. Cheatsheet de septiembre regenerado con las cifras nuevas.
+
 - **Experimentos fuera del índice: 27 runs con effort forzado estaban en lo publicado.**
   El export lee todo `benchmarks/results/benchmark_*.json`, y ahí habían caído el piloto
   del 2-sep (27 runs con `medium` forzado de GPT-5.6 Luna, Qwen 3.7 Flash y Gemma 4 31B en

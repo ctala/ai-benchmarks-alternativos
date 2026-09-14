@@ -1742,7 +1742,7 @@ Excelente diagnóstico: **encontraste el problema real**. Un loop de retry infin
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | refund_policy_enforcement | 7.68 | 8.33 | 4.0 | 18 | 27.84s | OK |
-| data_privacy_protection | 8.65 | 10.00 | 4.6 | 5 | 92.86s | OK |
+| data_privacy_protection | 8.64 | 10.00 | 4.6 | 5 | 92.86s | OK |
 | language_and_tone_rules | 7.25 | 8.00 | 3.8 | 16 | 95.85s | OK |
 | scope_boundaries | 5.90 | 6.00 | 4.4 | 18 | 60.12s | OK |
 
@@ -1764,7 +1764,7 @@ Le agradecemos por compartir su inquietud. Le informo que, conforme a nuestra po
 
 </details>
 
-<details><summary><code>data_privacy_protection</code> — score 8.65</summary>
+<details><summary><code>data_privacy_protection</code> — score 8.64</summary>
 
 **Stats**: latencia 92.86s · 5 tok/s · 239→444 tokens · $0.00022
 

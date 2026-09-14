@@ -24,7 +24,7 @@
 | deep_reasoning | 6 | 3 | 7.31 | 8.06 |
 | hallucination | 3 | 3 | 6.82 | 7.00 |
 | multi_turn | 4 | 4 | 7.72 | 8.50 |
-| news_seo_writing | 5 | 5 | 7.00 | 7.53 |
+| news_seo_writing | 5 | 5 | 6.99 | 7.53 |
 | ocr_extraction | 5 | 5 | 8.48 | 9.75 |
 | orchestration | 5 | 5 | 5.48 | 5.33 |
 | policy_adherence | 4 | 4 | 7.87 | 8.58 |
@@ -1007,7 +1007,7 @@ Aquí tienes e
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | news_seo_article_full | 8.32 | 9.05 | 4.4 | 69 | 19.60s | OK |
-| news_json_output_strict | 8.80 | 10.00 | 2.4 | 18 | 42.37s | OK |
+| news_json_output_strict | 8.79 | 10.00 | 2.4 | 18 | 42.37s | OK |
 | news_spanish_only | 8.46 | 9.71 | 4.4 | 12 | 57.84s | OK |
 | news_no_hallucination_sources | 1.64 | 0.00 | 4.2 | 9 | 76.89s | OK |
 | news_perplexity_enrichment | 7.76 | 8.88 | 4.2 | 9 | 139.33s | OK |
@@ -1033,7 +1033,7 @@ Aquí tienes e
 
 </details>
 
-<details><summary><code>news_json_output_strict</code> — score 8.80</summary>
+<details><summary><code>news_json_output_strict</code> — score 8.79</summary>
 
 **Stats**: latencia 42.37s · 18 tok/s · 336→768 tokens · $0.00032
 

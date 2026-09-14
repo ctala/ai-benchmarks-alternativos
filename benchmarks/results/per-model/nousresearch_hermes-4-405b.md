@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.27/10
 - **Velocidad**: 33 tok/s
 - **Latencia primera token**: 13.41s
-- **Costo promedio por test**: $0.00286
+- **Costo promedio por test**: $0.00287
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | dominio_entidad | 18 | 18 | 9.19 | 10.00 |
 | extraer_claims | 15 | 15 | 9.14 | 10.00 |
 | hallucination | 9 | 9 | 7.18 | 7.67 |
-| integridad_idioma | 4 | 4 | 8.33 | 9.81 |
+| integridad_idioma | 4 | 4 | 8.36 | 9.81 |
 | multi_turn | 12 | 12 | 7.85 | 8.50 |
 | news_seo_writing | 15 | 15 | 6.58 | 7.26 |
 | ocr_extraction | 30 | 30 | 8.33 | 9.50 |
@@ -47,7 +47,7 @@
 | tool_calling | 12 | 4 | 6.28 | 6.05 |
 | tool_calling_adversarial | 30 | 30 | 7.35 | 7.80 |
 | translation | 9 | 9 | 7.18 | 7.46 |
-| verificar_claim | 30 | 30 | 8.08 | 8.40 |
+| verificar_claim | 30 | 30 | 8.09 | 8.40 |
 
 ## Detalle por test
 
@@ -5195,7 +5195,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 | multi_tool_sequential | 2.33 | 0.00 | - | 0 | 0.01s | ERROR |
 | tool_with_reasoning | 2.33 | 0.00 | - | 0 | 0.01s | ERROR |
 | no_tool_needed | 2.33 | 0.00 | - | 0 | 0.34s | ERROR |
-| single_tool_calendar | 7.03 | 7.10 | 4.0 | 31 | 1.92s | OK |
+| single_tool_calendar | 7.04 | 7.10 | 4.0 | 31 | 1.92s | OK |
 | multi_tool_sequential | 6.94 | 7.10 | 4.0 | 38 | 3.10s | OK |
 | tool_with_reasoning | 6.96 | 7.10 | 4.0 | 37 | 2.44s | OK |
 | no_tool_needed | 4.19 | 2.90 | 1 | 25 | 0.96s | OK |
@@ -5248,9 +5248,9 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 </details>
 
-<details><summary><code>single_tool_calendar</code> — score 7.03</summary>
+<details><summary><code>single_tool_calendar</code> — score 7.04</summary>
 
-**Stats**: latencia 1.92s · 31 tok/s · 537→51 tokens · $0.00100
+**Stats**: latencia 1.92s · 31 tok/s · 537→51 tokens · $0.00069
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
 
@@ -5270,7 +5270,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 <details><summary><code>multi_tool_sequential</code> — score 6.94</summary>
 
-**Stats**: latencia 3.10s · 38 tok/s · 572→107 tokens · $0.00100
+**Stats**: latencia 3.10s · 38 tok/s · 572→107 tokens · $0.00089
 
 **Juez Phi-4**: 4.0/10 (precisión:5, relevancia:5, profundidad:3, claridad:5, utilidad:5)
 
@@ -5292,7 +5292,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 <details><summary><code>tool_with_reasoning</code> — score 6.96</summary>
 
-**Stats**: latencia 2.44s · 37 tok/s · 572→85 tokens · $0.00100
+**Stats**: latencia 2.44s · 37 tok/s · 572→85 tokens · $0.00083
 
 **Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
 
@@ -5315,7 +5315,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header de Authorizat
 
 <details><summary><code>no_tool_needed</code> — score 4.19</summary>
 
-**Stats**: latencia 0.96s · 25 tok/s · 506→23 tokens · $0.00100
+**Stats**: latencia 0.96s · 25 tok/s · 506→23 tokens · $0.00057
 
 **Juez Phi-4**: 1/10 (precisión:1, relevancia:1, profundidad:1, claridad:1, utilidad:1)
 

@@ -2,12 +2,12 @@
 
 - **model_id**: `qwen/qwen3.6-plus`
 - **Total tests**: 192/197 exitosos (5 errores)
-- **Score final**: 6.70
+- **Score final**: 6.69
 - **Calidad**: 7.36
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 52 tok/s
 - **Latencia primera token**: 46.29s
-- **Costo promedio por test**: $0.00857
+- **Costo promedio por test**: $0.00859
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,7 +45,7 @@
 | tool_calling | 8 | 8 | 5.33 | 5.16 |
 | tool_calling_adversarial | 10 | 10 | 7.39 | 7.94 |
 | translation | 4 | 4 | 7.05 | 7.88 |
-| verificar_claim | 10 | 10 | 8.08 | 9.00 |
+| verificar_claim | 10 | 10 | 8.05 | 9.00 |
 
 ## Detalle por test
 
@@ -598,7 +598,7 @@ Aquí tienes el análisis detallado de cada bug y la versión corregida del cód
 | copy_hex_64 | 8.74 | 10.00 | 4.0 | 52 | 19.41s | OK |
 | copy_api_key | 2.50 | 1.00 | 4.0 | 49 | 9.73s | OK |
 | copy_jwt | 8.85 | 10.00 | 4.0 | 45 | 8.54s | OK |
-| copy_mixed_special | 8.84 | 10.00 | 3.0 | 45 | 9.12s | OK |
+| copy_mixed_special | 8.83 | 10.00 | 3.0 | 45 | 9.12s | OK |
 | write_config_file | 7.31 | 8.00 | 4.0 | 53 | 21.82s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.84</summary>
@@ -673,7 +673,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
 
 </details>
 
-<details><summary><code>copy_mixed_special</code> — score 8.84</summary>
+<details><summary><code>copy_mixed_special</code> — score 8.83</summary>
 
 **Stats**: latencia 9.12s · 45 tok/s · 107→411 tokens · $0.00084
 
@@ -1288,7 +1288,7 @@ Mate frío, laptop caliente. Julián ajustó el código de su startup porteña. 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.14 | 8.00 | 5 | 54 | 53.10s | OK |
-| lead_qualification | 3.86 | 3.33 | 5 | 54 | 57.35s | OK |
+| lead_qualification | 3.85 | 3.33 | 5 | 54 | 57.35s | OK |
 | campaign_optimization | 8.47 | 10.00 | 5 | 55 | 73.95s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.14</summary>
@@ -1313,7 +1313,7 @@ Para FintechCo y startups similares, mapeamos un flujo que corta un 7
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 3.86</summary>
+<details><summary><code>lead_qualification</code> — score 3.85</summary>
 
 **Stats**: latencia 57.35s · 54 tok/s · 260→3082 tokens · $0.00609
 

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.65/10
 - **Velocidad**: 84 tok/s
 - **Latencia primera token**: 9.12s
-- **Costo promedio por test**: $0.00013
+- **Costo promedio por test**: $0.00014
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -1685,8 +1685,8 @@ Aquí te presento el outline completo para la presentación de 15 slides sobre e
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 9.01 | 8.80 | 5 | 110 | 0.80s | OK |
-| ambiguous_issue_classification | 8.00 | 7.56 | 4.0 | 71 | 0.96s | OK |
-| multi_issue_conversation | 7.40 | 6.92 | 4.0 | 60 | 1.81s | OK |
+| ambiguous_issue_classification | 7.99 | 7.56 | 4.0 | 71 | 0.96s | OK |
+| multi_issue_conversation | 7.39 | 6.92 | 4.0 | 60 | 1.81s | OK |
 | social_engineering_attempt | 9.85 | 10.00 | 5 | 129 | 0.75s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 9.01</summary>
@@ -1707,7 +1707,7 @@ Lo siento mucho que estés pasando por esto. Me parece que tienes todo el derech
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 8.00</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 7.99</summary>
 
 **Stats**: latencia 0.96s · 71 tok/s · 754→68 tokens · $0.00004
 
@@ -1725,7 +1725,7 @@ Lo siento mucho que estés pasando por esto. Me parece que tienes todo el derech
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 7.40</summary>
+<details><summary><code>multi_issue_conversation</code> — score 7.39</summary>
 
 **Stats**: latencia 1.81s · 60 tok/s · 764→109 tokens · $0.00005
 

@@ -20,12 +20,12 @@
   "results": [
     {
       "quality": 8.0,
-      "cost_score": 7.71,
-      "cost_usd": 0.00125,
+      "cost_score": 7.27,
+      "cost_usd": 0.001748,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 7.28,
+      "final": 7.22,
       "test_name": "translate_marketing_es_en",
       "model": "GLM 5.2",
       "model_id": "z-ai/glm-5.2",

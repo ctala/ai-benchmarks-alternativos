@@ -1595,7 +1595,7 @@ Entiendo que estás solicitando información sensible y cambios en la cuenta de 
 | error_recovery_orchestration | 4.85 | 0.00 | - | 0 | 264.26s | ERROR |
 | complex_workflow_decomposition | 3.80 | 2.00 | - | 0 | 541.20s | ERROR |
 | tool_selection_precision | 1.65 | 0.00 | 4.2 | 0 | 540.64s | OK |
-| parallel_vs_sequential_judgment | 7.01 | 7.14 | 4.6 | 30 | 19.52s | OK |
+| parallel_vs_sequential_judgment | 7.00 | 7.14 | 4.6 | 30 | 19.52s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 3.10</summary>
 
@@ -1643,7 +1643,7 @@ Voy a analizar cada tarea y luego ejecutar la Tarea 1.
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.01</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 7.00</summary>
 
 **Stats**: latencia 19.52s · 30 tok/s · 1221→595 tokens · $0.00024
 

@@ -2,12 +2,12 @@
 
 - **model_id**: `meituan/longcat-2.0`
 - **Total tests**: 23/26 exitosos (3 errores)
-- **Score final**: 7.50
+- **Score final**: 7.48
 - **Calidad**: 8.29
 - **Judge score (Phi-4)**: 4.91/10
 - **Velocidad**: 35 tok/s
 - **Latencia primera token**: 29.37s
-- **Costo promedio por test**: $0.00126
+- **Costo promedio por test**: $0.00144
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,11 +15,11 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| business_audit | 6 | 6 | 5.86 | 5.89 |
-| business_strategy | 4 | 2 | 8.64 | 10.00 |
-| content_generation | 7 | 6 | 8.03 | 9.15 |
-| content_verificable | 8 | 8 | 8.08 | 9.14 |
-| tool_calling | 1 | 1 | 7.24 | 7.38 |
+| business_audit | 6 | 6 | 5.91 | 5.89 |
+| business_strategy | 4 | 2 | 8.65 | 10.00 |
+| content_generation | 7 | 6 | 8.00 | 9.15 |
+| content_verificable | 8 | 8 | 8.02 | 9.14 |
+| tool_calling | 1 | 1 | 7.20 | 7.38 |
 
 ## Detalle por test
 
@@ -29,17 +29,17 @@
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| blog_post_es | 7.71 | 8.77 | 5 | 37 | 52.10s | OK |
-| email_profesional | 8.22 | 9.41 | 4.8 | 41 | 32.68s | OK |
-| social_media_batch | 8.32 | 9.55 | 5.0 | 35 | 28.32s | OK |
-| blog_post_es | 7.80 | 8.84 | 5 | 38 | 40.39s | OK |
-| email_profesional | 8.33 | 9.60 | 5 | 40 | 37.25s | OK |
+| blog_post_es | 7.73 | 8.77 | 5 | 37 | 52.10s | OK |
+| email_profesional | 8.21 | 9.41 | 4.8 | 41 | 32.68s | OK |
+| social_media_batch | 8.33 | 9.55 | 5.0 | 35 | 28.32s | OK |
+| blog_post_es | 7.75 | 8.84 | 5 | 38 | 40.39s | OK |
+| email_profesional | 8.31 | 9.60 | 5 | 40 | 37.25s | OK |
 | social_media_batch | 4.28 | 3.11 | - | 14 | 9.07s | ERROR |
-| product_description_en | 7.83 | 8.73 | 5 | 34 | 21.51s | OK |
+| product_description_en | 7.69 | 8.73 | 5 | 34 | 21.51s | OK |
 
-<details><summary><code>blog_post_es</code> — score 7.71</summary>
+<details><summary><code>blog_post_es</code> — score 7.73</summary>
 
-**Stats**: latencia 52.10s · 37 tok/s · 72→1616 tokens · $0.00200
+**Stats**: latencia 52.10s · 37 tok/s · 72→1616 tokens · $0.00196
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -59,9 +59,9 @@ Durante años, la inteligencia artificial parecía un lujo reservado para gigant
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 8.22</summary>
+<details><summary><code>email_profesional</code> — score 8.21</summary>
 
-**Stats**: latencia 32.68s · 41 tok/s · 91→1375 tokens · $0.00200
+**Stats**: latencia 32.68s · 41 tok/s · 91→1375 tokens · $0.00168
 
 **Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -79,9 +79,9 @@ Gracias por la oportunidad de presentar nuestra propuesta para el desarrollo de 
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 8.32</summary>
+<details><summary><code>social_media_batch</code> — score 8.33</summary>
 
-**Stats**: latencia 28.32s · 35 tok/s · 84→935 tokens · $0.00100
+**Stats**: latencia 28.32s · 35 tok/s · 84→935 tokens · $0.00115
 
 **Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 
@@ -102,9 +102,9 @@ Las empresas que tratan la transformación digital como un pro
 
 </details>
 
-<details><summary><code>blog_post_es</code> — score 7.80</summary>
+<details><summary><code>blog_post_es</code> — score 7.75</summary>
 
-**Stats**: latencia 40.39s · 38 tok/s · 72→1931 tokens · $0.00200
+**Stats**: latencia 40.39s · 38 tok/s · 72→1931 tokens · $0.00234
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
 
@@ -122,9 +122,9 @@ Dirigir una pequeña empresa es un acto de equilibrio constante. Con recursos li
 
 </details>
 
-<details><summary><code>email_profesional</code> — score 8.33</summary>
+<details><summary><code>email_profesional</code> — score 8.31</summary>
 
-**Stats**: latencia 37.25s · 40 tok/s · 91→1621 tokens · $0.00200
+**Stats**: latencia 37.25s · 40 tok/s · 91→1621 tokens · $0.00197
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -150,9 +150,9 @@ Gracias por la oportunidad de presentar esta propuesta. Hemos analizado sus nece
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 7.83</summary>
+<details><summary><code>product_description_en</code> — score 7.69</summary>
 
-**Stats**: latencia 21.51s · 34 tok/s · 70→1341 tokens · $0.00100
+**Stats**: latencia 21.51s · 34 tok/s · 70→1341 tokens · $0.00163
 
 **Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
 
@@ -178,11 +178,11 @@ Meet the ultimate smart home sidekick that does it all. Designed for the modern 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| single_tool_calendar | 7.24 | 7.38 | 4.6 | 38 | 5.37s | OK |
+| single_tool_calendar | 7.20 | 7.38 | 4.6 | 38 | 5.37s | OK |
 
-<details><summary><code>single_tool_calendar</code> — score 7.24</summary>
+<details><summary><code>single_tool_calendar</code> — score 7.20</summary>
 
-**Stats**: latencia 5.37s · 38 tok/s · 574→269 tokens · $0.00000
+**Stats**: latencia 5.37s · 38 tok/s · 574→269 tokens · $0.00049
 
 **Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 

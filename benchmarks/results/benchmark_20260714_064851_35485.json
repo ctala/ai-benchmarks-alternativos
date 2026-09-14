@@ -19,8 +19,8 @@
   "results": [
     {
       "quality": 8.4,
-      "cost_score": 4.74,
-      "cost_usd": 0.012193,
+      "cost_score": 4.78,
+      "cost_usd": 0.011863,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -52,8 +52,8 @@
     },
     {
       "quality": 7.91,
-      "cost_score": 5.38,
-      "cost_usd": 0.007458,
+      "cost_score": 5.42,
+      "cost_usd": 0.007262,
       "speed": 10.0,
       "latency": 1.0,
       "tool_calling": 7.0,

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.09/10
 - **Velocidad**: 165 tok/s
 - **Latencia primera token**: 8.60s
-- **Costo promedio por test**: $0.02563
+- **Costo promedio por test**: $0.02565
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -46,7 +46,7 @@
 | tool_calling | 4 | 4 | 6.88 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 6.03 | 5.56 |
 | translation | 3 | 3 | 7.96 | 8.67 |
-| verificar_claim | 10 | 10 | 8.25 | 9.10 |
+| verificar_claim | 10 | 10 | 8.24 | 9.10 |
 
 ## Detalle por test
 
@@ -60,7 +60,7 @@
 | logic_puzzle_constraint | 5.06 | 5.00 | - | 156 | 16.48s | OK |
 | causal_reasoning | 8.52 | 10.00 | - | 173 | 17.52s | OK |
 | code_bug_subtle | 6.68 | 7.50 | - | 206 | 23.47s | OK |
-| fermi_estimation | 2.73 | 1.67 | - | 194 | 12.58s | OK |
+| fermi_estimation | 2.74 | 1.67 | - | 194 | 12.58s | OK |
 | ethical_dilemma_structured | 8.53 | 10.00 | - | 134 | 21.38s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.73</summary>
@@ -153,7 +153,7 @@ filtered = [x for x in data if abs(x - median) <= 0] # -> x == median
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 2.73</summary>
+<details><summary><code>fermi_estimation</code> — score 2.74</summary>
 
 **Stats**: latencia 12.58s · 194 tok/s · 70→2443 tokens · $0.01047
 
@@ -1763,12 +1763,12 @@ Nunca hagas retry inmediato. Siempre espera lo que te diga el servidor.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.29 | 6.67 | - | 170 | 10.15s | OK |
+| refund_policy_enforcement | 6.30 | 6.67 | - | 170 | 10.15s | OK |
 | data_privacy_protection | 8.76 | 10.00 | - | 159 | 7.90s | OK |
 | language_and_tone_rules | 7.32 | 8.00 | - | 198 | 8.02s | OK |
 | scope_boundaries | 8.71 | 10.00 | - | 188 | 8.78s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.29</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.30</summary>
 
 **Stats**: latencia 10.15s · 170 tok/s · 253→1723 tokens · $0.00764
 
@@ -1951,11 +1951,11 @@ Investigar
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| extract_action_items | 8.73 | 9.60 | 5 | 201 | 3.82s | OK |
+| extract_action_items | 8.72 | 9.60 | 5 | 201 | 3.82s | OK |
 | weekly_planning | 8.57 | 10.00 | 5 | 195 | 11.89s | OK |
 | project_breakdown | 8.56 | 10.00 | 5 | 225 | 11.01s | OK |
 
-<details><summary><code>extract_action_items</code> — score 8.73</summary>
+<details><summary><code>extract_action_items</code> — score 8.72</summary>
 
 **Stats**: latencia 3.82s · 201 tok/s · 194→770 tokens · $0.00351
 

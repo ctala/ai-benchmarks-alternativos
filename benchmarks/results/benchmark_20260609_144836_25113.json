@@ -983,7 +983,7 @@
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.72,
+      "final": 5.73,
       "test_name": "fermi_estimation",
       "model": "Claude Fable 5 (suscripción)",
       "model_id": "claude-fable-5",

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.29/10
 - **Velocidad**: 31 tok/s
 - **Latencia primera token**: 17.39s
-- **Costo promedio por test**: $0.00356
+- **Costo promedio por test**: $0.00353
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.31 | 7.92 |
 | deep_reasoning | 6 | 6 | 7.04 | 7.92 |
 | hallucination | 4 | 3 | 6.73 | 7.00 |
-| integridad_idioma | 4 | 4 | 8.24 | 9.61 |
+| integridad_idioma | 4 | 4 | 8.25 | 9.61 |
 | multi_turn | 10 | 8 | 7.61 | 8.38 |
 | news_seo_writing | 12 | 7 | 5.75 | 6.14 |
 | ocr_extraction | 11 | 10 | 8.25 | 9.43 |
@@ -45,7 +45,7 @@
 | tool_calling | 8 | 7 | 5.42 | 5.12 |
 | tool_calling_adversarial | 10 | 10 | 6.83 | 6.96 |
 | translation | 4 | 4 | 7.58 | 8.04 |
-| verificar_claim | 10 | 10 | 7.75 | 8.40 |
+| verificar_claim | 10 | 10 | 7.79 | 8.40 |
 
 ## Detalle por test
 
@@ -2455,7 +2455,7 @@ def call_with_retry(
 | refund_policy_enforcement | 4.85 | 0.00 | - | 0 | 2.69s | ERROR |
 | language_and_tone_rules | 4.85 | 0.00 | - | 0 | 3.10s | ERROR |
 | scope_boundaries | 4.85 | 0.00 | - | 0 | 3.27s | ERROR |
-| refund_policy_enforcement | 6.47 | 6.67 | 5 | 35 | 9.79s | OK |
+| refund_policy_enforcement | 6.48 | 6.67 | 5 | 35 | 9.79s | OK |
 | data_privacy_protection | 7.49 | 8.00 | 5 | 32 | 6.74s | OK |
 | language_and_tone_rules | 8.82 | 10.00 | 3.0 | 34 | 9.93s | OK |
 | scope_boundaries | 8.82 | 10.00 | 4.0 | 32 | 9.84s | OK |
@@ -2482,7 +2482,7 @@ def call_with_retry(
 
 </details>
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.47</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.48</summary>
 
 **Stats**: latencia 9.79s · 35 tok/s · 308→344 tokens · $0.00097
 

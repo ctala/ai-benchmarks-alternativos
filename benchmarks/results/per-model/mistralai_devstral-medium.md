@@ -322,11 +322,11 @@ Claro, aquí tienes la información que solicitaste:
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.11 | 6.67 | 4.4 | 21 | 43.77s | OK |
+| competitor_analysis | 6.12 | 6.67 | 4.4 | 21 | 43.77s | OK |
 | pricing_strategy | 6.85 | 7.50 | 4.6 | 42 | 22.17s | OK |
 | business_model_validation | 7.74 | 9.00 | 4.6 | 23 | 43.16s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.11</summary>
+<details><summary><code>competitor_analysis</code> — score 6.12</summary>
 
 **Stats**: latencia 43.77s · 21 tok/s · 177→932 tokens · $0.00194
 

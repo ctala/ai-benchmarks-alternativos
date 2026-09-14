@@ -396,11 +396,11 @@ No se menciona en el texto
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.56 | 6.67 | 4.0 | 147 | 32.49s | OK |
+| competitor_analysis | 6.57 | 6.67 | 4.0 | 147 | 32.49s | OK |
 | pricing_strategy | 7.10 | 7.50 | 5 | 128 | 46.99s | OK |
 | business_model_validation | 9.07 | 10.00 | 5 | 178 | 11.13s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.56</summary>
+<details><summary><code>competitor_analysis</code> — score 6.57</summary>
 
 **Stats**: latencia 32.49s · 147 tok/s · 188→4783 tokens · $0.00193
 

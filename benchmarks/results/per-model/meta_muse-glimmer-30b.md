@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.23/10
 - **Velocidad**: 88 tok/s
 - **Latencia primera token**: 16.98s
-- **Costo promedio por test**: $0.00431
+- **Costo promedio por test**: $0.00430
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -46,7 +46,7 @@
 | tool_calling | 4 | 4 | 5.72 | 5.00 |
 | tool_calling_adversarial | 10 | 10 | 6.84 | 6.40 |
 | translation | 3 | 3 | 7.26 | 7.56 |
-| verificar_claim | 10 | 10 | 8.03 | 8.80 |
+| verificar_claim | 10 | 10 | 8.04 | 8.80 |
 
 ## Detalle por test
 
@@ -464,7 +464,7 @@ Tu idea es un marketplace de productos perecederos B2B en LATAM con 15% de comis
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | python_api_integration | 8.72 | 9.72 | 4.8 | 171 | 9.58s | OK |
-| n8n_workflow_json | 7.25 | 8.40 | 4.0 | 44 | 93.74s | OK |
+| n8n_workflow_json | 7.24 | 8.40 | 4.0 | 44 | 93.74s | OK |
 | sql_query_complex | 8.49 | 9.80 | 5 | 59 | 38.73s | OK |
 | debug_code | 8.83 | 9.80 | 5 | 164 | 7.51s | OK |
 
@@ -491,7 +491,7 @@ def fetch_expensive_products(bearer_token: str, url: str = "https://api.exa
 
 </details>
 
-<details><summary><code>n8n_workflow_json</code> — score 7.25</summary>
+<details><summary><code>n8n_workflow_json</code> — score 7.24</summary>
 
 **Stats**: latencia 93.74s · 44 tok/s · 170→4173 tokens · $0.00632
 

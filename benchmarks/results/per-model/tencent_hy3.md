@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.24/10
 - **Velocidad**: 64 tok/s
 - **Latencia primera token**: 38.08s
-- **Costo promedio por test**: $0.00377
+- **Costo promedio por test**: $0.00378
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,7 @@
 | news_seo_writing | 5 | 5 | 5.98 | 6.20 |
 | niah_es | 45 | 45 | 8.47 | 10.00 |
 | ocr_extraction | 5 | 5 | 7.92 | 8.85 |
-| orchestration | 5 | 5 | 7.70 | 8.22 |
+| orchestration | 5 | 5 | 7.71 | 8.22 |
 | policy_adherence | 4 | 4 | 8.00 | 8.67 |
 | presentation | 2 | 2 | 8.39 | 9.66 |
 | prompt_injection_es | 20 | 20 | 2.61 | 1.00 |
@@ -770,7 +770,7 @@ Asist: JP, MaJo, Seba, Cami (falt0 Nico)
 |------|-------|---------|-------|-------|----------|--------|
 | blog_post_es | 8.25 | 9.40 | 5 | 32 | 78.50s | OK |
 | email_profesional | 8.34 | 9.60 | 5 | 29 | 52.07s | OK |
-| social_media_batch | 8.62 | 9.80 | 5 | 88 | 39.33s | OK |
+| social_media_batch | 8.61 | 9.80 | 5 | 88 | 39.33s | OK |
 | product_description_en | 8.26 | 9.20 | 5 | 62 | 40.72s | OK |
 
 <details><summary><code>blog_post_es</code> — score 8.25</summary>
@@ -816,7 +816,7 @@ Es un placer saludarle. En respuesta a su solicitud, hemos preparado la propuest
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 8.62</summary>
+<details><summary><code>social_media_batch</code> — score 8.61</summary>
 
 **Stats**: latencia 39.33s · 88 tok/s · 88→3481 tokens · $0.00185
 
@@ -1523,7 +1523,7 @@ Lamento informarte que no puedo atender estas solicitudes. Ambas peticiones viol
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.62 | 8.12 | 3.8 | 77 | 14.44s | OK |
 | error_recovery_orchestration | 7.22 | 7.50 | - | 54 | 16.34s | OK |
-| complex_workflow_decomposition | 5.69 | 5.46 | 3.0 | 46 | 10.37s | OK |
+| complex_workflow_decomposition | 5.70 | 5.46 | 3.0 | 46 | 10.37s | OK |
 | tool_selection_precision | 8.99 | 10.00 | - | 56 | 13.61s | OK |
 | parallel_vs_sequential_judgment | 9.00 | 10.00 | - | 133 | 13.93s | OK |
 
@@ -1570,7 +1570,7 @@ Para cumplir con el plazo, no podemos esperar
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 5.69</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 5.70</summary>
 
 **Stats**: latencia 10.37s · 46 tok/s · 1632→480 tokens · $0.00047
 
@@ -1986,10 +1986,10 @@ Para lanzar una landing page SaaS en 4 semanas (aprox. 20 días hábiles) con un
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| long_document_summary | 7.52 | 8.20 | 4.0 | 72 | 42.21s | OK |
+| long_document_summary | 7.51 | 8.20 | 4.0 | 72 | 42.21s | OK |
 | extract_structured_data | 6.47 | 6.60 | 3.0 | 86 | 23.69s | OK |
 
-<details><summary><code>long_document_summary</code> — score 7.52</summary>
+<details><summary><code>long_document_summary</code> — score 7.51</summary>
 
 **Stats**: latencia 42.21s · 72 tok/s · 496→3036 tokens · $0.00167
 

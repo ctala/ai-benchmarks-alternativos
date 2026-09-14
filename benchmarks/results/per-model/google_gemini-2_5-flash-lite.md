@@ -26,7 +26,7 @@
 | customer_support | 7 | 7 | 8.65 | 8.71 |
 | deep_reasoning | 6 | 6 | 6.98 | 6.99 |
 | hallucination | 3 | 3 | 8.01 | 7.89 |
-| integridad_idioma | 4 | 4 | 9.13 | 9.62 |
+| integridad_idioma | 4 | 4 | 9.14 | 9.62 |
 | multi_turn | 4 | 4 | 7.34 | 7.21 |
 | news_seo_writing | 7 | 7 | 6.49 | 6.23 |
 | niah_es | 118 | 114 | 8.23 | 9.88 |
@@ -368,7 +368,7 @@ Aquí tienes la información solicitada, con las fuentes y el nivel de certeza i
 |------|-------|---------|-------|-------|----------|--------|
 | competitor_analysis | 2.29 | 0.00 | 3.2 | 463 | 4.42s | OK |
 | pricing_strategy | 7.38 | 7.50 | 5 | 280 | 7.32s | OK |
-| business_model_validation | 9.14 | 10.00 | 5 | 208 | 9.86s | OK |
+| business_model_validation | 9.13 | 10.00 | 5 | 208 | 9.86s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 2.29</summary>
 
@@ -417,7 +417,7 @@ Dada la naturaleza de la información de pricing y featu
 
 </details>
 
-<details><summary><code>business_model_validation</code> — score 9.14</summary>
+<details><summary><code>business_model_validation</code> — score 9.13</summary>
 
 **Stats**: latencia 9.86s · 208 tok/s · 170→2048 tokens · $0.00084
 

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.49/10
 - **Velocidad**: 107 tok/s
 - **Latencia primera token**: 17.61s
-- **Costo promedio por test**: $0.00124
+- **Costo promedio por test**: $0.00126
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -20,13 +20,13 @@
 | business_audit | 10 | 10 | 7.43 | 7.60 |
 | business_strategy | 5 | 5 | 8.20 | 8.80 |
 | code_generation | 4 | 4 | 8.54 | 9.18 |
-| content_generation | 4 | 4 | 8.57 | 9.06 |
+| content_generation | 4 | 4 | 8.56 | 9.06 |
 | content_verificable | 5 | 5 | 7.76 | 8.00 |
 | creativity | 4 | 4 | 8.26 | 8.75 |
 | customer_support | 4 | 4 | 8.65 | 8.90 |
 | deep_reasoning | 6 | 6 | 7.41 | 7.50 |
 | dominio_entidad | 12 | 11 | 8.15 | 8.18 |
-| extraer_claims | 5 | 5 | 9.26 | 10.00 |
+| extraer_claims | 5 | 5 | 9.23 | 10.00 |
 | hallucination | 3 | 3 | 7.18 | 7.00 |
 | integridad_idioma | 4 | 4 | 8.88 | 9.59 |
 | multi_turn | 4 | 4 | 7.48 | 7.50 |
@@ -318,11 +318,11 @@ Aquí tienes una respuesta estructurada por punto, con el nivel de certeza solic
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.65 | 6.67 | - | 94 | 45.74s | OK |
+| competitor_analysis | 6.66 | 6.67 | - | 94 | 45.74s | OK |
 | pricing_strategy | 7.35 | 7.50 | - | 121 | 43.76s | OK |
 | business_model_validation | 9.18 | 10.00 | - | 101 | 34.00s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.65</summary>
+<details><summary><code>competitor_analysis</code> — score 6.66</summary>
 
 **Stats**: latencia 45.74s · 94 tok/s · 183→4311 tokens · $0.00057
 
@@ -768,8 +768,8 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | blog_post_es | 8.67 | 9.12 | 4.8 | 110 | 18.73s | OK |
 | email_profesional | 8.42 | 8.92 | 4.8 | 99 | 14.66s | OK |
-| social_media_batch | 8.96 | 9.80 | 5 | 123 | 43.60s | OK |
-| product_description_en | 8.21 | 8.40 | 5 | 114 | 10.58s | OK |
+| social_media_batch | 8.95 | 9.80 | 5 | 123 | 43.60s | OK |
+| product_description_en | 8.20 | 8.40 | 5 | 114 | 10.58s | OK |
 
 <details><summary><code>blog_post_es</code> — score 8.67</summary>
 
@@ -810,7 +810,7 @@ Es un placer saludarle. Agradecemos profundamente su interés en nuestros servic
 
 </details>
 
-<details><summary><code>social_media_batch</code> — score 8.96</summary>
+<details><summary><code>social_media_batch</code> — score 8.95</summary>
 
 **Stats**: latencia 43.60s · 123 tok/s · 85→5374 tokens · $0.00070
 
@@ -832,7 +832,7 @@ Muchas empresas confunden digitalizar papeles con transformar su modelo de
 
 </details>
 
-<details><summary><code>product_description_en</code> — score 8.21</summary>
+<details><summary><code>product_description_en</code> — score 8.20</summary>
 
 **Stats**: latencia 10.58s · 114 tok/s · 65→1203 tokens · $0.00016
 
@@ -1440,7 +1440,7 @@ La capital de Francia es **París**.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 9.41 | 9.80 | 5 | 112 | 4.04s | OK |
-| ambiguous_issue_classification | 8.21 | 8.40 | 4.0 | 103 | 11.75s | OK |
+| ambiguous_issue_classification | 8.20 | 8.40 | 4.0 | 103 | 11.75s | OK |
 | multi_issue_conversation | 7.58 | 7.40 | 4.0 | 114 | 5.84s | OK |
 | social_engineering_attempt | 9.40 | 10.00 | 5 | 113 | 6.47s | OK |
 
@@ -1471,7 +1471,7 @@ Here's a thinking process:
 
 </details>
 
-<details><summary><code>ambiguous_issue_classification</code> — score 8.21</summary>
+<details><summary><code>ambiguous_issue_classification</code> — score 8.20</summary>
 
 **Stats**: latencia 11.75s · 103 tok/s · 700→1214 tokens · $0.00018
 
@@ -1548,7 +1548,7 @@ Here's a thinking process:
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 7.76 | 7.76 | 3.4 | 108 | 10.82s | OK |
 | error_recovery_orchestration | 7.58 | 7.50 | - | 117 | 10.09s | OK |
-| complex_workflow_decomposition | 6.24 | 5.63 | 3.0 | 104 | 16.21s | OK |
+| complex_workflow_decomposition | 6.23 | 5.63 | 3.0 | 104 | 16.21s | OK |
 | tool_selection_precision | 9.32 | 10.00 | - | 119 | 12.24s | OK |
 | parallel_vs_sequential_judgment | 9.22 | 10.00 | - | 112 | 22.13s | OK |
 
@@ -1589,7 +1589,7 @@ Propongo intentar consultar una base de datos de respaldo o buscar un archivo lo
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 6.24</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 6.23</summary>
 
 **Stats**: latencia 16.21s · 104 tok/s · 1176→1688 tokens · $0.00026
 

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.97/10
 - **Velocidad**: 21 tok/s
 - **Latencia primera token**: 74.94s
-- **Costo promedio por test**: $0.00914
+- **Costo promedio por test**: $0.00916
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -46,7 +46,7 @@
 | tool_calling | 4 | 4 | 6.63 | 7.45 |
 | tool_calling_adversarial | 10 | 10 | 6.46 | 7.10 |
 | translation | 5 | 5 | 7.61 | 8.80 |
-| verificar_claim | 10 | 10 | 7.71 | 8.90 |
+| verificar_claim | 10 | 10 | 7.67 | 8.90 |
 
 ## Detalle por test
 
@@ -60,7 +60,7 @@
 | logic_puzzle_constraint | 4.40 | 5.00 | 4.6 | 15 | 812.07s | OK |
 | causal_reasoning | 8.19 | 10.00 | 5.0 | 24 | 116.97s | OK |
 | code_bug_subtle | 4.31 | 5.00 | 5 | 14 | 674.14s | OK |
-| fermi_estimation | 5.71 | 6.67 | 4.4 | 26 | 229.34s | OK |
+| fermi_estimation | 5.72 | 6.67 | 4.4 | 26 | 229.34s | OK |
 | ethical_dilemma_structured | 8.16 | 10.00 | 5.0 | 25 | 135.90s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.18</summary>
@@ -155,7 +155,7 @@ El bug sutil en el código ocurre cuando la lista `data` está vacía. En este c
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 5.71</summary>
+<details><summary><code>fermi_estimation</code> — score 5.72</summary>
 
 **Stats**: latencia 229.34s · 26 tok/s · 75→5942 tokens · $0.01491
 

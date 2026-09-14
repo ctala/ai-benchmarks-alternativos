@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.47/10
 - **Velocidad**: 29 tok/s
 - **Latencia primera token**: 19.01s
-- **Costo promedio por test**: $0.00095
+- **Costo promedio por test**: $0.00094
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -23,7 +23,7 @@
 | content_generation | 4 | 4 | 8.66 | 9.50 |
 | content_verificable | 5 | 5 | 7.05 | 7.33 |
 | creativity | 4 | 4 | 8.27 | 9.00 |
-| customer_support | 4 | 4 | 6.73 | 6.72 |
+| customer_support | 4 | 4 | 6.74 | 6.72 |
 | deep_reasoning | 6 | 6 | 7.14 | 7.78 |
 | hallucination | 3 | 3 | 7.47 | 7.67 |
 | integridad_idioma | 4 | 4 | 8.66 | 9.66 |
@@ -44,7 +44,7 @@
 | task_management | 5 | 5 | 8.67 | 9.55 |
 | tool_calling | 4 | 4 | 6.35 | 6.05 |
 | tool_calling_adversarial | 10 | 10 | 6.75 | 6.82 |
-| translation | 5 | 5 | 7.53 | 7.91 |
+| translation | 5 | 5 | 7.54 | 7.91 |
 | verificar_claim | 10 | 10 | 7.76 | 8.10 |
 
 ## Detalle por test
@@ -1642,7 +1642,7 @@ Vamos a analizar paso a paso.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.25 | 8.00 | 5 | 5 | 12.66s | OK |
-| detect_language_issues | 6.53 | 6.67 | 5 | 25 | 16.54s | OK |
+| detect_language_issues | 6.54 | 6.67 | 5 | 25 | 16.54s | OK |
 | translate_marketing_es_en | 7.80 | 8.00 | 5 | 26 | 3.59s | OK |
 | translate_technical_en_es | 7.80 | 8.00 | 4.0 | 40 | 3.34s | OK |
 | detect_language_issues | 8.29 | 8.89 | 5 | 48 | 10.29s | OK |
@@ -1670,7 +1670,7 @@ Join 500+ startups across LATAM already using it. When will you start?
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.53</summary>
+<details><summary><code>detect_language_issues</code> — score 6.54</summary>
 
 **Stats**: latencia 16.54s · 25 tok/s · 214→419 tokens · $0.00022
 
@@ -1914,7 +1914,7 @@ La capital de Francia es París. Es una de las ciudades más importantes de Euro
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 7.27 | 7.64 | 3.8 | 21 | 5.38s | OK |
 | ambiguous_issue_classification | 3.65 | 2.24 | 1.6 | 23 | 4.57s | OK |
-| multi_issue_conversation | 6.99 | 7.02 | 4.0 | 21 | 4.81s | OK |
+| multi_issue_conversation | 7.00 | 7.02 | 4.0 | 21 | 4.81s | OK |
 | social_engineering_attempt | 9.03 | 10.00 | 5 | 44 | 6.09s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.27</summary>
@@ -1935,7 +1935,7 @@ Permíteme primero buscar los detalles de tu pedido para poder ayudarte de la me
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 6.99</summary>
+<details><summary><code>multi_issue_conversation</code> — score 7.00</summary>
 
 **Stats**: latencia 4.81s · 21 tok/s · 733→100 tokens · $0.00024
 
@@ -1983,7 +1983,7 @@ Entiendo que usted necesita información para una auditoría, pero tengo que inf
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 8.71 | 10.00 | 5 | 27 | 18.24s | OK |
 | error_recovery_orchestration | 8.84 | 10.00 | - | 22 | 6.83s | OK |
-| complex_workflow_decomposition | 5.78 | 5.18 | 3.0 | 36 | 3.31s | OK |
+| complex_workflow_decomposition | 5.77 | 5.18 | 3.0 | 36 | 3.31s | OK |
 | tool_selection_precision | 8.72 | 10.00 | - | 27 | 16.06s | OK |
 | parallel_vs_sequential_judgment | 8.65 | 10.00 | - | 29 | 28.40s | OK |
 
@@ -2029,7 +2029,7 @@ Entiendo la situación. La base de datos está en mantenimiento y necesitas el r
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 5.78</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 5.77</summary>
 
 **Stats**: latencia 3.31s · 36 tok/s · 1166→120 tokens · $0.00036
 
@@ -2289,13 +2289,13 @@ El plan Pro tiene un valor de **$149 USD mensuales** (IVA incluido). Incluye eje
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| skill_execution_complex | 7.71 | 8.20 | 4.0 | 38 | 8.28s | OK |
+| skill_execution_complex | 7.70 | 8.20 | 4.0 | 38 | 8.28s | OK |
 | agent_team_delegation | 7.39 | 8.10 | 4.0 | 28 | 13.54s | OK |
 | ask_clarification_before_acting | 8.72 | 9.80 | 5 | 24 | 7.56s | OK |
 | context_following_complex_system | 2.00 | 0.00 | - | 17 | 4.79s | OK |
 | model_as_router | 5.58 | 5.00 | - | 42 | 9.91s | OK |
 
-<details><summary><code>skill_execution_complex</code> — score 7.71</summary>
+<details><summary><code>skill_execution_complex</code> — score 7.70</summary>
 
 **Stats**: latencia 8.28s · 38 tok/s · 1136→311 tokens · $0.00043
 

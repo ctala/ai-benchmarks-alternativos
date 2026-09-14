@@ -303,11 +303,11 @@ No existe un "porcentaje exacto" único para los primeros 5 años en los reporte
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.48 | 6.67 | 4.4 | 87 | 29.41s | OK |
+| competitor_analysis | 6.49 | 6.67 | 4.4 | 87 | 29.41s | OK |
 | pricing_strategy | 7.04 | 7.50 | 4.6 | 94 | 31.94s | OK |
 | business_model_validation | 8.86 | 10.00 | 4.2 | 78 | 25.91s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.48</summary>
+<details><summary><code>competitor_analysis</code> — score 6.49</summary>
 
 **Stats**: latencia 29.41s · 87 tok/s · 318→2561 tokens · $0.00134
 
@@ -486,12 +486,12 @@ customer_totals AS (
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 9.55 | 10.00 | 4.0 | 152 | 2.26s | OK |
+| json_simple_extraction | 9.54 | 10.00 | 4.0 | 152 | 2.26s | OK |
 | json_array_classification | 9.52 | 10.00 | 5 | 165 | 2.29s | OK |
 | json_nested_complex | 9.05 | 10.00 | 4.8 | 162 | 10.21s | OK |
 | json_strict_no_extra | 9.40 | 10.00 | 4.0 | 93 | 2.09s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 9.55</summary>
+<details><summary><code>json_simple_extraction</code> — score 9.54</summary>
 
 **Stats**: latencia 2.26s · 152 tok/s · 252→342 tokens · $0.00022
 
@@ -1184,7 +1184,7 @@ Preguntan: "¿Ventas proyectadas?". VerdadBot escupe: "Cero reales.
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.74 | 8.00 | 4.2 | 84 | 7.39s | OK |
-| lead_qualification | 4.52 | 3.33 | 4.4 | 136 | 8.45s | OK |
+| lead_qualification | 4.51 | 3.33 | 4.4 | 136 | 8.45s | OK |
 | campaign_optimization | 7.55 | 8.00 | 5.0 | 109 | 25.36s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.74</summary>
@@ -1209,7 +1209,7 @@ Nuestra herramienta de IA automatiza eso para fintechs en crecimiento, liberando
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.52</summary>
+<details><summary><code>lead_qualification</code> — score 4.51</summary>
 
 **Stats**: latencia 8.45s · 136 tok/s · 389→1146 tokens · $0.00065
 
@@ -1723,12 +1723,12 @@ Perfecto, ese loop infinito es el culpable clásico de los 429 en cascada. Vamos
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.11 | 6.67 | 4.0 | 145 | 3.94s | OK |
+| refund_policy_enforcement | 7.12 | 6.67 | 4.0 | 145 | 3.94s | OK |
 | data_privacy_protection | 6.71 | 6.00 | 4.4 | 103 | 3.72s | OK |
 | language_and_tone_rules | 7.76 | 8.00 | 3.2 | 98 | 5.58s | OK |
 | scope_boundaries | 8.01 | 8.00 | 4.2 | 147 | 4.88s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.11</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.12</summary>
 
 **Stats**: latencia 3.94s · 145 tok/s · 397→569 tokens · $0.00036
 

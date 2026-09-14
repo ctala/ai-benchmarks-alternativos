@@ -476,12 +476,12 @@ Aquí tienes el análisis de cada uno de los bugs y la versión del código corr
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| json_simple_extraction | 8.91 | 10.00 | 4.0 | 13 | 4.45s | OK |
+| json_simple_extraction | 8.90 | 10.00 | 4.0 | 13 | 4.45s | OK |
 | json_array_classification | 8.49 | 10.00 | 5 | 3 | 40.37s | OK |
 | json_nested_complex | 8.38 | 10.00 | 5 | 25 | 31.34s | OK |
 | json_strict_no_extra | 8.65 | 10.00 | 4.0 | 0 | 45.54s | OK |
 
-<details><summary><code>json_simple_extraction</code> — score 8.91</summary>
+<details><summary><code>json_simple_extraction</code> — score 8.90</summary>
 
 **Stats**: latencia 4.45s · 13 tok/s · 101→56 tokens · $0.00027
 
@@ -1732,12 +1732,12 @@ Para implementar retries correctamente necesitas dos cosas: **Expo
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 5.94 | 6.67 | 4.2 | 4 | 86.02s | OK |
+| refund_policy_enforcement | 5.95 | 6.67 | 4.2 | 4 | 86.02s | OK |
 | data_privacy_protection | 7.04 | 8.00 | 4.6 | 5 | 28.29s | OK |
 | language_and_tone_rules | 6.98 | 8.00 | 3.2 | 3 | 60.36s | OK |
 | scope_boundaries | 8.39 | 10.00 | 4.2 | 5 | 61.96s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 5.94</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 5.95</summary>
 
 **Stats**: latencia 86.02s · 4 tok/s · 267→386 tokens · $0.00145
 

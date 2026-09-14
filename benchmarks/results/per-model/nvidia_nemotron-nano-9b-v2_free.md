@@ -56,7 +56,7 @@
 | logic_puzzle_constraint | 5.30 | 5.00 | 4.0 | 34 | 99.50s | OK |
 | causal_reasoning | 8.68 | 10.00 | 5 | 24 | 117.62s | OK |
 | code_bug_subtle | 6.73 | 7.50 | 2.0 | 27 | 301.30s | OK |
-| fermi_estimation | 6.46 | 6.67 | 4.4 | 30 | 53.32s | OK |
+| fermi_estimation | 6.47 | 6.67 | 4.4 | 30 | 53.32s | OK |
 | ethical_dilemma_structured | 8.91 | 10.00 | 5.0 | 39 | 47.45s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.98</summary>
@@ -154,7 +154,7 @@ First, the function find_median sorts the list and returns the median.
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.46</summary>
+<details><summary><code>fermi_estimation</code> — score 6.47</summary>
 
 **Stats**: latencia 53.32s · 30 tok/s · 77→1592 tokens · $0.00032
 
@@ -1409,7 +1409,7 @@ Clara, emprendedora de Bogotá, lanzó "HonestaAI", una startup de chatbots para
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.62 | 8.00 | 5 | 31 | 12.29s | OK |
-| lead_qualification | 4.32 | 3.33 | 5 | 44 | 29.37s | OK |
+| lead_qualification | 4.31 | 3.33 | 5 | 44 | 29.37s | OK |
 | campaign_optimization | 7.48 | 8.00 | 5 | 43 | 51.45s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.62</summary>
@@ -1436,7 +1436,7 @@ Ofrezco una he
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.32</summary>
+<details><summary><code>lead_qualification</code> — score 4.31</summary>
 
 **Stats**: latencia 29.37s · 44 tok/s · 260→1277 tokens · $0.00027
 

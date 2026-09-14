@@ -923,7 +923,7 @@ Enjoy crisp, room-filling audio with voice a
 | curso_emprendimiento_modulo | 8.60 | 9.16 | 4.4 | 203 | 20.70s | OK |
 | workshop_outline | 8.67 | 9.44 | 4.6 | 192 | 42.74s | OK |
 | newsletter_startup | 9.10 | 9.72 | 4.8 | 163 | 15.23s | OK |
-| perplexity_style_research | 7.22 | 7.36 | 3.4 | 207 | 39.52s | OK |
+| perplexity_style_research | 7.21 | 7.36 | 3.4 | 207 | 39.52s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 9.03</summary>
 
@@ -1007,7 +1007,7 @@ Esta semana la conversación gira alrededor de una idea clara: la IA se vuelve m
 
 </details>
 
-<details><summary><code>perplexity_style_research</code> — score 7.22</summary>
+<details><summary><code>perplexity_style_research</code> — score 7.21</summary>
 
 **Stats**: latencia 39.52s · 207 tok/s · 193→8192 tokens · $0.00082
 
@@ -1027,13 +1027,13 @@ We need answer in Spanish. User asks investigate "Estado del venture capital en 
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 7.99 | 8.40 | 4.0 | 225 | 27.50s | OK |
+| news_seo_article_full | 8.00 | 8.40 | 4.0 | 225 | 27.50s | OK |
 | news_json_output_strict | 8.67 | 9.14 | - | 205 | 13.21s | OK |
 | news_spanish_only | 9.24 | 9.78 | - | 220 | 9.78s | OK |
 | news_no_hallucination_sources | 2.26 | 0.00 | - | 196 | 14.82s | OK |
-| news_perplexity_enrichment | 8.14 | 8.40 | 4.0 | 183 | 16.21s | OK |
+| news_perplexity_enrichment | 8.13 | 8.40 | 4.0 | 183 | 16.21s | OK |
 
-<details><summary><code>news_seo_article_full</code> — score 7.99</summary>
+<details><summary><code>news_seo_article_full</code> — score 8.00</summary>
 
 **Stats**: latencia 27.50s · 225 tok/s · 477→6190 tokens · $0.00063
 
@@ -1107,7 +1107,7 @@ NotCo, la startup chilena de food-tech fundada por Matias Muchnick en 2015, leva
 
 </details>
 
-<details><summary><code>news_perplexity_enrichment</code> — score 8.14</summary>
+<details><summary><code>news_perplexity_enrichment</code> — score 8.13</summary>
 
 **Stats**: latencia 16.21s · 183 tok/s · 506→2963 tokens · $0.00031
 

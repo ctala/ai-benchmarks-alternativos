@@ -876,7 +876,7 @@
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 2.36,
+      "final": 2.37,
       "test_name": "fermi_estimation",
       "model": "Claude Opus 4.8",
       "model_id": "anthropic/claude-opus-4.8",

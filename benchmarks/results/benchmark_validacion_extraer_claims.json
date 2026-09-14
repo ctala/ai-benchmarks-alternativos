@@ -521,7 +521,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 4.6e-05,
+      "cost_usd": 0.000137,
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -554,7 +554,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 1.8e-05,
+      "cost_usd": 5.5e-05,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -587,7 +587,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 2.5e-05,
+      "cost_usd": 7.4e-05,
       "speed": 6.0,
       "latency": 4.0,
       "tool_calling": 7.0,
@@ -620,7 +620,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 2.3e-05,
+      "cost_usd": 7e-05,
       "speed": 4.0,
       "latency": 2.0,
       "tool_calling": 7.0,
@@ -653,7 +653,7 @@
     {
       "quality": 10.0,
       "cost_score": 10.0,
-      "cost_usd": 2e-05,
+      "cost_usd": 6e-05,
       "speed": 4.0,
       "latency": 4.0,
       "tool_calling": 7.0,

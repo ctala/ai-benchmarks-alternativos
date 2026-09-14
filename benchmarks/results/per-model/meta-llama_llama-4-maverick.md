@@ -26,7 +26,7 @@
 | customer_support | 4 | 4 | 7.55 | 7.10 |
 | deep_reasoning | 6 | 6 | 6.51 | 6.53 |
 | hallucination | 3 | 3 | 7.35 | 7.67 |
-| integridad_idioma | 4 | 4 | 8.89 | 9.73 |
+| integridad_idioma | 4 | 4 | 8.90 | 9.73 |
 | multi_turn | 4 | 4 | 7.12 | 7.25 |
 | news_seo_writing | 7 | 7 | 6.10 | 5.95 |
 | niah_es | 118 | 114 | 8.05 | 9.78 |

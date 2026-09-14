@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 52 tok/s
 - **Latencia primera token**: 26.44s
-- **Costo promedio por test**: $0.00034
+- **Costo promedio por test**: $0.00033
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,7 +30,7 @@
 | multi_turn | 4 | 4 | 7.75 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.95 | 7.20 |
 | ocr_extraction | 5 | 5 | 8.53 | 8.95 |
-| orchestration | 5 | 5 | 7.34 | 7.73 |
+| orchestration | 5 | 5 | 7.33 | 7.73 |
 | policy_adherence | 4 | 4 | 6.34 | 6.17 |
 | presentation | 3 | 3 | 8.72 | 9.75 |
 | prompt_injection_es | 20 | 20 | 4.93 | 3.82 |
@@ -2009,9 +2009,9 @@ Voy a escalar este caso a un agente humano para que pueda re
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 6.02 | 5.92 | 3.8 | 20 | 10.06s | OK |
 | error_recovery_orchestration | 9.10 | 10.00 | - | 24 | 4.26s | OK |
-| complex_workflow_decomposition | 5.80 | 5.60 | 3.0 | 19 | 18.33s | OK |
+| complex_workflow_decomposition | 5.79 | 5.60 | 3.0 | 19 | 18.33s | OK |
 | tool_selection_precision | 8.88 | 10.00 | - | 15 | 19.77s | OK |
-| parallel_vs_sequential_judgment | 6.88 | 7.14 | - | 15 | 17.69s | OK |
+| parallel_vs_sequential_judgment | 6.87 | 7.14 | - | 15 | 17.69s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 6.02</summary>
 
@@ -2043,7 +2043,7 @@ We need to handle failure: diagnose, propose alternative, adjust plan. Likely us
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 5.80</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 5.79</summary>
 
 **Stats**: latencia 18.33s · 19 tok/s · 595→346 tokens · $0.00008
 
@@ -2081,7 +2081,7 @@ We need to list tools for each task, explain why chosen. Then execute task 1: ve
 
 </details>
 
-<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.88</summary>
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 6.87</summary>
 
 **Stats**: latencia 17.69s · 15 tok/s · 655→270 tokens · $0.00007
 

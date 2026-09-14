@@ -1214,7 +1214,7 @@ Mateo, un emprendedor argentino con un café en la mano, descubrió que su start
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.77 | 8.00 | 4.8 | 50 | 14.84s | OK |
-| lead_qualification | 4.50 | 3.33 | 4.8 | 60 | 18.04s | OK |
+| lead_qualification | 4.49 | 3.33 | 4.8 | 60 | 18.04s | OK |
 | campaign_optimization | 6.07 | 6.00 | 4.4 | 46 | 49.77s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.77</summary>
@@ -1239,7 +1239,7 @@ We’ve built an AI t
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.50</summary>
+<details><summary><code>lead_qualification</code> — score 4.49</summary>
 
 **Stats**: latencia 18.04s · 60 tok/s · 260→1086 tokens · $0.00023
 

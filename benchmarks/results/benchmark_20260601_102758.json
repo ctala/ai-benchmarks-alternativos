@@ -842,7 +842,7 @@
       "speed": 4.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.71,
+      "final": 5.72,
       "test_name": "fermi_estimation",
       "model": "DeepSeek R1 (reasoning)",
       "model_id": "deepseek/deepseek-r1",

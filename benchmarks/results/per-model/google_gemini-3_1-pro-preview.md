@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.96/10
 - **Velocidad**: 91 tok/s
 - **Latencia primera token**: 14.79s
-- **Costo promedio por test**: $0.02705
+- **Costo promedio por test**: $0.02707
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,7 +45,7 @@
 | tool_calling | 4 | 4 | 5.92 | 6.43 |
 | tool_calling_adversarial | 10 | 10 | 6.43 | 6.68 |
 | translation | 3 | 3 | 6.64 | 7.46 |
-| verificar_claim | 10 | 10 | 7.81 | 8.90 |
+| verificar_claim | 10 | 10 | 7.82 | 8.90 |
 
 ## Detalle por test
 
@@ -340,11 +340,11 @@ Aquí tienes las respuestas a tus consultas, estructuradas exactamente como lo s
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 5.91 | 6.67 | 4.4 | 85 | 23.96s | OK |
+| competitor_analysis | 5.92 | 6.67 | 4.4 | 85 | 23.96s | OK |
 | pricing_strategy | 8.25 | 10.00 | 3.8 | 95 | 21.55s | OK |
 | business_model_validation | 8.25 | 10.00 | 4.6 | 89 | 23.01s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 5.91</summary>
+<details><summary><code>competitor_analysis</code> — score 5.92</summary>
 
 **Stats**: latencia 23.96s · 85 tok/s · 168→2044 tokens · $0.02486
 
@@ -1327,7 +1327,7 @@ Antes de empezar, un dato importante: el mes pasado gastaste **$7,100** en total
 |------|-------|---------|-------|-------|----------|--------|
 | translate_marketing_es_en | 7.04 | 8.00 | 5 | 109 | 15.24s | OK |
 | translate_technical_en_es | 6.82 | 7.72 | 3.8 | 114 | 16.64s | OK |
-| detect_language_issues | 6.06 | 6.67 | 4.8 | 125 | 16.37s | OK |
+| detect_language_issues | 6.07 | 6.67 | 4.8 | 125 | 16.37s | OK |
 
 <details><summary><code>translate_marketing_es_en</code> — score 7.04</summary>
 
@@ -1368,7 +1368,7 @@ Para autenticarte con la API, incluye tu Bearer token en el header Authorization
 
 </details>
 
-<details><summary><code>detect_language_issues</code> — score 6.06</summary>
+<details><summary><code>detect_language_issues</code> — score 6.07</summary>
 
 **Stats**: latencia 16.37s · 125 tok/s · 193→2044 tokens · $0.02491
 

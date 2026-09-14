@@ -20,7 +20,7 @@
 | content_generation | 4 | 4 | 8.00 | 9.14 |
 | creativity | 4 | 3 | 7.86 | 9.00 |
 | customer_support | 4 | 4 | 7.27 | 7.95 |
-| deep_reasoning | 6 | 5 | 7.05 | 8.00 |
+| deep_reasoning | 6 | 5 | 7.06 | 8.00 |
 | hallucination | 3 | 3 | 6.53 | 7.00 |
 | multi_turn | 4 | 4 | 6.80 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.64 | 7.38 |
@@ -52,7 +52,7 @@
 | causal_reasoning | 8.49 | 10.00 | 4.8 | 9 | 197.04s | OK |
 | code_bug_subtle | 4.85 | 0.00 | - | 0 | 1021.51s | ERROR |
 | fermi_estimation | 4.98 | 5.00 | 4.4 | 9 | 211.91s | OK |
-| ethical_dilemma_structured | 8.48 | 10.00 | 4.4 | 9 | 206.36s | OK |
+| ethical_dilemma_structured | 8.49 | 10.00 | 4.4 | 9 | 206.36s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.49</summary>
 
@@ -144,7 +144,7 @@ Aquí tienes el razonamiento paso a paso:
 
 </details>
 
-<details><summary><code>ethical_dilemma_structured</code> — score 8.48</summary>
+<details><summary><code>ethical_dilemma_structured</code> — score 8.49</summary>
 
 **Stats**: latencia 206.36s · 9 tok/s · 197→1924 tokens · $0.00074
 
@@ -1716,7 +1716,7 @@ El flujo de trabajo presenta las siguientes dependencias:
 | content_iteration | 7.14 | 8.00 | 4.4 | 9 | 154.20s | OK |
 | support_escalation | 7.18 | 8.00 | 4.0 | 9 | 120.48s | OK |
 | requirements_change | 4.37 | 4.00 | 3.2 | 9 | 131.65s | OK |
-| debugging_conversation | 8.51 | 10.00 | 4.8 | 9 | 181.34s | OK |
+| debugging_conversation | 8.50 | 10.00 | 4.8 | 9 | 181.34s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.14</summary>
 
@@ -1774,7 +1774,7 @@ Lo más eficiente aquí es **filtrar los correos desde la fuente (Gmail)** en lu
 
 </details>
 
-<details><summary><code>debugging_conversation</code> — score 8.51</summary>
+<details><summary><code>debugging_conversation</code> — score 8.50</summary>
 
 **Stats**: latencia 181.34s · 9 tok/s · 342→1684 tokens · $0.00066
 

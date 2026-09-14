@@ -26,10 +26,10 @@
 | customer_support | 7 | 7 | 7.74 | 8.31 |
 | deep_reasoning | 6 | 6 | 4.97 | 4.71 |
 | hallucination | 3 | 3 | 6.43 | 6.33 |
-| integridad_idioma | 4 | 4 | 5.25 | 5.03 |
+| integridad_idioma | 4 | 4 | 5.29 | 5.03 |
 | multi_turn | 4 | 4 | 6.00 | 6.00 |
 | news_seo_writing | 9 | 9 | 5.73 | 5.88 |
-| ocr_extraction | 5 | 5 | 8.16 | 9.27 |
+| ocr_extraction | 5 | 5 | 8.15 | 9.27 |
 | orchestration | 5 | 5 | 7.06 | 7.58 |
 | policy_adherence | 4 | 4 | 8.04 | 8.67 |
 | presentation | 2 | 2 | 8.29 | 9.52 |
@@ -45,7 +45,7 @@
 | tool_calling | 4 | 4 | 6.79 | 6.75 |
 | tool_calling_adversarial | 10 | 10 | 7.28 | 7.24 |
 | translation | 5 | 5 | 7.47 | 8.13 |
-| verificar_claim | 10 | 10 | 8.44 | 8.80 |
+| verificar_claim | 10 | 10 | 8.43 | 8.80 |
 
 ## Detalle por test
 
@@ -840,13 +840,13 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| invoice_extraction | 7.68 | 8.33 | 1 | 129 | 15.90s | OK |
+| invoice_extraction | 7.67 | 8.33 | 1 | 129 | 15.90s | OK |
 | business_card_extraction | 8.61 | 10.00 | 4.0 | 186 | 37.40s | OK |
 | receipt_math_verification | 8.85 | 10.00 | 5 | 125 | 16.34s | OK |
 | screenshot_table_extraction | 7.15 | 8.00 | 3.0 | 192 | 48.78s | OK |
 | handwritten_notes_extraction | 8.49 | 10.00 | 5 | 195 | 64.31s | OK |
 
-<details><summary><code>invoice_extraction</code> — score 7.68</summary>
+<details><summary><code>invoice_extraction</code> — score 7.67</summary>
 
 **Stats**: latencia 15.90s · 129 tok/s · 508→2048 tokens · $0.00253
 

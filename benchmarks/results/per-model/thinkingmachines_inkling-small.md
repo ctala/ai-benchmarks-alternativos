@@ -46,7 +46,7 @@
 | tool_calling | 4 | 4 | 6.25 | 6.33 |
 | tool_calling_adversarial | 10 | 10 | 6.80 | 6.68 |
 | translation | 3 | 3 | 7.56 | 8.20 |
-| verificar_claim | 10 | 10 | 8.55 | 8.80 |
+| verificar_claim | 10 | 10 | 8.53 | 8.80 |
 
 ## Detalle por test
 
@@ -387,12 +387,12 @@ Ejecuta esta idea y probablemente la mates en 6 meses con $0 en el banco y una a
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| python_api_integration | 8.02 | 9.80 | 5 | 14 | 237.69s | OK |
+| python_api_integration | 8.01 | 9.80 | 5 | 14 | 237.69s | OK |
 | n8n_workflow_json | 7.02 | 8.60 | 4.0 | 7 | 966.63s | OK |
 | sql_query_complex | 7.73 | 9.34 | - | 20 | 300.47s | OK |
 | debug_code | 8.06 | 9.80 | 5 | 12 | 213.90s | OK |
 
-<details><summary><code>python_api_integration</code> — score 8.02</summary>
+<details><summary><code>python_api_integration</code> — score 8.01</summary>
 
 **Stats**: latencia 237.69s · 14 tok/s · 111→3284 tokens · $0.00399
 
@@ -987,13 +987,13 @@ Hola, equipo. Esta semana la IA dejó de ser un lujo para convertirse en infraes
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| news_seo_article_full | 7.29 | 8.40 | 4.0 | 50 | 83.16s | OK |
+| news_seo_article_full | 7.28 | 8.40 | 4.0 | 50 | 83.16s | OK |
 | news_json_output_strict | 8.63 | 10.00 | - | 128 | 47.31s | OK |
 | news_spanish_only | 8.31 | 9.61 | - | 77 | 46.17s | OK |
 | news_no_hallucination_sources | 1.69 | 0.00 | - | 121 | 37.12s | OK |
 | news_perplexity_enrichment | 8.30 | 9.60 | 5 | 53 | 68.66s | OK |
 
-<details><summary><code>news_seo_article_full</code> — score 7.29</summary>
+<details><summary><code>news_seo_article_full</code> — score 7.28</summary>
 
 **Stats**: latencia 83.16s · 50 tok/s · 457→4136 tokens · $0.00517
 
@@ -1442,7 +1442,7 @@ La capital de Francia es **París** (Paris en francés).
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 7.62 | 7.76 | 4.0 | 41 | 2.38s | OK |
 | ambiguous_issue_classification | 7.60 | 8.40 | 4.0 | 48 | 14.84s | OK |
-| multi_issue_conversation | 5.65 | 5.00 | 3.0 | 38 | 4.07s | OK |
+| multi_issue_conversation | 5.64 | 5.00 | 3.0 | 38 | 4.07s | OK |
 | social_engineering_attempt | 9.01 | 10.00 | 5 | 53 | 8.51s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 7.62</summary>
@@ -1483,7 +1483,7 @@ Clasifico esto como **high** porque hay dinero involucrado (suscripción próxim
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 5.65</summary>
+<details><summary><code>multi_issue_conversation</code> — score 5.64</summary>
 
 **Stats**: latencia 4.07s · 38 tok/s · 409→154 tokens · $0.00037
 

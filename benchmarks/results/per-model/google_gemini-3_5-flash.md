@@ -25,8 +25,8 @@
 | creativity | 4 | 4 | 7.50 | 8.62 |
 | customer_support | 7 | 7 | 6.74 | 7.01 |
 | deep_reasoning | 6 | 6 | 3.67 | 3.17 |
-| dominio_entidad | 3 | 3 | 8.97 | 10.00 |
-| extraer_claims | 5 | 5 | 8.20 | 9.42 |
+| dominio_entidad | 3 | 3 | 8.94 | 10.00 |
+| extraer_claims | 5 | 5 | 8.19 | 9.42 |
 | hallucination | 3 | 3 | 6.08 | 6.33 |
 | integridad_idioma | 4 | 4 | 8.23 | 9.68 |
 | multi_turn | 4 | 4 | 7.50 | 8.50 |
@@ -50,7 +50,7 @@
 | tool_calling | 4 | 4 | 6.31 | 6.40 |
 | tool_calling_adversarial | 10 | 10 | 6.18 | 6.12 |
 | translation | 5 | 5 | 7.89 | 8.80 |
-| verificar_claim | 10 | 10 | 8.13 | 8.90 |
+| verificar_claim | 10 | 10 | 8.14 | 8.90 |
 
 ## Detalle por test
 

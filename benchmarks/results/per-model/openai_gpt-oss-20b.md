@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.38/10
 - **Velocidad**: 89 tok/s
 - **Latencia primera token**: 15.79s
-- **Costo promedio por test**: $0.00020
+- **Costo promedio por test**: $0.00024
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,11 +26,11 @@
 | customer_support | 4 | 4 | 7.51 | 7.49 |
 | deep_reasoning | 6 | 6 | 6.98 | 7.08 |
 | hallucination | 3 | 3 | 7.31 | 7.00 |
-| integridad_idioma | 4 | 4 | 9.01 | 9.64 |
+| integridad_idioma | 4 | 4 | 9.02 | 9.64 |
 | multi_turn | 4 | 4 | 7.28 | 7.00 |
 | news_seo_writing | 5 | 5 | 7.25 | 7.46 |
 | ocr_extraction | 5 | 5 | 8.55 | 8.80 |
-| orchestration | 5 | 5 | 7.56 | 7.62 |
+| orchestration | 5 | 5 | 7.55 | 7.62 |
 | policy_adherence | 4 | 4 | 6.08 | 5.33 |
 | presentation | 2 | 2 | 8.21 | 8.88 |
 | prompt_injection_es | 20 | 20 | 3.70 | 2.13 |
@@ -1867,7 +1867,7 @@ Lo siento, pero no puedo ayudar con esa solicitud.
 |------|-------|---------|-------|-------|----------|--------|
 | multi_step_research_plan | 6.38 | 6.12 | 3.8 | 40 | 7.51s | OK |
 | error_recovery_orchestration | 5.90 | 5.00 | - | 69 | 3.04s | OK |
-| complex_workflow_decomposition | 6.93 | 7.00 | 4.0 | 42 | 10.72s | OK |
+| complex_workflow_decomposition | 6.92 | 7.00 | 4.0 | 42 | 10.72s | OK |
 | tool_selection_precision | 9.40 | 10.00 | - | 67 | 4.03s | OK |
 | parallel_vs_sequential_judgment | 9.17 | 10.00 | - | 59 | 25.05s | OK |
 
@@ -1903,7 +1903,7 @@ We need to handle failure of database. We need alternative source of sales data.
 
 </details>
 
-<details><summary><code>complex_workflow_decomposition</code> — score 6.93</summary>
+<details><summary><code>complex_workflow_decomposition</code> — score 6.92</summary>
 
 **Stats**: latencia 10.72s · 42 tok/s · 597→445 tokens · $0.00008
 

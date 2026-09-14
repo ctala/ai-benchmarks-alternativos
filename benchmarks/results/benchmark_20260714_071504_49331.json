@@ -131,8 +131,8 @@
     },
     {
       "quality": 10.0,
-      "cost_score": 5.54,
-      "cost_usd": 0.00663,
+      "cost_score": 5.57,
+      "cost_usd": 0.006455,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -168,8 +168,8 @@
     },
     {
       "quality": 5.0,
-      "cost_score": 6.23,
-      "cost_usd": 0.003902,
+      "cost_score": 6.26,
+      "cost_usd": 0.003806,
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
@@ -205,8 +205,8 @@
     },
     {
       "quality": 2.0,
-      "cost_score": 4.41,
-      "cost_usd": 0.01577,
+      "cost_score": 4.44,
+      "cost_usd": 0.01534,
       "speed": 6.0,
       "latency": 1.0,
       "tool_calling": 7.0,

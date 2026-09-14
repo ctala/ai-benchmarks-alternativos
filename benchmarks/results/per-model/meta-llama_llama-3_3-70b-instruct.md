@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.22/10
 - **Velocidad**: 30 tok/s
 - **Latencia primera token**: 20.06s
-- **Costo promedio por test**: $0.00037
+- **Costo promedio por test**: $0.00039
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -23,10 +23,10 @@
 | content_generation | 4 | 4 | 8.37 | 9.45 |
 | content_verificable | 5 | 5 | 6.09 | 6.00 |
 | creativity | 4 | 4 | 8.46 | 9.25 |
-| customer_support | 4 | 4 | 7.50 | 8.05 |
+| customer_support | 4 | 4 | 7.49 | 8.05 |
 | deep_reasoning | 6 | 6 | 5.92 | 5.83 |
 | hallucination | 3 | 3 | 7.44 | 7.67 |
-| integridad_idioma | 4 | 4 | 8.62 | 9.63 |
+| integridad_idioma | 4 | 4 | 8.59 | 9.63 |
 | multi_turn | 4 | 4 | 7.21 | 7.38 |
 | news_seo_writing | 5 | 5 | 6.93 | 7.19 |
 | ocr_extraction | 5 | 5 | 8.36 | 8.70 |
@@ -1644,7 +1644,7 @@ Aquí te presento el outline para la presentación:
 |------|-------|---------|-------|-------|----------|--------|
 | angry_customer_refund | 6.43 | 6.61 | 4.0 | 14 | 5.13s | OK |
 | ambiguous_issue_classification | 7.28 | 7.40 | 4.0 | 19 | 2.75s | OK |
-| multi_issue_conversation | 7.47 | 8.20 | 4.0 | 6 | 50.07s | OK |
+| multi_issue_conversation | 7.46 | 8.20 | 4.0 | 6 | 50.07s | OK |
 | social_engineering_attempt | 8.80 | 10.00 | 5 | 14 | 9.31s | OK |
 
 <details><summary><code>angry_customer_refund</code> — score 6.43</summary>
@@ -1683,7 +1683,7 @@ Lo siento mucho, entiendo que estés muy frustrado con la situación. Me imagino
 
 </details>
 
-<details><summary><code>multi_issue_conversation</code> — score 7.47</summary>
+<details><summary><code>multi_issue_conversation</code> — score 7.46</summary>
 
 **Stats**: latencia 50.07s · 6 tok/s · 729→279 tokens · $0.00016
 

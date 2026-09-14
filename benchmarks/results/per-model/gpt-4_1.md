@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.31/10
 - **Velocidad**: 68 tok/s
 - **Latencia primera token**: 5.22s
-- **Costo promedio por test**: $0.00906
+- **Costo promedio por test**: $0.00903
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,7 +26,7 @@
 | customer_support | 6 | 6 | 8.18 | 8.71 |
 | deep_reasoning | 6 | 6 | 7.10 | 7.82 |
 | hallucination | 3 | 3 | 6.75 | 7.00 |
-| integridad_idioma | 4 | 4 | 8.49 | 9.68 |
+| integridad_idioma | 4 | 4 | 8.48 | 9.68 |
 | multi_turn | 4 | 4 | 7.25 | 7.67 |
 | news_seo_writing | 7 | 7 | 5.77 | 6.19 |
 | ocr_extraction | 5 | 5 | 8.44 | 9.40 |
@@ -37,7 +37,7 @@
 | reasoning | 3 | 3 | 7.95 | 9.28 |
 | sales_outreach | 3 | 3 | 7.88 | 8.67 |
 | startup_content | 5 | 5 | 7.86 | 9.17 |
-| strategy | 3 | 3 | 6.87 | 7.72 |
+| strategy | 3 | 3 | 6.88 | 7.72 |
 | string_precision | 6 | 6 | 7.91 | 8.17 |
 | structured_output | 4 | 4 | 8.91 | 10.00 |
 | summarization | 2 | 2 | 7.21 | 7.42 |
@@ -356,11 +356,11 @@ Claro, aquí tienes información específica para tu artículo, con el mayor niv
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.09 | 6.67 | 4.6 | 97 | 12.40s | OK |
+| competitor_analysis | 6.10 | 6.67 | 4.6 | 97 | 12.40s | OK |
 | pricing_strategy | 6.79 | 7.50 | 5.0 | 138 | 10.45s | OK |
 | business_model_validation | 7.74 | 9.00 | 5 | 84 | 12.95s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.09</summary>
+<details><summary><code>competitor_analysis</code> — score 6.10</summary>
 
 **Stats**: latencia 12.40s · 97 tok/s · 171→1199 tokens · $0.00993
 

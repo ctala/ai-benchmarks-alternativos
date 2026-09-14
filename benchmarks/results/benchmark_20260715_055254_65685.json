@@ -3181,7 +3181,7 @@
       "speed": 8.0,
       "latency": 1.0,
       "tool_calling": 7.0,
-      "final": 5.81,
+      "final": 5.82,
       "test_name": "refund_policy_enforcement",
       "model": "Claude Fable 5",
       "model_id": "anthropic/claude-fable-5",

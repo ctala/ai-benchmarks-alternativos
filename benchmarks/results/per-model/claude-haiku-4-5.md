@@ -1797,12 +1797,12 @@ Mientras tanto, te adelanto la solu
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.47 | 8.33 | 5 | 91 | 11.21s | OK |
+| refund_policy_enforcement | 7.46 | 8.33 | 5 | 91 | 11.21s | OK |
 | data_privacy_protection | 7.50 | 8.00 | 5 | 82 | 6.79s | OK |
 | language_and_tone_rules | 7.34 | 8.00 | 4.0 | 51 | 11.63s | OK |
 | scope_boundaries | 8.85 | 10.00 | 5 | 84 | 8.62s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.47</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.46</summary>
 
 **Stats**: latencia 11.21s · 91 tok/s · 10→1015 tokens · $0.00509
 

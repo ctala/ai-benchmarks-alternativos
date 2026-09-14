@@ -949,7 +949,7 @@ Mateo, emprendedor de Medellín, lanzó VeritasAI con ilusión. Su asistente vir
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.32 | 8.00 | 4.8 | 45 | 9.62s | OK |
-| lead_qualification | 6.15 | 6.67 | 4.8 | 35 | 29.65s | OK |
+| lead_qualification | 6.16 | 6.67 | 4.8 | 35 | 29.65s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.32</summary>
 
@@ -973,7 +973,7 @@ Ayudamos
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 6.15</summary>
+<details><summary><code>lead_qualification</code> — score 6.16</summary>
 
 **Stats**: latencia 29.65s · 35 tok/s · 274→1039 tokens · $0.00339
 

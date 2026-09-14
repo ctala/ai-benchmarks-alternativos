@@ -26,7 +26,7 @@
 | customer_support | 5 | 5 | 7.67 | 8.06 |
 | deep_reasoning | 6 | 6 | 7.30 | 7.92 |
 | hallucination | 3 | 3 | 6.17 | 5.92 |
-| multi_turn | 4 | 4 | 7.24 | 7.50 |
+| multi_turn | 4 | 4 | 7.23 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.69 | 7.23 |
 | niah_es | 51 | 32 | 8.36 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.83 | 9.75 |
@@ -361,11 +361,11 @@ Según el último reporte de **CB Insights** (*"The Startup Failure Report"*, 20
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 6.26 | 6.67 | 4.6 | 79 | 26.07s | OK |
+| competitor_analysis | 6.27 | 6.67 | 4.6 | 79 | 26.07s | OK |
 | pricing_strategy | 5.11 | 5.00 | 4.6 | 76 | 24.63s | OK |
 | business_model_validation | 8.63 | 10.00 | 4.6 | 75 | 22.68s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 6.26</summary>
+<details><summary><code>competitor_analysis</code> — score 6.27</summary>
 
 **Stats**: latencia 26.07s · 79 tok/s · 177→2048 tokens · $0.00417
 
@@ -1838,12 +1838,12 @@ Puedo obtener los datos de ventas desde un archivo CSV que se genera diariamente
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| content_iteration | 7.82 | 8.00 | 4.4 | 57 | 4.05s | OK |
+| content_iteration | 7.81 | 8.00 | 4.4 | 57 | 4.05s | OK |
 | support_escalation | 7.67 | 8.00 | 4.0 | 42 | 4.54s | OK |
 | requirements_change | 4.56 | 4.00 | 4.6 | 78 | 10.75s | OK |
 | debugging_conversation | 8.90 | 10.00 | 4.6 | 66 | 8.66s | OK |
 
-<details><summary><code>content_iteration</code> — score 7.82</summary>
+<details><summary><code>content_iteration</code> — score 7.81</summary>
 
 **Stats**: latencia 4.05s · 57 tok/s · 233→231 tokens · $0.00056
 
@@ -1930,12 +1930,12 @@ import opena
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 6.87 | 6.67 | 4.0 | 57 | 4.18s | OK |
+| refund_policy_enforcement | 6.88 | 6.67 | 4.0 | 57 | 4.18s | OK |
 | data_privacy_protection | 7.72 | 8.00 | 4.6 | 44 | 3.65s | OK |
 | language_and_tone_rules | 7.82 | 8.00 | 3.0 | 51 | 4.48s | OK |
 | scope_boundaries | 8.98 | 10.00 | 4.2 | 60 | 6.32s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 6.87</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 6.88</summary>
 
 **Stats**: latencia 4.18s · 57 tok/s · 266→237 tokens · $0.00058
 

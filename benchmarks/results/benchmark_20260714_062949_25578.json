@@ -52,8 +52,8 @@
     },
     {
       "quality": 8.12,
-      "cost_score": 5.38,
-      "cost_usd": 0.007477,
+      "cost_score": 5.41,
+      "cost_usd": 0.007283,
       "speed": 2.0,
       "latency": 1.0,
       "tool_calling": 7.0,

@@ -26,17 +26,17 @@ _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **GLM 5.3 Flash** — ≈$1/mes (calidad en Contenido 8.92/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**196.6× más**) por apenas +0.17 de calidad — dentro del margen de error.
+- **Usá:** **Qwen 3.8 Flash** — ≈$2/mes (calidad en Contenido 9.10/10)
+- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**104.0× más**) por apenas -0.00 de calidad — dentro del margen de error.
+- **Mejor open-source:** **GLM 5.3 Flash** — ≈$2/mes (calidad en Contenido 8.92/10)
 - _14 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **Solar Pro 4** — ≈$1/mes (calidad en Coding 9.84/10)
-- **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**50.5× más**) por apenas -0.18 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Poolside Laguna XS 2.1** — ≈$1/mes (calidad en Coding 9.71/10)
+- **Usá:** **Poolside Laguna XS 2.1** — ≈$1/mes (calidad en Coding 9.71/10)
+- **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**48.8× más**) por apenas -0.05 de calidad — dentro del margen de error.
 - _13 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia

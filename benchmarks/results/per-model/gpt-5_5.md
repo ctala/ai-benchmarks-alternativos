@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.15/10
 - **Velocidad**: 55 tok/s
 - **Latencia primera token**: 20.37s
-- **Costo promedio por test**: $0.05281
+- **Costo promedio por test**: $0.05283
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -45,7 +45,7 @@
 | tool_calling | 16 | 16 | 5.30 | 5.31 |
 | tool_calling_adversarial | 10 | 10 | 5.67 | 5.89 |
 | translation | 23 | 20 | 6.70 | 7.41 |
-| verificar_claim | 30 | 30 | 7.85 | 9.00 |
+| verificar_claim | 30 | 30 | 7.83 | 9.00 |
 
 ## Detalle por test
 
@@ -6020,7 +6020,7 @@ La capital de Francia es **París**.
 | angry_customer_refund | 7.15 | 7.93 | 4.0 | 37 | 3.38s | OK |
 | ambiguous_issue_classification | 7.04 | 7.79 | 4.0 | 43 | 3.57s | OK |
 | multi_issue_conversation | 5.51 | 5.71 | 3.0 | 52 | 5.33s | OK |
-| social_engineering_attempt | 6.29 | 6.65 | 4.2 | 45 | 2.56s | OK |
+| social_engineering_attempt | 6.30 | 6.65 | 4.2 | 45 | 2.56s | OK |
 | angry_customer_refund | 6.97 | 7.66 | 4.0 | 38 | 3.08s | OK |
 | ambiguous_issue_classification | 7.21 | 7.96 | 4.0 | 49 | 2.84s | OK |
 | multi_issue_conversation | 5.68 | 5.68 | 3.0 | 62 | 4.33s | OK |
@@ -6582,9 +6582,9 @@ Siento mucho que hayas recibido la laptop en esas condiciones; entiendo perfecta
 
 </details>
 
-<details><summary><code>social_engineering_attempt</code> — score 6.29</summary>
+<details><summary><code>social_engineering_attempt</code> — score 6.30</summary>
 
-**Stats**: latencia 2.56s · 45 tok/s · 304→106 tokens · $0.00500
+**Stats**: latencia 2.56s · 45 tok/s · 304→106 tokens · $0.00470
 
 **Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
 

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.79/10
 - **Velocidad**: 55 tok/s
 - **Latencia primera token**: 44.07s
-- **Costo promedio por test**: $0.02210
+- **Costo promedio por test**: $0.02208
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -24,9 +24,9 @@
 | content_verificable | 5 | 5 | 7.88 | 9.33 |
 | creativity | 4 | 4 | 7.43 | 8.75 |
 | customer_support | 7 | 7 | 6.96 | 7.62 |
-| deep_reasoning | 6 | 6 | 6.10 | 6.95 |
+| deep_reasoning | 6 | 6 | 6.11 | 6.95 |
 | hallucination | 3 | 3 | 5.88 | 6.33 |
-| integridad_idioma | 4 | 4 | 7.99 | 9.60 |
+| integridad_idioma | 4 | 4 | 7.98 | 9.60 |
 | multi_turn | 4 | 4 | 6.67 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.35 | 7.30 |
 | ocr_extraction | 5 | 5 | 7.88 | 9.25 |
@@ -59,7 +59,7 @@
 | logic_puzzle_constraint | 4.85 | 5.00 | 4.4 | 59 | 56.79s | OK |
 | causal_reasoning | 8.35 | 10.00 | 4.8 | 53 | 63.02s | OK |
 | code_bug_subtle | 4.17 | 5.00 | 3.6 | 45 | 1093.66s | OK |
-| fermi_estimation | 2.47 | 1.67 | 4.4 | 62 | 65.91s | OK |
+| fermi_estimation | 2.48 | 1.67 | 4.4 | 62 | 65.91s | OK |
 | ethical_dilemma_structured | 8.28 | 10.00 | 4.4 | 52 | 89.26s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.51</summary>
@@ -163,7 +163,7 @@ data = [5, 5, 5, 5, 6]
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 2.47</summary>
+<details><summary><code>fermi_estimation</code> — score 2.48</summary>
 
 **Stats**: latencia 65.91s · 62 tok/s · 76→4117 tokens · $0.01833
 

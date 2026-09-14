@@ -109,12 +109,12 @@ La capital de Francia es **París**.
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| angry_customer_refund | 5.21 | 4.22 | 3.0 | 36 | 3.11s | OK |
+| angry_customer_refund | 5.20 | 4.22 | 3.0 | 36 | 3.11s | OK |
 | ambiguous_issue_classification | 7.71 | 8.02 | 5 | 49 | 6.54s | OK |
 | multi_issue_conversation | 4.22 | 2.81 | 2.0 | 70 | 5.16s | OK |
 | social_engineering_attempt | 6.88 | 7.36 | 5 | 6 | 47.05s | OK |
 
-<details><summary><code>angry_customer_refund</code> — score 5.21</summary>
+<details><summary><code>angry_customer_refund</code> — score 5.20</summary>
 
 **Stats**: latencia 3.11s · 36 tok/s · 826→112 tokens · $0.00011
 

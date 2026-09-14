@@ -2,12 +2,12 @@
 
 - **model_id**: `mistralai/mistral-small-2603`
 - **Total tests**: 264/276 exitosos (12 errores)
-- **Score final**: 7.69
+- **Score final**: 7.68
 - **Calidad**: 8.10
 - **Judge score (Phi-4)**: 3.74/10
 - **Velocidad**: 75 tok/s
 - **Latencia primera token**: 6.31s
-- **Costo promedio por test**: $0.00397
+- **Costo promedio por test**: $0.00398
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,11 +26,11 @@
 | customer_support | 4 | 4 | 8.63 | 8.90 |
 | deep_reasoning | 6 | 6 | 7.94 | 8.20 |
 | hallucination | 3 | 3 | 7.34 | 7.00 |
-| integridad_idioma | 4 | 4 | 8.47 | 8.94 |
+| integridad_idioma | 4 | 4 | 8.46 | 8.94 |
 | multi_turn | 4 | 4 | 7.55 | 7.38 |
 | news_seo_writing | 5 | 5 | 7.19 | 7.28 |
 | niah_es | 102 | 90 | 8.38 | 9.80 |
-| ocr_extraction | 5 | 5 | 8.81 | 9.03 |
+| ocr_extraction | 5 | 5 | 8.80 | 9.03 |
 | orchestration | 5 | 5 | 8.27 | 8.34 |
 | policy_adherence | 4 | 4 | 7.57 | 7.25 |
 | presentation | 2 | 2 | 7.97 | 8.96 |
@@ -802,7 +802,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | business_card_extraction | 9.70 | 10.00 | 4.2 | 102 | 1.70s | OK |
 | receipt_math_verification | 9.49 | 10.00 | 4.2 | 142 | 2.77s | OK |
 | screenshot_table_extraction | 7.98 | 8.00 | 2.6 | 153 | 4.85s | OK |
-| handwritten_notes_extraction | 7.39 | 7.14 | 4.4 | 145 | 4.90s | OK |
+| handwritten_notes_extraction | 7.38 | 7.14 | 4.4 | 145 | 4.90s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 9.47</summary>
 
@@ -907,7 +907,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>handwritten_notes_extraction</code> — score 7.39</summary>
+<details><summary><code>handwritten_notes_extraction</code> — score 7.38</summary>
 
 **Stats**: latencia 4.90s · 145 tok/s · 480→711 tokens · $0.00050
 
@@ -1816,13 +1816,13 @@ Para proteger la seguridad y privacidad de nuestros clientes, **debe seguir el p
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| multi_step_research_plan | 7.70 | 7.52 | 3.8 | 139 | 2.99s | OK |
+| multi_step_research_plan | 7.69 | 7.52 | 3.8 | 139 | 2.99s | OK |
 | error_recovery_orchestration | 9.35 | 10.00 | - | 80 | 2.82s | OK |
 | complex_workflow_decomposition | 6.46 | 5.59 | 3.0 | 65 | 1.59s | OK |
 | tool_selection_precision | 9.41 | 10.00 | - | 122 | 4.01s | OK |
 | parallel_vs_sequential_judgment | 8.42 | 8.57 | - | 133 | 3.29s | OK |
 
-<details><summary><code>multi_step_research_plan</code> — score 7.70</summary>
+<details><summary><code>multi_step_research_plan</code> — score 7.69</summary>
 
 **Stats**: latencia 2.99s · 139 tok/s · 993→415 tokens · $0.00040
 

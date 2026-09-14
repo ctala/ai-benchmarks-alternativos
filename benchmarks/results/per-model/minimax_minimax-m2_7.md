@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 45 tok/s
 - **Latencia primera token**: 19.02s
-- **Costo promedio por test**: $0.00334
+- **Costo promedio por test**: $0.00336
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -567,7 +567,7 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | json_simple_extraction | 9.25 | 10.00 | 5 | 43 | 3.08s | OK |
-| json_array_classification | 9.40 | 10.00 | 5 | 149 | 2.37s | OK |
+| json_array_classification | 9.39 | 10.00 | 5 | 149 | 2.37s | OK |
 | json_nested_complex | 8.77 | 10.00 | 4.0 | 80 | 16.82s | OK |
 | json_strict_no_extra | 9.10 | 10.00 | 5 | 25 | 2.28s | OK |
 
@@ -589,7 +589,7 @@ Si no hay órdenes con `status == 'pending'`, `processed` estará vacío, causan
 
 </details>
 
-<details><summary><code>json_array_classification</code> — score 9.40</summary>
+<details><summary><code>json_array_classification</code> — score 9.39</summary>
 
 **Stats**: latencia 2.37s · 149 tok/s · 172→354 tokens · $0.00048
 
@@ -1366,7 +1366,7 @@ We need to
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.46 | 8.00 | 5 | 30 | 8.12s | OK |
-| lead_qualification | 6.40 | 6.67 | 5 | 44 | 16.52s | OK |
+| lead_qualification | 6.41 | 6.67 | 5 | 44 | 16.52s | OK |
 | campaign_optimization | 7.14 | 8.00 | 5 | 47 | 43.25s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.46</summary>
@@ -1393,7 +1393,7 @@ En FintechCo con 50 personas, el equipo de marketing probablemente dedica demasi
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 6.40</summary>
+<details><summary><code>lead_qualification</code> — score 6.41</summary>
 
 **Stats**: latencia 16.52s · 44 tok/s · 247→725 tokens · $0.00094
 

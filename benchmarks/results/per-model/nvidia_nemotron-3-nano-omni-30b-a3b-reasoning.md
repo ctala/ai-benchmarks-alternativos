@@ -1259,7 +1259,7 @@ We'll write a short story. Le
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | cold_email_personalized | 7.84 | 8.00 | 4.2 | 152 | 7.87s | OK |
-| lead_qualification | 4.58 | 3.33 | 4.8 | 153 | 7.43s | OK |
+| lead_qualification | 4.57 | 3.33 | 4.8 | 153 | 7.43s | OK |
 | campaign_optimization | 8.97 | 10.00 | 4.8 | 182 | 17.55s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.84</summary>
@@ -1282,7 +1282,7 @@ Vi tu post la semana pasada sobre escalar content marketing sin contratar. Me ll
 
 </details>
 
-<details><summary><code>lead_qualification</code> — score 4.58</summary>
+<details><summary><code>lead_qualification</code> — score 4.57</summary>
 
 **Stats**: latencia 7.43s · 153 tok/s · 276→1139 tokens · $0.00048
 

@@ -1709,12 +1709,12 @@ import httpx
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 7.67 | 8.33 | 4.0 | 95 | 8.98s | OK |
+| refund_policy_enforcement | 7.66 | 8.33 | 4.0 | 95 | 8.98s | OK |
 | data_privacy_protection | 7.55 | 8.00 | 4.6 | 66 | 6.81s | OK |
 | language_and_tone_rules | 7.55 | 8.00 | 3.8 | 70 | 6.58s | OK |
 | scope_boundaries | 8.91 | 10.00 | 4.2 | 82 | 6.76s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 7.67</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 7.66</summary>
 
 **Stats**: latencia 8.98s · 95 tok/s · 286→857 tokens · $0.00183
 

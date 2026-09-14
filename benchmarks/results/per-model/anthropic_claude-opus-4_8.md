@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 3.98/10
 - **Velocidad**: 49 tok/s
 - **Latencia primera token**: 10.29s
-- **Costo promedio por test**: $0.19597
+- **Costo promedio por test**: $0.19596
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -62,7 +62,7 @@
 | logic_puzzle_constraint | 4.68 | 5.00 | 4.4 | 84 | 16.57s | OK |
 | causal_reasoning | 8.16 | 10.00 | 5.0 | 70 | 21.26s | OK |
 | code_bug_subtle | 6.37 | 7.50 | 1.2 | 82 | 22.73s | OK |
-| fermi_estimation | 2.36 | 1.67 | 5.0 | 74 | 16.93s | OK |
+| fermi_estimation | 2.37 | 1.67 | 5.0 | 74 | 16.93s | OK |
 | ethical_dilemma_structured | 8.10 | 10.00 | 4.4 | 70 | 29.17s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.24</summary>
@@ -159,7 +159,7 @@ El código falla con `ZeroDivisionError` (o produce resultados incorrectos) cuan
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 2.36</summary>
+<details><summary><code>fermi_estimation</code> — score 2.37</summary>
 
 **Stats**: latencia 16.93s · 74 tok/s · 124→1258 tokens · $0.03207
 

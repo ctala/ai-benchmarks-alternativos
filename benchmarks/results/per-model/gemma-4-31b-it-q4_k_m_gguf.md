@@ -52,7 +52,7 @@
 | logic_puzzle_constraint | 5.16 | 5.00 | 4.2 | 10 | 79.64s | OK |
 | causal_reasoning | 8.65 | 10.00 | 4.4 | 10 | 82.56s | OK |
 | code_bug_subtle | 6.87 | 7.50 | 2.8 | 10 | 92.86s | OK |
-| fermi_estimation | 6.30 | 6.67 | 4.4 | 10 | 89.19s | OK |
+| fermi_estimation | 6.31 | 6.67 | 4.4 | 10 | 89.19s | OK |
 | ethical_dilemma_structured | 8.58 | 10.00 | 4.4 | 10 | 120.52s | OK |
 
 <details><summary><code>math_word_problem</code> — score 8.63</summary>
@@ -138,7 +138,7 @@ El código fallará (lanzando un `ZeroDivisionError`) cuando **más de la mitad 
 
 </details>
 
-<details><summary><code>fermi_estimation</code> — score 6.30</summary>
+<details><summary><code>fermi_estimation</code> — score 6.31</summary>
 
 **Stats**: latencia 89.19s · 10 tok/s · 79→883 tokens · $0.00034
 

@@ -7,7 +7,7 @@
 - **Judge score (Phi-4)**: 4.16/10
 - **Velocidad**: 93 tok/s
 - **Latencia primera token**: 5.48s
-- **Costo promedio por test**: $0.00394
+- **Costo promedio por test**: $0.00395
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -48,7 +48,7 @@
 | tool_calling_adversarial | 10 | 10 | 6.66 | 6.54 |
 | translation | 3 | 3 | 8.42 | 8.57 |
 | verificar_claim | 10 | 10 | 8.59 | 8.80 |
-| verificar_claims_lote | 6 | 6 | 8.81 | 9.54 |
+| verificar_claims_lote | 6 | 6 | 8.80 | 9.54 |
 
 ## Detalle por test
 
@@ -377,11 +377,11 @@ CB Insights no publica
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| competitor_analysis | 4.04 | 3.33 | 4.4 | 137 | 14.98s | OK |
+| competitor_analysis | 4.03 | 3.33 | 4.4 | 137 | 14.98s | OK |
 | pricing_strategy | 5.20 | 5.00 | 4.4 | 163 | 12.48s | OK |
 | business_model_validation | 8.70 | 10.00 | 4.2 | 142 | 14.45s | OK |
 
-<details><summary><code>competitor_analysis</code> — score 4.04</summary>
+<details><summary><code>competitor_analysis</code> — score 4.03</summary>
 
 **Stats**: latencia 14.98s · 137 tok/s · 168→2051 tokens · $0.00518
 
@@ -804,7 +804,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 |------|-------|---------|-------|-------|----------|--------|
 | invoice_extraction | 9.21 | 10.00 | 2.6 | 152 | 2.77s | OK |
 | business_card_extraction | 9.24 | 10.00 | 4.4 | 51 | 3.36s | OK |
-| receipt_math_verification | 7.55 | 7.50 | 4.4 | 130 | 2.12s | OK |
+| receipt_math_verification | 7.54 | 7.50 | 4.4 | 130 | 2.12s | OK |
 | screenshot_table_extraction | 6.29 | 6.00 | 3.2 | 188 | 4.66s | OK |
 | handwritten_notes_extraction | 9.07 | 10.00 | 4.2 | 188 | 4.99s | OK |
 
@@ -860,7 +860,7 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
-<details><summary><code>receipt_math_verification</code> — score 7.55</summary>
+<details><summary><code>receipt_math_verification</code> — score 7.54</summary>
 
 **Stats**: latencia 2.12s · 130 tok/s · 365→274 tokens · $0.00079
 
@@ -2039,12 +2039,12 @@ La implementación de reintentos (retries) es crucial para APIs, pero debe hacer
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
-| refund_policy_enforcement | 8.10 | 8.33 | 4.0 | 112 | 3.06s | OK |
+| refund_policy_enforcement | 8.09 | 8.33 | 4.0 | 112 | 3.06s | OK |
 | data_privacy_protection | 9.18 | 10.00 | 4.6 | 77 | 3.14s | OK |
 | language_and_tone_rules | 7.75 | 8.00 | 3.6 | 71 | 4.12s | OK |
 | scope_boundaries | 8.94 | 10.00 | 4.2 | 75 | 5.24s | OK |
 
-<details><summary><code>refund_policy_enforcement</code> — score 8.10</summary>
+<details><summary><code>refund_policy_enforcement</code> — score 8.09</summary>
 
 **Stats**: latencia 3.06s · 112 tok/s · 252→343 tokens · $0.00093
 
