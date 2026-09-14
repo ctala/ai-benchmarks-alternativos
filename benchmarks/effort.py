@@ -46,6 +46,13 @@ que el effort REPARTE el presupuesto de salida (~50% `medium`, ~80% `high`): con
 techos de `suites.PRESUPUESTO_SALIDA`, `high` dejaría sin espacio a la respuesta en el
 1,11% de los runs y en el 7,6% de `agent_long_horizon`.
 
+LO QUE ACEPTA CADA MODELO (14-sep-2026)
+---------------------------------------
+La foto guarda además los `supported_parameters` de cada modelo, y `declara()` los
+consulta. Nació con los dos modelos de Sakana: su endpoint no declara `max_tokens`, y con
+`require_parameters` OpenRouter devolvía 404 en todo test con herramientas. Sakana
+Namazu perdió así 81 runs y quedó fuera del ranking; Fugu Max lo repitió en el canario.
+
 POR QUÉ ACÁ Y NO EN EL ADAPTER
 ------------------------------
 El adapter importa el SDK de OpenAI; esto no importa nada. Así la regla la verifica
@@ -115,6 +122,17 @@ def resolver(model_id: str, pedido: str | None = None,
     return None, f"pedido:{pedido}→default:{default}"
 
 
+def declara(model_id: str, parametro: str, foto: dict | None = None) -> bool | None:
+    """¿El modelo declara aceptar `parametro` en OpenRouter? None si la foto no lo sabe.
+
+    Con None el adapter no omite nada: sin dato, se mantiene el request de siempre.
+    """
+    params = (foto if foto is not None else cargar_foto()).get("parametros")
+    if not params or model_id not in params:
+        return None
+    return parametro in params[model_id]
+
+
 def _ids_openrouter() -> set[str]:
     sys.path.insert(0, str(AQUI.parent))
     from benchmarks.models import MODELS
@@ -125,19 +143,20 @@ def _ids_openrouter() -> set[str]:
 def foto_desde_api(ids: set[str]) -> dict:
     with urllib.request.urlopen(OR_API, timeout=30) as r:
         por_id = {m["id"]: m for m in json.load(r)["data"]}
-    modelos, ausentes = {}, []
+    modelos, parametros, ausentes = {}, {}, []
     for mid in sorted(ids):
         if mid not in por_id:
             ausentes.append(mid)
             continue
         rz = por_id[mid].get("reasoning")
         modelos[mid] = {k: rz[k] for k in CAMPOS if k in rz} if rz else None
+        parametros[mid] = sorted(por_id[mid].get("supported_parameters") or [])
     return {"tomada": date.today().isoformat(), "fuente": OR_API,
-            "modelos": modelos, "ausentes": ausentes}
+            "modelos": modelos, "parametros": parametros, "ausentes": ausentes}
 
 
 def diferencias(foto: dict, viva: dict) -> list[str]:
-    """Cambios que alteran el examen: niveles, default, o si razona por defecto."""
+    """Cambios que alteran el examen: niveles, default, si razona, o si declara max_tokens."""
     out = []
     for mid, rz in foto.get("modelos", {}).items():
         if mid not in viva["modelos"]:
@@ -147,6 +166,11 @@ def diferencias(foto: dict, viva: dict) -> list[str]:
         for k in ("supported_efforts", "default_effort", "default_enabled"):
             if a.get(k) != b.get(k):
                 out.append(f"{mid}: {k} {a.get(k)!r} → {b.get(k)!r}")
+    pa, pb = foto.get("parametros") or {}, viva.get("parametros") or {}
+    for mid, antes in pa.items():
+        if mid in pb and ("max_tokens" in antes) != ("max_tokens" in pb[mid]):
+            out.append(f"{mid}: declara max_tokens {'max_tokens' in antes} → "
+                       f"{'max_tokens' in pb[mid]}")
     return out
 
 
@@ -173,13 +197,14 @@ def main() -> int:
                        encoding="utf-8")
         tmp.replace(FOTO)
         con = sum(1 for v in viva["modelos"].values() if v and v.get("supported_efforts"))
+        sin_mt = sorted(m for m, p in viva["parametros"].items() if "max_tokens" not in p)
         print(f"foto escrita: {len(viva['modelos'])} modelos ({con} con niveles declarados), "
-              f"{len(viva['ausentes'])} ausentes de OpenRouter")
+              f"{len(viva['ausentes'])} ausentes de OpenRouter · sin max_tokens: {sin_mt}")
         return 0
 
     if not a.modelo:
         ap.error("pasar un model_id, --actualizar o --vivo")
-    print(resolver(a.modelo, a.nivel))
+    print(resolver(a.modelo, a.nivel), "· declara max_tokens:", declara(a.modelo, "max_tokens"))
     return 0
 
 

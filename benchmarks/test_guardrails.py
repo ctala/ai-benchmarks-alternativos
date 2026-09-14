@@ -535,6 +535,19 @@ def _t_juez_canonico():
     return r.returncode != 0 and "juez canónico" in salida
 
 
+@prueba("check_effort · E7", "una foto sin los parámetros que declara cada modelo")
+def _t_effort_parametros():
+    import json as _json
+    foto = ROOT / "benchmarks" / "reasoning_openrouter.json"
+    with Sabotaje(foto):
+        datos = _json.loads(foto.read_text(encoding="utf-8"))
+        # La forma de la foto antes del 14-sep: sin esto el adapter vuelve a mandarle
+        # max_tokens a Sakana y sus tests con herramientas dan 404.
+        datos.pop("parametros", None)
+        foto.write_text(_json.dumps(datos), encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

@@ -17,6 +17,19 @@
   proveedor lo cambia. Instrumento: `check_effort.py` (bloqueante, con dos sabotajes en
   `test_guardrails.py`).
 
+- **El canario borra la evidencia de un fallo cuando el modelo vuelve a pasar.** Fugu Max
+  dio 18/18 después del arreglo de `max_tokens`, pero `_canario_fallo_fugu-max.json` seguía
+  en disco con los 404 de la corrida anterior, y se leyó como si fueran de la nueva.
+
+- **Los modelos de Sakana perdían todos los tests con herramientas por un 404 nuestro.** Su
+  endpoint en OpenRouter no declara `max_tokens`, y con `require_parameters` —que el adapter
+  activa cuando hay herramientas— OpenRouter no encontraba endpoint. **Sakana Namazu quedó
+  fuera del ranking por eso** (81 runs perdidos en las 5 suites con herramientas) y Fugu Max
+  lo repitió en el canario del lote de septiembre. Sin herramientas ese parámetro se ignora,
+  así que ahora, con herramientas, el adapter lo omite SÓLO si el modelo no lo declara: lo
+  decide la foto de OpenRouter (`effort.declara`), no una lista de nombres, y el run guarda
+  `techo_omitido`. `check_effort` suma E7: la foto tiene los parámetros de cada modelo.
+
 - **El runner rechaza un juez que no sea el canónico (`phi4-or`).** La auditoría previa al
   lote de septiembre encontró que los dos lanzadores iban con `--judge-model phi4` —el Phi-4
   cuantizado del Ollama local, que el `CLAUDE.md` mostraba como default— cuando los 21

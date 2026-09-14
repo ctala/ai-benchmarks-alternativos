@@ -1151,7 +1151,7 @@ def test_todo_rankeado_publica_su_presupuesto_de_salida(datos):
 #
 # Lo destapó espiar el request real, no leer el código. De ahí que el test espíe.
 
-def _espiar_request(model, provider="openrouter", effort=None):
+def _espiar_request(model, provider="openrouter", effort=None, tools=None):
     """Arma la llamada y devuelve (extra_body, kwargs) sin tocar la red."""
     import sys, os
     _prev = os.environ.get("BENCH_REASONING_EFFORT")
@@ -1169,11 +1169,13 @@ def _espiar_request(model, provider="openrouter", effort=None):
     def espia(**kw):
         capturado["extra_body"] = kw.get("extra_body") or {}
         capturado["kwargs_top"] = {k: v for k, v in kw.items() if k == "reasoning"}
+        capturado["kwargs"] = {k: v for k, v in kw.items() if k != "extra_body"}
         raise _Corta()          # no queremos la red, ya tenemos lo que importa
 
     p.client.chat.completions.create = espia
     try:
-        p.chat(model=model, messages=[{"role": "user", "content": "hola"}], max_tokens=100)
+        p.chat(model=model, messages=[{"role": "user", "content": "hola"}], max_tokens=100,
+               tools=tools)
     except Exception:
         pass
     finally:
@@ -1331,6 +1333,46 @@ def test_presupuesto_manda_el_menor_entre_key_y_cuenta():
     assert disponible({"limit": None}, cuenta)[1] == "cuenta"
     assert disponible(key, {}) == (719.95, "key")
     assert disponible({"limit": None}, {}) == (None, None)
+
+
+def test_con_herramientas_se_omite_max_tokens_si_el_modelo_no_lo_declara():
+    """14-sep-2026: el endpoint de Sakana no declara `max_tokens`. Con herramientas el
+    adapter activa `require_parameters`, y mandarle un parámetro que no declara dejaba a
+    OpenRouter sin endpoint: 404 en todo test con herramientas. Namazu perdió 81 runs y el
+    ranking; Fugu Max lo repitió en el canario. Sin herramientas el parámetro se ignora."""
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from providers import adapters
+    from benchmarks.effort import declara
+    foto = {"modelos": {"sakana/fugu-max": None, "z-ai/glm-5.3": None},
+            "parametros": {"sakana/fugu-max": ["reasoning", "tool_choice", "tools"],
+                           "z-ai/glm-5.3": ["max_tokens", "tool_choice", "tools"]},
+            "ausentes": []}
+    assert declara("sakana/fugu-max", "max_tokens", foto=foto) is False
+    assert declara("z-ai/glm-5.3", "max_tokens", foto=foto) is True
+    assert declara("modelo/sin-foto", "max_tokens", foto=foto) is None
+
+    herramienta = [{"type": "function", "function": {
+        "name": "agendar", "description": "agenda una reunión",
+        "parameters": {"type": "object", "properties": {}}}}]
+    previa = adapters._effort_mod._foto_cache
+    adapters._effort_mod._foto_cache = foto
+    try:
+        sin = _espiar_request("sakana/fugu-max", tools=herramienta)
+        con = _espiar_request("z-ai/glm-5.3", tools=herramienta)
+        sin_tools = _espiar_request("sakana/fugu-max")
+        desconocido = _espiar_request("modelo/sin-foto", tools=herramienta)
+    finally:
+        adapters._effort_mod._foto_cache = previa
+
+    assert sin["extra_body"].get("provider", {}).get("require_parameters") is True
+    assert "max_tokens" not in sin["kwargs"], (
+        f"se mandó max_tokens a un modelo que no lo declara: {sorted(sin['kwargs'])}")
+    assert "max_tokens" in con["kwargs"], "se le quitó max_tokens a un modelo que sí lo declara"
+    assert "max_tokens" in sin_tools["kwargs"], (
+        "sin herramientas no hay require_parameters: el request no debía cambiar")
+    assert "max_tokens" in desconocido["kwargs"], (
+        "sin dato en la foto el request tiene que quedar como siempre")
 
 
 def test_las_fichas_ordenan_por_la_nota_que_muestran():

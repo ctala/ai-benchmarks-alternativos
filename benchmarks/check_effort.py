@@ -27,9 +27,12 @@ E5. Ningún archivo que lee el export trae runs con effort PEDIDO. Un experiment
     quedaron 92 más esperando la próxima regeneración. El export además los descarta.
 E6. Ningún `benchmark_*.json` con nombre de experimento (exp, piloto…). Los runs viejos
     no tienen etiqueta de effort y E5 no los ve: el nombre es la única huella que dejan.
+E7. La foto tiene los parámetros que declara cada modelo. Sin ellos `effort.declara()`
+    devuelve None, el adapter vuelve a mandar `max_tokens` a quien no lo acepta, y los
+    tests con herramientas dan 404: así perdió Sakana Namazu 81 runs y el ranking.
 
-Es contaminación por PRESENCIA: tiene número, tiene forma válida y pasa `validate.py`.
-Los detectores de ausencia del repo no la iban a ver.
+E5 y E6 cazan contaminación por PRESENCIA: tiene número, tiene forma válida y pasa
+`validate.py`. Los detectores de ausencia del repo no la iban a ver.
 
 Uso:  python benchmarks/check_effort.py
 """
@@ -131,6 +134,16 @@ def e5_e6_indice_limpio() -> list[str]:
     return out
 
 
+def e7_parametros(foto: dict) -> list[str]:
+    params = foto.get("parametros")
+    if params is None:
+        return ["E7 la foto no tiene `parametros`: el adapter no sabe qué modelo no declara "
+                "max_tokens y los tests con herramientas vuelven a dar 404 — correr "
+                "`effort.py --actualizar`"]
+    return [f"E7 {mid}: la foto no tiene sus parámetros declarados"
+            for mid in sorted(foto.get("modelos", {})) if mid not in params]
+
+
 def main() -> int:
     foto = effort.cargar_foto()
     if not foto.get("modelos"):
@@ -141,7 +154,7 @@ def main() -> int:
     from benchmarks.models import MODELS
     tests = _tests_declarados()
     fallos = (e1_cobertura(foto, MODELS) + e2_niveles(tests) + e3_resolver(foto)
-              + e5_e6_indice_limpio())
+              + e5_e6_indice_limpio() + e7_parametros(foto))
 
     tomada = foto.get("tomada")
     if tomada and (date.today() - date.fromisoformat(tomada)).days > DIAS_AVISO:
@@ -155,7 +168,7 @@ def main() -> int:
 
     con = sum(1 for v in foto["modelos"].values() if v and v.get("supported_efforts"))
     print(f"✅ effort: foto del {tomada} · {len(foto['modelos'])} modelos ({con} con niveles "
-          f"declarados) · {len(tests)} tests leídos · E1-E3 en verde")
+          f"declarados) · {len(tests)} tests leídos · E1-E3, E5-E7 en verde")
     return 0
 
 

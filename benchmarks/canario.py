@@ -103,10 +103,17 @@ def correr(model_key: str, extra: list[str]) -> list[dict]:
         # deja basura.
         try:
             fallos = [r for r in (runs or []) if not r.get("success")]
+            hubo_runs = bool(runs)
         except Exception:
-            fallos = []
+            fallos, hubo_runs = [], False
+        destino = ROOT / "benchmarks/results" / f"_canario_fallo_{model_key}.json"
+        if not fallos and hubo_runs:
+            # 14-sep-2026 · SI AHORA PASÓ, LA EVIDENCIA VIEJA SE VA. Fugu Max falló por un
+            # 404, se arregló, y el canario siguiente dio 18/18 — pero el archivo del fallo
+            # anterior seguía ahí con sus 404, y se leyó como si fuera de la corrida nueva.
+            # Una evidencia que sobrevive a su arreglo engaña tanto como no tenerla.
+            destino.unlink(missing_ok=True)
         if fallos:
-            destino = ROOT / "benchmarks/results" / f"_canario_fallo_{model_key}.json"
             destino.write_text(json.dumps(
                 {"metadata": {"timestamp": "canario", "modelo": model_key,
                               "por_que": "runs fallidos del canario, conservados para "

@@ -419,6 +419,16 @@ class UnifiedProvider:
                 # razonable y esos tests miden uso de herramientas, no creatividad.
                 extra_body["provider"] = {"require_parameters": True}
                 kwargs.pop("temperature", None)
+                # Y el techo de salida, SÓLO si el modelo no lo declara (14-sep-2026). El
+                # endpoint de Sakana (Namazu, Fugu Max) no declara `max_tokens`: con
+                # require_parameters OpenRouter devolvía 404 en todo test con herramientas
+                # —Namazu perdió 81 runs y quedó fuera del ranking—, mientras que sin
+                # herramientas el parámetro se ignora. Omitirlo iguala los dos casos. Decide
+                # la foto de OpenRouter (`effort.declara`), no una lista de nombres; sin
+                # dato (None) el request queda como siempre.
+                if getattr(_effort_mod, "declara", lambda *a, **k: None)(model, token_param) is False:
+                    kwargs.pop(token_param, None)
+                    result.metadata["techo_omitido"] = token_param
 
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"

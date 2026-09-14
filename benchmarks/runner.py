@@ -766,8 +766,9 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # `reasoning_effort` entra el 14-sep-2026, por la misma razón: el effort es parte de la
     # ENTRADA del run y no quedaba en ninguna parte — sólo se podía adivinar por la fecha
     # del lote. Guarda la etiqueta de `effort.resolver` («default:max», «sin_niveles»…).
+    # `techo_omitido` (14-sep): el request salió SIN max_tokens porque el modelo no lo declara.
     for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
-               "reasoning_tokens", "reasoning_effort"):
+               "reasoning_tokens", "reasoning_effort", "techo_omitido"):
         if _md.get(_k) is not None:
             scores[_k] = _md[_k]
 
