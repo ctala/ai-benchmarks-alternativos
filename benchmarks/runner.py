@@ -1747,7 +1747,9 @@ def main():
     parser.add_argument("--judge", action="store_true",
                        help="Usar LLM-as-Judge (Gemma 4 local si Ollama disponible, sino Claude Haiku)")
     parser.add_argument("--judge-model", type=str, default=None,
-                       help="Preset (gemma4, glm4, qwen3.5, haiku, gemini-flash) o model ID directo")
+                       help="Juez canónico: phi4-or (Phi-4 vía OpenRouter). Otro preset (phi4, gemma4, haiku…) sólo con --juez-no-canonico")
+    parser.add_argument("--juez-no-canonico", action="store_true", dest="juez_no_canonico",
+                       help="permitir un juez distinto del canónico — SOLO experimentos: un lote así no es comparable con el ranking")
     parser.add_argument("--list-judges", action="store_true", help="Listar jueces disponibles")
     parser.add_argument("--list-models", action="store_true", help="Listar modelos disponibles")
     parser.add_argument("--list-tests", action="store_true", help="Listar tests disponibles")
@@ -1759,6 +1761,20 @@ def main():
                        help="Con --resume: re-correr los tests que fallaron (timeouts, errores 4xx/5xx). Compatible con --rerun-empty.")
 
     args = parser.parse_args()
+
+    # JUEZ CANÓNICO (14-sep-2026) — lo primero, antes de listar, construir el juez o medir.
+    # El juez pone el 70% de la nota en las suites juzgadas: otro juez, o el mismo Phi-4
+    # servido de otra forma, produce números normales e incomparables. Pasó el 14-sep: los
+    # dos lanzadores del lote iban con `phi4` local porque el CLAUDE.md lo mostraba como
+    # default. Ver `suites.JUEZ_CANONICO` y DECISIONES.md.
+    from benchmarks.suites import JUEZ_CANONICO
+    if args.judge and (args.judge_model or "") != JUEZ_CANONICO and not args.juez_no_canonico:
+        sys.exit(
+            f"\n  ERROR: --judge-model «{args.judge_model}» no es el juez canónico ({JUEZ_CANONICO}).\n"
+            f"  Los rankeados con procedencia registrada los puntuó Phi-4 vía OpenRouter: con\n"
+            f"  otro juez el lote no es comparable con el ranking. Para un experimento a\n"
+            f"  propósito: --juez-no-canonico.\n"
+        )
 
     if args.list_models:
         try:

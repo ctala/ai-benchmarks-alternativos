@@ -100,6 +100,15 @@ PRESUPUESTO_SALIDA = {
 }
 PRESUPUESTO_DEFECTO = 32768        # 26 suites no llegan ni a 16k; esto es aire de sobra
 
+# EL JUEZ CANÓNICO (14-sep-2026). El juez pone el 70% de la nota en las suites juzgadas,
+# así que dos lotes con jueces distintos no rindieron el mismo examen. Los rankeados con
+# procedencia registrada (desde el 14-ago) los puntuó Phi-4 vía OpenRouter; el Phi-4
+# cuantizado del Ollama local puntuó 9 runs en toda la historia. El 14-sep los dos
+# lanzadores del lote salieron con `phi4` (local) porque el CLAUDE.md lo mostraba como
+# default, y lo cazó una auditoría antes de gastar. `runner.py` rechaza otro juez salvo
+# `--juez-no-canonico`.
+JUEZ_CANONICO = "phi4-or"
+
 # 2-sep-2026 — POR QUÉ SE SUBIÓ (de 24.576/32.768/65.536).
 # Cristian: *"igual podemos crecer el max tokens de todo, ya que no quiere decir que lo
 # vayan a ocupar todo"*. Es correcto y ya estaba escrito en `adapters.py`: **se factura

@@ -17,6 +17,24 @@
   proveedor lo cambia. Instrumento: `check_effort.py` (bloqueante, con dos sabotajes en
   `test_guardrails.py`).
 
+- **El runner rechaza un juez que no sea el canónico (`phi4-or`).** La auditoría previa al
+  lote de septiembre encontró que los dos lanzadores iban con `--judge-model phi4` —el Phi-4
+  cuantizado del Ollama local, que el `CLAUDE.md` mostraba como default— cuando los 21
+  rankeados con procedencia registrada los puntuó Phi-4 vía OpenRouter. El juez pone el 70%
+  de la nota en las suites juzgadas: el lote habría salido incomparable y con números
+  normales. Ahora el runner sale antes de medir, salvo `--juez-no-canonico`, y lo prueba
+  `test_guardrails`. La misma auditoría confirmó el resto del examen: prompts sin cambios,
+  las 35 suites, 1 run por test, tareas Harbor sin cambios y proveedores que aceptan el
+  presupuesto de salida.
+
+- **Cinco temporales de canarios muertos estaban commiteados en `results/`.** Eran
+  `tmp*.json` de canarios cortados entre el 17-ago y el 2-sep (Hy4, MiniMax M2.7 directo,
+  Grok 4.6, Nemotron 3.5 Lightning NIM y uno vacío) que entraron con `git add` amplios. El
+  export no los lee, pero sí `completar_examen`, `check_truncamiento`, `calculate_costs` y
+  otros dos scripts que listan `results/*.json`. Se borran y `.gitignore` ignora
+  `results/tmp*.json`. Además, la foto de effort se escribe de forma atómica: cada runner
+  de un lote en curso la relee al arrancar.
+
 - **Precios al día con OpenRouter: 25 rankeados tenían el costo desactualizado.**
   `sync_prices` encontró 29 precios distintos, 22 de ellos rankeados con más de 15% de
   diferencia y en las dos direcciones: GPT-5.6 Luna, GPT-5.6 Terra y Gemini 3.7 Flash

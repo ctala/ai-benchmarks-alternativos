@@ -138,6 +138,16 @@
     "low"
    ]
   },
+  "deepseek/deepseek-v4.1-flash": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "high",
+    "low"
+   ]
+  },
   "google/gemini-2.5-flash": {
    "mandatory": false
   },
@@ -210,6 +220,16 @@
     "low"
    ]
   },
+  "google/gemini-3.8-flash": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "google/gemma-4-26b-a4b-it": {
    "default_enabled": false,
    "mandatory": false
@@ -217,6 +237,27 @@
   "google/gemma-4-31b-it": {
    "default_enabled": false,
    "mandatory": false
+  },
+  "ibm-granite/granite-4.2-8b": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "low",
+    "none"
+   ]
+  },
+  "inception/mercury-2.5": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
   },
   "inclusionai/ling-3.0-flash": {
    "default_enabled": true,
@@ -246,6 +287,18 @@
    "default_effort": "medium",
    "mandatory": true,
    "supported_efforts": [
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "minimal"
+   ]
+  },
+  "meta/muse-spark-1.3": {
+   "default_effort": "medium",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
     "xhigh",
     "high",
     "medium",
@@ -490,6 +543,28 @@
    "default_enabled": true,
    "mandatory": false,
    "supports_max_tokens": true
+  },
+  "qwen/qwen3.8-max-0902": {
+   "default_effort": "xhigh",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "minimal"
+   ]
+  },
+  "sakana/fugu-max": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high"
+   ]
   },
   "sakana/sakana-namazu": {
    "default_effort": "high",

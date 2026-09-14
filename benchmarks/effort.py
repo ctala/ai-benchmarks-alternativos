@@ -166,8 +166,12 @@ def main() -> int:
                 print(f"  ⚠ {d}")
             print(f"{len(difs)} cambio(s) contra la foto del {cargar_foto().get('tomada')}")
             return 1 if difs else 0
-        FOTO.write_text(json.dumps(viva, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
-                        encoding="utf-8")
+        # Escritura atómica: cada runner de un lote en curso lee la foto al arrancar, y un
+        # JSON a medio escribir lo tumbaría con JSONDecodeError en vez de medir.
+        tmp = FOTO.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(viva, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
+                       encoding="utf-8")
+        tmp.replace(FOTO)
         con = sum(1 for v in viva["modelos"].values() if v and v.get("supported_efforts"))
         print(f"foto escrita: {len(viva['modelos'])} modelos ({con} con niveles declarados), "
               f"{len(viva['ausentes'])} ausentes de OpenRouter")

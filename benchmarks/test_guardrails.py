@@ -523,6 +523,18 @@ def _t_effort_nombre():
         return _correr("check_effort.py") != 0
 
 
+@prueba("runner · juez canónico", "un lote lanzado con el Phi-4 local en vez de phi4-or")
+def _t_juez_canonico():
+    # El caso exacto del 14-sep: los dos lanzadores del lote salieron con `--judge-model
+    # phi4`. Se pide `--list-models` a propósito: si la traba se rompe, el runner lista y
+    # sale con 0, y la prueba falla sin haber medido ni gastado nada.
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"),
+                        "--judge", "--judge-model", "phi4", "--list-models"],
+                       capture_output=True, text=True, cwd=ROOT, timeout=120)
+    salida = (r.stdout or "") + (r.stderr or "")
+    return r.returncode != 0 and "juez canónico" in salida
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

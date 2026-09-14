@@ -21,6 +21,10 @@ benchmarks/results/_archive-pre-verificador/
 # Backups de models.py que deja sync_prices.py antes de escribir. Son red de
 # seguridad local: el historial real es git, no un .bak versionado.
 benchmarks/results/_backups/
+# Temporales del canario (`tempfile` en results/). Si el canario muere a mitad no se
+# borran, y un `git add` amplio los commiteaba: cinco llegaron al repo entre el 17-ago y
+# el 2-sep y los leían los scripts que listan `results/*.json` (14-sep-2026).
+benchmarks/results/tmp*.json
 
 # Harbor: artefactos de corridas (contienen trayectorias completas de agentes)
 jobs/

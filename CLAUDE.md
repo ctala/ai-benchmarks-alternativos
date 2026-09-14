@@ -37,14 +37,13 @@ cp .env.example .env
 source .venv/bin/activate
 # Todos los modelos, modo rapido
 .venv/bin/python benchmarks/runner.py --quick
-# Con juez local Phi-4 (default)
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4
-# Otros jueces
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model gemma4   # local, alt
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model haiku    # API
+# Con el juez CANÓNICO: Phi-4 vía OpenRouter. El runner rechaza otro (DECISIONES, 14-sep-2026)
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or
+# Otro juez — SOLO experimentos, nunca un lote que va al ranking
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --juez-no-canonico   # Phi-4 Q4 en Ollama local
 .venv/bin/python benchmarks/runner.py --list-judges
 # Modelos especificos (keys de benchmarks/models.py)
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --models devstral-small deepseek-v4-flash
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models devstral-small deepseek-v4-flash
 # Un solo test suite
 .venv/bin/python benchmarks/runner.py --quick --tests startup_content
 # Solo un tier
@@ -53,7 +52,7 @@ source .venv/bin/activate
 .venv/bin/python benchmarks/runner.py --list-models
 .venv/bin/python benchmarks/runner.py --list-tests
 # Resumir benchmark parcial (si se cortó)
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --models <modelos> \
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models <modelos> \
     --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
 ```
 
@@ -76,7 +75,7 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 },
 ```
 2. (Opcional) **`benchmarks/scoring.py`** — agregar al dict `PRICING` solo como fallback si el runner no recibe costos del config.
-3. Correr: `.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --models nuevo-modelo`
+3. Correr: `.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models nuevo-modelo` — y **las tareas agénticas de Harbor** (`check_agentico_publicado.py` imprime el comando), sin las cuales el modelo no se puede recomendar para agentes
 4. **Regenerar todos los artefactos**: `.venv/bin/python benchmarks/regenerate_all.py`
 5. Actualizar README.md (ranking, recomendaciones) y CHANGELOG.md si cambia el ranking.
 6. Commit + push
@@ -140,7 +139,7 @@ El `score_global` es una **función ponderada y z-scoreada** de 4 componentes (v
 - Tool calling y seguridad son **badges/dimensiones separadas**, no entran en el compuesto.
 - Sin juez: 40% formato + 60% sustancia
 - Con juez (`--judge`): 30% automático + 70% evaluación del juez
-- **Juez default**: Phi-4 (Microsoft, 14B, MIT) via Ollama local — cero conflicto de interés. También disponibles presets `phi4-spark` (DGX Spark LAN) y `phi4-vllm` (FP16 continuous batching en Spark).
+- **Juez canónico**: Phi-4 (Microsoft, 14B, MIT) **vía OpenRouter** (`phi4-or`) — cero conflicto de interés. El runner rechaza otro juez salvo `--juez-no-canonico` (DECISIONES, 14-sep-2026): los presets locales (`phi4` en Ollama, `phi4-spark`, `phi4-vllm`) sirven el mismo modelo con otra cuantización y quedan para experimentos.
 - Tests organizados en 4 pilares prácticos: Razonamiento, Coding, Contenido/Marketing, Agentes/Operaciones. Long-context (`niah_es`) y seguridad (`prompt_injection_es`) se reportan como dimensiones aparte.
 
 ## Providers configurados

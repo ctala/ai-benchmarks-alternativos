@@ -298,10 +298,10 @@ El default es **Phi-4 (Microsoft, 14B, MIT)** via Ollama. Phi-4 fue elegido porq
 - 3-9 segundos por evaluacion
 
 ```bash
-python benchmarks/runner.py --list-judges                      # Ver jueces disponibles
-python benchmarks/runner.py --quick --judge                    # Auto: Phi-4 local
-python benchmarks/runner.py --quick --judge --judge-model phi4 # Phi-4 explicito
-python benchmarks/runner.py --quick --judge --judge-model haiku # Claude Haiku via API (backup)
+python benchmarks/runner.py --list-judges                          # Ver jueces disponibles
+python benchmarks/runner.py --quick --judge --judge-model phi4-or  # Juez canónico: Phi-4 vía OpenRouter
+# Cualquier otro juez (phi4 local, haiku…) exige --juez-no-canonico y es sólo para
+# experimentos: desde el 14-sep-2026 el runner rechaza un lote con otro juez (DECISIONES.md).
 ```
 
 
