@@ -5,6 +5,29 @@
 
 ## [No publicado]
 
+- **El examen de razonamiento es el default de cada modelo, y ahora se sabe cuál es.**
+  Se deja de mandar `effort: medium` a todos. OpenRouter publica en `/api/v1/models` los
+  niveles que soporta cada modelo y su default, y cruzado con los 100 rankeados `medium`
+  **no era un nivel válido en 10** (DeepSeek V4 ×4, GLM 5.2/5.3/5.3 Flash, Hy3, Hy4, Kimi
+  K3): a GLM 5.3 le hacía reportar 0 tokens de razonamiento contra 619 de su default. Como
+  los niveles tampoco son equivalentes entre proveedores, el examen vuelve a ser el que
+  recibe quien llama a la API sin configurar nada —el mismo que rindió el histórico, así
+  que **cero re-medición**—. Lo nuevo es la trazabilidad: la foto versiona el default
+  declarado, **cada run guarda la etiqueta del effort** y `effort.py --vivo` avisa si un
+  proveedor lo cambia. Instrumento: `check_effort.py` (bloqueante, con dos sabotajes en
+  `test_guardrails.py`).
+
+- **`check_presupuesto` daba verde en falso: miraba sólo el tope de la key.** Decía «✅ hay
+  presupuesto» con $720 libres en la key y **$16,81 de saldo en la cuenta**: el primer lote
+  de más de $17 habría muerto a mitad, como el 17-ago. Ahora consulta los dos
+  (`/api/v1/key` y `/api/v1/credits`), manda el menor y dice cuál limita; la regla quedó en
+  una función pura (`disponible`) con su test. Y `effort.py` entra a los caminos
+  sancionados de `check_caminos`: lee metadata, no mide.
+
+- **El experimento de effort por tarea del 4-sep no sirve tal como quedó**: en `medium`,
+  43 de 68 runs fueron `Connection error` (la caída de nota era eso, no el effort) y de
+  `high` corrió 1 de 68. Se rehace sobre el estándar nuevo.
+
 - **El canario ahora CONSERVA la evidencia de lo que falla.** Salió 🔴 con «1 de 4 tests
   con herramientas fallaron (parcial, **revisar por qué**)» — y no había con qué
   revisarlo: borraba su archivo temporal siempre, así que el error se iba con él. Hubo

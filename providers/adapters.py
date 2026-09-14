@@ -16,6 +16,14 @@ from dataclasses import dataclass, field
 from openai import OpenAI
 import httpx
 
+# La regla del effort de razonamiento vive en `benchmarks/effort.py`, sin dependencias,
+# para que un chequeo y un test la verifiquen sin el SDK. Dos rutas de import porque el
+# adapter se carga desde la raíz (`providers.adapters`) y desde `benchmarks/`.
+try:
+    from benchmarks import effort as _effort_mod
+except ImportError:  # sys.path con `benchmarks/` pero sin la raíz
+    import effort as _effort_mod
+
 
 @dataclass
 class BenchmarkResult:
@@ -327,52 +335,34 @@ class UnifiedProvider:
                 kwargs["tools"] = tools
                 kwargs["tool_choice"] = "auto"
 
-            # ── EFFORT EXPLÍCITO EN LOS THINKING MODELS (2-sep-2026) ──────────
+            # ── effort de razonamiento (14-sep-2026) ─────────────────────────
             #
-            # ── effort de razonamiento ───────────────────────────────────────
+            # Sin pedido explícito NO se manda effort: cada modelo rinde en su default, y
+            # la etiqueta del run registra cuál es (sale de la foto de OpenRouter). La
+            # regla y su porqué viven en `benchmarks/effort.py`; acá sólo se pregunta.
+            # Un test puede pedir un nivel (`reasoning_effort` en su dict) y
+            # `BENCH_REASONING_EFFORT` lo pide para un lote entero — para experimentos.
+            # Revierte el `medium` fijo del 2-sep, que no era un nivel válido en 10
+            # thinking rankeados — ver DECISIONES.md.
             #
-            # Decisión de Cristian (2-sep-2026): **de ahora en adelante se manda
-            # `medium` por defecto** a los thinking models por OpenRouter, salvo que
-            # un test declare otra cosa (`reasoning_effort` en el dict del test).
+            # No depende de `is_thinking` (que sale de nombres): decide la metadata, así
+            # que un pedido nunca le llega a un modelo que no declara ese nivel.
             #
-            # Revierte explícitamente las filas del 15 y 18-ago que decían «se mide el
-            # default del proveedor, nunca un esfuerzo forzado». El motivo de la
-            # reversión: sin el parámetro, el default lo elige cada proveedor y no lo
-            # controlamos ni lo sabemos, así que dos modelos podían estar rindiendo el
-            # examen en modos distintos sin que se notara. Fijarlo hace el examen
-            # explícito y reproducible.
-            #
-            # POR QUÉ `medium` Y NO `high` — con dato, no con criterio. El effort no
-            # agrega presupuesto: REPARTE el de salida (~50% medium, ~80% high). Sobre
-            # el presupuesto calibrado POR SUITE (`suites.PRESUPUESTO_SALIDA`, subido el
-            # 2-sep) y los 59.183 runs exitosos en disco, cuántas respuestas no cabrían:
-            #
-            #     medium →  15 runs (0,03%)   ← holgado
-            #     high   → 655 runs (1,11%)   ← y 7,6% en `agent_long_horizon`
-            #
-            # ⚠️ Una versión anterior de este comentario decía «21,3% con high, 86% de
-            # `strategy`». Era FALSO: se calculó sobre `THINKING_MIN_TOKENS = 8.192`
-            # cuando el presupuesto real viene calibrado por suite desde el 18-ago. Si
-            # vas a citar un techo, sacalo de `presupuesto_de(suite)`, no de la constante.
-            #
-            # `medium` es además lo que OpenRouter aplica con `reasoning.enabled: true`,
-            # o sea el default declarado de la plataforma.
-            #
-            # ⚠️ ESTO CAMBIA EL EXAMEN (PLAN-ESTABILIDAD R2). Los 46 thinking rankeados
-            # se midieron SIN el parámetro. Un modelo medido con `medium` y otro sin él
-            # no rindieron el mismo examen: hay que re-medirlos o declararlo.
+            # La etiqueta queda en el run: el effort es parte de la ENTRADA.
             #
             # ⚠️ Va en `extra_body`, NO en kwargs: `reasoning` no es parámetro del SDK
             # de OpenAI y arriba revienta con «unexpected keyword argument» en TODOS los
             # thinking models mientras los normales siguen verdes. Así se escribió
             # primero y sólo lo destapó espiar el request real.
-            _ef = (reasoning_effort
-                   or os.getenv("BENCH_REASONING_EFFORT", "medium")).strip().lower()
-            _effort = (
-                {"effort": _ef}
-                if (is_thinking and self.provider_name == "openrouter"
-                    and _ef not in ("off", "none", "")) else None
-            )
+            if force_reasoning:
+                _ef, _ef_etiqueta = None, "forzado:high"   # lo pone el bloque de híbridos
+            elif self.provider_name == "openrouter":
+                _ef, _ef_etiqueta = _effort_mod.resolver(
+                    model, reasoning_effort or os.getenv("BENCH_REASONING_EFFORT"))
+            else:
+                _ef, _ef_etiqueta = None, "no_aplica_proveedor"
+            result.metadata["reasoning_effort"] = _ef_etiqueta
+            _effort = {"effort": _ef} if _ef else None
 
             # Ollama (local o cloud) acepta `keep_alive` como extension del body.
             # Mantiene el modelo cargado en VRAM 30 min entre requests durante el

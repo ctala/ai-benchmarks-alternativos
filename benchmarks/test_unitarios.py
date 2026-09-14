@@ -1215,29 +1215,74 @@ def test_todos_los_providers_aceptan_lo_que_el_runner_manda():
     )
 
 
-def test_por_defecto_se_manda_effort_medium():
-    """Decisión de Cristian (2-sep-2026): medium por defecto a los thinking.
+# Foto de prueba con la forma real de `reasoning` en `/api/v1/models`. Los tests no leen
+# la foto versionada: si OpenRouter cambia un default, eso lo caza `effort.py --vivo`,
+# no un test unitario que se pone rojo sin que el código haya cambiado.
+_FOTO_PRUEBA = {"modelos": {
+    "z-ai/glm-5.3": {"mandatory": True, "default_enabled": True,
+                     "supported_efforts": ["max", "high", "low"], "default_effort": "max"},
+    "anthropic/claude-opus-4.8": {"mandatory": False, "default_enabled": False,
+                                  "supported_efforts": ["max", "xhigh", "high", "medium", "low"],
+                                  "default_effort": "high"},
+    "moonshotai/kimi-k2.7-code": {"mandatory": True, "default_enabled": True},
+    "meta-llama/llama-3.3-70b-instruct": None,
+}, "ausentes": []}
 
-    Revierte la política del 15 y 18-ago de «medir el default del proveedor». Motivo:
-    ese default lo elegía cada proveedor y no lo controlábamos, así que dos modelos
-    podían estar rindiendo el examen en modos distintos sin que se notara.
 
-    Y va en `extra_body`, que es donde el SDK lo pasa — arriba revienta.
+def _con_foto(fn):
+    """Corre `fn` con el adapter leyendo la foto de prueba, y la restaura."""
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from providers import adapters
+    previa = adapters._effort_mod._foto_cache
+    adapters._effort_mod._foto_cache = _FOTO_PRUEBA
+    try:
+        return fn()
+    finally:
+        adapters._effort_mod._foto_cache = previa
+
+
+def test_sin_pedido_no_se_manda_effort():
+    """Estrategia del 14-sep-2026: el examen es el DEFAULT de cada modelo.
+
+    Ni el `medium` fijo del 2-sep —GLM 5.3 declara `max/high/low`, así que no era un
+    nivel suyo y reportaba 0 tokens de razonamiento contra 619 de su default— ni el
+    default explícito, que con `require_parameters` puede cambiar el ruteo. Sin pedido no
+    viaja `reasoning`: es exactamente el examen que ya rindió el histórico.
     """
-    c = _espiar_request("z-ai/glm-5.3")
-    assert c.get("extra_body", {}).get("reasoning") == {"effort": "medium"}, (
-        f"el thinking no llevó effort=medium en extra_body: {c.get('extra_body')}"
+    c = _con_foto(lambda: _espiar_request("z-ai/glm-5.3"))
+    assert "reasoning" not in c.get("extra_body", {}), (
+        f"sin pedido se mandó effort: {c.get('extra_body')} — el examen es el default"
     )
-    # el fallo real: iba arriba, donde el SDK lo rechaza
+    # un experimento que pide un nivel soportado lo recibe, y en `extra_body`
+    c = _con_foto(lambda: _espiar_request("z-ai/glm-5.3", effort="low"))
+    assert c.get("extra_body", {}).get("reasoning") == {"effort": "low"}, (
+        f"el nivel pedido y soportado no viajó: {c.get('extra_body')}"
+    )
+    # el fallo real del 2-sep: iba arriba, donde el SDK lo rechaza
     assert not c.get("kwargs_top"), (
         "`reasoning` viajó como kwarg de primer nivel: el SDK de OpenAI lo rechaza "
         "con «unexpected keyword argument» y revienta TODOS los thinking models"
+    )
+    # un nivel que el modelo no declara no viaja
+    c = _con_foto(lambda: _espiar_request("z-ai/glm-5.3", effort="medium"))
+    assert "reasoning" not in c.get("extra_body", {}), (
+        "se mandó un nivel que el modelo no declara soportar"
+    )
+
+
+def test_effort_no_enciende_el_razonamiento_de_un_modelo_que_lo_trae_apagado():
+    """Opus 4.8 declara niveles, pero `default_enabled: false`: se midió SIN razonar.
+    Aunque un experimento pida `high`, encenderlo sería otro examen."""
+    c = _con_foto(lambda: _espiar_request("anthropic/claude-opus-4.8", effort="high"))
+    assert "reasoning" not in c.get("extra_body", {}), (
+        f"se le encendió el razonamiento a un modelo que lo trae apagado: {c.get('extra_body')}"
     )
 
 
 def test_modelo_normal_no_recibe_effort():
     """Mandar effort a uno que no razona es pedirle un parámetro que no tiene."""
-    c = _espiar_request("meta-llama/llama-3.3-70b-instruct", effort="medium")
+    c = _con_foto(lambda: _espiar_request("meta-llama/llama-3.3-70b-instruct", effort="medium"))
     assert "reasoning" not in c.get("extra_body", {}), (
         "un modelo no-thinking recibió effort: con `require_parameters` eso puede "
         "dejarlo sin proveedor que lo sirva"
@@ -1246,10 +1291,46 @@ def test_modelo_normal_no_recibe_effort():
 
 def test_effort_solo_por_openrouter():
     """Los proveedores directos no exponen el mismo parámetro: no se les manda."""
-    c = _espiar_request("z-ai/glm-5.3", provider="groq", effort="medium")
+    c = _con_foto(lambda: _espiar_request("z-ai/glm-5.3", provider="groq", effort="high"))
     assert "reasoning" not in c.get("extra_body", {}), (
         "se mandó `reasoning` a un proveedor que no es OpenRouter"
     )
+
+
+def test_resolver_de_effort_cubre_los_casos():
+    """La regla completa, sin adapter: cada rama con el caso real que la motivó.
+    Sólo un pedido soportado viaja; en todo lo demás la etiqueta dice por qué no."""
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from benchmarks.effort import resolver
+    f = _FOTO_PRUEBA
+    assert resolver("z-ai/glm-5.3", foto=f) == (None, "default:max")
+    assert resolver("z-ai/glm-5.3", "low", foto=f) == ("low", "pedido:low")
+    assert resolver("z-ai/glm-5.3", "medium", foto=f) == (None, "pedido:medium→default:max")
+    assert resolver("anthropic/claude-opus-4.8", "high", foto=f) == (None, "apagado_por_defecto")
+    assert resolver("moonshotai/kimi-k2.7-code", "high", foto=f) == (None, "sin_niveles")
+    assert resolver("meta-llama/llama-3.3-70b-instruct", foto=f) == (None, "sin_metadata")
+    assert resolver("proveedor/modelo-nuevo", foto=f) == (None, "sin_foto")
+
+
+def test_presupuesto_manda_el_menor_entre_key_y_cuenta():
+    """14-sep-2026: el chequeo miraba SÓLO la key y decía «✅ hay presupuesto» con $720
+    libres en la key y $16,81 de saldo en la cuenta. Un lote de $30 habría muerto a mitad
+    con el chequeo en verde — el fallo del 17-ago, en la dirección contraria."""
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from check_presupuesto import disponible
+    key = {"limit": 750, "limit_remaining": 719.95}
+    cuenta = {"total_credits": 1950, "total_usage": 1933.19}
+    resta, limita = disponible(key, cuenta)
+    assert limita == "cuenta" and abs(resta - 16.81) < 0.01, (resta, limita)
+    # el caso del 17-ago: la key agotada y la cuenta recargada — manda la key
+    assert disponible({"limit": 250, "limit_remaining": 0},
+                      {"total_credits": 500, "total_usage": 10}) == (0.0, "key")
+    # key sin tope → manda la cuenta; cuenta ilegible → manda la key; nada → no se sabe
+    assert disponible({"limit": None}, cuenta)[1] == "cuenta"
+    assert disponible(key, {}) == (719.95, "key")
+    assert disponible({"limit": None}, {}) == (None, None)
 
 
 def test_las_fichas_ordenan_por_la_nota_que_muestran():

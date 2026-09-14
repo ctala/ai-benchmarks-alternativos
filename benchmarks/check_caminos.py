@@ -49,11 +49,15 @@ SANCIONADOS = {
     # que hable de proveedores le llama la atención, y eso es preferible a que se
     # le escape uno que sí mide.
     "benchmarks/check_secretos.py",
-    # Consulta el SALDO (`/api/v1/key`), no mide nada: ni un modelo, ni un prompt.
-    # Lo delata que habla con openrouter.ai, que es la señal que este chequeo busca —
-    # y prefiero que se sobresalte con cualquier archivo que toque esa URL a que deje
-    # pasar uno que sí mida.
+    # Consulta el SALDO (`/api/v1/key` y `/api/v1/credits`), no mide nada: ni un modelo,
+    # ni un prompt. Lo delata que habla con openrouter.ai, que es la señal que este
+    # chequeo busca — y prefiero que se sobresalte con cualquier archivo que toque esa
+    # URL a que deje pasar uno que sí mida.
     "benchmarks/check_presupuesto.py",
+    # NO mide: lee la metadata `reasoning` de `/api/v1/models` (qué niveles de effort
+    # soporta cada modelo y cuál es su default) para escribir la foto versionada. Ni un
+    # prompt, ni un modelo llamado. Mismo falso positivo que el de arriba.
+    "benchmarks/effort.py",
     # NO mide: instancia el provider para ESPIAR el request que se armaría y corta
     # con una excepción antes de que salga a la red (ver `_espiar_request`). Está acá
     # justamente porque el 2-sep se descubrió que la única forma de comprobar que un

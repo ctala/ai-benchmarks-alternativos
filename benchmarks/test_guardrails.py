@@ -479,6 +479,29 @@ def _t_canario_trunca():
     return any("CORTADAS" in p for p in revisar("modelo-de-prueba", runs))
 
 
+# ── check_effort: el effort vuelve a ser un string fijo ────────────────────────────
+@prueba("check_effort", "el resolver vuelve a mandar `medium` a todos")
+def _t_effort():
+    mod = ROOT / "benchmarks" / "effort.py"
+    with Sabotaje(mod):
+        # La forma exacta del 2-sep: un string fijo, sin mirar qué soporta cada modelo.
+        mod.write_text(mod.read_text(encoding="utf-8") +
+                       '\n\ndef resolver(model_id, pedido=None, foto=None):\n'
+                       '    return "medium", "sabotaje"\n', encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
+@prueba("check_effort · foto", "un modelo del catálogo que falta en la foto")
+def _t_effort_foto():
+    import json as _json
+    foto = ROOT / "benchmarks" / "reasoning_openrouter.json"
+    with Sabotaje(foto):
+        datos = _json.loads(foto.read_text(encoding="utf-8"))
+        datos["modelos"].pop("z-ai/glm-5.3", None)
+        foto.write_text(_json.dumps(datos), encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:

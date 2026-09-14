@@ -105,8 +105,9 @@ PRESUPUESTO_DEFECTO = 32768        # 26 suites no llegan ni a 16k; esto es aire 
 # vayan a ocupar todo"*. Es correcto y ya estaba escrito en `adapters.py`: **se factura
 # lo que el modelo genera, no el límite.** Subir el techo no encarece por sí mismo.
 #
-# El motivo para subirlo ahora: desde hoy se manda `reasoning: {effort: medium}` a los
-# thinking models, y el effort **no agrega presupuesto, reparte el que hay** (~50% en
+# El motivo para subirlo ahora: ese día se empezó a mandar `reasoning: {effort: medium}`
+# a los thinking models (revertido el 14-sep: el examen volvió a ser el default, ver
+# `effort.py`), y el effort **no agrega presupuesto, reparte el que hay** (~50% en
 # medium, ~80% en high). Con los techos viejos, medium dejaba 12.288 tokens de respuesta
 # en la mayoría de las suites; con éstos deja 16.384, y `high` —si algún día se declara
 # en un test— pasa de dejar 4.915 a 6.553.

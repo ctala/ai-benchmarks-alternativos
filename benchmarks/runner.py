@@ -762,8 +762,12 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # así que la pregunta "¿lo medimos con thinking o sin thinking?" solo se podía
     # responder mandando una sonda nueva. Con esto, el nivel de razonamiento queda en el
     # dato y se puede auditar como cualquier otra cosa.
+    #
+    # `reasoning_effort` entra el 14-sep-2026, por la misma razón: el effort es parte de la
+    # ENTRADA del run y no quedaba en ninguna parte — sólo se podía adivinar por la fecha
+    # del lote. Guarda la etiqueta de `effort.resolver` («default:max», «sin_niveles»…).
     for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
-               "reasoning_tokens"):
+               "reasoning_tokens", "reasoning_effort"):
         if _md.get(_k) is not None:
             scores[_k] = _md[_k]
 

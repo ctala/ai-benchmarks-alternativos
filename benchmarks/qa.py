@@ -53,6 +53,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_consistency.py"], True, True),
     ("suites", "el registro de ejes es UNO y nadie lo copió a mano",
      [PY, "benchmarks/check_suites.py"], True, True),
+    # 14-sep-2026: el effort que se manda sale de lo que cada modelo declara, no de un
+    # string fijo. Bloqueante porque nació en verde.
+    ("datos", "el effort de razonamiento sale de la regla y de la foto de OpenRouter",
+     [PY, "benchmarks/check_effort.py"], True, True),
     ("calculadora", "el app.js real contra los datos reales, wizard incluido",
      ["node", "benchmarks/qa_calculadora.mjs"], True, True),
     ("calculadora", "sus filtros y umbrales siguen alineados con lo que sirve",
