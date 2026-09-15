@@ -5,6 +5,8 @@
 
 ## [No publicado]
 
+## [v4.14.0] - 2026-09-14 — siete modelos nuevos (107 rankeados), el examen vuelve al default de cada modelo y el juez canónico es obligatorio
+
 - **Siete modelos nuevos: el ranking pasa de 100 a 107.** Medidos con el mismo examen que
   los rankeados —juez `phi4-or`, 35 suites, 1 run por test, effort default— y con sus tareas
   agénticas de Harbor completas (4 tareas × 3 intentos, `mini-swe-agent` 2.4.6, 0

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T20:25:37",
+  "generated_at": "2026-09-14T21:23:13",
   "total_models": 217,
   "tested_count": 167,
   "ranked_count": 107,
@@ -22,7 +22,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.13.0",
+  "scoring_version": "v4.14.0",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
