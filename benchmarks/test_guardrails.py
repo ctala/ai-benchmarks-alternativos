@@ -121,6 +121,52 @@ def _t_version():
         return _correr("check_version.py") != 0
 
 
+# ── check_version: el tag de la versión quedó fuera de la historia ─────────────
+@prueba("check_version", "el tag de la versión quedó huérfano tras reescribir su commit")
+def _t_version_tag_huerfano():
+    # 15-sep-2026. v4.13.0 se taggeó y un rebase posterior reescribió su commit: el tag
+    # apuntó fuera de main 11 días y nada falló, porque V2 sólo pedía que EXISTIERA. Se
+    # reproduce en un repo DESECHABLE con copias de las superficies, nunca en el real: un
+    # tag de prueba que sobreviviera a un fallo saldría publicado con el próximo push.
+    import importlib.util
+    import os
+    spec = importlib.util.spec_from_file_location("cv", ROOT / "benchmarks" / "check_version.py")
+    cv = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cv)
+    tmp = Path(tempfile.mkdtemp())
+    # Sin NINGUNA variable GIT_* heredada. El hook de pre-push corre con GIT_DIR apuntando
+    # al repo real: heredada, `git init/add/commit` en el desechable operan sobre el REAL.
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    env.update({"GIT_AUTHOR_NAME": "prueba", "GIT_AUTHOR_EMAIL": "prueba@local",
+                "GIT_COMMITTER_NAME": "prueba", "GIT_COMMITTER_EMAIL": "prueba@local"})
+    try:
+        for archivo in {s["archivo"] for s in cv.SUPERFICIES} | {"benchmarks/check_version.py"}:
+            (tmp / archivo).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / archivo, tmp / archivo)
+
+        def git(*a):
+            return subprocess.run(["git", *a], cwd=tmp, env=env, capture_output=True,
+                                  text=True, check=True).stdout.strip()
+
+        git("init", "-q")
+        # Y si igual el git-dir no quedó DENTRO del desechable, se aborta antes de tocar nada.
+        if not Path(git("rev-parse", "--absolute-git-dir")).resolve().is_relative_to(tmp.resolve()):
+            raise AssertionError("el repo desechable resolvió a otro repo: abortado sin tocarlo")
+        git("add", "-A")
+        git("commit", "-q", "-m", "release")
+        chequeo = [PY, str(tmp / "benchmarks" / "check_version.py")]
+        # Control: recién taggeado TIENE que pasar. Sin esto, un rojo por cualquier otro
+        # motivo (una superficie que no se copió) contaría como detección.
+        if subprocess.run([*chequeo, "--tag"], cwd=tmp, env=env,
+                          capture_output=True).returncode != 0:
+            raise AssertionError("el repo desechable no pasa ni recién taggeado")
+        git("commit", "-q", "--amend", "-m", "release reescrito")  # lo que hace un rebase
+        r = subprocess.run(chequeo, cwd=tmp, env=env, capture_output=True, text=True)
+        return r.returncode != 0 and "V4" in r.stdout
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 # ── check_docs: un doc vigente sin verificar hace demasiado ───────────────────
 @prueba("check_docs", "un doc vigente con verificación vencida")
 def _t_docs():

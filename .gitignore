@@ -29,3 +29,7 @@ benchmarks/results/tmp*.json
 # Harbor: artefactos de corridas (contienen trayectorias completas de agentes)
 jobs/
 .coverage
+
+# Config local de Codex (agentes .toml). No es del repo: sin ignorar, `check_changelog`
+# la cuenta como cambio sin anotar y el QA bloqueante frena cada push (15-sep-2026).
+.codex/

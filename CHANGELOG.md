@@ -5,6 +5,21 @@
 
 ## [No publicado]
 
+- **Tag `v4.13.0+main` y `check_version` V4 (15-sep-2026).** El tag v4.13.0 apunta a
+  `65a65fb62`, que un rebase del 3-sep dejó fuera de main: 11 días sin que nada fallara, y
+  `git describe` saltaba a v4.12.0, así que `check_changelog` comparaba contra la versión
+  equivocada. Un tag publicado no se mueve (decisión de Cristian): se crea `v4.13.0+main`
+  sobre su gemelo en main (`947e1623c`, que difiere sólo en 2 líneas de `docs/sitemap.xml`).
+  V4 exige que el tag de la versión vigente esté en la historia de HEAD, con su sabotaje en
+  un repo desechable (32 guardrails). Queda otro huérfano histórico, `v2.9.0`: V4 no lo mira
+  porque sólo verifica la versión vigente. Además, `.codex/` (config local de Codex) va al
+  `.gitignore`: sin eso el QA bloqueante frenaba cada push. **Y un incidente de la propia
+  prueba:** su primera versión heredaba el `GIT_DIR` del hook de pre-push, así que el
+  `git init` «desechable» reinicializó el repo REAL como bare (`core.bare = true`) y lo dejó
+  sin working tree; el push se frenó ahí, sin commits ni tags ajenos. Se restauró
+  `bare = false`, la prueba ya no hereda ninguna variable `GIT_*` y aborta si su git-dir no
+  queda dentro de la carpeta temporal.
+
 ## [v4.14.0] - 2026-09-14 — siete modelos nuevos (107 rankeados), el examen vuelve al default de cada modelo y el juez canónico es obligatorio
 
 - **Siete modelos nuevos: el ranking pasa de 100 a 107.** Medidos con el mismo examen que

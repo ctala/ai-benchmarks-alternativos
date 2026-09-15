@@ -26,6 +26,9 @@ V2. Existe un git tag para la versión declarada. Sin tag no hay punto de retorn
     se puede reconstruir qué se publicó ni comparar contra el release anterior.
 V3. El CHANGELOG tiene entrada para la versión declarada. Publicar sin entrada es
     exactamente lo que pasó con v4.1 hasta que Cristian lo marcó.
+V4. Ese tag está en la historia de HEAD. Que exista no alcanza: el 3-sep-2026 se
+    taggeó v4.13.0 y un rebase posterior reescribió su commit. El tag apuntó fuera de
+    main 11 días sin que nada fallara, y `git describe` saltaba al tag anterior.
 
 Uso:
     python benchmarks/check_version.py         # exit 1 si hay desfase
@@ -150,6 +153,7 @@ def main() -> int:
                             f"Release {nombre}"], cwd=ROOT, check=True)
             print(f"\n  ✓ tag {nombre} creado (falta `git push --tags`)")
             tiene_tag = True
+            tags.append(nombre)
         else:
             fallos.append(f"V2 · no hay git tag para {declarada}. Sin tag no hay punto de "
                           f"retorno: no se puede reconstruir qué se publicó. "
@@ -159,6 +163,23 @@ def main() -> int:
     if declarada and _norm(fuentes.get("CHANGELOG.md")) != declarada:
         fallos.append(f"V3 · el CHANGELOG no tiene entrada para {declarada}. Se publicó "
                       f"sin dejar traza de qué cambió.")
+
+    # ── V4 · ese tag está en la historia de HEAD ────────────────────────────
+    # Que el tag exista no alcanza (15-sep-2026). v4.13.0 se taggeó el 3-sep y un rebase
+    # posterior reescribió su commit: 11 días apuntando fuera de main sin que nada
+    # fallara. El daño no se veía: `git describe` saltaba a v4.12.0 y check_changelog
+    # comparaba contra la versión equivocada. Un tag publicado NO se mueve —quien ya lo
+    # bajó lo sigue esperando ahí—: se crea `vX.Y.Z+main` sobre el commit equivalente.
+    if declarada and tiene_tag:
+        propios = [t for t in tags if _norm(t) == declarada]
+        en_historia = [t for t in propios if subprocess.run(
+            ["git", "merge-base", "--is-ancestor", t, "HEAD"], cwd=ROOT,
+            capture_output=True).returncode == 0]
+        if not en_historia:
+            fallos.append(f"V4 · el tag de {declarada} ({', '.join(propios)}) no está en la "
+                          f"historia de HEAD: un rebase o un amend reescribió el commit y el "
+                          f"tag quedó huérfano. No se mueve un tag publicado: crear "
+                          f"`{propios[0]}+main` sobre el commit equivalente.")
 
     print()
     for f in fallos:
