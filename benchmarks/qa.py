@@ -115,6 +115,12 @@ CHEQUEOS = [
     # pre-push. Esto avisa cuando un lote nuevo dejó viejas las tablas del pilar.
     ("paginas", "las tablas del pilar del blog reflejan el ranking de hoy",
      [PY, "benchmarks/generate_blog_tablas.py", "--check"], False, True),
+    # Informativo y nace ROJO a propósito (19 posts con posiciones viejas, deuda conocida al
+    # 16-sep-2026): un bloqueante que arranca en rojo se aprende a ignorar. Está acá para que
+    # la deriva se vea en CADA lote —un lote nuevo mueve posiciones en posts que nadie tocó—
+    # en vez de descubrirse meses después, que fue lo que pasó.
+    ("paginas", "ningún post del blog publica cifras del benchmark ya caducadas",
+     [PY, "benchmarks/check_blog_consistency.py"], False, False),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",

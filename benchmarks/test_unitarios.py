@@ -156,6 +156,36 @@ def test_version_un_tag_nuevo_al_lado_alcanza():
     assert fuera == []
 
 
+def test_blog_una_cifra_historica_se_puede_marcar_y_solo_esa():
+    """Un post puede citar cuántos modelos probó ÉL en su fecha, o un estudio ajeno.
+
+    El escape es por CIFRA y en su línea, no por post: marcar el post entero como snapshot
+    apagaba el chequeo sobre todas las demás cifras, que sí caducan. Y se prueba en los dos
+    sentidos —sin marca salta, con marca no— porque un escape que silencia de más es peor
+    que no tenerlo.
+    """
+    import tempfile
+    from benchmarks import check_blog_consistency as cbc
+
+    d = {"total_models": 217, "ranked_count": 107, "tested_count": 167}
+    ranked = [{"name": "Modelo Inventado", "score_calidad": 8.0, "score_global": 7.0,
+               "quality_avg": 8.0}]
+    pos = {"Modelo Inventado": 1}
+    post = Path(tempfile.mkdtemp()) / "p.md"
+
+    base = "---\ntitle: x\n---\n\nPara este benchmark evalué 18 modelos en marzo.\n"
+    post.write_text(base)
+    assert cbc.check_post(post, d, ranked, pos), "sin marca, «18 modelos» tiene que saltar"
+
+    post.write_text(base.replace("marzo.", "marzo. " + cbc.MARCA_HISTORICA))
+    assert not cbc.check_post(post, d, ranked, pos), "con marca, no debe saltar"
+
+    # La marca vale para SU línea, no para el post entero.
+    post.write_text(base.replace("marzo.", "marzo. " + cbc.MARCA_HISTORICA)
+                    + "\nY el benchmark hoy cubre 44 modelos.\n")
+    assert cbc.check_post(post, d, ranked, pos), "la marca no puede tapar otra cifra"
+
+
 def test_version_una_version_sin_tag_no_es_este_problema():
     """Sin tag avisa V2. Mezclarlos haría que el mismo texto dijera dos cosas distintas."""
     assert check_version.tags_fuera_de_la_historia(

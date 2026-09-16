@@ -29,6 +29,16 @@
   (informativo) cuando un lote nuevo dejó viejas las tablas del pilar. El chequeo de cifras ya
   existía y **no frenaba nada**: corría con `allow_fail` dentro de `regenerate_all`, en el
   otro repo.
+- **Escape por CIFRA en `check_blog_consistency`** (`<!-- cifra-historica -->`, en la línea del
+  número). Hay conteos correctos que no deben «actualizarse»: cuántos modelos probó un post en
+  SU fecha, o uno citado de un estudio ajeno («16 modelos de todos los labs chantajean», de
+  Anthropic). Antes la única salida era declarar el post ENTERO como snapshot —que además
+  apagaba el chequeo sobre sus otras cifras—, y Cristian lo rechazó: los posts viejos se
+  mantienen al día, no se congelan. Probado en los dos sentidos, incluida la línea de al lado.
+- **El QA lista (informativo) los posts del blog con cifras caducadas.** Nace en rojo a
+  propósito —19 posts, deuda conocida— porque el punto es que la deriva se vea en CADA lote:
+  un lote nuevo mueve posiciones en posts que nadie tocó, y así se descubre el mismo día y no
+  meses después. Lo que bloquea sigue siendo el hook del blog, sobre lo que toca cada push.
 - **Una sola definición de «ejecuciones» (16-sep-2026).** Se publicaban dos cifras del mismo
   número: 48.822 (`sum(runs)`) en los docs y 68.667 (`total_runs_measured`) en el sitio,
   `llms.txt` y las páginas pSEO, con cuatro generadores repitiendo la cuenta con fallbacks

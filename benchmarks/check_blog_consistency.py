@@ -96,6 +96,16 @@ def is_snapshot(raw: str) -> bool:
 # "14 modelos que empatan" es un hallazgo, no la cobertura del benchmark.
 _NOT_A_COUNT = ("empatan", "empatados", "que empat", "de esos", "del grupo", "en la cima")
 
+# Escape POR CIFRA, no por post: se pone en la misma línea del número.
+#
+# Hay conteos que son correctos y no deben "actualizarse" nunca: cuántos modelos probó un
+# post en SU fecha («evalué 18 modelos en marzo»), o un conteo citado de un estudio ajeno
+# («16 modelos de todos los labs chantajean», de Anthropic). Antes la única salida era
+# declarar el post ENTERO como snapshot, y Cristian lo rechazó el 16-sep-2026: los posts
+# viejos se mantienen al día, no se congelan. Congelar el post entero además apagaba el
+# chequeo sobre sus otras cifras, que sí caducan.
+MARCA_HISTORICA = "<!-- cifra-historica -->"
+
 
 def check_post(path, d, ranked, pos):
     findings = []
@@ -124,6 +134,10 @@ def check_post(path, d, ranked, pos):
             ctx = low[max(0, mm.start() - 60): mm.end() + 60]
             if any(w in ctx for w in _NOT_A_COUNT):
                 continue  # "14 modelos que empatan" no es la cobertura
+            ini = low.rfind("\n", 0, mm.start()) + 1
+            fin = low.find("\n", mm.end())
+            if MARCA_HISTORICA in low[ini: fin if fin != -1 else len(low)]:
+                continue  # declarada histórica en SU línea (ver MARCA_HISTORICA)
             if int(n) not in (total, n_ranked, d.get("tested_count", 0)):
                 findings.append(
                     f"{zone}: dice «{n} modelos» — hoy son {n_ranked} rankeados "
