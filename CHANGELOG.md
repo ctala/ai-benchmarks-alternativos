@@ -35,6 +35,14 @@
   Anthropic). Antes la única salida era declarar el post ENTERO como snapshot —que además
   apagaba el chequeo sobre sus otras cifras—, y Cristian lo rechazó: los posts viejos se
   mantienen al día, no se congelan. Probado en los dos sentidos, incluida la línea de al lado.
+- **Skill propio de cierre de sesión** (`.claude/skills/cerrar-sesion/`), adaptado del repo
+  padre: allá el mapa es un árbol de submodules; acá son tres repos con reglas distintas —este
+  submodule, el blog como repo hermano y el padre que sólo lleva el pointer—. Su pre-flight
+  compara además el pointer contra el HEAD de este repo, que es el error silencioso clásico.
+  Las reglas duras recogen lo que costó caro: el tag se empuja con su commit, los borradores
+  del blog van en worktree, los exit codes se miden sin pipe y un sabotaje exige verde de
+  control. **Y `.claude/skills/` pasa a versionarse**: un skill que sólo vive en una máquina no
+  sobrevive a un clone — la misma lección que los hooks del blog.
 - **`generate_blog_datos.py`: los datos que un post cita se GENERAN.** Dos marcadores —
   `<!-- D:modelo:campo -->` para el dato de un modelo (calidad, precio, posición, velocidad,
   latencia, contexto, seguridad o su nota en una suite) y `<!-- V:eje -->` para quién manda hoy

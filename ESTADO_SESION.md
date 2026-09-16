@@ -1,7 +1,26 @@
-<!-- doc: vigente | verificado: 2026-07-01 -->
+<!-- doc: vigente | verificado: 2026-09-16 -->
 # ESTADO_SESION.md
 
-> **Documento de continuidad** — última actualización 2026-04-30 (cierre de sesión post-v2.4.2). Si la sesión actual se cierra, este archivo permite reanudar desde donde quedaste sin perder contexto.
+## Estado al cierre del 16 de septiembre de 2026
+
+**Todo pusheado, sin procesos en background.** `benchmarks` y el pointer del padre
+sincronizados; el blog también (es repo hermano, no submodule).
+
+- **v4.14.0 publicada** (14-sep): siete modelos nuevos, 107 rankeados. El examen volvió al
+  **default de cada modelo** (no se manda `effort`) y el **juez canónico** es `phi4-or`.
+- **Tags:** `v4.13.0` quedó fuera de main por un rebase; no se movió — se creó `v4.13.0+main`
+  sobre el commit equivalente, y `check_version` V4 exige que el tag de la versión vigente esté
+  en la historia de HEAD.
+- **El blog entró al perímetro de los guardrails.** Su chequeo de cifras es **bloqueante en el
+  QA de este repo** (la deriva la causa publicar un lote, así que frena el lote), el repo del
+  blog tiene su propio pre-push versionado, y lo que un post cita se **genera**:
+  `generate_blog_tablas.py` (tablas del pilar) y `generate_blog_datos.py` (marcadores
+  `<!-- D:modelo:campo -->` y `<!-- V:eje -->`). 21 posts quedaron al día; el chequeo da 0.
+- **Descartado, para no reabrirlo:** verificar los precios que citan los posts. Medido: cubre
+  10 de 369 menciones y aun así con falsos positivos. Se generan.
+- **Pendiente de Cristian:** reenviar el sitemap en Search Console (`sc-domain:cristiantala.com`).
+
+> **Documento de continuidad.** Si la sesión actual se cierra, este archivo permite reanudar sin perder contexto.
 >
 > **Reglas**: este archivo se actualiza cada vez que hay decisiones tomadas, procesos corriendo en background, o hallazgos no commiteados aún. NO sustituye a `ROADMAP.md` (mira hacia adelante) ni `CHANGELOG.md` (deja traza de releases). Es **estado vivo** entre commits.
 
