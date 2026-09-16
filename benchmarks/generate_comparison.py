@@ -425,15 +425,19 @@ def get_meta():
 
 def get_counts():
     d = load_json()
+    try:
+        from benchmarks.conteos import ejecuciones
+    except ImportError:  # corrido como script desde benchmarks/
+        from conteos import ejecuciones
+
     models = d.get("models", []) if isinstance(d, dict) else d
     tested = [m for m in models if m.get("tested")]
     return {
         "total_models": d.get("total_models", len(models)) if isinstance(d, dict) else len(models),
         "tested_count": d.get("tested_count", len(tested)) if isinstance(d, dict) else len(tested),
-        # "runs reales" = total de ejecuciones medidas (campo canónico); fallback al
-        # conteo por-modelo. Dinámico desde models.json para no quedar stale.
-        "total_runs": (d.get("total_runs_measured") if isinstance(d, dict) else 0)
-                      or sum(m.get("runs", 0) for m in tested),
+        # "runs reales" — la cuenta vive en conteos.ejecuciones (16-sep-2026).
+        "total_runs": ejecuciones(d) if isinstance(d, dict)
+                      else sum(m.get("runs", 0) for m in tested),
     }
 
 

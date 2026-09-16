@@ -64,11 +64,18 @@ EXCLUDED = {
 
 
 def load_counts():
+    # La cuenta de ejecuciones vive en UN solo lugar (16-sep-2026): acá decía `sum(runs)`
+    # (48.822) mientras el sitio publicaba 68.667, y las dos cifras salían a la calle.
+    try:
+        from benchmarks.conteos import ejecuciones
+    except ImportError:  # corrido como script desde benchmarks/
+        from conteos import ejecuciones
+
     data = json.loads(MODELS_JSON.read_text())
     total = data["total_models"]
     tested = data["tested_count"]
     with_runs = sum(1 for m in data["models"] if m.get("runs", 0) > 0)
-    total_runs = sum(m.get("runs", 0) for m in data["models"])
+    total_runs = ejecuciones(data)
 
     results_dir = ROOT / "benchmarks" / "results"
     lotes = 0
@@ -87,10 +94,8 @@ def load_counts():
         "with_runs": with_runs,
         "total_runs": total_runs,
         "lotes": lotes,
-        # "tests reales" = total de ejecuciones medidas (campo canónico total_runs_measured,
-        # incluye descartadas); fallback al conteo por-modelo. Consistente con los
-        # generadores pSEO y llms.txt, y dinámico para no volver a quedar stale.
-        "tests_marketing": _round_marketing(data.get("total_runs_measured") or total_runs),
+        # "tests reales" = las mismas ejecuciones de arriba, redondeadas. Una sola cuenta.
+        "tests_marketing": _round_marketing(total_runs),
     }
 
 

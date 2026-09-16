@@ -19,6 +19,24 @@
   sin working tree; el push se frenó ahí, sin commits ni tags ajenos. Se restauró
   `bare = false`, la prueba ya no hereda ninguna variable `GIT_*` y aborta si su git-dir no
   queda dentro de la carpeta temporal.
+- **El blog deja de depender de que alguien revise 40 cifras a mano (16-sep-2026).** Tres
+  piezas: (1) las dos tablas del pilar ahora se **generan** desde `models.json`
+  (`generate_blog_tablas.py`, con `--check`), como ya hacía el README con su ranking; (2) el
+  repo del blog tiene su **propio hook de pre-push** —versionado en `scripts/hooks/`, que
+  `.git/hooks` no sobrevive a un clone— y verifica las cifras de los posts que toca cada
+  push; revisa sólo esos, para nacer en verde: los 19 posts viejos con posiciones caducas son
+  deuda conocida y un bloqueante que arranca rojo se aprende a ignorar; (3) `qa.py` avisa
+  (informativo) cuando un lote nuevo dejó viejas las tablas del pilar. El chequeo de cifras ya
+  existía y **no frenaba nada**: corría con `allow_fail` dentro de `regenerate_all`, en el
+  otro repo.
+- **Una sola definición de «ejecuciones» (16-sep-2026).** Se publicaban dos cifras del mismo
+  número: 48.822 (`sum(runs)`) en los docs y 68.667 (`total_runs_measured`) en el sitio,
+  `llms.txt` y las páginas pSEO, con cuatro generadores repitiendo la cuenta con fallbacks
+  distintos. Ahora vive en `conteos.ejecuciones` y un test impide volver a recalcularla a
+  mano. Canónica: la del sitio, lo que la máquina ejecutó.
+- **`check_version` avisa (informativo) por los tags de versiones VIEJAS fuera de main.** V4
+  sigue bloqueando sólo por la vigente —un rojo permanente por un tag de hace meses se
+  aprende a ignorar—, pero ahora se ve: hoy `v2.9.0` está en esa situación.
 
 ## [v4.14.0] - 2026-09-14 — siete modelos nuevos (107 rankeados), el examen vuelve al default de cada modelo y el juez canónico es obligatorio
 

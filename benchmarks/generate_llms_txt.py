@@ -47,9 +47,13 @@ def main():
     data = json.loads(MODELS_JSON.read_text(encoding="utf-8"))
     total_models = data.get("total_models", 0)
     tested_count = data.get("tested_count", 0)
-    # "runs reales" = total de ejecuciones medidas (campo canónico total_runs_measured);
-    # fallback al conteo por-modelo. Dinámico para no volver a quedar stale.
-    total_runs = data.get("total_runs_measured") or sum(m.get("runs", 0) for m in data.get("models", []) if m.get("tested"))
+    # "runs reales" — la cuenta vive en conteos.ejecuciones (16-sep-2026): antes cada
+    # generador la repetía con su propio fallback y podían dar números distintos.
+    try:
+        from benchmarks.conteos import ejecuciones
+    except ImportError:  # corrido como script desde benchmarks/
+        from conteos import ejecuciones
+    total_runs = ejecuciones(data)
     runs_k = f"{(total_runs // 1000) * 1000:,}".replace(",", ".")
     w = data.get("default_weights", {})
     q = _fmt_pct(w.get("quality", 0.7))

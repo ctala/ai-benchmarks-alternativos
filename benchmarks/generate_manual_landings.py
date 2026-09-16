@@ -65,18 +65,19 @@ def load_data():
 
 
 def counts(data):
+    try:
+        from benchmarks.conteos import ejecuciones
+    except ImportError:  # corrido como script desde benchmarks/
+        from conteos import ejecuciones
+
     return {
         "total_models": data["total_models"],
         "tested_count": data["tested_count"],
         # Versión de scoring viva desde models.json (no hardcodear: caduca sola).
         "scoring_version": data.get("scoring_version", "v4.0"),
-        # "tests reales" = total de ejecuciones medidas (incluye descartadas). Sale del
-        # campo canónico total_runs_measured para no volver a quedar stale; fallback al
-        # conteo por-modelo si el campo no existe.
-        "tests_marketing": _round_marketing(
-            data.get("total_runs_measured")
-            or sum(m.get("runs", 0) for m in data["models"] if m.get("tested"))
-        ),
+        # "tests reales" = ejecuciones medidas, descartadas incluidas. La cuenta vive en
+        # conteos.ejecuciones (16-sep-2026): acá había un fallback distinto al de los otros.
+        "tests_marketing": _round_marketing(ejecuciones(data)),
     }
 
 

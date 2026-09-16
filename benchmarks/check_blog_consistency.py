@@ -157,6 +157,12 @@ def check_post(path, d, ranked, pos):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--blog", default=str(DEFAULT_BLOG))
+    # 16-sep-2026. El hook de pre-push del blog revisa SÓLO los posts que toca el push.
+    # Así el guardrail nace en verde —los 19 posts viejos con cifras caducas son deuda
+    # conocida, y un bloqueante que arranca rojo se aprende a ignorar— y frena el drift
+    # nuevo desde hoy. Arreglar los viejos es publicar contenido: lo decide Cristian.
+    ap.add_argument("--posts", nargs="*", metavar="POST",
+                    help="revisar sólo estos .md (los que cambia un push)")
     args = ap.parse_args()
 
     blog = Path(args.blog) / "src" / "content" / "blog"
@@ -165,12 +171,18 @@ def main():
     if not MODELS_JSON.exists():
         sys.exit("Falta docs/data/models.json — corré export_for_pages.py primero")
 
+    # Un post borrado en el push ya no existe en disco: no hay nada que verificar.
+    objetivo = ([p for p in (Path(x) for x in args.posts) if p.exists()]
+                if args.posts is not None else sorted(blog.glob("*.md")))
+
     d, ranked, pos = load_bench()
-    print(f"Verificando posts del blog contra models.json "
+    alcance = (f"{len(objetivo)} post(s) de este push" if args.posts is not None
+               else "todos los posts del blog")
+    print(f"Verificando {alcance} contra models.json "
           f"({d['ranked_count']} modelos rankeados, generado {d['generated_at']})\n")
 
     total = 0
-    for p in sorted(blog.glob("*.md")):
+    for p in objetivo:
         f = check_post(p, d, ranked, pos)
         if f:
             print(f"  ❌ {p.name}")

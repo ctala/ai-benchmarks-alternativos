@@ -102,6 +102,66 @@ def test_suites_export_no_pierde_entradas():
     assert set(suites.para_export()) == set(suites.SUITES)
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# CONTEOS PUBLICADOS — una sola definición de «ejecuciones»
+# ═══════════════════════════════════════════════════════════════════════════
+
+from benchmarks import check_version, conteos  # noqa: E402
+
+
+def test_conteos_ejecuciones_usa_el_campo_canonico():
+    """Lo que se publica es lo que la máquina ejecutó, descartes incluidos.
+
+    El 16-sep-2026 convivían dos cifras en la calle para el mismo concepto: 48.822 en los
+    docs (`sum(runs)`) y 68.667 en el sitio. La canónica es la del sitio.
+    """
+    data = {"total_runs_measured": 68667, "models": [{"runs": 10}, {"runs": 5}]}
+    assert conteos.ejecuciones(data) == 68667
+
+
+def test_conteos_ejecuciones_cae_al_conteo_por_modelo_sin_el_campo():
+    """Un dataset viejo, anterior al campo, no puede quedarse sin número."""
+    assert conteos.ejecuciones({"models": [{"runs": 10}, {"runs": 5}, {}]}) == 15
+
+
+def test_conteos_nadie_recalcula_las_ejecuciones_a_mano():
+    """El campo canónico se nombra en dos archivos: el que lo produce y el que lo define.
+
+    Antes lo repetían cuatro generadores, cada uno con SU fallback —unos sobre todos los
+    modelos, otros sólo sobre los `tested`—, así que el mismo concepto podía salir con
+    números distintos según qué página lo publicara.
+    """
+    permitidos = {"conteos.py", "export_for_pages.py"}
+    culpables = [p.name for p in sorted((ROOT / "benchmarks").glob("*.py"))
+                 if p.name not in permitidos and not p.name.startswith("test_")
+                 and "total_runs_measured" in p.read_text()]
+    assert not culpables, f"recalculan las ejecuciones a mano: {culpables}"
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# VERSIONES — un tag que quedó fuera de la historia
+# ═══════════════════════════════════════════════════════════════════════════
+
+def test_version_tag_fuera_de_la_historia_se_detecta():
+    """v4.13.0 existía como tag y apuntaba fuera de main: 11 días sin que nada fallara."""
+    fuera = check_version.tags_fuera_de_la_historia(
+        ["v4.14.0", "v4.13.0"], ["v4.14.0", "v4.13.0"], lambda t: t == "v4.14.0")
+    assert fuera == [("v4.13.0", ["v4.13.0"])]
+
+
+def test_version_un_tag_nuevo_al_lado_alcanza():
+    """El remedio acordado: el publicado NO se mueve, se agrega `+main` sobre el bueno."""
+    fuera = check_version.tags_fuera_de_la_historia(
+        ["v4.13.0"], ["v4.13.0", "v4.13.0+main"], lambda t: t.endswith("+main"))
+    assert fuera == []
+
+
+def test_version_una_version_sin_tag_no_es_este_problema():
+    """Sin tag avisa V2. Mezclarlos haría que el mismo texto dijera dos cosas distintas."""
+    assert check_version.tags_fuera_de_la_historia(
+        ["v9.9.0"], ["v4.14.0"], lambda t: False) == []
+
+
 def test_suites_label_y_decide_toleran_id_desconocido():
     """Una suite nueva sin entrada no puede reventar el sitio: cae al id."""
     assert suites.label("suite_que_no_existe") == "suite_que_no_existe"

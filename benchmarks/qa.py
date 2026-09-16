@@ -110,6 +110,11 @@ CHEQUEOS = [
     # un fallo del repo. Cuando SÍ hay, compara cada pareja modelo↔cifra con models.json.
     ("paginas", "el reporte y el PDF del mes citan las cifras del benchmark",
      [PY, "benchmarks/check_release_mensual.py"], False, True),
+    # Informativo: el blog es OTRO repo y puede no estar clonado (CI), y sus cifras no
+    # invalidan ningún dato de acá. Lo que BLOQUEA vive en el repo del blog: su hook de
+    # pre-push. Esto avisa cuando un lote nuevo dejó viejas las tablas del pilar.
+    ("paginas", "las tablas del pilar del blog reflejan el ranking de hoy",
+     [PY, "benchmarks/generate_blog_tablas.py", "--check"], False, True),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",

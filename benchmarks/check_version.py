@@ -54,6 +54,26 @@ def _norm(v: str | None) -> str | None:
     return f"v{m.group(1)}.{m.group(2)}" if m else v
 
 
+def versiones_del_changelog(texto: str) -> list[str]:
+    """Todas las versiones que el CHANGELOG declara, de la más nueva a la más vieja."""
+    return re.findall(r"^##\s*\[(v[\d.]+)\]", texto, re.M)
+
+
+def tags_fuera_de_la_historia(versiones, tags, es_ancestro) -> list[tuple[str, list[str]]]:
+    """Versiones cuyos tags existen pero NINGUNO está en la historia de HEAD.
+
+    Pura a propósito —se le inyecta `es_ancestro`— para que su prueba no necesite un repo
+    de verdad. Una versión SIN ningún tag no entra acá: ese caso es de V2, y mezclarlos
+    haría que este aviso dijera dos cosas distintas con el mismo texto.
+    """
+    fuera = []
+    for v in versiones:
+        propios = [t for t in tags if _norm(t) == _norm(v)]
+        if propios and not any(es_ancestro(t) for t in propios):
+            fuera.append((v, propios))
+    return fuera
+
+
 # ── EL REGISTRO DE SUPERFICIES ────────────────────────────────────────────────
 #
 # Ésta es la lista, y es la ÚNICA. Antes vivía repartida entre una docstring que
@@ -181,7 +201,23 @@ def main() -> int:
                           f"tag quedó huérfano. No se mueve un tag publicado: crear "
                           f"`{propios[0]}+main` sobre el commit equivalente.")
 
+    # ── Informativo · versiones VIEJAS cuyo tag quedó fuera de main ─────────
+    # V4 sólo mira la vigente, y a propósito: bloquear por un tag de hace meses —que ya no
+    # se arregla sin reescribir una referencia pública— sería un rojo permanente, y un rojo
+    # permanente se aprende a ignorar. Pero el dato sirve: `v2.9.0` apunta fuera de main
+    # igual que apuntaba `v4.13.0`, y nadie lo sabía hasta que lo buscamos a mano.
+    changelog = ROOT / "CHANGELOG.md"
+    huerfanos = tags_fuera_de_la_historia(
+        versiones_del_changelog(changelog.read_text()) if changelog.exists() else [],
+        tags,
+        lambda t: subprocess.run(["git", "merge-base", "--is-ancestor", t, "HEAD"],
+                                 cwd=ROOT, capture_output=True).returncode == 0)
+
     print()
+    for v, ts in huerfanos:
+        if _norm(v) != declarada:
+            print(f"    ⚠️  {v} · su tag ({', '.join(ts)}) quedó fuera de main. No se mueve: "
+                  f"si hace falta reconstruirla, `{ts[0]}+main` sobre el commit equivalente.")
     for f in fallos:
         print(f"    ❌ {f}")
     if fallos:
