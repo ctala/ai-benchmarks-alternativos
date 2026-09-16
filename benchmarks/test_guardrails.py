@@ -485,6 +485,30 @@ def _t_blog():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("generate_blog_datos", "un dato marcado en un post con el valor viejo")
+def _t_blog_datos():
+    # El blog es OTRO repo y puede no estar clonado (CI): sin él no hay nada que probar.
+    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    posts = blog / "src" / "content" / "blog"
+    if not posts.is_dir():
+        return True
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    key = next(m["key"] for m in datos["models"] if m.get("ranked"))
+    tmp = posts / "_prueba_guardrail_datos.md"
+    try:
+        # Control en verde primero — la lección del 16-sep: sobre un mundo ya sucio, un
+        # saboteo no prueba nada y la prueba pasa por el motivo equivocado.
+        if _correr("generate_blog_datos.py", "--check") != 0:
+            raise AssertionError("ya había marcadores con valores viejos: el saboteo no probaría nada")
+        tmp.write_text(
+            "---\ntitle: prueba\ndescription: prueba\npubDate: 2026-09-16\n---\n\n"
+            f"Calidad de prueba: <!-- D:{key}:calidad -->0,00<!-- /D -->\n",
+            encoding="utf-8")
+        return _correr("generate_blog_datos.py", "--check") != 0
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 @prueba("check_changelog", "cambios sin su entrada, y un bump que no alcanza")
 def _t_changelog():
     # Dos fallos en uno, porque son las dos mitades del estándar (VERSIONADO.md):

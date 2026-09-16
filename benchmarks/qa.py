@@ -115,6 +115,11 @@ CHEQUEOS = [
     # pre-push. Esto avisa cuando un lote nuevo dejó viejas las tablas del pilar.
     ("paginas", "las tablas del pilar del blog reflejan el ranking de hoy",
      [PY, "benchmarks/generate_blog_tablas.py", "--check"], False, True),
+    # Bloqueante y nace verde: los datos marcados en los posts salen de models.json, así que
+    # o coinciden o el generador los corrige. Mismo criterio que las tablas del pilar — lo que
+    # se genera no se verifica— y misma salida amable si el blog no está clonado.
+    ("paginas", "los datos marcados en los posts del blog salen de models.json",
+     [PY, "benchmarks/generate_blog_datos.py", "--check"], True, True),
     # BLOQUEANTE desde el 16-sep-2026, y el gate está acá a propósito: la deriva del blog no
     # la causa editar un post, la causa **publicar un lote**. Un lote nuevo mueve posiciones en
     # posts que nadie tocó, así que el que tiene que frenar es el lote, no el próximo push del

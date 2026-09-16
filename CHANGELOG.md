@@ -35,6 +35,19 @@
   Anthropic). Antes la única salida era declarar el post ENTERO como snapshot —que además
   apagaba el chequeo sobre sus otras cifras—, y Cristian lo rechazó: los posts viejos se
   mantienen al día, no se congelan. Probado en los dos sentidos, incluida la línea de al lado.
+- **`generate_blog_datos.py`: los datos que un post cita se GENERAN.** Dos marcadores —
+  `<!-- D:modelo:campo -->` para el dato de un modelo (calidad, precio, posición, velocidad,
+  latencia, contexto, seguridad o su nota en una suite) y `<!-- V:eje -->` para quién manda hoy
+  en un eje. Bloqueante en el QA y en el hook del blog; nace verde.
+  **Nació de una medición que mató la idea anterior.** El plan era *verificar* los precios que
+  citan los posts (369 menciones en 33 posts). No funciona: cuando una línea nombra dos modelos
+  y dos precios —una fila de tabla, una comparación— atribuir «este precio es de este modelo»
+  se equivoca, y la regla acusaba a Opus 4.8 por el precio de Luna. Acotada a líneas
+  inequívocas queda en 10 de 369 (3% de cobertura) y aun así con dos falsos positivos. Un
+  bloqueante así nace rojo y se aprende a ignorar. Lo que sí funcionó con las tablas del pilar
+  fue generar en vez de verificar, y eso es lo que se extiende acá.
+  También cubre el agujero que abrió el arreglo anterior: los bloques «¿Llegaste buscando qué
+  usar hoy?» afirmaban a mano quién era el mejor — la misma deuda que se acababa de pagar.
 - **El chequeo del blog pasa a BLOQUEANTE, y el gate queda del lado del lote.** La deriva no la
   causa editar un post: la causa publicar un lote, que mueve posiciones en posts que nadie tocó.
   Con el gate sólo en el push del blog, eso puede tardar meses en verse — tardó dos, con 19
