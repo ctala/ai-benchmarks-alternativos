@@ -181,7 +181,12 @@ def main():
 
     blog = Path(args.blog) / "src" / "content" / "blog"
     if not blog.exists():
-        sys.exit(f"No encuentro los posts en {blog}")
+        # El blog es OTRO repo y puede no estar clonado (CI, otra máquina). Desde que este
+        # chequeo es bloqueante (16-sep-2026), morir acá bloquearía cada push desde cualquier
+        # máquina sin el blog — y así es como se enseña a ignorar un bloqueante. Saltar es un
+        # agujero conocido (un chequeo que no corre y pasa igual), así que avisa fuerte.
+        print(f"  ⏭️  sin el repo del blog en {args.blog}: NO se verificó ninguna cifra")
+        return 0
     if not MODELS_JSON.exists():
         sys.exit("Falta docs/data/models.json — corré export_for_pages.py primero")
 

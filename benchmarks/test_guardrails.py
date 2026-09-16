@@ -457,12 +457,28 @@ def _t_blog():
         return True
     # El caso real de julio: ocho posts en producción con claims muertos, uno coronando
     # como «#1 de mi benchmark» a un modelo que estaba #9.
+    #
+    # 16-sep-2026 · esta prueba daba VERDE sin cazar nada. Saboteaba con «Modelo Inventado»,
+    # que no está en el catálogo: el detector sólo mira modelos rankeados, así que ese texto
+    # le era invisible. El exit≠0 que la prueba leía como «cazó» venía de OTRO lado — los 19
+    # posts reales que publicaban cifras viejas. Pasaba gracias a la deuda, no a su saboteo,
+    # y se descubrió al dejar el blog en cero. Por eso ahora: (1) control en verde primero,
+    # porque sobre un blog sucio ningún saboteo prueba nada, y (2) el modelo sale de
+    # models.json, para que la prueba no caduque cuando cambie el catálogo.
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    rankeados = sorted([m for m in datos["models"] if m.get("ranked")],
+                       key=lambda m: -(m.get("score_calidad") or 0))
+    modelo = rankeados[0]["name"]        # el primero por calidad
+    posicion_falsa = len(rankeados)      # decir que es el último: siempre lejos del real
     tmp = posts / "_prueba_guardrail_blog.md"
     try:
+        if _correr("check_blog_consistency.py") != 0:
+            raise AssertionError(
+                "el blog ya publica cifras caducadas: el saboteo no probaría nada")
         tmp.write_text(
-            "---\ntitle: prueba\nseoTitle: Modelo Inventado saca score 99.99 en mi benchmark\n"
+            f"---\ntitle: prueba\nseoTitle: {modelo} es el #{posicion_falsa} de mi benchmark\n"
             "description: prueba\npubDate: 2026-08-17\n---\n\n"
-            "Modelo Inventado tiene un score de 99.99 y es el #1 de mi benchmark.\n",
+            f"En mi benchmark, {modelo} aparece hoy como el #{posicion_falsa}.\n",
             encoding="utf-8")
         return _correr("check_blog_consistency.py") != 0
     finally:

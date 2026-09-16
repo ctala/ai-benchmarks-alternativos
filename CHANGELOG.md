@@ -35,6 +35,18 @@
   Anthropic). Antes la única salida era declarar el post ENTERO como snapshot —que además
   apagaba el chequeo sobre sus otras cifras—, y Cristian lo rechazó: los posts viejos se
   mantienen al día, no se congelan. Probado en los dos sentidos, incluida la línea de al lado.
+- **El chequeo del blog pasa a BLOQUEANTE, y el gate queda del lado del lote.** La deriva no la
+  causa editar un post: la causa publicar un lote, que mueve posiciones en posts que nadie tocó.
+  Con el gate sólo en el push del blog, eso puede tardar meses en verse — tardó dos, con 19
+  posts publicando cifras viejas. Entró informativo la misma mañana (19 en rojo) y se promovió
+  al dejar el blog entero en cero: un bloqueante que arranca rojo se aprende a ignorar. Si el
+  blog no está clonado (CI, otra máquina), avisa fuerte y pasa, en vez de frenar cada push.
+- **Y al promoverlo se cayó un falso verde.** El sabotaje de `check_blog_consistency` escribía
+  un post sobre «Modelo Inventado» — que no está en el catálogo, así que el detector nunca lo
+  mira. El `exit≠0` que la prueba leía como «cazó» lo ponían los 19 posts reales con cifras
+  viejas: **pasaba gracias a la deuda, no a su saboteo**, y sólo se vio al dejar el blog en
+  cero. Ahora exige **verde antes de sabotear** —sobre un blog sucio ningún saboteo prueba
+  nada— y el modelo del saboteo sale de `models.json` para que no caduque.
 - **El QA lista (informativo) los posts del blog con cifras caducadas.** Nace en rojo a
   propósito —19 posts, deuda conocida— porque el punto es que la deriva se vea en CADA lote:
   un lote nuevo mueve posiciones en posts que nadie tocó, y así se descubre el mismo día y no
