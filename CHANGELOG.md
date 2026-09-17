@@ -35,6 +35,12 @@
   Anthropic). Antes la única salida era declarar el post ENTERO como snapshot —que además
   apagaba el chequeo sobre sus otras cifras—, y Cristian lo rechazó: los posts viejos se
   mantienen al día, no se congelan. Probado en los dos sentidos, incluida la línea de al lado.
+- **`.agents/` al `.gitignore`.** Codex espeja `.claude/skills/` en `.agents/skills/`
+  reescribiendo las rutas a su propio directorio: la copia del skill de cierre ya difería del
+  original a las doce horas de creada, y la cazó el primer pre-flight que corrió. Es artefacto
+  de otra herramienta, no del repo. En el padre `.agents/skills` sí se versiona, pero ahí es un
+  **symlink** deliberado — una copia real driftea en silencio, que es lo que su CLAUDE.md
+  prohíbe desde agosto.
 - **Skill propio de cierre de sesión** (`.claude/skills/cerrar-sesion/`), adaptado del repo
   padre: allá el mapa es un árbol de submodules; acá son tres repos con reglas distintas —este
   submodule, el blog como repo hermano y el padre que sólo lleva el pointer—. Su pre-flight

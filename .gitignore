@@ -36,3 +36,9 @@ jobs/
 # Config local de Codex (agentes .toml). No es del repo: sin ignorar, `check_changelog`
 # la cuenta como cambio sin anotar y el QA bloqueante frena cada push (15-sep-2026).
 .codex/
+# Y su espejo de skills: Codex copia `.claude/skills/` a `.agents/skills/` reescribiendo las
+# rutas a su propio directorio. La copia del skill de cierre ya difería del original a las 12
+# horas de creada (17-sep-2026). En el repo padre `.agents/skills` SÍ se versiona, pero ahí es
+# un symlink deliberado; una copia real driftea en silencio, que es justo lo que su CLAUDE.md
+# prohíbe. Artefacto de otra herramienta: no entra.
+.agents/
