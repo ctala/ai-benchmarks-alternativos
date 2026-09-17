@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — business_audit/roast_oferta_sin_cliches
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 6.8 | quality: 8.0
-- latency_total: 96.089s | tokens_per_second: 21.3
-- input_tokens: 214 | output_tokens: 2048
+- success: True  | final: 7.05 | quality: 8.0
+- latency_total: 51.168s | tokens_per_second: 66.3
+- input_tokens: 251 | output_tokens: 3391
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,104 +36,106 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-We need answer in Spanish. User asks: "Destroza mi oferta. Sin piedad, pero dime qué arreglar." Then provides title, copy, includes, price, button. Need be brutal but useful, as experienced founder criticizing another founder. No softening. Each critique with concrete problem and what to do instead. Need likely analyze offer: generic, no specific outcome, no mechanism, no urgency, no risk reversal, no target, no proof, price maybe low but not justified, community vague. Need maybe rewrite offer. Need final in Spanish.
 
-Need think through structure. We can be harsh. Need maybe "Tu oferta no vende transformación, vende suscripción a un club genérico". Concrete problems:
-1. Title: "Transforma tu negocio con el poder de la IA" — every AI product says this. No specific transformation. Problem: no outcome measurable, no who, no timeframe. Fix: specific outcome: "En 30 días, automatiza X y ahorra Y horas" etc.
-2. Subtitle: "emprendedores como tú están usando IA para llevar su negocio al siguiente nivel" — "siguiente nivel" meaningless. Problem: no differentiator, no proof. Fix: use specific proof or mechanism: "los que ya usan IA para [task] y [result]".
-3. Qué incluye: community, courses, live sessions, templates, support — commodity. Problem: features not benefits, no core deliverable, no transformation path. Fix: replace with outcomes and method: "diagnostica tu proceso, implementa X, automatiza Y, mide Z".
-4. No target: "tu negocio" too broad. Problem: can't price or promise. Fix: choose niche: e-commerce, agencies, freelancers, SaaS, local businesses.
-5. No mechanism/unique IP: "poder de la IA" is table stakes. Problem: why you? Fix: proprietary framework: "Método IA Operativa: 30 días para pasar de chatbot a sistema de ventas/operaciones".
-6. No proof: no case studies, testimonials, numbers. Problem: trust. Fix: add 2-3 proof snippets: "X aumentó ventas 22% en 4 semanas".
-7. Price $49/mes: low but not clear value; maybe too cheap for transformation; no anchor; no guarantee. Problem: no risk reversal, no commitment. Fix: guarantee: "7 días de devolución" or outcome-based milestone. If low ticket, use as tripwire to higher offer; or price $97 setup + $49? Need caution.
-8. CTA "EMPIEZA HOY" generic. Problem: no next step, no urgency. Fix: "Quiero mi plan de IA en 30 días" or "Acceso con garantía de 7 días".
-9. No objection handling: "¿y si no sé nada de IA?" "¿y si no tengo tiempo?" Fix: include onboarding, done-for-you, templates.
-10. No offer stack/urgency/scarcity: if real, include limited seats, cohort, bonus. If not, don't fake. Fix: "Incluye auditoría de 3 procesos" etc.
-11. "Soporte de la comunidad" not support: community isn't accountability. Problem: expectation mismatch. Fix: "sesión mensual de implementación" or "soporte por ticket 48h" or "cohort con feedback".
-12. No clear transformation timeline: "próximo nivel" no timeframe. Fix: 30-day outcome.
-13. No segmentation: if everyone, no one. Fix: ICP.
-14. No "why now": AI is noisy. Fix: "porque cada mes sin automatizar pierdes X".
 
-Need maybe present as "Diagnóstico brutal" with table: Lo que dices / Qué problema tiene / Qué poner en su lugar. Then rewrite offer. Could include "Si no puedes cambiar esto, no vendas IA, vende comunidad de aprendizaje". Need maintain helpful.
+Veredicto rápido: **tu oferta no vende una transformación concreta; vende una categoría**. Dice “IA”, “comunidad”, “cursos”, “siguiente nivel”… pero no dice **qué problema doloroso resuelve, para quién, en cuánto tiempo, con qué mecanismo, qué prueba hay y qué pasa si falla**.
 
-Need maybe mention that $49/mes is subscription but offer says transform business, mismatch. If transformation, should be project/outcome; if community, sell belonging. Need decide.
+Esto no convierte.
 
-Could include multiple variants depending on business: if you are not expert? But we don't know. Need make assumptions? Could say "Asumo que vendes a emprendedores pequeños". If not, adapt.
+---
 
-Need final answer in Spanish, brutal. Use direct language. Maybe:
+## Lo que está mal y qué arreglar
 
-"Tu oferta actual no es una oferta, es un banner de 2023."
+| # | Qué está mal | Problema concreto | Arreglo directo |
+|---|--------------|-------------------|-----------------|
+| 1 | **El título es genérico y de moda** | “Transforma tu negocio con el poder de la IA” es una frase que podría decir cualquier curso, comunidad, newsletter o webinar. No hay promesa medible ni resultado específico. | Titular con transformación concreta: `[Resultado] en [tiempo] usando [mecanismo] para [cliente]`. Ejemplo: “Recupera citas perdidas con un sistema de IA que recuerda, reagenda y da seguimiento a pacientes en 14 días”. |
+| 2 | **“emprendedores como tú” es audiencia blanda** | No segmentas. ¿E-commerce? Clínicas? Abogados? Inmobiliarias? Restaurantes? SaaS? Un fundador no compra “para emprendedores”; compra para resolver un cuello de botella propio. | Define un nicho doloroso y nombra el negocio. Ejemplo: “Para clínicas dentales con agenda llena pero facturación plana”. |
+| 3 | **“siguiente nivel” es humo** | ¿Qué significa “siguiente nivel”? ¿Más ventas? ¿Más citas? ¿Más tickets? ¿Menos trabajo? Sin métrica, el cerebro del cliente no puede evaluar valor. | Poner número o consecuencia: “+20 citas/mes”, “-30% tiempo de atención”, “+15% ticket promedio”, “recuperar 200k en ventas perdidas”. |
+| 4 | **“Qué incluye” es lista de features, no beneficios** | “Comunidad, cursos, sesiones, plantillas, soporte” no dice qué hace cada cosa por el cliente. Suena a contenido reciclado y membresía genérica. | Cada feature debe convertirse en resultado. Ejemplo: “Plantillas de prompts para triaje automático de pacientes” o “sesiones donde instalamos casos reales sobre tu negocio”. |
+| 5 | **“cursos exclusivos” suena a contenido, no a implementación** | El fundador que quiere resultado no quiere más cursos; quiere que le resuelvan. “Curso exclusivo” sin caso práctico no tiene fuerza. | Cambiar a “sesiones de implementación” o “workshops donde resolvemos casos reales”. Si hay curso, debe estar ligado a un resultado: “módulo de agenda inteligente para clínicas”. |
+| 6 | **“soporte de la comunidad” es débil** | ¿Quién responde? ¿En cuánto tiempo? ¿Es foro? ¿Chat? ¿Grupo cerrado? ¿Hay fundador/ingeniero/experto? Sin especificidad, parece comunidad muerta. | Definir formato y SLA: “soporte directo en chat, respuesta en <24h”, “sesión mensual de dudas con el equipo”, “foro con casos resueltos”. |
+| 7 | **No hay mecanismo** | No explicas cómo funciona. ¿Qué sistema de IA usa? ¿Chatbot? ¿Automatización de email/WhatsApp? ¿Plantillas? ¿Flujo de ventas? Sin mecanismo, no hay razón para creer que funciona. | Nombrar el mecanismo: “sistema de recordatorios + chatbot de triaje + flujo de seguimiento automático”. |
+| 8 | **No hay prueba ni autoridad** | No hay casos, métricas, capturas, testimonios, resultados. En frío, esto se ve como comunidad IA más. | Añadir prueba concreta: “3 clínicas recuperaron entre 18 y 31 citas/mes”, “un ecommerce aumentó conversión 22% con bot de recomendación”, etc. |
+| 9 | **Precio sin contexto ni ancla** | $49/mes no se defiende solo. ¿Barato? ¿Caro? ¿Qué vale el resultado? Sin costo del problema, el precio no tiene razón de existir. | Anclar contra dolor: “menos que una cita perdida”, “menos que una hora de un técnico”, “menos que el costo de no recuperar esas ventas”. |
+| 10 | **El botón “EMPIEZA HOY” es genérico y no reduce riesgo** | No dice qué obtiene, no hay garantía, no hay prueba, no hay deadline. “Empieza hoy” suena a suscripción abierta sin consecuencia. | CTA con resultado + riesgo: “Quiero recuperar citas perdidas con IA”, “Prueba 7 días”, “30 días garantía”. |
+| 11 | **No hay urgencia, escasez ni razón para ahora** | ¿Por qué comprar hoy? ¿Cuánto dura el acceso? ¿Hay plazas? ¿Hay bono? ¿Hay cierre? Sin razón temporal, se posterga. | Añadir deadline o capacidad: “15 plazas por cohorte”, “precio fundador hasta el viernes”, “bono de plantillas solo por lanzamiento”. |
+| 12 | **No hay manejo de objeciones** | El comprador piensa: “¿y si no funciona en mi negocio?”, “¿y si tengo que configurarlo?”, “¿y si no entiendo IA?”, “¿y si no hay soporte?”. La oferta no responde nada. | Añadir garantía y especificación de implementación: “30 días garantía”, “te instalamos el flujo inicial”, “sin código”. |
 
-Then list.
+---
 
-Need ensure each critique has problem and fix. The user asked "¿Qué está mal?" Need answer.
+## El problema estructural
 
-Let's craft with sections:
+Tu oferta actual dice:
 
-- Veredicto: No vendes transformación, vendes suscripción a un curso genérico. A $49/mes, no convences a nadie de que resolverá un dolor caro.
-- Problemas y arreglos (10). Use table maybe.
+> “Somos una comunidad de IA con cursos, plantillas, soporte y sesiones.”
 
-Potential rewrites:
+Pero el cliente no compra comunidad. Compra:
 
-Title: "En 30 días, automatiza tu proceso más repetitivo y recupera 10 h/semana con IA" (if target: e-commerce? Need choose). But if generic, maybe "Para negocios de servicios que pierden horas en tareas repetitivas".
+> “Que mi negocio recupere ventas / citas / leads / tiempo / margen.”
 
-Could provide 3 rewritten versions:
-A) If you want to sell transformation: "En 30 días, convierte tu negocio en una máquina de X con IA: automatiza Y, reduce Z, recupera N horas. Incluye: auditoría, implementación de 3 automatizaciones, plantillas, sesiones. Precio $197? $49?"
-B) If you want to sell community: "Comunidad para [nicho] que implementa IA cada semana. Sin humo: 1 sistema nuevo cada 14 días, plantillas, feedback. $49/mes."
-C) If you need low-ticket: "Acceso a la comunidad + 1 automatización lista para usar cada mes. Garantía 7 días."
+La oferta debería venderse como **sistema**, no como **membresía de contenido**.
 
-Need maybe mention pricing: $49/mes is low for "transforma tu negocio". If you want transformation, price should be $197-$497 one-time or $97/mes with 30-day guarantee. If community, $29-$49 okay but promise must be "aprender juntos", not transform. Also need annual? Could include: "No pongas solo $49/mes. Pone 'o $397/año' to improve retention".
+---
 
-Need maybe mention "Botón: EMPIEZA HOY" -> "Quiero mi plan de IA en 30 días" or "Acceder con garantía".
+## Cómo debería quedar, versión mínima
 
-Need maybe add "No uses 'como tú' sin identidad". "Emprendedores como tú" is lazy. Need specific: "agencias de marketing, e-commerce, coaches, consultores".
+Ejemplo aplicado a un nicho concreto. Si tú no tienes nicho, tu oferta no tiene buyer.
 
-Need maybe "Cursos exclusivos" sounds like old info product. Problem: content is not the product; implementation is. Fix: "sistema de implementación" or "plan de acción".
+**Título:**
 
-Need maybe "Sesiones en vivo" vague: how often? with whom? deliverable? Fix: "sesión mensual de implementación con trabajo hecho".
+> Recupera citas perdidas con un sistema de IA que recuerda, reagenda y da seguimiento a pacientes en 14 días.
 
-Need maybe "Plantillas y recursos" vague: what templates? Fix: "10 prompts/automatizaciones para ventas, soporte, contenido, operaciones".
+**Subtítulo:**
 
-Need maybe "Soporte de la comunidad" is not support: if user needs help, community can ignore. Fix: "soporte real" or "no vendas soporte si no lo hay".
+> Para clínicas dentales con agenda llena pero facturación plana. Sistema de recordatorios, triaje automático y seguimiento postconsulta que trabaja 24/7.
 
-Need maybe "No hay prueba social". Add: "Ya ayudamos a X negocios a...". If no proof, don't claim.
+**Qué incluye:**
 
-Need maybe "No hay garantía". Add 7-day money-back.
+- Sistema de recordatorios y reagendado automático para reducir no-show.
+- Prompts y plantillas para triaje inicial de síntomas y clasificación de urgencias.
+- Sesión mensual de instalación sobre casos reales de clínicas.
+- Comunidad cerrada para resolver bloqueos de implementación.
+- Soporte directo en chat con respuesta en menos de 24h.
 
-Need maybe "No hay urgencia real". If cohort, "Inscripción abierta hasta X" or "Primeros 20 con auditoría". If not, don't fake.
+**Prueba:**
 
-Need maybe "No hay enemigo: el problema". Need pain: "pierdes horas, no escalas, dependes de ti".
+> 3 clínicas recuperaron entre 18 y 31 citas/mes usando el sistema durante 30 días.
 
-Need maybe "No hay mecanismo único". "Poder de la IA" is generic. Need "Método [nombre]".
+**Precio:**
 
-Need maybe "No hay transformación medible". Need numbers.
+> $49/mes. Menos que el costo de una cita perdida.
 
-Could structure as:
+**Garantía:**
 
-1. "Título" - Problema: "Transforma" is empty. Fix: "outcome + timeframe + who". Example.
-2. "Subtítulo" - etc.
-3. "Qué incluye" - etc.
-4. "Precio" - etc.
-5. "CTA" - etc.
-6. "Lo que falta" - proof, guarantee, target, mechanism, objection.
+> 30 días de garantía. Si no ves más citas reagendadas o recuperadas, te devolvemos el dinero.
 
-Need maybe "Si tu propuesta es esta, tu conversión será baja". Use harsh but not insulting.
+**Botón:**
 
-Need maybe final: "Oferta reescrita (elige una)". Provide 2-3 versions.
+> Quiero recuperar citas perdidas con IA
 
-Let's draft in Spanish.
+---
 
-Need be careful with claims: If we suggest "10 h/semana" maybe user can't substantiate. We can say "solo si puedes demostrarlo". Need "no inventes métricas".
+## Si tu oferta es realmente genérica
 
-Could say:
+Entonces el problema no es solo copy.
 
-"Regla: si no puedes medirlo, no lo prometas."
+Si no puedes decir:
 
-Need maybe include "No uses 'poder'". "Poder" is marketing fluff.
+1. **¿A quién le resuelve qué problema?**  
+2. **¿Qué resultado concreto obtiene?**  
+3. **¿En cuánto tiempo?**  
+4. **¿Cómo funciona el mecanismo?**  
+5. **¿Qué prueba existe?**  
+6. **¿Qué pasa si falla?**
 
-Need maybe "Tu oferta actual suena a: 'pago 49 y espero que pase algo'".
+Tu oferta va a seguir siendo una comunidad IA más, y el tráfico no va a convertir.
 
-Let's think of a powerful rewrite:
+---
 
-Option 1 (transformation, high trust):
-Título: "En 30 días
+## Regla final
+
+Una oferta fundadora debe decir:
+
+> “Si eres `[cliente específico]` y tienes `[dolor concreto]`, usa `[mecanismo específico]` para obtener `[resultado medible]` en `[tiempo]`, con `[prueba]`, y si falla `[garantía]`.”
+
+Tu oferta actual falla en casi todas esas partes.

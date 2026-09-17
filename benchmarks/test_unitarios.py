@@ -870,6 +870,20 @@ def test_toda_suite_fuera_del_promedio_tiene_motivo(datos):
     repo en una ley. El test correcto no es «no hay ninguna», es «cada una tiene su
     razón» — porque la razón es lo que evita que se queden fuera por olvido, que fue el
     fallo original que costó tres suites en silencio.
+
+    ⚠️ 17-sep-2026 · HAY DOS CLASES DE «FUERA DEL PROMEDIO», Y SÓLO UNA CADUCA.
+    La v2 asumía que el motivo era SIEMPRE cobertura, así que al ver una suite rendida por
+    el 80% concluía que la razón había caducado. Pero `tool_calling` la rinde el 97% y está
+    fuera por MEDICIÓN: el juez sólo lee texto y ahí la respuesta correcta ES la llamada a
+    la herramienta, así que puntúa al revés (los que llaman bien ~5,2; los que la ignoran y
+    escriben un párrafo, ~7,5). Ese motivo no caduca por mucha cobertura que junte, y el
+    test pedía «decidí» sobre algo ya decidido. Lo mismo le espera a `extraer_claims`, que
+    está fuera por SATURACIÓN y hoy pasa sólo porque su cobertura es baja.
+
+    El arreglo no es subir el umbral —eso apagaría el aviso para las que sí caducan— sino
+    que el registro lo DECLARE (`fuera_por`) y el test deje de adivinarlo. Es la misma
+    lección del contrato de página y de `del_indice()`: cuando el dato viaja declarado,
+    nadie tiene que reconstruirlo.
     """
     from benchmarks.suites import SUITES
     rankeados = [m for m in datos["models"] if m.get("ranked")]
@@ -879,6 +893,10 @@ def test_toda_suite_fuera_del_promedio_tiene_motivo(datos):
             continue
         if not s.get("nota"):
             malas.append(f"{k}: fuera del promedio y sin motivo escrito")
+            continue
+        # Sólo caduca el motivo «todavía no la rindió suficiente gente». El default es
+        # `cobertura` a propósito: una suite nueva que no declara nada se vigila igual.
+        if s.get("fuera_por", "cobertura") != "cobertura":
             continue
         # Y el motivo tiene que seguir siendo cierto: si ya tiene cobertura, entra.
         n = sum(1 for m in rankeados if k in (m.get("score_by_suite") or {}))

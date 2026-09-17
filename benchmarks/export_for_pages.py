@@ -341,9 +341,25 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # le pone 7.5. Medido: los que llaman bien promedian ~5.2; los que no llaman, ~7.5.
     # Contaminaba quality entre -0.14 y -0.22 justo a los modelos que hacen bien tool
     # calling (12-jul-2026).
+    # 17-sep-2026 · QUÉ SUITES PROMEDIAN LO DECIDE EL REGISTRO, NO ESTA LÍNEA.
+    #
+    # Acá vivía una SEGUNDA definición del índice, por prefijos (`niah`, `prompt_injection`,
+    # `tool_calling`), y divergió del registro sin que nada fallara — que es el mismo patrón
+    # que `check_suites` S5 ya persigue en otros cinco archivos, sólo que escrito como
+    # funciones en vez de como tupla, así que pasó por debajo:
+    #
+    #   · `integridad_idioma` declaraba `en_promedio: False` y NADA la excluía acá, así que
+    #     promediaba en el titular desde que su cobertura pasó el umbral.
+    #   · `tool_calling` declaraba `en_promedio: True` y esta línea lo excluía, así que nunca
+    #     contó.
+    #
+    # Los dos errores se compensaban AL CONTAR (29 declaradas = 29 reales) y por eso nadie
+    # lo vio: el conteo cuadraba y las listas diferían. Lo destapó `simular_jubilacion.py`.
+    # Ahora hay una sola fuente y `check_suites` S6 avisa si vuelven a separarse.
+    from benchmarks.suites import del_indice as _del_indice  # noqa: PLC0415
+    _INDICE = _del_indice()
     general = [r for r in runs
-               if not _is_niah(r) and not _is_security(r)
-               and not _is_tool_calling(r) and not _is_low_coverage(r)]
+               if str(r.get("suite", "")) in _INDICE and not _is_low_coverage(r)]
     niah = [r for r in runs if _is_niah(r)]
     security = [r for r in runs if _is_security(r)]
     tool_runs = [r for r in runs if _is_tool_calling(r)]

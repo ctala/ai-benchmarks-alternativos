@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro (0813)
 
 - **model_id**: `deepseek/deepseek-v4-pro-0813`
-- **Total tests**: 447/447 exitosos (0 errores)
-- **Score final**: 7.34
-- **Calidad**: 8.34
+- **Total tests**: 451/451 exitosos (0 errores)
+- **Score final**: 7.35
+- **Calidad**: 8.35
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 57 tok/s
-- **Latencia primera token**: 48.83s
-- **Costo promedio por test**: $0.01151
+- **Latencia primera token**: 48.98s
+- **Costo promedio por test**: $0.01148
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 16 | 16 | 7.33 | 7.81 |
 | deep_reasoning | 12 | 12 | 6.05 | 6.64 |
 | hallucination | 12 | 12 | 6.59 | 7.00 |
+| integridad_idioma | 4 | 4 | 8.08 | 9.67 |
 | multi_turn | 16 | 16 | 6.48 | 7.17 |
 | news_seo_writing | 17 | 17 | 6.03 | 6.74 |
 | ocr_extraction | 14 | 14 | 8.27 | 9.65 |
@@ -6608,6 +6609,8 @@ Resumen ejecutivo Q1 2026 – TechFlow
 #### content_verificable
 
 #### agent_long_horizon
+
+#### integridad_idioma
 
 #### verificar_claim
 

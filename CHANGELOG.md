@@ -5,6 +5,50 @@
 
 ## [No publicado]
 
+_Vacío a propósito: todo lo anterior salió en v4.15.0. Cada commit nuevo deja su línea acá._
+
+## [v4.15.0] - 2026-09-17 — el índice que declaramos pasa a ser el que promedia: integridad de idioma entra al titular, tool calling sale
+
+- **`integridad_idioma` entra al índice declarada, y `tool_calling` sale (17-sep-2026).** El
+  registro decía una cosa y el titular hacía otra: `integridad_idioma` declaraba
+  `en_promedio: False` y **promediaba igual** desde que su cobertura pasó el umbral, mientras
+  `tool_calling` declaraba `en_promedio: True` y el export lo excluía **por código** (el juez
+  sólo lee texto y en esa suite la respuesta correcta ES la llamada, así que puntúa al revés).
+  Los dos errores **se compensaban al contar** —29 declaradas = 29 reales— y por eso nadie lo
+  vio: el conteo cuadraba y las listas diferían. La causa de raíz era que
+  `export_for_pages.general` mantenía una SEGUNDA definición del índice por prefijos; ahora
+  filtra por `suites.del_indice()` y `check_suites` S6 avisa si vuelven a separarse.
+  **Verificado antes de aplicar:** el conjunto resultante son las mismas 29 suites, y el
+  titular no se movió ni un decimal (0 modelos con `quality_avg` distinto). Lo que sí se mueve
+  son los pilares: Contenido +`integridad_idioma` (mediana 0,040) y Agentes −`tool_calling`
+  (mediana 0,213). **NO se recalibró**: ningún score cambió, así que recalibrar habría sido un
+  evento sin causa.
+  *Por qué entra y no se jubila* — Cristian: *«lo nuestro es negocios en español, tiene que
+  estar; si no entramos a los benchmarks gringos que no nos sirven»*. Un modelo que mete inglés
+  o chino en medio de un texto no sirve para publicar, y ese es el diferencial del benchmark.
+- **32 runs para que los 107 rindan el mismo examen.** `integridad_idioma` nunca se exigió
+  —estaba fuera del índice—, así que 8 rankeados no la tenían: 3 por runs **truncados** con el
+  techo viejo de 2.048 tokens (archivados el 18-ago, correctamente: una nota sobre una respuesta
+  cortada no es una nota), 2 muertos en el **403 de cuota** del 17-ago y 3 a los que nunca se
+  les corrió. Con el presupuesto actual (32.768) ninguno volvió a truncarse: los 32 salieron
+  entre 9,3 y 9,9, y donde en agosto salía 2,0 hoy sale 9,5. Se sumaron 4 runs de Nemotron 3
+  Super, que tenía 3 de 4 tests y habría perdido el ranking al volverse obligatoria la suite.
+  Hoy **107 de 107** la tienen completa. Su `fuente_china_sin_avisar` da 0,0 y es legítimo: el
+  criterio `reject_cjk` es binario y el modelo copió el nombre legal de la empresa en chino.
+- **La última página a mano del sitio pasa a generarse.** De 179 páginas, 177 se generaban y
+  sólo quedaban la calculadora y `glm-5.2-explicado`. Esa última llevaba desde junio sin
+  tocarse y se contradecía sola: el schema.org que lee Google publicaba `security_score 2.69`
+  mientras dos tablas de la misma página decían 1,45; anunciaba «#13 de 79» cuando ya era #26
+  de 107; citaba «juez Phi-4 **local**» tres meses después de que el canónico pasara a ser
+  `phi4-or`; y comparaba contra GLM 5.1 y «Opus 4.8 (sub)», que son `provider_variant`. El
+  guardrail la cazó por UNA cifra y el resto pasaba inadvertido, así que arreglar esa cifra
+  habría dejado la página igual de podrida. Ahora la genera `generate_manual_landings` sin una
+  sola cifra escrita a mano, preservando `datePublished` (Google penaliza falsear la fecha de
+  publicación). **Y un bug que eso destapó:** `_con_contrato` adivinaba los modelos con un
+  regex laxo y en una página explicativa capturó descripciones de celdas
+  (`recomienda: ["Velocidad de generación.", …]`); basura en el contrato deja CIEGO a
+  `auditar_paginas`, que lo lee para detectar modelos retirados. Ahora, si el generador declara
+  su contrato, no se adivina.
 - **Jubilar las suites saturadas NO mejora el ranking, y se midió antes de tocar nada
   (17-sep-2026).** La propuesta era sacar del promedio las suites que ya no separan a nadie
   —16 de 34— para pelear contra la saturación (94 de 107 modelos se solapan con el #1 en su

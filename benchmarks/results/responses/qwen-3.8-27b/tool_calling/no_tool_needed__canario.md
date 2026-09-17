@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — tool_calling/no_tool_needed
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 5.73 | quality: 5.0
-- latency_total: 1.545s | tokens_per_second: 36.9
-- input_tokens: 721 | output_tokens: 57
+- success: True  | final: 5.17 | quality: 5.0
+- latency_total: 9.957s | tokens_per_second: 4.6
+- input_tokens: 765 | output_tokens: 46
 
 ## Entrada exacta (lo que recibió el modelo)
 

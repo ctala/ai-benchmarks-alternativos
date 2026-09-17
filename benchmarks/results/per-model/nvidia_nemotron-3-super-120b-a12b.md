@@ -1,12 +1,12 @@
 # Nemotron 3 Super
 
 - **model_id**: `nvidia/nemotron-3-super-120b-a12b`
-- **Total tests**: 1560/1650 exitosos (90 errores)
+- **Total tests**: 1564/1654 exitosos (90 errores)
 - **Score final**: 7.08
 - **Calidad**: 7.75
 - **Judge score (Phi-4)**: 3.83/10
 - **Velocidad**: 89 tok/s
-- **Latencia primera token**: 38.86s
+- **Latencia primera token**: 39.40s
 - **Costo promedio por test**: $0.00307
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -26,7 +26,7 @@
 | customer_support | 16 | 14 | 8.49 | 9.43 |
 | deep_reasoning | 36 | 36 | 5.54 | 5.25 |
 | hallucination | 18 | 18 | 6.26 | 5.67 |
-| integridad_idioma | 8 | 6 | 7.63 | 8.44 |
+| integridad_idioma | 12 | 10 | 7.23 | 7.96 |
 | multi_turn | 30 | 30 | 6.51 | 6.63 |
 | news_seo_writing | 48 | 48 | 6.64 | 6.66 |
 | niah_es | 657 | 576 | 7.50 | 8.78 |

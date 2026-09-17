@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 7.94 | quality: 10.0
-- latency_total: 426.254s | tokens_per_second: 19.2
-- input_tokens: 293 | output_tokens: 8192
+- success: True  | final: 8.29 | quality: 10.0
+- latency_total: 127.15s | tokens_per_second: 60.9
+- input_tokens: 293 | output_tokens: 7747
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -29,108 +29,251 @@ Ordename el trimestre.
 
 
 
-Veredicto corto:
+Veredicto directo: **este trimestre no haces la reescritura completa ni el panel de métricas**. Haces primero el arreglo del flujo de alta, luego el contenido, y dejas el resto del trimestre para buffer, iteración y, como máximo, un “A-lite” muy acotado.
 
-**Este trimestre haces B y D. A y C no entran.**
-
-Si me obligas a ordenar las cuatro por prioridad:
-
-1. **B** — Arreglar el flujo de alta.  
-2. **D** — Grabar 10 videos.  
-3. **A** — No este trimestre. Como máximo, un spike de 1 semana al final para decidir si la reescritura vale la pena.  
-4. **C** — No. Depende de A; si A no termina, C no existe.
+Tu trimestre debería ser: **convertir más usuarios, validar demanda y crear opción para la reescritura**, no “reescribir la plataforma”.
 
 ---
 
-## 1. Tu capacidad real no da para A
+## 1. Tu capacidad real
 
-Asumo 5 días/semana para no planear sobre quema. Si trabajas 6, la conclusión no cambia.
+Asumo 5 días productivos por semana:
 
-- 8 semanas × 4 h/día × 5 días = **160 h reales para construir**.
-- Con 20% de colchón para soporte, urgencias e imprevistos: **~125-130 h utilizables**.
+- 4 horas/día × 5 días × 8 semanas = **160 horas reales para construir**.
 
-Esforzoo aproximado en semanas de tu capacidad real:
+Si trabajas 6 días, serían 192 horas, pero incluso así la conclusión no cambia.
 
-| Iniciativa | Esfuerzo | Cabe en 8 semanas? | Comentario |
-|---|---:|---|---|
-| **B** | 1 semana | Sí | Alto impacto, corto, directo a activación/ingresos. |
-| **D** | 2 semanas | Sí | Medio impacto, acotado, genera demanda. |
-| **C** | 3 semanas | No tal cual | Depende de A. Si A no termina, C no se puede hacer. |
-| **A** | ~13 semanas | No | 3 meses a tiempo completo no caben en 8 semanas con 4 h/día. |
+### Horas aproximadas
 
-Incluso si “1 semana” la interpretas como semana full-time de 40 h, **A sigue siendo imposible** y **C sigue bloqueada**.
+Si una “semana” de esfuerzo significa una semana de tu trabajo enfocado, 4h/día:
 
----
+| Iniciativa | Esfuerzo | Horas aproximadas |
+|---|---:|---:|
+| B) Arreglar flujo de alta | 1 semana | 20h |
+| C) Panel de métricas | 3 semanas | 60h |
+| D) 10 videos | 2 semanas | 40h |
+| A) Reescribir plataforma | 3 meses full-time | No cabe |
 
-## 2. Orden ejecutivo del trimestre
+A) “3 meses a tiempo completo” depende de cómo lo midas, pero si es full-time clásico:
 
-### Semana 1: **B — Arreglar el flujo de alta**
+- 13 semanas × 40h = **520h**.
+- A tu ritmo de 4h/día y 5 días: 13 semanas × 20h = **260h**.
+- A tu ritmo de 4h/día y 6 días: **312h**.
 
-Esta es la prioridad clara.
+En todos los casos: **A no cabe en 160h**.
 
-Perder al 60% en el paso 2 es una fuga grande. Antes de añadir métricas, contenido o reescribir framework, hay que dejar de perder gente que ya está intentando usar el producto.
-
-Objetivo de la semana:
-
-- Medir bien el embudo: paso 1, paso 2, paso 3, conversión final.
-- Identificar la causa principal del abandono en paso 2.
-- Arreglar el problema más probable.
-- Verificar que la mejora sea real, no solo “creo que está mejor”.
-
-Meta razonable:
-
-- Bajar el abandono del paso 2 de 60% a menos de 35-40%.
-- O conseguir una mejora relativa del 30-50% en completados.
-- Medir impacto en registros, activación, soporte e ingresos.
-
-No la conviertas en una refactorización del signup. Una semana, impacto, medición, siguiente.
+Y C depende de A, así que **C tampoco cabe este trimestre**.
 
 ---
 
-### Semanas 2-3: **D — Grabar 10 videos**
+## 2. Orden recomendado
 
-Después de B, D tiene sentido.
+### Prioridad final
 
-B arregla el embudo. D ayuda a llenarlo.
-
-Para que quepa en 2 semanas, tienes que acotarlo:
-
-- 10 videos cortos o medianos, no documentales.
-- Formato repetible.
-- Guion simple.
-- Grabación por lotes.
-- Edición mínima pero decente.
-- Publicación programada.
-
-Ejemplo:
-
-- Día 1: definir ángulos y guiones.
-- Día 2-3: grabar 5-6 videos.
-- Día 4-5: grabar el resto.
-- Semana 3: editar, subir, programar, medir.
-
-Métricas:
-
-- Leads.
-- Solicitudes de demo o contacto.
-- Registros.
-- Tráfico a signup.
-- Tasa de clic a CTA.
-
-No dejes que la perfección editorial te robe el trimestre.
+1. **B) Arreglar el flujo de alta**
+2. **D) Grabar 10 videos de contenido**
+3. **Buffer + iteración sobre B y D**
+4. **A-lite opcional**, solo si se puede acotar bien
+5. **C) No este trimestre**
 
 ---
 
-### Semanas 4-8: **Buffer, quick wins y preparación del próximo trimestre**
+## 3. Plan por semanas
 
-Aquí es donde la mayoría se equivoca: al terminar B y D, sienten que “les sobra tiempo” y empiezan A.
+### Semana 1: B — Arreglar el flujo de alta
 
-No.
+Objetivo: reducir la pérdida del 60% en el paso 2.
 
-Con una sola persona, el soporte y la operación van a fluctuar. Si planificas al 100%, cualquier ticket, caída, cliente difícil o urgencia te rompe el trimestre.
+No lo conviertas en un proyecto grande. Haz la versión mínima que mejore la conversión.
 
-Las semanas 4-8 las usaría para:
+Acciones:
 
-1. **Proteger el colchón.**
-2. **Revisar datos de B y D.**
-3. **Hacer 1-3 quick wins
+- Medir exactamente dónde se caen.
+- Identificar la fricción principal del paso 2.
+- Hacer 1 o 2 cambios de alto impacto, no 10.
+- Lanzar.
+- Medir antes/después.
+
+Criterio de éxito:
+
+- Menos abandono en el paso 2.
+- Más altas completadas.
+- Menos soporte relacionado con el registro, si aplica.
+
+Si B te lleva 2 semanas en vez de 1, sigue siendo la primera prioridad.
+
+---
+
+### Semanas 2-3: D — 10 videos de contenido
+
+Objetivo: generar demanda o confianza mientras el funnel ya está menos roto.
+
+No hagas D antes que B. Si grabas contenido ahora y lo publicas contra un flujo de alta que pierde al 60% de la gente, estás enviando tráfico a un embudo fugado.
+
+Mejor:
+
+- Semana 2: grabar/editar lote 1.
+- Semana 3: grabar/editar lote 2.
+- Publicar a lo largo del trimestre.
+
+Si B reduce soporte o te deja horas extra, puedes acelerar D.
+
+Si B consume más tiempo del esperado, reduce D a 5 videos en vez de 10. No sacrifiques B por D.
+
+---
+
+### Semana 4: Revisión y decisión
+
+Revisa:
+
+- ¿B mejoró la conversión?
+- ¿Cuántas horas de soporte te ahorra?
+- ¿D está generando pipeline, demos, registros o conversación?
+- ¿Hay un slice de A que tenga sentido?
+
+Aquí decides si tocas A o no.
+
+---
+
+### Semanas 5-8: Buffer + iteración
+
+No llenes estas semanas con “empezar A por empezar”.
+
+Úsalas para:
+
+1. Iterar sobre el flujo de alta.
+2. Reducir fricción en activación.
+3. Publicar contenido.
+4. Medir.
+5. Reducir soporte operativo.
+6. Si cumple criterios, hacer un A-lite.
+
+Deja buffer. Con 160h, no puedes planear el 100% de tu capacidad. Si el soporte sube, si aparece un bug, si un cliente clave necesita algo, necesitas espacio.
+
+---
+
+## 4. ¿Qué hago con A?
+
+No hagas “A completo” este trimestre.
+
+A es alto impacto, sí. Pero es alto impacto **futuro**, no alto impacto **ahora**. B es alto impacto ahora.
+
+Con 8 semanas y 4h/día, una reescritura de 3 meses no termina. Si la empiezas, terminarás el trimestre con:
+
+- Plataforma a medio migrar.
+- Menos tiempo para producto.
+- Posible riesgo técnico.
+- Sin beneficio de usuario claro.
+- Sin poder hacer C.
+
+### Excepción: A-lite
+
+Solo considera A si puedes definir un slice pequeño y terminable.
+
+Ejemplos válidos:
+
+- Migrar un módulo no crítico.
+- Extraer una pieza reutilizable.
+- Crear una capa de API.
+- Reducir un punto de fricción de despliegue.
+- Mejorar un módulo que hoy causa soporte o bugs.
+- Crear feature flags para migrar poco a poco.
+
+Criterios para A-lite:
+
+- Debe terminar en máximo 2-3 semanas.
+- No puede bloquear el resto del producto.
+- Debe tener un criterio de éxito medible.
+- Debe tener plan de rollback.
+- No puede ser “empezar la reescritura”.
+
+Si no puedes definir un A-lite así, **no toques A este trimestre**.
+
+---
+
+## 5. ¿Qué hago con C?
+
+**No este trimestre.**
+
+C depende de A. A no termina. Por tanto, C no existe como iniciativa viable ahora.
+
+Aunque C sea impacto medio y 3 semanas, la dependencia lo hace peor que D.
+
+D es medio impacto, 2 semanas, y no depende de un proyecto gigante.
+
+C es medio impacto, 3 semanas, y depende de un proyecto de 3 meses.
+
+No lo hagas.
+
+---
+
+## 6. Orden final limpio
+
+### Hacer sí
+
+1. **B: arreglar flujo de alta**
+   - Semana 1.
+   - Impacto alto.
+   - Esfuerzo bajo.
+   - Desbloquea el embudo.
+
+2. **D: 10 videos**
+   - Semanas 2-3.
+   - Impacto medio.
+   - Esfuerzo medio.
+   - Genera demanda o confianza.
+
+3. **Buffer / iteración**
+   - Semanas 4-8.
+   - Medir B.
+   - Mejorar activación.
+   - Publicar contenido.
+   - Reducir soporte.
+
+### Hacer solo si se puede acotar
+
+4. **A-lite**
+   - Máximo 2-3 semanas.
+   - Solo si hay un slice terminable y medible.
+   - No la reescritura completa.
+
+### No hacer este trimestre
+
+5. **A completo**
+   - No cabe.
+   - No termina.
+   - No da valor inmediato.
+
+6. **C**
+   - Depende de A.
+   - No es viable.
+
+---
+
+## 7. Reglas para no perder el trimestre
+
+- No empieces A porque “es importante”.
+- No empieces A porque “te dará velocidad futura”.
+- No empieces A si no puedes decir en una frase qué slice terminas y cómo lo mides.
+- No sacrifiques B por A.
+- No hagas C esperando que A termine.
+- Si B reduce soporte, reinvierte esas horas en D o en más experimentos de conversión.
+- Si D no genera nada en 3-4 semanas, reduce el volumen y vuelve a B/activación.
+
+---
+
+## 8. Cierre del trimestre
+
+Para que el trimestre sea un éxito, al final necesitas:
+
+- Flujo de alta medido y mejorado.
+- 10 videos publicados o al menos la mitad, según capacidad real.
+- Datos claros de conversión.
+- Decisión informada sobre A.
+- Un A-lite terminado si lo hiciste.
+- Sin plataforma a medio reescribir.
+- Sin panel de métricas prometido pero no hecho.
+
+Mi recomendación ejecutiva:
+
+> **B primero. D después. Buffer e iteración. A solo como slice pequeño. C fuera del trimestre.**

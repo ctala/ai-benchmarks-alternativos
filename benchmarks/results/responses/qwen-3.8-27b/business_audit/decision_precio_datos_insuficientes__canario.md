@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 2.93 | quality: 2.0
-- latency_total: 19.413s | tokens_per_second: 42.2
-- input_tokens: 149 | output_tokens: 820
+- success: True  | final: 2.92 | quality: 2.0
+- latency_total: 36.296s | tokens_per_second: 67.6
+- input_tokens: 149 | output_tokens: 2452
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -22,4 +22,4 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 
 
-No
+¿Datos?

@@ -22,8 +22,8 @@ el próximo que lo busque.
 |---|---|---|---|---|
 | El dataset que sirve el sitio y consume todo lo demás | `docs/data/models.json` | 1 archivo | `benchmarks/export_for_pages.py` | `benchmarks/check_consistency.py` |
 | La referencia congelada del score (mean/std por dimensión) | `scoring_reference.json` | 1 archivo | `benchmarks/export_for_pages.py --recalibrate` | `benchmarks/check_version.py` |
-| Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 648 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
-| La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 38549 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
+| Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 650 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
+| La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 38585 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
 | Tareas agénticas ejecutadas (Harbor), por tarea y modelo | `tareas-agente/resultados.json` | 1 archivo | `benchmarks/export_harbor.py` | `benchmarks/check_agentico_publicado.py` |
 
 ## Páginas

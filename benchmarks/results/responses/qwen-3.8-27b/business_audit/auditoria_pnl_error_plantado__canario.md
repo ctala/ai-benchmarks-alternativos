@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 8.01 | quality: 10.0
-- latency_total: 260.96s | tokens_per_second: 9.8
-- input_tokens: 261 | output_tokens: 2546
+- success: True  | final: 8.38 | quality: 10.0
+- latency_total: 87.999s | tokens_per_second: 54.9
+- input_tokens: 261 | output_tokens: 4829
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -37,89 +37,147 @@ MARGEN: 40%
 
 
 
-**Primero: no cierran.**
+Primero: **no cierra**.
 
-### 1) Verificación rápida
+## 1. Verificación de números
 
-**Ingresos:**
+**Ingresos**
 
 - Suscripciones: $9.800  
 - Cursos sueltos: $2.600  
 - **Total ingresos: $12.400** ✅ Cierra.
 
-**Costos detallados:**
+**Costos**
 
 - Infraestructura: $1.250  
 - Publicidad: $3.900  
 - Herramientas SaaS: $780  
 - Procesador de pagos: $620  
 - Contenido freelance: $2.600  
-- **Suma real de costos: $9.150** ❌ No cierra con el total que pusiste de $7.400.
 
-Hay una diferencia de:
+Suma real:
+
+**$1.250 + $3.900 + $780 + $620 + $2.600 = $9.150**
+
+Tú pusiste:
+
+**Total costos: $7.400** ❌ No cierra.
+
+La diferencia es:
 
 **$9.150 - $7.400 = $1.750**
 
-Es decir, o falta una partida de $1.750, o alguna de las partidas no es costo de este mes, o hay un error de clasificación.
+Entonces, con los costos que listaste, tu utilidad real no es $5.000, sino:
+
+**$12.400 - $9.150 = $3.250**
+
+Tu margen real no es 40%, sino:
+
+**$3.250 / $12.400 = 26,2%**
 
 ---
 
-### 2) Con los costos reales que suman $9.150
+## 2. Si contratas a $2.500/mes con los números reales
 
-| Concepto | Monto |
-|---|---:|
-| Ingresos | $12.400 |
-| Costos reales | $9.150 |
-| Utilidad actual | $3.250 |
-| Margen real | **26,2%** |
+Costos actuales: $9.150  
+Contratación: $2.500  
 
-Si contratas a alguien por **$2.500**:
+Costos totales:
 
-| Concepto | Monto |
-|---|---:|
-| Utilidad antes de contratar | $3.250 |
-| Nuevo costo | $2.500 |
-| Utilidad después de contratar | **$750** |
-| Margen después de contratar | **6,1%** |
+**$9.150 + $2.500 = $11.650**
 
-**Con eso no me da el número.**
+Utilidad:
 
-Te queda una colchonada mínima. Cualquier variación en publicidad, pagos, churn, temporada o imprevisto te deja en negativo o en números muy peligrosos.
+**$12.400 - $11.650 = $750**
 
----
+Margen:
 
-### 3) Si el total de costos fuera realmente $7.400
+**$750 / $12.400 = 6,1%**
 
-Entonces sí cierra el margen del 40%:
+Con esos números, contratar a $2.500 te deja con **$750 de utilidad mensual** y un margen del **6%**.
 
-| Concepto | Monto |
-|---|---:|
-| Ingresos | $12.400 |
-| Costos | $7.400 |
-| Utilidad | $5.000 |
-| Margen | **40,3%** |
-
-Si contratas por $2.500:
-
-| Concepto | Monto |
-|---|---:|
-| Utilidad después | $2.500 |
-| Margen después | **20,2%** |
-
-En ese escenario **sí sería financieramente viable**, pero no automáticamente inteligente. El nuevo contratado tendría que generar o ahorrar al menos **$2.500 mensuales** en contribución neta.
+Eso es muy ajustado.
 
 ---
 
-## Mi respuesta como controller
+## 3. Si el margen de 40% fuera real
 
-**Con el resumen tal como lo diste: no contrato.**
+Si tus costos realmente fueran $7.400, entonces:
 
-Porque los números no cierran: tus costos suman **$9.150**, no $7.400. Tu margen real es **26,2%**, no 40%. Y si contratas por $2.500, te queda una utilidad de solo **$750**, con un margen de **6,1%**.
+Utilidad actual:
 
-**Sí podría contratar solo si:**
+**$12.400 - $7.400 = $5.000**
 
-1. Se corrige la diferencia de **$1.750** y se confirma que los costos reales son $7.400.  
-2. El nuevo recurso tiene un rol claro que genere al menos **$2.500/mes** adicionales de contribución.  
-3. Tienes visibilidad de churn, CAC y flujo de caja para absorber ese costo fijo.
+Margen:
 
-Hasta que no cierren los números, la respuesta es: **no, no me da el número.**
+**$5.000 / $12.400 = 40,3%**
+
+Si contratas a $2.500:
+
+**$12.400 - $7.400 - $2.500 = $2.500**
+
+Margen:
+
+**$2.500 / $12.400 = 20,2%**
+
+En ese escenario sí podrías contratar, pero te quedarías con un margen del **20%**, no del 40%.
+
+---
+
+## 4. ¿Contrato o no?
+
+**Con los números tal como están: NO.**
+
+Porque no cierran:
+
+- Tu total de costos real suma **$9.150**, no $7.400.
+- Tu margen real es **26,2%**, no 40%.
+- Si contratas a $2.500, tu utilidad baja a **$750**.
+- Tu margen baja a **6,1%**.
+
+Como controller, no apruebo una contratación sobre un margen que no sale de los costos listados.
+
+---
+
+## 5. ¿En qué casos sí podría decir que sí?
+
+Sí, si se cumple alguna de estas condiciones:
+
+### Opción A: Corriges los costos
+
+Si hay un error de $1.750 en la lista de costos y realmente tus costos son $7.400, entonces sí puedes contratar.
+
+Pero quedarías con:
+
+- Utilidad: $2.500
+- Margen: 20,2%
+
+Eso es viable, pero ya no es margen del 40%.
+
+### Opción B: La contratación te genera más de $2.500/mes
+
+Si esa persona te genera al menos **$2.500 adicionales de ingresos netos o ahorro mensual**, entonces sí tiene sentido.
+
+Pero no por el margen que me mostraste, sino por el retorno de la contratación.
+
+### Opción C: Subes ingresos
+
+Con tus costos reales de $9.150 y una contratación de $2.500, para mantener un margen del 40% necesitarías:
+
+**Ingresos necesarios = $19.417**
+
+Es decir, necesitas aumentar ingresos en:
+
+**$19.417 - $12.400 = $7.017/mes**
+
+Eso es un crecimiento del **56,6%** sobre tu ingreso actual.
+
+---
+
+## Mi respuesta directa
+
+**No, con este P&L no me da el número.**
+
+Primero revisa qué línea está inflada o cuál no corresponde al mes. Hay $1.750 de diferencia entre tu total de costos y la suma de los costos.
+
+Con los números presentados, contratar a $2.500 te deja con **$750 de utilidad** y **6% de margen**. Eso no es una decisión financiera sana, salvo que la contratación te genere claramente más valor de lo que cuesta.

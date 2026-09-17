@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — structured_output/json_strict_no_extra
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 9.13 | quality: 10.0
-- latency_total: 3.342s | tokens_per_second: 31.1
-- input_tokens: 123 | output_tokens: 104
+- success: True  | final: 9.16 | quality: 10.0
+- latency_total: 2.559s | tokens_per_second: 49.2
+- input_tokens: 123 | output_tokens: 126
 
 ## Entrada exacta (lo que recibió el modelo)
 

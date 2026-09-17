@@ -1,13 +1,13 @@
 # Qwen 3.5 35B
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
-- **Total tests**: 314/314 exitosos (0 errores)
-- **Score final**: 7.01
-- **Calidad**: 7.33
+- **Total tests**: 318/318 exitosos (0 errores)
+- **Score final**: 7.03
+- **Calidad**: 7.36
 - **Judge score (Phi-4)**: 4.44/10
 - **Velocidad**: 140 tok/s
-- **Latencia primera token**: 20.33s
-- **Costo promedio por test**: $0.00378
+- **Latencia primera token**: 20.68s
+- **Costo promedio por test**: $0.00380
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 8 | 8 | 8.37 | 8.50 |
 | deep_reasoning | 12 | 12 | 7.20 | 7.92 |
 | hallucination | 6 | 6 | 6.19 | 6.33 |
+| integridad_idioma | 4 | 4 | 8.47 | 9.74 |
 | multi_turn | 8 | 8 | 5.88 | 5.62 |
 | news_seo_writing | 18 | 18 | 5.35 | 5.18 |
 | ocr_extraction | 10 | 10 | 7.78 | 8.60 |
@@ -4694,3 +4695,5 @@ El enfoque será **MVP (Producto Mínimo Viable)**: Priorizar la conversión (ca
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### integridad_idioma

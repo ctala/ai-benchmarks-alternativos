@@ -1,13 +1,13 @@
 # Seed 2.0 Code
 
 - **model_id**: `bytedance-seed/seed-2.0-code`
-- **Total tests**: 1758/1758 exitosos (0 errores)
+- **Total tests**: 1762/1762 exitosos (0 errores)
 - **Score final**: 7.61
 - **Calidad**: 8.44
 - **Judge score (Phi-4)**: 3.89/10
 - **Velocidad**: 52 tok/s
-- **Latencia primera token**: 31.63s
-- **Costo promedio por test**: $0.00593
+- **Latencia primera token**: 31.72s
+- **Costo promedio por test**: $0.00595
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 192 | 192 | 7.36 | 8.15 |
 | deep_reasoning | 12 | 12 | 5.88 | 6.64 |
 | hallucination | 98 | 98 | 6.87 | 7.41 |
+| integridad_idioma | 4 | 4 | 8.07 | 9.61 |
 | multi_turn | 54 | 54 | 7.55 | 8.54 |
 | news_seo_writing | 10 | 10 | 6.46 | 7.36 |
 | ocr_extraction | 102 | 102 | 8.17 | 9.42 |
@@ -28021,6 +28022,8 @@ Let me apply my rules in order of priority:
 ### Otras suites
 
 #### content_verificable
+
+#### integridad_idioma
 
 #### business_audit
 

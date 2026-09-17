@@ -1,13 +1,13 @@
 # Qwen 3.8 2.4T (A95B)
 
 - **model_id**: `qwen/qwen3.8-2.4t-a95b`
-- **Total tests**: 387/387 exitosos (0 errores)
-- **Score final**: 6.94
-- **Calidad**: 7.71
+- **Total tests**: 391/391 exitosos (0 errores)
+- **Score final**: 6.95
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.06/10
-- **Velocidad**: 77 tok/s
-- **Latencia primera token**: 28.87s
-- **Costo promedio por test**: $0.02203
+- **Velocidad**: 78 tok/s
+- **Latencia primera token**: 29.19s
+- **Costo promedio por test**: $0.02228
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,6 +28,7 @@
 | dominio_entidad | 18 | 18 | 9.04 | 10.00 |
 | extraer_claims | 9 | 9 | 8.57 | 10.00 |
 | hallucination | 7 | 7 | 7.06 | 7.67 |
+| integridad_idioma | 4 | 4 | 7.87 | 9.59 |
 | multi_turn | 6 | 6 | 6.94 | 7.89 |
 | news_seo_writing | 5 | 5 | 6.13 | 7.24 |
 | ocr_extraction | 9 | 9 | 7.36 | 8.53 |
@@ -4257,6 +4258,8 @@ Está pensado para un equipo que trabaja **lunes a viernes** durante **20 días 
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### integridad_idioma
 
 #### business_strategy
 

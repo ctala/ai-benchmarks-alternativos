@@ -1,7 +1,7 @@
 <!-- doc: generado -->
 # Benchmark de Modelos AI Alternativos: comparación abierta de LLMs en español para N8N, Hermes y emprendedores
 
-**Versión v4.14.0** | Última actualización: 14 de septiembre de 2026 | [📊 Datasheet septiembre](DATASHEET_2026-09.md) · [📄 CheatSheet PDF septiembre](cheatsheet/AI_Model_Benchmark_CheatSheet_Septiembre_2026.pdf) · [📈 Uso real vs calidad](USO_VS_CALIDAD.md)
+**Versión v4.15.0** | Última actualización: 17 de septiembre de 2026 | [📊 Datasheet septiembre](DATASHEET_2026-09.md) · [📄 CheatSheet PDF septiembre](cheatsheet/AI_Model_Benchmark_CheatSheet_Septiembre_2026.pdf) · [📈 Uso real vs calidad](USO_VS_CALIDAD.md)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->68,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
@@ -57,12 +57,12 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 | 2 | **GPT-5.6 Luna** | **8.52** | $1.86 | 11s | openrouter | 162 |
 | 3 | **GLM 5.3** | **8.52** | $7.02 | 69s | openrouter | 193 |
 | 4 | **GLM 5.3 Flash** | **8.51** | $0.80 | 116s | openrouter | 143 |
-| 5 | **Qwen 3.7 Flash** | **8.49** | $0.20 | 29s | openrouter | 163 |
-| 6 | **Tencent Hy3** | **8.49** | $0.83 | 62s | openrouter | 143 |
-| 7 | **Fugu Max** | **8.49** | $9.60 | 35s | openrouter | 143 |
-| 8 | **Gemma 4 31B** | **8.48** | $0.54 | 17s | openrouter | 143 |
-| 9 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
-| 10 | **Claude Opus 4.6** | **8.48** | $39.00 | 33s | openrouter | 213 |
+| 5 | **Qwen 3.8 27B** | **8.50** | $3.89 | 66s | openrouter | 690 |
+| 6 | **Qwen 3.7 Flash** | **8.49** | $0.20 | 29s | openrouter | 163 |
+| 7 | **Tencent Hy3** | **8.49** | $0.83 | 62s | openrouter | 143 |
+| 8 | **Fugu Max** | **8.49** | $9.60 | 35s | openrouter | 143 |
+| 9 | **Gemma 4 31B** | **8.48** | $0.54 | 17s | openrouter | 143 |
+| 10 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 

@@ -1,9 +1,9 @@
 # Qwen 3.8 27B — structured_output/json_array_classification
 
 - model_id: `qwen/qwen3.8-27b`
-- success: True  | final: 8.25 | quality: 10.0
-- latency_total: 71.692s | tokens_per_second: 10.3
-- input_tokens: 217 | output_tokens: 737
+- success: True  | final: 8.79 | quality: 10.0
+- latency_total: 10.743s | tokens_per_second: 53.5
+- input_tokens: 217 | output_tokens: 575
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,4 +27,29 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 
 
-[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[
+  {
+    "id": 1,
+    "category": "shipping",
+    "priority": "urgent",
+    "sentiment": "negative"
+  },
+  {
+    "id": 2,
+    "category": "shipping",
+    "priority": "low",
+    "sentiment": "neutral"
+  },
+  {
+    "id": 3,
+    "category": "billing",
+    "priority": "urgent",
+    "sentiment": "negative"
+  },
+  {
+    "id": 4,
+    "category": "technical",
+    "priority": "high",
+    "sentiment": "negative"
+  }
+]

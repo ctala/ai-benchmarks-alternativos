@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-09-14T09:01:38",
+  "cuando": "2026-09-17T14:34:36",
   "modelos": [
-    "fugu-max"
+    "qwen-3.8-27b"
   ],
   "suites": [
     "tool_calling",

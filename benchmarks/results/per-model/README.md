@@ -41,7 +41,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 33 | [GLM 5.3 Flash](z-ai_glm-5_3-flash.md) | 7.62 | 8.59 | 37 | 213/213 | [ver detalles](z-ai_glm-5_3-flash.md) |
 | 34 | [Devstral 2 (Dic 2025)](mistralai_devstral-2512.md) | 7.61 | 8.38 | 54 | 172/191 | [ver detalles](mistralai_devstral-2512.md) |
 | 35 | [Claude Sonnet 5 (suscripción)](claude-sonnet-5.md) | 7.61 | 9.07 | 41 | 202/206 | [ver detalles](claude-sonnet-5.md) |
-| 36 | [Seed 2.0 Code](bytedance-seed_seed-2_0-code.md) | 7.61 | 8.44 | 52 | 1758/1758 | [ver detalles](bytedance-seed_seed-2_0-code.md) |
+| 36 | [Seed 2.0 Code](bytedance-seed_seed-2_0-code.md) | 7.61 | 8.44 | 52 | 1762/1762 | [ver detalles](bytedance-seed_seed-2_0-code.md) |
 | 37 | [Qwen 2.5 72B](qwen_qwen-2_5-72b-instruct.md) | 7.60 | 8.16 | 31 | 180/197 | [ver detalles](qwen_qwen-2_5-72b-instruct.md) |
 | 38 | [Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)](nvidia_nemotron-3-nano-omni-30b-a3b-reasoning.md) | 7.59 | 7.69 | 203 | 90/100 | [ver detalles](nvidia_nemotron-3-nano-omni-30b-a3b-reasoning.md) |
 | 39 | [Muse Spark 1.3](meta_muse-spark-1_3.md) | 7.57 | 8.60 | 142 | 213/213 | [ver detalles](meta_muse-spark-1_3.md) |
@@ -70,10 +70,10 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 62 | [Nemotron 3 Base 33B (DGX Spark Q4_K_M)](nemotron3_33b-q4_k_m.md) | 7.37 | 7.72 | 63 | 90/90 | [ver detalles](nemotron3_33b-q4_k_m.md) |
 | 63 | [MiniMax M2.7 (directo)](minimax-m2_7.md) | 7.37 | 7.80 | 53 | 353/353 | [ver detalles](minimax-m2_7.md) |
 | 64 | [DeepSeek V4 Flash (OpenRouter)](deepseek_deepseek-v4-flash.md) | 7.36 | 7.93 | 47 | 327/331 | [ver detalles](deepseek_deepseek-v4-flash.md) |
-| 65 | [MiniMax M3](minimax_minimax-m3.md) | 7.35 | 8.24 | 55 | 387/404 | [ver detalles](minimax_minimax-m3.md) |
-| 66 | [MiMo-V2-Pro](xiaomi_mimo-v2-pro.md) | 7.35 | 8.16 | 51 | 83/93 | [ver detalles](xiaomi_mimo-v2-pro.md) |
-| 67 | [Solar Pro 4](upstage_solar-pro4.md) | 7.34 | 7.87 | 34 | 229/233 | [ver detalles](upstage_solar-pro4.md) |
-| 68 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.34 | 8.34 | 57 | 447/447 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
+| 65 | [DeepSeek V4 Pro (0813)](deepseek_deepseek-v4-pro-0813.md) | 7.35 | 8.35 | 57 | 451/451 | [ver detalles](deepseek_deepseek-v4-pro-0813.md) |
+| 66 | [MiniMax M3](minimax_minimax-m3.md) | 7.35 | 8.24 | 55 | 387/404 | [ver detalles](minimax_minimax-m3.md) |
+| 67 | [MiMo-V2-Pro](xiaomi_mimo-v2-pro.md) | 7.35 | 8.16 | 51 | 83/93 | [ver detalles](xiaomi_mimo-v2-pro.md) |
+| 68 | [Solar Pro 4](upstage_solar-pro4.md) | 7.34 | 7.87 | 34 | 229/233 | [ver detalles](upstage_solar-pro4.md) |
 | 69 | [Qwen 3.5 397B (NIM)](qwen_qwen3_5-397b-a17b.md) | 7.34 | 8.31 | 24 | 98/98 | [ver detalles](qwen_qwen3_5-397b-a17b.md) |
 | 70 | [Hermes 4 405B](nousresearch_hermes-4-405b.md) | 7.33 | 8.03 | 33 | 535/560 | [ver detalles](nousresearch_hermes-4-405b.md) |
 | 71 | [GPT-5.6 Terra Pro](openai_gpt-5_6-terra-pro.md) | 7.33 | 8.73 | 111 | 413/414 | [ver detalles](openai_gpt-5_6-terra-pro.md) |
@@ -86,7 +86,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 78 | [Claude Sonnet 5](anthropic_claude-sonnet-5.md) | 7.31 | 8.52 | 59 | 400/400 | [ver detalles](anthropic_claude-sonnet-5.md) |
 | 79 | [DeepSeek V3.2](deepseek_deepseek-chat.md) | 7.30 | 8.06 | 27 | 309/309 | [ver detalles](deepseek_deepseek-chat.md) |
 | 80 | [Inkling Small](thinkingmachines_inkling-small.md) | 7.29 | 8.06 | 62 | 218/222 | [ver detalles](thinkingmachines_inkling-small.md) |
-| 81 | [Qwen 3.8 27B](qwen_qwen3_8-27b.md) | 7.29 | 8.17 | 35 | 734/808 | [ver detalles](qwen_qwen3_8-27b.md) |
+| 81 | [Qwen 3.8 27B](qwen_qwen3_8-27b.md) | 7.29 | 8.18 | 35 | 738/812 | [ver detalles](qwen_qwen3_8-27b.md) |
 | 82 | [Ministral 14B (NIM)](mistralai_ministral-14b-instruct-2512.md) | 7.29 | 7.83 | 21 | 89/100 | [ver detalles](mistralai_ministral-14b-instruct-2512.md) |
 | 83 | [Qwen3-Coder-Next (OpenRouter FP8)](qwen_qwen3-coder-next.md) | 7.28 | 7.52 | 74 | 249/255 | [ver detalles](qwen_qwen3-coder-next.md) |
 | 84 | [Gemini 2.5 Flash Lite](google_gemini-2_5-flash-lite.md) | 7.27 | 7.64 | 79 | 315/319 | [ver detalles](google_gemini-2_5-flash-lite.md) |
@@ -98,7 +98,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 90 | [Llama 3.3 70B](meta-llama_llama-3_3-70b-instruct.md) | 7.25 | 7.57 | 30 | 184/184 | [ver detalles](meta-llama_llama-3_3-70b-instruct.md) |
 | 91 | [Ministral 14B](mistralai_ministral-14b-2512.md) | 7.24 | 7.25 | 66 | 185/185 | [ver detalles](mistralai_ministral-14b-2512.md) |
 | 92 | [Qwen 3-Next 80B Instruct (NIM)](qwen_qwen3-next-80b-a3b-instruct.md) | 7.24 | 7.75 | 42 | 164/170 | [ver detalles](qwen_qwen3-next-80b-a3b-instruct.md) |
-| 93 | [Seed 2.1 Turbo](bytedance-seed_seed-2-1-turbo.md) | 7.24 | 8.11 | 53 | 1336/1336 | [ver detalles](bytedance-seed_seed-2-1-turbo.md) |
+| 93 | [Seed 2.1 Turbo](bytedance-seed_seed-2-1-turbo.md) | 7.24 | 8.11 | 53 | 1340/1340 | [ver detalles](bytedance-seed_seed-2-1-turbo.md) |
 | 94 | [Granite 4.2 8B](ibm-granite_granite-4_2-8b.md) | 7.23 | 7.50 | 81 | 184/184 | [ver detalles](ibm-granite_granite-4_2-8b.md) |
 | 95 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 7.23 | 7.60 | 33 | 246/255 | [ver detalles](google_gemma-4-31b-it.md) |
 | 96 | [Qwen 3.5 397B (Ollama Cloud)](qwen3_5_397b-cloud.md) | 7.23 | 7.97 | 68 | 60/70 | [ver detalles](qwen3_5_397b-cloud.md) |
@@ -122,20 +122,20 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 114 | [MiMo-V2.5 Pro](xiaomi_mimo-v2_5-pro.md) | 7.10 | 7.64 | 47 | 181/181 | [ver detalles](xiaomi_mimo-v2_5-pro.md) |
 | 115 | [Grok 4.6](x-ai_grok-4_6.md) | 7.09 | 8.17 | 54 | 178/178 | [ver detalles](x-ai_grok-4_6.md) |
 | 116 | [Mistral Large 3 675B](mistralai_mistral-large-2512.md) | 7.09 | 7.46 | 49 | 176/176 | [ver detalles](mistralai_mistral-large-2512.md) |
-| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.09 | 7.95 | 43 | 15379/15443 | [ver detalles](moonshotai_kimi-k2_5.md) |
+| 117 | [Kimi K2.5](moonshotai_kimi-k2_5.md) | 7.09 | 7.95 | 43 | 15383/15447 | [ver detalles](moonshotai_kimi-k2_5.md) |
 | 118 | [Step 3.5 Flash (NIM)](stepfun-ai_step-3_5-flash.md) | 7.09 | 7.96 | 42 | 72/82 | [ver detalles](stepfun-ai_step-3_5-flash.md) |
 | 119 | [Gemini 3.8 Flash](google_gemini-3_8-flash.md) | 7.09 | 7.88 | 90 | 213/213 | [ver detalles](google_gemini-3_8-flash.md) |
-| 120 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 7.08 | 7.75 | 89 | 1560/1650 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
+| 120 | [Nemotron 3 Super](nvidia_nemotron-3-super-120b-a12b.md) | 7.08 | 7.75 | 89 | 1564/1654 | [ver detalles](nvidia_nemotron-3-super-120b-a12b.md) |
 | 121 | [DeepSeek V3](deepseek_deepseek-v3_2.md) | 7.08 | 7.46 | 29 | 178/178 | [ver detalles](deepseek_deepseek-v3_2.md) |
 | 122 | [Mistral Large 3 675B (NIM)](mistralai_mistral-large-3-675b-instruct-2512.md) | 7.08 | 8.38 | 11 | 86/100 | [ver detalles](mistralai_mistral-large-3-675b-instruct-2512.md) |
 | 123 | [Nemotron Super 49B v1.5 (NIM)](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) | 7.07 | 7.61 | 28 | 96/101 | [ver detalles](nvidia_llama-3_3-nemotron-super-49b-v1_5.md) |
 | 124 | [GLM 5 (NIM)](z-ai_glm5.md) | 7.05 | 8.21 | 7 | 88/99 | [ver detalles](z-ai_glm5.md) |
 | 125 | [KAT Coder Pro v2.5](kwaipilot_kat-coder-pro-v2_5.md) | 7.04 | 7.42 | 83 | 332/332 | [ver detalles](kwaipilot_kat-coder-pro-v2_5.md) |
-| 126 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 7.02 | 8.16 | 12 | 101/101 | [ver detalles](z-ai_glm-5_1.md) |
-| 127 | [Kimi K2.6](moonshotai_kimi-k2_6.md) | 7.02 | 8.36 | 43 | 352/399 | [ver detalles](moonshotai_kimi-k2_6.md) |
-| 128 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 7.02 | 8.39 | 41 | 265/265 | [ver detalles](anthropic_claude-opus-4-6.md) |
-| 129 | [GPT-4.1](gpt-4_1.md) | 7.01 | 7.48 | 68 | 191/191 | [ver detalles](gpt-4_1.md) |
-| 130 | [Qwen 3.5 35B](qwen_qwen3_5-35b-a3b.md) | 7.01 | 7.33 | 140 | 314/314 | [ver detalles](qwen_qwen3_5-35b-a3b.md) |
+| 126 | [Qwen 3.5 35B](qwen_qwen3_5-35b-a3b.md) | 7.03 | 7.36 | 140 | 318/318 | [ver detalles](qwen_qwen3_5-35b-a3b.md) |
+| 127 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 7.02 | 8.16 | 12 | 101/101 | [ver detalles](z-ai_glm-5_1.md) |
+| 128 | [Kimi K2.6](moonshotai_kimi-k2_6.md) | 7.02 | 8.36 | 43 | 352/399 | [ver detalles](moonshotai_kimi-k2_6.md) |
+| 129 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 7.02 | 8.39 | 41 | 265/265 | [ver detalles](anthropic_claude-opus-4-6.md) |
+| 130 | [GPT-4.1](gpt-4_1.md) | 7.01 | 7.48 | 68 | 191/191 | [ver detalles](gpt-4_1.md) |
 | 131 | [Claude Opus 4.7 (suscripción)](claude-opus-4-7.md) | 7.01 | 8.27 | 53 | 70/87 | [ver detalles](claude-opus-4-7.md) |
 | 132 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.01 | 7.11 | 54 | 190/190 | [ver detalles](gpt-4_1-mini.md) |
 | 133 | [Qwen 3.5 (Ollama Cloud default)](qwen3_5_cloud.md) | 7.01 | 7.61 | 73 | 56/66 | [ver detalles](qwen3_5_cloud.md) |
@@ -147,13 +147,13 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 139 | [Llama 3.1 8B Instant](meta-llama_llama-3_1-8b-instruct.md) | 6.97 | 6.62 | 84 | 197/197 | [ver detalles](meta-llama_llama-3_1-8b-instruct.md) |
 | 140 | [Gemini 3.7 Flash](google_gemini-3_7-flash.md) | 6.96 | 7.40 | 102 | 646/646 | [ver detalles](google_gemini-3_7-flash.md) |
 | 141 | [MiniMax M3 (directo / sub)](minimax-m3.md) | 6.95 | 7.98 | 30 | 243/251 | [ver detalles](minimax-m3.md) |
-| 142 | [GLM 5](z-ai_glm-5.md) | 6.95 | 7.69 | 49 | 178/178 | [ver detalles](z-ai_glm-5.md) |
-| 143 | [Qwen 3.8 2.4T (A95B)](qwen_qwen3_8-2_4t-a95b.md) | 6.94 | 7.71 | 77 | 387/387 | [ver detalles](qwen_qwen3_8-2_4t-a95b.md) |
+| 142 | [Qwen 3.8 2.4T (A95B)](qwen_qwen3_8-2_4t-a95b.md) | 6.95 | 7.73 | 78 | 391/391 | [ver detalles](qwen_qwen3_8-2_4t-a95b.md) |
+| 143 | [GLM 5](z-ai_glm-5.md) | 6.95 | 7.69 | 49 | 178/178 | [ver detalles](z-ai_glm-5.md) |
 | 144 | [Qwen3 Coder](qwen_qwen3-coder.md) | 6.92 | 7.08 | 56 | 190/190 | [ver detalles](qwen_qwen3-coder.md) |
 | 145 | [Claude Opus 5](anthropic_claude-opus-5.md) | 6.92 | 8.16 | 55 | 590/590 | [ver detalles](anthropic_claude-opus-5.md) |
 | 146 | [Claude Opus 5 (suscripción)](claude-opus-5.md) | 6.91 | 8.44 | 46 | 117/118 | [ver detalles](claude-opus-5.md) |
-| 147 | [Qwen 3-Next 80B Thinking (NIM)](qwen_qwen3-next-80b-a3b-thinking.md) | 6.88 | 7.10 | 106 | 192/192 | [ver detalles](qwen_qwen3-next-80b-a3b-thinking.md) |
-| 148 | [Qwen 3.8 Max](qwen_qwen3_8-max.md) | 6.88 | 7.88 | 42 | 384/384 | [ver detalles](qwen_qwen3_8-max.md) |
+| 147 | [Qwen 3.8 Max](qwen_qwen3_8-max.md) | 6.89 | 7.89 | 42 | 388/388 | [ver detalles](qwen_qwen3_8-max.md) |
+| 148 | [Qwen 3-Next 80B Thinking (NIM)](qwen_qwen3-next-80b-a3b-thinking.md) | 6.88 | 7.10 | 106 | 192/192 | [ver detalles](qwen_qwen3-next-80b-a3b-thinking.md) |
 | 149 | [Claude Opus 4.8](anthropic_claude-opus-4_8.md) | 6.88 | 8.23 | 49 | 285/300 | [ver detalles](anthropic_claude-opus-4_8.md) |
 | 150 | [Claude Opus 5 Fast](anthropic_claude-opus-5-fast.md) | 6.86 | 7.94 | 134 | 569/569 | [ver detalles](anthropic_claude-opus-5-fast.md) |
 | 151 | [GPT-5.5](gpt-5_5.md) | 6.85 | 7.92 | 55 | 689/696 | [ver detalles](gpt-5_5.md) |

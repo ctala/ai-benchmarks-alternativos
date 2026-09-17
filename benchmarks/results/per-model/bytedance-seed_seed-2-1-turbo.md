@@ -1,13 +1,13 @@
 # Seed 2.1 Turbo
 
 - **model_id**: `bytedance-seed/seed-2-1-turbo`
-- **Total tests**: 1336/1336 exitosos (0 errores)
+- **Total tests**: 1340/1340 exitosos (0 errores)
 - **Score final**: 7.24
 - **Calidad**: 8.11
 - **Judge score (Phi-4)**: 4.11/10
 - **Velocidad**: 53 tok/s
-- **Latencia primera token**: 71.66s
-- **Costo promedio por test**: $0.01193
+- **Latencia primera token**: 71.83s
+- **Costo promedio por test**: $0.01196
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -26,6 +26,7 @@
 | customer_support | 96 | 96 | 7.13 | 7.71 |
 | deep_reasoning | 48 | 48 | 6.25 | 7.22 |
 | hallucination | 56 | 56 | 6.73 | 7.29 |
+| integridad_idioma | 4 | 4 | 7.97 | 9.54 |
 | multi_turn | 32 | 32 | 7.04 | 8.17 |
 | news_seo_writing | 40 | 40 | 5.65 | 6.16 |
 | ocr_extraction | 72 | 72 | 6.86 | 7.65 |
@@ -21995,6 +21996,8 @@ Aquí tienes la información de los candidatos estructurada en el formato JSON s
 </details>
 
 ### Otras suites
+
+#### integridad_idioma
 
 #### business_audit
 

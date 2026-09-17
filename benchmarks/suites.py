@@ -242,9 +242,23 @@ SUITES = {
 
     # ── Agentes ───────────────────────────────────────────────────────────────
     "tool_calling": {
-        "pilar": "Agentes", "en_promedio": True,
+        "pilar": "Agentes", "en_promedio": False,
+        # `fuera_por`: por qué no promedia. "cobertura" (el default) CADUCA cuando la
+        # rinde suficiente gente; "medicion" y "saturacion" no caducan nunca. Sin este
+        # campo, el test de motivos veía el 97% de cobertura y pedía re-decidir algo ya
+        # decidido.
+        "fuera_por": "medicion",
         "menu": "Tool calling (llamada de funciones)",
         "decide": "llamar bien las funciones",
+        "nota": "FUERA del promedio desde el 17-sep-2026 — y de hecho lo estuvo siempre: "
+                "`export_for_pages.general` lo excluía POR CÓDIGO mientras el registro "
+                "declaraba lo contrario, así que nunca contó en el titular dijera lo que "
+                "dijera esta tabla. El motivo de la exclusión es bueno y está medido: el "
+                "juez sólo lee TEXTO, y en esta suite la respuesta correcta ES la llamada a "
+                "la herramienta, así que al modelo que la hace limpia le pone 1/5 ('no "
+                "proporciona detalles') y al que la ignora y escribe un párrafo, 7.5. "
+                "Contaminaba `quality` entre -0,14 y -0,22 justo a los que hacen bien tool "
+                "calling. Se sigue publicando como badge: `tool_calling_score_avg`.",
     },
     "tool_calling_adversarial": {
         "pilar": "Agentes", "en_promedio": True,
@@ -328,6 +342,7 @@ SUITES = {
     },
     "extraer_claims": {
         "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "saturacion",   # no caduca con la cobertura: su nota ya lo dice
         "menu": "Extraer los datos verificables de un texto",
         "decide": "sacar TODOS los datos, no solo los fáciles",
         "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
@@ -339,6 +354,7 @@ SUITES = {
     },
     "dominio_entidad": {
         "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "saturacion",   # 100% de runs perfectos, dispersión 0,00
         "menu": "Encontrar el sitio oficial de una empresa",
         "decide": "elegir el dominio real, o abstenerse",
         "nota": "FUERA DEL PROMEDIO POR SATURACIÓN, no por cobertura. `validate_suite.py` "
@@ -367,12 +383,18 @@ SUITES = {
                 "posible para un chatbot de cara al público.",
     },
     "integridad_idioma": {
-        "pilar": None, "en_promedio": False,
+        "pilar": "Contenido", "en_promedio": True,
         "menu": "Integridad de idioma (no mezclar idiomas)",
         "decide": "no meter otro idioma en medio del texto",
-        "nota": "suite nueva (12-ago-2026, 17 modelos). Se reporta aparte hasta tener "
-                "cobertura: entrar al promedio con 17 de 138 mediría el sesgo de quién se "
-                "midió, no el idioma.",
+        "nota": "entró al promedio el 17-sep-2026 con 107/107 rankeados medidos (100%). "
+                "Estuvo fuera por cobertura —17 de 138 en agosto, y con esa muestra habría "
+                "medido el sesgo de quién se midió primero—, pero esa razón caducó y el "
+                "export la promediaba igual desde que pasó el umbral: el registro decía una "
+                "cosa y el titular hacía otra (lo vigila `check_suites` S6). Entra DECLARADA "
+                "porque medir decisiones de negocio EN ESPAÑOL es el diferencial de este "
+                "benchmark —Cristian, 17-sep: *«lo nuestro es negocios en español, tiene que "
+                "estar»*—: un modelo que mete inglés o chino en medio de un texto no sirve "
+                "para publicar. Completar los 8 que faltaban costó 32 runs.",
     },
 }
 

@@ -1,13 +1,13 @@
 # Qwen 3.8 27B
 
 - **model_id**: `qwen/qwen3.8-27b`
-- **Total tests**: 734/808 exitosos (74 errores)
+- **Total tests**: 738/812 exitosos (74 errores)
 - **Score final**: 7.29
-- **Calidad**: 8.17
+- **Calidad**: 8.18
 - **Judge score (Phi-4)**: 3.96/10
 - **Velocidad**: 35 tok/s
-- **Latencia primera token**: 49.82s
-- **Costo promedio por test**: $0.00477
+- **Latencia primera token**: 50.75s
+- **Costo promedio por test**: $0.00490
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,7 +28,7 @@
 | dominio_entidad | 6 | 0 | - | - |
 | extraer_claims | 5 | 0 | - | - |
 | hallucination | 25 | 25 | 6.57 | 7.15 |
-| integridad_idioma | 4 | 0 | - | - |
+| integridad_idioma | 8 | 4 | 7.97 | 9.68 |
 | multi_turn | 37 | 37 | 7.53 | 8.76 |
 | news_seo_writing | 5 | 5 | 5.89 | 6.77 |
 | ocr_extraction | 27 | 27 | 8.45 | 9.88 |

@@ -1,13 +1,13 @@
 # Qwen 3.8 Max
 
 - **model_id**: `qwen/qwen3.8-max`
-- **Total tests**: 384/384 exitosos (0 errores)
-- **Score final**: 6.88
-- **Calidad**: 7.88
+- **Total tests**: 388/388 exitosos (0 errores)
+- **Score final**: 6.89
+- **Calidad**: 7.89
 - **Judge score (Phi-4)**: 4.14/10
 - **Velocidad**: 42 tok/s
-- **Latencia primera token**: 49.50s
-- **Costo promedio por test**: $0.02385
+- **Latencia primera token**: 50.35s
+- **Costo promedio por test**: $0.02402
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -28,6 +28,7 @@
 | dominio_entidad | 18 | 18 | 8.77 | 10.00 |
 | extraer_claims | 9 | 9 | 8.44 | 10.00 |
 | hallucination | 7 | 7 | 6.84 | 7.67 |
+| integridad_idioma | 4 | 4 | 7.75 | 9.52 |
 | multi_turn | 10 | 10 | 6.92 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.09 | 7.34 |
 | ocr_extraction | 9 | 9 | 8.12 | 9.64 |
@@ -4217,6 +4218,8 @@ Recomendación:
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### integridad_idioma
 
 #### business_strategy
 

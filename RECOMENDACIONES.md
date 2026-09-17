@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-09-16 · 107 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-09-17 · 107 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,17 +19,17 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
-- **Usá:** **DeepSeek V3.2** — ≈$5/mes (calidad en Agentes 8.70/10)
+- **Usá:** **DeepSeek V3.2** — ≈$5/mes (calidad en Agentes 8.87/10)
 - _1 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **Qwen 3.8 Flash** — ≈$2/mes (calidad en Contenido 9.10/10)
-- **Lo que te ahorrás:** Claude Fable 5 cuesta ≈$234/mes (**104.0× más**) por apenas -0.00 de calidad — dentro del margen de error.
+- **Usá:** **Qwen 3.8 Flash** — ≈$2/mes (calidad en Contenido 9.15/10)
+- **Lo que te ahorrás:** Claude Opus 5 Fast cuesta ≈$234/mes (**104.0× más**) por apenas -0.01 de calidad — dentro del margen de error.
 - **Mejor open-source:** **GLM 5.3 Flash** — ≈$2/mes (calidad en Contenido 8.92/10)
-- _17 modelos empatan en calidad en este pilar._
+- _15 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -63,7 +63,7 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**48 modelos empatan en calidad** en la cima del ranking global.
+**49 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Poolside Laguna XS 2.1** — sale **≈$1/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.
