@@ -30,6 +30,8 @@ S4. Toda suite con pilar y `en_promedio: False` tiene el motivo escrito. Es la c
     que estuvo tres veces sin declarar: medida, con pilar natural, y fuera del promedio.
     Se reporta como AVISO, no como fallo — la decisión de meterlas mueve números
     publicados y se toma con simulación (`PLAN-ESTABILIDAD.md`), no de pasada.
+S6. Lo que el registro DECLARA sobre el promedio es lo que el export HACE. También
+    AVISO: hoy nace en rojo, y un bloqueante que arranca fallando se aprende a ignorar.
 
 Uso:  python benchmarks/check_suites.py
 """
@@ -82,9 +84,61 @@ def s5_nadie_reimplementa_el_indice(verbose=False) -> list[str]:
     return []
 
 
+def s6_lo_declarado_es_lo_que_promedia(verbose=False) -> list[str]:
+    """El registro dice qué suites promedian. ¿Es eso lo que el export hace?
+
+    17-sep-2026. Salió de simular la jubilación de las suites saturadas
+    (`simular_jubilacion.py`): al reconstruir el índice REAL se vio que `del_indice()`
+    declara 29 suites y el conjunto que de verdad promedia el titular también son 29 —
+    pero NO son las mismas:
+
+      · `tool_calling` declara `en_promedio: True` y `export_for_pages.general` lo excluye
+        POR CÓDIGO (el juez sólo lee texto y lo puntúa al revés: al que hace la llamada
+        limpia le pone 1/5).
+      · `integridad_idioma` declara `en_promedio: False` y NADA lo excluye, así que
+        promedia en el titular en cuanto su cobertura pasa el umbral. Hoy la pasa.
+
+    Los dos errores se compensan AL CONTAR (29 = 29), que es exactamente por qué nadie lo
+    vio: contar da lo mismo y las listas difieren. Y no es cosmético — sacar
+    `integridad_idioma` del promedio cambia el #1 del ranking.
+
+    No importa `export_for_pages` (arrastra el SDK de OpenAI, que tuvo el CI 40 días en
+    rojo): lee su FUENTE y saca de ahí qué excluye, para que agregar una exclusión nueva
+    quede cubierto solo.
+    """
+    fuente = (ROOT / "benchmarks" / "export_for_pages.py").read_text(errors="ignore")
+    bloque = fuente[fuente.find("def _is_niah"):fuente.find("def _is_agentic")]
+    if not bloque:
+        return ["S6 · no se pudo leer qué excluye `general` en export_for_pages.py"]
+    prefijos = set(re.findall(r'startswith\(\s*["\'](\w+)["\']', bloque))
+    exactos = set(re.findall(r'==\s*["\'](\w+)["\']', bloque))
+    m = re.search(r"MIN_SUITE_COVERAGE\s*=\s*([\d.]+)", fuente)
+    umbral = f"{float(m.group(1)):.0%}" if m else "el umbral"
+
+    def excluida_por_codigo(s: str) -> bool:
+        return any(s.startswith(p) for p in prefijos) or s in exactos
+
+    avisos = []
+    contradicen = [k for k, s in SUITES.items()
+                   if s["en_promedio"] and excluida_por_codigo(k)]
+    for k in sorted(contradicen):
+        avisos.append(f"S6 · `{k}` declara `en_promedio: True` y el export lo EXCLUYE por "
+                      f"código: nunca promedia, diga lo que diga el registro")
+    colados = sorted(k for k, s in SUITES.items()
+                     if not s["en_promedio"] and not excluida_por_codigo(k))
+    if colados:
+        avisos.append(f"S6 · {len(colados)} suite(s) declaran `en_promedio: False` y nada "
+                      f"las excluye: entran al titular en cuanto su cobertura pase "
+                      f"{umbral}, sin que nadie lo decida → {', '.join(colados)}")
+    if verbose and not avisos:
+        print("  ✅ S6 · lo que el registro declara es lo que el export promedia")
+    return avisos
+
+
 def main() -> int:
     fallos, avisos = [], []
     fallos += s5_nadie_reimplementa_el_indice(True)
+    avisos += s6_lo_declarado_es_lo_que_promedia(True)
     d = json.loads(MODELS_JSON.read_text())
 
     # ── S1 · toda suite medida está en el registro ─────────────────────────

@@ -333,6 +333,36 @@ def _t_suites():
         return _correr("check_suites.py") != 0
 
 
+@prueba("check_suites S6", "una suite que dice no promediar y sí promedia")
+def _t_suites_declarado_vs_real():
+    """S6 es un AVISO, no un fallo: el exit code no cambia, así que se lee el texto.
+
+    Y como S6 NACE con dos avisos (`tool_calling`, `integridad_idioma`), un control
+    global «verde antes de romper» es imposible — sería un sabotaje sobre un mundo ya
+    sucio, que es el falso verde que este archivo existe para evitar. Así que el control
+    es POR SUITE: `reasoning` no debe aparecer hoy, y debe aparecer tras el sabotaje.
+    """
+    reg = ROOT / "benchmarks" / "suites.py"
+
+    def s6_menciona(texto: str) -> bool:
+        salida = subprocess.run([PY, str(ROOT / "benchmarks" / "check_suites.py")],
+                                capture_output=True, text=True, cwd=ROOT).stdout
+        return any("S6" in ln and texto in ln for ln in salida.splitlines())
+
+    if s6_menciona("reasoning"):
+        return False  # control sucio: ya sale antes de romper nada, no prueba nada
+    with Sabotaje(reg):
+        original = reg.read_text(encoding="utf-8")
+        roto = original.replace(
+            '"reasoning": {\n        "pilar": "Razonamiento", "en_promedio": True,',
+            '"reasoning": {\n        "pilar": "Razonamiento", "en_promedio": False,', 1)
+        if roto == original:
+            raise AssertionError(
+                "el sabotaje no cambió nada: `reasoning` ya no se declara así en suites.py")
+        reg.write_text(roto, encoding="utf-8")
+        return s6_menciona("reasoning")
+
+
 @prueba("qa Q15", "una página de comparación publicada que ya nadie regenera")
 def _t_huerfanas():
     d = ROOT / "docs" / "modelo-fantasma-vs-otro"

@@ -5,6 +5,34 @@
 
 ## [No publicado]
 
+- **Jubilar las suites saturadas NO mejora el ranking, y se midió antes de tocar nada
+  (17-sep-2026).** La propuesta era sacar del promedio las suites que ya no separan a nadie
+  —16 de 34— para pelear contra la saturación (94 de 107 modelos se solapan con el #1 en su
+  IC95). Se simuló contra los runs en disco, que es lo que manda para un cambio de
+  presentación, y el resultado fue el contrario del esperado: quitar las 11 suites que no
+  separan sube la dispersión entre modelos (0,257 → 0,303) pero sube MÁS RÁPIDO el IC95 de
+  cada uno (0,376 → 0,522), porque el índice pasa de 143 tests a 96 y la incertidumbre crece
+  con 1/raíz(n). Los modelos que se solapan con el #1 **empeoran de 94 a 102**; con el corte
+  extremo (12 suites) la señal/ruido cae de 0,68 a 0,54. Conclusión: quitar tareas fáciles no
+  crea señal, tira muestra — lo que separa es AGREGAR tareas difíciles. Queda
+  `simular_jubilacion.py`, que reutiliza `aggregate_metrics` (la misma función que produce el
+  JSON publicado) y **se niega a simular si antes no reproduce el quality_avg de los 107
+  modelos publicados**: hoy lo reproduce con error 0,0000 en mediana y en máximo.
+- **El índice que declaramos no es el que promedia (17-sep-2026).** Lo destapó la simulación
+  anterior: `del_indice()` declara 29 suites y el conjunto que de verdad promedia el titular
+  también son 29 — pero no son las mismas. `tool_calling` declara `en_promedio: True` y
+  `export_for_pages.general` lo excluye por código (el juez sólo lee texto y le pone 1/5 al
+  que hace la llamada limpia); `integridad_idioma` declara `en_promedio: False` y nada lo
+  excluye, así que promedia en cuanto su cobertura pasa el 80% — hoy está en 86%. Los dos
+  errores **se compensan al contar** (29 = 29), que es exactamente por qué nadie lo vio: el
+  conteo cuadra y las listas difieren. No es cosmético: sin `integridad_idioma` en el promedio
+  el #1 cambia (Tencent Hy3 sube de #6 a #1), así que la decisión es de Cristian y queda
+  anotada en `DECISIONES.md`, no se toma de pasada. Entra `S6` en `check_suites.py`
+  comparando lo que el registro declara contra lo que el export excluye — como **AVISO**,
+  porque nace en rojo y un bloqueante que arranca fallando se aprende a ignorar. Lee el
+  FUENTE del export en vez de importarlo (importarlo arrastra el SDK de OpenAI, que tuvo el
+  CI 40 días en rojo) y trae su sabotaje: como S6 nace con dos avisos, el control no puede ser
+  global —sería sabotear un mundo ya sucio— así que es por suite.
 - **Tag `v4.13.0+main` y `check_version` V4 (15-sep-2026).** El tag v4.13.0 apunta a
   `65a65fb62`, que un rebase del 3-sep dejó fuera de main: 11 días sin que nada fallara, y
   `git describe` saltaba a v4.12.0, así que `check_changelog` comparaba contra la versión
