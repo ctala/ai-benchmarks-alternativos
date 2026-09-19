@@ -23,7 +23,8 @@ Al arreglarlo, en vez de tirar las mediciones duplicadas las conservamos: son el
 
 QUÉ MÉTRICAS USA — Y CUÁLES NO
 ------------------------------
-Usa SOLO métricas crudas: calidad promedio del juez, tokens/s y TTFT. NO usa
+Usa SOLO métricas crudas: calidad del juez sobre las suites COMUNES a los dos caminos,
+tokens/s y latencia TOTAL (no TTFT: eso no lo medimos). NO usa
 `score_global`, que es un z-score contra la población: medir un modelo nuevo recalcula
 el score de todos, así que cualquier cifra de score que se escriba acá caduca sola.
 Las crudas no se mueven cuando entra un modelo nuevo. La página se regenera y sigue
@@ -64,6 +65,10 @@ SELF_HOSTED = {"llama_server", "llama_server_think", "ollama", "diffusion_cli"}
 
 MIN_RUNS = 50          # misma vara que el ranking: con menos, la diferencia puede ser azar
 UMBRAL_GRAVE = 1.0     # ≥1 punto de calidad = el proveedor te cambia el modelo
+# Terreno común mínimo entre dos variantes para que la comparación signifique algo. Con
+# menos suites compartidas el promedio depende demasiado de CUÁLES tocaron, que es el
+# error que esta página cometió hasta el 19-sep-2026 (ver `parejas`).
+MIN_SUITES_COMUNES = 10
 
 
 def familia(nombre):
@@ -87,7 +92,25 @@ def parejas(models, prov):
     Se excluyen los self-hosted: su velocidad es la de TU máquina, no la de un
     datacenter, y mezclarlos acá compararía una GPU de escritorio con un cluster.
     Eso no es una diferencia de proveedor, es otra pregunta.
+
+    ⚠️ 19-sep-2026 · SE COMPARA SOBRE LAS SUITES COMUNES, NO SOBRE `quality_avg`.
+    Hasta hoy el delta era la resta de los `quality_avg` de cada variante, y esas
+    variantes NO rindieron el mismo examen: la canónica suele tener 30-33 suites y la del
+    proveedor alternativo 24. Restar sus medias es comparar exámenes distintos — el mismo
+    error que `check_dispersion_proveedor` documenta (su v1 daba 3,33 de diferencia en
+    Kimi K2.5 y era falso) y que el CLAUDE.md ya había pagado con «MiniMax audita mejor
+    que Opus 4.8».
+
+    Lo publicado quedaba inflado de forma desordenada: Qwen 3.5 397B +0,56 cuando lo real
+    era +0,35 (62% de más), Kimi K2.5 +0,71 contra +0,59, pero Ministral 14B +0,25 cuando
+    lo real era +0,46 (subestimado). El fenómeno es real —el proveedor cambia el
+    resultado— pero cada cifra estaba mal.
+
+    Ahora: se intersectan las suites de las variantes, se promedia cada una SOBRE ESE
+    conjunto, y si comparten menos de `MIN_SUITES_COMUNES` no se publica el par: sin
+    terreno común no hay comparación que hacer.
     """
+    import statistics as _st
     g = {}
     for m in models:
         if m.get("quality_avg") is None or m.get("runs", 0) < MIN_RUNS or m.get("retired"):
@@ -99,9 +122,14 @@ def parejas(models, prov):
     for fam, ms in g.items():
         if len(ms) < 2:
             continue
-        ms.sort(key=lambda x: -(x.get("quality_avg") or 0))
-        dq = (ms[0]["quality_avg"] or 0) - (ms[-1]["quality_avg"] or 0)
-        out.append({"fam": fam, "ms": ms, "dq": dq})
+        suites = [set(m.get("quality_by_suite") or {}) for m in ms]
+        comunes = set.intersection(*suites) if suites else set()
+        if len(comunes) < MIN_SUITES_COMUNES:
+            continue
+        q = {m["name"]: _st.mean([m["quality_by_suite"][s] for s in comunes]) for m in ms}
+        ms.sort(key=lambda m: -q[m["name"]])
+        dq = q[ms[0]["name"]] - q[ms[-1]["name"]]
+        out.append({"fam": fam, "ms": ms, "dq": dq, "q": q, "comunes": len(comunes)})
     out.sort(key=lambda x: -x["dq"])
     return out
 
@@ -127,15 +155,19 @@ def tabla(pares):
             filas.append(
                 f"<tr{mejor}>{fam_cell}"
                 f"<td>{esc(via)}</td>"
-                f"<td>{n(m.get('quality_avg'))}</td>"
+                # La calidad mostrada es la del terreno COMÚN, no el `quality_avg` de cada
+                # variante: si no, la columna y el delta contarían exámenes distintos.
+                f"<td>{n(p['q'].get(m['name']))}</td>"
                 f"<td>{n(m.get('tokens_per_second'), 0)}</td>"
+                # `latency_avg_s` es latencia TOTAL. Llamarle TTFT es un claim que la data
+                # no sostiene (CLAUDE.md) — y esta página lo decía hasta el 19-sep-2026.
                 f"<td>{n(m.get('latency_avg_s'), 1, 's')}</td>"
                 f"<td>{m['runs']}</td>{delta}</tr>"
             )
     return (
         '<div class="table-scroll"><table class="results-table">'
         "<thead><tr><th>Modelo</th><th>Se llama por</th><th>Calidad</th>"
-        "<th>tok/s</th><th>TTFT</th><th>Runs</th><th>Δ calidad</th></tr></thead>"
+        "<th>tok/s</th><th>Latencia total</th><th>Runs</th><th>Δ calidad</th></tr></thead>"
         f"<tbody>{''.join(filas)}</tbody></table></div>"
     )
 
@@ -153,10 +185,11 @@ def veredicto(pares):
     va = VIA.get(a.get("provider") or "openrouter", "?")
     vb = VIA.get(b.get("provider") or "openrouter", "?")
     return f"""<p><strong>{esc(peor['fam'])} es el caso más grave.</strong> Servido por
-{esc(va)} da <strong>{n(a['quality_avg'])}</strong> de calidad. Servido por {esc(vb)},
-<strong>{n(b['quality_avg'])}</strong>. Son <strong>{peor['dq']:.2f} puntos</strong> — el
-mismo modelo, los mismos pesos, la misma pregunta. La diferencia no está en el modelo:
-está en cómo lo sirven (cuantización, configuración, versión).</p>
+{esc(va)} da <strong>{n(peor['q'].get(a['name']))}</strong> de calidad. Servido por {esc(vb)},
+<strong>{n(peor['q'].get(b['name']))}</strong>. Son <strong>{peor['dq']:.2f} puntos</strong>
+sobre las <strong>{peor['comunes']} tareas que ambos rindieron</strong> — el mismo modelo,
+los mismos pesos, las mismas preguntas. La diferencia no está en el modelo: está en cómo lo
+sirven (cuantización, configuración, versión).</p>
 
 <p>Si elegiste {esc(peor['fam'])} porque lo viste bien rankeado y lo estás llamando por
 {esc(vb)}, no estás usando el modelo que creés que elegiste.</p>"""
@@ -201,8 +234,11 @@ columna sería cero en todas las filas.</strong></p>
 
 {tabla(pares)}
 
-<p class="meta">La calidad es el promedio del juez sobre tareas reales (0-10). El TTFT es
-el tiempo hasta el primer token. No usamos el score global del ranking acá a propósito:
+<p class="meta">La calidad es el promedio del juez sobre <strong>las tareas que ambos
+caminos rindieron</strong> (0-10): restar sus medias completas sería comparar exámenes
+distintos, porque a cada variante le tocaron suites diferentes. La latencia es el tiempo
+<strong>total</strong> de la respuesta, no el tiempo hasta el primer token. No usamos el
+score global del ranking acá a propósito:
 ese es un z-score contra toda la población y se recalcula cada vez que entra un modelo
 nuevo. Estas tres columnas son crudas — no se mueven.</p>
 

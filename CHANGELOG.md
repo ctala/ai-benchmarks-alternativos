@@ -5,6 +5,21 @@
 
 ## [No publicado]
 
+- **La página de proveedores comparaba exámenes distintos, y publicaba un claim falso
+  (19-sep-2026).** `/mismo-modelo-distinto-proveedor/` restaba los `quality_avg` de cada
+  variante para decir cuánto cambia un modelo según quién lo sirva — pero la entrada canónica
+  suele tener 30-33 suites y la del proveedor alternativo 24. **Restar esas medias es comparar
+  exámenes distintos**, el mismo error que `check_dispersion_proveedor` documenta desde agosto
+  (su v1 daba 3,33 en Kimi K2.5 y era falso) y que el CLAUDE.md ya había pagado con «MiniMax
+  audita mejor que Opus 4.8». Ahora se intersectan las suites, se promedia sobre ese terreno
+  común y el par no se publica si comparten menos de 10. El efecto era desordenado, no
+  sistemático: Qwen 3.5 397B publicaba +0,56 cuando lo real es +0,35 (62% de más), Kimi K2.5
+  +0,71 contra +0,59, pero **Qwen 3-Next 80B estaba SUBESTIMADO** (+0,35 publicado, +0,53
+  real). Ninguna conclusión cambia de categoría —ningún par cruzaba ni cruza el umbral de 1
+  punto—, así que era un problema de precisión, no de veredicto. **Y el claim falso:** la
+  tabla titulaba **TTFT** una columna que muestra `latency_avg_s`, o sea latencia TOTAL. El
+  CLAUDE.md dice literalmente que llamarle TTFT es «un claim que la data no sostiene», y la
+  página lo decía igual. Ahora dice «Latencia total» y el texto explica qué mide.
 - **La decisión sobre OpenSpec llega al índice, tres días tarde (19-sep-2026).** Se descartó el
   16-sep con su motivo —resuelve «escribir la intención antes de codear», y todos los fallos de
   esa semana fueron *una regla correcta sin instrumento*; adoptarlo sumaría una segunda fuente de
