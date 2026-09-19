@@ -58,6 +58,12 @@ SANCIONADOS = {
     # soporta cada modelo y cuál es su default) para escribir la foto versionada. Ni un
     # prompt, ni un modelo llamado. Mismo falso positivo que el de arriba.
     "benchmarks/effort.py",
+    # NO mide: consulta `/api/v1/models/{id}/endpoints` para leer QUIÉN sirve cada modelo,
+    # a qué precio, con qué contexto y con qué cuantización. Ni un prompt, ni un modelo
+    # llamado — es metadata, igual que `effort.py`. Lo delata hablar con openrouter.ai, que
+    # es justo la señal que este chequeo busca, y prefiero ese sobresalto a que se escape
+    # uno que sí mida. (Si algún día este script empieza a puntuar algo, sale de esta lista.)
+    "benchmarks/generate_censo_proveedores.py",
     # NO mide: instancia el provider para ESPIAR el request que se armaría y corta
     # con una excepción antes de que salga a la red (ver `_espiar_request`). Está acá
     # justamente porque el 2-sep se descubrió que la única forma de comprobar que un

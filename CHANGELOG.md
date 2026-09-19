@@ -5,6 +5,22 @@
 
 ## [No publicado]
 
+- **El censo de por dónde se puede consumir cada modelo (19-sep-2026).** El benchmark decía
+  **qué modelo** y cuánto cuesta por token en OpenRouter, y nada sobre **cómo consumirlo** —
+  Cristian, usando Qwen por un token plan servido desde Singapur: *«una vez que ya definas el
+  modelo que quieres, la idea es que sea aún más eficiente… contra qué proveedor»*. Ahora
+  `generate_censo_proveedores.py` consulta los endpoints de cada rankeado y deja
+  `docs/data/censo_proveedores.json`: **102 de 107 modelos, 67 proveedores distintos**, con
+  precio, contexto y cuantización de cada uno. Lo que muestra: **76 modelos los sirve más de
+  un proveedor** (GLM 5.3, treinta y cuatro) y **21 no tienen elección** — `Qwen 3.8 Flash`
+  sale de Alibaba o no sale. Y el precio no es lo único que cambia: en `Qwen 3.8 27B` el más
+  barato ($0,10) sirve en **fp4** y el de $0,15 en **bf16**; en `Qwen 3.8 2.4T` los siete
+  proveedores cobran lo mismo ($2/$6) dando unos fp4 con 262K de contexto y otros fp8 con 1M.
+  Eso explica lo que el repo ya medía sin poder atribuirlo: el mismo modelo rinde distinto
+  según quién lo sirva, y no es «el proveedor» sino la cuantización con la que te lo entrega.
+  **No entra a `regenerate_all`** (el pipeline no puede depender de una API externa) y su
+  `--check` sólo mira la fecha, sin red: avisa a los 30 días, informativo, porque bloquear
+  por un dato que envejece solo convierte al QA en algo que se saltea.
 - **La página de proveedores comparaba exámenes distintos, y publicaba un claim falso
   (19-sep-2026).** `/mismo-modelo-distinto-proveedor/` restaba los `quality_avg` de cada
   variante para decir cuánto cambia un modelo según quién lo sirva — pero la entrada canónica

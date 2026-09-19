@@ -57,6 +57,13 @@ CHEQUEOS = [
     # string fijo. Bloqueante porque nació en verde.
     ("datos", "el effort de razonamiento sale de la regla y de la foto de OpenRouter",
      [PY, "benchmarks/check_effort.py"], True, True),
+    # 19-sep-2026 · INFORMATIVO a propósito. Sólo mira la FECHA del censo (no toca la red,
+    # así que el QA sigue corriendo offline). Bloquear por un dato externo que envejece
+    # solo convertiría al QA en algo que se saltea. Avisa a los 30 días porque precios y
+    # cuantizaciones cambian sin aviso — así se pudrió `SUSCRIPCIONES.md`, con precios de
+    # abril vivos en septiembre.
+    ("datos", "el censo de por dónde se puede consumir cada modelo no está viejo",
+     [PY, "benchmarks/generate_censo_proveedores.py", "--check"], False, True),
     ("calculadora", "el app.js real contra los datos reales, wizard incluido",
      ["node", "benchmarks/qa_calculadora.mjs"], True, True),
     ("calculadora", "sus filtros y umbrales siguen alineados con lo que sirve",

@@ -25,6 +25,7 @@ el próximo que lo busque.
 | Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 650 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
 | La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 38585 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
 | Tareas agénticas ejecutadas (Harbor), por tarea y modelo | `tareas-agente/resultados.json` | 1 archivo | `benchmarks/export_harbor.py` | `benchmarks/check_agentico_publicado.py` |
+| Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización | `docs/data/censo_proveedores.json` | 1 archivo | `benchmarks/generate_censo_proveedores.py` | `benchmarks/generate_censo_proveedores.py` |
 
 ## Páginas
 

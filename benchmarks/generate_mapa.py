@@ -58,6 +58,13 @@ ARTEFACTOS = [
     {"que": "Tareas agénticas ejecutadas (Harbor), por tarea y modelo",
      "ruta": "tareas-agente/resultados.json", "genera": "benchmarks/export_harbor.py",
      "vigila": "benchmarks/check_agentico_publicado.py", "grupo": "Dato"},
+    # El único artefacto que sale de una API EXTERNA, y por eso caduca solo: su generador
+    # no corre en `regenerate_all` (el pipeline no puede depender de OpenRouter) y su
+    # `--check` mira la fecha sin tocar la red.
+    {"que": "Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización",
+     "ruta": "docs/data/censo_proveedores.json",
+     "genera": "benchmarks/generate_censo_proveedores.py",
+     "vigila": "benchmarks/generate_censo_proveedores.py", "grupo": "Dato"},
 
     # ── lo que ve un lector ──
     {"que": "FICHA POR MODELO — una por cada rankeado",
