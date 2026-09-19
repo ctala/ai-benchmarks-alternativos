@@ -5,7 +5,21 @@
 
 ## [No publicado]
 
-_Vacío a propósito: todo lo anterior salió en v4.15.0. Cada commit nuevo deja su línea acá._
+- **La decisión sobre OpenSpec llega al índice, tres días tarde (19-sep-2026).** Se descartó el
+  16-sep con su motivo —resuelve «escribir la intención antes de codear», y todos los fallos de
+  esa semana fueron *una regla correcta sin instrumento*; adoptarlo sumaría una segunda fuente de
+  verdad para las decisiones— pero **quedó sólo en la memoria de la sesión**, que Cristian no lee.
+  Volvió a preguntar *«¿entonces no usaremos OpenSpec?»* y tenía razón: una decisión que no está
+  en `DECISIONES.md` no está tomada. La fila lo dice, incluida su propia tardanza.
+- **Skill `abrir-sesion`**, complemento del de cierre. Nace de *«me preocupa saltarme etapas»* tras
+  una sesión que empezó en «simulemos jubilar lo saturado» y terminó publicando una versión,
+  midiendo 36 runs y tocando el blog. El diagnóstico es contraintuitivo: las etapas de
+  verificación NO se saltaron —se simuló antes, hubo control verde, guardrail con sabotaje y QA—;
+  lo que faltó fue el mapa, porque cada salto de alcance se aprobó por separado y nunca se vio el
+  tamaño real del trabajo. El skill pide declarar objetivo, clase de cambio (presentación vs
+  medición), superficies, costo, qué verifica cada etapa y **dónde se para**, para cambiar ocho
+  «¿sigo?» por una aprobación de alcance. No crea una segunda fuente de verdad: el plan es de la
+  sesión, las decisiones siguen yendo a `DECISIONES.md`.
 
 ## [v4.15.0] - 2026-09-17 — el índice que declaramos pasa a ser el que promedia: integridad de idioma entra al titular, tool calling sale
 
