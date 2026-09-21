@@ -130,16 +130,16 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | Tests por modelo | **186 tests en 31 suites** (incluye multi-turno) |
 | Runs preservados en JSON | **<!-- AUTO:tests_marketing -->68,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
-| **Costo APIs (OpenAI/OpenRouter/MiniMax/Anthropic/Xiaomi)** | **~$350-400 USD** desde el 11 de abril, + gasto continuo de OpenRouter cada mes para las actualizaciones |
-| **Suscripciones + modelos simultáneos** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para poder probar) | **~$300/mes** |
+| **Costo APIs** | **Más de US$580 solo en OpenRouter** (al 21-sep-2026) y sigue con cada actualización, más lo gastado en APIs directas (OpenAI, MiniMax) |
+| **Suscripciones** (Claude, MiniMax, Kimi, ChatGPT: varias a la vez para poder probar, y también las uso para mi trabajo) | **~US$300/mes** |
 | **Tiempo wall-clock** del benchmark (cómputo cloud) | **~190h** acumuladas |
 | **Tiempo de cómputo local** (Phi-4 judge en Mac M-series + DGX Spark) | **~50h GPU** |
 | **Tiempo humano** (diseño de tests, debugging, análisis, docs) | **~80-100h** |
 | Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
 
-**Costo real de mantener este benchmark**: APIs **$350-400** acumuladas + **~$300/mes en suscripciones simultáneas** (Xiaomi, MiniMax, Claude, Ollama Cloud — varias a la vez para probar modelos) + gasto continuo de OpenRouter cada mes para las actualizaciones + **130-150h de cómputo** entre cloud y local + **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
+**Costo real de mantener este benchmark**: más de **US$580 en OpenRouter** (al 21-sep-2026), que sigue creciendo con cada actualización, más las APIs directas; **~US$300/mes en suscripciones** que comparto con mi trabajo; **130-150h de cómputo** entre cloud y local y **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
 
-> El número "$200+" no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
+> La cifra de APIs no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
 >
 > 1. **Iteración de metodología** (cientos de runs antes de instrumentar `cost_usd`/`output_tokens`): exploración de qué tests, qué scoring, qué juez, cómo medir thinking models.
 > 2. **Respuestas vacías facturadas a precio completo**: 165+ corridas de thinking models (Kimi K2.6, GPT-5.5, GLM-5.1, Nemotron) consumieron `max_tokens=2048` razonando y devolvieron `content=""`. **OpenRouter cobra esos tokens igual** — el modelo razonó, los tokens se generaron. Solo que no llegaron como respuesta visible.
@@ -149,6 +149,10 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 > El cálculo automático con `python benchmarks/calculate_costs.py --markdown` da una estimación sobre los runs preservados con PRICING actualizado. **El dashboard de OpenRouter reporta más** acumulado — la diferencia incluye iteración de metodología no preservada en JSONs, retries, y otros consumos del usuario en OpenRouter.
 
 Regla práctica: **un emprendedor que quiera replicar este benchmark desde cero gastaría ~$100-200 en APIs + ~50h de trabajo + el costo invisible de iterar la metodología**. Acá ya está hecho con todos los hallazgos — abre [RECOMENDACIONES.md](RECOMENDACIONES.md) y elegí por plataforma + tarea + presupuesto.
+
+**Si te sirve, puedes ayudar a sostenerlo.** Hasta hoy no tiene ningún aporte externo. Si te ahorró una mala elección de modelo, puedes aportar desde [GitHub Sponsors](https://github.com/sponsors/ctala), una vez o todos los meses. Lo que entre va primero a medir: tokens de OpenRouter y re-mediciones. Lo que sobre, a correr en todos los modelos las pruebas que hoy me salto en los caros: en Opus 5 Fast, solo la de contexto largo cuesta casi US$49. Las suscripciones no las cuento, porque esos modelos también los uso para mi trabajo, y las horas que le dedico no las cobro.
+
+**Qué no se acepta:** dinero o créditos de empresas con modelos en el ranking o de los proveedores que los venden (el benchmark también compara proveedores). Aportar no cambia posiciones, el orden en que se miden los modelos ni la metodología. El juez es Phi-4 porque Microsoft no tiene modelos en el ranking. Recibir dinero de quien sí los tiene sería el mismo conflicto de interés que se evitó al elegir el juez.
 
 ## Modelos en suscripción mensual (NO son gratis)
 
