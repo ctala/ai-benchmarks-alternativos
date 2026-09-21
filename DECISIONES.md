@@ -73,6 +73,7 @@
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
 |---|---|---|---|---|
+| 21-sep-2026 | **Vigente** | **Aportes solo por GitHub Sponsors, y cero dinero o créditos de empresas con modelos en el ranking o de proveedores que los venden.** Aportar no cambia posiciones, el orden en que se miden los modelos ni la metodología | El benchmark vale por ser neutral, la misma razón por la que el juez es Phi-4. Open Collective no aplicaba: exige repo de organización y cobra 10% | [README](README.md#lo-que-te-ahorras-al-usar-este-benchmark) · [perfil de Sponsors](https://github.com/sponsors/ctala) |
 | 13-ago-2026 | **Vigente** | **Presentación ≠ medición.** La presentación se simula antes y puede cambiar; la medición cambia **una vez por trimestre** | Lo que se rehizo tres veces en dos días costó $0 — el desgaste era rotación de decisiones, no dinero | [PLAN-ESTABILIDAD R1](PLAN-ESTABILIDAD.md) |
 | 13-ago-2026 | **Vigente** | Las suites se **agregan, no se reemplazan** | Una suite nueva cuesta $29-43 y no invalida ningún run. Editar una existente invalida todo el histórico | [PLAN-ESTABILIDAD R2](PLAN-ESTABILIDAD.md) |
 | 13-ago-2026 | **Vigente** | Calendario: día 1 = release con presentación **congelada**; ventana trimestral para medición | Que dejar de ser sorpresa | [PLAN-ESTABILIDAD §4](PLAN-ESTABILIDAD.md) |
