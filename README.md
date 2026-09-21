@@ -137,7 +137,7 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | **Tiempo humano** (diseño de tests, debugging, análisis, docs) | **~80-100h** |
 | Iteración de metodología | cientos de runs no documentados antes del scoring v2 |
 
-**Costo real de mantener este benchmark**: más de **US$580 en OpenRouter** (al 21-sep-2026), que sigue creciendo con cada actualización, más las APIs directas; **~US$300/mes en suscripciones** que comparto con mi trabajo; **130-150h de cómputo** entre cloud y local y **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT.
+**Costo real de mantener este benchmark**: más de **US$580 en OpenRouter** (al 21-sep-2026), que sigue creciendo con cada actualización, más las APIs directas; **~US$300/mes en suscripciones** que comparto con mi trabajo; **130-150h de cómputo** entre cloud y local y **80-100h de trabajo humano** (research, debugging, análisis, docs). Acá ya está hecho — disponible bajo MIT (código) y CC BY 4.0 (datos y resultados).
 
 > La cifra de APIs no es solo lo medido. Hay 4 categorías de costo que el `cost_usd` calculado **NO captura**:
 >
@@ -270,7 +270,7 @@ print(f"Recomendación: {caso['top_models'][0]['model_id']}")
 print(f"Razón: {caso['top_models'][0]['reason']}")
 ```
 
-Si construís un agente que recomiende modelos, leé AGENTS.md primero — la regla #0 es **"no existe un mejor modelo universal"**.
+Si construyes un agente que recomiende modelos, lee AGENTS.md primero — la regla #0 es **"no existe un mejor modelo universal"**.
 
 ## Comunidad y soporte
 
@@ -279,3 +279,11 @@ Si construís un agente que recomiende modelos, leé AGENTS.md primero — la re
 - 📺 **[YouTube](https://www.youtube.com/@cristiantalasanchez)** — workshops y tutoriales
 - 💼 **[LinkedIn](https://linkedin.com/in/ctala)** — ecosistema startup chileno
 - 🐛 **[Issues en GitHub](https://github.com/ctala/ai-benchmarks-alternativos/issues)** — bugs, sugerencias, modelos a agregar
+- 💛 **[GitHub Sponsors](https://github.com/sponsors/ctala)** — para ayudar a sostener las mediciones
+
+## Licencia
+
+- **Código** (medición, runner, scoring, sitio y calculadora): [MIT](LICENSE).
+- **Datos, resultados y textos** (`docs/data/`, `benchmarks/results/`, metodología, datasheets y análisis): [CC BY 4.0](LICENSE-DATA). Puedes usarlos y republicarlos, incluso con fines comerciales, siempre que cites la fuente:
+
+> Fuente: [Benchmark de IA en español de Cristian Tala](https://benchmarks.cristiantala.com)
