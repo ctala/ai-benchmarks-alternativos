@@ -5,6 +5,16 @@
 
 ## [No publicado]
 
+- **Un lote se versiona modelo a modelo, en su rama (Regla 4 del RUNBOOK, 26-sep-2026).**
+  Cristian, antes de lanzar el lote: *«ir generando versiones cada vez que terminas uno (…)
+  además de hacer push a la branch correspondiente»*, y con la pregunta correcta pegada:
+  *«no sé si está documentado»*. **No lo estaba** — los lotes anteriores iban directo a
+  `main` en un commit final. Importa porque un lote de 6 modelos son horas y la sesión se
+  muere de verdad (el 14 y el 17-sep, Claude Code mató sus tareas en segundo plano por
+  memoria): sin commits intermedios no se sabe qué quedó completo, y un modelo dudoso obliga
+  a auditar el lote entero. Ahora: rama `lote/<fecha>-<nombre>`, commit del alta ANTES de
+  medir, commit + push por cada modelo terminado con sus runs y sus respaldos, y
+  `regenerate_all` + QA + merge **sólo al final** — el ranking se mueve una vez, no seis.
 - **El censo de por dónde se puede consumir cada modelo (19-sep-2026).** El benchmark decía
   **qué modelo** y cuánto cuesta por token en OpenRouter, y nada sobre **cómo consumirlo** —
   Cristian, usando Qwen por un token plan servido desde Singapur: *«una vez que ya definas el
