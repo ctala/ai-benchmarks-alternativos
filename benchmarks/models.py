@@ -606,6 +606,98 @@ MODELS = {
             "patrón `qwen3.8` de THINKING_MODELS ya lo cubre."
         ),
     },
+    # ── Lote 26-sep-2026: la generación nueva de OpenAI + el eje de vídeo ──────────
+    "gpt-6-luna": {
+        "id": "openai/gpt-6-luna",
+        "name": "GPT-6 Luna",
+        "cost_input": 0.10,
+        "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "context_window": 1050000,
+        "multimodal": True,
+        "notes": (
+            "GPT-6 (22-sep-2026), el tier rápido y barato por debajo de Sol. Cuesta la "
+            "MITAD que GPT-5.6 Luna ($0.20/$1.20), que hoy es #2 del ranking: la "
+            "generación nueva bajó el precio en vez de subirlo. No acepta vídeo (texto, "
+            "imagen y archivo). Declarado en THINKING_MODELS con el patrón `gpt-6` — el "
+            "`gpt-5` viejo no lo cubría."
+        ),
+    },
+    "gpt-6-luna-pro": {
+        "id": "openai/gpt-6-luna-pro",
+        "name": "GPT-6 Luna Pro",
+        "cost_input": 0.10,
+        "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "context_window": 1050000,
+        "multimodal": True,
+        "notes": (
+            "MISMO modelo base que GPT-6 Luna, servido con `reasoning.mode: pro`. Se mide "
+            "aparte a propósito: el par (base, pro) es el experimento natural para saber "
+            "cuánto aporta el modo de razonamiento al MISMO precio, que es justo lo que el "
+            "estudio de effort no pudo resolver observacionalmente."
+        ),
+    },
+    "bonsai-2-27b": {
+        "id": "prism-ml/ternary-bonsai-2-27b",
+        "name": "Bonsai 2 27B",
+        "cost_input": 0.075,
+        "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "multimodal": True,
+        "notes": (
+            "Derivado de Qwen3.8-27B con COMPRESIÓN TERNARIA. Se mide para responder algo "
+            "que nadie publica: cuánta calidad pierde un modelo al comprimirlo, contra su "
+            "original que ya tenemos medido (#5, calidad 8.50). Cuesta 1/3 de la entrada y "
+            "1/5 de la salida del Qwen original."
+        ),
+    },
+    "qwen3.8-omni-flash": {
+        "id": "qwen/qwen3.8-omni-flash",
+        "name": "Qwen 3.8 Omni Flash",
+        "cost_input": 0.15,
+        "cost_output": 0.47,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "multimodal": True,
+        "notes": (
+            "Omni-modal: texto, imagen, AUDIO y VÍDEO nativos, con capacidades agénticas. "
+            "Entra por el eje que el benchmark no cubre — hoy no hay suite de vídeo, así "
+            "que se mide el examen estándar y el vídeo queda como capacidad declarada."
+        ),
+    },
+    "mimo-v2.6-flash": {
+        "id": "xiaomi/mimo-v2.6-flash",
+        "name": "MiMo V2.6 Flash",
+        "cost_input": 0.14,
+        "cost_output": 0.28,
+        "tier": "ultra_cheap",
+        "context_window": 1048576,
+        "open_source": True,
+        "multimodal": True,
+        "notes": (
+            "MoE de 309B totales / 15B activos, open source según Xiaomi. Texto, imagen, "
+            "vídeo y audio. La salida cuesta la mitad que la entrada de casi todos sus "
+            "pares. Declarado thinking con el patrón `mimo-v2.6` (NO `mimo`, que habría "
+            "cambiado el tratamiento de los V2.5 ya medidos)."
+        ),
+    },
+    "ling-3.0-flash-vl": {
+        "id": "inclusionai/ling-3.0-flash-vl",
+        "name": "Ling 3.0 Flash VL",
+        "cost_input": 0.021,
+        "cost_output": 0.062,
+        "tier": "ultra_cheap",
+        "context_window": 262144,
+        "multimodal": True,
+        "notes": (
+            "MoE 124B totales / 5.5B activos sobre Ling 3.0 Flash, con visión y vídeo. "
+            "EL MÁS BARATO del catálogo con vídeo: $0.021/$0.062 por millón. Su hermano "
+            "sin visión ya aparece recomendado para outreach; esto mide si la variante VL "
+            "mantiene la calidad de texto. Cubierto por el patrón `ling-3.0`."
+        ),
+    },
     "glm-5.3-flash": {
         # 1-sep-2026 · la variante barata del GLM 5.3 que entró al #2 del ranking. Cuesta
         # $0,07/$0,25 contra $1,40/$4,40 del grande: 18 veces menos. Si sostiene buena

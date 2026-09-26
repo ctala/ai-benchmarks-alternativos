@@ -157,6 +157,15 @@ THINKING_MODELS = (
     "claude-opus-5", "claude-sonnet-5",     # Claude 5 (thinking por default vía API)
     "gemini-3.6-flash",                     # Flash 3.6+ ya razona; el patrón
                                             # `gemini-3-pro` de arriba no lo cubría.
+    # ── 26-sep-2026: la generación nueva, declarada ANTES de medirla ──────────────
+    # `gpt-5` NO cubre a `gpt-6`: sin esta línea, GPT-6 agota el presupuesto razonando
+    # y devuelve content="" con success=True — el modo de falla exacto de los 165 runs
+    # vacíos de abril. Se declara antes del lote, no después del desastre.
+    "gpt-6",                                # GPT-6 Luna/Sol (22-sep-2026), toda la familia
+    "bonsai",                               # PrismML Ternary Bonsai 2 — se declara "reasoning model"
+    # `mimo-v2.6` y NO `mimo` a secas: el patrón amplio cambiaría el tratamiento de los
+    # MiMo V2.5 YA MEDIDOS y rompería la comparabilidad de su examen con el histórico.
+    "mimo-v2.6",                            # Xiaomi MiMo V2.6 (21-sep-2026)
 )
 
 # Modelos que sólo aceptan temperature=1.0 (rechazan otros con error 400).
