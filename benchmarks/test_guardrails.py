@@ -566,6 +566,58 @@ def _t_changelog():
             tmp.unlink(missing_ok=True)
 
 
+# ── qa.py: la tolerancia de lote deja de ser una lista cerrada ─────────────────
+@prueba("qa · tolerancia de lote", "tolerar en main, o tolerar un rojo no declarado")
+def _t_qa_tolerancia_lote():
+    """26-sep-2026. La Regla 4 pushea un lote a medias, y eso pone en rojo por diseño dos
+    chequeos (el export y el bump llegan al cerrar). Se degradan SÓLO en `lote/*` y SÓLO
+    los nombrados; el riesgo del mecanismo no es que no tolere, es que tolere de más —
+    y un QA que en una rama no bloquea nada es un QA que no existe.
+
+    Se prueba en las tres direcciones con un chequeo de mentira que siempre falla, así
+    la prueba no depende de si hoy el CHANGELOG está al día.
+    """
+    import contextlib
+    import io
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "benchmarks"))
+    import qa as _qa
+
+    # Una tolerancia cuyo nombre no existe entre los chequeos no tolera nada y nadie se
+    # entera; y si el chequeo se renombra, queda viva apuntando a otro. Acá se cae.
+    nombres = {c[1] for c in _qa.CHEQUEOS}
+    if any(k not in nombres for k in (*_qa.TOLERADO_EN_LOTE, *_qa.DESELECT_EN_LOTE)):
+        return False
+    # Los secretos no se toleran en ninguna rama: es el único fallo del que no se vuelve.
+    if "ninguna credencial real en los archivos versionados" in (
+            {*_qa.TOLERADO_EN_LOTE, *_qa.DESELECT_EN_LOTE}):
+        return False
+
+    FALSO = "chequeo de mentira que siempre falla"
+    originales, argv = list(_qa.CHEQUEOS), _s.argv
+    try:
+        _qa.CHEQUEOS[:] = [("datos", FALSO, [PY, "-c", "raise SystemExit(1)"], True, True)]
+
+        def corrida(rama):
+            _s.argv = ["qa.py", "--pre-merge", "--rama", rama]
+            with contextlib.redirect_stdout(io.StringIO()):
+                return _qa.main()
+
+        # (a) control: en una rama de lote, un rojo que NO se declaró sigue frenando.
+        if corrida("lote/prueba") == 0:
+            return False
+        # (b) en main no se tolera ni lo declarado: el gate de merge es el de siempre.
+        _qa.TOLERADO_EN_LOTE[FALSO] = "motivo de prueba"
+        if corrida("main") == 0:
+            return False
+        # (c) declarado + rama de lote: informativo, no frena.
+        return corrida("lote/prueba") == 0
+    finally:
+        _s.argv = argv
+        _qa.TOLERADO_EN_LOTE.pop(FALSO, None)
+        _qa.CHEQUEOS[:] = originales
+
+
 @prueba("runner · veto de catálogo", "medir un modelo marcado `no_medir`, pedido explícito")
 def _t_veto():
     # El caso exacto del 18-ago: se pidió por nombre un modelo excluido por decisión y el

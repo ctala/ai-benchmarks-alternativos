@@ -250,6 +250,23 @@ dudoso obliga a auditar el lote entero en vez de un commit.
 recalcula UNA vez, con el lote completo. Regenerarlo a mitad publica un ranking con medio
 lote adentro — y el ranking debe moverse una sola vez, no seis.
 
+**Y el instrumento, porque la regla nació sin uno** (26-sep-2026, el primer push del primer
+lote que la siguió). El paso 4 era **imposible**: el hook de pre-push corre
+`qa.py --pre-merge`, y un lote a medias lo pone en rojo por diseño en dos chequeos — los
+runs medidos todavía no están en `models.json` (paso 5) y el CHANGELOG no declara el bump
+(el release se arma al cerrar). Con eso, la regla nueva obligaba a `--no-verify` en cada
+push: aprender a ignorar el guardrail, que este repo considera peor que no tenerlo.
+
+Ahora `qa.py` distingue **rama de lote** de **main**: en `lote/*` degrada a informativos
+esos dos y sólo esos, nombrados en `TOLERADO_EN_LOTE` / `DESELECT_EN_LOTE` con su motivo,
+que imprime aunque estén en verde. En `main` no tolera nada — el mensaje del QA siempre
+dijo *«no mergees»*, y el hook lo había instalado como gate de *push*; mientras los lotes
+iban directo a main en un commit final eso era lo mismo. El deselect es de **un test
+nombrado**, no de la suite: degradar los 140 de `test_unitarios.py` para tolerar uno sería
+el boquete. Su sabotaje (`test_guardrails.py`) prueba las tres direcciones con un chequeo
+de mentira: que en `lote/*` un rojo no declarado siga frenando, que en `main` no se tolere
+ni lo declarado, y que los secretos no se toleren nunca.
+
 ---
 
 ## Integridad del export — la regla que se rompió dos veces

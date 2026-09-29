@@ -5,6 +5,32 @@
 
 ## [No publicado]
 
+- **Un `git add` con un path inexistente aborta el add COMPLETO (26-sep-2026).** El commit
+  `c39b297b5` se publicó con el mensaje del arreglo del QA y **sin una línea de su código**:
+  el `git add` listaba cinco archivos y uno (`results/_foto_effort.json`) no existía, así que
+  git abortó sin agregar ninguno y el commit tomó lo que había quedado staged de la llamada
+  anterior — dos JSON. El `2>/dev/null` que le puse al comando ocultó el error, y leí «commit
+  creado» como éxito. Peor: **el push pasó el QA en verde**, porque el hook corre el `qa.py`
+  del working tree y ahí el arreglo sí estaba; en git no. Quien clonara la rama tenía el
+  mensaje de un arreglo que no existía. Es el falso verde de siempre —mirar en el lugar
+  equivocado y creerle porque dice lo que uno quiere leer—, esta vez a un `git add`. Lo cazó
+  el preflight del cierre al listar los mismos archivos como modificados otra vez.
+- **La Regla 4 nació sin instrumento, y su primer push lo demostró (26-sep-2026).** El paso
+  «push a la rama tras cada modelo» era **imposible de cumplir**: el hook de pre-push corre
+  `qa.py --pre-merge`, y un lote a medias lo pone en rojo por diseño en dos chequeos — los
+  runs medidos todavía no están en `models.json` (que se regenera al cerrar, para que el
+  ranking se mueva una vez y no seis) y el CHANGELOG no declara el bump (el release se arma
+  al final). Con eso, la regla escrita ayer obligaba a `--no-verify` en cada push, que es
+  exactamente la forma de aprender a ignorar un guardrail. **La ironía es que el repo tiene
+  la lección al revés escrita en el CLAUDE.md** («una regla sin instrumento que la haga
+  cumplir es una regla que ya se rompió») y ésta falló por el otro lado: el instrumento
+  impedía la regla. Ahora `qa.py` distingue rama de lote de `main`, degradando a informativos
+  esos dos y **sólo** esos (nombrados, con su motivo impreso incluso en verde); en `main` no
+  tolera nada, porque su propio mensaje siempre dijo «no mergees» y el hook lo había puesto
+  como gate de *push*. El deselect es de un test nombrado, no de la suite: degradar los 140
+  de `test_unitarios.py` para tolerar uno sería el boquete. Sabotaje en las tres direcciones
+  con un chequeo de mentira — en `lote/*` un rojo no declarado sigue frenando, en `main` no
+  se tolera ni lo declarado, y los secretos no se toleran nunca.
 - **Un lote se versiona modelo a modelo, en su rama (Regla 4 del RUNBOOK, 26-sep-2026).**
   Cristian, antes de lanzar el lote: *«ir generando versiones cada vez que terminas uno (…)
   además de hacer push a la branch correspondiente»*, y con la pregunta correcta pegada:

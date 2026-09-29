@@ -146,12 +146,62 @@ CHEQUEOS = [
 
 AREAS = ["datos", "suites", "calculadora", "paginas", "guardrails", "version"]
 
+# ── Lo que un lote EN CURSO rompe por diseño ───────────────────────────────────────
+#
+# 26-sep-2026. La Regla 4 del RUNBOOK manda commitear y pushear **cada modelo terminado**
+# a una rama `lote/…`, y regenerar los artefactos sólo al cerrar el lote. Eso deja, a
+# propósito, dos estados que este QA lee como error:
+#
+#   · runs en disco de un modelo que `docs/data/models.json` todavía no publica — porque
+#     el export corre una vez, al final, para que el ranking se mueva una vez y no seis;
+#   · un CHANGELOG sin el bump declarado, porque el release se arma cuando el lote cierra.
+#
+# Los dos son el estado NORMAL de un lote a medias, y siguen siendo bloqueantes en `main`,
+# que es donde importan: el mensaje de este QA dice «no mergees», y el hook lo instaló como
+# gate de *push*. Mientras los lotes iban directo a main en un commit final eso era lo
+# mismo; con la Regla 4 ya no, y sin distinguirlo la regla nueva obliga a `--no-verify` en
+# cada push — o sea, a aprender a ignorar el guardrail, que es peor que no tenerlo.
+#
+# Se degrada de a uno y NOMBRADO, igual que las exenciones del resto del repo. Un rojo que
+# no esté acá sigue frenando el push, en cualquier rama.
+TOLERADO_EN_LOTE = {
+    "lo que se cambió quedó en el CHANGELOG, y el bump alcanza":
+        "el release se declara al cerrar el lote, no en cada modelo medido",
+}
+
+# Un test puntual, no la suite entera: `--deselect` es cirugía. Degradar los 140 tests de
+# `test_unitarios.py` para tolerar uno sería el boquete que esta lista existe para evitar.
+DESELECT_EN_LOTE = {
+    "invariantes del dataset y funciones puras del núcleo": (
+        ["--deselect",
+         "benchmarks/test_unitarios.py::test_ningun_modelo_del_catalogo_quedo_sin_sus_runs"],
+        "el export corre al cerrar el lote: los runs medidos aún no están en models.json",
+    ),
+}
+
+
+def rama_actual() -> str:
+    r = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"],
+                       capture_output=True, text=True, cwd=ROOT)
+    return r.stdout.strip()
+
+
+def tolerancias(rama: str) -> tuple[dict, dict]:
+    """Qué se degrada en esta rama. Función pura para poder sabotearla sin cambiar de rama.
+
+    Fuera de una rama `lote/*` no tolera NADA: en `main` el QA es el de siempre.
+    """
+    if not rama.startswith("lote/"):
+        return {}, {}
+    return dict(TOLERADO_EN_LOTE), dict(DESELECT_EN_LOTE)
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="QA unificado del benchmark")
     ap.add_argument("--area", choices=AREAS, help="solo un área")
     ap.add_argument("--rapido", action="store_true", help="solo lo que corre en segundos")
     ap.add_argument("--pre-merge", action="store_true", help="solo lo bloqueante (para el hook)")
+    ap.add_argument("--rama", help="simular otra rama (para el sabotaje de test_guardrails)")
     ap.add_argument("-v", "--verbose", action="store_true", help="mostrar la salida completa")
     a = ap.parse_args()
 
@@ -160,25 +210,38 @@ def main() -> int:
            and (not a.rapido or c[4])
            and (not a.pre_merge or c[3])]
 
+    rama = a.rama or rama_actual()
+    tolerados, deselects = tolerancias(rama)
+
     print(f"\n  QA · {len(sel)} chequeos"
           + (f" · área {a.area}" if a.area else "")
           + (" · modo rápido" if a.rapido else "")
           + (" · pre-merge" if a.pre_merge else "") + "\n")
+    if tolerados or deselects:
+        print(f"  lote en curso ({rama}) · {len(tolerados) + len(deselects)} chequeo(s) "
+              f"degradados a informativos porque la Regla 4 los rompe a propósito.")
+        print(f"  Se vuelven bloqueantes al mergear a main, que es donde el dato se publica.\n")
 
     fallos, area_actual, t0 = [], None, time.monotonic()
     for area, que, cmd, bloqueante, _ in sel:
         if area != area_actual:
             print(f"  ── {area.upper()}")
             area_actual = area
+        # El motivo se imprime SIEMPRE que la tolerancia aplique, pase o falle el chequeo:
+        # un silenciador que sólo se ve cuando ya hay rojo es un silenciador invisible.
+        extra, motivo = deselects.get(que, ([], None))
+        motivo = motivo or tolerados.get(que)
+        blq = bloqueante and not motivo
         t = time.monotonic()
-        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        r = subprocess.run(cmd + extra, cwd=ROOT, capture_output=True, text=True)
         dt = time.monotonic() - t
         ok = r.returncode == 0
-        marca = "✅" if ok else ("❌" if bloqueante else "⚠️ ")
-        print(f"     {marca} {que}  ({dt:.1f}s)")
+        marca = "✅" if ok else ("❌" if blq else "⚠️ ")
+        nota = f"  · tolerado en lote: {motivo}" if motivo else ""
+        print(f"     {marca} {que}  ({dt:.1f}s){nota}")
         if not ok:
-            (fallos if bloqueante else []).append((area, que, r))
-            if a.verbose or bloqueante:
+            (fallos if blq else []).append((area, que, r))
+            if a.verbose or blq:
                 salida = (r.stdout or "") + (r.stderr or "")
                 for ln in salida.strip().splitlines()[-14:]:
                     print(f"          {ln}")
