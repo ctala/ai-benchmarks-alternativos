@@ -1,5 +1,48 @@
-<!-- doc: vigente | verificado: 2026-09-16 -->
+<!-- doc: vigente | verificado: 2026-09-28 -->
 # ESTADO_SESION.md
+
+## Estado al cierre del 28 de septiembre de 2026
+
+**Hay un lote ABIERTO en su rama, sin mergear.** `lote/2026-09-26-gpt6-y-video`, todo
+pusheado, sin procesos corriendo. El ranking publicado **no se movió**: `models.json` se
+regenera al cerrar el lote, una vez y no seis (Regla 4 del RUNBOOK).
+
+**4 de 6 modelos completaron el examen** (29 suites del índice, juez `phi4-or`, `--quick`,
+sin effort):
+
+| modelo | runs | calidad | el dato que decide |
+|---|---|---|---|
+| MiMo V2.6 Flash | 213 | **8,52** | el mejor del lote · $1,52 |
+| Ling 3.0 Flash VL | 199 | 8,44 | `orchestration` 4,38 · `tool_calling` 4,37 → de los **5 peores de 104** |
+| GPT-6 Luna | 213 | 8,36 | **−0,18 vs GPT-5.6 Luna** costando la mitad |
+| GPT-6 Luna Pro | 213 | 8,33 | misma tarifa, **3× el gasto real**, nota indistinguible |
+
+**2 quedaron a medias** y sus medias NO se publican (menos suites que el resto: comparar
+medias de exámenes distintos es el error que el repo ya pagó): Qwen 3.8 Omni Flash 114/213 y
+Bonsai 2 27B 103/213. Los dos razonan mucho y su proveedor es lento — **157 y ~165 s por
+run**, ~10 h de reloj cada uno.
+
+**El patrón del lote:** en los cuatro completos el titular esconde la decisión real. Ninguno
+se comporta como su nombre o su precio sugieren.
+
+### Qué falta para cerrar el lote
+1. Terminar Qwen (99 runs) y Bonsai (110) con `--resume` de sus archivos.
+2. Las **tareas agénticas de Harbor** de los 6 (`check_agentico_publicado.py` da el comando).
+3. `regenerate_all.py` → `qa.py` → merge. Al mergear, el QA deja de tolerar lo del lote y
+   exige el bump: lo tocado incluye `providers/adapters.py`, o sea **MINOR**.
+
+### Abierto, sin explicación
+El runner se colgó 9 min en una lectura SSL con Bonsai (2572/2572 muestras en
+`_ssl__SSLSocket_read` → `poll`) y **ni el read timeout de 360 s ni el `signal.alarm` de 300 s
+lo cortaron**. Descartado el endpoint (2 s por curl) y el prompt (648 chars). No se sabe si
+cuelga el modelo o el juez: es un camino por donde cualquier lote puede colgarse en silencio.
+
+### Pendiente de Cristian
+- **Rotar la API key de n8n** que quedó expuesta al grepear `settings.local.json` (20-sep).
+- Cerrar sesiones de Claude Code que no use: el Mac quedó con **69 MB libres y 12 GB en el
+  compresor** (7 procesos `claude` + Codex), y eso mató cuatro intentos de medición.
+
+---
 
 ## Estado al cierre del 16 de septiembre de 2026
 
