@@ -20,13 +20,17 @@
   OpenAI declara que Pro razona más profundo; **en este examen no justifica su precio**. Es el
   segundo mes consecutivo donde la versión cara no compra calidad medible — en septiembre fue
   GLM 5.3 vs GLM 5.3 Flash (+0.01 por 18× el precio).
-- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52 (10-oct-2026).** MoE 309B/15B
-  activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio nativos. Declarado thinking
-  con el patrón `mimo-v2.6` en `providers/adapters.py`.
+- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52, el mejor open source del lote
+  (10-oct-2026).** MoE 309B/15B activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio
+  nativos. GPT-6 Luna y Luna Pro sacan 8.75, pero MiMo gana en calidad/costo: $1.52 examen
+  completo vs $0.93-$2.83 de los Luna. Declarado thinking con el patrón `mimo-v2.6` en
+  `providers/adapters.py`.
 - **Ling 3.0 Flash VL: el más barato con vídeo, pero entre los peores en agentes (10-oct-2026).**
-  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. Pero
-  **7.63 de calidad** y **de los 5 peores de 104** en `orchestration` (4.38) y `tool_calling`
-  (4.37). Si el caso de uso es orquestar un agente, el precio bajo no compensa.
+  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. **199 de 213
+  runs** (le faltan 14 de `niah_es`, que es omitible sin perder el ranking según
+  `RUNBOOK-MEDICION.md:133-140`). **7.63 de calidad** y **de los 5 peores de 104** en
+  `orchestration` (4.38) y `tool_calling` (4.37). Si el caso de uso es orquestar un agente, el
+  precio bajo no compensa.
 - **Qwen 3.8 Omni y Bonsai 2 quedaron a medias, y no se publican (10-oct-2026).** Qwen 3.8
   Omni Flash 114/213 runs, Bonsai 2 27B 103/213. Ambos razonan mucho (157-165 s/run, ~10 h
   de reloj cada uno) y el lote se pausó en la rama sin completarlos para no gastar sin

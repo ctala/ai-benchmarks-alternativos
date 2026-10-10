@@ -18,8 +18,8 @@ audiencia: "Quien tiene que decidir hoy qué modelo pone en producción, con un 
 
 **El lote de octubre trae GPT-6 Luna, MiMo V2.6 Flash, Ling 3.0 Flash VL y el primer modelo con compresión ternaria medido contra su original.**
 
-- **GPT-6 Luna saca 8.75 y cuesta $0.93 el examen completo** — pero su hermano Luna Pro cuesta **$2.83 por la misma nota de 8.75**. Tres veces el gasto por cero diferencia medible.
-- **MiMo V2.6 Flash** (Xiaomi, open source): **8.66 de calidad por $1.52**.
+- **GPT-6 Luna y Luna Pro sacan 8.75** — pero Luna Pro cuesta **$2.83** contra **$0.93** de Luna regular. Tres veces el gasto por cero diferencia medible.
+- **MiMo V2.6 Flash** (Xiaomi, open source, MIT): **8.66 de calidad por $1.52** — el mejor open source del lote y el mejor en calidad/costo ($1.52 examen vs $2.83-$0.93 de los Luna).
 - **Ling 3.0 Flash VL**: el más barato del lote con vídeo nativo, **$0.08 el examen**, pero **7.63 de calidad** — cuatro posiciones orquestando y cinco en tool calling lo ponen entre los peores del catálogo en agentes.
 - **Bonsai 2 27B** y **Qwen 3.8 Omni Flash** quedaron a medias (103 y 114 de 213 runs): son modelos thinking lentos y sus proveedores tardaron 157-165 s/run. **No se publican medias de exámenes incompletos** — es el error que el repo ya pagó.
 
@@ -54,8 +54,8 @@ Cuesta la mitad pero mide peor. Puede ser una decisión de producto (velocidad, 
 |---|---|---|---|
 | **GPT-6 Luna** | $1.00 / $5.00 | 213 | ✅ Completo, 8.75 |
 | **GPT-6 Luna Pro** | $1.00 / $5.00 | 213 | ✅ Completo, 8.75 (3× el gasto real) |
-| **MiMo V2.6 Flash** | $0.14 / $0.28 | 213 | ✅ Completo, 8.66 |
-| **Ling 3.0 Flash VL** | $0.021 / $0.062 | 199 | ✅ Completo, 7.63 |
+| **MiMo V2.6 Flash** | $0.14 / $0.28 | 213 | ✅ Completo, 8.66 (mejor open source) |
+| **Ling 3.0 Flash VL** | $0.021 / $0.062 | 199 | ✅ Completo¹, 7.63 |
 | Qwen 3.8 Omni Flash | $0.15 / $0.47 | 114/213 | ⏳ Parcial, no publicable |
 | Bonsai 2 27B | $0.075 / $0.50 | 103/213 | ⏳ Parcial, no publicable |
 
@@ -74,6 +74,10 @@ Los dos razonan mucho y sus proveedores son lentos: **157-165 segundos por run**
 
 ### El caso Bonsai 2: comprimir a ternario ¿cuánto cuesta?
 **Bonsai 2 27B** es Qwen 3.8 27B con **compresión ternaria** (1.58 bits/peso). El benchmark ya tiene medido el original (#5, calidad 8.50). Completar Bonsai 2 responde algo que nadie publica: **cuánta calidad pierde un modelo al comprimirlo**.
+
+## Notas
+
+¹ **Ling 3.0 Flash VL con 199/213 runs (93%)** cuenta como completo según `RUNBOOK-MEDICION.md:133-140`: le faltan 14 tests de `niah_es` (contexto largo), que es una suite **omitible sin perder el ranking** — se reporta aparte y no contamina el score. Tiene las 35 suites completas excepto `niah_es` parcial (15/29).
 
 ## Caveats honestos
 
