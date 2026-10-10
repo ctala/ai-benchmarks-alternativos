@@ -23,7 +23,7 @@ Un modelo **jubilado** queda en el histórico con todos sus datos y sigue siendo
 | **1** | Ya retired por el proveedor | El modelo ya no existe o no es accesible | 16 |
 | **2** | Provider variant | Mide infraestructura/serving, no calidad del modelo | 56 |
 | **3** | Sin runs (nunca medido) | 0 runs, nunca se midió | 44 |
-| **4** | Dominado | Otro modelo de su familia tiene ≥ calidad a ≤ costo | 1 |
+| **4** | Baja prioridad | No ranked con baja calidad, o ranked pero de los 21 menos prioritarios | 1 |
 | | **TOTAL** | | **117** |
 
 ### Criterio 1: Retired por el proveedor
