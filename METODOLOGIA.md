@@ -435,11 +435,31 @@ Para mantener el costo de medición sostenible, el benchmark mantiene un **roste
 
 ### Criterios de Jubilación
 
+### Definición de "Familia"
+
+Para aplicar el criterio de dominancia, **familia** se define como:
+- **Mismo proveedor** (Alibaba, Anthropic, OpenAI, etc.)
+- **Misma línea base** del modelo (Qwen, GPT, Claude, Gemini, Kimi, etc.)
+- **Sin importar la generación** (Qwen 3.5, 3.6, 3.7, 3.8 son la misma familia "Qwen")
+
+Subfamilias de Claude:
+- **ClaudeOpus**: todos los modelos Claude Opus (4.6, 4.7, 4.8, 5, etc.)
+- **ClaudeSonnet**: todos los Claude Sonnet
+- **ClaudeHaiku**: todos los Claude Haiku
+- **ClaudeFable**: todos los Claude Fable
+
+**Ejemplos**:
+- Qwen 3.8 Flash y Qwen 3.5 397B → misma familia ("Qwen")
+- GPT-5.5 y GPT-5.6 Luna → misma familia ("GPT")
+- Claude Opus 4.7 y Claude Opus 4.8 → misma familia ("ClaudeOpus")
+- Gemini 3.6 Flash y Gemini 3.8 Flash → misma familia ("Gemini")
+
 Un modelo se jubila si cumple uno de estos criterios (en orden de aplicación):
 
 1. **Retired por el proveedor** — El modelo ya no tiene endpoint válido o fue deprecado explícitamente
 2. **Provider variant** — Mide infraestructura/serving, no calidad del modelo. El modelo base ya está medido
 3. **Sin runs** — Nunca se midió (0 runs), generalmente por ser tier `:free`, variante thinking o modelo reciente no priorizado
+4. **Dominado** — Otro modelo de su misma familia tiene igual o mejor calidad (Q >=) a igual o menor costo por examen (costo <=). De todos los dominados, se jubilan solo los N más claramente dominados para alcanzar 90 activos. Los dominados que quedan activos se mantienen para preservar diversidad dentro de familias grandes
 4. **Dominado** — Otro modelo de su misma familia tiene ≥ calidad a ≤ costo
 
 ### Cómo un Modelo Puede Volver

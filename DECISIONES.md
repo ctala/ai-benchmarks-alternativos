@@ -21,6 +21,12 @@
 
 ---
 
+## Gestión del Catálogo
+
+| Fecha | Estado | Decisión | Por qué | Detalle |
+|---|---|---|---|---|
+| 10-oct-2026 | **Vigente** | **Roster de 100 modelos activos (90 + 10 cupos)** | Catálogo de 217 modelos → costo mensual proyectado de $800+ insostenible. Limitando a 100 activos, costo mensual ~$280 (33% remeasurement). Jubilación con precedencia: retired > provider_variant > sin_runs > dominado. De 62 dominados, se jubilan los 31 más claros; 31 menos dominados quedan activos para preservar diversidad | [`docs/jubilacion-2026-10.md`](docs/jubilacion-2026-10.md) · [`METODOLOGIA.md`](METODOLOGIA.md) |
+
 ## Qué se publica y cómo se puntúa
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
