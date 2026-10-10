@@ -25,7 +25,7 @@
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
 |---|---|---|---|---|
-| 10-oct-2026 | **Vigente** | **Roster de 100 modelos activos (90 + 10 cupos)** | Catálogo de 217 modelos → costo mensual proyectado de $800+ insostenible. Limitando a 100 activos, costo mensual ~$280 (33% remeasurement SUPUESTO). Jubilación con precedencia: retired > provider_variant > sin_runs > dominado. De 62 dominados, se jubilan los 31 más claros; 31 menos dominados quedan activos para preservar diversidad. 127 jubilados (16+54+26+31), 90 activos, suma 217 ✓ | [`docs/jubilacion-2026-10.md`](docs/jubilacion-2026-10.md) · [`METODOLOGIA.md`](METODOLOGIA.md) |
+| 10-oct-2026 | **Vigente** | **Roster de 100 modelos (59 activos + 41 cupos) — regla estricta** | Catálogo de 217 → roster de 100. Jubilación con precedencia: retired > provider_variant > sin_runs > dominado. **Regla estricta**: TODOS los dominados (62) se jubilan. 158 jubilados (16+54+26+62), 59 activos, suma 217 ✓. Medición mensual solo de modelos nuevos y activos que cambien (versión, proveedor, bug, suite nueva). Opción flexible (90+10, conservar 31 dominados) descartada. Proyección: ~$27/mes | [`docs/jubilacion-2026-10.md`](docs/jubilacion-2026-10.md) · [`METODOLOGIA.md`](METODOLOGIA.md) |
 
 ## Qué se publica y cómo se puntúa
 

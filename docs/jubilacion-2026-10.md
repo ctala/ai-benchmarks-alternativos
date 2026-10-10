@@ -1,126 +1,112 @@
 # Jubilación de Modelos AI - Octubre 2026
 
-**Fecha**: 2026-10-10
+**Fecha**: 2026-10-10  
+**Decisión**: Roster de 100 modelos (59 activos + 41 cupos) — **Regla Estricta**
 
-Este documento presenta **dos opciones** para establecer un roster activo de modelos. La decisión final la tomará Cristian.
+## Resumen Ejecutivo
 
-## Comparación de Opciones
+- **Total modelos en catálogo**: 217
+- **Activos**: 59
+- **Jubilados**: 158
+- **Cupos reservados**: 41
 
-| Aspecto | Opción A (Regla Estricta) | Opción B (Regla Flexible) |
-|---------|---------------------------|---------------------------|
-| **Activos** | 59 | 90 |
-| **Cupos** | 41 | 10 |
-| **Roster Total** | 100 | 100 |
-| **Jubilados** | 158 (16+54+26+**62**) | 127 (16+54+26+**31**) |
-| **Dominados jubilados** | **TODOS** (62) | Solo los 31 más claros |
-| **Dominados activos** | 0 | 31 (menos dominados, conservados como referencia) |
-| **Costo mensual** | **$98.53/mes** | **$150.30/mes** |
-| **Examen completo** | $505.04 | $770.40 |
+### Desglose de Jubilados
 
-### Base de Cálculo de Costos
-
-- **Costo por modelo/mes**: $1.67 (medido abril-septiembre 2026: $119/mes ÷ 71 modelos/mes)
-- **Costo examen completo**: $8.56 (22 suites)
-
-### Opción A - Regla Estricta
-
-**Filosofía**: Jubilar TODOS los dominados (62). Solo quedan modelos no dominados.
-
-**Pros**:
-- Roster más limpio: solo modelos Pareto-óptimos dentro de sus familias
-- Menor costo mensual ($98.53/mes)
-- 41 cupos libres para lanzamientos nuevos
-
-**Contras**:
-- Familias grandes (Qwen, GPT, Claude) pierden diversidad
-- Se pierden referencias históricas útiles (ej: Claude Opus 4.7, DeepSeek V3)
-- Solo 59 modelos en el roster base (podría ser poco para comparaciones)
-
-### Opción B - Regla Flexible (Actual)
-
-**Filosofía**: Jubilar solo los 31 dominados más claros. Los 31 menos dominados se conservan como referencia.
-
-**Pros**:
-- Preserva diversidad dentro de familias grandes
-- Mantiene referencias históricas (Claude Opus 4.7, Gemini 3.8 Flash, DeepSeek V3)
-- 90 modelos = muestra más robusta para comparaciones
-- Los 31 conservados están documentados como dominados (transparente)
-
-**Contras**:
-- Mayor costo mensual ($150.30/mes vs $98.53)
-- Solo 10 cupos para lanzamientos (más ajustado)
-- Roster incluye modelos técnicamente dominados
-
-## Desglose por Criterio
-
-Ambas opciones aplican los criterios 1-3 igual:
+**Orden de precedencia** (un solo motivo por modelo):
 
 1. **Retired**: 16 (deprecados por proveedor)
 2. **Provider Variant**: 54 (miden serving, no calidad)
 3. **Sin Runs**: 26 (nunca medidos, 0 runs)
+4. **Dominados**: 62 (**TODOS** — regla estricta)
 
-**Diferencia** está en el criterio 4 (dominados):
-- **Opción A**: Jubila los 62 dominados detectados
-- **Opción B**: Jubila solo los 31 más dominados; conserva 31 como referencia
+**Verificación**: 16 + 54 + 26 + 62 = **158 jubilados** ✓  
+**Total**: 59 activos + 158 jubilados = **217** ✓
 
-## Definición de "Familia" y Dominancia
+### Dominados
+
+- **Total detectados**: 62
+- **Jubilados**: 62 (TODOS)
+- **Quedan activos**: 0
+
+**Regla estricta vigente**: Todos los dominados se jubilan sin excepciones. Un modelo está dominado si otro de su familia tiene Q ≥ y costo ≤.
+
+> **Nota**: Se evaluó conservar 31 dominados menos claros como referencia (opción flexible: 90 activos + 10 cupos), pero se descartó por simplicidad y menor costo.
+
+## Definición de Familia
 
 **Familia** = mismo proveedor + misma línea base del modelo, sin importar la generación.
 
-Ejemplos:
+**Ejemplos**:
 - Qwen 3.5, 3.6, 3.7, 3.8 → familia "Qwen"
 - GPT-5.5, GPT-5.6 Luna → familia "GPT"
 - Claude Opus 4.7, 4.8 → familia "ClaudeOpus"
 
-Un modelo está **dominado** si otro de su familia tiene:
-- Calidad ≥ (Q_dominador >= Q_dominado)
-- Costo ≤ (costo_dominador <= costo_dominado por examen)
+Ver `METODOLOGIA.md` para definición completa.
 
-Costo por examen = 300 tokens input + 1500 tokens output.
+## Proyección de Costos
 
-## Los 31 Dominados que Difieren entre Opciones
+### Criterio de Medición Mensual
 
-En **Opción A**: TODOS jubilados.
-En **Opción B**: Estos 31 quedan **activos** como referencia:
+**Solo se miden**:
+1. **Modelos nuevos** (ocupan los 41 cupos)
+2. **Activos que cambien** (nueva versión, cambio silencioso, bug runner, suite nueva)
 
-| # | Modelo | Dominado por | Δ Quality | Δ Costo |
-|---|--------|--------------|-----------|---------|
-| 32 | Qwen 3.8 27B | Qwen 3.8 Flash | +0.03 | -$0.0031 |
-| 33 | GPT-5.6 Luna Pro | GPT-5.6 Luna | +0.02 | $0.00 |
-| 34 | Gemma 4 31B | Gemma 4 12B (Spark) | +0.01 | -$0.0002 |
-| 35 | DeepSeek V4 Pro | DeepSeek R1 | 0.00 | +$0.0007 |
-| ... | *(ver docs completos para los 31)* | | | |
+**NO se vuelven a medir** los activos que no cambien.
 
-(Lista completa en `docs/jubilacion-2026-10-opcion-A.md` y `docs/jubilacion-2026-10-opcion-B.md`)
+### Costo Mensual Estimado
+
+**~$27/mes** (estimado)
+
+**Supuestos**:
+- ~10 lanzamientos nuevos/mes (de 41 cupos disponibles)
+- ~6 activos cambian/mes (nueva versión o cambio del proveedor)
+- Costo base: $1.67/modelo medido (real abr-sep 2026: $119/mes ÷ 71 modelos/mes)
+
+**Cálculo**: (10 nuevos + 6 cambios) × $1.67 ≈ **$27/mes**
+
+vs ~$98/mes si se midieran todos los 59 cada mes.
+
+### Examen Completo de Todos los Activos
+
+**$505.04** (si se re-midieran todos los 59 completos)
+
+- Costo por examen completo: $8.56 (22 suites)
+- Cálculo: 59 × $8.56 = $505.04
+
+**Escenario de uso**: Re-medición completa tras cambio metodológico mayor (nueva suite global, cambio de juez, etc.)
+
+## Criterios de Jubilación (Orden de Prioridad)
+
+1. **Retired** — Proveedor deprecó el modelo
+2. **Provider variant** — Mide serving, no calidad
+3. **Sin runs** — Nunca medido (0 runs)
+4. **Dominado** — Otro de su familia tiene Q ≥ y costo ≤ (regla estricta: TODOS jubilados)
 
 ## Comando para Regenerar
 
-### Opción A (Regla Estricta)
 ```bash
 python3 benchmarks/analizar_dominancia.py
+python3 benchmarks/analizar_jubilacion_final.py  # Default: opción A
+python3 benchmarks/generar_doc_jubilacion.py
+```
+
+O explícitamente:
+```bash
 python3 benchmarks/analizar_jubilacion_final.py --opcion A
 python3 benchmarks/generar_doc_jubilacion.py --opcion A
 ```
 
-### Opción B (Regla Flexible)
-```bash
-python3 benchmarks/analizar_dominancia.py
-python3 benchmarks/analizar_jubilacion_final.py --opcion B
-python3 benchmarks/generar_doc_jubilacion.py --opcion B
-```
+## Listado Completo de Modelos
 
-## Documentos Generados
+Ver archivos JSON generados:
+- `docs/jubilacion-2026-10.json` — Datos estructurados completos
+- `benchmarks/dominancia_resultado.json` — Análisis de dominancia con scores
 
-- `docs/jubilacion-2026-10-opcion-A.md` / `.json` - Regla estricta (59 activos)
-- `docs/jubilacion-2026-10-opcion-B.md` / `.json` - Regla flexible (90 activos)
-- `docs/jubilacion-2026-10-final.json` - Symlink a la opción B (backward compat)
+**Incluye**:
+- 59 modelos activos (ordenados por quality)
+- 158 modelos jubilados (por categoría)
+- Para cada dominado jubilado: modelo que lo domina, quality y costo de ambos
 
-## Recomendación para la Decisión
+---
 
-Ambas opciones son válidas. La decisión depende de:
-
-1. **Presupuesto**: ¿$50/mes de diferencia es significativo?
-2. **Diversidad**: ¿Vale la pena conservar modelos dominados como referencias?
-3. **Cupos**: ¿Se esperan >10 lanzamientos/mes que requieran más cupos libres?
-
-Ver análisis completo y listados de todos los 217 modelos en los documentos específicos de cada opción.
+**Refs**: Decisión tomada 10-oct-2026 · [DECISIONES.md](DECISIONES.md) · [METODOLOGIA.md](METODOLOGIA.md)

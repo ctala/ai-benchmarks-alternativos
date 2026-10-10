@@ -433,6 +433,14 @@ Organizadas en los 4 pilares del emprendedor:
 
 Para mantener el costo de medición sostenible, el benchmark mantiene un **roster de 100 modelos activos** que se vuelven a medir en lotes futuros. Los modelos que no califican se **jubilan**: quedan en el histórico con sus datos pero no se miden más.
 
+### Criterios de Medición Mensual
+
+**Solo se miden cada mes**:
+1. **Modelos nuevos** — Lanzamientos que ocupan los cupos disponibles (41 cupos con regla estricta)
+2. **Activos que cambien** — Nueva versión/ID del modelo, cambio silencioso del proveedor detectado, bug del runner que invalide runs previos, o suite nueva agregada al benchmark
+
+**NO se vuelven a medir** los activos que no cambian. Esto reduce drásticamente el costo mensual: de ~$98/mes (medir todos los 59 cada mes) a ~$27/mes estimado (solo cambios + nuevos).
+
 ### Criterios de Jubilación
 
 ### Definición de "Familia"
@@ -459,7 +467,9 @@ Un modelo se jubila si cumple uno de estos criterios (en orden de aplicación):
 1. **Retired por el proveedor** — El modelo ya no tiene endpoint válido o fue deprecado explícitamente
 2. **Provider variant** — Mide infraestructura/serving, no calidad del modelo. El modelo base ya está medido
 3. **Sin runs** — Nunca se midió (0 runs), generalmente por ser tier `:free`, variante thinking o modelo reciente no priorizado
-4. **Dominado** — Otro modelo de su misma familia tiene igual o mejor calidad (Q >=) a igual o menor costo por examen (costo <=). De todos los dominados, se jubilan solo los N más claramente dominados para alcanzar 90 activos. Los dominados que quedan activos se mantienen para preservar diversidad dentro de familias grandes
+4. **Dominado** — Otro modelo de su misma familia tiene igual o mejor calidad (Q >=) a igual o menor costo por examen (costo <=). **Regla estricta (vigente desde 10-oct-2026)**: TODOS los dominados se jubilan, sin excepciones. Resultado: 59 activos + 41 cupos = 100 total
+
+> **Nota**: Se evaluó conservar los 31 dominados menos claros como referencias (opción flexible: 90 activos + 10 cupos), pero se descartó el 10-oct-2026 en favor de la regla estricta por simplicidad y menor costo.
 4. **Dominado** — Otro modelo de su misma familia tiene ≥ calidad a ≤ costo
 
 ### Cómo un Modelo Puede Volver

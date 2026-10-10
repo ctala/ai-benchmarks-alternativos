@@ -20,9 +20,9 @@ def get_meta_activos(opcion):
         return 90  # Jubilar solo los más dominados
 
 def main():
-    parser = argparse.ArgumentParser(description='Análisis de jubilación con dos opciones')
-    parser.add_argument('--opcion', choices=['A', 'B'], default='B',
-                      help='A: regla estricta (59 activos), B: flexible (90 activos, default)')
+    parser = argparse.ArgumentParser(description='Análisis de jubilación')
+    parser.add_argument('--opcion', choices=['A', 'B'], default='A',
+                      help='A: regla estricta (59 activos, default), B: flexible (90 activos)')
     args = parser.parse_args()
     
     opcion = args.opcion

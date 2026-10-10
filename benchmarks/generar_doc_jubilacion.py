@@ -6,8 +6,8 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--opcion', choices=['A', 'B'], default='B',
-                      help='A: regla estricta (59 activos), B: flexible (90 activos, default)')
+    parser.add_argument('--opcion', choices=['A', 'B'], default='A',
+                      help='A: regla estricta (59 activos, default), B: flexible (90 activos)')
     args = parser.parse_args()
     
     opcion = args.opcion
