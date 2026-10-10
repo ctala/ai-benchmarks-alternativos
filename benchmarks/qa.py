@@ -43,7 +43,9 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PY = "python3"  # Usar python3 directamente en Cloud Agent env (no hay .venv)
+# Usar .venv si existe (entorno local de Cristian), python3 si no (Cloud Agent)
+VENV_PYTHON = ROOT / ".venv" / "bin" / "python"
+PY = str(VENV_PYTHON) if VENV_PYTHON.exists() else "python3"
 
 # área · qué prueba · comando · bloqueante · rápido (< ~5 s)
 CHEQUEOS = [
