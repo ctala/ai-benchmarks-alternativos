@@ -63,17 +63,25 @@ Modelos que están en el catálogo pero nunca se corrió un benchmark contra ell
 - `gemini-flash-thinking`
 - `kimi-k2.6-thinking`
 
-### Criterio 4: Dominado
+### Criterio 4: Baja prioridad
 
-Un modelo está **dominado** cuando otro modelo de su misma familia tiene:
-- Calidad **mayor o igual** Y
-- Costo **menor o igual**
+Para llegar exactamente a 100 activos, se jubilan los **21 modelos de menor prioridad global** del catálogo.
 
-**Aplicación para llegar a 100**: De los 108 candidatos dominados detectados, se jubilan solo los **21 de menor calidad** dentro de su familia que además **no están ranked**.
+**Orden de prioridad** (de mayor a menor):
+1. ✅ Ranked con alta calidad (≥8.0) — **permanecen**
+2. ✅ Ranked con calidad media-alta (7.75-8.0) — **permanecen**  
+3. ⚠️ No-ranked con alta calidad (≥8.5) — **permanecen**
+4. ❌ Ranked con baja calidad (<7.75) — **se jubilan 7 de estos**
+5. ❌ No-ranked con calidad <8.5 — **se jubilan 14 de estos**
 
-**Ejemplo**:
-- **Jubilado**: Kimi K2 Thinking (calidad 5.00, 2 runs, no ranked)
-- **Domina**: Kimi K2.6 (calidad 8.30, 219 runs, ranked)
+**Resultado**: Se jubilan 14 no-ranked + 7 ranked de menor calidad (Q 7.26-7.74)
+
+**Ejemplos jubilados por este criterio (21 total)**:
+- Kimi K2 Thinking (Q=5.00, 2 runs, no ranked)
+- Mistral Nemo (Q=7.26, 522 runs, no ranked)
+- Llama 3.1 8B Instant (Q=7.26, 155 runs, ranked)
+- Gemini 3.1 Pro (Q=7.48, 143 runs, ranked)
+- Qwen 3.6 27B base (Q=7.74, 182 runs, ranked)
 
 ## Cómo un Modelo Puede Volver
 
@@ -128,15 +136,35 @@ Estos modelos **siguen siendo medibles** en sus variantes de proveedor cuando ha
 | kimi-k2.6-thinking | Variante thinking no medida |
 | ... y 37 más | Ver lista completa en `docs/jubilacion-2026-10.json` |
 
-### Por Criterio 4: Dominado (1)
+### Por Criterio 4: Baja Prioridad (21)
 
-Para llegar exactamente a 100 activos, se jubila **solo el modelo de menor calidad** que además está dominado y no ranked:
+Para llegar exactamente a 100 activos, se jubilan los **21 modelos de menor prioridad**:
 
-| Modelo | Runs | Calidad | Dominado por | Razón |
-|---|---:|---:|---|---|
-| Kimi K2 Thinking | 2 | 5.00 | Kimi K2.6 (Q=8.30) | Calidad muy baja, solo 2 runs, familia Kimi tiene 5 mejores |
+| Modelo | Runs | Calidad | Ranked | Motivo |
+|---|---:|---:|:---:|---|
+| Kimi K2 Thinking | 2 | 5.00 | ❌ | No ranked, calidad muy baja |
+| Mistral Nemo | 522 | 7.26 | ❌ | No ranked, calidad baja |
+| Qwen 3-Next 80B Thinking | 156 | 7.52 | ❌ | No ranked |
+| Nemotron 3 Base 33B (Spark) | 86 | 7.82 | ❌ | No ranked, local |
+| Nemotron 3 Nano Omni Reasoning | 147 | 7.99 | ❌ | No ranked |
+| Nemotron Nano 9B v2 | 134 | 8.02 | ❌ | No ranked |
+| DiffusionGemma 26B-A4B | 91 | 8.14 | ❌ | No ranked, local |
+| Gemma 4 12B (Spark, reasoning) | 85 | 8.19 | ❌ | No ranked, local |
+| Qwen 2.5 72B | 172 | 8.27 | ❌ | No ranked |
+| GPT-5.6 Terra Pro | 275 | 8.40 | ❌ | No ranked |
+| Gemma 4 12B (Spark Q4) | 86 | 8.49 | ❌ | No ranked, local |
+| GPT-5.6 Luna Pro | 264 | 8.50 | ❌ | No ranked |
+| LongCat 2.0 | 22 | 8.52 | ❌ | No ranked, pocos runs |
+| Sakana Namazu | 1728 | 8.59 | ❌ | No ranked |
+| Llama 3.1 8B Instant | 155 | 7.26 | ✅ | Ranked pero calidad más baja |
+| Gemini 3.1 Pro | 143 | 7.48 | ✅ | Ranked pero calidad baja |
+| Gemini 3.5 Flash | 166 | 7.51 | ✅ | Ranked pero calidad baja |
+| Gemini 2.5 Pro | 179 | 7.68 | ✅ | Ranked pero calidad baja |
+| Nemotron 3 Nano 30B | 152 | 7.69 | ✅ | Ranked pero calidad baja |
+| Grok 4.20 | 146 | 7.70 | ✅ | Ranked pero calidad baja |
+| Qwen 3.6 27B base (FP8) | 182 | 7.74 | ✅ | Ranked pero calidad baja |
 
-**Nota**: Se detectaron 108 modelos técnicamente dominados, pero solo se jubilan cuando es necesario para mantener el objetivo de 100. Los demás permanecen activos para mantener diversidad.
+**Nota**: El criterio preserva diversidad manteniendo los modelos de mayor prioridad: ranked con Q≥7.75 y no-ranked con Q≥8.5 que tienen muestra sólida (≥100 runs) o son únicos en su categoría.
 
 ## Los 100 Modelos Activos
 
