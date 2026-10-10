@@ -43,7 +43,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PY = str(ROOT / ".venv" / "bin" / "python")
+PY = sys.executable  # Use current Python interpreter
 
 # área · qué prueba · comando · bloqueante · rápido (< ~5 s)
 CHEQUEOS = [

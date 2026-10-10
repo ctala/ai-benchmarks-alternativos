@@ -93,10 +93,17 @@ Los dos razonan mucho y sus proveedores son lentos: **157-165 segundos por run**
 2. Harbor tasks de los 6 modelos (~$3-8)
 3. Regenerar artefactos + merge
 
-### Próximo lote (v4.17.0, noviembre 2026)
-- ⏳ **Claude 5.5 family** (Opus, Sonnet): lanzados pero pendientes de agregar
+### Lote ejecutado v4.17.0 (10-oct-2026) — Claude 5.5 con exceso presupuestario
+- ✅ **Claude 5.5 family medida**: Haiku, Sonnet, Opus y Fable (207-209/213 tests c/u)
+- ⚠️ **Exceso de presupuesto**: $181.32 gastados vs $55 aprobados (3.3× sobre límite)
+- ⏳ **Scores en 0.00**: pendientes de fase de judging (~$7.91 adicionales, requiere aprobación)
+- ❌ **Suites de noticias removidas**: no coincidían con diseño aprobado, reimplementación pendiente
+- Ver [ESTADO_SESION_2026-10-10.md](ESTADO_SESION_2026-10-10.md) para análisis completo
+
+### Próximo lote (v4.18.0+)
 - Suite multimodal nativa (imagen + vídeo)
 - Backfill de modelos con examen parcial
+- Suites de noticias (reimplementación según spec aprobado, con licencia CC BY 4.0)
 
 ## Recursos
 

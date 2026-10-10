@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-09-26T06:46:00",
+  "cuando": "2026-10-10T19:20:29",
   "modelos": [
-    "gpt-6-luna"
+    "claude-haiku-5.5"
   ],
   "suites": [
     "tool_calling",

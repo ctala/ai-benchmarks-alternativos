@@ -64,7 +64,7 @@ def correr(model_key: str, extra: list[str]) -> list[dict]:
         tmp = Path(f.name)
         json.dump({"metadata": {"timestamp": "canario", "partial": True}, "results": []}, f)
     try:
-        cmd = [str(ROOT / ".venv/bin/python"), str(ROOT / "benchmarks/runner.py"),
+        cmd = ["python3", str(ROOT / "benchmarks/runner.py"),
                "--quick", "--models", model_key, "--tests", *SUITES_CANARIO,
                "--resume", str(tmp.relative_to(ROOT))] + extra
         # 18-ago-2026: el timeout era 1800 s y EXPIRABA, por efecto del propio fix de

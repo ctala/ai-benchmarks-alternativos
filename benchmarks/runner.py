@@ -85,10 +85,7 @@ from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
 from benchmarks.tests import niah_es_lite
 from benchmarks.tests import prompt_injection_es
-# Suites de noticias (10-oct-2026) — corpus de Ecosistema Startup
-# LICENCIA PENDIENTE: requieren aprobación CC BY 4.0 antes de publicación
-from benchmarks.tests import noticias_relevancia, noticias_repetidas, noticias_pauta
-from benchmarks.tests import noticias_verificacion, noticias_seo_discover
+# Suites de noticias removidas (pendiente implementación según diseño aprobado)
 
 console = Console()
 
@@ -153,13 +150,6 @@ ALL_TEST_SUITES = {
     "dominio_entidad": dominio_entidad.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
-    # Suites de noticias (10-oct-2026) — corpus de Ecosistema Startup
-    # LICENCIA PENDIENTE: textos requieren aprobación CC BY 4.0 antes de publicación
-    "noticias_relevancia": noticias_relevancia.TESTS,
-    "noticias_repetidas": noticias_repetidas.TESTS,
-    "noticias_pauta": noticias_pauta.TESTS,
-    "noticias_verificacion": noticias_verificacion.TESTS,
-    "noticias_seo_discover": noticias_seo_discover.TESTS,
 }
 
 
