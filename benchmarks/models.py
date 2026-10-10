@@ -2690,6 +2690,59 @@ MODELS = {
         "open_source": False, "license": "Proprietary",
     },
 
+    # ── Claude 5.5 family (8-oct-2026) ──────────────────────────────────────────────────
+    # La generación nueva de Anthropic: Haiku, Sonnet y Opus. Precios verificados en
+    # https://docs.anthropic.com/en/docs/models-overview (consultado 10-oct-2026).
+    # Todos soportan 1M tokens de contexto.
+    "claude-haiku-5.5": {
+        "id": "anthropic/claude-haiku-5.5",
+        "name": "Claude Haiku 5.5",
+        "cost_input": 0.10,
+        "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "publisher": "Anthropic",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Publicado 8-oct-2026. Precio para prompts ≤100K tokens; >100K: $0.50/$2.50.",
+    },
+    "claude-sonnet-5.5": {
+        "id": "anthropic/claude-sonnet-5.5",
+        "name": "Claude Sonnet 5.5",
+        "cost_input": 2.00,
+        "cost_output": 10.00,
+        "tier": "medium",
+        "context_window": 1000000,
+        "publisher": "Anthropic",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Publicado 8-oct-2026.",
+    },
+    "claude-opus-5.5": {
+        "id": "anthropic/claude-opus-5.5",
+        "name": "Claude Opus 5.5",
+        "cost_input": 4.00,
+        "cost_output": 20.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "publisher": "Anthropic",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Publicado 8-oct-2026.",
+    },
+    "claude-fable-5.1": {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "cost_input": 10.00,
+        "cost_output": 50.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "publisher": "Anthropic",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Publicado oct-2026. Sucesor de Fable 5.",
+    },
+
     # ── Lote 14-sep-2026: modelos salidos desde el 20-ago (auditado contra /api/v1/models) ──
     # Todos por OpenRouter. Cristian (14-sep): "priorizamos tratar de hacer todo con
     # openrouter" — el hardware local no es comparable ni lo tiene la audiencia.
