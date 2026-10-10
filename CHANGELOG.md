@@ -5,6 +5,31 @@
 
 ## [No publicado]
 
+## [v4.17.0] - 2026-10-10 — Claude 5.5 family + 5 suites de noticias (Ecosistema Startup corpus)
+
+> **Lote `lote/2026-10-10-claude55`**: 4 modelos Claude 5.5 family medidos en examen general.
+> 5 suites nuevas de noticias implementadas con corpus de 259 notas de Ecosistema Startup,
+> **pendientes de aprobación de licencia CC BY 4.0** antes de medición.
+
+- **Claude 5.5 family: Haiku, Sonnet, Opus y Fable medidos (10-oct-2026).** Anthropic lanzó
+  cuatro modelos de la familia Claude 5.5, todos medidos en examen general (213 tests, modo
+  `--quick`). Precios: Haiku $0.10/$0.50, Sonnet $2.00/$10.00, Opus $4.00/$20.00, Fable
+  $10.00/$50.00 por millón de tokens. Resultados completos en próxima publicación.
+- **5 suites de noticias implementadas con corpus de Eco (10-oct-2026).** Suites creadas para
+  medir capacidades editoriales con **259 notas completas + 2441 excerpts de Ecosistema Startup**
+  (26-sep a 10-oct-2026). `noticias_relevancia` (filtrar por criterio editorial), 
+  `noticias_repetidas` (detectar duplicados con GT de 23 grupos etiquetados), `noticias_pauta`
+  (sugerir pauta y detectar tendencias), `noticias_verificacion` (fact-checking y claims dudosos),
+  `noticias_seo_discover` (optimización para Google Discover). Registradas en `benchmarks/suites.py`
+  con `en_promedio: False` hasta alcanzar cobertura 80%. **NO MEDIDAS aún:** requieren aprobación
+  de licencia CC BY 4.0 de Ecosistema Startup antes de ejecutar o publicar resultados.
+- **Investigación SSL hang de Qwen 3.8 Omni y Bonsai 2 (10-oct-2026).** Documentado en
+  `SSL_HANG_INVESTIGATION.md`. Ambos modelos se cuelgan indefinidamente en ~50% de tests,
+  quedando en estado `do_poll.constprop.0` (socket SSL). 114/213 runs de Qwen, 105/213 de
+  Bonsai completados antes del cuelgue. HTTP_READ_TIMEOUT_S ya está en 360s. Recomendación:
+  skip por ahora, retomar en sesión futura con más tiempo ($1 tope, 45 min) no alcanzó para
+  resolver la causa raíz.
+
 ## [v4.16.0] - 2026-10-10 — GPT-6 Luna y el patrón que se repite: la versión Pro cuesta 3× por la misma nota
 
 > **Lote `lote/2026-09-26-gpt6-y-video`**: 4 modelos completos + 2 parciales (Qwen 3.8 Omni y

@@ -1,195 +1,173 @@
 """
-Suite noticias_verificacion — Fact-checking y detección de claims dudosos.
+Suite noticias_verificacion — Verificar afirmaciones contra fuente.
 
+**Diseño aprobado:** benchmark-pack-noticias_e470.md § 4.4
 **LICENCIA:** Textos de Ecosistema Startup, pendiente aprobación CC BY 4.0.
 
-Mide si el modelo puede:
-1. Identificar claims verificables en una nota
-2. Señalar cifras/hechos que requieren fuente
-3. Detectar posibles exageraciones o imprecisiones
+- **8 tests** (8 notas × 12 afirmaciones cada una = 96 afirmaciones total)
+- **Input:** Prompt de verificación + nota fuente + 12 afirmaciones
+  - 4 copiadas de la nota
+  - 3 parafraseadas
+  - 3 con cifra alterada sutilmente
+  - 2 inventadas pero verosímiles
+- **Output:** JSON `[{id, veredicto: "RESPALDA"|"CONTRADICE"|"SIN_RESPALDO", razon}, ...]`
+- **Scoring:** veredictos correctos / afirmaciones enviadas (0-10)
 
-Entrada: nota completa (título + contenido HTML)
-Salida: JSON {
-  "claims": [{claim, verificable: bool, requiere_fuente: bool, confianza: 1-10}],
-  "alertas": [{tipo, descripcion, gravedad: low|medium|high}]
-}
-
-Scoring: heurístico (busca patterns de claims verificables)
+**BLOQUEANTE:** Requiere construir las 96 afirmaciones manualmente.
 """
 
 from typing import List, Dict, Any
-import random
-import re
-from ._noticias_data import load_full_posts, extract_text, truncate_html
+from ._noticias_common import load_full_posts, extract_rendered
+
+# Prompt de verificación (de producción, verificar_claims_lote.py)
+PROMPT_VERIFICACION = """
+Eres un verificador de datos. Tu trabajo es determinar si cada afirmación está respaldada por la fuente.
+
+**Veredictos:**
+- RESPALDA: La afirmación está directamente respaldada por la fuente
+- CONTRADICE: La fuente dice explícitamente lo contrario
+- SIN_RESPALDO: La fuente no menciona esto, o la información es insuficiente
+
+**Reglas:**
+1. Una cifra alterada (aunque sea sutilmente) es CONTRADICE
+2. Una afirmación inventada pero verosímil es SIN_RESPALDO
+3. Una paráfrasis correcta es RESPALDA
+4. Si tienes duda, usa SIN_RESPALDO (nunca inventes)
+"""
 
 
-def _extract_claims(content_html: str) -> List[Dict]:
-    """Extrae claims heurísticamente (números, fechas, nombres propios)."""
-    # Buscar patrones de cifras
-    money_pattern = r'\$[\d,.]+ ?[MKB]|\€[\d,.]+ ?M|[\d,.]+ millones'
-    number_pattern = r'\d{1,3}(?:,\d{3})*(?:\.\d+)?%?'
-    date_pattern = r'\d{1,2} de \w+ de \d{4}|[A-Z][a-z]+ \d{4}'
+def _load_afirmaciones() -> List[Dict[str, Any]]:
+    """
+    Carga las 8 notas con sus 12 afirmaciones construidas.
     
-    claims = []
-    text = content_html[:2000]  # Primeros 2000 chars
+    Formato esperado:
+    [
+      {
+        "test_id": <int>,
+        "nota_id": <int>,
+        "nota_texto": "<texto completo de la nota>",
+        "afirmaciones": [
+          {
+            "id": <int 1-12>,
+            "texto": "<afirmación>",
+            "tipo": "copiada" | "parafraseada" | "cifra_alterada" | "inventada",
+            "veredicto_correcto": "RESPALDA" | "CONTRADICE" | "SIN_RESPALDO",
+            "nota": "<opcional: explicación del tipo>"
+          },
+          ...  # 12 afirmaciones
+        ]
+      },
+      ...  # 8 tests
+    ]
     
-    # Dinero
-    for match in re.finditer(money_pattern, text):
-        claims.append({
-            'claim': match.group(),
-            'verificable': True,
-            'requiere_fuente': True,
-            'confianza': 8
-        })
+    **PENDIENTE:** 8 × 12 = 96 afirmaciones construidas manualmente.
+    """
+    import os
+    import json
     
-    # Números grandes
-    for match in re.finditer(number_pattern, text):
-        num_str = match.group()
-        # Solo si es >1000
-        try:
-            num = float(num_str.replace(',', ''))
-            if num >= 1000:
-                claims.append({
-                    'claim': f'cifra: {num_str}',
-                    'verificable': True,
-                    'requiere_fuente': True,
-                    'confianza': 7
-                })
-        except:
-            pass
+    path = '/home/ubuntu/.cursor/projects/workspace/uploads/afirmaciones_verificacion.json'
     
-    return claims[:10]  # Limitar a 10 claims
-
-
-def _generate_alerts(title: str, content: str) -> List[Dict]:
-    """Genera alertas heurísticas."""
-    alerts = []
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"❌ AFIRMACIONES FALTANTES\n\n"
+            f"El archivo {path} NO existe.\n"
+            f"Esta suite requiere 8 notas con 12 afirmaciones cada una:\n"
+            f"- 4 copiadas (veredicto: RESPALDA)\n"
+            f"- 3 parafraseadas (veredicto: RESPALDA)\n"
+            f"- 3 con cifra alterada sutilmente (veredicto: CONTRADICE)\n"
+            f"- 2 inventadas pero verosímiles (veredicto: SIN_RESPALDO)\n\n"
+            f"Total: 96 afirmaciones construidas.\n"
+            f"Tiempo estimado: ~2-3 horas"
+        )
     
-    # Palabras de exageración
-    hype_words = ['revoluciona', 'cambia el juego', 'disruptivo', 'innovador']
-    for word in hype_words:
-        if word in content.lower():
-            alerts.append({
-                'tipo': 'hype_word',
-                'descripcion': f'Palabra de marketing: "{word}"',
-                'gravedad': 'low'
-            })
-    
-    # Falta de fuente
-    if 'según' not in content.lower() and 'fuente' not in content.lower():
-        alerts.append({
-            'tipo': 'missing_source',
-            'descripcion': 'No se menciona fuente explícita',
-            'gravedad': 'medium'
-        })
-    
-    return alerts
+    with open(path) as f:
+        return json.load(f)
 
 
 def _calculate_verificacion_score(
-    predicted: Dict,
-    expected_claims: List[Dict],
-    expected_alerts: List[Dict]
+    predicted: List[Dict],
+    expected: List[Dict]
 ) -> float:
     """
-    Score de verificación.
+    Calcula score de verificación.
     
-    - Identificó claims: hasta 5 pts
-    - Alertas razonables: hasta 3 pts
-    - Confianza calibrada: hasta 2 pts
+    Score = (veredictos correctos / afirmaciones enviadas) * 10
+    
+    Una afirmación sin veredicto cuenta como error.
     """
-    score = 0.0
+    if not expected:
+        return 0.0
     
-    pred_claims = predicted.get('claims', [])
+    pred_by_id = {p.get('id'): p for p in predicted if 'id' in p}
     
-    # Claims identificados
-    if len(pred_claims) >= 3:
-        score += 2.0
-    if len(pred_claims) >= 5:
-        score += 2.0
-    if len(pred_claims) >= 8:
-        score += 1.0
+    correct = 0
+    for exp in expected:
+        pred = pred_by_id.get(exp['id'])
+        if pred and pred.get('veredicto') == exp['veredicto_correcto']:
+            correct += 1
     
-    # Verificables marcados
-    verificables = sum(1 for c in pred_claims if c.get('verificable', False))
-    if verificables >= len(pred_claims) * 0.6:
-        score += 1.0
-    
-    # Alertas
-    pred_alerts = predicted.get('alertas', [])
-    if len(pred_alerts) >= 1:
-        score += 1.5
-    if len(pred_alerts) >= 3:
-        score += 1.5
-    
-    return min(score, 10.0)
+    score = (correct / len(expected)) * 10
+    return score
 
 
-# Cargar datos
-full_posts = load_full_posts()
-random.seed(2026)
+# Intentar cargar afirmaciones
+try:
+    tests_data = _load_afirmaciones()
+except FileNotFoundError as e:
+    print(f"\n⚠️  WARNING: {e}\n")
+    tests_data = []
 
 TESTS = []
 
-# Seleccionar 5 notas para verificación
-selected = random.sample(full_posts, 5)
+if tests_data:
+    for test_data in tests_data:
+        # Construir prompt
+        afirmaciones_text = []
+        for afirm in test_data['afirmaciones']:
+            afirmaciones_text.append(f"{afirm['id']}. {afirm['texto']}")
+        
+        prompt = f"""{PROMPT_VERIFICACION}
 
-for i, post in enumerate(selected, 1):
-    title = extract_text(post['title'])
-    content = extract_text(post['content'])
-    content_truncated = truncate_html(content, 3000)
-    
-    expected_claims = _extract_claims(content)
-    expected_alerts = _generate_alerts(title, content)
-    
-    prompt = f"""Fact-check esta nota:
+**Fuente:**
 
-TÍTULO: {title}
+{test_data['nota_texto']}
 
-CONTENIDO:
-{content_truncated}
+**Afirmaciones a verificar:**
 
-Identifica:
-1. Claims verificables (cifras, hechos, declaraciones)
-2. Qué requiere fuente
-3. Alertas (exageraciones, imprecisiones, sesgos)
+{chr(10).join(afirmaciones_text)}
 
 Responde en JSON estricto:
-{{
-  "claims": [
-    {{"claim": "<string>", "verificable": <bool>, "requiere_fuente": <bool>, "confianza": <1-10>}},
-    ...
-  ],
-  "alertas": [
-    {{"tipo": "<string>", "descripcion": "<string>", "gravedad": "low|medium|high"}},
-    ...
-  ]
-}}
+[
+  {{
+    "id": <int>,
+    "veredicto": "RESPALDA" | "CONTRADICE" | "SIN_RESPALDO",
+    "razon": "<breve explicación>"
+  }},
+  ...
+]
 """
 
-    TESTS.append({
-        'name': f'verificacion_{i}',
-        'description': f'Fact-check y detección de claims en nota ID {post["id"]}',
-        'messages': [
-            {'role': 'system', 'content': 'Eres un fact-checker que verifica claims en noticias.'},
-            {'role': 'user', 'content': prompt}
-        ],
-        'expected_answer': {
-            'claims': expected_claims,
-            'alertas': expected_alerts
-        },
-        'criteria': {
-            'format': {
-                'json_structure': ['claims', 'alertas'],
-                'claims_is_list': True,
-                'alertas_is_list': True
-            },
-            'substance': {
-                'custom_scorer': lambda pred, exp, ctx: _calculate_verificacion_score(
-                    pred,
-                    expected_claims,
-                    expected_alerts
-                )
+        TESTS.append({
+            'name': f'verificacion_{test_data["test_id"]}',
+            'description': f'Verificar 12 afirmaciones contra nota {test_data["nota_id"]}',
+            'messages': [
+                {'role': 'system', 'content': 'Eres un verificador de datos riguroso.'},
+                {'role': 'user', 'content': prompt}
+            ],
+            'expected_answer': test_data['afirmaciones'],
+            'criteria': {
+                'format': {
+                    'is_list': True,
+                    'list_length': 12,
+                    'required_keys': ['id', 'veredicto']
+                },
+                'substance': {
+                    'custom_scorer': lambda pred, exp, ctx: _calculate_verificacion_score(
+                        pred if isinstance(pred, list) else [],
+                        test_data['afirmaciones']
+                    )
+                }
             }
-        }
-    })
+        })
+else:
+    print("\n⚠️  noticias_verificacion: suite vacía (faltan afirmaciones construidas)\n")

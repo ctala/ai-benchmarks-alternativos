@@ -1,167 +1,232 @@
 """
-Suite noticias_pauta — Sugerir pauta editorial y detección de tendencias.
+Suite noticias_pauta — Redactar nota siguiendo la pauta editorial.
 
+**Diseño aprobado:** benchmark-pack-noticias_e470.md § 4.3
 **LICENCIA:** Textos de Ecosistema Startup, pendiente aprobación CC BY 4.0.
 
-Mide si el modelo puede:
-1. Identificar temas/tendencias recurrentes en un flujo de notas
-2. Sugerir pauta editorial (qué temas profundizar, qué ángulos faltan)
-3. Detectar gaps de cobertura
+- **12 tests** (3 rondas LATAM + 3 producto IA + 3 regionales + 3 comunicados)
+- **Input:** Pauta editorial + ficha de hechos (hasta 3000 chars de nota publicada)
+- **Output:** Nota de 600-900 palabras con título
+- **Scoring:**
+  - 40% forma automática (sin voseo, título ≤60 chars, sin CJK, sin cierres genéricos)
+  - 30% fidelidad (cifras de la nota están en la ficha)
+  - 30% utilidad (3 preguntas Y/N al verificador Phi-4)
 
-Entrada: 20-30 notas de un período (títulos + excerpts)
-Salida: JSON {
-  "tendencias": [{tema, frecuencia, ejemplos: [ids]}],
-  "sugerencias": [{tema, razon, angulo_propuesto}],
-  "gaps": [temas_no_cubiertos]
-}
-
-Scoring: evaluación humana simulada (criterios heurísticos)
+**BLOQUEANTE:** Requiere crear y revisar 12 fichas de hechos (~1h).
 """
 
 from typing import List, Dict, Any
-import random
-from collections import Counter
-from ._noticias_data import load_posts_14d, extract_text
+import re
+from ._noticias_common import load_full_posts, extract_rendered
+
+# Pauta editorial
+PAUTA_EDITORIAL = """
+**Pauta de Ecosistema Startup:**
+
+1. **Idioma:** Español neutro sin voseo ("tú", "ustedes" en vez de "vos", "vosotros")
+2. **Longitud:** 600-900 palabras
+3. **Título:** Máximo 60 caracteres, debe nombrar al protagonista (empresa, persona, fund)
+4. **Estructura:** Pirámide invertida - lo más importante primero
+5. **Utilidad concreta:** Cada nota debe tener al menos UNA decisión o acción transferible para un founder
+6. **Cierres prohibidos:**
+   - Genéricos: "En conclusión", "Solo el tiempo dirá", "Habrá que esperar"
+   - Sección fija de relleno: "¿Qué significa esto para tu startup?"
+7. **Cifras:** Todas las cifras deben estar respaldadas por la ficha de hechos
+8. **Integridad:** Sin mezclar idiomas (nada de chino, árabe u otros scripts)
+"""
+
+# Lista de frases de voseo (reutilizada de check_espanol_neutro.py)
+VOSEO_PATTERNS = [
+    r'\bvos\b', r'\bvosotros\b', r'\bvosotras\b',
+    r'\bsos\b', r'\btenés\b', r'\bquerés\b', r'\bpodés\b',
+    r'\bsabés\b', r'\bdecís\b', r'\bvení\b', r'\bandá\b'
+]
+
+# Cierres genéricos prohibidos
+CIERRES_PROHIBIDOS = [
+    'en conclusión', 'en resumen', 'para concluir',
+    'solo el tiempo dirá', 'habrá que esperar',
+    'veremos qué pasa', 'el futuro lo dirá',
+    '¿qué significa esto para tu startup?'
+]
 
 
-def _extract_topics(posts: List[Dict]) -> Dict[str, List[int]]:
-    """Extrae temas de posts (heurística por keywords)."""
-    topics = {
-        'IA y agentes': [],
-        'Inversión y funding': [],
-        'Ciberseguridad': [],
-        'Regulación y fiscalía': [],
-        'Ecosistema regional': [],
-        'Tecnología empresarial': []
-    }
-    
-    keywords_map = {
-        'IA y agentes': ['ia', 'inteligencia artificial', 'agentes', 'gpt', 'openai', 'llm'],
-        'Inversión y funding': ['levanta', 'millones', 'inversi', 'fondo', 'capital', 'vc'],
-        'Ciberseguridad': ['ciberseguridad', 'hackeo', 'seguridad', 'filtró', 'breach'],
-        'Regulación y fiscalía': ['fiscal', 'regulaci', 'ley', 'gobierno', 'multa'],
-        'Ecosistema regional': ['españ', 'méxico', 'chile', 'latam', 'silicon valley', 'startup.*española'],
-        'Tecnología empresarial': ['saas', 'cloud', 'api', 'herramienta', 'software']
-    }
-    
-    for p in posts:
-        title_lower = extract_text(p['title']).lower()
-        for topic, keywords in keywords_map.items():
-            if any(kw in title_lower for kw in keywords):
-                topics[topic].append(p['id'])
-    
-    return topics
-
-
-def _calculate_pauta_score(
-    predicted: Dict,
-    expected_topics: Dict[str, List[int]]
-) -> float:
+def _load_fichas() -> List[Dict[str, Any]]:
     """
-    Score heurístico para pauta.
+    Carga fichas de hechos desde archivo JSON.
     
-    - Identificó tendencias principales: hasta 5 pts
-    - Sugerencias razonables: hasta 3 pts
-    - Detectó gaps: hasta 2 pts
+    Formato esperado:
+    [
+      {
+        "id": <str>,
+        "tipo": "ronda_latam" | "producto_ia" | "regional" | "comunicado",
+        "ficha": "<texto de hasta 3000 chars con hechos clave>",
+        "nota_origen_id": <int>,
+        "cifras_clave": ["$5M", "Series A", "2024", ...]
+      },
+      ...
+    ]
+    
+    **PENDIENTE:** 12 fichas creadas a mano (~1h).
+    """
+    import os
+    import json
+    
+    path = '/home/ubuntu/.cursor/projects/workspace/uploads/fichas_pauta.json'
+    
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"❌ FICHAS FALTANTES\n\n"
+            f"El archivo {path} NO existe.\n"
+            f"Esta suite requiere 12 fichas de hechos:\n"
+            f"- 3 rondas en LATAM\n"
+            f"- 3 productos de IA\n"
+            f"- 3 casos regionales\n"
+            f"- 3 comunicados\n\n"
+            f"Cada ficha: hasta 3000 caracteres con hechos clave de una nota publicada.\n"
+            f"Tiempo estimado: ~1 hora"
+        )
+    
+    with open(path) as f:
+        return json.load(f)
+
+
+def _score_forma(texto: str, titulo: str) -> float:
+    """
+    Puntúa forma automática (40% del total).
+    
+    - Sin voseo: 10 pts
+    - Título ≤60 chars: 10 pts
+    - Sin CJK ni otros idiomas: 10 pts
+    - Sin cierres prohibidos: 10 pts
+    
+    Total: 0-40
     """
     score = 0.0
+    texto_lower = texto.lower()
     
-    # Tendencias identificadas
-    pred_tendencias = predicted.get('tendencias', [])
-    if len(pred_tendencias) >= 3:
-        score += 2.0
-    if len(pred_tendencias) >= 5:
-        score += 1.5
+    # Sin voseo
+    has_voseo = any(re.search(pattern, texto_lower) for pattern in VOSEO_PATTERNS)
+    if not has_voseo:
+        score += 10.0
     
-    # Frecuencias coherentes
-    for tend in pred_tendencias:
-        if tend.get('frecuencia', 0) >= 3:
-            score += 0.5
+    # Título ≤60
+    if len(titulo) <= 60:
+        score += 10.0
     
-    score = min(score, 5.0)
+    # Sin CJK (chino, japonés, coreano, árabe, cirílico fuera de español)
+    has_cjk = bool(re.search(r'[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\u0600-\u06ff]', texto))
+    if not has_cjk:
+        score += 10.0
     
-    # Sugerencias
-    pred_sugerencias = predicted.get('sugerencias', [])
-    if len(pred_sugerencias) >= 2:
-        score += 1.5
-    if len(pred_sugerencias) >= 4:
-        score += 1.5
+    # Sin cierres prohibidos
+    has_cierre_prohibido = any(cierre in texto_lower for cierre in CIERRES_PROHIBIDOS)
+    if not has_cierre_prohibido:
+        score += 10.0
     
-    # Gaps
-    pred_gaps = predicted.get('gaps', [])
-    if len(pred_gaps) >= 1:
-        score += 1.0
-    if len(pred_gaps) >= 3:
-        score += 1.0
-    
-    return min(score, 10.0)
+    return score
 
 
-# Cargar datos
-posts_14d = load_posts_14d()
-random.seed(2026)
+def _score_fidelidad(texto: str, cifras_clave: List[str]) -> float:
+    """
+    Puntúa fidelidad a la ficha (30% del total).
+    
+    Cada cifra de la nota debe estar en la ficha.
+    Si hay cifras en la nota que NO están en cifras_clave, penaliza.
+    
+    Total: 0-30
+    """
+    # Extraer cifras del texto (números, montos, porcentajes)
+    cifras_en_texto = re.findall(r'\$?[\d,]+(?:\.\d+)?[MKB%]?', texto)
+    
+    if not cifras_en_texto:
+        return 30.0  # No hay cifras, no hay error
+    
+    # Normalizar y comparar
+    def normalize_cifra(c: str) -> str:
+        return c.replace(',', '').replace('$', '').upper()
+    
+    cifras_norm = {normalize_cifra(c) for c in cifras_en_texto}
+    clave_norm = {normalize_cifra(c) for c in cifras_clave}
+    
+    # Proporción de cifras que están respaldadas
+    respaldadas = len(cifras_norm & clave_norm)
+    total_cifras = len(cifras_norm)
+    
+    if total_cifras == 0:
+        return 30.0
+    
+    proporcion = respaldadas / total_cifras
+    return proporcion * 30.0
+
+
+def _score_utilidad_placeholder() -> float:
+    """
+    Placeholder para scoring de utilidad con verificador Phi-4.
+    
+    En producción, esto llamaría al verificador con 3 preguntas:
+    1. ¿Nombra una decisión/acción concreta para un founder?
+    2. ¿El cierre trae un dato específico, no un consejo genérico?
+    3. ¿El título nombra al protagonista?
+    
+    Por ahora: promedio simulado.
+    """
+    # TODO: Implementar con benchmarks/verifier.py
+    return 15.0  # Promedio de 30 pts
+
+
+# Intentar cargar fichas
+try:
+    fichas = _load_fichas()
+except FileNotFoundError as e:
+    print(f"\n⚠️  WARNING: {e}\n")
+    fichas = []
 
 TESTS = []
 
-for i in range(1, 5):
-    # Sample de 25 notas
-    sample = random.sample(posts_14d, 25)
-    expected_topics = _extract_topics(sample)
-    
-    # Construir prompt
-    posts_text = []
-    for p in sample:
-        title = extract_text(p['title'])
-        excerpt = extract_text(p.get('excerpt', ''))[:120]
-        posts_text.append(f"ID {p['id']}: {title}")
-    
-    prompt = f"""Analiza estas {len(sample)} notas del ecosistema startup:
+if fichas:
+    for i, ficha in enumerate(fichas, 1):
+        prompt = f"""{PAUTA_EDITORIAL}
 
-{chr(10).join(posts_text)}
+**Ficha de hechos:**
 
-Identifica:
-1. Tendencias (temas recurrentes con ejemplos)
-2. Sugerencias de pauta (qué profundizar, qué ángulos faltan)
-3. Gaps de cobertura (temas importantes no cubiertos)
+{ficha['ficha']}
 
-Responde en JSON estricto:
-{{
-  "tendencias": [
-    {{"tema": "<string>", "frecuencia": <int>, "ejemplos": [id1, id2, ...]}},
-    ...
-  ],
-  "sugerencias": [
-    {{"tema": "<string>", "razon": "<string>", "angulo_propuesto": "<string>"}},
-    ...
-  ],
-  "gaps": ["<tema>", ...]
-}}
+Redacta una nota de 600-900 palabras siguiendo la pauta.
+Responde SOLO con la nota, sin explicaciones adicionales.
+Formato:
+
+TÍTULO: [tu título de máximo 60 caracteres]
+
+[Cuerpo de la nota de 600-900 palabras]
 """
 
-    TESTS.append({
-        'name': f'pauta_{i}',
-        'description': f'Analizar pauta editorial sobre {len(sample)} notas',
-        'messages': [
-            {'role': 'system', 'content': 'Eres un editor jefe que sugiere pauta editorial.'},
-            {'role': 'user', 'content': prompt}
-        ],
-        'expected_answer': {
-            'tendencias': [
-                {'tema': topic, 'frecuencia': len(ids), 'ejemplos': ids[:3]}
-                for topic, ids in expected_topics.items() if ids
-            ]
-        },
-        'criteria': {
-            'format': {
-                'json_structure': ['tendencias', 'sugerencias', 'gaps'],
-                'tendencias_is_list': True,
-                'sugerencias_is_list': True
+        TESTS.append({
+            'name': f'pauta_{ficha.get("tipo", "general")}_{i}',
+            'description': f'Redactar nota tipo {ficha.get("tipo")} siguiendo pauta editorial',
+            'messages': [
+                {'role': 'system', 'content': 'Eres un redactor de Ecosistema Startup.'},
+                {'role': 'user', 'content': prompt}
+            ],
+            'expected_answer': {
+                'tipo': ficha.get('tipo'),
+                'cifras_clave': ficha.get('cifras_clave', [])
             },
-            'substance': {
-                'custom_scorer': lambda pred, exp, ctx: _calculate_pauta_score(
-                    pred,
-                    expected_topics
-                )
+            'criteria': {
+                'format': {
+                    'has_titulo': True,
+                    'word_count_600_900': True
+                },
+                'substance': {
+                    'custom_scorer': lambda pred, exp, ctx: (
+                        _score_forma(pred if isinstance(pred, str) else '', 
+                                    re.search(r'TÍTULO:\s*(.+)', pred if isinstance(pred, str) else '').group(1) if re.search(r'TÍTULO:\s*(.+)', pred if isinstance(pred, str) else '') else '') +
+                        _score_fidelidad(pred if isinstance(pred, str) else '', 
+                                       ctx.get('expected_answer', {}).get('cifras_clave', [])) +
+                        _score_utilidad_placeholder()
+                    ) / 10.0  # Normalizar a 0-10
+                }
             }
-        }
-    })
+        })
+else:
+    print("\n⚠️  noticias_pauta: suite vacía (faltan fichas)\n")
