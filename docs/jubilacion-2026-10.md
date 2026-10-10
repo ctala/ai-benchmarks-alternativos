@@ -55,16 +55,22 @@ Ver `METODOLOGIA.md` para definición completa.
 
 ### Costo Mensual Estimado
 
-**~$27/mes** (estimado)
+**~$96/mes** (estimado)
 
-**Supuestos**:
-- ~10 lanzamientos nuevos/mes (de 41 cupos disponibles)
-- ~6 activos cambian/mes (nueva versión o cambio del proveedor)
-- Costo base: $1.67/modelo medido (real abr-sep 2026: $119/mes ÷ 71 modelos/mes)
+**Supuestos marcados**:
+- ~**10 lanzamientos nuevos**/mes (de 41 cupos disponibles)
+- ~**6 activos cambian**/mes (nueva versión o cambio del proveedor)
 
-**Cálculo**: (10 nuevos + 6 cambios) × $1.67 ≈ **$27/mes**
+**Costos base** (medidos abr-sep 2026):
+- **Examen completo** (modelo nuevo): ~$8.56 promedio por modelo (rango: $0.08 a ~$28)
+- **Re-medición parcial** (activo que cambia): $1.67/modelo ($119/mes ÷ 71 modelos)
 
-vs ~$98/mes si se midieran todos los 59 cada mes.
+**Cálculo**:
+- Modelos nuevos: 10 × $8.56 = **$85.60**
+- Activos que cambian: 6 × $1.67 = **$10.02**
+- **Total**: $85.60 + $10.02 ≈ **$96/mes**
+
+vs $505/mes si se midieran todos los 59 completos cada mes.
 
 ### Examen Completo de Todos los Activos
 
