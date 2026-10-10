@@ -365,6 +365,61 @@ SUITES = {
                 "modelo útil de uno que siempre contesta algo.",
     },
 
+    # ── Suite de noticias (Ecosistema Startup corpus) ──────────────────────────
+    # LICENCIA PENDIENTE: textos de Eco requieren aprobación CC BY 4.0 antes de publicación
+    "noticias_relevancia": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "cobertura",
+        "menu": "Filtrar notas por criterio editorial",
+        "decide": "distinguir una nota relevante de una irrelevante para tu audiencia",
+        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026 "
+                "con corpus de 259 notas completas + 2441 títulos/excerpts de Ecosistema "
+                "Startup. Mide si el modelo puede puntuar y filtrar notas según criterio "
+                "editorial específico (startups, VC, emprendimiento, tech for business).",
+    },
+    "noticias_repetidas": {
+        "pilar": "Agentes", "en_promedio": False,
+        "fuera_por": "cobertura",
+        "menu": "Detectar duplicados en flujo de noticias",
+        "decide": "evitar publicar el mismo hecho dos veces",
+        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026 "
+                "con ground truth de 23 grupos de duplicados etiquetados manualmente. Mide "
+                "si el modelo puede identificar qué notas cubren el mismo hecho, usando F1 "
+                "sobre pares correctamente identificados. Incluye área gris (mismo evento, "
+                "diferente ángulo) que no cuenta como error.",
+    },
+    "noticias_pauta": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "cobertura",
+        "menu": "Sugerir pauta editorial y detectar tendencias",
+        "decide": "identificar qué temas están calientes y qué ángulos faltan",
+        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026. "
+                "Mide si el modelo puede analizar un flujo de notas e identificar tendencias "
+                "recurrentes, sugerir pauta editorial y detectar gaps de cobertura. Útil "
+                "para editores que gestionan medios con múltiples redactores.",
+    },
+    "noticias_verificacion": {
+        "pilar": "Agentes", "en_promedio": False,
+        "fuera_por": "cobertura",
+        "menu": "Fact-checking y detección de claims dudosos",
+        "decide": "encontrar qué requiere fuente antes de publicar",
+        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026. "
+                "Mide si el modelo puede identificar claims verificables en una nota, "
+                "señalar cifras/hechos que requieren fuente y detectar posibles "
+                "exageraciones. Complementa a `verificar_claim` (un claim) midiendo "
+                "extracción de múltiples claims de un texto largo.",
+    },
+    "noticias_seo_discover": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "cobertura",
+        "menu": "Optimización para Google Discover",
+        "decide": "estructurar una nota para que Google la recomiende",
+        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026. "
+                "Mide si el modelo puede optimizar notas según guidelines de Google Discover: "
+                "título engaging 55-65 chars, excerpt 120-156 chars, estructura con H2/H3/listas, "
+                "profundidad >800 palabras. Útil para medios que dependen de tráfico orgánico.",
+    },
+
     # ── Dimensiones que se reportan APARTE (decisión vigente, no un olvido) ────
     "niah_es": {
         "pilar": None, "en_promedio": False,
