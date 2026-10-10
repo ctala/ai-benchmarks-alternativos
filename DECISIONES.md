@@ -45,6 +45,7 @@
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
 |---|---|---|---|---|
+| 10-oct-2026 | **Vigente** | **Roster de 100 modelos activos con reglas de jubilación** | De 217 modelos, 117 se jubilan (no se vuelven a medir) para controlar costos. Criterios: (1) retired por proveedor (16), (2) provider variants que miden infraestructura (56), (3) sin runs/nunca medidos (44), (4) dominados por otro de su familia (1). Los jubilados quedan en el histórico con sus datos. Un modelo puede volver si el proveedor lo relanza, hay caso de uso documentado o se libera presupuesto | [docs/jubilacion-2026-10.md](docs/jubilacion-2026-10.md) · [METODOLOGIA.md § Jubilación](METODOLOGIA.md) |
 | 13-ago-2026 | **Vigente** | `niah_es` recortada a **128K+** | 8K y 64K daban 78% y 75% de notas perfectas: no distinguían y eran la mitad de la suite más cara | [niah_es.py](benchmarks/tests/niah_es.py) |
 | 13-ago-2026 | **Vigente** | `tool_calling_adversarial` entra al examen | Validada en los 82: **0% de runs perfectos** y 2,5× más dispersa que el índice general | `tests/tool_calling_adversarial.py` |
 | 13-ago-2026 | **Descartada** | ~~`retrieval_distractores`~~ | Nació saturada: **76% de respuestas perfectas** en los 82; endurecida bajó solo a 70%. Retrieval a contexto moderado ya no discrimina entre modelos actuales — y ese eje ya lo cubre `niah_es` en 128K+ | `tests/retrieval_distractores.py` |

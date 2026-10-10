@@ -429,6 +429,31 @@ Organizadas en los 4 pilares del emprendedor:
 | summarization | 2 | Resumen ejecutivo, extraccion datos |
 
 
+## Jubilación de Modelos
+
+Para mantener el costo de medición sostenible, el benchmark mantiene un **roster de 100 modelos activos** que se vuelven a medir en lotes futuros. Los modelos que no califican se **jubilan**: quedan en el histórico con sus datos pero no se miden más.
+
+### Criterios de Jubilación
+
+Un modelo se jubila si cumple uno de estos criterios (en orden de aplicación):
+
+1. **Retired por el proveedor** — El modelo ya no tiene endpoint válido o fue deprecado explícitamente
+2. **Provider variant** — Mide infraestructura/serving, no calidad del modelo. El modelo base ya está medido
+3. **Sin runs** — Nunca se midió (0 runs), generalmente por ser tier `:free`, variante thinking o modelo reciente no priorizado
+4. **Dominado** — Otro modelo de su misma familia tiene ≥ calidad a ≤ costo
+
+### Cómo un Modelo Puede Volver
+
+Un modelo jubilado puede reactivarse si:
+- El proveedor lo relanza con nueva versión
+- Hay caso de uso documentado que lo requiere
+- Se libera presupuesto por jubilación de otros modelos
+- Cambio de criterios en ventana de medición trimestral
+
+**Prioridad para reactivar**: (1) ranqueados jubilados por dominancia, (2) tested con caso de uso, (3) open source a igual calidad, (4) más recientes.
+
+Ver [docs/jubilacion-2026-10.md](docs/jubilacion-2026-10.md) para la lista completa y [DECISIONES.md](DECISIONES.md) (10-oct-2026) para la decisión formal.
+
 ## Estructura del repo
 
 ## Estructura
