@@ -182,24 +182,66 @@ Los 100 modelos que **se volverán a medir** en lotes futuros incluyen:
 
 **Ver lista completa**: `docs/jubilacion-2026-10.json` campo `lista_activos`
 
-## Impacto Estimado
+## Estimación de Costo
 
-### Costo de Medición
+### Costos Reales Medidos (Septiembre 2026)
 
-**Cálculo pendiente**: Ejecutar `python benchmarks/calculate_costs.py` comparando:
-- 217 modelos actuales
-- 100 modelos activos
+**Fuente**: Lotes de septiembre 2026 en `benchmarks/results/benchmark_202609*.json`, calculados con `benchmarks/calculate_costs.py`.
 
-**Estimación aproximada** (basada en distribución de costos por suite):
-- `niah_es` cuesta ~74% del total
-- `agent_long_horizon` cuesta ~13% del total
-- Suite típica: $0.30-$2 por modelo
+| Modelo | Runs | Costo por Examen Completo |
+|---|---:|---:|
+| Mercury 2.5 | 199 | $0.15 |
+| DeepSeek V4.1 Flash | 213 | $1.76 |
+| Gemini 3.8 Flash | 213 | $7.65 |
+| Muse Spark 1.3 | 213 | $12.22 |
+| Fugu Max | 213 | $21.03 |
+| **Promedio** | | **$8.56** |
 
-**Ahorro estimado por lote** (pendiente cálculo exacto):
-- 117 modelos menos × $2 promedio = ~$234/lote
-- Con lotes mensuales: ~$234/mes de ahorro
+**Rango**: $0.15 (modelos ultra-económicos) a $21.03 (thinking models premium)
 
-### Diversidad Preservada
+### Escenario Teórico (re-medición completa)
+
+Si se re-midieran **todos** los modelos mensualmente (lo cual NO sucede en la práctica):
+
+| | Costo Mensual |
+|---|---:|
+| **217 modelos** (catálogo actual) | $1,858 |
+| **100 modelos** (roster activo) | $856 |
+| **Ahorro potencial** | **$1,002 (54% reducción)** |
+
+### Escenario REALISTA (medido)
+
+**Basado en CHANGELOG**: El repo publica ~12 versiones al año, con ~10-15 modelos nuevos/actualizados por versión.
+
+| Roster | Modelos re-medidos/mes | Costo Mensual Real |
+|---|---|---:|
+| **217 modelos** | ~20-30 | $171 - $257 |
+| **100 modelos** | ~10-15 | **$86 - $128** |
+| **Ahorro real** | | **$85 - $129/mes** |
+
+**Por qué solo 10-15 modelos/mes:**
+- Re-medición **NO es automática** — solo cuando:
+  1. Sale versión nueva del modelo (distinto ID)
+  2. Cambian suites/tests del benchmark (trimestral)
+  3. Bug del runner/adapter invalida runs previos
+  4. Modelo tiene cambios silenciosos del proveedor (raro)
+- La mayoría de los modelos se miden **una vez** y sus resultados permanecen válidos hasta que algo cambie.
+
+**Comando usado**:
+```bash
+python3 benchmarks/calculate_costs.py --estimar "gpt-5.5" --precio-in 3.0 --precio-out 15.0
+```
+
+### Dónde NO está el $29-43
+
+El valor "$29-43 por modelo" citado en versiones previas **era incorrecto**. Ese valor:
+- **Existe en DECISIONES.md** pero se refiere al costo de **agregar UNA SUITE NUEVA** (no un modelo completo)
+- Viene de la entrada del 13-ago-2026: "Una suite nueva cuesta $29-43 y no invalida ningún run"
+- Un examen completo son **22 suites**, no una sola
+
+## Impacto en Diversidad
+
+### Cobertura Preservada
 
 | Aspecto | Antes | Después |
 |---|---:|---:|
