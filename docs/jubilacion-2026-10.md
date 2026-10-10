@@ -10,7 +10,9 @@
 |---|---:|
 | **Total modelos en catálogo** | 217 |
 | **Jubilados** | 117 |
-| **Activos (se vuelven a medir)** | 100 |
+| **Activos (se vuelven a medir)** | 90 |
+| **Cupos para modelos nuevos** | 10 |
+| **Total roster activo** | 100 |
 
 ## Reglas de Jubilación
 
@@ -63,9 +65,11 @@ Modelos que están en el catálogo pero nunca se corrió un benchmark contra ell
 - `gemini-flash-thinking`
 - `kimi-k2.6-thinking`
 
-### Criterio 4: Baja prioridad
+### Criterio 4: Baja prioridad / No dominados
 
-Para llegar exactamente a 100 activos, se jubilan los **21 modelos de menor prioridad global** del catálogo.
+⚠️ **Nota importante**: Estos modelos **NO están dominados** por otro de su familia (dominancia = otro modelo de la familia con igual o mejor calidad a menor o igual costo). Simplemente son los de **menor prioridad global** cuando se aplican los otros 3 criterios primero.
+
+Para llegar a **90 activos** (dejando 10 cupos para modelos nuevos), se jubilan los **21 modelos de menor prioridad global** del catálogo restante.
 
 **Orden de prioridad** (de mayor a menor):
 1. ✅ Ranked con alta calidad (≥8.0) — **permanecen**
@@ -74,7 +78,7 @@ Para llegar exactamente a 100 activos, se jubilan los **21 modelos de menor prio
 4. ❌ Ranked con baja calidad (<7.75) — **se jubilan 7 de estos**
 5. ❌ No-ranked con calidad <8.5 — **se jubilan 14 de estos**
 
-**Resultado**: Se jubilan 14 no-ranked + 7 ranked de menor calidad (Q 7.26-7.74)
+**Resultado**: Se jubilan 14 no-ranked + 7 ranked de menor calidad (Q 7.26-7.74). **Estos podrían reactivarse** si se agrega un modelo de su familia que claramente los domine, liberando su cupo.
 
 **Ejemplos jubilados por este criterio (21 total)**:
 - Kimi K2 Thinking (Q=5.00, 2 runs, no ranked)
