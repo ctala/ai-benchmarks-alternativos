@@ -5,6 +5,41 @@
 
 ## [No publicado]
 
+## [v4.16.0] - 2026-10-10 — GPT-6 Luna y el patrón que se repite: la versión Pro cuesta 3× por la misma nota
+
+> **Lote `lote/2026-09-26-gpt6-y-video`**: 4 modelos completos + 2 parciales (Qwen 3.8 Omni y
+> Bonsai 2 a medias). El release cierra con los 4 completos; los 2 parciales entran en v4.17.0
+> tras completar sus 209 runs pendientes (~$1 estimado). Ver [DATASHEET_2026-10.md](DATASHEET_2026-10.md).
+
+- **GPT-6 Luna NO supera a su predecesor (10-oct-2026).** GPT-6 Luna saca **8.75** contra
+  **8.93** de GPT-5.6 Luna, costando la mitad ($0.93 vs $1.86 el examen). No es un upgrade en
+  calidad de texto — puede ser velocidad o multimodal, pero en este examen mide peor.
+- **GPT-6 Luna Pro cuesta 3× por la misma nota (10-oct-2026).** Luna y Luna Pro son el mismo
+  modelo base servido con `reasoning.mode: pro`. La medición: ambos **8.75** de calidad, pero
+  Pro cuesta **$2.83** contra **$0.93** de Luna regular (+204% de gasto por +0.00 en nota).
+  OpenAI declara que Pro razona más profundo; **en este examen no justifica su precio**. Es el
+  segundo mes consecutivo donde la versión cara no compra calidad medible — en septiembre fue
+  GLM 5.3 vs GLM 5.3 Flash (+0.01 por 18× el precio).
+- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52 (10-oct-2026).** MoE 309B/15B
+  activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio nativos. Declarado thinking
+  con el patrón `mimo-v2.6` en `providers/adapters.py`.
+- **Ling 3.0 Flash VL: el más barato con vídeo, pero entre los peores en agentes (10-oct-2026).**
+  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. Pero
+  **7.63 de calidad** y **de los 5 peores de 104** en `orchestration` (4.38) y `tool_calling`
+  (4.37). Si el caso de uso es orquestar un agente, el precio bajo no compensa.
+- **Qwen 3.8 Omni y Bonsai 2 quedaron a medias, y no se publican (10-oct-2026).** Qwen 3.8
+  Omni Flash 114/213 runs, Bonsai 2 27B 103/213. Ambos razonan mucho (157-165 s/run, ~10 h
+  de reloj cada uno) y el lote se pausó en la rama sin completarlos para no gastar sin
+  autorización explícita. **No se publican promedios de exámenes incompletos** — es el error
+  que en septiembre infló a Qwen 3.8 Flash con 8 centésimas de sesgo de supervivencia. Faltan
+  209 runs (~$1 estimado) + Harbor tasks de los 6 (~$3-8). El lote queda en la rama
+  `lote/2026-09-26-gpt6-y-video`, y se cierra con los 4 completos para no retrasar el release
+  mensual.
+- **El caso Bonsai 2 responde algo que nadie publica (10-oct-2026).** Bonsai 2 27B es Qwen 3.8
+  27B con **compresión ternaria** (1.58 bits/peso), del mismo proveedor. El benchmark ya tiene
+  medido el original (#5, calidad 8.50). Completar Bonsai 2 mide **cuánta calidad pierde un
+  modelo al comprimirlo** — dato que ningún paper reporta contra el mismo examen del original,
+  porque los papers comparan contra otros modelos. Este sí.
 - **Un `git add` con un path inexistente aborta el add COMPLETO (26-sep-2026).** El commit
   `c39b297b5` se publicó con el mensaje del arreglo del QA y **sin una línea de su código**:
   el `git add` listaba cinco archivos y uno (`results/_foto_effort.json`) no existía, así que
