@@ -1,8 +1,8 @@
 {
   "fecha": "2026-10-10T19:41:07.174843",
   "total": 217,
-  "jubilados": 96,
-  "activos": 121,
+  "jubilados": 117,
+  "activos": 100,
   "objetivo": 100,
   "lista_jubilados": [
     {
@@ -868,482 +868,632 @@
       "costo_mes": 0.0,
       "motivo": "provider_variant",
       "detalle": "Mide infraestructura, no modelo"
+    },
+    {
+      "key": "or-kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "runs": 2,
+      "calidad": 5.0,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cloud_nim",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 5.00"
+    },
+    {
+      "key": "mistral-nemo",
+      "name": "Mistral Nemo",
+      "runs": 522,
+      "calidad": 7.26,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "ultra_cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 7.26"
+    },
+    {
+      "key": "or-qwen3-next-thinking",
+      "name": "Qwen 3-Next 80B Thinking",
+      "runs": 156,
+      "calidad": 7.52,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cloud_nim",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 7.52"
+    },
+    {
+      "key": "local-nemotron3-base-33b",
+      "name": "Nemotron 3 Base 33B (DGX Spark Q4_K_M)",
+      "runs": 86,
+      "calidad": 7.82,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "local",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 7.82"
+    },
+    {
+      "key": "or-nemotron-3-nano-omni-reasoning",
+      "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+      "runs": 147,
+      "calidad": 7.99,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cloud_nim",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 7.99"
+    },
+    {
+      "key": "or-nemotron-nano-9b-v2",
+      "name": "Nemotron Nano 9B v2",
+      "runs": 134,
+      "calidad": 8.02,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cloud_nim",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.02"
+    },
+    {
+      "key": "local-diffusiongemma-26b",
+      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+      "runs": 91,
+      "calidad": 8.14,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "local",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.14"
+    },
+    {
+      "key": "spark-gemma4-12b-think",
+      "name": "Gemma 4 12B (Spark llama-server, reasoning)",
+      "runs": 85,
+      "calidad": 8.19,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "local",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.19"
+    },
+    {
+      "key": "or-qwen-2.5-72b",
+      "name": "Qwen 2.5 72B",
+      "runs": 172,
+      "calidad": 8.27,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.27"
+    },
+    {
+      "key": "gpt-5.6-terra-pro",
+      "name": "GPT-5.6 Terra Pro",
+      "runs": 275,
+      "calidad": 8.4,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "medium",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.40"
+    },
+    {
+      "key": "spark-gemma4-12b",
+      "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+      "runs": 86,
+      "calidad": 8.49,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "local",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.49"
+    },
+    {
+      "key": "gpt-5.6-luna-pro",
+      "name": "GPT-5.6 Luna Pro",
+      "runs": 264,
+      "calidad": 8.5,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.50"
+    },
+    {
+      "key": "longcat-2.0",
+      "name": "LongCat 2.0",
+      "runs": 22,
+      "calidad": 8.52,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.52"
+    },
+    {
+      "key": "sakana-namazu",
+      "name": "Sakana Namazu",
+      "runs": 1728,
+      "calidad": 8.59,
+      "costo_mes": 0.0,
+      "ranked": false,
+      "tier": "cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "No ranked, calidad 8.59"
+    },
+    {
+      "key": "or-llama-3.1-8b",
+      "name": "Llama 3.1 8B Instant",
+      "runs": 155,
+      "calidad": 7.26,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.26)"
+    },
+    {
+      "key": "gemini-3.1-pro",
+      "name": "Gemini 3.1 Pro",
+      "runs": 143,
+      "calidad": 7.48,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.48)"
+    },
+    {
+      "key": "gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "runs": 166,
+      "calidad": 7.51,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.51)"
+    },
+    {
+      "key": "gemini-pro",
+      "name": "Gemini 2.5 Pro",
+      "runs": 179,
+      "calidad": 7.68,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.68)"
+    },
+    {
+      "key": "nemotron-nano",
+      "name": "Nemotron 3 Nano 30B",
+      "runs": 152,
+      "calidad": 7.69,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.69)"
+    },
+    {
+      "key": "grok-4.20",
+      "name": "Grok 4.20",
+      "runs": 146,
+      "calidad": 7.7,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.70)"
+    },
+    {
+      "key": "qwen3.6-27b",
+      "name": "Qwen 3.6 27B base (OpenRouter FP8)",
+      "runs": 182,
+      "calidad": 7.74,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap",
+      "motivo": "baja_prioridad",
+      "detalle": "Ranked pero baja prioridad (Q=7.74)"
     }
   ],
   "lista_activos": [
     {
-      "key": "qwen3.8-flash",
-      "name": "Qwen 3.8 Flash",
-      "runs": 823,
-      "calidad": 8.53,
+      "key": "nemotron-3.5-lightning",
+      "name": "Nemotron 3.5 Lightning",
+      "runs": 493,
+      "calidad": 7.74,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "ultra_cheap"
     },
     {
-      "key": "gpt-5.6-luna",
-      "name": "GPT-5.6 Luna",
+      "key": "grok-4.3",
+      "name": "Grok 4.3",
+      "runs": 167,
+      "calidad": 7.77,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "qwen3-coder",
+      "name": "Qwen3 Coder",
       "runs": 162,
-      "calidad": 8.52,
+      "calidad": 7.78,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "glm-5.3",
-      "name": "GLM 5.3",
-      "runs": 193,
-      "calidad": 8.52,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "glm-5.3-flash",
-      "name": "GLM 5.3 Flash",
-      "runs": 143,
-      "calidad": 8.51,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "qwen-3.8-27b",
-      "name": "Qwen 3.8 27B",
-      "runs": 690,
-      "calidad": 8.5,
+      "key": "hermes-4-70b",
+      "name": "Hermes 4 70B",
+      "runs": 487,
+      "calidad": 7.78,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "qwen3.7-flash",
-      "name": "Qwen 3.7 Flash",
-      "runs": 163,
-      "calidad": 8.49,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "tencent-hy3",
-      "name": "Tencent Hy3",
-      "runs": 143,
-      "calidad": 8.49,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "fugu-max",
-      "name": "Fugu Max",
-      "runs": 143,
-      "calidad": 8.49,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "or-gemma-4-31b",
-      "name": "Gemma 4 31B",
-      "runs": 143,
-      "calidad": 8.48,
+      "key": "or-qwen3.5-397b",
+      "name": "Qwen 3.5 397B",
+      "runs": 154,
+      "calidad": 7.8,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cloud_nim"
     },
     {
-      "key": "claude-opus-4.8",
-      "name": "Claude Opus 4.8",
-      "runs": 165,
-      "calidad": 8.48,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "claude-opus-4.6",
-      "name": "Claude Opus 4.6",
-      "runs": 213,
-      "calidad": 8.48,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "qwen-3.8-max-0902",
-      "name": "Qwen 3.8 Max 0902",
-      "runs": 143,
-      "calidad": 8.46,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "qwen-3.6-max",
-      "name": "Qwen 3.6 Max",
-      "runs": 173,
-      "calidad": 8.46,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "deepseek-v4-pro-0813",
-      "name": "DeepSeek V4 Pro (0813)",
-      "runs": 435,
-      "calidad": 8.45,
+      "key": "qwen3-coder-next",
+      "name": "Qwen3-Coder-Next (OpenRouter FP8)",
+      "runs": 180,
+      "calidad": 7.81,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "deepseek-r1",
-      "name": "DeepSeek R1 (reasoning)",
-      "runs": 158,
-      "calidad": 8.45,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "deepseek-v4.1-flash",
-      "name": "DeepSeek V4.1 Flash",
-      "runs": 143,
-      "calidad": 8.44,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "seed-2.0-code",
-      "name": "Seed 2.0 Code",
-      "runs": 1570,
-      "calidad": 8.44,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "inkling-small",
-      "name": "Inkling Small",
-      "runs": 143,
-      "calidad": 8.43,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "qwen-3.8-max",
-      "name": "Qwen 3.8 Max",
-      "runs": 295,
-      "calidad": 8.43,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "or-glm5",
-      "name": "GLM 5",
-      "runs": 154,
-      "calidad": 8.42,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "qwen-3.8-2.4t",
-      "name": "Qwen 3.8 2.4T (A95B)",
-      "runs": 295,
-      "calidad": 8.41,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "gpt-5.4",
-      "name": "GPT-5.4",
-      "runs": 148,
-      "calidad": 8.39,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "hy4-preview",
-      "name": "Tencent Hy4 preview",
-      "runs": 143,
-      "calidad": 8.39,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "claude-opus-4.7",
-      "name": "Claude Opus 4.7",
-      "runs": 210,
-      "calidad": 8.39,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "or-claude-fable-5",
-      "name": "Claude Fable 5",
-      "runs": 213,
-      "calidad": 8.39,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "glm-5.2",
-      "name": "GLM 5.2",
-      "runs": 154,
-      "calidad": 8.36,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "glm-5.1",
-      "name": "GLM-5.1",
-      "runs": 173,
-      "calidad": 8.36,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "gemma-4-26b",
-      "name": "Gemma 4 26B MoE (3.8B activos)",
-      "runs": 155,
-      "calidad": 8.34,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "granite-4.2-8b",
-      "name": "Granite 4.2 8B",
-      "runs": 143,
-      "calidad": 8.34,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "gpt-5.6-terra",
-      "name": "GPT-5.6 Terra",
-      "runs": 150,
-      "calidad": 8.31,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "claude-sonnet-5",
-      "name": "Claude Sonnet 5",
-      "runs": 296,
-      "calidad": 8.31,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "gemini-3.6-flash",
-      "name": "Gemini 3.6 Flash",
-      "runs": 234,
-      "calidad": 8.3,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "gemini-3.7-flash",
-      "name": "Gemini 3.7 Flash",
-      "runs": 506,
-      "calidad": 8.3,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "kimi-k2.6",
-      "name": "Kimi K2.6",
-      "runs": 219,
-      "calidad": 8.3,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "muse-spark-1.3",
-      "name": "Muse Spark 1.3",
-      "runs": 143,
-      "calidad": 8.29,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "or-deepseek-v3",
-      "name": "DeepSeek V3",
-      "runs": 154,
-      "calidad": 8.29,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "muse-spark-1.2",
-      "name": "Muse Spark 1.2",
-      "runs": 143,
-      "calidad": 8.28,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "gpt-5.6-sol",
-      "name": "GPT-5.6 Sol",
-      "runs": 165,
-      "calidad": 8.28,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "grok-4.6",
-      "name": "Grok 4.6",
-      "runs": 143,
-      "calidad": 8.27,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "laguna-xs-2.1",
-      "name": "Poolside Laguna XS 2.1",
-      "runs": 143,
-      "calidad": 8.26,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "or-mistral-large-3",
-      "name": "Mistral Large 3 675B",
-      "runs": 152,
-      "calidad": 8.26,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "gemini-3.8-flash",
-      "name": "Gemini 3.8 Flash",
-      "runs": 143,
-      "calidad": 8.26,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "hermes-4-405b",
-      "name": "Hermes 4 405B",
-      "runs": 478,
-      "calidad": 8.26,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "seed-2-1-turbo",
-      "name": "Seed 2.1 Turbo",
-      "runs": 1244,
-      "calidad": 8.25,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "mercury-2.5",
-      "name": "Mercury 2.5",
-      "runs": 143,
-      "calidad": 8.24,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "qwen-3.7-max",
-      "name": "Qwen 3.7 Max",
-      "runs": 158,
-      "calidad": 8.24,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "gemini-3.5-flash-lite",
-      "name": "Gemini 3.5 Flash Lite",
-      "runs": 143,
-      "calidad": 8.23,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "muse-glimmer-30b",
-      "name": "Muse Glimmer 30B",
-      "runs": 143,
-      "calidad": 8.23,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "claude-opus-5-fast",
-      "name": "Claude Opus 5 Fast",
-      "runs": 451,
-      "calidad": 8.23,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "premium"
-    },
-    {
-      "key": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "runs": 196,
-      "calidad": 8.22,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "claude-haiku-4.5",
-      "name": "Claude Haiku 4.5",
+      "key": "qwen3.6-35b",
+      "name": "Qwen 3.6 35B base (OpenRouter FP8)",
       "runs": 157,
-      "calidad": 8.21,
+      "calidad": 7.82,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "claude-opus-5",
-      "name": "Claude Opus 5",
-      "runs": 472,
-      "calidad": 8.21,
+      "key": "minimax-m2.7",
+      "name": "MiniMax M2.7",
+      "runs": 217,
+      "calidad": 7.83,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "kat-coder-pro-2.5",
+      "name": "KAT Coder Pro v2.5",
+      "runs": 262,
+      "calidad": 7.83,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "gemini-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "runs": 153,
+      "calidad": 7.84,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "or-llama-4-scout",
+      "name": "Llama 4 Scout 17B",
+      "runs": 148,
+      "calidad": 7.88,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "laguna-s-2.1",
+      "name": "Poolside Laguna S 2.1",
+      "runs": 143,
+      "calidad": 7.89,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "or-gpt-oss-20b",
+      "name": "GPT-OSS 20B",
+      "runs": 150,
+      "calidad": 7.91,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "gpt-4.1-mini",
+      "name": "GPT-4.1 Mini",
+      "runs": 162,
+      "calidad": 7.91,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "nemotron-super",
+      "name": "Nemotron 3 Super",
+      "runs": 859,
+      "calidad": 7.91,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "runs": 157,
+      "calidad": 7.95,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "ling-3.0-flash",
+      "name": "Ling 3.0 Flash",
+      "runs": 143,
+      "calidad": 7.98,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "mistral-large",
+      "name": "Mistral Large",
+      "runs": 165,
+      "calidad": 7.99,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "or-qwen3-next-instruct",
+      "name": "Qwen 3-Next 80B Instruct",
+      "runs": 157,
+      "calidad": 8.01,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_nim"
+    },
+    {
+      "key": "openrouter-nemotron-3-ultra-550b",
+      "name": "Nemotron 3 Ultra 550B",
+      "runs": 161,
+      "calidad": 8.01,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud"
+    },
+    {
+      "key": "mistral-small-4",
+      "name": "Mistral Small 4",
+      "runs": 150,
+      "calidad": 8.03,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "or-step-3.5-flash",
+      "name": "Step 3.5 Flash",
+      "runs": 1140,
+      "calidad": 8.03,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_nim"
+    },
+    {
+      "key": "solar-pro4",
+      "name": "Solar Pro 4",
+      "runs": 143,
+      "calidad": 8.04,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "or-llama-3.3-70b",
+      "name": "Llama 3.3 70B",
+      "runs": 160,
+      "calidad": 8.04,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "runs": 143,
+      "calidad": 8.05,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "kimi-k3",
+      "name": "Kimi K3",
+      "runs": 143,
+      "calidad": 8.06,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "premium"
     },
     {
-      "key": "qwen-3.6-plus",
-      "name": "Qwen 3.6 Plus",
-      "runs": 164,
-      "calidad": 8.2,
+      "key": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "runs": 157,
+      "calidad": 8.06,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "or-qwen-3.5-35b",
+      "name": "Qwen 3.5 35B",
+      "runs": 284,
+      "calidad": 8.07,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "or-minimax-m2.5",
+      "name": "MiniMax M2.5",
+      "runs": 152,
+      "calidad": 8.08,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "gemini-flash",
+      "name": "Gemini 2.5 Flash",
+      "runs": 162,
+      "calidad": 8.08,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "gemini-3.1-flash-lite",
+      "name": "Gemini 3.1 Flash Lite",
+      "runs": 163,
+      "calidad": 8.09,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "mimo-v2.5-or",
+      "name": "MiMo-V2.5 (omnimodal)",
+      "runs": 163,
+      "calidad": 8.1,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "or-gpt-oss-120b",
+      "name": "GPT-OSS 120B",
+      "runs": 154,
+      "calidad": 8.11,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_ollama"
+    },
+    {
+      "key": "or-ministral-14b",
+      "name": "Ministral 14B",
+      "runs": 161,
+      "calidad": 8.11,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_nim"
+    },
+    {
+      "key": "kimi-k2",
+      "name": "Kimi K2",
+      "runs": 180,
+      "calidad": 8.11,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "deepseek-v3",
+      "name": "DeepSeek V3.2",
+      "runs": 270,
+      "calidad": 8.11,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "grok-4.5",
+      "name": "Grok 4.5",
+      "runs": 157,
+      "calidad": 8.12,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "claude-sonnet-4.6",
+      "name": "Claude Sonnet 4.6",
+      "runs": 171,
+      "calidad": 8.12,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "nex-n2-mini",
+      "name": "Nex-N2-Mini",
+      "runs": 143,
+      "calidad": 8.13,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "kat-coder-air-2.5",
+      "name": "KAT Coder Air v2.5",
+      "runs": 497,
+      "calidad": 8.13,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "or-kimi-k2.5",
+      "name": "Kimi K2.5",
+      "runs": 14119,
+      "calidad": 8.14,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_nim"
+    },
+    {
+      "key": "gpt-4.1",
+      "name": "GPT-4.1",
+      "runs": 163,
+      "calidad": 8.15,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "gpt-5.5",
+      "name": "GPT-5.5",
+      "runs": 653,
+      "calidad": 8.15,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash (OpenRouter)",
+      "runs": 168,
+      "calidad": 8.16,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
@@ -1376,589 +1526,481 @@
       "tier": "cheap"
     },
     {
-      "key": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash (OpenRouter)",
-      "runs": 168,
-      "calidad": 8.16,
+      "key": "qwen-3.6-plus",
+      "name": "Qwen 3.6 Plus",
+      "runs": 164,
+      "calidad": 8.2,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "gpt-4.1",
-      "name": "GPT-4.1",
-      "runs": 163,
-      "calidad": 8.15,
+      "key": "claude-haiku-4.5",
+      "name": "Claude Haiku 4.5",
+      "runs": 157,
+      "calidad": 8.21,
       "costo_mes": 0.0,
       "ranked": true,
-      "tier": "medium"
+      "tier": "cheap"
     },
     {
-      "key": "gpt-5.5",
-      "name": "GPT-5.5",
-      "runs": 653,
-      "calidad": 8.15,
+      "key": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "runs": 472,
+      "calidad": 8.21,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "premium"
     },
     {
-      "key": "or-kimi-k2.5",
-      "name": "Kimi K2.5",
-      "runs": 14119,
-      "calidad": 8.14,
+      "key": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "runs": 196,
+      "calidad": 8.22,
       "costo_mes": 0.0,
       "ranked": true,
-      "tier": "cloud_nim"
+      "tier": "cheap"
     },
     {
-      "key": "kat-coder-air-2.5",
-      "name": "KAT Coder Air v2.5",
-      "runs": 497,
-      "calidad": 8.13,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "nex-n2-mini",
-      "name": "Nex-N2-Mini",
+      "key": "gemini-3.5-flash-lite",
+      "name": "Gemini 3.5 Flash Lite",
       "runs": 143,
-      "calidad": 8.13,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "grok-4.5",
-      "name": "Grok 4.5",
-      "runs": 157,
-      "calidad": 8.12,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "claude-sonnet-4.6",
-      "name": "Claude Sonnet 4.6",
-      "runs": 171,
-      "calidad": 8.12,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "or-ministral-14b",
-      "name": "Ministral 14B",
-      "runs": 161,
-      "calidad": 8.11,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "or-gpt-oss-120b",
-      "name": "GPT-OSS 120B",
-      "runs": 154,
-      "calidad": 8.11,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_ollama"
-    },
-    {
-      "key": "kimi-k2",
-      "name": "Kimi K2",
-      "runs": 180,
-      "calidad": 8.11,
+      "calidad": 8.23,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "deepseek-v3",
-      "name": "DeepSeek V3.2",
-      "runs": 270,
-      "calidad": 8.11,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "mimo-v2.5-or",
-      "name": "MiMo-V2.5 (omnimodal)",
-      "runs": 163,
-      "calidad": 8.1,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "gemini-3.1-flash-lite",
-      "name": "Gemini 3.1 Flash Lite",
-      "runs": 163,
-      "calidad": 8.09,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "gemini-flash",
-      "name": "Gemini 2.5 Flash",
-      "runs": 162,
-      "calidad": 8.08,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "or-minimax-m2.5",
-      "name": "MiniMax M2.5",
-      "runs": 152,
-      "calidad": 8.08,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "or-qwen-3.5-35b",
-      "name": "Qwen 3.5 35B",
-      "runs": 284,
-      "calidad": 8.07,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "kimi-k2.7-code",
-      "name": "Kimi K2.7 Code",
-      "runs": 157,
-      "calidad": 8.06,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "kimi-k3",
-      "name": "Kimi K3",
+      "key": "muse-glimmer-30b",
+      "name": "Muse Glimmer 30B",
       "runs": 143,
-      "calidad": 8.06,
+      "calidad": 8.23,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "claude-opus-5-fast",
+      "name": "Claude Opus 5 Fast",
+      "runs": 451,
+      "calidad": 8.23,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "premium"
     },
     {
-      "key": "deepseek-v4-flash-0731",
-      "name": "DeepSeek V4 Flash 0731",
+      "key": "mercury-2.5",
+      "name": "Mercury 2.5",
       "runs": 143,
-      "calidad": 8.05,
+      "calidad": 8.24,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "ultra_cheap"
     },
     {
-      "key": "solar-pro4",
-      "name": "Solar Pro 4",
+      "key": "qwen-3.7-max",
+      "name": "Qwen 3.7 Max",
+      "runs": 158,
+      "calidad": 8.24,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "seed-2-1-turbo",
+      "name": "Seed 2.1 Turbo",
+      "runs": 1244,
+      "calidad": 8.25,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "laguna-xs-2.1",
+      "name": "Poolside Laguna XS 2.1",
       "runs": 143,
-      "calidad": 8.04,
+      "calidad": 8.26,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "ultra_cheap"
     },
     {
-      "key": "or-llama-3.3-70b",
-      "name": "Llama 3.3 70B",
-      "runs": 160,
-      "calidad": 8.04,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "mistral-small-4",
-      "name": "Mistral Small 4",
-      "runs": 150,
-      "calidad": 8.03,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "or-step-3.5-flash",
-      "name": "Step 3.5 Flash",
-      "runs": 1140,
-      "calidad": 8.03,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "or-qwen3-next-instruct",
-      "name": "Qwen 3-Next 80B Instruct",
-      "runs": 157,
-      "calidad": 8.01,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "openrouter-nemotron-3-ultra-550b",
-      "name": "Nemotron 3 Ultra 550B",
-      "runs": 161,
-      "calidad": 8.01,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud"
-    },
-    {
-      "key": "mistral-large",
-      "name": "Mistral Large",
-      "runs": 165,
-      "calidad": 7.99,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "ling-3.0-flash",
-      "name": "Ling 3.0 Flash",
+      "key": "gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
       "runs": 143,
-      "calidad": 7.98,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "llama-4-maverick",
-      "name": "Llama 4 Maverick",
-      "runs": 157,
-      "calidad": 7.95,
+      "calidad": 8.26,
       "costo_mes": 0.0,
       "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "gpt-4.1-mini",
-      "name": "GPT-4.1 Mini",
-      "runs": 162,
-      "calidad": 7.91,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "or-gpt-oss-20b",
-      "name": "GPT-OSS 20B",
-      "runs": 150,
-      "calidad": 7.91,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "nemotron-super",
-      "name": "Nemotron 3 Super",
-      "runs": 859,
-      "calidad": 7.91,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "laguna-s-2.1",
-      "name": "Poolside Laguna S 2.1",
-      "runs": 143,
-      "calidad": 7.89,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "or-llama-4-scout",
-      "name": "Llama 4 Scout 17B",
-      "runs": 148,
-      "calidad": 7.88,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "gemini-flash-lite",
-      "name": "Gemini 2.5 Flash Lite",
-      "runs": 153,
-      "calidad": 7.84,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "kat-coder-pro-2.5",
-      "name": "KAT Coder Pro v2.5",
-      "runs": 262,
-      "calidad": 7.83,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "minimax-m2.7",
-      "name": "MiniMax M2.7",
-      "runs": 217,
-      "calidad": 7.83,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "qwen3.6-35b",
-      "name": "Qwen 3.6 35B base (OpenRouter FP8)",
-      "runs": 157,
-      "calidad": 7.82,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "qwen3-coder-next",
-      "name": "Qwen3-Coder-Next (OpenRouter FP8)",
-      "runs": 180,
-      "calidad": 7.81,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "or-qwen3.5-397b",
-      "name": "Qwen 3.5 397B",
-      "runs": 154,
-      "calidad": 7.8,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "hermes-4-70b",
-      "name": "Hermes 4 70B",
-      "runs": 487,
-      "calidad": 7.78,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "qwen3-coder",
-      "name": "Qwen3 Coder",
-      "runs": 162,
-      "calidad": 7.78,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "grok-4.3",
-      "name": "Grok 4.3",
-      "runs": 167,
-      "calidad": 7.77,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "nemotron-3.5-lightning",
-      "name": "Nemotron 3.5 Lightning",
-      "runs": 493,
-      "calidad": 7.74,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "qwen3.6-27b",
-      "name": "Qwen 3.6 27B base (OpenRouter FP8)",
-      "runs": 182,
-      "calidad": 7.74,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "cheap"
-    },
-    {
-      "key": "grok-4.20",
-      "name": "Grok 4.20",
-      "runs": 146,
-      "calidad": 7.7,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "nemotron-nano",
-      "name": "Nemotron 3 Nano 30B",
+      "key": "or-mistral-large-3",
+      "name": "Mistral Large 3 675B",
       "runs": 152,
-      "calidad": 7.69,
+      "calidad": 8.26,
       "costo_mes": 0.0,
       "ranked": true,
-      "tier": "ultra_cheap"
+      "tier": "cloud_nim"
     },
     {
-      "key": "gemini-pro",
-      "name": "Gemini 2.5 Pro",
-      "runs": 179,
-      "calidad": 7.68,
+      "key": "hermes-4-405b",
+      "name": "Hermes 4 405B",
+      "runs": 478,
+      "calidad": 8.26,
       "costo_mes": 0.0,
       "ranked": true,
-      "tier": "medium"
+      "tier": "cheap"
     },
     {
-      "key": "gemini-3.5-flash",
-      "name": "Gemini 3.5 Flash",
-      "runs": 166,
-      "calidad": 7.51,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "gemini-3.1-pro",
-      "name": "Gemini 3.1 Pro",
+      "key": "grok-4.6",
+      "name": "Grok 4.6",
       "runs": 143,
-      "calidad": 7.48,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "medium"
-    },
-    {
-      "key": "or-llama-3.1-8b",
-      "name": "Llama 3.1 8B Instant",
-      "runs": 155,
-      "calidad": 7.26,
-      "costo_mes": 0.0,
-      "ranked": true,
-      "tier": "ultra_cheap"
-    },
-    {
-      "key": "sakana-namazu",
-      "name": "Sakana Namazu",
-      "runs": 1728,
-      "calidad": 8.59,
-      "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cheap"
-    },
-    {
-      "key": "longcat-2.0",
-      "name": "LongCat 2.0",
-      "runs": 22,
-      "calidad": 8.52,
-      "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cheap"
-    },
-    {
-      "key": "gpt-5.6-luna-pro",
-      "name": "GPT-5.6 Luna Pro",
-      "runs": 264,
-      "calidad": 8.5,
-      "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cheap"
-    },
-    {
-      "key": "spark-gemma4-12b",
-      "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
-      "runs": 86,
-      "calidad": 8.49,
-      "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "local"
-    },
-    {
-      "key": "gpt-5.6-terra-pro",
-      "name": "GPT-5.6 Terra Pro",
-      "runs": 275,
-      "calidad": 8.4,
-      "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "medium"
-    },
-    {
-      "key": "or-qwen-2.5-72b",
-      "name": "Qwen 2.5 72B",
-      "runs": 172,
       "calidad": 8.27,
       "costo_mes": 0.0,
-      "ranked": false,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "muse-spark-1.2",
+      "name": "Muse Spark 1.2",
+      "runs": 143,
+      "calidad": 8.28,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "runs": 165,
+      "calidad": 8.28,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "muse-spark-1.3",
+      "name": "Muse Spark 1.3",
+      "runs": 143,
+      "calidad": 8.29,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "or-deepseek-v3",
+      "name": "DeepSeek V3",
+      "runs": 154,
+      "calidad": 8.29,
+      "costo_mes": 0.0,
+      "ranked": true,
       "tier": "cheap"
     },
     {
-      "key": "spark-gemma4-12b-think",
-      "name": "Gemma 4 12B (Spark llama-server, reasoning)",
-      "runs": 85,
-      "calidad": 8.19,
+      "key": "kimi-k2.6",
+      "name": "Kimi K2.6",
+      "runs": 219,
+      "calidad": 8.3,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "local"
+      "ranked": true,
+      "tier": "cheap"
     },
     {
-      "key": "local-diffusiongemma-26b",
-      "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
-      "runs": 91,
-      "calidad": 8.14,
+      "key": "gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "runs": 234,
+      "calidad": 8.3,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "local"
+      "ranked": true,
+      "tier": "cheap"
     },
     {
-      "key": "or-nemotron-nano-9b-v2",
-      "name": "Nemotron Nano 9B v2",
-      "runs": 134,
-      "calidad": 8.02,
+      "key": "gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "runs": 506,
+      "calidad": 8.3,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cloud_nim"
+      "ranked": true,
+      "tier": "cheap"
     },
     {
-      "key": "or-nemotron-3-nano-omni-reasoning",
-      "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
-      "runs": 147,
-      "calidad": 7.99,
+      "key": "gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "runs": 150,
+      "calidad": 8.31,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cloud_nim"
+      "ranked": true,
+      "tier": "medium"
     },
     {
-      "key": "local-nemotron3-base-33b",
-      "name": "Nemotron 3 Base 33B (DGX Spark Q4_K_M)",
-      "runs": 86,
-      "calidad": 7.82,
+      "key": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "runs": 296,
+      "calidad": 8.31,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "local"
+      "ranked": true,
+      "tier": "medium"
     },
     {
-      "key": "or-qwen3-next-thinking",
-      "name": "Qwen 3-Next 80B Thinking",
-      "runs": 156,
-      "calidad": 7.52,
+      "key": "granite-4.2-8b",
+      "name": "Granite 4.2 8B",
+      "runs": 143,
+      "calidad": 8.34,
       "costo_mes": 0.0,
-      "ranked": false,
-      "tier": "cloud_nim"
-    },
-    {
-      "key": "mistral-nemo",
-      "name": "Mistral Nemo",
-      "runs": 522,
-      "calidad": 7.26,
-      "costo_mes": 0.0,
-      "ranked": false,
+      "ranked": true,
       "tier": "ultra_cheap"
     },
     {
-      "key": "or-kimi-k2-thinking",
-      "name": "Kimi K2 Thinking",
-      "runs": 2,
-      "calidad": 5.0,
+      "key": "gemma-4-26b",
+      "name": "Gemma 4 26B MoE (3.8B activos)",
+      "runs": 155,
+      "calidad": 8.34,
       "costo_mes": 0.0,
-      "ranked": false,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "glm-5.2",
+      "name": "GLM 5.2",
+      "runs": 154,
+      "calidad": 8.36,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "glm-5.1",
+      "name": "GLM-5.1",
+      "runs": 173,
+      "calidad": 8.36,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "hy4-preview",
+      "name": "Tencent Hy4 preview",
+      "runs": 143,
+      "calidad": 8.39,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "gpt-5.4",
+      "name": "GPT-5.4",
+      "runs": 148,
+      "calidad": 8.39,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "claude-opus-4.7",
+      "name": "Claude Opus 4.7",
+      "runs": 210,
+      "calidad": 8.39,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "or-claude-fable-5",
+      "name": "Claude Fable 5",
+      "runs": 213,
+      "calidad": 8.39,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "qwen-3.8-2.4t",
+      "name": "Qwen 3.8 2.4T (A95B)",
+      "runs": 295,
+      "calidad": 8.41,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "or-glm5",
+      "name": "GLM 5",
+      "runs": 154,
+      "calidad": 8.42,
+      "costo_mes": 0.0,
+      "ranked": true,
       "tier": "cloud_nim"
+    },
+    {
+      "key": "inkling-small",
+      "name": "Inkling Small",
+      "runs": 143,
+      "calidad": 8.43,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "qwen-3.8-max",
+      "name": "Qwen 3.8 Max",
+      "runs": 295,
+      "calidad": 8.43,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "runs": 143,
+      "calidad": 8.44,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "seed-2.0-code",
+      "name": "Seed 2.0 Code",
+      "runs": 1570,
+      "calidad": 8.44,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "deepseek-r1",
+      "name": "DeepSeek R1 (reasoning)",
+      "runs": 158,
+      "calidad": 8.45,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro (0813)",
+      "runs": 435,
+      "calidad": 8.45,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "qwen-3.8-max-0902",
+      "name": "Qwen 3.8 Max 0902",
+      "runs": 143,
+      "calidad": 8.46,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "qwen-3.6-max",
+      "name": "Qwen 3.6 Max",
+      "runs": 173,
+      "calidad": 8.46,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "or-gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "runs": 143,
+      "calidad": 8.48,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cloud_nim"
+    },
+    {
+      "key": "claude-opus-4.8",
+      "name": "Claude Opus 4.8",
+      "runs": 165,
+      "calidad": 8.48,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "claude-opus-4.6",
+      "name": "Claude Opus 4.6",
+      "runs": 213,
+      "calidad": 8.48,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "premium"
+    },
+    {
+      "key": "tencent-hy3",
+      "name": "Tencent Hy3",
+      "runs": 143,
+      "calidad": 8.49,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "fugu-max",
+      "name": "Fugu Max",
+      "runs": 143,
+      "calidad": 8.49,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "qwen3.7-flash",
+      "name": "Qwen 3.7 Flash",
+      "runs": 163,
+      "calidad": 8.49,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "qwen-3.8-27b",
+      "name": "Qwen 3.8 27B",
+      "runs": 690,
+      "calidad": 8.5,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "runs": 143,
+      "calidad": 8.51,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
+    },
+    {
+      "key": "gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "runs": 162,
+      "calidad": 8.52,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "cheap"
+    },
+    {
+      "key": "glm-5.3",
+      "name": "GLM 5.3",
+      "runs": 193,
+      "calidad": 8.52,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "medium"
+    },
+    {
+      "key": "qwen3.8-flash",
+      "name": "Qwen 3.8 Flash",
+      "runs": 823,
+      "calidad": 8.53,
+      "costo_mes": 0.0,
+      "ranked": true,
+      "tier": "ultra_cheap"
     }
   ]
 }
