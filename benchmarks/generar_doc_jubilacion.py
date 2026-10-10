@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
 """Genera docs/jubilacion-2026-10.md completo con todos los modelos."""
 import json
+import argparse
 from pathlib import Path
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--opcion', choices=['A', 'B'], default='B',
+                      help='A: regla estricta (59 activos), B: flexible (90 activos, default)')
+    args = parser.parse_args()
+    
+    opcion = args.opcion
     # Cargar datos
-    data_final = json.load(open('docs/jubilacion-2026-10-final.json'))
+    final_file = f'docs/jubilacion-2026-10-opcion-{opcion}.json'
+    if not Path(final_file).exists():
+        print(f"❌ Ejecutar primero: python3 benchmarks/analizar_jubilacion_final.py --opcion {opcion}")
+        return 1
+    
+    data_final = json.load(open(final_file))
     data_dom = json.load(open('benchmarks/dominancia_resultado.json'))
     models_full = json.load(open('docs/data/models.json'))['models']
     models_dict = {m['key']: m for m in models_full}
@@ -18,7 +30,13 @@ def main():
     md.append("# Jubilación de Modelos AI - Octubre 2026")
     md.append("")
     md.append(f"**Fecha**: {data_final['fecha']}")
-    md.append(f"**Decisión**: Establecer roster activo de {data_final['meta_activos']} modelos + {data_final['cupos_reservados']} cupos = 100 total")
+    md.append(f"**Opción**: {opcion}")
+    md.append(f"**Decisión**: Roster de {data_final['roster_total']} modelos ({data_final['meta_activos']} activos + {data_final['cupos_reservados']} cupos)")
+    md.append("")
+    if opcion == 'A':
+        md.append("> **Opción A - Regla Estricta**: Todos los dominados (62) se jubilan.")
+    else:
+        md.append("> **Opción B - Regla Flexible**: Solo los 31 dominados más claros se jubilan; 31 menos dominados se conservan como referencia.")
     md.append("")
     md.append("## Resumen Ejecutivo")
     md.append("")
@@ -51,12 +69,23 @@ def main():
     md.append("")
     md.append("Ver `METODOLOGIA.md` para definición completa.")
     md.append("")
-    md.append("## Proyección de Costo Mensual")
+    md.append("## Proyección de Costos")
     md.append("")
-    md.append("**⚠️ SUPUESTO**: Asumimos medir 33% de los 100 modelos cada mes (33 modelos).")
+    md.append("### Costo Mensual Estimado")
     md.append("")
-    md.append("- Costo promedio: ~$8.56 por modelo completo (22 suites)")
-    md.append("- **Costo mensual estimado**: 33 × $8.56 ≈ **$282/mes**")
+    md.append(f"**${data_final['costos']['mensual_estimado']:.2f}/mes**")
+    md.append("")
+    md.append(f"- Base: **${data_final['costos']['costo_por_modelo_mes']}/modelo/mes**")
+    md.append(f"- Fuente: {data_final['costos']['fuente']}")
+    md.append(f"- Modelos activos: {data_final['activos']}")
+    md.append(f"- Cálculo: {data_final['activos']} × ${data_final['costos']['costo_por_modelo_mes']} = ${data_final['costos']['mensual_estimado']:.2f}/mes")
+    md.append("")
+    md.append("### Examen Completo de Todos los Activos")
+    md.append("")
+    md.append(f"**${data_final['costos']['examen_completo_todos']:.2f}** (si se re-midieran todos)")
+    md.append("")
+    md.append(f"- Costo por examen completo: **${data_final['costos']['costo_examen_completo']}** (22 suites)")
+    md.append(f"- Cálculo: {data_final['activos']} × ${data_final['costos']['costo_examen_completo']} = ${data_final['costos']['examen_completo_todos']:.2f}")
     md.append("")
     md.append("## Criterios de Jubilación (Orden de Prioridad)")
     md.append("")
@@ -114,15 +143,23 @@ def main():
     md.append("")
     
     # Guardar
-    with open('docs/jubilacion-2026-10.md', 'w', encoding='utf-8') as f:
+    output_file = f'docs/jubilacion-2026-10-opcion-{opcion}.md'
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(md))
     
-    print(f"✓ Generado docs/jubilacion-2026-10.md ({len(md)} líneas)")
-    print(f"\n**Comando para regenerar**:")
+    # También guardar como default si es opción B
+    if opcion == 'B':
+        with open('docs/jubilacion-2026-10.md', 'w', encoding='utf-8') as f:
+            f.write('\n'.join(md))
+    
+    print(f"✓ Generado {output_file} ({len(md)} líneas)")
+    if opcion == 'B':
+        print(f"✓ También docs/jubilacion-2026-10.md (default)")
+    print(f"\n**Comando para regenerar Opción {opcion}**:")
     print(f"```bash")
     print(f"python3 benchmarks/analizar_dominancia.py")
-    print(f"python3 benchmarks/analizar_jubilacion_final.py")
-    print(f"python3 benchmarks/generar_doc_jubilacion.py")
+    print(f"python3 benchmarks/analizar_jubilacion_final.py --opcion {opcion}")
+    print(f"python3 benchmarks/generar_doc_jubilacion.py --opcion {opcion}")
     print(f"```")
     return 0
 

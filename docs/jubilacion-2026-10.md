@@ -1,299 +1,126 @@
 # Jubilación de Modelos AI - Octubre 2026
 
 **Fecha**: 2026-10-10
-**Decisión**: Establecer roster activo de 90 modelos + 10 cupos = 100 total
 
-## Resumen Ejecutivo
+Este documento presenta **dos opciones** para establecer un roster activo de modelos. La decisión final la tomará Cristian.
 
-- **Total modelos en catálogo**: 217
-- **Activos**: 90
-- **Jubilados**: 127
-- **Cupos reservados**: 10
+## Comparación de Opciones
 
-### Desglose de Jubilados
+| Aspecto | Opción A (Regla Estricta) | Opción B (Regla Flexible) |
+|---------|---------------------------|---------------------------|
+| **Activos** | 59 | 90 |
+| **Cupos** | 41 | 10 |
+| **Roster Total** | 100 | 100 |
+| **Jubilados** | 158 (16+54+26+**62**) | 127 (16+54+26+**31**) |
+| **Dominados jubilados** | **TODOS** (62) | Solo los 31 más claros |
+| **Dominados activos** | 0 | 31 (menos dominados, conservados como referencia) |
+| **Costo mensual** | **$98.53/mes** | **$150.30/mes** |
+| **Examen completo** | $505.04 | $770.40 |
 
-- **Retired**: 16
-- **Provider Variant**: 54
-- **Sin Runs**: 26
-- **Dominado**: 31
+### Base de Cálculo de Costos
 
-### Dominados
+- **Costo por modelo/mes**: $1.67 (medido abril-septiembre 2026: $119/mes ÷ 71 modelos/mes)
+- **Costo examen completo**: $8.56 (22 suites)
 
-- Total detectados: 62
-- Jubilados (los más claramente dominados): 31
-- Quedan activos: 31
+### Opción A - Regla Estricta
 
-**Motivo**: Se mantienen los menos dominados para preservar diversidad dentro de familias grandes y alcanzar exactamente 90 activos
+**Filosofía**: Jubilar TODOS los dominados (62). Solo quedan modelos no dominados.
 
-## Definición de Familia
+**Pros**:
+- Roster más limpio: solo modelos Pareto-óptimos dentro de sus familias
+- Menor costo mensual ($98.53/mes)
+- 41 cupos libres para lanzamientos nuevos
 
-**Familia** = mismo proveedor y misma línea base, sin importar generación.
+**Contras**:
+- Familias grandes (Qwen, GPT, Claude) pierden diversidad
+- Se pierden referencias históricas útiles (ej: Claude Opus 4.7, DeepSeek V3)
+- Solo 59 modelos en el roster base (podría ser poco para comparaciones)
+
+### Opción B - Regla Flexible (Actual)
+
+**Filosofía**: Jubilar solo los 31 dominados más claros. Los 31 menos dominados se conservan como referencia.
+
+**Pros**:
+- Preserva diversidad dentro de familias grandes
+- Mantiene referencias históricas (Claude Opus 4.7, Gemini 3.8 Flash, DeepSeek V3)
+- 90 modelos = muestra más robusta para comparaciones
+- Los 31 conservados están documentados como dominados (transparente)
+
+**Contras**:
+- Mayor costo mensual ($150.30/mes vs $98.53)
+- Solo 10 cupos para lanzamientos (más ajustado)
+- Roster incluye modelos técnicamente dominados
+
+## Desglose por Criterio
+
+Ambas opciones aplican los criterios 1-3 igual:
+
+1. **Retired**: 16 (deprecados por proveedor)
+2. **Provider Variant**: 54 (miden serving, no calidad)
+3. **Sin Runs**: 26 (nunca medidos, 0 runs)
+
+**Diferencia** está en el criterio 4 (dominados):
+- **Opción A**: Jubila los 62 dominados detectados
+- **Opción B**: Jubila solo los 31 más dominados; conserva 31 como referencia
+
+## Definición de "Familia" y Dominancia
+
+**Familia** = mismo proveedor + misma línea base del modelo, sin importar la generación.
 
 Ejemplos:
 - Qwen 3.5, 3.6, 3.7, 3.8 → familia "Qwen"
 - GPT-5.5, GPT-5.6 Luna → familia "GPT"
 - Claude Opus 4.7, 4.8 → familia "ClaudeOpus"
 
-Ver `METODOLOGIA.md` para definición completa.
+Un modelo está **dominado** si otro de su familia tiene:
+- Calidad ≥ (Q_dominador >= Q_dominado)
+- Costo ≤ (costo_dominador <= costo_dominado por examen)
 
-## Proyección de Costo Mensual
+Costo por examen = 300 tokens input + 1500 tokens output.
 
-**⚠️ SUPUESTO**: Asumimos medir 33% de los 100 modelos cada mes (33 modelos).
+## Los 31 Dominados que Difieren entre Opciones
 
-- Costo promedio: ~$8.56 por modelo completo (22 suites)
-- **Costo mensual estimado**: 33 × $8.56 ≈ **$282/mes**
+En **Opción A**: TODOS jubilados.
+En **Opción B**: Estos 31 quedan **activos** como referencia:
 
-## Criterios de Jubilación (Orden de Prioridad)
+| # | Modelo | Dominado por | Δ Quality | Δ Costo |
+|---|--------|--------------|-----------|---------|
+| 32 | Qwen 3.8 27B | Qwen 3.8 Flash | +0.03 | -$0.0031 |
+| 33 | GPT-5.6 Luna Pro | GPT-5.6 Luna | +0.02 | $0.00 |
+| 34 | Gemma 4 31B | Gemma 4 12B (Spark) | +0.01 | -$0.0002 |
+| 35 | DeepSeek V4 Pro | DeepSeek R1 | 0.00 | +$0.0007 |
+| ... | *(ver docs completos para los 31)* | | | |
 
-1. **Retired** — Proveedor deprecó el modelo
-2. **Provider variant** — Mide serving, no calidad
-3. **Sin runs** — Nunca medido (0 runs)
-4. **Dominado** — Otro de su familia tiene Q >= y costo <=
+(Lista completa en `docs/jubilacion-2026-10-opcion-A.md` y `docs/jubilacion-2026-10-opcion-B.md`)
 
-## Listado Completo de Modelos
+## Comando para Regenerar
 
-### Activos (90)
+### Opción A (Regla Estricta)
+```bash
+python3 benchmarks/analizar_dominancia.py
+python3 benchmarks/analizar_jubilacion_final.py --opcion A
+python3 benchmarks/generar_doc_jubilacion.py --opcion A
+```
 
-| # | Modelo | Quality | Costo/examen | Runs | Nota |
-|---|--------|---------|--------------|------|------|
-| 1 | Sakana Namazu | 8.59 | $0.0063 | 1728 |  |
-| 2 | Qwen 3.8 Flash | 8.53 | $0.0008 | 823 |  |
-| 3 | GPT-5.6 Luna | 8.52 | $0.0019 | 162 |  |
-| 4 | GLM 5.3 | 8.52 | $0.0070 | 193 |  |
-| 5 | LongCat 2.0 | 8.52 | $0.0019 | 22 |  |
-| 6 | GLM 5.3 Flash | 8.51 | $0.0008 | 143 |  |
-| 7 | Qwen 3.8 27B | 8.50 | $0.0039 | 690 | Dominado por Qwen 3.8 Flash (Q=8.53, $0.0008) |
-| 8 | GPT-5.6 Luna Pro | 8.50 | $0.0019 | 264 | Dominado por GPT-5.6 Luna (Q=8.52, $0.0019) |
-| 9 | Qwen 3.7 Flash | 8.49 | $0.0002 | 163 |  |
-| 10 | Tencent Hy3 | 8.49 | $0.0008 | 143 |  |
-| 11 | Fugu Max | 8.49 | $0.0096 | 143 |  |
-| 12 | Gemma 4 12B (Spark llama-server Q4_K_M) | 8.49 | $0.0003 | 86 |  |
-| 13 | Gemma 4 31B | 8.48 | $0.0005 | 143 | Dominado por Gemma 4 12B (Spark llama-server Q4_K_M) (Q=8.49, $0.0003) |
-| 14 | Claude Opus 4.8 | 8.48 | $0.0390 | 165 |  |
-| 15 | Claude Opus 4.6 | 8.48 | $0.0390 | 213 |  |
-| 16 | DeepSeek V4 Pro (0813) | 8.45 | $0.0047 | 435 | Dominado por DeepSeek R1 (reasoning) (Q=8.45, $0.0040) |
-| 17 | DeepSeek R1 (reasoning) | 8.45 | $0.0040 | 158 |  |
-| 18 | DeepSeek V4.1 Flash | 8.44 | $0.0009 | 143 |  |
-| 19 | Seed 2.0 Code | 8.44 | $0.0047 | 1570 |  |
-| 20 | Inkling Small | 8.43 | $0.0019 | 143 |  |
-| 21 | GLM 5 | 8.42 | $0.0031 | 154 | Dominado por GLM 5.3 Flash (Q=8.51, $0.0008) |
-| 22 | Tencent Hy4 preview | 8.39 | $0.0040 | 143 | Dominado por Tencent Hy3 (Q=8.49, $0.0008) |
-| 23 | Claude Opus 4.7 | 8.39 | $0.0390 | 210 | Dominado por Claude Opus 4.8 (Q=8.48, $0.0390) |
-| 24 | Claude Fable 5 | 8.39 | $0.0780 | 213 |  |
-| 25 | Gemma 4 26B MoE (3.8B activos) | 8.34 | $0.0005 | 155 | Dominado por Gemma 4 12B (Spark llama-server Q4_K_M) (Q=8.49, $0.0003) |
-| 26 | Granite 4.2 8B | 8.34 | $0.0004 | 143 |  |
-| 27 | Claude Sonnet 5 | 8.31 | $0.0156 | 296 |  |
-| 28 | Gemini 3.6 Flash | 8.30 | $0.0059 | 234 |  |
-| 29 | Gemini 3.7 Flash | 8.30 | $0.0059 | 506 |  |
-| 30 | Kimi K2.6 | 8.30 | $0.0063 | 219 |  |
-| 31 | Muse Spark 1.3 | 8.29 | $0.0068 | 143 |  |
-| 32 | DeepSeek V3 | 8.29 | $0.0007 | 154 |  |
-| 33 | Muse Spark 1.2 | 8.28 | $0.0068 | 143 | Dominado por Muse Spark 1.3 (Q=8.29, $0.0068) |
-| 34 | Grok 4.6 | 8.27 | $0.0096 | 143 |  |
-| 35 | Qwen 2.5 72B | 8.27 | $0.0007 | 172 | Dominado por Qwen 3.7 Flash (Q=8.49, $0.0002) |
-| 36 | Poolside Laguna XS 2.1 | 8.26 | $0.0002 | 143 |  |
-| 37 | Mistral Large 3 675B | 8.26 | $0.0024 | 152 |  |
-| 38 | Gemini 3.8 Flash | 8.26 | $0.0059 | 143 | Dominado por Gemini 3.6 Flash (Q=8.30, $0.0059) |
-| 39 | Hermes 4 405B | 8.26 | $0.0048 | 478 |  |
-| 40 | Seed 2.1 Turbo | 8.25 | $0.0039 | 1244 |  |
-| 41 | Mercury 2.5 | 8.24 | $0.0002 | 143 |  |
-| 42 | Gemini 3.5 Flash Lite | 8.23 | $0.0038 | 143 |  |
-| 43 | Muse Glimmer 30B | 8.23 | $0.0024 | 143 |  |
-| 44 | Claude Opus 5 Fast | 8.23 | $0.0780 | 451 | Dominado por Claude Opus 4.8 (Q=8.48, $0.0390) |
-| 45 | Claude Haiku 4.5 | 8.21 | $0.0078 | 157 |  |
-| 46 | Claude Opus 5 | 8.21 | $0.0390 | 472 | Dominado por Claude Opus 4.8 (Q=8.48, $0.0390) |
-| 47 | Gemma 4 12B (Spark llama-server, reasoning) | 8.19 | $0.0003 | 85 | Dominado por Gemma 4 12B (Spark llama-server Q4_K_M) (Q=8.49, $0.0003) |
-| 48 | GPT-5.4 Mini | 8.17 | $0.0024 | 154 | Dominado por GPT-5.6 Luna (Q=8.52, $0.0019) |
-| 49 | MiMo-V2.5 Pro | 8.17 | $0.0014 | 157 |  |
-| 50 | MiniMax M3 | 8.17 | $0.0019 | 230 |  |
-| 51 | DeepSeek V4 Flash (OpenRouter) | 8.16 | $0.0003 | 168 |  |
-| 52 | Kimi K2.5 | 8.14 | $0.0035 | 14119 |  |
-| 53 | DiffusionGemma 26B-A4B (DGX Spark Q8_0) | 8.14 | $0.0005 | 91 |  |
-| 54 | KAT Coder Air v2.5 | 8.13 | $0.0009 | 497 |  |
-| 55 | Nex-N2-Mini | 8.13 | $0.0002 | 143 |  |
-| 56 | Grok 4.5 | 8.12 | $0.0096 | 157 | Dominado por Grok 4.6 (Q=8.27, $0.0096) |
-| 57 | Claude Sonnet 4.6 | 8.12 | $0.0234 | 171 | Dominado por Claude Sonnet 5 (Q=8.31, $0.0156) |
-| 58 | Ministral 14B | 8.11 | $0.0004 | 161 |  |
-| 59 | GPT-OSS 120B | 8.11 | $0.0003 | 154 |  |
-| 60 | Kimi K2 | 8.11 | $0.0036 | 180 | Dominado por Kimi K2.5 (Q=8.14, $0.0035) |
-| 61 | DeepSeek V3.2 | 8.11 | $0.0016 | 270 | Dominado por DeepSeek V4.1 Flash (Q=8.44, $0.0009) |
-| 62 | MiMo-V2.5 (omnimodal) | 8.10 | $0.0005 | 163 |  |
-| 63 | Gemini 3.1 Flash Lite | 8.09 | $0.0023 | 163 |  |
-| 64 | Gemini 2.5 Flash | 8.08 | $0.0038 | 162 | Dominado por Gemini 3.5 Flash Lite (Q=8.23, $0.0038) |
-| 65 | MiniMax M2.5 | 8.08 | $0.0017 | 152 |  |
-| 66 | Kimi K2.7 Code | 8.06 | $0.0055 | 157 | Dominado por Kimi K2.5 (Q=8.14, $0.0035) |
-| 67 | Kimi K3 | 8.06 | $0.0207 | 143 | Dominado por Kimi K2.6 (Q=8.30, $0.0063) |
-| 68 | DeepSeek V4 Flash 0731 | 8.05 | $0.0002 | 143 |  |
-| 69 | Solar Pro 4 | 8.04 | $0.0006 | 143 |  |
-| 70 | Llama 3.3 70B | 8.04 | $0.0005 | 160 |  |
-| 71 | Mistral Small 4 | 8.03 | $0.0009 | 150 |  |
-| 72 | Step 3.5 Flash | 8.03 | $0.0005 | 1140 |  |
-| 73 | Nemotron Nano 9B v2 | 8.02 | $0.0003 | 134 |  |
-| 74 | Nemotron 3 Nano Omni 30B-A3B Reasoning | 7.99 | $0.0006 | 147 | Dominado por Nemotron Nano 9B v2 (Q=8.02, $0.0003) |
-| 75 | Ling 3.0 Flash | 7.98 | $0.0001 | 143 |  |
-| 76 | Llama 4 Maverick | 7.95 | $0.0011 | 157 | Dominado por Llama 3.3 70B (Q=8.04, $0.0005) |
-| 77 | GPT-OSS 20B | 7.91 | $0.0002 | 150 |  |
-| 78 | Nemotron 3 Super | 7.91 | $0.0006 | 859 | Dominado por Nemotron Nano 9B v2 (Q=8.02, $0.0003) |
-| 79 | Poolside Laguna S 2.1 | 7.89 | $0.0003 | 143 | Dominado por Poolside Laguna XS 2.1 (Q=8.26, $0.0002) |
-| 80 | Llama 4 Scout 17B | 7.88 | $0.0005 | 148 |  |
-| 81 | Gemini 2.5 Flash Lite | 7.84 | $0.0006 | 153 |  |
-| 82 | MiniMax M2.7 | 7.83 | $0.0019 | 217 | Dominado por MiniMax M3 (Q=8.17, $0.0019) |
-| 83 | Nemotron 3 Base 33B (DGX Spark Q4_K_M) | 7.82 | $0.0007 | 86 | Dominado por Nemotron Nano 9B v2 (Q=8.02, $0.0003) |
-| 84 | Hermes 4 70B | 7.78 | $0.0006 | 487 |  |
-| 85 | Grok 4.3 | 7.77 | $0.0041 | 167 |  |
-| 86 | Nemotron 3.5 Lightning | 7.74 | $0.0003 | 493 | Dominado por Nemotron Nano 9B v2 (Q=8.02, $0.0003) |
-| 87 | Grok 4.20 | 7.70 | $0.0041 | 146 | Dominado por Grok 4.3 (Q=7.77, $0.0041) |
-| 88 | Nemotron 3 Nano 30B | 7.69 | $0.0003 | 152 | Dominado por Nemotron Nano 9B v2 (Q=8.02, $0.0003) |
-| 89 | Llama 3.1 8B Instant | 7.26 | $0.0001 | 155 |  |
-| 90 | Mistral Nemo | 7.26 | $0.0000 | 522 |  |
+### Opción B (Regla Flexible)
+```bash
+python3 benchmarks/analizar_dominancia.py
+python3 benchmarks/analizar_jubilacion_final.py --opcion B
+python3 benchmarks/generar_doc_jubilacion.py --opcion B
+```
 
-### Jubilados (127)
+## Documentos Generados
 
-#### Retired (16)
+- `docs/jubilacion-2026-10-opcion-A.md` / `.json` - Regla estricta (59 activos)
+- `docs/jubilacion-2026-10-opcion-B.md` / `.json` - Regla flexible (90 activos)
+- `docs/jubilacion-2026-10-final.json` - Symlink a la opción B (backward compat)
 
-| Modelo | Runs | Nota |
-|--------|------|------|
-| Devstral 2 (Dic 2025) | 136 |  |
-| Devstral Medium | 83 |  |
-| Devstral Small | 34 |  |
-| Grok 4.1 Fast | 86 |  |
-| Llama 3.1 8B Instant (Groq) | 84 |  |
-| Llama 3.3 70B (Groq) | 84 |  |
-| MiMo V2-Omni (Xiaomi direct) | 74 | Mismo modelo que via OpenRouter — comparar provide |
-| MiMo V2-Pro (Xiaomi direct) | 79 | Mismo modelo que via OpenRouter — comparar provide |
-| MiMo-V2-Flash | 31 |  |
-| MiMo-V2-Omni (multimodal) | 80 |  |
-| MiMo-V2-Pro | 79 | API-only Xiaomi (NO confundir con MiMo V2 Flash qu |
-| Nemotron Super 49B v1.5 | 128 |  |
-| Phi-4 14B (local) | 0 |  |
-| Qwen 3.5 (Ollama Cloud default) | 52 |  |
-| Seed-OSS 36B Instruct | 0 | Reasoning + math + coding + agentic. 131K context. |
-| Step3 (StepFun) | 0 | MoE 321B/38B activos, multimodal reasoning. 65K co |
+## Recomendación para la Decisión
 
-#### Provider Variants (54)
+Ambas opciones son válidas. La decisión depende de:
 
-| Modelo | Runs | Nota |
-|--------|------|------|
-| Claude Fable 5 (suscripción) | 102 | Fable 5 medido por la suscripción Claude Code (no  |
-| Claude Haiku 4.5 (suscripción) | 86 | Haiku 4.5 vía suscripción Claude Code. |
-| Claude Opus 4.7 (suscripción) | 70 | Opus 4.7 vía suscripción Claude Code. |
-| Claude Opus 4.8 (suscripción) | 109 | Opus 4.8 medido por la suscripción Claude Code (no |
-| Claude Opus 5 (suscripción) | 113 | Opus 5 vía suscripción Claude Code, costo marginal |
-| Claude Sonnet 4.6 (suscripción) | 93 | Sonnet 4.6 vía suscripción Claude Code. |
-| Claude Sonnet 5 (suscripción) | 123 | Sonnet 5 vía suscripción Claude Code, costo margin |
-| DeepSeek V3 (local) | 0 |  |
-| DeepSeek V4 Flash (NIM) | 81 | Mismo modelo que probamos via OpenRouter — compara |
-| DeepSeek V4 Flash (Ollama Cloud) | 0 | Variante mas chica de V4. Comparar con V4 Flash NI |
-| DeepSeek V4 Pro (NIM) | 2 | Re-test del flagship via NIM (vs OpenRouter que di |
-| DeepSeek V4 Pro (Ollama Cloud) | 0 | Recien agregado a Ollama Cloud (abril 28). Smoke t |
-| Devstral 2 123B (NIM) | 64 | Mismo modelo que probamos via OpenRouter - compara |
-| GLM 5 (NIM) | 84 | Z.AI flagship base, comparar con 5.1 |
-| GLM 5.1 (NIM) | 97 | Z.AI agentic, no tenemos. Variante GLM 5 con mejor |
-| GPT-5.5 Pro | 0 | Sólo /v1/responses (no chat/completions) |
-| GPT-OSS 120B (Groq) | 0 |  |
-| GPT-OSS 120B (Ollama Cloud) | 84 |  |
-| GPT-OSS 20B (Groq) | 91 |  |
-| Gemma 4 31B (DGX Spark Q4_K_M) | 84 | Q4_K_M en DGX Spark via Ollama. Comparar con Gemma |
-| Gemma 4 31B (NIM) | 92 | Mismo modelo que via OpenRouter (10 runs parciales |
-| Gemma 4 31B (Spark llama-server Q4_K_M) | 86 | Q4_K_M en DGX Spark via llama.cpp/llama-server (mu |
-| Gemma 4 31B (Spark llama-server, reasoning) | 0 | Mismo build que spark-gemma4-31b-llamacpp pero CON |
-| Gemma 4 31B (local) | 0 |  |
-| Kimi K2 Thinking (NIM) | 80 | Variante thinking de K2 — comparar con K2.6 thinki |
-| Kimi K2.5 (NIM) | 553 | Version nueva 2026, no tenemos K2.5 antes. Compara |
-| Llama 3.3 70B (local) | 0 |  |
-| Llama 4 Maverick (local) | 0 |  |
-| Llama 4 Scout 17B (Groq preview) | 97 |  |
-| MiMo V2.5 (Xiaomi) | 79 | All-in-one multimodal nativo, 1M context, lanzado  |
-| MiMo V2.5-Pro (Xiaomi) | 80 | Flagship reasoning, agentic, 1M context, lanzado 2 |
-| MiniMax M2.5 (local, open-source) | 0 |  |
-| MiniMax M2.7 (directo) | 271 | API directa MiniMax. Disponible también en sub Age |
-| MiniMax M2.7 Highspeed | 0 | Acceso vía sub Agent Pro $19/mes. Misma calidad qu |
-| MiniMax M3 (directo / sub) | 89 | M3 vía API directa de MiniMax (token plan del usua |
-| Ministral 14B (NIM) | 85 | Mistral chico nuevo dic 2025 - comparar con Mistra |
-| Mistral Large 3 675B (NIM) | 82 | Flagship Mistral diciembre 2025. Comparar contra M |
-| Mistral Magistral Small (NIM) | 4 | Mistral con razonamiento, tamano medio |
-| Mistral Nemo 12B (local) | 0 |  |
-| Mistral-Nemotron (NIM) | 8 | Colaboración Mistral × NVIDIA, optimizado en Nemo |
-| Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM) | 86 | Lanzado 20 abril 2026. MoE 30B totales / 3B activo |
-| Nemotron 3 Super 120B (DGX Spark Q4_K_M) | 84 | Q4_K_M en DGX Spark. Modelo gigante, primer test p |
-| Nemotron 3.5 Lightning (NIM) | 14 | Única ruta con tool calling. Mide lo que OpenRoute |
-| Nemotron Nano 9B v2 (NIM) | 86 | Variante chica de Nemotron 3, comparar con Nano 30 |
-| Nemotron Super 49B v1.5 (NIM) | 92 | Versión iterada del Nemotron Super 120B que ya med |
-| Qwen 2.5 72B (DGX Spark) | 0 | Generación previa instalada en el Spark — baseline |
-| Qwen 3-Next 80B Instruct (NIM) | 95 | Próxima generación Qwen — pendiente desde Lote 4 |
-| Qwen 3-Next 80B Thinking (NIM) | 184 | Variante thinking — comparar con Qwen 3-Next Instr |
-| Qwen 3.5 35B (DGX Spark) | 0 | Tag real instalado en DGX Spark. Comparar vs Qwen  |
-| Qwen 3.5 397B (NIM) | 94 | Mismo modelo que Cristian usa via Ollama Cloud par |
-| Qwen 3.5 397B (Ollama Cloud) | 56 |  |
-| Qwen 3.6 27B base (DGX Spark) | 4 | Qwen 3.6 BASE (Apache 2.0, pesos en HF) — cierra e |
-| Qwen3-Coder-Next (DGX Spark Q4_K_M) | 0 | Coding-especializado next-gen. Corre gratis local  |
-| Step 3.5 Flash (NIM) | 68 | Step 3.5 Flash - reemplazo de Step3 que fallo 91/9 |
+1. **Presupuesto**: ¿$50/mes de diferencia es significativo?
+2. **Diversidad**: ¿Vale la pena conservar modelos dominados como referencias?
+3. **Cupos**: ¿Se esperan >10 lanzamientos/mes que requieran más cupos libres?
 
-#### Sin Runs (26)
-
-| Modelo | Runs | Nota |
-|--------|------|------|
-| Claude Haiku 4.5 (thinking) | 0 | Misma versión con extended thinking forzado. |
-| Claude Opus 4.7 (thinking) | 0 | Mismo modelo que claude-opus-4.7 con extended thin |
-| Claude Sonnet 4 | 0 |  |
-| Claude Sonnet 4.6 (thinking) | 0 | Mismo modelo que claude-sonnet-4.6 con extended th |
-| DeepSeek R1 (free) | 0 |  |
-| Devstral Small 2 24B (DGX Spark Q4_K_M) | 0 | Nueva generación pequeña de Mistral (24B). Verific |
-| GPT-4o | 0 |  |
-| GPT-4o High | 0 |  |
-| Gemini 2.5 Flash (thinking) | 0 | Misma versión que gemini-flash con thinking forzad |
-| Gemini 3.1 Flash Lite (thinking) | 0 | Misma versión con thinking forzado. |
-| Gemini 3.1 Pro (thinking) | 0 | Misma versión con thinking forzado (effort=high).  |
-| Gemma 4 26B MoE (local, solo 3.8B activos) | 0 |  |
-| Grok 4.20 Multi-Agent | 0 | Variante multi-agente (Heavy) de Grok 4.20, contex |
-| Hermes 4 405B (thinking) | 0 | Misma versión que hermes-4-405b pero con reasoning |
-| Hermes 4 70B (thinking) | 0 | Misma versión que hermes-4-70b pero con reasoning  |
-| Kimi K2.5 (thinking) | 0 | Misma versión que kimi-k2.5 pero con reasoning for |
-| Kimi K2.6 (thinking) | 0 | Misma versión que kimi-k2.6 con thinking forzado v |
-| LFM2 24B A2B | 0 | MoE de Liquid AI: 24B totales, ~2B activos por tok |
-| Llama 3.3 70B (free) | 0 |  |
-| MiMo-V2-Flash (free) | 0 |  |
-| Nemotron 3 Nano Omni 30B-A3B Reasoning (DGX Spark Q4_K_M) | 0 | MoE 30B totales / 3B activos (A3B), thinking + mul |
-| North Mini Code | 0 | Modelo de Cohere enfocado en coding via OpenRouter |
-| Qwen 3.5 Plus | 0 | Plus = API-only propietario de Alibaba |
-| Qwen 3.6 35B base (DGX Spark) | 0 | Qwen 3.6 BASE 35B (MoE a3b) abierto. Corre gratis  |
-| Qwen 3.6 Plus (free) | 0 |  |
-| Qwen3 Coder 480B (free) | 0 |  |
-
-#### Dominados Jubilados (31)
-
-Los 31 más claramente dominados:
-
-| # | Modelo | Quality | Costo | Dominado por | Q Dom. | Costo Dom. |
-|---|--------|---------|-------|--------------|--------|------------|
-| 1 | Qwen 3.8 2.4T (A95B) | 8.41 | $0.0096 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 2 | Qwen 3.8 Max | 8.43 | $0.0096 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 3 | Qwen 3.8 Max 0902 | 8.46 | $0.0096 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 4 | Qwen 3.6 Max | 8.46 | $0.0096 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 5 | Qwen 3.7 Max | 8.24 | $0.0071 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 6 | Qwen 3.5 397B | 7.80 | $0.0054 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 7 | Kimi K2 Thinking | 5.00 | $0.0039 | Kimi K2.5 | 8.14 | $0.0035 |
-| 8 | GPT-5.5 | 8.15 | $0.0465 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 9 | Qwen 3.6 27B base (OpenRouter FP8) | 7.74 | $0.0031 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 10 | Qwen 3-Next 80B Thinking | 7.52 | $0.0018 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 11 | Qwen 3.6 Plus | 8.20 | $0.0030 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 12 | Qwen3 Coder | 7.78 | $0.0016 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 13 | GPT-5.4 | 8.39 | $0.0240 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 14 | Qwen 3.5 35B | 8.07 | $0.0020 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 15 | Qwen 3.6 35B base (OpenRouter FP8) | 7.82 | $0.0014 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 16 | Qwen 3-Next 80B Instruct | 8.01 | $0.0017 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 17 | Qwen3-Coder-Next (OpenRouter FP8) | 7.81 | $0.0012 | Qwen 3.7 Flash | 8.49 | $0.0002 |
-| 18 | Gemini 3.1 Pro | 7.48 | $0.0186 | Gemini 3.5 Flash Lite | 8.23 | $0.0038 |
-| 19 | Nemotron 3 Ultra 550B | 8.01 | $0.0038 | Nemotron Nano 9B v2 | 8.02 | $0.0003 |
-| 20 | GPT-5.6 Terra | 8.31 | $0.0186 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 21 | GPT-5.6 Terra Pro | 8.40 | $0.0186 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 22 | Gemini 3.5 Flash | 7.51 | $0.0140 | Gemini 3.5 Flash Lite | 8.23 | $0.0038 |
-| 23 | GPT-5.6 Sol | 8.28 | $0.0156 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 24 | GPT-4.1 | 8.15 | $0.0126 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 25 | Gemini 2.5 Pro | 7.68 | $0.0154 | Gemini 3.5 Flash Lite | 8.23 | $0.0038 |
-| 26 | KAT Coder Pro v2.5 | 7.83 | $0.0047 | KAT Coder Air v2.5 | 8.13 | $0.0009 |
-| 27 | DeepSeek V4 Pro | 8.22 | $0.0053 | DeepSeek V4.1 Flash | 8.44 | $0.0009 |
-| 28 | GLM-5.1 | 8.36 | $0.0048 | GLM 5.3 Flash | 8.51 | $0.0008 |
-| 29 | GPT-4.1 Mini | 7.91 | $0.0025 | GPT-5.6 Luna | 8.52 | $0.0019 |
-| 30 | Mistral Large | 7.99 | $0.0096 | Mistral Large 3 675B | 8.26 | $0.0024 |
-| 31 | GLM 5.2 | 8.36 | $0.0034 | GLM 5.3 Flash | 8.51 | $0.0008 |
+Ver análisis completo y listados de todos los 217 modelos en los documentos específicos de cada opción.

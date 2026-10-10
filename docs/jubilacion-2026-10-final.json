@@ -1,10 +1,19 @@
 {
   "fecha": "2026-10-10",
+  "opcion": "B",
+  "roster_total": 100,
   "total_modelos": 217,
   "meta_activos": 90,
   "jubilados": 127,
   "activos": 90,
   "cupos_reservados": 10,
+  "costos": {
+    "mensual_estimado": 150.3,
+    "costo_por_modelo_mes": 1.67,
+    "fuente": "$119/mes ÷ 71 modelos/mes (abr-sep 2026)",
+    "examen_completo_todos": 770.4,
+    "costo_examen_completo": 8.56
+  },
   "desglose_jubilados": {
     "retired": 16,
     "provider_variant": 54,
@@ -15,7 +24,7 @@
     "total_detectados": 62,
     "jubilados": 31,
     "quedan_activos": 31,
-    "motivo_quedan_activos": "Se mantienen los menos dominados para preservar diversidad dentro de familias grandes y alcanzar exactamente 90 activos"
+    "motivo_quedan_activos": "Se mantienen los 31 menos dominados para preservar diversidad y alcanzar 90 activos"
   },
   "listas": {
     "dominados_jubilados": [
