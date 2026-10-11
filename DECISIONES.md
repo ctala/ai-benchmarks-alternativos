@@ -21,6 +21,12 @@
 
 ---
 
+## Gestión del Catálogo
+
+| Fecha | Estado | Decisión | Por qué | Detalle |
+|---|---|---|---|---|
+| 10-oct-2026 | **Vigente** | **Roster de 100 modelos (59 activos + 41 cupos) — regla estricta** | Catálogo de 217 → roster de 100. Jubilación con precedencia: retired > provider_variant > sin_runs > dominado. **Regla estricta**: TODOS los dominados (62) se jubilan. 158 jubilados (16+54+26+62), 59 activos, suma 217 ✓. Medición mensual solo de modelos nuevos y activos que cambien (versión, proveedor, bug, suite nueva). Opción flexible (90+10, conservar 31 dominados) descartada. Proyección: ~$27/mes | [`docs/jubilacion-2026-10.md`](docs/jubilacion-2026-10.md) · [`METODOLOGIA.md`](METODOLOGIA.md) |
+
 ## Qué se publica y cómo se puntúa
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
@@ -45,6 +51,7 @@
 
 | Fecha | Estado | Decisión | Por qué | Detalle |
 |---|---|---|---|---|
+| 10-oct-2026 | **Vigente** | **Roster de 100 modelos activos (90+10 cupos) con reglas de jubilación** | De 217 modelos, 117 se jubilan (no se vuelven a medir) para controlar costos. Roster activo: **90 modelos** + **10 cupos** reservados para lanzamientos del mes (ej: Claude Haiku 5.5, Sonnet 5.5, Opus 5.5, Fable 5.1 en octubre). Criterios de jubilación: (1) retired por proveedor (16), (2) provider variants que miden infraestructura (56), (3) sin runs/nunca medidos (44), (4) baja prioridad global (21: 14 no-ranked + 7 ranked con Q≤7.74). Los jubilados quedan en el histórico con sus datos. Puede volver si: el proveedor lo relanza, hay caso de uso documentado, se libera presupuesto | [docs/jubilacion-2026-10.md](docs/jubilacion-2026-10.md) · [METODOLOGIA.md § Jubilación](METODOLOGIA.md) |
 | 13-ago-2026 | **Vigente** | `niah_es` recortada a **128K+** | 8K y 64K daban 78% y 75% de notas perfectas: no distinguían y eran la mitad de la suite más cara | [niah_es.py](benchmarks/tests/niah_es.py) |
 | 13-ago-2026 | **Vigente** | `tool_calling_adversarial` entra al examen | Validada en los 82: **0% de runs perfectos** y 2,5× más dispersa que el índice general | `tests/tool_calling_adversarial.py` |
 | 13-ago-2026 | **Descartada** | ~~`retrieval_distractores`~~ | Nació saturada: **76% de respuestas perfectas** en los 82; endurecida bajó solo a 70%. Retrieval a contexto moderado ya no discrimina entre modelos actuales — y ese eje ya lo cubre `niah_es` en 128K+ | `tests/retrieval_distractores.py` |

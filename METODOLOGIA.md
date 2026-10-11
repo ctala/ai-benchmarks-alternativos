@@ -429,6 +429,61 @@ Organizadas en los 4 pilares del emprendedor:
 | summarization | 2 | Resumen ejecutivo, extraccion datos |
 
 
+## Jubilación de Modelos
+
+Para mantener el costo de medición sostenible, el benchmark mantiene un **roster de 100 modelos activos** que se vuelven a medir en lotes futuros. Los modelos que no califican se **jubilan**: quedan en el histórico con sus datos pero no se miden más.
+
+### Criterios de Medición Mensual
+
+**Solo se miden cada mes**:
+1. **Modelos nuevos** — Lanzamientos que ocupan los cupos disponibles (41 cupos con regla estricta)
+2. **Activos que cambien** — Nueva versión/ID del modelo, cambio silencioso del proveedor detectado, bug del runner que invalide runs previos, o suite nueva agregada al benchmark
+
+**NO se vuelven a medir** los activos que no cambian. Esto reduce drásticamente el costo mensual: de ~$98/mes (medir todos los 59 cada mes) a ~$27/mes estimado (solo cambios + nuevos).
+
+### Criterios de Jubilación
+
+### Definición de "Familia"
+
+Para aplicar el criterio de dominancia, **familia** se define como:
+- **Mismo proveedor** (Alibaba, Anthropic, OpenAI, etc.)
+- **Misma línea base** del modelo (Qwen, GPT, Claude, Gemini, Kimi, etc.)
+- **Sin importar la generación** (Qwen 3.5, 3.6, 3.7, 3.8 son la misma familia "Qwen")
+
+Subfamilias de Claude:
+- **ClaudeOpus**: todos los modelos Claude Opus (4.6, 4.7, 4.8, 5, etc.)
+- **ClaudeSonnet**: todos los Claude Sonnet
+- **ClaudeHaiku**: todos los Claude Haiku
+- **ClaudeFable**: todos los Claude Fable
+
+**Ejemplos**:
+- Qwen 3.8 Flash y Qwen 3.5 397B → misma familia ("Qwen")
+- GPT-5.5 y GPT-5.6 Luna → misma familia ("GPT")
+- Claude Opus 4.7 y Claude Opus 4.8 → misma familia ("ClaudeOpus")
+- Gemini 3.6 Flash y Gemini 3.8 Flash → misma familia ("Gemini")
+
+Un modelo se jubila si cumple uno de estos criterios (en orden de aplicación):
+
+1. **Retired por el proveedor** — El modelo ya no tiene endpoint válido o fue deprecado explícitamente
+2. **Provider variant** — Mide infraestructura/serving, no calidad del modelo. El modelo base ya está medido
+3. **Sin runs** — Nunca se midió (0 runs), generalmente por ser tier `:free`, variante thinking o modelo reciente no priorizado
+4. **Dominado** — Otro modelo de su misma familia tiene igual o mejor calidad (Q >=) a igual o menor costo por examen (costo <=). **Regla estricta (vigente desde 10-oct-2026)**: TODOS los dominados se jubilan, sin excepciones. Resultado: 59 activos + 41 cupos = 100 total
+
+> **Nota**: Se evaluó conservar los 31 dominados menos claros como referencias (opción flexible: 90 activos + 10 cupos), pero se descartó el 10-oct-2026 en favor de la regla estricta por simplicidad y menor costo.
+4. **Dominado** — Otro modelo de su misma familia tiene ≥ calidad a ≤ costo
+
+### Cómo un Modelo Puede Volver
+
+Un modelo jubilado puede reactivarse si:
+- El proveedor lo relanza con nueva versión
+- Hay caso de uso documentado que lo requiere
+- Se libera presupuesto por jubilación de otros modelos
+- Cambio de criterios en ventana de medición trimestral
+
+**Prioridad para reactivar**: (1) ranqueados jubilados por dominancia, (2) tested con caso de uso, (3) open source a igual calidad, (4) más recientes.
+
+Ver [docs/jubilacion-2026-10.md](docs/jubilacion-2026-10.md) para la lista completa y [DECISIONES.md](DECISIONES.md) (10-oct-2026) para la decisión formal.
+
 ## Estructura del repo
 
 ## Estructura
