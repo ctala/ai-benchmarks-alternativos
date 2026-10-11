@@ -2,27 +2,27 @@
   "fecha": "2026-10-10",
   "opcion": "A",
   "roster_total": 100,
-  "total_modelos": 217,
-  "meta_activos": 59,
-  "jubilados": 158,
-  "activos": 59,
-  "cupos_reservados": 41,
+  "total_modelos": 227,
+  "meta_activos": 62,
+  "jubilados": 165,
+  "activos": 62,
+  "cupos_reservados": 38,
   "costos": {
-    "mensual_estimado": 98.53,
+    "mensual_estimado": 103.54,
     "costo_por_modelo_mes": 1.67,
     "fuente": "$119/mes ÷ 71 modelos/mes (abr-sep 2026)",
-    "examen_completo_todos": 505.04,
+    "examen_completo_todos": 530.72,
     "costo_examen_completo": 8.56
   },
   "desglose_jubilados": {
     "retired": 16,
     "provider_variant": 54,
     "sin_runs": 26,
-    "dominado": 62
+    "dominado": 69
   },
   "dominados_info": {
-    "total_detectados": 62,
-    "jubilados": 62,
+    "total_detectados": 69,
+    "jubilados": 69,
     "quedan_activos": 0,
     "motivo_quedan_activos": "Todos los dominados se jubilan (regla estricta)"
   },
@@ -425,6 +425,18 @@
         "dominancia_score": 4.696498329355611
       },
       {
+        "key": "qwen-3.8-27b",
+        "name": "Qwen 3.8 27B",
+        "familia": "Qwen",
+        "quality": 8.5,
+        "cost_examen": 0.0038891999999999998,
+        "dominador_key": "qwen3.8-omni-flash",
+        "dominador_name": "Qwen 3.8 Omni Flash",
+        "dominador_quality": 8.55,
+        "dominador_cost": 0.00075,
+        "dominancia_score": 4.685600000000007
+      },
+      {
         "key": "or-qwen-2.5-72b",
         "name": "Qwen 2.5 72B",
         "familia": "Qwen",
@@ -437,16 +449,28 @@
         "dominancia_score": 4.670588235294124
       },
       {
-        "key": "qwen-3.8-27b",
-        "name": "Qwen 3.8 27B",
-        "familia": "Qwen",
-        "quality": 8.5,
-        "cost_examen": 0.0038891999999999998,
-        "dominador_key": "qwen3.8-flash",
-        "dominador_name": "Qwen 3.8 Flash",
-        "dominador_quality": 8.53,
-        "dominador_cost": 0.00075,
-        "dominancia_score": 4.485599999999994
+        "key": "mimo-v2.5-pro-or",
+        "name": "MiMo-V2.5 Pro",
+        "familia": "MiMo",
+        "quality": 8.17,
+        "cost_examen": 0.0014355,
+        "dominador_key": "mimo-v2.6-flash",
+        "dominador_name": "MiMo V2.6 Flash",
+        "dominador_quality": 8.42,
+        "dominador_cost": 0.00046200000000000006,
+        "dominancia_score": 4.607142857142857
+      },
+      {
+        "key": "claude-sonnet-5.5",
+        "name": "Claude Sonnet 5.5",
+        "familia": "ClaudeSonnet",
+        "quality": 7.87,
+        "cost_examen": 0.0156,
+        "dominador_key": "claude-sonnet-5",
+        "dominador_name": "Claude Sonnet 5",
+        "dominador_quality": 8.31,
+        "dominador_cost": 0.0156,
+        "dominancia_score": 4.400000000000004
       },
       {
         "key": "laguna-s-2.1",
@@ -497,6 +521,30 @@
         "dominancia_score": 3.749056603773583
       },
       {
+        "key": "claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "familia": "ClaudeFable",
+        "quality": 8.03,
+        "cost_examen": 0.078,
+        "dominador_key": "or-claude-fable-5",
+        "dominador_name": "Claude Fable 5",
+        "dominador_quality": 8.39,
+        "dominador_cost": 0.078,
+        "dominancia_score": 3.600000000000012
+      },
+      {
+        "key": "ling-3.0-flash",
+        "name": "Ling 3.0 Flash",
+        "familia": "Ling",
+        "quality": 7.98,
+        "cost_examen": 0.00010080000000000001,
+        "dominador_key": "ling-3.0-flash-vl",
+        "dominador_name": "Ling 3.0 Flash VL",
+        "dominador_quality": 8.33,
+        "dominador_cost": 9.93e-05,
+        "dominancia_score": 3.5151057401812653
+      },
+      {
         "key": "claude-opus-5-fast",
         "name": "Claude Opus 5 Fast",
         "familia": "ClaudeOpus",
@@ -545,6 +593,18 @@
         "dominancia_score": 3.2285714285714215
       },
       {
+        "key": "mimo-v2.5-or",
+        "name": "MiMo-V2.5 (omnimodal)",
+        "familia": "MiMo",
+        "quality": 8.1,
+        "cost_examen": 0.00046200000000000006,
+        "dominador_key": "mimo-v2.6-flash",
+        "dominador_name": "MiMo V2.6 Flash",
+        "dominador_quality": 8.42,
+        "dominador_cost": 0.00046200000000000006,
+        "dominancia_score": 3.200000000000003
+      },
+      {
         "key": "spark-gemma4-12b-think",
         "name": "Gemma 4 12B (Spark llama-server, reasoning)",
         "familia": "Gemma",
@@ -552,9 +612,9 @@
         "cost_examen": 0.000315,
         "dominador_key": "spark-gemma4-12b",
         "dominador_name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
-        "dominador_quality": 8.49,
+        "dominador_quality": 8.5,
         "dominador_cost": 0.000315,
-        "dominancia_score": 3.000000000000007
+        "dominancia_score": 3.100000000000005
       },
       {
         "key": "nemotron-3.5-lightning",
@@ -593,6 +653,18 @@
         "dominancia_score": 2.400000000000013
       },
       {
+        "key": "gemma-4-26b",
+        "name": "Gemma 4 26B MoE (3.8B activos)",
+        "familia": "Gemma",
+        "quality": 8.34,
+        "cost_examen": 0.000477,
+        "dominador_key": "spark-gemma4-12b",
+        "dominador_name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+        "dominador_quality": 8.5,
+        "dominador_cost": 0.000315,
+        "dominancia_score": 2.1142857142857157
+      },
+      {
         "key": "nemotron-super",
         "name": "Nemotron 3 Super",
         "familia": "Nemotron",
@@ -615,18 +687,6 @@
         "dominador_quality": 8.04,
         "dominador_cost": 0.00051,
         "dominancia_score": 2.0647058823529307
-      },
-      {
-        "key": "gemma-4-26b",
-        "name": "Gemma 4 26B MoE (3.8B activos)",
-        "familia": "Gemma",
-        "quality": 8.34,
-        "cost_examen": 0.000477,
-        "dominador_key": "spark-gemma4-12b",
-        "dominador_name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
-        "dominador_quality": 8.49,
-        "dominador_cost": 0.000315,
-        "dominancia_score": 2.014285714285718
       },
       {
         "key": "gemini-flash",
@@ -677,6 +737,18 @@
         "dominancia_score": 1.2999999999999936
       },
       {
+        "key": "or-gemma-4-31b",
+        "name": "Gemma 4 31B",
+        "familia": "Gemma",
+        "quality": 8.48,
+        "cost_examen": 0.00054,
+        "dominador_key": "spark-gemma4-12b",
+        "dominador_name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+        "dominador_quality": 8.5,
+        "dominador_cost": 0.000315,
+        "dominancia_score": 0.9142857142857099
+      },
+      {
         "key": "claude-opus-4.7",
         "name": "Claude Opus 4.7",
         "familia": "ClaudeOpus",
@@ -687,18 +759,6 @@
         "dominador_quality": 8.48,
         "dominador_cost": 0.039,
         "dominancia_score": 0.8999999999999986
-      },
-      {
-        "key": "or-gemma-4-31b",
-        "name": "Gemma 4 31B",
-        "familia": "Gemma",
-        "quality": 8.48,
-        "cost_examen": 0.00054,
-        "dominador_key": "spark-gemma4-12b",
-        "dominador_name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
-        "dominador_quality": 8.49,
-        "dominador_cost": 0.000315,
-        "dominancia_score": 0.8142857142857121
       },
       {
         "key": "grok-4.20",
@@ -737,6 +797,18 @@
         "dominancia_score": 0.3316239316239429
       },
       {
+        "key": "qwen3.8-flash",
+        "name": "Qwen 3.8 Flash",
+        "familia": "Qwen",
+        "quality": 8.53,
+        "cost_examen": 0.00075,
+        "dominador_key": "qwen3.8-omni-flash",
+        "dominador_name": "Qwen 3.8 Omni Flash",
+        "dominador_quality": 8.55,
+        "dominador_cost": 0.00075,
+        "dominancia_score": 0.2000000000000135
+      },
+      {
         "key": "gpt-5.6-luna-pro",
         "name": "GPT-5.6 Luna Pro",
         "familia": "GPT",
@@ -759,6 +831,18 @@
         "dominador_quality": 8.45,
         "dominador_cost": 0.00396,
         "dominancia_score": 0.19199999999999995
+      },
+      {
+        "key": "gpt-6-luna",
+        "name": "GPT-6 Luna",
+        "familia": "GPT",
+        "quality": 8.27,
+        "cost_examen": 0.00078,
+        "dominador_key": "gpt-6-luna-pro",
+        "dominador_name": "GPT-6 Luna Pro",
+        "dominador_quality": 8.28,
+        "dominador_cost": 0.00078,
+        "dominancia_score": 0.09999999999999787
       },
       {
         "key": "muse-spark-1.2",
@@ -1173,10 +1257,6 @@
         "name": "Qwen 3.7 Flash"
       },
       {
-        "key": "qwen3.8-flash",
-        "name": "Qwen 3.8 Flash"
-      },
-      {
         "key": "tencent-hy3",
         "name": "Tencent Hy3"
       },
@@ -1187,6 +1267,10 @@
       {
         "key": "glm-5.3-flash",
         "name": "GLM 5.3 Flash"
+      },
+      {
+        "key": "ling-3.0-flash-vl",
+        "name": "Ling 3.0 Flash VL"
       },
       {
         "key": "fugu-max",
@@ -1217,12 +1301,20 @@
         "name": "Gemini 3.5 Flash Lite"
       },
       {
+        "key": "mimo-v2.6-flash",
+        "name": "MiMo V2.6 Flash"
+      },
+      {
         "key": "claude-opus-4.8",
         "name": "Claude Opus 4.8"
       },
       {
         "key": "granite-4.2-8b",
         "name": "Granite 4.2 8B"
+      },
+      {
+        "key": "gpt-6-luna-pro",
+        "name": "GPT-6 Luna Pro"
       },
       {
         "key": "gemini-3.6-flash",
@@ -1309,16 +1401,8 @@
         "name": "Kimi K2.6"
       },
       {
-        "key": "mimo-v2.5-pro-or",
-        "name": "MiMo-V2.5 Pro"
-      },
-      {
         "key": "minimax-m3",
         "name": "MiniMax M3"
-      },
-      {
-        "key": "ling-3.0-flash",
-        "name": "Ling 3.0 Flash"
       },
       {
         "key": "or-minimax-m2.5",
@@ -1327,10 +1411,6 @@
       {
         "key": "or-gpt-oss-120b",
         "name": "GPT-OSS 120B"
-      },
-      {
-        "key": "mimo-v2.5-or",
-        "name": "MiMo-V2.5 (omnimodal)"
       },
       {
         "key": "solar-pro4",
@@ -1365,8 +1445,16 @@
         "name": "GPT-OSS 20B"
       },
       {
+        "key": "claude-haiku-5.5",
+        "name": "Claude Haiku 5.5"
+      },
+      {
         "key": "hermes-4-70b",
         "name": "Hermes 4 70B"
+      },
+      {
+        "key": "claude-opus-5.5",
+        "name": "Claude Opus 5.5"
       },
       {
         "key": "grok-4.3",
@@ -1379,6 +1467,14 @@
       {
         "key": "sakana-namazu",
         "name": "Sakana Namazu"
+      },
+      {
+        "key": "qwen3.8-omni-flash",
+        "name": "Qwen 3.8 Omni Flash"
+      },
+      {
+        "key": "bonsai-2-27b",
+        "name": "Bonsai 2 27B"
       },
       {
         "key": "longcat-2.0",

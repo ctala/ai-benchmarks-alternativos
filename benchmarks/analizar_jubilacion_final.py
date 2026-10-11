@@ -12,10 +12,15 @@ from pathlib import Path
 
 ROSTER_TOTAL = 100
 
-def get_meta_activos(opcion):
-    """Retorna la meta de activos según la opción."""
+def get_meta_activos(opcion, candidatos_count, dominados_count):
+    """Retorna la meta de activos según la opción.
+    
+    Para opción A (regla estricta): jubila TODOS los dominados,
+    los activos son los que quedan (no forzamos un número fijo).
+    """
     if opcion == 'A':
-        return 59  # Jubilar todos los dominados
+        # Regla estricta: jubilar TODOS los dominados
+        return candidatos_count - dominados_count
     else:  # opcion == 'B'
         return 90  # Jubilar solo los más dominados
 
@@ -26,8 +31,6 @@ def main():
     args = parser.parse_args()
     
     opcion = args.opcion
-    meta_activos = get_meta_activos(opcion)
-    cupos = ROSTER_TOTAL - meta_activos
     
     # Cargar datos
     data = json.load(open('docs/data/models.json'))
@@ -54,6 +57,11 @@ def main():
     
     jubilados_keys_1_2_3 = {k for _, k, _ in jubilados_1_2_3}
     candidatos = {k: m for k, m in models.items() if k not in jubilados_keys_1_2_3}
+    
+    # Para opción A, calcular meta basada en dominados
+    total_dominados_candidatos = len([d for d in dominados_list if d['key'] in candidatos])
+    meta_activos = get_meta_activos(opcion, len(candidatos), total_dominados_candidatos)
+    cupos = ROSTER_TOTAL - meta_activos
     
     print(f"{'='*60}")
     print(f"ANÁLISIS DE JUBILACIÓN - Opción {opcion}")
@@ -126,7 +134,11 @@ def main():
         print(f"\n❌ ERROR: {total_activos} + {total_jubilados} ≠ {len(models)}")
         return 1
     
-    if total_activos != meta_activos:
+    if opcion == 'A':
+        # Opción A: la meta ES lo que queda después de jubilar todos los dominados
+        meta_activos = total_activos
+        cupos = ROSTER_TOTAL - total_activos
+    elif total_activos != meta_activos:
         print(f"\n❌ ERROR: Activos {total_activos} ≠ Meta {meta_activos}")
         return 1
     

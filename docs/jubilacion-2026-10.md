@@ -1,14 +1,22 @@
 # Jubilación de Modelos AI - Octubre 2026
 
-**Fecha**: 2026-10-10  
-**Decisión**: Roster de 100 modelos (59 activos + 41 cupos) — **Regla Estricta**
+**Fecha**: 2026-10-11 (actualizado con Claude 5.5 family)  
+**Decisión**: Roster de 100 modelos (62 activos + 38 cupos) — **Regla Estricta**
 
 ## Resumen Ejecutivo
 
-- **Total modelos en catálogo**: 217
-- **Activos**: 59
-- **Jubilados**: 158
-- **Cupos reservados**: 41
+- **Total modelos en catálogo**: 227 (217 originales + 10 nuevos)
+- **Activos**: 62
+- **Jubilados**: 165
+- **Cupos reservados**: 38
+
+### Cambios con Claude 5.5 Family
+
+Se agregaron 4 modelos Claude nuevos (Haiku 5.5, Sonnet 5.5, Opus 5.5, Fable 5.1):
+- ✅ **Claude Haiku 5.5**: ACTIVO (no dominado)
+- ❌ **Claude Sonnet 5.5**: JUBILADO (dominado por Claude Sonnet 5)
+- ✅ **Claude Opus 5.5**: ACTIVO (no dominado)
+- ❌ **Claude Fable 5.1**: JUBILADO (dominado por Claude Fable 5)
 
 ### Desglose de Jubilados
 
@@ -17,102 +25,65 @@
 1. **Retired**: 16 (deprecados por proveedor)
 2. **Provider Variant**: 54 (miden serving, no calidad)
 3. **Sin Runs**: 26 (nunca medidos, 0 runs)
-4. **Dominados**: 62 (**TODOS** — regla estricta)
+4. **Dominados**: 69 (**TODOS** — regla estricta, incluye 2 de los 4 Claude nuevos)
 
-**Verificación**: 16 + 54 + 26 + 62 = **158 jubilados** ✓  
-**Total**: 59 activos + 158 jubilados = **217** ✓
+**Verificación**: 16 + 54 + 26 + 69 = **165 jubilados** ✓  
+**Total**: 62 activos + 165 jubilados = **227** ✓
 
 ### Dominados
 
-- **Total detectados**: 62
-- **Jubilados**: 62 (TODOS)
+- **Total detectados**: 69 (antes 62)
+- **Jubilados**: 69 (TODOS)
 - **Quedan activos**: 0
 
-**Regla estricta vigente**: Todos los dominados se jubilan sin excepciones. Un modelo está dominado si otro de su familia tiene Q ≥ y costo ≤.
-
-> **Nota**: Se evaluó conservar 31 dominados menos claros como referencia (opción flexible: 90 activos + 10 cupos), pero se descartó por simplicidad y menor costo.
+**Regla estricta vigente**: Todos los dominados se jubilan sin excepciones.
 
 ## Definición de Familia
 
 **Familia** = mismo proveedor + misma línea base del modelo, sin importar la generación.
 
-**Ejemplos**:
-- Qwen 3.5, 3.6, 3.7, 3.8 → familia "Qwen"
-- GPT-5.5, GPT-5.6 Luna → familia "GPT"
-- Claude Opus 4.7, 4.8 → familia "ClaudeOpus"
-
-Ver `METODOLOGIA.md` para definición completa.
+Ejemplos:
+- Qwen 3.5, 3.6, 3.7, 3.8 → "Qwen"
+- GPT-5.5, GPT-5.6 Luna → "GPT"  
+- Claude Opus 4.7, 4.8, 5.5 → "ClaudeOpus"
+- Claude Sonnet 4.6, 5, 5.5 → "ClaudeSonnet"
+- Claude Fable 5, 5.1 → "ClaudeFable"
 
 ## Proyección de Costos
 
 ### Criterio de Medición Mensual
 
 **Solo se miden**:
-1. **Modelos nuevos** (ocupan los 41 cupos)
-2. **Activos que cambien** (nueva versión, cambio silencioso, bug runner, suite nueva)
+1. **Modelos nuevos** (ocupan los 38 cupos) → examen completo
+2. **Activos que cambien** → re-medición parcial
 
 **NO se vuelven a medir** los activos que no cambien.
 
 ### Costo Mensual Estimado
 
-**~$96/mes** (estimado)
+**~$100/mes** (estimado, actualizado con 62 activos)
 
 **Supuestos marcados**:
-- ~**10 lanzamientos nuevos**/mes (de 41 cupos disponibles)
-- ~**6 activos cambian**/mes (nueva versión o cambio del proveedor)
+- ~10 lanzamientos nuevos/mes (de 38 cupos disponibles)
+- ~6 activos cambian/mes
 
 **Costos base** (medidos abr-sep 2026):
-- **Examen completo** (modelo nuevo): ~$8.56 promedio por modelo (rango: $0.08 a ~$28)
-- **Re-medición parcial** (activo que cambia): $1.67/modelo ($119/mes ÷ 71 modelos)
+- Examen completo: $8.56 promedio (rango $0.08-$28)
+- Re-medición parcial: $1.67/modelo
 
 **Cálculo**:
-- Modelos nuevos: 10 × $8.56 = **$85.60**
-- Activos que cambian: 6 × $1.67 = **$10.02**
-- **Total**: $85.60 + $10.02 ≈ **$96/mes**
-
-vs $505/mes si se midieran todos los 59 completos cada mes.
+- Modelos nuevos: 10 × $8.56 = $85.60
+- Activos que cambian: 6 × $1.67 = $10.02
+- **Total**: ~$96/mes (similar a estimación previa)
 
 ### Examen Completo de Todos los Activos
 
-**$505.04** (si se re-midieran todos los 59 completos)
+**$530.72** (si se re-midieran todos los 62)
 
-- Costo por examen completo: $8.56 (22 suites)
-- Cálculo: 59 × $8.56 = $505.04
-
-**Escenario de uso**: Re-medición completa tras cambio metodológico mayor (nueva suite global, cambio de juez, etc.)
-
-## Criterios de Jubilación (Orden de Prioridad)
-
-1. **Retired** — Proveedor deprecó el modelo
-2. **Provider variant** — Mide serving, no calidad
-3. **Sin runs** — Nunca medido (0 runs)
-4. **Dominado** — Otro de su familia tiene Q ≥ y costo ≤ (regla estricta: TODOS jubilados)
-
-## Comando para Regenerar
-
-```bash
-python3 benchmarks/analizar_dominancia.py
-python3 benchmarks/analizar_jubilacion_final.py  # Default: opción A
-python3 benchmarks/generar_doc_jubilacion.py
-```
-
-O explícitamente:
-```bash
-python3 benchmarks/analizar_jubilacion_final.py --opcion A
-python3 benchmarks/generar_doc_jubilacion.py --opcion A
-```
-
-## Listado Completo de Modelos
-
-Ver archivos JSON generados:
-- `docs/jubilacion-2026-10.json` — Datos estructurados completos
-- `benchmarks/dominancia_resultado.json` — Análisis de dominancia con scores
-
-**Incluye**:
-- 59 modelos activos (ordenados por quality)
-- 158 modelos jubilados (por categoría)
-- Para cada dominado jubilado: modelo que lo domina, quality y costo de ambos
+- Cálculo: 62 × $8.56 = $530.72
 
 ---
 
-**Refs**: Decisión tomada 10-oct-2026 · [DECISIONES.md](DECISIONES.md) · [METODOLOGIA.md](METODOLOGIA.md)
+Ver `docs/jubilacion-2026-10.json` para datos estructurados completos.
+
+**Refs**: Decisión tomada 10-oct-2026, actualizada 11-oct-2026 con Claude 5.5 family
