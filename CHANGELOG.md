@@ -5,6 +5,117 @@
 
 ## [No publicado]
 
+## [v4.17.0] - 2026-10-10 — Claude 5.5 family medida con exceso presupuestario
+
+> **⚠️ IMPORTANTE:** Lote `lote/2026-10-10-claude55` excedió presupuesto: **$181.32 gastados vs
+> $55 aprobados** (3.3× sobre el límite). Scores en **0.00 pendientes de juez** (requiere ~$7.91
+> adicionales y nueva aprobación). Ver [ESTADO_SESION_2026-10-10.md](ESTADO_SESION_2026-10-10.md)
+> para análisis completo de causas y parches propuestos.
+
+- **Claude 5.5 family medida: Haiku, Sonnet, Opus y Fable (10-oct-2026).** Anthropic lanzó
+  cuatro modelos de la familia Claude 5.5, todos medidos en examen general completo (207-209/213
+  tests por modelo, modo `--quick`). **Scores actuales: 0.00** - pendientes de fase de judging
+  que requiere ~$7.91 adicionales con Phi-4. Precios: Haiku $0.10/$0.50, Sonnet $2.00/$10.00,
+  Opus $4.00/$20.00, Fable $10.00/$50.00 por millón de tokens input/output.
+  
+  **Costos reales por modelo:**
+  - Claude Haiku 5.5: $1.13 (9.5M input, 349K output)
+  - Claude Sonnet 5.5: $22.90 (9.5M input, 383K output)
+  - Claude Opus 5.5: $46.38 (9.6M input, 408K output)
+  - Claude Fable 5.1: $114.10 (9.6M input, 366K output)
+  
+  **Causa del exceso:** Input tokens **14.9× más altos** que lo estimado (45K vs 3K por test).
+  Los tests del benchmark incluyen contextos largos que no estaban reflejados en
+  `calculate_costs.py`. Sin checkpoint monitoring durante ejecución paralela que permitiera
+  detener al llegar al límite de $55.
+
+- **Suites de noticias removidas del branch (10-oct-2026).** Las 5 suites implementadas
+  (`noticias_relevancia`, `noticias_repetidas`, `noticias_pauta`, `noticias_verificacion`,
+  `noticias_seo_discover`) fueron **removidas** porque: (1) no coincidían con el diseño aprobado
+  en `benchmark-pack-noticias.md`, (2) licencia CC BY 4.0 de Ecosistema Startup pendiente de
+  aprobación, (3) test counts y scoring methodology incorrectos. Reimplementación pospuesta a
+  sesión futura.
+
+- **Investigación SSL hang pospuesta (10-oct-2026).** Qwen 3.8 Omni Flash y Prism Bonsai 2 27B
+  con hang SSL en ~50% de tests - investigación **no iniciada** por prioridad de detener gastos
+  tras descubrir exceso presupuestario. Pendiente para sesión futura con presupuesto asignado
+  (máximo $1, 45 min).
+
+## [v4.16.0] - 2026-10-10 — GPT-6 Luna y el patrón que se repite: la versión Pro cuesta 3× por la misma nota
+
+> **Lote `lote/2026-09-26-gpt6-y-video`**: 4 modelos completos + 2 parciales (Qwen 3.8 Omni y
+> Bonsai 2 a medias). El release cierra con los 4 completos; los 2 parciales entran en v4.17.0
+> tras completar sus 209 runs pendientes (~$1 estimado). Ver [DATASHEET_2026-10.md](DATASHEET_2026-10.md).
+
+- **GPT-6 Luna NO supera a su predecesor (10-oct-2026).** GPT-6 Luna saca **8.75** contra
+  **8.93** de GPT-5.6 Luna, costando la mitad ($0.93 vs $1.86 el examen). No es un upgrade en
+  calidad de texto — puede ser velocidad o multimodal, pero en este examen mide peor.
+- **GPT-6 Luna Pro cuesta 3× por la misma nota (10-oct-2026).** Luna y Luna Pro son el mismo
+  modelo base servido con `reasoning.mode: pro`. La medición: ambos **8.75** de calidad, pero
+  Pro cuesta **$2.83** contra **$0.93** de Luna regular (+204% de gasto por +0.00 en nota).
+  OpenAI declara que Pro razona más profundo; **en este examen no justifica su precio**. Es el
+  segundo mes consecutivo donde la versión cara no compra calidad medible — en septiembre fue
+  GLM 5.3 vs GLM 5.3 Flash (+0.01 por 18× el precio).
+- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52, el mejor open source del lote
+  (10-oct-2026).** MoE 309B/15B activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio
+  nativos. GPT-6 Luna y Luna Pro sacan 8.75, pero MiMo gana en calidad/costo: $1.52 examen
+  completo vs $0.93-$2.83 de los Luna. Declarado thinking con el patrón `mimo-v2.6` en
+  `providers/adapters.py`.
+- **Ling 3.0 Flash VL: el más barato con vídeo, pero entre los peores en agentes (10-oct-2026).**
+  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. **199 de 213
+  runs** (le faltan 14 de `niah_es`, que es omitible sin perder el ranking según
+  `RUNBOOK-MEDICION.md:133-140`). **7.63 de calidad** y **de los 5 peores de 104** en
+  `orchestration` (4.38) y `tool_calling` (4.37). Si el caso de uso es orquestar un agente, el
+  precio bajo no compensa.
+- **Qwen 3.8 Omni y Bonsai 2 quedaron a medias, y no se publican (10-oct-2026).** Qwen 3.8
+  Omni Flash 114/213 runs, Bonsai 2 27B 103/213. Ambos razonan mucho (157-165 s/run, ~10 h
+  de reloj cada uno) y el lote se pausó en la rama sin completarlos para no gastar sin
+  autorización explícita. **No se publican promedios de exámenes incompletos** — es el error
+  que en septiembre infló a Qwen 3.8 Flash con 8 centésimas de sesgo de supervivencia. Faltan
+  209 runs (~$1 estimado) + Harbor tasks de los 6 (~$3-8). El lote queda en la rama
+  `lote/2026-09-26-gpt6-y-video`, y se cierra con los 4 completos para no retrasar el release
+  mensual.
+- **El caso Bonsai 2 responde algo que nadie publica (10-oct-2026).** Bonsai 2 27B es Qwen 3.8
+  27B con **compresión ternaria** (1.58 bits/peso), del mismo proveedor. El benchmark ya tiene
+  medido el original (#5, calidad 8.50). Completar Bonsai 2 mide **cuánta calidad pierde un
+  modelo al comprimirlo** — dato que ningún paper reporta contra el mismo examen del original,
+  porque los papers comparan contra otros modelos. Este sí.
+- **Un `git add` con un path inexistente aborta el add COMPLETO (26-sep-2026).** El commit
+  `c39b297b5` se publicó con el mensaje del arreglo del QA y **sin una línea de su código**:
+  el `git add` listaba cinco archivos y uno (`results/_foto_effort.json`) no existía, así que
+  git abortó sin agregar ninguno y el commit tomó lo que había quedado staged de la llamada
+  anterior — dos JSON. El `2>/dev/null` que le puse al comando ocultó el error, y leí «commit
+  creado» como éxito. Peor: **el push pasó el QA en verde**, porque el hook corre el `qa.py`
+  del working tree y ahí el arreglo sí estaba; en git no. Quien clonara la rama tenía el
+  mensaje de un arreglo que no existía. Es el falso verde de siempre —mirar en el lugar
+  equivocado y creerle porque dice lo que uno quiere leer—, esta vez a un `git add`. Lo cazó
+  el preflight del cierre al listar los mismos archivos como modificados otra vez.
+- **La Regla 4 nació sin instrumento, y su primer push lo demostró (26-sep-2026).** El paso
+  «push a la rama tras cada modelo» era **imposible de cumplir**: el hook de pre-push corre
+  `qa.py --pre-merge`, y un lote a medias lo pone en rojo por diseño en dos chequeos — los
+  runs medidos todavía no están en `models.json` (que se regenera al cerrar, para que el
+  ranking se mueva una vez y no seis) y el CHANGELOG no declara el bump (el release se arma
+  al final). Con eso, la regla escrita ayer obligaba a `--no-verify` en cada push, que es
+  exactamente la forma de aprender a ignorar un guardrail. **La ironía es que el repo tiene
+  la lección al revés escrita en el CLAUDE.md** («una regla sin instrumento que la haga
+  cumplir es una regla que ya se rompió») y ésta falló por el otro lado: el instrumento
+  impedía la regla. Ahora `qa.py` distingue rama de lote de `main`, degradando a informativos
+  esos dos y **sólo** esos (nombrados, con su motivo impreso incluso en verde); en `main` no
+  tolera nada, porque su propio mensaje siempre dijo «no mergees» y el hook lo había puesto
+  como gate de *push*. El deselect es de un test nombrado, no de la suite: degradar los 140
+  de `test_unitarios.py` para tolerar uno sería el boquete. Sabotaje en las tres direcciones
+  con un chequeo de mentira — en `lote/*` un rojo no declarado sigue frenando, en `main` no
+  se tolera ni lo declarado, y los secretos no se toleran nunca.
+- **Un lote se versiona modelo a modelo, en su rama (Regla 4 del RUNBOOK, 26-sep-2026).**
+  Cristian, antes de lanzar el lote: *«ir generando versiones cada vez que terminas uno (…)
+  además de hacer push a la branch correspondiente»*, y con la pregunta correcta pegada:
+  *«no sé si está documentado»*. **No lo estaba** — los lotes anteriores iban directo a
+  `main` en un commit final. Importa porque un lote de 6 modelos son horas y la sesión se
+  muere de verdad (el 14 y el 17-sep, Claude Code mató sus tareas en segundo plano por
+  memoria): sin commits intermedios no se sabe qué quedó completo, y un modelo dudoso obliga
+  a auditar el lote entero. Ahora: rama `lote/<fecha>-<nombre>`, commit del alta ANTES de
+  medir, commit + push por cada modelo terminado con sus runs y sus respaldos, y
+  `regenerate_all` + QA + merge **sólo al final** — el ranking se mueve una vez, no seis.
 - **El censo de por dónde se puede consumir cada modelo (19-sep-2026).** El benchmark decía
   **qué modelo** y cuánto cuesta por token en OpenRouter, y nada sobre **cómo consumirlo** —
   Cristian, usando Qwen por un token plan servido desde Singapur: *«una vez que ya definas el

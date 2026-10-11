@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-19T11:13:27",
-  "total_models": 217,
-  "tested_count": 167,
-  "ranked_count": 107,
-  "total_runs_measured": 68703,
-  "total_runs_active": 64331,
+  "generated_at": "2026-10-11T19:35:49",
+  "total_models": 227,
+  "tested_count": 177,
+  "ranked_count": 115,
+  "total_runs_measured": 70823,
+  "total_runs_active": 66451,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -117,144 +117,144 @@
   },
   "norm_stats_by_suite": {
     "agent_capabilities": {
-      "mean": 6.5989,
-      "std": 0.765
+      "mean": 6.5588,
+      "std": 0.7621
     },
     "agent_long_horizon": {
-      "mean": 7.5019,
-      "std": 0.5591
+      "mean": 7.4792,
+      "std": 0.5868
     },
     "business_audit": {
-      "mean": 6.9202,
-      "std": 0.4495
+      "mean": 6.9447,
+      "std": 0.451
     },
     "business_strategy": {
-      "mean": 7.847,
-      "std": 0.4394
+      "mean": 7.8535,
+      "std": 0.4367
     },
     "code_generation": {
-      "mean": 7.8877,
-      "std": 0.5256
+      "mean": 7.8374,
+      "std": 0.6266
     },
     "content_generation": {
-      "mean": 7.9937,
-      "std": 0.4052
+      "mean": 7.9615,
+      "std": 0.4731
     },
     "content_verificable": {
-      "mean": 7.5695,
-      "std": 0.7598
+      "mean": 7.6297,
+      "std": 0.7783
     },
     "creativity": {
-      "mean": 7.7607,
-      "std": 0.4003
+      "mean": 7.7687,
+      "std": 0.4011
     },
     "customer_support": {
-      "mean": 7.1574,
-      "std": 0.704
+      "mean": 7.1482,
+      "std": 0.685
     },
     "deep_reasoning": {
-      "mean": 6.4356,
-      "std": 0.7603
+      "mean": 6.4487,
+      "std": 0.7458
     },
     "dominio_entidad": {
-      "mean": 8.9044,
-      "std": 0.2952
+      "mean": 8.8805,
+      "std": 0.3349
     },
     "extraer_claims": {
-      "mean": 8.6289,
-      "std": 0.3873
+      "mean": 8.677,
+      "std": 0.3845
     },
     "hallucination": {
-      "mean": 6.7464,
-      "std": 0.6789
+      "mean": 6.7603,
+      "std": 0.6911
     },
     "integridad_idioma": {
-      "mean": 7.8375,
-      "std": 1.1657
+      "mean": 7.8753,
+      "std": 1.138
     },
     "multi_turn": {
-      "mean": 7.0891,
-      "std": 0.4804
+      "mean": 7.0886,
+      "std": 0.4675
     },
     "news_seo_writing": {
-      "mean": 6.194,
-      "std": 0.7344
+      "mean": 6.2143,
+      "std": 0.7298
     },
     "niah_es": {
-      "mean": 8.0961,
-      "std": 0.3469
+      "mean": 8.0139,
+      "std": 0.4094
     },
     "ocr_extraction": {
-      "mean": 8.2194,
-      "std": 0.5951
+      "mean": 8.2391,
+      "std": 0.5877
     },
     "orchestration": {
-      "mean": 6.576,
-      "std": 0.9168
+      "mean": 6.5532,
+      "std": 0.9159
     },
     "policy_adherence": {
-      "mean": 7.494,
-      "std": 0.6019
+      "mean": 7.5095,
+      "std": 0.5917
     },
     "presentation": {
-      "mean": 7.9274,
-      "std": 0.5932
+      "mean": 7.8802,
+      "std": 0.664
     },
     "prompt_injection_es": {
-      "mean": 3.9641,
-      "std": 1.9183
+      "mean": 4.0911,
+      "std": 2.0184
     },
     "reasoning": {
-      "mean": 8.0256,
-      "std": 0.4224
+      "mean": 7.9833,
+      "std": 0.5275
     },
     "sales_outreach": {
-      "mean": 7.3266,
-      "std": 0.7356
+      "mean": 7.3593,
+      "std": 0.7241
     },
     "startup_content": {
-      "mean": 8.005,
-      "std": 0.4401
+      "mean": 7.9628,
+      "std": 0.5266
     },
     "strategy": {
-      "mean": 7.4837,
-      "std": 0.7168
+      "mean": 7.4963,
+      "std": 0.7091
     },
     "string_precision": {
-      "mean": 8.0061,
-      "std": 0.8552
+      "mean": 7.9958,
+      "std": 0.9179
     },
     "structured_output": {
-      "mean": 8.509,
-      "std": 0.8855
+      "mean": 8.5365,
+      "std": 0.8628
     },
     "summarization": {
-      "mean": 7.1551,
-      "std": 0.4769
+      "mean": 7.1673,
+      "std": 0.4702
     },
     "task_management": {
-      "mean": 8.0519,
-      "std": 0.4443
+      "mean": 8.0254,
+      "std": 0.4957
     },
     "tool_calling": {
-      "mean": 5.97,
-      "std": 0.6593
+      "mean": 5.9729,
+      "std": 0.651
     },
     "tool_calling_adversarial": {
-      "mean": 6.4204,
-      "std": 0.5449
+      "mean": 6.4119,
+      "std": 0.5347
     },
     "translation": {
-      "mean": 7.499,
-      "std": 0.4763
+      "mean": 7.5155,
+      "std": 0.4798
     },
     "verificar_claim": {
-      "mean": 8.0811,
-      "std": 0.2855
+      "mean": 8.088,
+      "std": 0.2814
     },
     "verificar_claims_lote": {
-      "mean": 8.3292,
-      "std": 0.4701
+      "mean": 8.3981,
+      "std": 0.4492
     }
   },
   "score_rescale": {
@@ -504,6 +504,36 @@
       "en_promedio": false,
       "menu": "Encontrar el sitio oficial de una empresa",
       "decide": "elegir el dominio real, o abstenerse"
+    },
+    "noticias_relevancia": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Filtrar notas por criterio editorial",
+      "decide": "distinguir si una nota es para tu medio"
+    },
+    "noticias_repetidas": {
+      "pilar": "Agentes",
+      "en_promedio": false,
+      "menu": "Detectar duplicados en flujo de noticias",
+      "decide": "evitar publicar el mismo hecho dos veces"
+    },
+    "noticias_pauta": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Redactar nota siguiendo pauta editorial",
+      "decide": "escribir publicable con la pauta, sin revisar"
+    },
+    "noticias_verificacion": {
+      "pilar": "Agentes",
+      "en_promedio": false,
+      "menu": "Verificar afirmaciones contra fuente",
+      "decide": "encontrar qué requiere fuente antes de publicar"
+    },
+    "noticias_seo_discover": {
+      "pilar": "Contenido",
+      "en_promedio": false,
+      "menu": "Título y metadatos para Google Discover",
+      "decide": "estructurar para que Google recomiende la nota"
     },
     "niah_es": {
       "pilar": null,
@@ -1057,7 +1087,7 @@
         "news_seo_writing": 7.06,
         "ocr_extraction": 8.57,
         "orchestration": 7.75,
-        "multi_turn": 7.24,
+        "multi_turn": 7.23,
         "policy_adherence": 7.47,
         "agent_capabilities": 8.18,
         "strategy": 7.61,
@@ -1958,7 +1988,7 @@
         "hallucination": 7.45,
         "creativity": 8.15,
         "ocr_extraction": 8.69,
-        "policy_adherence": 7.99,
+        "policy_adherence": 7.98,
         "niah_es": 7.74,
         "code_generation": 8.09,
         "reasoning": 8.33,
@@ -3360,7 +3390,7 @@
         "business_strategy": 7.99,
         "task_management": 8.32,
         "hallucination": 6.91,
-        "creativity": 7.84,
+        "creativity": 7.85,
         "ocr_extraction": 8.26,
         "policy_adherence": 7.65,
         "niah_es": 7.73,
@@ -3824,7 +3854,7 @@
       "score_by_suite": {
         "business_audit": 6.91,
         "content_generation": 7.77,
-        "tool_calling": 6.03,
+        "tool_calling": 6.04,
         "reasoning": 7.96,
         "summarization": 6.96,
         "deep_reasoning": 6.09,
@@ -3835,7 +3865,7 @@
         "string_precision": 8.69,
         "ocr_extraction": 7.87,
         "orchestration": 6.82,
-        "multi_turn": 6.77,
+        "multi_turn": 6.78,
         "policy_adherence": 7.57,
         "agent_capabilities": 6.4,
         "sales_outreach": 7.12,
@@ -4165,6 +4195,454 @@
       }
     },
     {
+      "key": "ling-3.0-flash-vl",
+      "id": "inclusionai/ling-3.0-flash-vl",
+      "name": "Ling 3.0 Flash VL",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.021,
+      "cost_output_per_M": 0.062,
+      "cost_per_1k_calls_usd": 0.099,
+      "context_window": 262144,
+      "subscriptions": [],
+      "notes": "MoE 124B totales / 5.5B activos sobre Ling 3.0 Flash, con visión y vídeo. EL MÁS BARATO del catálogo con vídeo: $0.021/$0.062 por millón. Su hermano sin visión ya aparece recomendado para outreach; esto mide si la variante VL mantiene la calidad de texto. Cubierto por el patrón `ling-3.0`.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 199,
+      "score_global": 7.26,
+      "score_by_pillar": {
+        "Razonamiento": 7.88,
+        "Contenido": 8.24,
+        "Agentes": 7.16,
+        "Coding": 8.85
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.379,
+          "speed_score_avg": 9.733,
+          "latency_score_avg": 1.167,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.864
+        },
+        "Contenido": {
+          "quality_avg": 8.822,
+          "speed_score_avg": 9.447,
+          "latency_score_avg": 2.128,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.49
+        },
+        "Agentes": {
+          "quality_avg": 7.25,
+          "speed_score_avg": 9.362,
+          "latency_score_avg": 2.596,
+          "cost_score_avg": 7.908,
+          "quality_ci95": 0.676
+        },
+        "Coding": {
+          "quality_avg": 9.694,
+          "speed_score_avg": 8.737,
+          "latency_score_avg": 2.789,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.271
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.78,
+        "business_strategy": 8.46,
+        "content_verificable": 8.53,
+        "content_generation": 8.53,
+        "tool_calling": 5.2,
+        "task_management": 8.64,
+        "code_generation": 8.57,
+        "reasoning": 8.8,
+        "summarization": 7.77,
+        "presentation": 8.2,
+        "startup_content": 8.67,
+        "deep_reasoning": 7.39,
+        "customer_support": 7.57,
+        "structured_output": 9.08,
+        "hallucination": 6.92,
+        "creativity": 8.34,
+        "string_precision": 9.17,
+        "news_seo_writing": 7.08,
+        "ocr_extraction": 8.49,
+        "orchestration": 5.2,
+        "multi_turn": 7.31,
+        "policy_adherence": 7.8,
+        "agent_capabilities": 6.83,
+        "strategy": 8.24,
+        "sales_outreach": 8.11,
+        "translation": 7.93,
+        "agent_long_horizon": 7.71,
+        "niah_es": 6.74,
+        "integridad_idioma": 8.82,
+        "verificar_claim": 8.32,
+        "verificar_claims_lote": 8.7,
+        "extraer_claims": 9.16,
+        "dominio_entidad": 9.15,
+        "tool_calling_adversarial": 6.71,
+        "prompt_injection_es": 3.09
+      },
+      "quality_by_suite": {
+        "business_audit": 8.2,
+        "business_strategy": 9.2,
+        "content_verificable": 9.33,
+        "content_generation": 9.18,
+        "tool_calling": 4.37,
+        "task_management": 9.45,
+        "code_generation": 9.36,
+        "reasoning": 9.68,
+        "summarization": 8.1,
+        "presentation": 8.92,
+        "startup_content": 9.49,
+        "deep_reasoning": 7.78,
+        "customer_support": 7.66,
+        "structured_output": 10.0,
+        "hallucination": 7.0,
+        "creativity": 9.0,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.25,
+        "ocr_extraction": 9.35,
+        "orchestration": 4.38,
+        "multi_turn": 7.5,
+        "policy_adherence": 8.17,
+        "agent_capabilities": 6.77,
+        "strategy": 8.89,
+        "sales_outreach": 8.67,
+        "translation": 8.29,
+        "agent_long_horizon": 8.21,
+        "niah_es": 7.67,
+        "integridad_idioma": 9.65,
+        "verificar_claim": 8.8,
+        "verificar_claims_lote": 9.43,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 6.48,
+        "prompt_injection_es": 1.45
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 15,
+          "total": 29,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 8.33,
+      "quality_ci95": 0.359,
+      "cost_score_avg": 7.97,
+      "speed_score_avg": 9.38,
+      "latency_score_avg": 2.17,
+      "tool_calling_score_avg": 6.71,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 119.1,
+      "latency_avg_s": 20.56,
+      "total_input_tokens": 382077,
+      "total_output_tokens": 368031,
+      "presupuesto_salida": {
+        "p50": 722,
+        "p90": 4976,
+        "max": 44194,
+        "sugerido": 55242,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 736,
+            "p90": 1598,
+            "max": 1598,
+            "sugerido": 1997,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 10605,
+            "p90": 17015,
+            "max": 44194,
+            "sugerido": 55242,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 2142,
+            "p90": 3159,
+            "max": 3159,
+            "sugerido": 3948,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 2224,
+            "p90": 5901,
+            "max": 5901,
+            "sugerido": 7376,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 2733,
+            "p90": 5973,
+            "max": 5973,
+            "sugerido": 7466,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 1146,
+            "p90": 1170,
+            "max": 1170,
+            "sugerido": 1462,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 1095,
+            "p90": 2244,
+            "max": 2244,
+            "sugerido": 2805,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 3476,
+            "p90": 5213,
+            "max": 5213,
+            "sugerido": 6516,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 597,
+            "p90": 680,
+            "max": 680,
+            "sugerido": 850,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 4623,
+            "p90": 5009,
+            "max": 5009,
+            "sugerido": 6261,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 241,
+            "p90": 502,
+            "max": 502,
+            "sugerido": 627,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 402,
+            "p90": 845,
+            "max": 845,
+            "sugerido": 1056,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 733,
+            "p90": 1614,
+            "max": 1614,
+            "sugerido": 2017,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 1872,
+            "p90": 2395,
+            "max": 2395,
+            "sugerido": 2993,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1602,
+            "p90": 1631,
+            "max": 1631,
+            "sugerido": 2038,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 1698,
+            "p90": 3916,
+            "max": 3916,
+            "sugerido": 4895,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 247,
+            "p90": 318,
+            "max": 327,
+            "sugerido": 408,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1408,
+            "p90": 4419,
+            "max": 4419,
+            "sugerido": 5523,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 624,
+            "p90": 1164,
+            "max": 1164,
+            "sugerido": 1455,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 818,
+            "p90": 941,
+            "max": 941,
+            "sugerido": 1176,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 5052,
+            "p90": 5052,
+            "max": 5052,
+            "sugerido": 6315,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 143,
+            "p90": 500,
+            "max": 697,
+            "sugerido": 871,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 6078,
+            "p90": 6245,
+            "max": 6245,
+            "sugerido": 7806,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1551,
+            "p90": 3883,
+            "max": 3883,
+            "sugerido": 4853,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 3206,
+            "p90": 7519,
+            "max": 7519,
+            "sugerido": 9398,
+            "piso": false
+          },
+          "strategy": {
+            "p50": 3913,
+            "p90": 6834,
+            "max": 6834,
+            "sugerido": 8542,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 319,
+            "p90": 436,
+            "max": 436,
+            "sugerido": 545,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 494,
+            "p90": 1953,
+            "max": 1953,
+            "sugerido": 2441,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1072,
+            "p90": 1072,
+            "max": 1072,
+            "sugerido": 1340,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 4852,
+            "p90": 5127,
+            "max": 5127,
+            "sugerido": 6408,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 383,
+            "p90": 635,
+            "max": 635,
+            "sugerido": 793,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 245,
+            "p90": 1025,
+            "max": 1025,
+            "sugerido": 1281,
+            "piso": false
+          },
+          "translation": {
+            "p50": 516,
+            "p90": 1629,
+            "max": 1629,
+            "sugerido": 2036,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 238,
+            "p90": 664,
+            "max": 664,
+            "sugerido": 830,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 1321,
+            "p90": 2246,
+            "max": 2246,
+            "sugerido": 2807,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 15,
+      "long_context_quality": 7.67,
+      "long_context_score": 6.74,
+      "long_context_by_size": {
+        "128000": 5.0
+      },
+      "effective_context": null,
+      "agentic_runs": 12,
+      "agentic_quality": 8.21,
+      "multiturno_score": 7.71,
+      "agentic_score": 7.71,
+      "security_runs": 20,
+      "security_score": 1.45,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.89,
+      "score_calidad": 8.33,
+      "pareto": true,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "fugu-max",
       "id": "sakana/fugu-max",
       "name": "Fugu Max",
@@ -4241,7 +4719,7 @@
         "business_audit": 7.12,
         "business_strategy": 7.7,
         "content_verificable": 8.08,
-        "content_generation": 7.99,
+        "content_generation": 7.98,
         "tool_calling": 5.63,
         "task_management": 7.77,
         "code_generation": 7.9,
@@ -5216,7 +5694,7 @@
         "sales_outreach": 7.2,
         "verificar_claim": 8.26,
         "business_strategy": 7.59,
-        "code_generation": 7.59,
+        "code_generation": 7.6,
         "hallucination": 6.65,
         "ocr_extraction": 7.9,
         "multi_turn": 6.52,
@@ -6074,7 +6552,7 @@
         "content_generation": 8.54,
         "tool_calling": 5.86,
         "task_management": 8.64,
-        "code_generation": 8.64,
+        "code_generation": 8.63,
         "reasoning": 8.93,
         "summarization": 7.14,
         "presentation": 8.53,
@@ -6949,7 +7427,7 @@
         "content_generation": 8.77,
         "tool_calling": 7.12,
         "task_management": 8.54,
-        "code_generation": 8.6,
+        "code_generation": 8.61,
         "reasoning": 8.36,
         "summarization": 8.13,
         "presentation": 8.54,
@@ -7399,7 +7877,7 @@
         "string_precision": 7.64,
         "news_seo_writing": 7.12,
         "ocr_extraction": 8.71,
-        "multi_turn": 7.44,
+        "multi_turn": 7.43,
         "policy_adherence": 7.79,
         "strategy": 8.04,
         "sales_outreach": 7.6,
@@ -7815,13 +8293,13 @@
         "content_generation": 7.56,
         "tool_calling": 6.26,
         "task_management": 7.93,
-        "code_generation": 7.59,
+        "code_generation": 7.58,
         "reasoning": 8.04,
         "summarization": 7.11,
         "presentation": 7.95,
         "startup_content": 8.05,
         "deep_reasoning": 6.3,
-        "customer_support": 7.32,
+        "customer_support": 7.33,
         "structured_output": 8.77,
         "hallucination": 6.57,
         "creativity": 7.7,
@@ -8151,6 +8629,451 @@
       }
     },
     {
+      "key": "gpt-6-luna",
+      "id": "openai/gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.5,
+      "cost_per_1k_calls_usd": 0.78,
+      "context_window": 1050000,
+      "subscriptions": [],
+      "notes": "GPT-6 (22-sep-2026), el tier rápido y barato por debajo de Sol. Cuesta la MITAD que GPT-5.6 Luna ($0.20/$1.20), que hoy es #2 del ranking: la generación nueva bajó el precio en vez de subirlo. No acepta vídeo (texto, imagen y archivo). Declarado en THINKING_MODELS con el patrón `gpt-6` — el `gpt-5` viejo no lo cubría.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 213,
+      "score_global": 6.97,
+      "score_by_pillar": {
+        "Razonamiento": 7.76,
+        "Contenido": 8.2,
+        "Agentes": 7.09,
+        "Coding": 8.9
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.215,
+          "speed_score_avg": 9.467,
+          "latency_score_avg": 1.867,
+          "cost_score_avg": 7.747,
+          "quality_ci95": 0.911
+        },
+        "Contenido": {
+          "quality_avg": 8.774,
+          "speed_score_avg": 8.809,
+          "latency_score_avg": 2.766,
+          "cost_score_avg": 7.935,
+          "quality_ci95": 0.533
+        },
+        "Agentes": {
+          "quality_avg": 7.214,
+          "speed_score_avg": 8.043,
+          "latency_score_avg": 3.553,
+          "cost_score_avg": 7.783,
+          "quality_ci95": 0.734
+        },
+        "Coding": {
+          "quality_avg": 9.701,
+          "speed_score_avg": 8.316,
+          "latency_score_avg": 3.947,
+          "cost_score_avg": 7.938,
+          "quality_ci95": 0.318
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.49,
+        "business_strategy": 8.36,
+        "content_verificable": 9.07,
+        "content_generation": 8.44,
+        "tool_calling": 6.33,
+        "task_management": 8.53,
+        "code_generation": 8.09,
+        "reasoning": 8.66,
+        "summarization": 7.55,
+        "presentation": 8.61,
+        "startup_content": 8.45,
+        "deep_reasoning": 7.18,
+        "customer_support": 6.67,
+        "structured_output": 9.1,
+        "hallucination": 7.56,
+        "creativity": 8.3,
+        "string_precision": 9.12,
+        "news_seo_writing": 7.3,
+        "ocr_extraction": 9.12,
+        "orchestration": 5.85,
+        "multi_turn": 7.35,
+        "policy_adherence": 8.13,
+        "agent_capabilities": 6.53,
+        "strategy": 8.14,
+        "sales_outreach": 7.15,
+        "translation": 7.84,
+        "agent_long_horizon": 8.22,
+        "niah_es": 8.14,
+        "integridad_idioma": 8.76,
+        "verificar_claim": 8.2,
+        "verificar_claims_lote": 8.83,
+        "extraer_claims": 9.19,
+        "dominio_entidad": 9.15,
+        "tool_calling_adversarial": 5.83,
+        "prompt_injection_es": 9.09
+      },
+      "quality_by_suite": {
+        "business_audit": 7.8,
+        "business_strategy": 9.2,
+        "content_verificable": 10.0,
+        "content_generation": 9.06,
+        "tool_calling": 6.05,
+        "task_management": 9.27,
+        "code_generation": 8.58,
+        "reasoning": 9.53,
+        "summarization": 7.58,
+        "presentation": 9.39,
+        "startup_content": 9.22,
+        "deep_reasoning": 7.36,
+        "customer_support": 6.48,
+        "structured_output": 10.0,
+        "hallucination": 7.67,
+        "creativity": 9.0,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.55,
+        "ocr_extraction": 10.0,
+        "orchestration": 5.41,
+        "multi_turn": 7.5,
+        "policy_adherence": 8.67,
+        "agent_capabilities": 6.28,
+        "strategy": 8.89,
+        "sales_outreach": 7.11,
+        "translation": 8.2,
+        "agent_long_horizon": 8.96,
+        "niah_es": 10.0,
+        "integridad_idioma": 9.6,
+        "verificar_claim": 8.8,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 5.48,
+        "prompt_injection_es": 10.0
+      },
+      "suites_incompletas": {},
+      "examen_completo": true,
+      "quality_avg": 8.27,
+      "quality_ci95": 0.383,
+      "cost_score_avg": 7.85,
+      "speed_score_avg": 8.63,
+      "latency_score_avg": 2.99,
+      "tool_calling_score_avg": 6.4,
+      "judge_score_avg": 4.04,
+      "tokens_per_second": 93.7,
+      "latency_avg_s": 10.71,
+      "total_input_tokens": 100507,
+      "total_output_tokens": 167696,
+      "presupuesto_salida": {
+        "p50": 270,
+        "p90": 2523,
+        "max": 6644,
+        "sugerido": 8305,
+        "piso": false,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 370,
+            "p90": 814,
+            "max": 814,
+            "sugerido": 1017,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 2545,
+            "p90": 4786,
+            "max": 5519,
+            "sugerido": 6898,
+            "piso": false
+          },
+          "business_audit": {
+            "p50": 1075,
+            "p90": 2492,
+            "max": 2492,
+            "sugerido": 3115,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 1556,
+            "p90": 6644,
+            "max": 6644,
+            "sugerido": 8305,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 924,
+            "p90": 4157,
+            "max": 4157,
+            "sugerido": 5196,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 625,
+            "p90": 761,
+            "max": 761,
+            "sugerido": 951,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 564,
+            "p90": 860,
+            "max": 860,
+            "sugerido": 1075,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 2551,
+            "p90": 2706,
+            "max": 2706,
+            "sugerido": 3382,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 180,
+            "p90": 310,
+            "max": 310,
+            "sugerido": 387,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 2450,
+            "p90": 2772,
+            "max": 2772,
+            "sugerido": 3465,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 79,
+            "p90": 156,
+            "max": 156,
+            "sugerido": 195,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 232,
+            "p90": 434,
+            "max": 434,
+            "sugerido": 542,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 270,
+            "p90": 3049,
+            "max": 3049,
+            "sugerido": 3811,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 1021,
+            "p90": 1374,
+            "max": 1374,
+            "sugerido": 1717,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1753,
+            "p90": 1922,
+            "max": 1922,
+            "sugerido": 2402,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 1517,
+            "p90": 3704,
+            "max": 3704,
+            "sugerido": 4630,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 63,
+            "p90": 76,
+            "max": 82,
+            "sugerido": 102,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 586,
+            "p90": 2259,
+            "max": 2259,
+            "sugerido": 2823,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 213,
+            "p90": 604,
+            "max": 604,
+            "sugerido": 755,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 328,
+            "p90": 340,
+            "max": 340,
+            "sugerido": 425,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 2523,
+            "p90": 2523,
+            "max": 2523,
+            "sugerido": 3153,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 116,
+            "p90": 323,
+            "max": 337,
+            "sugerido": 421,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 2537,
+            "p90": 4162,
+            "max": 4162,
+            "sugerido": 5202,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 576,
+            "p90": 1965,
+            "max": 1965,
+            "sugerido": 2456,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 1740,
+            "p90": 3299,
+            "max": 3299,
+            "sugerido": 4123,
+            "piso": false
+          },
+          "strategy": {
+            "p50": 3345,
+            "p90": 3861,
+            "max": 3861,
+            "sugerido": 4826,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 78,
+            "p90": 301,
+            "max": 301,
+            "sugerido": 376,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 133,
+            "p90": 1233,
+            "max": 1233,
+            "sugerido": 1541,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 424,
+            "p90": 424,
+            "max": 424,
+            "sugerido": 530,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 1980,
+            "p90": 2032,
+            "max": 2032,
+            "sugerido": 2540,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 82,
+            "p90": 173,
+            "max": 173,
+            "sugerido": 216,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 79,
+            "p90": 341,
+            "max": 341,
+            "sugerido": 426,
+            "piso": false
+          },
+          "translation": {
+            "p50": 173,
+            "p90": 856,
+            "max": 856,
+            "sugerido": 1070,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 116,
+            "p90": 246,
+            "max": 246,
+            "sugerido": 307,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 727,
+            "p90": 1179,
+            "max": 1179,
+            "sugerido": 1473,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 29,
+      "long_context_quality": 10.0,
+      "long_context_score": 8.14,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "agentic_runs": 12,
+      "agentic_quality": 8.96,
+      "multiturno_score": 8.22,
+      "agentic_score": 8.22,
+      "security_runs": 20,
+      "security_score": 10.0,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.84,
+      "score_calidad": 8.27,
+      "pareto": true,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "qwen-3.8-2.4t",
       "id": "qwen/qwen3.8-2.4t-a95b",
       "name": "Qwen 3.8 2.4T (A95B)",
@@ -8239,7 +9162,7 @@
         "string_precision": 9.0,
         "ocr_extraction": 7.4,
         "orchestration": 6.45,
-        "multi_turn": 6.91,
+        "multi_turn": 6.9,
         "policy_adherence": 7.64,
         "agent_capabilities": 6.72,
         "sales_outreach": 7.86,
@@ -8604,6 +9527,451 @@
       }
     },
     {
+      "key": "mimo-v2.6-flash",
+      "id": "xiaomi/mimo-v2.6-flash",
+      "name": "MiMo V2.6 Flash",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.14,
+      "cost_output_per_M": 0.28,
+      "cost_per_1k_calls_usd": 0.462,
+      "context_window": 1048576,
+      "subscriptions": [],
+      "notes": "MoE de 309B totales / 15B activos, open source según Xiaomi. Texto, imagen, vídeo y audio. La salida cuesta la mitad que la entrada de casi todos sus pares. Declarado thinking con el patrón `mimo-v2.6` (NO `mimo`, que habría cambiado el tratamiento de los V2.5 ya medidos).",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 213,
+      "score_global": 6.96,
+      "score_by_pillar": {
+        "Razonamiento": 7.06,
+        "Contenido": 7.91,
+        "Agentes": 6.96,
+        "Coding": 8.47
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 7.872,
+          "speed_score_avg": 4.267,
+          "latency_score_avg": 1.067,
+          "cost_score_avg": 7.7,
+          "quality_ci95": 1.014
+        },
+        "Contenido": {
+          "quality_avg": 8.957,
+          "speed_score_avg": 4.723,
+          "latency_score_avg": 1.234,
+          "cost_score_avg": 7.969,
+          "quality_ci95": 0.477
+        },
+        "Agentes": {
+          "quality_avg": 7.662,
+          "speed_score_avg": 4.426,
+          "latency_score_avg": 1.617,
+          "cost_score_avg": 7.642,
+          "quality_ci95": 0.644
+        },
+        "Coding": {
+          "quality_avg": 9.804,
+          "speed_score_avg": 4.105,
+          "latency_score_avg": 1.632,
+          "cost_score_avg": 7.875,
+          "quality_ci95": 0.198
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.37,
+        "business_strategy": 7.89,
+        "content_verificable": 8.01,
+        "content_generation": 8.32,
+        "tool_calling": 6.35,
+        "task_management": 8.4,
+        "code_generation": 8.25,
+        "reasoning": 8.07,
+        "summarization": 7.44,
+        "presentation": 8.38,
+        "startup_content": 8.37,
+        "deep_reasoning": 5.87,
+        "customer_support": 6.85,
+        "structured_output": 8.78,
+        "hallucination": 6.03,
+        "creativity": 7.81,
+        "string_precision": 8.51,
+        "news_seo_writing": 6.61,
+        "ocr_extraction": 8.36,
+        "orchestration": 7.23,
+        "multi_turn": 6.79,
+        "policy_adherence": 6.96,
+        "agent_capabilities": 5.72,
+        "strategy": 7.09,
+        "sales_outreach": 8.1,
+        "translation": 7.61,
+        "agent_long_horizon": 7.51,
+        "niah_es": 7.33,
+        "integridad_idioma": 8.49,
+        "verificar_claim": 7.96,
+        "verificar_claims_lote": 8.64,
+        "extraer_claims": 8.62,
+        "dominio_entidad": 8.66,
+        "tool_calling_adversarial": 6.48,
+        "prompt_injection_es": 7.74
+      },
+      "quality_by_suite": {
+        "business_audit": 8.2,
+        "business_strategy": 9.2,
+        "content_verificable": 9.33,
+        "content_generation": 9.53,
+        "tool_calling": 6.4,
+        "task_management": 9.68,
+        "code_generation": 9.38,
+        "reasoning": 9.49,
+        "summarization": 8.38,
+        "presentation": 9.61,
+        "startup_content": 9.46,
+        "deep_reasoning": 6.08,
+        "customer_support": 7.72,
+        "structured_output": 10.0,
+        "hallucination": 6.33,
+        "creativity": 8.75,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.12,
+        "ocr_extraction": 9.75,
+        "orchestration": 8.04,
+        "multi_turn": 7.5,
+        "policy_adherence": 7.75,
+        "agent_capabilities": 6.05,
+        "strategy": 8.06,
+        "sales_outreach": 9.33,
+        "translation": 8.29,
+        "agent_long_horizon": 8.38,
+        "niah_es": 9.48,
+        "integridad_idioma": 9.62,
+        "verificar_claim": 9.1,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 6.82,
+        "prompt_injection_es": 8.65
+      },
+      "suites_incompletas": {},
+      "examen_completo": true,
+      "quality_avg": 8.42,
+      "quality_ci95": 0.363,
+      "cost_score_avg": 7.79,
+      "speed_score_avg": 4.45,
+      "latency_score_avg": 1.38,
+      "tool_calling_score_avg": 7.18,
+      "judge_score_avg": 4.27,
+      "tokens_per_second": 29.2,
+      "latency_avg_s": 84.48,
+      "total_input_tokens": 254375,
+      "total_output_tokens": 306523,
+      "presupuesto_salida": {
+        "p50": 340,
+        "p90": 4287,
+        "max": 26582,
+        "sugerido": 33227,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 392,
+            "p90": 923,
+            "max": 923,
+            "sugerido": 1153,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 4443,
+            "p90": 11832,
+            "max": 24212,
+            "sugerido": 30265,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 1257,
+            "p90": 2737,
+            "max": 2737,
+            "sugerido": 3421,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 2196,
+            "p90": 26582,
+            "max": 26582,
+            "sugerido": 33227,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 2728,
+            "p90": 8634,
+            "max": 8634,
+            "sugerido": 10792,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 966,
+            "p90": 1021,
+            "max": 1021,
+            "sugerido": 1276,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 930,
+            "p90": 1584,
+            "max": 1584,
+            "sugerido": 1980,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 2826,
+            "p90": 3719,
+            "max": 3719,
+            "sugerido": 4648,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 294,
+            "p90": 674,
+            "max": 674,
+            "sugerido": 842,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 4287,
+            "p90": 14426,
+            "max": 14426,
+            "sugerido": 18032,
+            "piso": true
+          },
+          "dominio_entidad": {
+            "p50": 72,
+            "p90": 482,
+            "max": 482,
+            "sugerido": 602,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 179,
+            "p90": 376,
+            "max": 376,
+            "sugerido": 470,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 296,
+            "p90": 1128,
+            "max": 1128,
+            "sugerido": 1410,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 957,
+            "p90": 1491,
+            "max": 1491,
+            "sugerido": 1863,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 600,
+            "p90": 1030,
+            "max": 1030,
+            "sugerido": 1287,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 1394,
+            "p90": 3710,
+            "max": 3710,
+            "sugerido": 4637,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 135,
+            "p90": 191,
+            "max": 199,
+            "sugerido": 248,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1218,
+            "p90": 6543,
+            "max": 6543,
+            "sugerido": 8178,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 401,
+            "p90": 713,
+            "max": 713,
+            "sugerido": 891,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 462,
+            "p90": 703,
+            "max": 703,
+            "sugerido": 878,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 3329,
+            "p90": 3329,
+            "max": 3329,
+            "sugerido": 4161,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 228,
+            "p90": 340,
+            "max": 413,
+            "sugerido": 516,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 6331,
+            "p90": 9261,
+            "max": 9261,
+            "sugerido": 11576,
+            "piso": true
+          },
+          "sales_outreach": {
+            "p50": 939,
+            "p90": 3759,
+            "max": 3759,
+            "sugerido": 4698,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 3757,
+            "p90": 5415,
+            "max": 5415,
+            "sugerido": 6768,
+            "piso": false
+          },
+          "strategy": {
+            "p50": 4544,
+            "p90": 8130,
+            "max": 8130,
+            "sugerido": 10162,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 67,
+            "p90": 312,
+            "max": 312,
+            "sugerido": 390,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 111,
+            "p90": 1029,
+            "max": 1029,
+            "sugerido": 1286,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 413,
+            "p90": 413,
+            "max": 413,
+            "sugerido": 516,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 4990,
+            "p90": 5099,
+            "max": 5099,
+            "sugerido": 6373,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 175,
+            "p90": 282,
+            "max": 282,
+            "sugerido": 352,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 90,
+            "p90": 606,
+            "max": 606,
+            "sugerido": 757,
+            "piso": false
+          },
+          "translation": {
+            "p50": 131,
+            "p90": 912,
+            "max": 912,
+            "sugerido": 1140,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 186,
+            "p90": 281,
+            "max": 281,
+            "sugerido": 351,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 689,
+            "p90": 1542,
+            "max": 1542,
+            "sugerido": 1927,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 29,
+      "long_context_quality": 9.48,
+      "long_context_score": 7.33,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 7.5,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "agentic_runs": 12,
+      "agentic_quality": 8.38,
+      "multiturno_score": 7.51,
+      "agentic_score": 7.51,
+      "security_runs": 20,
+      "security_score": 8.65,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.5,
+      "score_calidad": 8.42,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "claude-opus-4.8",
       "id": "anthropic/claude-opus-4.8",
       "name": "Claude Opus 4.8",
@@ -8681,7 +10049,7 @@
         "tool_calling": 5.19,
         "task_management": 8.1,
         "code_generation": 7.68,
-        "reasoning": 8.02,
+        "reasoning": 8.01,
         "summarization": 7.24,
         "presentation": 7.87,
         "startup_content": 7.72,
@@ -8702,7 +10070,7 @@
         "translation": 7.24,
         "niah_es": 7.59,
         "prompt_injection_es": 7.09,
-        "business_audit": 6.94,
+        "business_audit": 6.95,
         "business_strategy": 7.6,
         "content_verificable": 7.69,
         "agent_long_horizon": 6.56,
@@ -10032,7 +11400,7 @@
         "summarization": 7.36,
         "presentation": 7.9,
         "startup_content": 8.0,
-        "deep_reasoning": 6.57,
+        "deep_reasoning": 6.58,
         "customer_support": 7.06,
         "structured_output": 8.53,
         "hallucination": 6.35,
@@ -10042,7 +11410,7 @@
         "ocr_extraction": 8.04,
         "orchestration": 6.63,
         "multi_turn": 6.47,
-        "policy_adherence": 7.36,
+        "policy_adherence": 7.35,
         "agent_capabilities": 5.83,
         "strategy": 8.51,
         "sales_outreach": 8.03,
@@ -10375,6 +11743,451 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      }
+    },
+    {
+      "key": "gpt-6-luna-pro",
+      "id": "openai/gpt-6-luna-pro",
+      "name": "GPT-6 Luna Pro",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.5,
+      "cost_per_1k_calls_usd": 0.78,
+      "context_window": 1050000,
+      "subscriptions": [],
+      "notes": "MISMO modelo base que GPT-6 Luna, servido con `reasoning.mode: pro`. Se mide aparte a propósito: el par (base, pro) es el experimento natural para saber cuánto aporta el modo de razonamiento al MISMO precio, que es justo lo que el estudio de effort no pudo resolver observacionalmente.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 213,
+      "score_global": 6.78,
+      "score_by_pillar": {
+        "Razonamiento": 7.32,
+        "Contenido": 8.15,
+        "Agentes": 7.19,
+        "Coding": 8.8
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 7.75,
+          "speed_score_avg": 9.867,
+          "latency_score_avg": 1.433,
+          "cost_score_avg": 6.999,
+          "quality_ci95": 0.86
+        },
+        "Contenido": {
+          "quality_avg": 8.842,
+          "speed_score_avg": 9.489,
+          "latency_score_avg": 1.809,
+          "cost_score_avg": 7.397,
+          "quality_ci95": 0.475
+        },
+        "Agentes": {
+          "quality_avg": 7.503,
+          "speed_score_avg": 9.106,
+          "latency_score_avg": 2.213,
+          "cost_score_avg": 7.245,
+          "quality_ci95": 0.702
+        },
+        "Coding": {
+          "quality_avg": 9.679,
+          "speed_score_avg": 9.053,
+          "latency_score_avg": 2.737,
+          "cost_score_avg": 7.635,
+          "quality_ci95": 0.301
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.14,
+        "business_strategy": 7.7,
+        "content_verificable": 8.99,
+        "content_generation": 8.26,
+        "tool_calling": 6.1,
+        "task_management": 8.19,
+        "code_generation": 8.2,
+        "reasoning": 8.34,
+        "summarization": 7.37,
+        "presentation": 7.98,
+        "startup_content": 8.11,
+        "deep_reasoning": 6.48,
+        "customer_support": 6.86,
+        "structured_output": 9.08,
+        "hallucination": 7.92,
+        "creativity": 7.93,
+        "string_precision": 9.07,
+        "news_seo_writing": 7.03,
+        "ocr_extraction": 8.74,
+        "orchestration": 6.2,
+        "multi_turn": 7.18,
+        "policy_adherence": 7.8,
+        "agent_capabilities": 5.91,
+        "strategy": 7.37,
+        "sales_outreach": 7.76,
+        "translation": 8.09,
+        "agent_long_horizon": 8.33,
+        "niah_es": 8.02,
+        "integridad_idioma": 8.66,
+        "verificar_claim": 8.46,
+        "verificar_claims_lote": 8.55,
+        "extraer_claims": 9.19,
+        "dominio_entidad": 9.1,
+        "tool_calling_adversarial": 6.54,
+        "prompt_injection_es": 8.91
+      },
+      "quality_by_suite": {
+        "business_audit": 7.43,
+        "business_strategy": 8.4,
+        "content_verificable": 10.0,
+        "content_generation": 8.96,
+        "tool_calling": 5.77,
+        "task_management": 9.01,
+        "code_generation": 8.97,
+        "reasoning": 9.28,
+        "summarization": 7.42,
+        "presentation": 8.83,
+        "startup_content": 9.02,
+        "deep_reasoning": 6.53,
+        "customer_support": 6.79,
+        "structured_output": 10.0,
+        "hallucination": 8.33,
+        "creativity": 8.62,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.43,
+        "ocr_extraction": 9.6,
+        "orchestration": 5.96,
+        "multi_turn": 7.5,
+        "policy_adherence": 8.17,
+        "agent_capabilities": 5.49,
+        "strategy": 8.06,
+        "sales_outreach": 8.22,
+        "translation": 8.76,
+        "agent_long_horizon": 9.54,
+        "niah_es": 10.0,
+        "integridad_idioma": 9.64,
+        "verificar_claim": 9.1,
+        "verificar_claims_lote": 9.33,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 6.4,
+        "prompt_injection_es": 10.0
+      },
+      "suites_incompletas": {},
+      "examen_completo": true,
+      "quality_avg": 8.28,
+      "quality_ci95": 0.358,
+      "cost_score_avg": 7.3,
+      "speed_score_avg": 9.38,
+      "latency_score_avg": 1.99,
+      "tool_calling_score_avg": 6.4,
+      "judge_score_avg": 4.18,
+      "tokens_per_second": 129.4,
+      "latency_avg_s": 19.69,
+      "total_input_tokens": 923025,
+      "total_output_tokens": 414960,
+      "presupuesto_salida": {
+        "p50": 657,
+        "p90": 6032,
+        "max": 15684,
+        "sugerido": 19605,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 976,
+            "p90": 1341,
+            "max": 1341,
+            "sugerido": 1676,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 7505,
+            "p90": 15121,
+            "max": 15684,
+            "sugerido": 19605,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 2259,
+            "p90": 3831,
+            "max": 3831,
+            "sugerido": 4788,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 3305,
+            "p90": 11687,
+            "max": 11687,
+            "sugerido": 14608,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 2012,
+            "p90": 12457,
+            "max": 12457,
+            "sugerido": 15571,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 2038,
+            "p90": 2412,
+            "max": 2412,
+            "sugerido": 3015,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 1913,
+            "p90": 2340,
+            "max": 2340,
+            "sugerido": 2925,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 5492,
+            "p90": 6420,
+            "max": 6420,
+            "sugerido": 8025,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 536,
+            "p90": 668,
+            "max": 668,
+            "sugerido": 835,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 4534,
+            "p90": 5578,
+            "max": 5578,
+            "sugerido": 6972,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 263,
+            "p90": 605,
+            "max": 605,
+            "sugerido": 756,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 612,
+            "p90": 1294,
+            "max": 1294,
+            "sugerido": 1617,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 600,
+            "p90": 6267,
+            "max": 6267,
+            "sugerido": 7833,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 2734,
+            "p90": 4001,
+            "max": 4001,
+            "sugerido": 5001,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 3637,
+            "p90": 4948,
+            "max": 4948,
+            "sugerido": 6185,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 4656,
+            "p90": 7371,
+            "max": 7371,
+            "sugerido": 9213,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 185,
+            "p90": 244,
+            "max": 327,
+            "sugerido": 408,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1616,
+            "p90": 4234,
+            "max": 4234,
+            "sugerido": 5292,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 1153,
+            "p90": 1860,
+            "max": 1860,
+            "sugerido": 2325,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 1111,
+            "p90": 1183,
+            "max": 1183,
+            "sugerido": 1478,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 6319,
+            "p90": 6319,
+            "max": 6319,
+            "sugerido": 7898,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 364,
+            "p90": 604,
+            "max": 636,
+            "sugerido": 795,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 7011,
+            "p90": 9262,
+            "max": 9262,
+            "sugerido": 11577,
+            "piso": true
+          },
+          "sales_outreach": {
+            "p50": 1404,
+            "p90": 4638,
+            "max": 4638,
+            "sugerido": 5797,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 4707,
+            "p90": 6790,
+            "max": 6790,
+            "sugerido": 8487,
+            "piso": false
+          },
+          "strategy": {
+            "p50": 8050,
+            "p90": 9754,
+            "max": 9754,
+            "sugerido": 12192,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 185,
+            "p90": 604,
+            "max": 604,
+            "sugerido": 755,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 500,
+            "p90": 3639,
+            "max": 3639,
+            "sugerido": 4548,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1268,
+            "p90": 1268,
+            "max": 1268,
+            "sugerido": 1585,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 4636,
+            "p90": 4798,
+            "max": 4798,
+            "sugerido": 5997,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 319,
+            "p90": 523,
+            "max": 523,
+            "sugerido": 653,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 308,
+            "p90": 928,
+            "max": 928,
+            "sugerido": 1160,
+            "piso": false
+          },
+          "translation": {
+            "p50": 509,
+            "p90": 3188,
+            "max": 3188,
+            "sugerido": 3985,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 305,
+            "p90": 648,
+            "max": 648,
+            "sugerido": 810,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 1581,
+            "p90": 2250,
+            "max": 2250,
+            "sugerido": 2812,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 29,
+      "long_context_quality": 10.0,
+      "long_context_score": 8.02,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0,
+        "800000": 10.0
+      },
+      "effective_context": 800000,
+      "agentic_runs": 12,
+      "agentic_quality": 9.54,
+      "multiturno_score": 8.33,
+      "agentic_score": 8.33,
+      "security_runs": 20,
+      "security_score": 10.0,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.75,
+      "score_calidad": 8.28,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
       }
     },
     {
@@ -10895,7 +12708,7 @@
         "ocr_extraction": 7.8,
         "orchestration": 7.06,
         "multi_turn": 6.62,
-        "policy_adherence": 7.61,
+        "policy_adherence": 7.62,
         "agent_capabilities": 6.21,
         "sales_outreach": 7.39,
         "translation": 6.42,
@@ -12212,7 +14025,7 @@
         "presentation": 7.82,
         "startup_content": 7.41,
         "deep_reasoning": 5.88,
-        "customer_support": 6.01,
+        "customer_support": 6.0,
         "structured_output": 8.54,
         "hallucination": 7.21,
         "creativity": 7.23,
@@ -12686,7 +14499,7 @@
         "business_strategy": 7.94,
         "content_verificable": 7.81,
         "agent_long_horizon": 7.45,
-        "tool_calling_adversarial": 6.56,
+        "tool_calling_adversarial": 6.57,
         "integridad_idioma": 8.25,
         "verificar_claim": 7.99
       },
@@ -13501,7 +15314,7 @@
       "score_by_pillar": {
         "Contenido": 7.25,
         "Agentes": 7.01,
-        "Coding": 7.73,
+        "Coding": 7.74,
         "Razonamiento": 6.82
       },
       "dims_by_pillar": {
@@ -14383,7 +16196,7 @@
         "Coding": {
           "quality_avg": 8.941,
           "speed_score_avg": 8.303,
-          "latency_score_avg": 4.06,
+          "latency_score_avg": 4.061,
           "cost_score_avg": 5.962,
           "quality_ci95": 0.822
         },
@@ -15737,7 +17550,7 @@
         "task_management": 8.4,
         "code_generation": 7.65,
         "reasoning": 8.26,
-        "summarization": 7.82,
+        "summarization": 7.81,
         "startup_content": 8.47,
         "deep_reasoning": 6.73,
         "customer_support": 7.3,
@@ -15746,7 +17559,7 @@
         "creativity": 8.22,
         "string_precision": 9.3,
         "news_seo_writing": 7.23,
-        "ocr_extraction": 9.1,
+        "ocr_extraction": 9.11,
         "orchestration": 7.0,
         "multi_turn": 7.11,
         "policy_adherence": 8.41,
@@ -15755,7 +17568,7 @@
         "translation": 8.2,
         "agent_long_horizon": 7.78,
         "integridad_idioma": 8.93,
-        "verificar_claim": 8.56,
+        "verificar_claim": 8.57,
         "extraer_claims": 9.28,
         "dominio_entidad": 9.31,
         "tool_calling_adversarial": 6.02,
@@ -17082,8 +18895,8 @@
         "business_audit": 6.5,
         "business_strategy": 7.85,
         "content_verificable": 6.56,
-        "content_generation": 8.43,
-        "tool_calling": 6.82,
+        "content_generation": 8.44,
+        "tool_calling": 6.81,
         "task_management": 8.27,
         "code_generation": 8.29,
         "reasoning": 8.19,
@@ -17931,7 +19744,7 @@
         "business_strategy": 8.18,
         "content_verificable": 8.6,
         "content_generation": 8.67,
-        "tool_calling": 6.15,
+        "tool_calling": 6.14,
         "task_management": 8.04,
         "code_generation": 8.31,
         "reasoning": 7.4,
@@ -17939,7 +19752,7 @@
         "presentation": 8.32,
         "startup_content": 8.39,
         "deep_reasoning": 7.04,
-        "customer_support": 7.76,
+        "customer_support": 7.77,
         "structured_output": 9.27,
         "hallucination": 7.71,
         "creativity": 8.57,
@@ -17958,7 +19771,7 @@
         "integridad_idioma": 7.1,
         "prompt_injection_es": 7.09,
         "tool_calling_adversarial": 6.98,
-        "verificar_claim": 8.09
+        "verificar_claim": 8.08
       },
       "quality_by_suite": {
         "business_audit": 7.2,
@@ -18374,7 +20187,7 @@
         "news_seo_writing": 5.54,
         "translation": 7.45,
         "deep_reasoning": 6.67,
-        "hallucination": 6.78,
+        "hallucination": 6.79,
         "creativity": 7.51,
         "ocr_extraction": 8.01,
         "strategy": 7.75,
@@ -18798,14 +20611,14 @@
         "startup_content": 8.42,
         "deep_reasoning": 8.0,
         "customer_support": 6.85,
-        "structured_output": 9.14,
+        "structured_output": 9.13,
         "hallucination": 7.71,
         "creativity": 8.49,
         "string_precision": 7.94,
         "news_seo_writing": 7.07,
         "ocr_extraction": 9.03,
         "orchestration": 6.5,
-        "multi_turn": 7.9,
+        "multi_turn": 7.91,
         "policy_adherence": 8.36,
         "agent_capabilities": 5.92,
         "strategy": 8.28,
@@ -18819,7 +20632,7 @@
         "agent_long_horizon": 7.78,
         "tool_calling_adversarial": 6.34,
         "integridad_idioma": 8.93,
-        "verificar_claim": 8.48
+        "verificar_claim": 8.47
       },
       "quality_by_suite": {
         "content_generation": 9.24,
@@ -19238,7 +21051,7 @@
         "news_seo_writing": 4.7,
         "orchestration": 7.04,
         "agent_capabilities": 6.73,
-        "translation": 6.69,
+        "translation": 6.7,
         "business_audit": 7.04,
         "business_strategy": 7.52,
         "content_verificable": 7.61,
@@ -20101,7 +21914,7 @@
         "customer_support": 6.46,
         "structured_output": 7.09,
         "hallucination": 5.8,
-        "creativity": 8.01,
+        "creativity": 8.02,
         "string_precision": 8.88,
         "news_seo_writing": 6.9,
         "ocr_extraction": 8.26,
@@ -20580,7 +22393,7 @@
         "business_audit": 6.74,
         "business_strategy": 7.67,
         "content_verificable": 7.33,
-        "agent_long_horizon": 7.72,
+        "agent_long_horizon": 7.71,
         "customer_support": 7.84,
         "orchestration": 6.76,
         "tool_calling_adversarial": 7.32,
@@ -21030,7 +22843,7 @@
         "business_strategy": 9.0,
         "content_verificable": 9.73,
         "content_generation": 9.17,
-        "tool_calling": 5.6,
+        "tool_calling": 5.59,
         "task_management": 9.58,
         "code_generation": 8.74,
         "reasoning": 9.16,
@@ -21054,7 +22867,7 @@
         "translation": 8.57,
         "agent_long_horizon": 7.82,
         "niah_es": 10.0,
-        "integridad_idioma": 9.61,
+        "integridad_idioma": 9.62,
         "prompt_injection_es": 8.35,
         "tool_calling_adversarial": 6.75,
         "verificar_claim": 9.23,
@@ -21446,7 +23259,7 @@
       },
       "score_by_suite": {
         "content_generation": 8.03,
-        "tool_calling": 5.2,
+        "tool_calling": 5.21,
         "task_management": 7.89,
         "code_generation": 7.39,
         "reasoning": 7.71,
@@ -21461,7 +23274,7 @@
         "string_precision": 7.77,
         "news_seo_writing": 6.54,
         "ocr_extraction": 8.16,
-        "orchestration": 6.18,
+        "orchestration": 6.19,
         "multi_turn": 6.31,
         "policy_adherence": 6.64,
         "agent_capabilities": 6.62,
@@ -21889,7 +23702,7 @@
         "content_generation": 7.58,
         "tool_calling": 4.53,
         "task_management": 7.84,
-        "code_generation": 7.31,
+        "code_generation": 7.3,
         "reasoning": 7.95,
         "summarization": 6.89,
         "presentation": 7.72,
@@ -22315,14 +24128,14 @@
         "summarization": 7.21,
         "presentation": 7.86,
         "startup_content": 7.86,
-        "customer_support": 8.03,
+        "customer_support": 8.02,
         "news_seo_writing": 5.17,
         "orchestration": 7.4,
         "agent_capabilities": 6.26,
         "translation": 7.4,
         "business_audit": 7.29,
         "structured_output": 8.84,
-        "string_precision": 7.79,
+        "string_precision": 7.8,
         "policy_adherence": 7.71,
         "strategy": 6.88,
         "sales_outreach": 7.88,
@@ -22333,7 +24146,7 @@
         "hallucination": 6.73,
         "creativity": 7.91,
         "ocr_extraction": 8.44,
-        "multi_turn": 7.26,
+        "multi_turn": 7.25,
         "tool_calling_adversarial": 6.23,
         "integridad_idioma": 8.48,
         "prompt_injection_es": 3.27,
@@ -23186,7 +24999,7 @@
         "startup_content": 8.49,
         "deep_reasoning": 7.21,
         "customer_support": 7.77,
-        "structured_output": 7.76,
+        "structured_output": 7.75,
         "hallucination": 6.87,
         "creativity": 8.29,
         "string_precision": 7.87,
@@ -23194,7 +25007,7 @@
         "ocr_extraction": 8.32,
         "orchestration": 8.02,
         "multi_turn": 7.58,
-        "policy_adherence": 8.0,
+        "policy_adherence": 7.99,
         "agent_capabilities": 6.86,
         "strategy": 7.51,
         "sales_outreach": 8.04,
@@ -23202,7 +25015,7 @@
         "agent_long_horizon": 7.7,
         "tool_calling_adversarial": 6.5,
         "integridad_idioma": 6.91,
-        "prompt_injection_es": 2.65,
+        "prompt_injection_es": 2.66,
         "verificar_claim": 7.97
       },
       "quality_by_suite": {
@@ -23632,7 +25445,7 @@
         "translation": 7.26,
         "agent_long_horizon": 7.15,
         "tool_calling_adversarial": 6.59,
-        "verificar_claim": 7.99
+        "verificar_claim": 7.98
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
@@ -24003,7 +25816,7 @@
           "quality_ci95": 0.546
         },
         "Coding": {
-          "quality_avg": 9.041,
+          "quality_avg": 9.042,
           "speed_score_avg": 8.455,
           "latency_score_avg": 4.561,
           "cost_score_avg": 7.979,
@@ -24458,7 +26271,7 @@
         "business_audit": 7.27,
         "business_strategy": 7.73,
         "content_verificable": 7.73,
-        "content_generation": 7.63,
+        "content_generation": 7.62,
         "tool_calling": 5.37,
         "task_management": 7.77,
         "code_generation": 7.47,
@@ -24502,7 +26315,7 @@
         "presentation": 9.5,
         "startup_content": 9.51,
         "deep_reasoning": 6.15,
-        "customer_support": 6.23,
+        "customer_support": 6.24,
         "structured_output": 10.0,
         "hallucination": 6.56,
         "creativity": 8.67,
@@ -24923,7 +26736,7 @@
         "content_verificable": 8.31,
         "agent_long_horizon": 7.51,
         "tool_calling": 5.59,
-        "customer_support": 7.35,
+        "customer_support": 7.34,
         "orchestration": 7.59,
         "agent_capabilities": 6.38,
         "tool_calling_adversarial": 6.22,
@@ -24937,7 +26750,7 @@
         "reasoning": 9.21,
         "summarization": 6.25,
         "news_seo_writing": 7.08,
-        "code_generation": 8.82,
+        "code_generation": 8.81,
         "presentation": 8.82,
         "startup_content": 9.21,
         "deep_reasoning": 7.13,
@@ -25378,7 +27191,7 @@
         "agent_capabilities": 7.36,
         "tool_calling_adversarial": 6.45,
         "integridad_idioma": 8.49,
-        "prompt_injection_es": 4.09,
+        "prompt_injection_es": 4.08,
         "verificar_claim": 7.75
       },
       "quality_by_suite": {
@@ -26207,7 +28020,7 @@
           "quality_ci95": 0.571
         },
         "Agentes": {
-          "quality_avg": 8.125,
+          "quality_avg": 8.124,
           "speed_score_avg": 6.898,
           "latency_score_avg": 3.796,
           "cost_score_avg": 6.747,
@@ -26237,7 +28050,7 @@
         "presentation": 7.86,
         "startup_content": 8.25,
         "deep_reasoning": 6.89,
-        "customer_support": 7.22,
+        "customer_support": 7.21,
         "structured_output": 8.95,
         "hallucination": 7.44,
         "creativity": 8.01,
@@ -26261,7 +28074,7 @@
         "integridad_idioma": 8.66,
         "verificar_claims_lote": 8.79,
         "prompt_injection_es": 2.49,
-        "verificar_claim": 8.31
+        "verificar_claim": 8.3
       },
       "quality_by_suite": {
         "content_generation": 8.83,
@@ -26688,7 +28501,7 @@
         "startup_content": 7.9,
         "structured_output": 8.5,
         "hallucination": 7.34,
-        "creativity": 7.73,
+        "creativity": 7.74,
         "string_precision": 7.35,
         "news_seo_writing": 6.41,
         "ocr_extraction": 7.89,
@@ -27539,7 +29352,7 @@
         "startup_content": 8.45,
         "deep_reasoning": 7.01,
         "customer_support": 7.24,
-        "structured_output": 5.82,
+        "structured_output": 5.83,
         "hallucination": 7.25,
         "creativity": 7.93,
         "string_precision": 9.35,
@@ -27973,7 +29786,7 @@
         "startup_content": 7.87,
         "customer_support": 7.78,
         "news_seo_writing": 4.96,
-        "orchestration": 7.14,
+        "orchestration": 7.15,
         "agent_capabilities": 7.0,
         "translation": 7.06,
         "business_audit": 7.03,
@@ -28833,7 +30646,7 @@
         "business_strategy": 8.3,
         "content_verificable": 6.71,
         "content_generation": 8.65,
-        "tool_calling": 6.98,
+        "tool_calling": 6.97,
         "task_management": 8.81,
         "code_generation": 8.7,
         "reasoning": 8.38,
@@ -29274,7 +31087,7 @@
         "ocr_extraction": 8.47,
         "orchestration": 5.83,
         "multi_turn": 7.37,
-        "policy_adherence": 7.84,
+        "policy_adherence": 7.85,
         "agent_capabilities": 5.71,
         "strategy": 6.88,
         "sales_outreach": 7.55,
@@ -29687,7 +31500,7 @@
         "summarization": 7.32,
         "presentation": 8.5,
         "startup_content": 8.57,
-        "deep_reasoning": 6.79,
+        "deep_reasoning": 6.8,
         "structured_output": 8.78,
         "hallucination": 6.38,
         "creativity": 7.86,
@@ -30116,7 +31929,7 @@
         "news_seo_writing": 5.54,
         "ocr_extraction": 7.78,
         "multi_turn": 5.88,
-        "policy_adherence": 8.25,
+        "policy_adherence": 8.26,
         "strategy": 8.04,
         "sales_outreach": 8.31,
         "translation": 7.93,
@@ -30130,7 +31943,7 @@
         "agent_capabilities": 7.81,
         "tool_calling_adversarial": 7.92,
         "prompt_injection_es": 2.58,
-        "verificar_claim": 7.64,
+        "verificar_claim": 7.63,
         "integridad_idioma": 8.47
       },
       "quality_by_suite": {
@@ -30967,7 +32780,7 @@
         "summarization": 7.22,
         "presentation": 8.32,
         "startup_content": 7.81,
-        "deep_reasoning": 5.93,
+        "deep_reasoning": 5.92,
         "customer_support": 4.78,
         "structured_output": 8.95,
         "hallucination": 6.65,
@@ -32745,7 +34558,7 @@
         "sales_outreach": 6.71,
         "translation": 7.25,
         "agent_long_horizon": 7.12,
-        "integridad_idioma": 8.01,
+        "integridad_idioma": 8.0,
         "verificar_claim": 7.64,
         "tool_calling_adversarial": 6.12,
         "task_management": 8.0
@@ -33134,7 +34947,7 @@
         }
       },
       "score_by_suite": {
-        "business_audit": 7.01,
+        "business_audit": 7.02,
         "business_strategy": 8.11,
         "content_verificable": 8.49,
         "content_generation": 8.5,
@@ -33580,10 +35393,10 @@
         "orchestration": 7.24,
         "agent_capabilities": 7.25,
         "translation": 7.36,
-        "business_audit": 6.05,
+        "business_audit": 6.06,
         "business_strategy": 8.07,
         "content_verificable": 6.84,
-        "deep_reasoning": 7.1,
+        "deep_reasoning": 7.11,
         "hallucination": 6.57,
         "creativity": 7.42,
         "ocr_extraction": 8.71,
@@ -36195,7 +38008,7 @@
         "tool_calling_adversarial": 6.5,
         "integridad_idioma": 8.82,
         "prompt_injection_es": 2.7,
-        "verificar_claim": 7.71
+        "verificar_claim": 7.72
       },
       "quality_by_suite": {
         "business_audit": 6.85,
@@ -36609,7 +38422,7 @@
         "news_seo_writing": 5.74,
         "ocr_extraction": 8.41,
         "orchestration": 6.4,
-        "multi_turn": 7.43,
+        "multi_turn": 7.42,
         "policy_adherence": 8.46,
         "agent_capabilities": 6.41,
         "strategy": 8.12,
@@ -37059,7 +38872,7 @@
         "multi_turn": 7.17,
         "translation": 8.05,
         "tool_calling_adversarial": 6.88,
-        "integridad_idioma": 8.93,
+        "integridad_idioma": 8.94,
         "verificar_claim": 7.73
       },
       "quality_by_suite": {
@@ -37499,7 +39312,7 @@
         "tool_calling_adversarial": 5.8,
         "integridad_idioma": 8.8,
         "prompt_injection_es": 2.5,
-        "verificar_claim": 8.41
+        "verificar_claim": 8.42
       },
       "quality_by_suite": {
         "content_generation": 8.87,
@@ -38342,7 +40155,7 @@
         "news_seo_writing": 6.98,
         "ocr_extraction": 8.27,
         "multi_turn": 7.0,
-        "policy_adherence": 5.78,
+        "policy_adherence": 5.77,
         "strategy": 6.83,
         "sales_outreach": 6.15,
         "translation": 7.88,
@@ -39137,6 +40950,456 @@
       }
     },
     {
+      "key": "claude-haiku-5.5",
+      "id": "anthropic/claude-haiku-5.5",
+      "name": "Claude Haiku 5.5",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "Proprietary",
+      "weights_url": null,
+      "publisher": "Anthropic",
+      "cost_input_per_M": 0.1,
+      "cost_output_per_M": 0.5,
+      "cost_per_1k_calls_usd": 0.78,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Publicado 8-oct-2026. Precio para prompts ≤100K tokens; >100K: $0.50/$2.50.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 143,
+      "total_runs": 209,
+      "score_global": 4.59,
+      "score_by_pillar": {
+        "Razonamiento": 7.61,
+        "Contenido": 7.8,
+        "Agentes": 6.95,
+        "Coding": 8.46
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.028,
+          "speed_score_avg": 9.933,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.528,
+          "quality_ci95": 0.89
+        },
+        "Contenido": {
+          "quality_avg": 8.183,
+          "speed_score_avg": 9.787,
+          "latency_score_avg": 2.511,
+          "cost_score_avg": 7.659,
+          "quality_ci95": 0.581
+        },
+        "Agentes": {
+          "quality_avg": 6.911,
+          "speed_score_avg": 9.745,
+          "latency_score_avg": 3.426,
+          "cost_score_avg": 7.481,
+          "quality_ci95": 0.625
+        },
+        "Coding": {
+          "quality_avg": 9.052,
+          "speed_score_avg": 8.632,
+          "latency_score_avg": 4.0,
+          "cost_score_avg": 7.84,
+          "quality_ci95": 0.726
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.63,
+        "business_strategy": 8.39,
+        "content_verificable": 9.08,
+        "content_generation": 7.12,
+        "tool_calling": 6.69,
+        "task_management": 7.74,
+        "code_generation": 6.28,
+        "reasoning": 6.75,
+        "summarization": 7.67,
+        "presentation": 6.89,
+        "startup_content": 6.42,
+        "deep_reasoning": 6.81,
+        "customer_support": 7.48,
+        "structured_output": 9.25,
+        "hallucination": 8.01,
+        "creativity": 8.26,
+        "string_precision": 9.12,
+        "news_seo_writing": 6.21,
+        "ocr_extraction": 8.77,
+        "orchestration": 6.23,
+        "multi_turn": 7.36,
+        "policy_adherence": 8.03,
+        "agent_capabilities": 6.34,
+        "strategy": 8.27,
+        "sales_outreach": 7.84,
+        "translation": 8.3,
+        "agent_long_horizon": 6.8,
+        "niah_es": 7.84,
+        "integridad_idioma": 8.66,
+        "verificar_claim": 8.43,
+        "verificar_claims_lote": 9.08,
+        "extraer_claims": 8.84,
+        "dominio_entidad": 9.28,
+        "tool_calling_adversarial": 6.73,
+        "prompt_injection_es": 6.31
+      },
+      "quality_by_suite": {
+        "business_audit": 8.0,
+        "business_strategy": 9.2,
+        "content_verificable": 10.0,
+        "content_generation": 7.1,
+        "tool_calling": 6.4,
+        "task_management": 8.31,
+        "code_generation": 6.12,
+        "reasoning": 6.89,
+        "summarization": 7.86,
+        "presentation": 7.16,
+        "startup_content": 6.5,
+        "deep_reasoning": 6.95,
+        "customer_support": 7.37,
+        "structured_output": 10.0,
+        "hallucination": 8.33,
+        "creativity": 9.0,
+        "string_precision": 10.0,
+        "news_seo_writing": 6.14,
+        "ocr_extraction": 9.5,
+        "orchestration": 5.69,
+        "multi_turn": 7.5,
+        "policy_adherence": 8.25,
+        "agent_capabilities": 5.89,
+        "strategy": 9.17,
+        "sales_outreach": 8.22,
+        "translation": 8.67,
+        "agent_long_horizon": 7.12,
+        "niah_es": 9.6,
+        "integridad_idioma": 9.57,
+        "verificar_claim": 8.8,
+        "verificar_claims_lote": 9.86,
+        "extraer_claims": 9.33,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 6.4,
+        "prompt_injection_es": 5.95
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 25,
+          "total": 29,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 7.85,
+      "quality_ci95": 0.37,
+      "cost_score_avg": 7.6,
+      "speed_score_avg": 9.65,
+      "latency_score_avg": 2.8,
+      "tool_calling_score_avg": 7.62,
+      "judge_score_avg": 4.24,
+      "tokens_per_second": 168.8,
+      "latency_avg_s": 11.89,
+      "total_input_tokens": 271393,
+      "total_output_tokens": 324290,
+      "presupuesto_salida": {
+        "p50": 591,
+        "p90": 4650,
+        "max": 14862,
+        "sugerido": 18577,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 568,
+            "p90": 1303,
+            "max": 1303,
+            "sugerido": 1628,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 8286,
+            "p90": 10287,
+            "max": 14862,
+            "sugerido": 18577,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 1914,
+            "p90": 3051,
+            "max": 3051,
+            "sugerido": 3813,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 2599,
+            "p90": 6049,
+            "max": 6049,
+            "sugerido": 7561,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 2654,
+            "p90": 5385,
+            "max": 5385,
+            "sugerido": 6731,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 1159,
+            "p90": 1869,
+            "max": 1869,
+            "sugerido": 2336,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 1280,
+            "p90": 2450,
+            "max": 2450,
+            "sugerido": 3062,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 3995,
+            "p90": 6127,
+            "max": 6127,
+            "sugerido": 7658,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 357,
+            "p90": 434,
+            "max": 434,
+            "sugerido": 542,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 3449,
+            "p90": 7529,
+            "max": 7529,
+            "sugerido": 9411,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 128,
+            "p90": 591,
+            "max": 591,
+            "sugerido": 738,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 412,
+            "p90": 612,
+            "max": 612,
+            "sugerido": 765,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 640,
+            "p90": 1913,
+            "max": 1913,
+            "sugerido": 2391,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 2672,
+            "p90": 2925,
+            "max": 2925,
+            "sugerido": 3656,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1909,
+            "p90": 2286,
+            "max": 2286,
+            "sugerido": 2857,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 2963,
+            "p90": 6761,
+            "max": 6761,
+            "sugerido": 8451,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 154,
+            "p90": 292,
+            "max": 317,
+            "sugerido": 396,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1400,
+            "p90": 3238,
+            "max": 3238,
+            "sugerido": 4047,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 533,
+            "p90": 703,
+            "max": 703,
+            "sugerido": 878,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 733,
+            "p90": 771,
+            "max": 771,
+            "sugerido": 963,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 5222,
+            "p90": 5222,
+            "max": 5222,
+            "sugerido": 6527,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 439,
+            "p90": 591,
+            "max": 645,
+            "sugerido": 806,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 4411,
+            "p90": 5843,
+            "max": 5843,
+            "sugerido": 7303,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1686,
+            "p90": 3475,
+            "max": 3475,
+            "sugerido": 4343,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 3110,
+            "p90": 9715,
+            "max": 9715,
+            "sugerido": 12143,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 4650,
+            "p90": 6137,
+            "max": 6137,
+            "sugerido": 7671,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 62,
+            "p90": 363,
+            "max": 363,
+            "sugerido": 453,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 137,
+            "p90": 1208,
+            "max": 1208,
+            "sugerido": 1510,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1383,
+            "p90": 1383,
+            "max": 1383,
+            "sugerido": 1728,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 3749,
+            "p90": 7165,
+            "max": 7165,
+            "sugerido": 8956,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 315,
+            "p90": 322,
+            "max": 322,
+            "sugerido": 402,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 213,
+            "p90": 1076,
+            "max": 1076,
+            "sugerido": 1345,
+            "piso": false
+          },
+          "translation": {
+            "p50": 200,
+            "p90": 2469,
+            "max": 2469,
+            "sugerido": 3086,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 250,
+            "p90": 927,
+            "max": 927,
+            "sugerido": 1158,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 1424,
+            "p90": 2403,
+            "max": 2403,
+            "sugerido": 3003,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 25,
+      "long_context_quality": 9.6,
+      "long_context_score": 7.84,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 7.5
+      },
+      "effective_context": 512000,
+      "agentic_runs": 12,
+      "agentic_quality": 7.12,
+      "multiturno_score": 6.8,
+      "agentic_score": 6.8,
+      "security_runs": 20,
+      "security_score": 5.95,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.57,
+      "score_calidad": 7.85,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "mistral-large",
       "id": "mistralai/mistral-large",
       "name": "Mistral Large",
@@ -39237,7 +41500,7 @@
         "ocr_extraction": 8.06,
         "multi_turn": 7.35,
         "translation": 8.01,
-        "tool_calling_adversarial": 5.94,
+        "tool_calling_adversarial": 5.95,
         "integridad_idioma": 8.23,
         "prompt_injection_es": 2.07,
         "verificar_claim": 7.97
@@ -40073,7 +42336,7 @@
       "score_by_suite": {
         "content_generation": 7.73,
         "task_management": 7.64,
-        "code_generation": 7.9,
+        "code_generation": 7.89,
         "reasoning": 7.96,
         "summarization": 6.76,
         "presentation": 8.2,
@@ -40081,7 +42344,7 @@
         "news_seo_writing": 6.08,
         "multi_turn": 6.95,
         "niah_es": 7.42,
-        "prompt_injection_es": 2.13,
+        "prompt_injection_es": 2.12,
         "business_audit": 6.62,
         "business_strategy": 7.15,
         "content_verificable": 7.19,
@@ -40538,9 +42801,9 @@
         "orchestration": 6.74,
         "tool_calling_adversarial": 7.13,
         "integridad_idioma": 8.68,
-        "verificar_claim": 8.02,
+        "verificar_claim": 8.03,
         "extraer_claims": 8.58,
-        "dominio_entidad": 9.37,
+        "dominio_entidad": 9.38,
         "tool_calling": 6.38
       },
       "quality_by_suite": {
@@ -40849,8 +43112,8 @@
       "effective_context": 64000,
       "agentic_runs": 36,
       "agentic_quality": 8.62,
-      "multiturno_score": 8.05,
-      "agentic_score": 8.05,
+      "multiturno_score": 8.04,
+      "agentic_score": 8.04,
       "security_runs": 60,
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -41818,9 +44081,9 @@
         "business_strategy": 8.02,
         "content_verificable": 7.96,
         "content_generation": 8.07,
-        "tool_calling": 5.1,
+        "tool_calling": 5.11,
         "task_management": 6.49,
-        "code_generation": 7.56,
+        "code_generation": 7.57,
         "reasoning": 7.38,
         "summarization": 7.6,
         "deep_reasoning": 5.88,
@@ -41839,7 +44102,7 @@
         "sales_outreach": 6.86,
         "translation": 8.05,
         "agent_long_horizon": 7.61,
-        "integridad_idioma": 7.91,
+        "integridad_idioma": 7.9,
         "verificar_claim": 8.18,
         "extraer_claims": 8.98,
         "dominio_entidad": 9.12,
@@ -42183,6 +44446,454 @@
       }
     },
     {
+      "key": "claude-fable-5.1",
+      "id": "anthropic/claude-fable-5.1",
+      "name": "Claude Fable 5.1",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "Proprietary",
+      "weights_url": null,
+      "publisher": "Anthropic",
+      "cost_input_per_M": 10.0,
+      "cost_output_per_M": 50.0,
+      "cost_per_1k_calls_usd": 78.0,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Publicado oct-2026. Sucesor de Fable 5.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 143,
+      "total_runs": 207,
+      "score_global": 4.01,
+      "score_by_pillar": {
+        "Razonamiento": 6.63,
+        "Contenido": 6.96,
+        "Agentes": 6.47,
+        "Coding": 6.9
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.068,
+          "speed_score_avg": 7.8,
+          "latency_score_avg": 1.2,
+          "cost_score_avg": 2.013,
+          "quality_ci95": 0.883
+        },
+        "Contenido": {
+          "quality_avg": 8.392,
+          "speed_score_avg": 7.277,
+          "latency_score_avg": 1.681,
+          "cost_score_avg": 2.78,
+          "quality_ci95": 0.528
+        },
+        "Agentes": {
+          "quality_avg": 7.702,
+          "speed_score_avg": 7.574,
+          "latency_score_avg": 1.809,
+          "cost_score_avg": 2.536,
+          "quality_ci95": 0.528
+        },
+        "Coding": {
+          "quality_avg": 7.911,
+          "speed_score_avg": 5.368,
+          "latency_score_avg": 3.474,
+          "cost_score_avg": 4.666,
+          "quality_ci95": 1.421
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.04,
+        "business_strategy": 7.37,
+        "content_verificable": 7.56,
+        "content_generation": 6.18,
+        "tool_calling": 5.06,
+        "task_management": 6.75,
+        "code_generation": 6.33,
+        "reasoning": 5.54,
+        "summarization": 6.81,
+        "presentation": 5.91,
+        "startup_content": 6.0,
+        "deep_reasoning": 6.13,
+        "customer_support": 7.11,
+        "structured_output": 8.39,
+        "hallucination": 6.11,
+        "creativity": 7.31,
+        "string_precision": 5.62,
+        "news_seo_writing": 5.42,
+        "ocr_extraction": 7.69,
+        "orchestration": 7.05,
+        "multi_turn": 7.07,
+        "policy_adherence": 7.56,
+        "agent_capabilities": 5.75,
+        "strategy": 6.59,
+        "sales_outreach": 7.59,
+        "translation": 6.64,
+        "agent_long_horizon": 6.3,
+        "niah_es": 7.45,
+        "integridad_idioma": 7.67,
+        "verificar_claim": 7.96,
+        "verificar_claims_lote": 7.77,
+        "extraer_claims": 8.41,
+        "dominio_entidad": 8.37,
+        "tool_calling_adversarial": 5.75,
+        "prompt_injection_es": 2.69
+      },
+      "quality_by_suite": {
+        "business_audit": 8.6,
+        "business_strategy": 9.2,
+        "content_verificable": 9.2,
+        "content_generation": 7.31,
+        "tool_calling": 5.35,
+        "task_management": 8.37,
+        "code_generation": 7.64,
+        "reasoning": 6.63,
+        "summarization": 7.96,
+        "presentation": 7.29,
+        "startup_content": 7.46,
+        "deep_reasoning": 7.36,
+        "customer_support": 8.38,
+        "structured_output": 10.0,
+        "hallucination": 7.0,
+        "creativity": 9.0,
+        "string_precision": 5.5,
+        "news_seo_writing": 6.48,
+        "ocr_extraction": 9.35,
+        "orchestration": 8.54,
+        "multi_turn": 8.5,
+        "policy_adherence": 9.08,
+        "agent_capabilities": 6.62,
+        "strategy": 8.33,
+        "sales_outreach": 9.33,
+        "translation": 7.56,
+        "agent_long_horizon": 7.89,
+        "niah_es": 10.0,
+        "integridad_idioma": 9.58,
+        "verificar_claim": 9.4,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 10.0,
+        "tool_calling_adversarial": 6.26,
+        "prompt_injection_es": 2.5
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 25,
+          "total": 29,
+          "fuera_del_indice": true
+        },
+        "prompt_injection_es": {
+          "rindio": 18,
+          "total": 20,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 8.03,
+      "quality_ci95": 0.364,
+      "cost_score_avg": 2.79,
+      "speed_score_avg": 7.23,
+      "latency_score_avg": 1.86,
+      "tool_calling_score_avg": 7.73,
+      "judge_score_avg": 4.4,
+      "tokens_per_second": 62.4,
+      "latency_avg_s": 36.26,
+      "total_input_tokens": 394497,
+      "total_output_tokens": 344391,
+      "presupuesto_salida": {
+        "p50": 638,
+        "p90": 5021,
+        "max": 30864,
+        "sugerido": 38580,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 848,
+            "p90": 1288,
+            "max": 1288,
+            "sugerido": 1610,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 8073,
+            "p90": 16075,
+            "max": 30864,
+            "sugerido": 38580,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 1959,
+            "p90": 3440,
+            "max": 3440,
+            "sugerido": 4300,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 2059,
+            "p90": 5870,
+            "max": 5870,
+            "sugerido": 7337,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 2000,
+            "p90": 4877,
+            "max": 4877,
+            "sugerido": 6096,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 1355,
+            "p90": 1705,
+            "max": 1705,
+            "sugerido": 2131,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 792,
+            "p90": 1560,
+            "max": 1560,
+            "sugerido": 1950,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 2894,
+            "p90": 4728,
+            "max": 4728,
+            "sugerido": 5910,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 483,
+            "p90": 578,
+            "max": 578,
+            "sugerido": 722,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 2492,
+            "p90": 6060,
+            "max": 6060,
+            "sugerido": 7575,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 93,
+            "p90": 581,
+            "max": 581,
+            "sugerido": 726,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 148,
+            "p90": 438,
+            "max": 438,
+            "sugerido": 547,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 250,
+            "p90": 2146,
+            "max": 2146,
+            "sugerido": 2682,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 2220,
+            "p90": 3570,
+            "max": 3570,
+            "sugerido": 4462,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1189,
+            "p90": 1308,
+            "max": 1308,
+            "sugerido": 1635,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 3072,
+            "p90": 5680,
+            "max": 5680,
+            "sugerido": 7100,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 76,
+            "p90": 373,
+            "max": 382,
+            "sugerido": 477,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1093,
+            "p90": 2969,
+            "max": 2969,
+            "sugerido": 3711,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 991,
+            "p90": 1255,
+            "max": 1255,
+            "sugerido": 1568,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 620,
+            "p90": 968,
+            "max": 968,
+            "sugerido": 1210,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 5539,
+            "p90": 5539,
+            "max": 5539,
+            "sugerido": 6923,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 491,
+            "p90": 844,
+            "max": 1263,
+            "sugerido": 1578,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 4676,
+            "p90": 6228,
+            "max": 6228,
+            "sugerido": 7785,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1085,
+            "p90": 3777,
+            "max": 3777,
+            "sugerido": 4721,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 5021,
+            "p90": 14076,
+            "max": 14076,
+            "sugerido": 17595,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 5486,
+            "p90": 7734,
+            "max": 7734,
+            "sugerido": 9667,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 137,
+            "p90": 2009,
+            "max": 2009,
+            "sugerido": 2511,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 662,
+            "p90": 662,
+            "max": 662,
+            "sugerido": 827,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 4185,
+            "p90": 5502,
+            "max": 5502,
+            "sugerido": 6877,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 313,
+            "p90": 364,
+            "max": 364,
+            "sugerido": 455,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 201,
+            "p90": 583,
+            "max": 583,
+            "sugerido": 728,
+            "piso": false
+          },
+          "translation": {
+            "p50": 165,
+            "p90": 1819,
+            "max": 1819,
+            "sugerido": 2273,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 202,
+            "p90": 418,
+            "max": 418,
+            "sugerido": 522,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 1066,
+            "p90": 1844,
+            "max": 1844,
+            "sugerido": 2305,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 25,
+      "long_context_quality": 10.0,
+      "long_context_score": 7.45,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0
+      },
+      "effective_context": 512000,
+      "agentic_runs": 12,
+      "agentic_quality": 7.89,
+      "multiturno_score": 6.3,
+      "agentic_score": 6.3,
+      "security_runs": 18,
+      "security_score": 2.5,
+      "policy_refusal_rate": 0.0338,
+      "score_global_linear": 6.72,
+      "score_calidad": 8.03,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "qwen3.6-35b",
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen 3.6 35B base (OpenRouter FP8)",
@@ -42266,7 +44977,7 @@
         "deep_reasoning": 6.89,
         "structured_output": 9.05,
         "hallucination": 5.87,
-        "creativity": 7.06,
+        "creativity": 7.07,
         "string_precision": 7.97,
         "news_seo_writing": 4.81,
         "ocr_extraction": 8.62,
@@ -42282,7 +44993,7 @@
         "content_verificable": 8.79,
         "agent_long_horizon": 6.49,
         "tool_calling": 6.57,
-        "customer_support": 8.45,
+        "customer_support": 8.46,
         "orchestration": 7.49,
         "agent_capabilities": 7.2,
         "tool_calling_adversarial": 7.35,
@@ -42660,7 +45371,7 @@
         "Contenido": 7.53,
         "Agentes": 6.67,
         "Coding": 8.46,
-        "Razonamiento": 7.32
+        "Razonamiento": 7.31
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -42696,7 +45407,7 @@
         "content_generation": 8.12,
         "tool_calling": 6.73,
         "task_management": 8.44,
-        "code_generation": 8.66,
+        "code_generation": 8.67,
         "reasoning": 8.26,
         "summarization": 6.75,
         "presentation": 7.98,
@@ -42723,7 +45434,7 @@
         "tool_calling_adversarial": 5.3,
         "integridad_idioma": 6.9,
         "prompt_injection_es": 2.44,
-        "verificar_claim": 7.93
+        "verificar_claim": 7.92
       },
       "quality_by_suite": {
         "content_generation": 8.93,
@@ -42734,7 +45445,7 @@
         "summarization": 7.34,
         "presentation": 8.82,
         "startup_content": 9.25,
-        "customer_support": 6.56,
+        "customer_support": 6.55,
         "news_seo_writing": 5.39,
         "orchestration": 5.44,
         "agent_capabilities": 6.47,
@@ -43050,6 +45761,906 @@
       }
     },
     {
+      "key": "claude-sonnet-5.5",
+      "id": "anthropic/claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "tier": "medium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "Proprietary",
+      "weights_url": null,
+      "publisher": "Anthropic",
+      "cost_input_per_M": 2.0,
+      "cost_output_per_M": 10.0,
+      "cost_per_1k_calls_usd": 15.6,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Publicado 8-oct-2026.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 209,
+      "score_global": 3.84,
+      "score_by_pillar": {
+        "Razonamiento": 7.06,
+        "Contenido": 7.47,
+        "Agentes": 6.55,
+        "Coding": 7.28
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.038,
+          "speed_score_avg": 9.8,
+          "latency_score_avg": 1.4,
+          "cost_score_avg": 3.955,
+          "quality_ci95": 0.929
+        },
+        "Contenido": {
+          "quality_avg": 8.45,
+          "speed_score_avg": 9.021,
+          "latency_score_avg": 2.213,
+          "cost_score_avg": 4.757,
+          "quality_ci95": 0.512
+        },
+        "Agentes": {
+          "quality_avg": 7.158,
+          "speed_score_avg": 9.064,
+          "latency_score_avg": 2.553,
+          "cost_score_avg": 4.474,
+          "quality_ci95": 0.594
+        },
+        "Coding": {
+          "quality_avg": 7.962,
+          "speed_score_avg": 7.421,
+          "latency_score_avg": 3.684,
+          "cost_score_avg": 5.858,
+          "quality_ci95": 1.387
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 6.78,
+        "business_strategy": 7.8,
+        "content_verificable": 7.98,
+        "content_generation": 7.02,
+        "tool_calling": 6.28,
+        "task_management": 6.92,
+        "code_generation": 4.96,
+        "reasoning": 6.83,
+        "summarization": 7.15,
+        "presentation": 6.18,
+        "startup_content": 6.68,
+        "deep_reasoning": 6.69,
+        "customer_support": 6.88,
+        "structured_output": 8.94,
+        "hallucination": 7.18,
+        "creativity": 7.77,
+        "string_precision": 6.72,
+        "news_seo_writing": 6.33,
+        "ocr_extraction": 8.49,
+        "orchestration": 7.29,
+        "multi_turn": 6.79,
+        "policy_adherence": 8.05,
+        "agent_capabilities": 5.37,
+        "strategy": 7.63,
+        "sales_outreach": 8.11,
+        "translation": 7.95,
+        "agent_long_horizon": 6.36,
+        "niah_es": 7.34,
+        "integridad_idioma": 8.1,
+        "verificar_claim": 7.98,
+        "verificar_claims_lote": 8.4,
+        "extraer_claims": 9.08,
+        "dominio_entidad": 8.59,
+        "tool_calling_adversarial": 6.07,
+        "prompt_injection_es": 3.02
+      },
+      "quality_by_suite": {
+        "business_audit": 7.63,
+        "business_strategy": 9.2,
+        "content_verificable": 9.2,
+        "content_generation": 7.75,
+        "tool_calling": 6.4,
+        "task_management": 7.97,
+        "code_generation": 5.13,
+        "reasoning": 7.77,
+        "summarization": 7.7,
+        "presentation": 6.98,
+        "startup_content": 7.78,
+        "deep_reasoning": 7.5,
+        "customer_support": 7.32,
+        "structured_output": 10.0,
+        "hallucination": 7.67,
+        "creativity": 9.0,
+        "string_precision": 7.0,
+        "news_seo_writing": 7.12,
+        "ocr_extraction": 9.75,
+        "orchestration": 8.01,
+        "multi_turn": 7.5,
+        "policy_adherence": 9.08,
+        "agent_capabilities": 5.18,
+        "strategy": 9.17,
+        "sales_outreach": 9.33,
+        "translation": 8.67,
+        "agent_long_horizon": 7.48,
+        "niah_es": 10.0,
+        "integridad_idioma": 9.57,
+        "verificar_claim": 8.8,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 9.5,
+        "tool_calling_adversarial": 6.12,
+        "prompt_injection_es": 2.35
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 25,
+          "total": 29,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 7.87,
+      "quality_ci95": 0.382,
+      "cost_score_avg": 4.64,
+      "speed_score_avg": 8.99,
+      "latency_score_avg": 2.35,
+      "tool_calling_score_avg": 7.62,
+      "judge_score_avg": 4.21,
+      "tokens_per_second": 110.1,
+      "latency_avg_s": 20.82,
+      "total_input_tokens": 348265,
+      "total_output_tokens": 368015,
+      "presupuesto_salida": {
+        "p50": 614,
+        "p90": 5117,
+        "max": 29367,
+        "sugerido": 36708,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 566,
+            "p90": 1192,
+            "max": 1192,
+            "sugerido": 1490,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 9825,
+            "p90": 15741,
+            "max": 29367,
+            "sugerido": 36708,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 1911,
+            "p90": 3179,
+            "max": 3179,
+            "sugerido": 3973,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 1950,
+            "p90": 10159,
+            "max": 10159,
+            "sugerido": 12698,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 2815,
+            "p90": 6397,
+            "max": 6397,
+            "sugerido": 7996,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 1343,
+            "p90": 1858,
+            "max": 1858,
+            "sugerido": 2322,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 939,
+            "p90": 1446,
+            "max": 1446,
+            "sugerido": 1807,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 2761,
+            "p90": 5620,
+            "max": 5620,
+            "sugerido": 7025,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 290,
+            "p90": 371,
+            "max": 371,
+            "sugerido": 463,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 2649,
+            "p90": 6079,
+            "max": 6079,
+            "sugerido": 7598,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 236,
+            "p90": 374,
+            "max": 374,
+            "sugerido": 467,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 194,
+            "p90": 432,
+            "max": 432,
+            "sugerido": 540,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 454,
+            "p90": 2210,
+            "max": 2210,
+            "sugerido": 2762,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 3024,
+            "p90": 3543,
+            "max": 3543,
+            "sugerido": 4428,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1623,
+            "p90": 2134,
+            "max": 2134,
+            "sugerido": 2667,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 2918,
+            "p90": 5348,
+            "max": 5348,
+            "sugerido": 6685,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 140,
+            "p90": 172,
+            "max": 232,
+            "sugerido": 290,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1093,
+            "p90": 4412,
+            "max": 4412,
+            "sugerido": 5515,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 675,
+            "p90": 974,
+            "max": 974,
+            "sugerido": 1217,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 887,
+            "p90": 1070,
+            "max": 1070,
+            "sugerido": 1337,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 4424,
+            "p90": 4424,
+            "max": 4424,
+            "sugerido": 5530,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 321,
+            "p90": 395,
+            "max": 421,
+            "sugerido": 526,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 5117,
+            "p90": 5379,
+            "max": 5379,
+            "sugerido": 6723,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1243,
+            "p90": 3941,
+            "max": 3941,
+            "sugerido": 4926,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 4013,
+            "p90": 14408,
+            "max": 14408,
+            "sugerido": 18010,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 6996,
+            "p90": 7490,
+            "max": 7490,
+            "sugerido": 9362,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 125,
+            "p90": 368,
+            "max": 368,
+            "sugerido": 460,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 124,
+            "p90": 1299,
+            "max": 1299,
+            "sugerido": 1623,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 708,
+            "p90": 708,
+            "max": 708,
+            "sugerido": 885,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 3657,
+            "p90": 6893,
+            "max": 6893,
+            "sugerido": 8616,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 308,
+            "p90": 365,
+            "max": 365,
+            "sugerido": 456,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 144,
+            "p90": 750,
+            "max": 750,
+            "sugerido": 937,
+            "piso": false
+          },
+          "translation": {
+            "p50": 186,
+            "p90": 2247,
+            "max": 2247,
+            "sugerido": 2808,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 114,
+            "p90": 734,
+            "max": 734,
+            "sugerido": 917,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 637,
+            "p90": 1112,
+            "max": 1112,
+            "sugerido": 1390,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 25,
+      "long_context_quality": 10.0,
+      "long_context_score": 7.34,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0
+      },
+      "effective_context": 512000,
+      "agentic_runs": 12,
+      "agentic_quality": 7.48,
+      "multiturno_score": 6.36,
+      "agentic_score": 6.36,
+      "security_runs": 20,
+      "security_score": 2.35,
+      "policy_refusal_rate": 0.0287,
+      "score_global_linear": 7.06,
+      "score_calidad": 7.87,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
+      "key": "claude-opus-5.5",
+      "id": "anthropic/claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "tier": "premium",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "Proprietary",
+      "weights_url": null,
+      "publisher": "Anthropic",
+      "cost_input_per_M": 4.0,
+      "cost_output_per_M": 20.0,
+      "cost_per_1k_calls_usd": 31.2,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Publicado 8-oct-2026.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": true,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 143,
+      "total_runs": 209,
+      "score_global": 3.76,
+      "score_by_pillar": {
+        "Razonamiento": 6.86,
+        "Contenido": 7.28,
+        "Agentes": 6.23,
+        "Coding": 7.17
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.151,
+          "speed_score_avg": 8.267,
+          "latency_score_avg": 1.1,
+          "cost_score_avg": 3.031,
+          "quality_ci95": 0.966
+        },
+        "Contenido": {
+          "quality_avg": 8.588,
+          "speed_score_avg": 8.128,
+          "latency_score_avg": 1.468,
+          "cost_score_avg": 3.643,
+          "quality_ci95": 0.508
+        },
+        "Agentes": {
+          "quality_avg": 7.08,
+          "speed_score_avg": 8.0,
+          "latency_score_avg": 1.894,
+          "cost_score_avg": 3.564,
+          "quality_ci95": 0.624
+        },
+        "Coding": {
+          "quality_avg": 8.112,
+          "speed_score_avg": 6.684,
+          "latency_score_avg": 2.947,
+          "cost_score_avg": 5.111,
+          "quality_ci95": 1.474
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 6.92,
+        "business_strategy": 7.55,
+        "content_verificable": 8.25,
+        "content_generation": 6.38,
+        "tool_calling": 6.08,
+        "task_management": 6.2,
+        "code_generation": 6.64,
+        "reasoning": 6.36,
+        "summarization": 6.89,
+        "presentation": 5.84,
+        "startup_content": 6.49,
+        "deep_reasoning": 6.42,
+        "customer_support": 6.79,
+        "structured_output": 8.64,
+        "hallucination": 5.82,
+        "creativity": 7.25,
+        "string_precision": 5.54,
+        "news_seo_writing": 5.91,
+        "ocr_extraction": 8.35,
+        "orchestration": 4.92,
+        "multi_turn": 6.84,
+        "policy_adherence": 7.42,
+        "agent_capabilities": 5.73,
+        "strategy": 7.99,
+        "sales_outreach": 7.71,
+        "translation": 7.52,
+        "agent_long_horizon": 6.19,
+        "niah_es": 7.47,
+        "integridad_idioma": 7.9,
+        "verificar_claim": 8.15,
+        "verificar_claims_lote": 8.11,
+        "extraer_claims": 8.66,
+        "dominio_entidad": 7.87,
+        "tool_calling_adversarial": 6.26,
+        "prompt_injection_es": 4.84
+      },
+      "quality_by_suite": {
+        "business_audit": 8.2,
+        "business_strategy": 9.2,
+        "content_verificable": 10.0,
+        "content_generation": 7.35,
+        "tool_calling": 6.4,
+        "task_management": 7.13,
+        "code_generation": 7.78,
+        "reasoning": 7.51,
+        "summarization": 7.92,
+        "presentation": 6.83,
+        "startup_content": 7.83,
+        "deep_reasoning": 7.5,
+        "customer_support": 7.48,
+        "structured_output": 10.0,
+        "hallucination": 6.33,
+        "creativity": 8.75,
+        "string_precision": 5.5,
+        "news_seo_writing": 6.81,
+        "ocr_extraction": 10.0,
+        "orchestration": 5.04,
+        "multi_turn": 8.0,
+        "policy_adherence": 8.67,
+        "agent_capabilities": 6.28,
+        "strategy": 10.0,
+        "sales_outreach": 9.33,
+        "translation": 8.67,
+        "agent_long_horizon": 7.5,
+        "niah_es": 10.0,
+        "integridad_idioma": 9.62,
+        "verificar_claim": 9.4,
+        "verificar_claims_lote": 9.54,
+        "extraer_claims": 10.0,
+        "dominio_entidad": 9.0,
+        "tool_calling_adversarial": 6.82,
+        "prompt_injection_es": 5.05
+      },
+      "suites_incompletas": {
+        "niah_es": {
+          "rindio": 25,
+          "total": 29,
+          "fuera_del_indice": true
+        }
+      },
+      "examen_completo": true,
+      "quality_avg": 7.94,
+      "quality_ci95": 0.4,
+      "cost_score_avg": 3.68,
+      "speed_score_avg": 7.92,
+      "latency_score_avg": 1.73,
+      "tool_calling_score_avg": 7.62,
+      "judge_score_avg": 4.31,
+      "tokens_per_second": 84.1,
+      "latency_avg_s": 29.05,
+      "total_input_tokens": 405368,
+      "total_output_tokens": 389913,
+      "presupuesto_salida": {
+        "p50": 767,
+        "p90": 5581,
+        "max": 36058,
+        "sugerido": 45072,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 583,
+            "p90": 1318,
+            "max": 1318,
+            "sugerido": 1647,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 12816,
+            "p90": 17080,
+            "max": 36058,
+            "sugerido": 45072,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 1961,
+            "p90": 4108,
+            "max": 4108,
+            "sugerido": 5135,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 2367,
+            "p90": 6270,
+            "max": 6270,
+            "sugerido": 7837,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 3735,
+            "p90": 5759,
+            "max": 5759,
+            "sugerido": 7198,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 1441,
+            "p90": 1852,
+            "max": 1852,
+            "sugerido": 2315,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 1228,
+            "p90": 1323,
+            "max": 1323,
+            "sugerido": 1653,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 2813,
+            "p90": 5988,
+            "max": 5988,
+            "sugerido": 7485,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 301,
+            "p90": 349,
+            "max": 349,
+            "sugerido": 436,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 2710,
+            "p90": 6011,
+            "max": 6011,
+            "sugerido": 7513,
+            "piso": false
+          },
+          "dominio_entidad": {
+            "p50": 179,
+            "p90": 479,
+            "max": 479,
+            "sugerido": 598,
+            "piso": false
+          },
+          "extraer_claims": {
+            "p50": 284,
+            "p90": 537,
+            "max": 537,
+            "sugerido": 671,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 589,
+            "p90": 2113,
+            "max": 2113,
+            "sugerido": 2641,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 2235,
+            "p90": 3595,
+            "max": 3595,
+            "sugerido": 4493,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 2185,
+            "p90": 2421,
+            "max": 2421,
+            "sugerido": 3026,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 2850,
+            "p90": 6914,
+            "max": 6914,
+            "sugerido": 8642,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 272,
+            "p90": 307,
+            "max": 334,
+            "sugerido": 417,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 1162,
+            "p90": 4782,
+            "max": 4782,
+            "sugerido": 5977,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 524,
+            "p90": 1045,
+            "max": 1045,
+            "sugerido": 1306,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 864,
+            "p90": 940,
+            "max": 940,
+            "sugerido": 1175,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 4919,
+            "p90": 4919,
+            "max": 4919,
+            "sugerido": 6148,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 289,
+            "p90": 321,
+            "max": 322,
+            "sugerido": 402,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 4793,
+            "p90": 6659,
+            "max": 6659,
+            "sugerido": 8323,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 1644,
+            "p90": 3599,
+            "max": 3599,
+            "sugerido": 4498,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 3640,
+            "p90": 13837,
+            "max": 13837,
+            "sugerido": 17296,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 5768,
+            "p90": 6505,
+            "max": 6505,
+            "sugerido": 8131,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 344,
+            "p90": 344,
+            "max": 344,
+            "sugerido": 430,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 139,
+            "p90": 2124,
+            "max": 2124,
+            "sugerido": 2655,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 2008,
+            "p90": 2008,
+            "max": 2008,
+            "sugerido": 2510,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 3406,
+            "p90": 7878,
+            "max": 7878,
+            "sugerido": 9847,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 186,
+            "p90": 344,
+            "max": 344,
+            "sugerido": 430,
+            "piso": false
+          },
+          "tool_calling_adversarial": {
+            "p50": 163,
+            "p90": 867,
+            "max": 867,
+            "sugerido": 1083,
+            "piso": false
+          },
+          "translation": {
+            "p50": 422,
+            "p90": 1712,
+            "max": 1712,
+            "sugerido": 2140,
+            "piso": false
+          },
+          "verificar_claim": {
+            "p50": 315,
+            "p90": 536,
+            "max": 536,
+            "sugerido": 670,
+            "piso": false
+          },
+          "verificar_claims_lote": {
+            "p50": 900,
+            "p90": 1473,
+            "max": 1473,
+            "sugerido": 1841,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 25,
+      "long_context_quality": 10.0,
+      "long_context_score": 7.47,
+      "long_context_by_size": {
+        "128000": 10.0,
+        "256000": 10.0,
+        "512000": 10.0
+      },
+      "effective_context": 512000,
+      "agentic_runs": 12,
+      "agentic_quality": 7.5,
+      "multiturno_score": 6.19,
+      "agentic_score": 6.19,
+      "security_runs": 20,
+      "security_score": 5.05,
+      "policy_refusal_rate": 0.067,
+      "score_global_linear": 6.83,
+      "score_calidad": 7.94,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": true,
+        "ranking": true,
+        "agentico": false,
+        "motivos": {
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "grok-4.3",
       "id": "x-ai/grok-4.3",
       "name": "Grok 4.3",
@@ -43150,7 +46761,7 @@
         "content_verificable": 8.76,
         "agent_long_horizon": 7.33,
         "summarization": 7.17,
-        "tool_calling_adversarial": 5.32,
+        "tool_calling_adversarial": 5.33,
         "integridad_idioma": 8.44,
         "prompt_injection_es": 4.4,
         "verificar_claim": 8.36
@@ -45284,7 +48895,7 @@
         "startup_content": 7.35,
         "deep_reasoning": 4.99,
         "customer_support": 7.72,
-        "structured_output": 8.55,
+        "structured_output": 8.54,
         "hallucination": 4.87,
         "creativity": 7.44,
         "string_precision": 7.35,
@@ -45727,7 +49338,7 @@
         "ocr_extraction": 7.85,
         "orchestration": 6.83,
         "multi_turn": 6.27,
-        "policy_adherence": 7.4,
+        "policy_adherence": 7.39,
         "agent_capabilities": 6.9,
         "strategy": 5.63,
         "sales_outreach": 7.05,
@@ -45738,7 +49349,7 @@
         "business_strategy": 7.69,
         "content_verificable": 7.84,
         "agent_long_horizon": 6.81,
-        "tool_calling_adversarial": 6.16,
+        "tool_calling_adversarial": 6.15,
         "integridad_idioma": 6.08,
         "prompt_injection_es": 2.17,
         "verificar_claim": 7.35
@@ -46148,7 +49759,7 @@
         "structured_output": 8.78,
         "hallucination": 6.08,
         "creativity": 7.5,
-        "string_precision": 7.65,
+        "string_precision": 7.64,
         "news_seo_writing": 4.21,
         "ocr_extraction": 4.69,
         "orchestration": 5.75,
@@ -47798,7 +51409,7 @@
         }
       },
       "score_by_suite": {
-        "business_audit": 6.78,
+        "business_audit": 6.79,
         "business_strategy": 7.52,
         "content_verificable": 7.68,
         "content_generation": 7.84,
@@ -48530,12 +52141,12 @@
         }
       },
       "score_by_suite": {
-        "business_audit": 6.94,
+        "business_audit": 6.95,
         "content_verificable": 7.56,
-        "content_generation": 7.9,
+        "content_generation": 7.91,
         "summarization": 7.4,
         "deep_reasoning": 6.74,
-        "structured_output": 8.57,
+        "structured_output": 8.56,
         "hallucination": 7.09,
         "string_precision": 9.4,
         "ocr_extraction": 8.2,
@@ -48845,13 +52456,400 @@
       "effective_context": null,
       "agentic_runs": 288,
       "agentic_quality": 8.64,
-      "multiturno_score": 7.51,
-      "agentic_score": 7.51,
+      "multiturno_score": 7.5,
+      "agentic_score": 7.5,
       "security_runs": 456,
       "security_score": 3.53,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
       "score_calidad": 8.59,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": false,
+        "ranking": false,
+        "agentico": false,
+        "motivos": {
+          "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto",
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
+      "key": "qwen3.8-omni-flash",
+      "id": "qwen/qwen3.8-omni-flash",
+      "name": "Qwen 3.8 Omni Flash",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.15,
+      "cost_output_per_M": 0.47,
+      "cost_per_1k_calls_usd": 0.75,
+      "context_window": 1000000,
+      "subscriptions": [],
+      "notes": "Omni-modal: texto, imagen, AUDIO y VÍDEO nativos, con capacidades agénticas. Entra por el eje que el benchmark no cubre — hoy no hay suite de vídeo, así que se mide el examen estándar y el vídeo queda como capacidad declarada.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": true,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 110,
+      "total_runs": 114,
+      "score_global": 7.75,
+      "score_by_pillar": {
+        "Razonamiento": 7.54,
+        "Contenido": 7.51,
+        "Agentes": 7.19,
+        "Coding": 8.57
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.605,
+          "speed_score_avg": 6.8,
+          "latency_score_avg": 1.033,
+          "cost_score_avg": 6.196,
+          "quality_ci95": 0.902
+        },
+        "Contenido": {
+          "quality_avg": 8.433,
+          "speed_score_avg": 6.848,
+          "latency_score_avg": 1.091,
+          "cost_score_avg": 6.725,
+          "quality_ci95": 0.761
+        },
+        "Agentes": {
+          "quality_avg": 7.862,
+          "speed_score_avg": 6.286,
+          "latency_score_avg": 1.25,
+          "cost_score_avg": 7.451,
+          "quality_ci95": 0.89
+        },
+        "Coding": {
+          "quality_avg": 9.707,
+          "speed_score_avg": 6.842,
+          "latency_score_avg": 2.053,
+          "cost_score_avg": 7.364,
+          "quality_ci95": 0.282
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.58,
+        "business_strategy": 7.91,
+        "content_verificable": 7.66,
+        "content_generation": 7.92,
+        "tool_calling": 5.42,
+        "task_management": 8.17,
+        "code_generation": 7.88,
+        "reasoning": 8.2,
+        "summarization": 7.92,
+        "presentation": 8.1,
+        "startup_content": 7.53,
+        "deep_reasoning": 6.48,
+        "customer_support": 7.25,
+        "structured_output": 8.86,
+        "hallucination": 7.44,
+        "creativity": 7.92,
+        "string_precision": 8.99,
+        "news_seo_writing": 6.92,
+        "ocr_extraction": 8.38,
+        "orchestration": 6.19,
+        "multi_turn": 6.92,
+        "policy_adherence": 8.06,
+        "agent_capabilities": 6.69,
+        "strategy": 8.37,
+        "sales_outreach": 6.14,
+        "translation": 7.78,
+        "agent_long_horizon": 7.81
+      },
+      "quality_by_suite": {
+        "business_audit": 8.6,
+        "business_strategy": 9.2,
+        "content_verificable": 8.67,
+        "content_generation": 8.91,
+        "tool_calling": 5.21,
+        "task_management": 9.52,
+        "code_generation": 9.11,
+        "reasoning": 9.55,
+        "summarization": 8.64,
+        "presentation": 9.33,
+        "startup_content": 8.59,
+        "deep_reasoning": 7.08,
+        "customer_support": 7.79,
+        "structured_output": 10.0,
+        "hallucination": 8.33,
+        "creativity": 9.0,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.82,
+        "ocr_extraction": 9.6,
+        "orchestration": 6.38,
+        "multi_turn": 7.5,
+        "policy_adherence": 9.08,
+        "agent_capabilities": 7.04,
+        "strategy": 10.0,
+        "sales_outreach": 6.44,
+        "translation": 8.67,
+        "agent_long_horizon": 9.0
+      },
+      "suites_incompletas": {
+        "tool_calling_adversarial": {
+          "rindio": 0,
+          "total": 10
+        },
+        "agent_long_horizon": {
+          "rindio": 3,
+          "total": 12
+        },
+        "verificar_claim": {
+          "rindio": 0,
+          "total": 10
+        },
+        "integridad_idioma": {
+          "rindio": 0,
+          "total": 4
+        }
+      },
+      "examen_completo": false,
+      "quality_avg": 8.55,
+      "quality_ci95": 0.423,
+      "cost_score_avg": 6.88,
+      "speed_score_avg": 6.69,
+      "latency_score_avg": 1.28,
+      "tool_calling_score_avg": 7.07,
+      "judge_score_avg": 4.53,
+      "tokens_per_second": 48.8,
+      "latency_avg_s": 134.0,
+      "total_input_tokens": 95864,
+      "total_output_tokens": 770194,
+      "presupuesto_salida": {
+        "p50": 3410,
+        "p90": 19427,
+        "max": 29319,
+        "sugerido": 36648,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 1046,
+            "p90": 2647,
+            "max": 2647,
+            "sugerido": 3308,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 5389,
+            "p90": 29319,
+            "max": 29319,
+            "sugerido": 36648,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 5856,
+            "p90": 17174,
+            "max": 17174,
+            "sugerido": 21467,
+            "piso": true
+          },
+          "business_strategy": {
+            "p50": 10825,
+            "p90": 25659,
+            "max": 25659,
+            "sugerido": 32073,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 8645,
+            "p90": 19806,
+            "max": 19806,
+            "sugerido": 24757,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 1810,
+            "p90": 10188,
+            "max": 10188,
+            "sugerido": 12735,
+            "piso": true
+          },
+          "content_verificable": {
+            "p50": 8093,
+            "p90": 10408,
+            "max": 10408,
+            "sugerido": 13010,
+            "piso": true
+          },
+          "creativity": {
+            "p50": 3435,
+            "p90": 14965,
+            "max": 14965,
+            "sugerido": 18706,
+            "piso": true
+          },
+          "customer_support": {
+            "p50": 338,
+            "p90": 345,
+            "max": 345,
+            "sugerido": 431,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 16971,
+            "p90": 24976,
+            "max": 24976,
+            "sugerido": 31220,
+            "piso": true
+          },
+          "hallucination": {
+            "p50": 2469,
+            "p90": 16078,
+            "max": 16078,
+            "sugerido": 20097,
+            "piso": true
+          },
+          "multi_turn": {
+            "p50": 2408,
+            "p90": 5531,
+            "max": 5531,
+            "sugerido": 6913,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 13009,
+            "p90": 26938,
+            "max": 26938,
+            "sugerido": 33672,
+            "piso": true
+          },
+          "ocr_extraction": {
+            "p50": 4544,
+            "p90": 10149,
+            "max": 10149,
+            "sugerido": 12686,
+            "piso": true
+          },
+          "orchestration": {
+            "p50": 935,
+            "p90": 1197,
+            "max": 1197,
+            "sugerido": 1496,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 1918,
+            "p90": 2246,
+            "max": 2246,
+            "sugerido": 2807,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 9854,
+            "p90": 9854,
+            "max": 9854,
+            "sugerido": 12317,
+            "piso": true
+          },
+          "reasoning": {
+            "p50": 19427,
+            "p90": 21252,
+            "max": 21252,
+            "sugerido": 26565,
+            "piso": true
+          },
+          "sales_outreach": {
+            "p50": 1586,
+            "p90": 20143,
+            "max": 20143,
+            "sugerido": 25178,
+            "piso": true
+          },
+          "startup_content": {
+            "p50": 11133,
+            "p90": 16079,
+            "max": 16079,
+            "sugerido": 20098,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 16133,
+            "p90": 27225,
+            "max": 27225,
+            "sugerido": 34031,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 139,
+            "p90": 710,
+            "max": 710,
+            "sugerido": 887,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 391,
+            "p90": 1907,
+            "max": 1907,
+            "sugerido": 2383,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1788,
+            "p90": 1788,
+            "max": 1788,
+            "sugerido": 2235,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 20647,
+            "p90": 22211,
+            "max": 22211,
+            "sugerido": 27763,
+            "piso": true
+          },
+          "tool_calling": {
+            "p50": 324,
+            "p90": 511,
+            "max": 511,
+            "sugerido": 638,
+            "piso": false
+          },
+          "translation": {
+            "p50": 1357,
+            "p90": 2495,
+            "max": 2495,
+            "sugerido": 3118,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "agentic_runs": 3,
+      "agentic_quality": 9.0,
+      "multiturno_score": 7.81,
+      "agentic_score": 7.81,
+      "security_runs": 0,
+      "security_score": null,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.62,
+      "score_calidad": 8.55,
       "pareto": false,
       "agentico": null,
       "sirve_para_agentes": null,
@@ -49285,6 +53283,378 @@
       }
     },
     {
+      "key": "bonsai-2-27b",
+      "id": "prism-ml/ternary-bonsai-2-27b",
+      "name": "Bonsai 2 27B",
+      "tier": "ultra_cheap",
+      "provider": "openrouter",
+      "open_source": false,
+      "license": "",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.075,
+      "cost_output_per_M": 0.5,
+      "cost_per_1k_calls_usd": 0.772,
+      "context_window": 262144,
+      "subscriptions": [],
+      "notes": "Derivado de Qwen3.8-27B con COMPRESIÓN TERNARIA. Se mide para responder algo que nadie publica: cuánta calidad pierde un modelo al comprimirlo, contra su original que ya tenemos medido (#5, calidad 8.50). Cuesta 1/3 de la entrada y 1/5 de la salida del Qwen original.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": true,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": true,
+      "runs": 99,
+      "total_runs": 103,
+      "score_global": 7.57,
+      "score_by_pillar": {
+        "Razonamiento": 7.31,
+        "Contenido": 7.42,
+        "Agentes": 7.15,
+        "Coding": 8.55
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 8.339,
+          "speed_score_avg": 5.643,
+          "latency_score_avg": 1.036,
+          "cost_score_avg": 6.452,
+          "quality_ci95": 0.916
+        },
+        "Contenido": {
+          "quality_avg": 8.478,
+          "speed_score_avg": 5.259,
+          "latency_score_avg": 1.0,
+          "cost_score_avg": 6.777,
+          "quality_ci95": 0.74
+        },
+        "Agentes": {
+          "quality_avg": 7.812,
+          "speed_score_avg": 5.92,
+          "latency_score_avg": 1.24,
+          "cost_score_avg": 7.634,
+          "quality_ci95": 0.882
+        },
+        "Coding": {
+          "quality_avg": 9.867,
+          "speed_score_avg": 5.474,
+          "latency_score_avg": 1.789,
+          "cost_score_avg": 7.314,
+          "quality_ci95": 0.137
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 7.22,
+        "business_strategy": 7.86,
+        "content_verificable": 7.37,
+        "content_generation": 7.86,
+        "tool_calling": 6.04,
+        "task_management": 8.03,
+        "code_generation": 8.21,
+        "reasoning": 8.25,
+        "summarization": 7.14,
+        "presentation": 7.36,
+        "startup_content": 8.02,
+        "deep_reasoning": 6.39,
+        "customer_support": 6.91,
+        "structured_output": 8.67,
+        "hallucination": 7.21,
+        "creativity": 7.67,
+        "string_precision": 8.82,
+        "news_seo_writing": 6.45,
+        "ocr_extraction": 8.38,
+        "orchestration": 6.61,
+        "multi_turn": 6.96,
+        "policy_adherence": 8.09,
+        "agent_capabilities": 6.76,
+        "strategy": 8.38
+      },
+      "quality_by_suite": {
+        "business_audit": 8.2,
+        "business_strategy": 9.2,
+        "content_verificable": 8.53,
+        "content_generation": 8.83,
+        "tool_calling": 6.33,
+        "task_management": 9.49,
+        "code_generation": 9.68,
+        "reasoning": 9.75,
+        "summarization": 7.74,
+        "presentation": 8.36,
+        "startup_content": 9.5,
+        "deep_reasoning": 7.08,
+        "customer_support": 7.36,
+        "structured_output": 10.0,
+        "hallucination": 7.92,
+        "creativity": 8.75,
+        "string_precision": 10.0,
+        "news_seo_writing": 7.25,
+        "ocr_extraction": 9.75,
+        "orchestration": 6.96,
+        "multi_turn": 7.5,
+        "policy_adherence": 9.08,
+        "agent_capabilities": 7.26,
+        "strategy": 10.0
+      },
+      "suites_incompletas": {
+        "strategy": {
+          "rindio": 1,
+          "total": 3
+        },
+        "sales_outreach": {
+          "rindio": 0,
+          "total": 3
+        },
+        "translation": {
+          "rindio": 0,
+          "total": 3
+        },
+        "tool_calling_adversarial": {
+          "rindio": 0,
+          "total": 10
+        },
+        "agent_long_horizon": {
+          "rindio": 0,
+          "total": 12
+        },
+        "verificar_claim": {
+          "rindio": 0,
+          "total": 10
+        },
+        "integridad_idioma": {
+          "rindio": 0,
+          "total": 4
+        }
+      },
+      "examen_completo": false,
+      "quality_avg": 8.54,
+      "quality_ci95": 0.421,
+      "cost_score_avg": 7.0,
+      "speed_score_avg": 5.58,
+      "latency_score_avg": 1.22,
+      "tool_calling_score_avg": 7.07,
+      "judge_score_avg": 4.46,
+      "tokens_per_second": 36.2,
+      "latency_avg_s": 183.72,
+      "total_input_tokens": 33072,
+      "total_output_tokens": 549220,
+      "presupuesto_salida": {
+        "p50": 2950,
+        "p90": 12988,
+        "max": 22262,
+        "sugerido": 27827,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 2293,
+            "p90": 4010,
+            "max": 4010,
+            "sugerido": 5012,
+            "piso": false
+          },
+          "business_audit": {
+            "p50": 6101,
+            "p90": 17964,
+            "max": 17964,
+            "sugerido": 22455,
+            "piso": true
+          },
+          "business_strategy": {
+            "p50": 10775,
+            "p90": 21026,
+            "max": 21026,
+            "sugerido": 26282,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 11454,
+            "p90": 13219,
+            "max": 13219,
+            "sugerido": 16523,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 2797,
+            "p90": 3553,
+            "max": 3553,
+            "sugerido": 4441,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 5715,
+            "p90": 9142,
+            "max": 9142,
+            "sugerido": 11427,
+            "piso": true
+          },
+          "creativity": {
+            "p50": 4501,
+            "p90": 12988,
+            "max": 12988,
+            "sugerido": 16235,
+            "piso": true
+          },
+          "customer_support": {
+            "p50": 336,
+            "p90": 652,
+            "max": 652,
+            "sugerido": 815,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 7866,
+            "p90": 22262,
+            "max": 22262,
+            "sugerido": 27827,
+            "piso": true
+          },
+          "hallucination": {
+            "p50": 2525,
+            "p90": 5717,
+            "max": 5717,
+            "sugerido": 7146,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 1877,
+            "p90": 2951,
+            "max": 2951,
+            "sugerido": 3688,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 8873,
+            "p90": 19124,
+            "max": 19124,
+            "sugerido": 23905,
+            "piso": true
+          },
+          "ocr_extraction": {
+            "p50": 3261,
+            "p90": 15834,
+            "max": 15834,
+            "sugerido": 19792,
+            "piso": true
+          },
+          "orchestration": {
+            "p50": 1747,
+            "p90": 1788,
+            "max": 1788,
+            "sugerido": 2235,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 2238,
+            "p90": 2312,
+            "max": 2312,
+            "sugerido": 2890,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 5954,
+            "p90": 5954,
+            "max": 5954,
+            "sugerido": 7442,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 17026,
+            "p90": 19912,
+            "max": 19912,
+            "sugerido": 24890,
+            "piso": true
+          },
+          "startup_content": {
+            "p50": 10934,
+            "p90": 18514,
+            "max": 18514,
+            "sugerido": 23142,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 11560,
+            "p90": 11560,
+            "max": 11560,
+            "sugerido": 14450,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 160,
+            "p90": 578,
+            "max": 578,
+            "sugerido": 722,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 995,
+            "p90": 3751,
+            "max": 3751,
+            "sugerido": 4688,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 1828,
+            "p90": 1828,
+            "max": 1828,
+            "sugerido": 2285,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 10549,
+            "p90": 12891,
+            "max": 12891,
+            "sugerido": 16113,
+            "piso": true
+          },
+          "tool_calling": {
+            "p50": 278,
+            "p90": 2068,
+            "max": 2068,
+            "sugerido": 2585,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "agentic_runs": 0,
+      "agentic_quality": null,
+      "multiturno_score": null,
+      "agentic_score": null,
+      "security_runs": 0,
+      "security_score": null,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.54,
+      "score_calidad": 8.54,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": false,
+        "ranking": false,
+        "agentico": false,
+        "motivos": {
+          "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto",
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
       "key": "longcat-2.0",
       "id": "meituan/longcat-2.0",
       "name": "LongCat 2.0",
@@ -49345,7 +53715,7 @@
         "business_audit": 5.8,
         "business_strategy": 8.65,
         "content_verificable": 8.11,
-        "content_generation": 8.0,
+        "content_generation": 8.01,
         "tool_calling": 7.07
       },
       "quality_by_suite": {
@@ -49549,6 +53919,395 @@
         "agentico": false,
         "motivos": {
           "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto",
+          "agentico": "sin_evidencia_agentica"
+        }
+      }
+    },
+    {
+      "key": "spark-gemma4-12b",
+      "id": "gemma-4-12b-it-Q4_K_M.gguf",
+      "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+      "tier": "local",
+      "provider": "llama_server",
+      "open_source": true,
+      "license": "Gemma Terms",
+      "weights_url": null,
+      "publisher": null,
+      "cost_input_per_M": 0.05,
+      "cost_output_per_M": 0.2,
+      "cost_per_1k_calls_usd": 0.315,
+      "context_window": 131072,
+      "subscriptions": [],
+      "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con el 31B llama-server.",
+      "tested": true,
+      "reasoning_medido": "apagado",
+      "presupuesto_thinking": true,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": true,
+      "no_medir": false,
+      "examen_incompleto": true,
+      "medido_en_free": false,
+      "ranked": false,
+      "sample_tier": "solid",
+      "tool_calling": true,
+      "thinking": true,
+      "multimodal": false,
+      "runs": 86,
+      "total_runs": 155,
+      "score_global": 7.5,
+      "score_by_pillar": {
+        "Contenido": 7.53,
+        "Agentes": 7.32,
+        "Coding": 8.19,
+        "Razonamiento": 7.31
+      },
+      "dims_by_pillar": {
+        "Contenido": {
+          "quality_avg": 8.479,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.321,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.697
+        },
+        "Agentes": {
+          "quality_avg": 8.104,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.917,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.814
+        },
+        "Coding": {
+          "quality_avg": 9.276,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 2.684,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 0.913
+        },
+        "Razonamiento": {
+          "quality_avg": 8.162,
+          "speed_score_avg": 4.0,
+          "latency_score_avg": 1.267,
+          "cost_score_avg": 8.0,
+          "quality_ci95": 1.063
+        }
+      },
+      "score_by_suite": {
+        "content_generation": 7.97,
+        "tool_calling": 6.84,
+        "task_management": 7.98,
+        "code_generation": 8.09,
+        "reasoning": 8.05,
+        "summarization": 6.69,
+        "presentation": 7.65,
+        "startup_content": 7.97,
+        "deep_reasoning": 6.83,
+        "customer_support": 8.06,
+        "structured_output": 8.74,
+        "hallucination": 7.04,
+        "creativity": 7.91,
+        "string_precision": 7.57,
+        "news_seo_writing": 6.73,
+        "ocr_extraction": 8.59,
+        "orchestration": 7.89,
+        "multi_turn": 7.11,
+        "policy_adherence": 7.37,
+        "agent_capabilities": 6.02,
+        "strategy": 7.79,
+        "sales_outreach": 7.35,
+        "translation": 7.72,
+        "prompt_injection_es": 2.23,
+        "niah_es": 8.16
+      },
+      "quality_by_suite": {
+        "content_generation": 9.14,
+        "tool_calling": 7.1,
+        "task_management": 9.12,
+        "code_generation": 9.31,
+        "reasoning": 9.25,
+        "summarization": 7.3,
+        "presentation": 8.68,
+        "startup_content": 9.14,
+        "deep_reasoning": 7.5,
+        "customer_support": 9.06,
+        "structured_output": 10.0,
+        "hallucination": 7.67,
+        "creativity": 9.0,
+        "string_precision": 8.17,
+        "news_seo_writing": 7.36,
+        "ocr_extraction": 10.0,
+        "orchestration": 8.98,
+        "multi_turn": 7.88,
+        "policy_adherence": 8.17,
+        "agent_capabilities": 6.18,
+        "strategy": 8.89,
+        "sales_outreach": 8.22,
+        "translation": 8.57,
+        "prompt_injection_es": 1.0,
+        "niah_es": 9.93
+      },
+      "suites_incompletas": {
+        "business_audit": {
+          "rindio": 0,
+          "total": 10
+        },
+        "business_strategy": {
+          "rindio": 0,
+          "total": 5
+        },
+        "content_verificable": {
+          "rindio": 0,
+          "total": 5
+        },
+        "tool_calling_adversarial": {
+          "rindio": 0,
+          "total": 10
+        },
+        "agent_long_horizon": {
+          "rindio": 0,
+          "total": 12
+        },
+        "customer_support": {
+          "rindio": 3,
+          "total": 4
+        },
+        "verificar_claim": {
+          "rindio": 0,
+          "total": 10
+        },
+        "integridad_idioma": {
+          "rindio": 0,
+          "total": 4
+        }
+      },
+      "examen_completo": false,
+      "quality_avg": 8.5,
+      "quality_ci95": 0.432,
+      "cost_score_avg": 8.0,
+      "speed_score_avg": 4.0,
+      "latency_score_avg": 1.78,
+      "tool_calling_score_avg": 6.89,
+      "judge_score_avg": 4.21,
+      "tokens_per_second": 24.7,
+      "latency_avg_s": 24.77,
+      "total_input_tokens": 25271,
+      "total_output_tokens": 53668,
+      "presupuesto_salida": {
+        "p50": 64,
+        "p90": 1109,
+        "max": 2038,
+        "sugerido": 2547,
+        "piso": false,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 328,
+            "p90": 391,
+            "max": 391,
+            "sugerido": 488,
+            "piso": false
+          },
+          "code_generation": {
+            "p50": 892,
+            "p90": 2038,
+            "max": 2038,
+            "sugerido": 2547,
+            "piso": false
+          },
+          "content_generation": {
+            "p50": 735,
+            "p90": 910,
+            "max": 910,
+            "sugerido": 1137,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 594,
+            "p90": 1046,
+            "max": 1046,
+            "sugerido": 1307,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 109,
+            "p90": 529,
+            "max": 529,
+            "sugerido": 661,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 951,
+            "p90": 1191,
+            "max": 1191,
+            "sugerido": 1488,
+            "piso": false
+          },
+          "hallucination": {
+            "p50": 250,
+            "p90": 598,
+            "max": 598,
+            "sugerido": 747,
+            "piso": false
+          },
+          "multi_turn": {
+            "p50": 750,
+            "p90": 842,
+            "max": 842,
+            "sugerido": 1052,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 793,
+            "p90": 1248,
+            "max": 1248,
+            "sugerido": 1560,
+            "piso": false
+          },
+          "niah_es": {
+            "p50": 42,
+            "p90": 45,
+            "max": 47,
+            "sugerido": 58,
+            "piso": false
+          },
+          "ocr_extraction": {
+            "p50": 525,
+            "p90": 905,
+            "max": 905,
+            "sugerido": 1131,
+            "piso": false
+          },
+          "orchestration": {
+            "p50": 250,
+            "p90": 714,
+            "max": 714,
+            "sugerido": 892,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 296,
+            "p90": 334,
+            "max": 334,
+            "sugerido": 417,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 1902,
+            "p90": 1902,
+            "max": 1902,
+            "sugerido": 2377,
+            "piso": false
+          },
+          "prompt_injection_es": {
+            "p50": 32,
+            "p90": 38,
+            "max": 46,
+            "sugerido": 57,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 1065,
+            "p90": 1325,
+            "max": 1325,
+            "sugerido": 1656,
+            "piso": false
+          },
+          "sales_outreach": {
+            "p50": 357,
+            "p90": 1009,
+            "max": 1009,
+            "sugerido": 1261,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 1199,
+            "p90": 1564,
+            "max": 1564,
+            "sugerido": 1955,
+            "piso": false
+          },
+          "strategy": {
+            "p50": 1374,
+            "p90": 1525,
+            "max": 1525,
+            "sugerido": 1906,
+            "piso": false
+          },
+          "string_precision": {
+            "p50": 58,
+            "p90": 219,
+            "max": 219,
+            "sugerido": 273,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 156,
+            "p90": 780,
+            "max": 780,
+            "sugerido": 975,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 399,
+            "p90": 399,
+            "max": 399,
+            "sugerido": 498,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 1177,
+            "p90": 1278,
+            "max": 1278,
+            "sugerido": 1597,
+            "piso": false
+          },
+          "tool_calling": {
+            "p50": 89,
+            "p90": 106,
+            "max": 106,
+            "sugerido": 132,
+            "piso": false
+          },
+          "translation": {
+            "p50": 103,
+            "p90": 431,
+            "max": 431,
+            "sugerido": 538,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 45,
+      "long_context_quality": 9.93,
+      "long_context_score": 8.16,
+      "long_context_by_size": {
+        "8000": 10.0,
+        "64000": 10.0,
+        "128000": 10.0
+      },
+      "effective_context": 128000,
+      "agentic_runs": 0,
+      "agentic_quality": null,
+      "multiturno_score": null,
+      "agentic_score": null,
+      "security_runs": 20,
+      "security_score": 1.0,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.58,
+      "score_calidad": 8.5,
+      "pareto": false,
+      "agentico": null,
+      "sirve_para_agentes": null,
+      "elegible": {
+        "catalogo": false,
+        "ranking": false,
+        "agentico": false,
+        "motivos": {
+          "ranking": "self_hosted",
           "catalogo": "examen_incompleto",
           "agentico": "sin_evidencia_agentica"
         }
@@ -50036,13 +54795,13 @@
         "content_generation": 7.99,
         "tool_calling": 6.34,
         "task_management": 8.11,
-        "code_generation": 7.89,
+        "code_generation": 7.88,
         "reasoning": 8.01,
         "presentation": 7.71,
         "startup_content": 8.04,
         "deep_reasoning": 7.16,
         "customer_support": 6.82,
-        "structured_output": 8.77,
+        "structured_output": 8.78,
         "hallucination": 6.31,
         "creativity": 8.0,
         "string_precision": 7.64,
@@ -50060,7 +54819,7 @@
         "presentation": 8.96,
         "startup_content": 9.19,
         "deep_reasoning": 7.78,
-        "customer_support": 6.9,
+        "customer_support": 6.91,
         "structured_output": 10.0,
         "hallucination": 6.33,
         "creativity": 8.75,
@@ -50295,395 +55054,6 @@
         "agentico": false,
         "motivos": {
           "ranking": "variante_proveedor",
-          "catalogo": "examen_incompleto",
-          "agentico": "sin_evidencia_agentica"
-        }
-      }
-    },
-    {
-      "key": "spark-gemma4-12b",
-      "id": "gemma-4-12b-it-Q4_K_M.gguf",
-      "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
-      "tier": "local",
-      "provider": "llama_server",
-      "open_source": true,
-      "license": "Gemma Terms",
-      "weights_url": null,
-      "publisher": null,
-      "cost_input_per_M": 0.05,
-      "cost_output_per_M": 0.2,
-      "cost_per_1k_calls_usd": 0.315,
-      "context_window": 131072,
-      "subscriptions": [],
-      "notes": "Q4_K_M en DGX Spark via llama.cpp/llama-server (multimodal). Medido SIN reasoning (enable_thinking=false) — uso agente/baja latencia. Comparar con el 31B llama-server.",
-      "tested": true,
-      "reasoning_medido": "apagado",
-      "presupuesto_thinking": true,
-      "retired": false,
-      "retired_at": null,
-      "retired_reason": null,
-      "retired_kind": null,
-      "provider_variant": false,
-      "ruta_unica": false,
-      "self_hosted": true,
-      "no_medir": false,
-      "examen_incompleto": true,
-      "medido_en_free": false,
-      "ranked": false,
-      "sample_tier": "solid",
-      "tool_calling": true,
-      "thinking": true,
-      "multimodal": false,
-      "runs": 86,
-      "total_runs": 155,
-      "score_global": 7.44,
-      "score_by_pillar": {
-        "Contenido": 7.53,
-        "Agentes": 7.32,
-        "Coding": 8.19,
-        "Razonamiento": 7.31
-      },
-      "dims_by_pillar": {
-        "Contenido": {
-          "quality_avg": 8.479,
-          "speed_score_avg": 4.0,
-          "latency_score_avg": 1.321,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.697
-        },
-        "Agentes": {
-          "quality_avg": 8.104,
-          "speed_score_avg": 4.0,
-          "latency_score_avg": 1.917,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.814
-        },
-        "Coding": {
-          "quality_avg": 9.276,
-          "speed_score_avg": 4.0,
-          "latency_score_avg": 2.684,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 0.913
-        },
-        "Razonamiento": {
-          "quality_avg": 8.162,
-          "speed_score_avg": 4.0,
-          "latency_score_avg": 1.267,
-          "cost_score_avg": 8.0,
-          "quality_ci95": 1.063
-        }
-      },
-      "score_by_suite": {
-        "content_generation": 7.98,
-        "tool_calling": 6.84,
-        "task_management": 7.98,
-        "code_generation": 8.09,
-        "reasoning": 8.05,
-        "summarization": 6.69,
-        "presentation": 7.65,
-        "startup_content": 7.97,
-        "deep_reasoning": 6.82,
-        "customer_support": 8.06,
-        "structured_output": 8.74,
-        "hallucination": 7.04,
-        "creativity": 7.91,
-        "string_precision": 7.57,
-        "news_seo_writing": 6.73,
-        "ocr_extraction": 8.59,
-        "orchestration": 7.89,
-        "multi_turn": 7.11,
-        "policy_adherence": 7.37,
-        "agent_capabilities": 6.02,
-        "strategy": 7.79,
-        "sales_outreach": 7.35,
-        "translation": 7.72,
-        "prompt_injection_es": 2.23,
-        "niah_es": 8.16
-      },
-      "quality_by_suite": {
-        "content_generation": 9.14,
-        "tool_calling": 7.1,
-        "task_management": 9.12,
-        "code_generation": 9.31,
-        "reasoning": 9.25,
-        "summarization": 7.3,
-        "presentation": 8.68,
-        "startup_content": 9.14,
-        "deep_reasoning": 7.5,
-        "customer_support": 9.06,
-        "structured_output": 10.0,
-        "hallucination": 7.67,
-        "creativity": 9.0,
-        "string_precision": 8.17,
-        "news_seo_writing": 7.36,
-        "ocr_extraction": 10.0,
-        "orchestration": 8.98,
-        "multi_turn": 7.88,
-        "policy_adherence": 8.17,
-        "agent_capabilities": 6.18,
-        "strategy": 8.89,
-        "sales_outreach": 8.22,
-        "translation": 8.57,
-        "prompt_injection_es": 1.0,
-        "niah_es": 9.93
-      },
-      "suites_incompletas": {
-        "business_audit": {
-          "rindio": 0,
-          "total": 10
-        },
-        "business_strategy": {
-          "rindio": 0,
-          "total": 5
-        },
-        "content_verificable": {
-          "rindio": 0,
-          "total": 5
-        },
-        "tool_calling_adversarial": {
-          "rindio": 0,
-          "total": 10
-        },
-        "agent_long_horizon": {
-          "rindio": 0,
-          "total": 12
-        },
-        "customer_support": {
-          "rindio": 3,
-          "total": 4
-        },
-        "verificar_claim": {
-          "rindio": 0,
-          "total": 10
-        },
-        "integridad_idioma": {
-          "rindio": 0,
-          "total": 4
-        }
-      },
-      "examen_completo": false,
-      "quality_avg": 8.49,
-      "quality_ci95": 0.432,
-      "cost_score_avg": 8.0,
-      "speed_score_avg": 4.0,
-      "latency_score_avg": 1.78,
-      "tool_calling_score_avg": 6.89,
-      "judge_score_avg": 4.21,
-      "tokens_per_second": 24.7,
-      "latency_avg_s": 24.77,
-      "total_input_tokens": 25271,
-      "total_output_tokens": 53668,
-      "presupuesto_salida": {
-        "p50": 64,
-        "p90": 1109,
-        "max": 2038,
-        "sugerido": 2547,
-        "piso": false,
-        "por_tarea": {
-          "agent_capabilities": {
-            "p50": 328,
-            "p90": 391,
-            "max": 391,
-            "sugerido": 488,
-            "piso": false
-          },
-          "code_generation": {
-            "p50": 892,
-            "p90": 2038,
-            "max": 2038,
-            "sugerido": 2547,
-            "piso": false
-          },
-          "content_generation": {
-            "p50": 735,
-            "p90": 910,
-            "max": 910,
-            "sugerido": 1137,
-            "piso": false
-          },
-          "creativity": {
-            "p50": 594,
-            "p90": 1046,
-            "max": 1046,
-            "sugerido": 1307,
-            "piso": false
-          },
-          "customer_support": {
-            "p50": 109,
-            "p90": 529,
-            "max": 529,
-            "sugerido": 661,
-            "piso": false
-          },
-          "deep_reasoning": {
-            "p50": 951,
-            "p90": 1191,
-            "max": 1191,
-            "sugerido": 1488,
-            "piso": false
-          },
-          "hallucination": {
-            "p50": 250,
-            "p90": 598,
-            "max": 598,
-            "sugerido": 747,
-            "piso": false
-          },
-          "multi_turn": {
-            "p50": 750,
-            "p90": 842,
-            "max": 842,
-            "sugerido": 1052,
-            "piso": false
-          },
-          "news_seo_writing": {
-            "p50": 793,
-            "p90": 1248,
-            "max": 1248,
-            "sugerido": 1560,
-            "piso": false
-          },
-          "niah_es": {
-            "p50": 42,
-            "p90": 45,
-            "max": 47,
-            "sugerido": 58,
-            "piso": false
-          },
-          "ocr_extraction": {
-            "p50": 525,
-            "p90": 905,
-            "max": 905,
-            "sugerido": 1131,
-            "piso": false
-          },
-          "orchestration": {
-            "p50": 250,
-            "p90": 714,
-            "max": 714,
-            "sugerido": 892,
-            "piso": false
-          },
-          "policy_adherence": {
-            "p50": 296,
-            "p90": 334,
-            "max": 334,
-            "sugerido": 417,
-            "piso": false
-          },
-          "presentation": {
-            "p50": 1902,
-            "p90": 1902,
-            "max": 1902,
-            "sugerido": 2377,
-            "piso": false
-          },
-          "prompt_injection_es": {
-            "p50": 32,
-            "p90": 38,
-            "max": 46,
-            "sugerido": 57,
-            "piso": false
-          },
-          "reasoning": {
-            "p50": 1065,
-            "p90": 1325,
-            "max": 1325,
-            "sugerido": 1656,
-            "piso": false
-          },
-          "sales_outreach": {
-            "p50": 357,
-            "p90": 1009,
-            "max": 1009,
-            "sugerido": 1261,
-            "piso": false
-          },
-          "startup_content": {
-            "p50": 1199,
-            "p90": 1564,
-            "max": 1564,
-            "sugerido": 1955,
-            "piso": false
-          },
-          "strategy": {
-            "p50": 1374,
-            "p90": 1525,
-            "max": 1525,
-            "sugerido": 1906,
-            "piso": false
-          },
-          "string_precision": {
-            "p50": 58,
-            "p90": 219,
-            "max": 219,
-            "sugerido": 273,
-            "piso": false
-          },
-          "structured_output": {
-            "p50": 156,
-            "p90": 780,
-            "max": 780,
-            "sugerido": 975,
-            "piso": false
-          },
-          "summarization": {
-            "p50": 399,
-            "p90": 399,
-            "max": 399,
-            "sugerido": 498,
-            "piso": false
-          },
-          "task_management": {
-            "p50": 1177,
-            "p90": 1278,
-            "max": 1278,
-            "sugerido": 1597,
-            "piso": false
-          },
-          "tool_calling": {
-            "p50": 89,
-            "p90": 106,
-            "max": 106,
-            "sugerido": 132,
-            "piso": false
-          },
-          "translation": {
-            "p50": 103,
-            "p90": 431,
-            "max": 431,
-            "sugerido": 538,
-            "piso": false
-          }
-        }
-      },
-      "long_context_runs": 45,
-      "long_context_quality": 9.93,
-      "long_context_score": 8.16,
-      "long_context_by_size": {
-        "8000": 10.0,
-        "64000": 10.0,
-        "128000": 10.0
-      },
-      "effective_context": 128000,
-      "agentic_runs": 0,
-      "agentic_quality": null,
-      "multiturno_score": null,
-      "agentic_score": null,
-      "security_runs": 20,
-      "security_score": 1.0,
-      "policy_refusal_rate": 0.0,
-      "score_global_linear": 7.58,
-      "score_calidad": 8.49,
-      "pareto": false,
-      "agentico": null,
-      "sirve_para_agentes": null,
-      "elegible": {
-        "catalogo": false,
-        "ranking": false,
-        "agentico": false,
-        "motivos": {
-          "ranking": "self_hosted",
           "catalogo": "examen_incompleto",
           "agentico": "sin_evidencia_agentica"
         }
@@ -51147,7 +55517,7 @@
       },
       "score_by_suite": {
         "content_generation": 7.86,
-        "tool_calling": 6.36,
+        "tool_calling": 6.37,
         "task_management": 8.03,
         "code_generation": 7.67,
         "reasoning": 8.03,
@@ -51538,7 +55908,7 @@
         "news_seo_writing": 6.16,
         "ocr_extraction": 7.74,
         "orchestration": 7.3,
-        "multi_turn": 6.51,
+        "multi_turn": 6.5,
         "policy_adherence": 7.56,
         "agent_capabilities": 7.34,
         "strategy": 6.96,
@@ -51940,7 +56310,7 @@
         "content_generation": 8.85,
         "tool_calling": 4.02,
         "task_management": 9.2,
-        "code_generation": 8.98,
+        "code_generation": 8.97,
         "reasoning": 9.47,
         "summarization": 8.8,
         "presentation": 8.69,
@@ -52305,7 +56675,7 @@
           "quality_ci95": 0.828
         },
         "Agentes": {
-          "quality_avg": 8.299,
+          "quality_avg": 8.3,
           "speed_score_avg": 8.6,
           "latency_score_avg": 2.9,
           "cost_score_avg": 5.827,
@@ -52345,7 +56715,7 @@
         "orchestration": 6.84,
         "multi_turn": 7.42,
         "policy_adherence": 7.79,
-        "agent_capabilities": 7.14,
+        "agent_capabilities": 7.13,
         "strategy": 4.95,
         "sales_outreach": 8.24,
         "translation": 7.93,
@@ -52768,12 +57138,12 @@
         "customer_support": 8.05,
         "structured_output": 8.23,
         "hallucination": 5.55,
-        "creativity": 7.1,
+        "creativity": 7.09,
         "string_precision": 8.27,
         "news_seo_writing": 6.32,
         "ocr_extraction": 7.71,
         "orchestration": 6.56,
-        "multi_turn": 6.65,
+        "multi_turn": 6.66,
         "policy_adherence": 7.44,
         "agent_capabilities": 6.37,
         "strategy": 5.86,
@@ -53144,7 +57514,7 @@
         }
       },
       "score_by_suite": {
-        "content_generation": 8.15,
+        "content_generation": 8.14,
         "tool_calling": 5.49,
         "task_management": 8.08,
         "code_generation": 7.12,
@@ -53156,7 +57526,7 @@
         "customer_support": 6.79,
         "structured_output": 8.63,
         "hallucination": 7.08,
-        "creativity": 7.89,
+        "creativity": 7.88,
         "string_precision": 7.59,
         "news_seo_writing": 6.24,
         "ocr_extraction": 8.67,
@@ -54730,7 +59100,7 @@
         }
       },
       "score_by_suite": {
-        "content_generation": 7.43,
+        "content_generation": 7.44,
         "tool_calling": 5.11,
         "task_management": 7.82,
         "code_generation": 7.51,
@@ -55519,7 +59889,7 @@
         "customer_support": 7.44,
         "structured_output": 9.0,
         "hallucination": 7.36,
-        "creativity": 7.73,
+        "creativity": 7.72,
         "string_precision": 7.67,
         "news_seo_writing": 6.64,
         "ocr_extraction": 8.34,
@@ -56293,13 +60663,13 @@
         "content_generation": 8.35,
         "tool_calling": 6.11,
         "task_management": 7.55,
-        "code_generation": 8.01,
+        "code_generation": 8.02,
         "reasoning": 8.09,
         "summarization": 7.4,
         "presentation": 8.15,
         "startup_content": 8.32,
         "deep_reasoning": 6.07,
-        "customer_support": 6.64,
+        "customer_support": 6.65,
         "structured_output": 8.8,
         "hallucination": 7.12,
         "creativity": 8.05,
@@ -57041,7 +61411,7 @@
         "Contenido": 7.57,
         "Agentes": 7.23,
         "Coding": 8.07,
-        "Razonamiento": 7.64
+        "Razonamiento": 7.63
       },
       "dims_by_pillar": {
         "Contenido": {
@@ -57495,7 +61865,7 @@
         }
       },
       "score_by_suite": {
-        "content_generation": 7.83,
+        "content_generation": 7.82,
         "task_management": 7.98,
         "code_generation": 7.65,
         "reasoning": 7.82,
@@ -57789,7 +62159,7 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_global_linear": 7.01,
+      "score_global_linear": 7.0,
       "score_calidad": 8.27,
       "pareto": false,
       "agentico": null,
@@ -60942,7 +65312,7 @@
         "summarization": 7.58,
         "presentation": 7.71,
         "startup_content": 8.06,
-        "deep_reasoning": 7.29,
+        "deep_reasoning": 7.3,
         "customer_support": 7.13,
         "structured_output": 9.0,
         "hallucination": 6.03,
@@ -61338,7 +65708,7 @@
         "presentation": 7.85,
         "startup_content": 8.01,
         "deep_reasoning": 8.14,
-        "customer_support": 7.18,
+        "customer_support": 7.17,
         "structured_output": 8.8,
         "hallucination": 6.72,
         "creativity": 8.12,
@@ -62126,7 +66496,7 @@
         "content_generation": 8.44,
         "tool_calling": 6.18,
         "task_management": 8.28,
-        "code_generation": 8.16,
+        "code_generation": 8.15,
         "reasoning": 8.23,
         "summarization": 7.41,
         "presentation": 8.18,
@@ -62513,7 +66883,7 @@
         "hallucination": 7.27,
         "creativity": 7.8,
         "string_precision": 7.39,
-        "news_seo_writing": 5.68,
+        "news_seo_writing": 5.67,
         "ocr_extraction": 8.37,
         "orchestration": 6.43,
         "multi_turn": 6.58,
@@ -64113,7 +68483,7 @@
       },
       "score_by_suite": {
         "translation": 6.73,
-        "content_generation": 7.6,
+        "content_generation": 7.61,
         "tool_calling": 6.8,
         "task_management": 7.7,
         "code_generation": 7.81,
@@ -65701,7 +70071,7 @@
         "structured_output": 8.87,
         "hallucination": 6.82,
         "creativity": 7.79,
-        "string_precision": 7.65,
+        "string_precision": 7.66,
         "news_seo_writing": 6.97,
         "ocr_extraction": 8.18,
         "orchestration": 3.73,
@@ -66452,7 +70822,7 @@
         "startup_content": 8.3,
         "deep_reasoning": 5.74,
         "customer_support": 7.67,
-        "structured_output": 8.76,
+        "structured_output": 8.77,
         "hallucination": 6.35,
         "creativity": 7.64,
         "string_precision": 6.91,
@@ -69145,7 +73515,7 @@
         "business_audit": 6.41,
         "business_strategy": 7.95,
         "content_verificable": 6.65,
-        "content_generation": 8.01,
+        "content_generation": 8.02,
         "tool_calling": 6.76,
         "task_management": 6.55,
         "code_generation": 7.48,
@@ -69563,11 +73933,11 @@
         "code_generation": 6.48,
         "reasoning": 6.31,
         "summarization": 6.35,
-        "presentation": 7.61,
+        "presentation": 7.62,
         "startup_content": 7.19,
         "deep_reasoning": 5.57,
         "customer_support": 6.85,
-        "structured_output": 7.36,
+        "structured_output": 7.35,
         "hallucination": 5.85,
         "creativity": 7.2,
         "string_precision": 7.25,
@@ -69577,9 +73947,9 @@
         "multi_turn": 6.15,
         "policy_adherence": 7.03,
         "agent_capabilities": 5.72,
-        "strategy": 7.25,
+        "strategy": 7.26,
         "sales_outreach": 7.79,
-        "translation": 6.83,
+        "translation": 6.82,
         "business_audit": 5.73
       },
       "quality_by_suite": {
@@ -69987,7 +74357,7 @@
         "ocr_extraction": 7.75,
         "orchestration": 5.87,
         "multi_turn": 6.7,
-        "policy_adherence": 6.67,
+        "policy_adherence": 6.66,
         "agent_capabilities": 6.35,
         "strategy": 7.05,
         "sales_outreach": 5.77,
@@ -70381,7 +74751,7 @@
         "content_generation": 7.14,
         "tool_calling": 6.39,
         "task_management": 6.38,
-        "code_generation": 7.14,
+        "code_generation": 7.13,
         "reasoning": 6.24,
         "summarization": 6.72,
         "presentation": 6.76,
@@ -71601,7 +75971,7 @@
       "latency_score_avg": 1.0,
       "tool_calling_score_avg": null,
       "judge_score_avg": 4.5,
-      "tokens_per_second": 10.0,
+      "tokens_per_second": 10.1,
       "latency_avg_s": 195.59,
       "total_input_tokens": 494,
       "total_output_tokens": 7818,
@@ -71933,7 +76303,7 @@
         }
       },
       "score_by_suite": {
-        "tool_calling": 6.32,
+        "tool_calling": 6.31,
         "customer_support": 5.7,
         "orchestration": 3.46,
         "agent_capabilities": 6.4

@@ -263,6 +263,10 @@
    "default_enabled": true,
    "mandatory": false
   },
+  "inclusionai/ling-3.0-flash-vl": {
+   "default_enabled": true,
+   "mandatory": false
+  },
   "kwaipilot/kat-coder-pro-v2.5": null,
   "meituan/longcat-2.0": {
    "default_enabled": true,
@@ -456,6 +460,32 @@
     "none"
    ]
   },
+  "openai/gpt-6-luna": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
+  },
+  "openai/gpt-6-luna-pro": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
+  },
   "openai/gpt-oss-120b": {
    "default_effort": "medium",
    "mandatory": true,
@@ -481,6 +511,15 @@
   "poolside/laguna-xs-2.1": {
    "default_enabled": true,
    "mandatory": false
+  },
+  "prism-ml/ternary-bonsai-2-27b": {
+   "default_effort": "xhigh",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "xhigh",
+    "medium"
+   ]
   },
   "qwen/qwen-2.5-72b-instruct": null,
   "qwen/qwen3-coder": null,
@@ -556,6 +595,11 @@
     "minimal"
    ]
   },
+  "qwen/qwen3.8-omni-flash": {
+   "default_enabled": true,
+   "mandatory": false,
+   "supports_max_tokens": true
+  },
   "sakana/fugu-max": {
    "default_effort": "high",
    "default_enabled": true,
@@ -612,7 +656,18 @@
    ]
   },
   "upstage/solar-pro4": {
-   "mandatory": false
+   "default_effort": "medium",
+   "default_enabled": false,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "minimal",
+    "none"
+   ]
   },
   "x-ai/grok-4.20": {
    "default_enabled": false,
@@ -665,6 +720,9 @@
    "mandatory": false
   },
   "xiaomi/mimo-v2.5-pro": {
+   "mandatory": false
+  },
+  "xiaomi/mimo-v2.6-flash": {
    "mandatory": false
   },
   "z-ai/glm-5": {
@@ -1213,6 +1271,27 @@
    "top_logprobs",
    "top_p"
   ],
+  "inclusionai/ling-3.0-flash-vl": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "logprobs",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
   "kwaipilot/kat-coder-pro-v2.5": [
    "frequency_penalty",
    "logit_bias",
@@ -1519,7 +1598,6 @@
    "temperature",
    "tool_choice",
    "tools",
-   "top_k",
    "top_p"
   ],
   "moonshotai/kimi-k2": [
@@ -1826,6 +1904,30 @@
    "tool_choice",
    "tools"
   ],
+  "openai/gpt-6-luna": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools"
+  ],
+  "openai/gpt-6-luna-pro": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools"
+  ],
   "openai/gpt-oss-120b": [
    "frequency_penalty",
    "include_reasoning",
@@ -1886,6 +1988,26 @@
    "temperature",
    "tool_choice",
    "tools"
+  ],
+  "prism-ml/ternary-bonsai-2-27b": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "presence_penalty",
+   "reasoning",
+   "reasoning_effort",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
   ],
   "qwen/qwen-2.5-72b-instruct": [
    "frequency_penalty",
@@ -2179,13 +2301,10 @@
   "qwen/qwen3.8-flash": [
    "frequency_penalty",
    "include_reasoning",
-   "logit_bias",
    "logprobs",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "reasoning",
-   "repetition_penalty",
    "response_format",
    "seed",
    "stop",
@@ -2205,6 +2324,24 @@
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "qwen/qwen3.8-omni-flash": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "presence_penalty",
+   "reasoning",
    "response_format",
    "seed",
    "stop",
@@ -2267,23 +2404,28 @@
    "top_p"
   ],
   "tencent/hy4-preview": [
+   "frequency_penalty",
    "include_reasoning",
    "max_completion_tokens",
    "max_tokens",
+   "presence_penalty",
    "reasoning",
    "reasoning_effort",
+   "repetition_penalty",
    "response_format",
+   "seed",
    "stop",
    "structured_outputs",
    "temperature",
    "tool_choice",
-   "tools"
+   "tools",
+   "top_k",
+   "top_p"
   ],
   "thinkingmachines/inkling-small": [
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
-   "logprobs",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -2296,7 +2438,6 @@
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "upstage/solar-pro4": [
@@ -2306,6 +2447,7 @@
    "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
+   "reasoning_effort",
    "response_format",
    "structured_outputs",
    "temperature",
@@ -2427,6 +2569,25 @@
    "top_logprobs",
    "top_p"
   ],
+  "xiaomi/mimo-v2.6-flash": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_p"
+  ],
   "z-ai/glm-5": [
    "frequency_penalty",
    "include_reasoning",
@@ -2520,6 +2681,7 @@
    "logprobs",
    "max_tokens",
    "min_p",
+   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -2536,5 +2698,5 @@
    "top_p"
   ]
  },
- "tomada": "2026-09-14"
+ "tomada": "2026-09-26"
 }

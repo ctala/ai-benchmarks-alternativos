@@ -85,6 +85,7 @@ from benchmarks.tests import niah_es
 from benchmarks.tests import niah_es_1m
 from benchmarks.tests import niah_es_lite
 from benchmarks.tests import prompt_injection_es
+# Suites de noticias removidas (pendiente implementación según diseño aprobado)
 
 console = Console()
 

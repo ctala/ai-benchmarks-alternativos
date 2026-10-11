@@ -4,13 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark Septiembre 2026</title>
-<meta name="description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#26 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026</title>
+<meta name="description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="keywords" content="glm 5.2, zhipu glm 5.2, glm 5.2 benchmark, glm 5.2 score bajo, glm 5.2 vs opus 4.8, glm 5.2 seguridad, modelo chino ia 2026">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
-<meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Septiembre 2026">
-<meta property="og:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#26 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026">
+<meta property="og:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -19,8 +19,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GLM 5.2: score compuesto vs calidad pura en el benchmark">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Septiembre 2026">
-<meta name="twitter:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#26 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<meta name="twitter:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026">
+<meta name="twitter:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +31,15 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "GLM 5.2: por qué su score no refleja su calidad real | Benchmark Septiembre 2026",
-  "description": "GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#26 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.",
+  "headline": "GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026",
+  "description": "GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-06-29",
-  "dateModified": "2026-09-19",
+  "dateModified": "2026-10-11",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
@@ -60,7 +60,7 @@
       "name": "¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#26 de 107 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola."
+        "text": "Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#27 de 115 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola."
       }
     },
     {
@@ -144,11 +144,11 @@
     <h1>GLM 5.2: por qué su score global no le hace justicia</h1>
     <p class="lead">
       El benchmark le da a <strong>GLM 5.2</strong> un score compuesto de <strong>6.60</strong>,
-      pero su <strong>calidad pura es 8.36</strong> — <strong>#26 de 107</strong> del ranking por calidad.
+      pero su <strong>calidad pura es 8.36</strong> — <strong>#27 de 115</strong> del ranking por calidad.
       Acá explicamos por qué existe ese gap, dónde brilla el modelo y cuándo conviene usarlo.
     </p>
     <p class="meta">
-      Última actualización: 2026-09-19 ·
+      Última actualización: 2026-10-11 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -158,9 +158,9 @@
   <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
   Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
   costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong><!-- AUTO:total_models -->217<!-- /AUTO --> modelos catalogados</strong>,
-  <strong><!-- AUTO:tested_count -->167<!-- /AUTO --> testeados</strong> y
-  <strong><!-- AUTO:tests_marketing -->68,000+<!-- /AUTO --> tests reales</strong> evaluados por un
+  <p>Contamos con <strong><!-- AUTO:total_models -->227<!-- /AUTO --> modelos catalogados</strong>,
+  <strong><!-- AUTO:tested_count -->177<!-- /AUTO --> testeados</strong> y
+  <strong><!-- AUTO:tests_marketing -->70,000+<!-- /AUTO --> tests reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
@@ -288,7 +288,7 @@
   </section>
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?</strong></summary><p>Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#26 de 107 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola.</p></details>
+  <details><summary><strong>¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?</strong></summary><p>Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#27 de 115 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola.</p></details>
     <details><summary><strong>¿En qué destaca GLM 5.2?</strong></summary><p>En contexto largo (9.92), generación de código (9.18), razonamiento (9.15) y tareas largas multi-turno (8.83).</p></details>
     <details><summary><strong>¿GLM 5.2 o Claude Opus 4.8?</strong></summary><p>En calidad pura están cerca (8.36 contra 8.48). La diferencia está en seguridad (1.45 contra 8.65) y en precio. GLM 5.2 es viable si el modelo no queda expuesto a usuarios maliciosos.</p></details>
     <details><summary><strong>¿Sigue siendo la mejor opción de su familia?</strong></summary><p>No necesariamente: la familia GLM avanzó y hay versiones posteriores midiendo mejor. La tabla de esta página se regenera con cada lote, así que muestra el orden vigente.</p></details>

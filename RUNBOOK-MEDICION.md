@@ -219,6 +219,56 @@ Excepción: texto vacío + tool call **solo** es legítimo si el test DA tools.
 
 ---
 
+## Regla 4 — un lote se versiona MODELO A MODELO, en su propia rama
+
+Pedido por Cristian el 26-sep-2026: *«recuerda ir guardando cada resultado, input, output
+etc. e ir generando versiones cada vez que terminas uno (…) además de hacer push a la
+branch correspondiente hasta que terminamos estas mediciones»*. Y venía con la pregunta
+correcta —*«no sé si está documentado como parte del proceso»*—: **no lo estaba**. Los
+lotes anteriores fueron directo a `main` en un solo commit al final
+(`81e28562b data(lote): siete modelos nuevos`).
+
+**Por qué importa.** Un lote de 6 modelos son horas de medición, y la sesión SE MUERE: el
+14 y el 17-sep, Claude Code mató sus tareas en segundo plano al bajar la memoria del Mac.
+Sin commits intermedios no se sabe qué quedó completo y qué a medias, y un solo modelo
+dudoso obliga a auditar el lote entero en vez de un commit.
+
+**El procedimiento:**
+
+1. Rama del lote: `lote/<fecha>-<nombre>`. No se mide sobre `main`.
+2. **Commit del alta** (`models.py` + `THINKING_MODELS`) ANTES de medir: es lo que hace
+   reproducible el examen. Si un modelo resulta ser thinking y no estaba declarado, se ve
+   acá y no en 143 runs vacíos.
+3. Por cada modelo que TERMINA: `git add` de su `results/benchmark_*.json` y de sus
+   `results/responses/<key>/**`, y un commit con su nombre y su resultado en el mensaje.
+   El runner ya guarda la ENTRADA y la salida de cada run; lo que faltaba era versionarlo
+   a medida que ocurre.
+4. `git push` a la rama tras cada commit. Si la máquina se cae, el lote sobrevive.
+5. Sólo al final: `regenerate_all.py` → `qa.py` → merge a `main`.
+
+**Lo que NO se hace: regenerar artefactos entre modelo y modelo.** `models.json` se
+recalcula UNA vez, con el lote completo. Regenerarlo a mitad publica un ranking con medio
+lote adentro — y el ranking debe moverse una sola vez, no seis.
+
+**Y el instrumento, porque la regla nació sin uno** (26-sep-2026, el primer push del primer
+lote que la siguió). El paso 4 era **imposible**: el hook de pre-push corre
+`qa.py --pre-merge`, y un lote a medias lo pone en rojo por diseño en dos chequeos — los
+runs medidos todavía no están en `models.json` (paso 5) y el CHANGELOG no declara el bump
+(el release se arma al cerrar). Con eso, la regla nueva obligaba a `--no-verify` en cada
+push: aprender a ignorar el guardrail, que este repo considera peor que no tenerlo.
+
+Ahora `qa.py` distingue **rama de lote** de **main**: en `lote/*` degrada a informativos
+esos dos y sólo esos, nombrados en `TOLERADO_EN_LOTE` / `DESELECT_EN_LOTE` con su motivo,
+que imprime aunque estén en verde. En `main` no tolera nada — el mensaje del QA siempre
+dijo *«no mergees»*, y el hook lo había instalado como gate de *push*; mientras los lotes
+iban directo a main en un commit final eso era lo mismo. El deselect es de **un test
+nombrado**, no de la suite: degradar los 140 de `test_unitarios.py` para tolerar uno sería
+el boquete. Su sabotaje (`test_guardrails.py`) prueba las tres direcciones con un chequeo
+de mentira: que en `lote/*` un rojo no declarado siga frenando, que en `main` no se tolere
+ni lo declarado, y que los secretos no se toleren nunca.
+
+---
+
 ## Integridad del export — la regla que se rompió dos veces
 
 **El filtro de procedencia (`_misma_formula`) NO va en la calidad GLOBAL.** El dataset tiene
