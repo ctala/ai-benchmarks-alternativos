@@ -94,9 +94,17 @@ judge = create_judge(api_key=OPENROUTER_API_KEY, judge_model=args.judge_model, p
 
 # Procesar
 evaluated = 0
+skipped_ok = 0
 for idx, result in enumerate(data['results']):
-    if result.get('judge_evaluation') is not None:
-        continue
+    # Re-juzgar si tiene score=-1 (error previo), sino saltear si ya tiene judging exitoso
+    judge_eval = result.get('judge_evaluation')
+    if judge_eval is not None:
+        score = judge_eval.get('score_final', 0)
+        if score >= 0:  # Ya tiene judging exitoso
+            skipped_ok += 1
+            continue
+        # Si score=-1, volver a juzgar (era un error)
+        print(f'[{idx}] Re-juzgando test con error previo: {result.get("test_name", "N/A")}')
     
     response = result.get('response', result.get('response_preview', '')).strip()
     if not response:
@@ -114,6 +122,22 @@ for idx, result in enumerate(data['results']):
     
     try:
         eval_result = judge.evaluate(response, test_dict, suite_name)
+        
+        # ⚠️ DETECCIÓN DE ERROR 402 - DETENER INMEDIATAMENTE
+        if eval_result.get('score_final', 0) < 0:
+            error_msg = eval_result.get('error', '')
+            if '402' in error_msg or 'credit' in error_msg.lower() or 'insufficient' in error_msg.lower():
+                print(f'\n❌ ERROR 402 - SIN CRÉDITO EN OPENROUTER')
+                print(f'   Test: {test_name}')
+                print(f'   Error: {error_msg[:150]}')
+                print(f'\n🛑 DETENIENDO JUDGING - Evaluados: {evaluated}/{evaluated + len(data["results"]) - idx}')
+                print(f'   Tests exitosos: {evaluated}')
+                print(f'   Tests saltados (OK): {skipped_ok}')
+                print(f'   Pendientes: {len(data["results"]) - idx - skipped_ok - evaluated}')
+                print(f'\n💡 Agregar crédito a OpenRouter y volver a ejecutar este script.')
+                # NO guardar el resultado con error, salir inmediatamente
+                sys.exit(1)
+        
         result['judge_evaluation'] = eval_result
         
         # Re-calcular quality
@@ -130,9 +154,19 @@ for idx, result in enumerate(data['results']):
         print(f'[{evaluated}] {test_name[:50]:50s} ✅ ({score:.2f}/5)')
         
     except Exception as e:
+        error_str = str(e)
+        # Detectar error 402 en excepciones también
+        if '402' in error_str or 'credit' in error_str.lower() or 'insufficient' in error_str.lower():
+            print(f'\n❌ ERROR 402 CAPTURADO EN EXCEPCIÓN')
+            print(f'   Test: {test_name}')
+            print(f'   Error: {error_str[:150]}')
+            print(f'\n🛑 DETENIENDO JUDGING')
+            sys.exit(1)
         print(f'[{idx}] {test_name} ❌ {e}')
 
 print(f'\n✅ Evaluados: {evaluated} tests')
+print(f'   Saltados (ya OK): {skipped_ok} tests')
+print(f'   Total procesado: {evaluated + skipped_ok} tests')
 
 # Guardar en .tmp
 with open(tmp_path, 'w') as f:
