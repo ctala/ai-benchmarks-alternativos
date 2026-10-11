@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-10-10 · 115 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-10-11 · 115 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -27,8 +27,8 @@ _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
 - **Usá:** **MiMo V2.6 Flash** — ≈$1/mes (calidad en Contenido 8.96/10)
-- **Lo que te ahorrás:** Claude Fable 5.1 cuesta ≈$234/mes (**168.3× más**) por apenas +0.05 de calidad — dentro del margen de error.
-- _19 modelos empatan en calidad en este pilar._
+- **Lo que te ahorrás:** Claude Opus 5 Fast cuesta ≈$234/mes (**168.3× más**) por apenas +0.18 de calidad — dentro del margen de error.
+- _16 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
@@ -44,9 +44,9 @@ _Generación y corrección de código._
 _Análisis, decisiones, problemas con varios pasos._
 
 - **Usá:** **Ling 3.0 Flash VL** — ≈$0/mes (calidad en Razonamiento 8.38/10)
-- **Lo que te ahorrás:** Claude Fable 5.1 cuesta ≈$234/mes (**780.0× más**) por apenas -0.04 de calidad — dentro del margen de error.
+- **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas -0.05 de calidad — dentro del margen de error.
 - **Mejor open-source:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.33/10)
-- _23 modelos empatan en calidad en este pilar._
+- _20 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -64,7 +64,7 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 ## El resumen de todo el benchmark
 
-**57 modelos empatan en calidad** en la cima del ranking global.
+**53 modelos empatan en calidad** en la cima del ranking global.
 
 El más barato de ese grupo — **Ling 3.0 Flash VL** — sale **≈$0/mes**.
 El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.

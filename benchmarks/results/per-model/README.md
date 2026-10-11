@@ -13,7 +13,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 5 | [Mercury 2.5](inception_mercury-2_5.md) | 8.09 | 8.09 | 472 | 198/199 | [ver detalles](inception_mercury-2_5.md) |
 | 6 | [Devstral Small](mistralai_devstral-small.md) | 8.06 | 7.96 | 147 | 42/126 | [ver detalles](mistralai_devstral-small.md) |
 | 7 | [GPT-6 Luna Pro](openai_gpt-6-luna-pro.md) | 8.01 | 8.75 | 111 | 213/213 | [ver detalles](openai_gpt-6-luna-pro.md) |
-| 8 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 7.95 | 8.38 | 148 | 209/213 | [ver detalles](anthropic_claude-haiku-5_5.md) |
+| 8 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 7.95 | 8.00 | 148 | 209/426 | [ver detalles](anthropic_claude-haiku-5_5.md) |
 | 9 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.93 | 7.38 | 367 | 87/181 | [ver detalles](llama-3_1-8b-instant.md) |
 | 10 | [Llama 3.3 70B (Groq)](llama-3_3-70b-versatile.md) | 7.90 | 7.73 | 239 | 87/171 | [ver detalles](llama-3_3-70b-versatile.md) |
 | 11 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.89 | 8.16 | 107 | 306/307 | [ver detalles](qwen_qwen3_7-flash.md) |
@@ -139,7 +139,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 131 | [GLM 5 (NIM)](z-ai_glm5.md) | 7.05 | 8.21 | 7 | 88/99 | [ver detalles](z-ai_glm5.md) |
 | 132 | [KAT Coder Pro v2.5](kwaipilot_kat-coder-pro-v2_5.md) | 7.04 | 7.42 | 83 | 332/332 | [ver detalles](kwaipilot_kat-coder-pro-v2_5.md) |
 | 133 | [Qwen 3.5 35B](qwen_qwen3_5-35b-a3b.md) | 7.03 | 7.36 | 140 | 318/318 | [ver detalles](qwen_qwen3_5-35b-a3b.md) |
-| 134 | [Claude Sonnet 5.5](anthropic_claude-sonnet-5_5.md) | 7.03 | 8.00 | 92 | 209/213 | [ver detalles](anthropic_claude-sonnet-5_5.md) |
+| 134 | [Claude Sonnet 5.5](anthropic_claude-sonnet-5_5.md) | 7.03 | 7.72 | 92 | 209/213 | [ver detalles](anthropic_claude-sonnet-5_5.md) |
 | 135 | [GLM 5.1 (NIM)](z-ai_glm-5_1.md) | 7.02 | 8.16 | 12 | 101/101 | [ver detalles](z-ai_glm-5_1.md) |
 | 136 | [Kimi K2.6](moonshotai_kimi-k2_6.md) | 7.02 | 8.36 | 43 | 352/399 | [ver detalles](moonshotai_kimi-k2_6.md) |
 | 137 | [Claude Opus 4.6](anthropic_claude-opus-4-6.md) | 7.02 | 8.39 | 41 | 265/265 | [ver detalles](anthropic_claude-opus-4-6.md) |
@@ -147,7 +147,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 139 | [Claude Opus 4.7 (suscripción)](claude-opus-4-7.md) | 7.01 | 8.27 | 53 | 70/87 | [ver detalles](claude-opus-4-7.md) |
 | 140 | [GPT-4.1 Mini](gpt-4_1-mini.md) | 7.01 | 7.11 | 54 | 190/190 | [ver detalles](gpt-4_1-mini.md) |
 | 141 | [Qwen 3.5 (Ollama Cloud default)](qwen3_5_cloud.md) | 7.01 | 7.61 | 73 | 56/66 | [ver detalles](qwen3_5_cloud.md) |
-| 142 | [Claude Opus 5.5](anthropic_claude-opus-5_5.md) | 7.01 | 8.25 | 73 | 209/213 | [ver detalles](anthropic_claude-opus-5_5.md) |
+| 142 | [Claude Opus 5.5](anthropic_claude-opus-5_5.md) | 7.01 | 8.00 | 73 | 209/213 | [ver detalles](anthropic_claude-opus-5_5.md) |
 | 143 | [Step 3.5 Flash](stepfun_step-3_5-flash.md) | 6.99 | 7.05 | 57 | 1470/1472 | [ver detalles](stepfun_step-3_5-flash.md) |
 | 144 | [Gemini 3.6 Flash](google_gemini-3_6-flash.md) | 6.99 | 7.38 | 150 | 303/303 | [ver detalles](google_gemini-3_6-flash.md) |
 | 145 | [Qwen 3.6 27B base (DGX Spark)](qwen3_6_27b.md) | 6.98 | 8.45 | 10 | 4/4 | [ver detalles](qwen3_6_27b.md) |
@@ -170,7 +170,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 162 | [Mistral Magistral Small (NIM)](mistralai_magistral-small-2506.md) | 6.82 | 7.38 | 23 | 8/89 | [ver detalles](mistralai_magistral-small-2506.md) |
 | 163 | [Kimi K2](moonshotai_kimi-k2.md) | 6.81 | 7.39 | 31 | 207/229 | [ver detalles](moonshotai_kimi-k2.md) |
 | 164 | [Grok 4.20](x-ai_grok-4_20.md) | 6.79 | 7.05 | 63 | 170/170 | [ver detalles](x-ai_grok-4_20.md) |
-| 165 | [Claude Fable 5.1](anthropic_claude-fable-5_1.md) | 6.76 | 8.18 | 55 | 207/213 | [ver detalles](anthropic_claude-fable-5_1.md) |
+| 165 | [Claude Fable 5.1](anthropic_claude-fable-5_1.md) | 6.76 | 7.89 | 55 | 207/213 | [ver detalles](anthropic_claude-fable-5_1.md) |
 | 166 | [DeepSeek V4 Pro](deepseek_deepseek-v4-pro.md) | 6.75 | 7.50 | 47 | 223/245 | [ver detalles](deepseek_deepseek-v4-pro.md) |
 | 167 | [GLM-5.1](z-ai_glm-5_1.md) | 6.74 | 7.58 | 52 | 197/197 | [ver detalles](z-ai_glm-5_1.md) |
 | 168 | [Qwen 3.6 Plus](qwen_qwen3_6-plus.md) | 6.69 | 7.36 | 52 | 192/197 | [ver detalles](qwen_qwen3_6-plus.md) |

@@ -83,7 +83,7 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **15 de 115** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
@@ -92,7 +92,6 @@ Los **15 de 115** modelos que nadie domina: para el resto existe otro que es **a
 | **Qwen 3.7 Flash** | 8.49 | $0.20 | 29s | openrouter |
 | **Tencent Hy3** | 8.49 | $0.83 | 62s | openrouter |
 | **Gemma 4 31B** | 8.48 | $0.54 | 17s | openrouter |
-| **Claude Haiku 5.5** | 8.39 | $0.78 | 12s | openrouter |
 | **Gemma 4 26B MoE (3.8B activos)** | 8.34 | $0.48 | 25s | openrouter |
 | **Ling 3.0 Flash VL** | 8.33 | $0.10 | 21s | openrouter |
 | **GPT-6 Luna** | 8.27 | $0.78 | 11s | openrouter |
