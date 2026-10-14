@@ -139,6 +139,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", action="store_true",
                     help="crear el git tag faltante para la versión declarada")
+    ap.add_argument("--skip-tag-check", action="store_true",
+                    help="no verificar tag (para PRs antes de merge)")
     args = ap.parse_args()
 
     fuentes = _leer()
@@ -166,7 +168,7 @@ def main() -> int:
     tags = subprocess.run(["git", "tag", "--list"], cwd=ROOT,
                           capture_output=True, text=True).stdout.split()
     tiene_tag = any(_norm(t) == declarada for t in tags)
-    if declarada and not tiene_tag:
+    if declarada and not tiene_tag and not args.skip_tag_check:
         if args.tag:
             nombre = fuentes.get("CHANGELOG.md") or declarada
             subprocess.run(["git", "tag", "-a", nombre, "-m",
@@ -177,7 +179,7 @@ def main() -> int:
         else:
             fallos.append(f"V2 · no hay git tag para {declarada}. Sin tag no hay punto de "
                           f"retorno: no se puede reconstruir qué se publicó. "
-                          f"Correr con --tag para crearlo.")
+                          f"Correr con --tag para crearlo (o --skip-tag-check en PRs).")
 
     # ── V3 · el CHANGELOG la registra ───────────────────────────────────────
     if declarada and _norm(fuentes.get("CHANGELOG.md")) != declarada:
@@ -190,7 +192,7 @@ def main() -> int:
     # fallara. El daño no se veía: `git describe` saltaba a v4.12.0 y check_changelog
     # comparaba contra la versión equivocada. Un tag publicado NO se mueve —quien ya lo
     # bajó lo sigue esperando ahí—: se crea `vX.Y.Z+main` sobre el commit equivalente.
-    if declarada and tiene_tag:
+    if declarada and tiene_tag and not args.skip_tag_check:
         propios = [t for t in tags if _norm(t) == declarada]
         en_historia = [t for t in propios if subprocess.run(
             ["git", "merge-base", "--is-ancestor", t, "HEAD"], cwd=ROOT,
