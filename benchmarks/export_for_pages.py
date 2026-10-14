@@ -28,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks import elegibilidad
 from benchmarks import suites as suites_reg
 from benchmarks.config import MODELS as _CLOUD_MODELS
+from benchmarks.jubilacion import JUBILADOS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
 from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 # La lista de thinking models vive en el adapter (es donde se aplica). Se importa en vez
@@ -903,9 +904,9 @@ def build_export(recalibrate=False, scoring_version=None):
     # permanente. Con ellos adentro, business_audit marcaba 67% y NO PUNTUABA, aunque el
     # 80% de los que compiten ya la había rendido.
     _muertos = {
-        (c["id"], c.get("name", k))
-        for k, c in MODELS.items()
-        if c.get("retired") or c.get("provider_variant")
+        (c["id"], c.get("name", model_key))
+        for model_key, c in MODELS.items()
+        if model_key in JUBILADOS or c.get("retired") or c.get("provider_variant")
     }
     _nombres_muertos = {n for _, n in _muertos}
 
@@ -1090,7 +1091,8 @@ def build_export(recalibrate=False, scoring_version=None):
                 or any(model_id.startswith(pref) or pref in str(model_id)
                        for pref in _THINKING_PREFIXES)
             ),
-            "retired": bool(cfg.get("retired")),
+            # Check against jubilacion.py (165 retired models) first, then fall back to models.py
+            "retired": bool(cfg_key in JUBILADOS or cfg.get("retired")),
             # Cuándo, por qué y de quién fue la decisión. Hasta el 12-ago-2026 esto vivía
             # como comentario en models.py: ilegible para los generadores, así que el sitio
             # no decía nada y quien había integrado un modelo retirado no tenía cómo
@@ -1105,7 +1107,7 @@ def build_export(recalibrate=False, scoring_version=None):
             # queda fuera: su velocidad y su latencia son de esa infra, no del modelo, y
             # dejarla competir haría que un modelo se enfrente a sí mismo en dos puestos.
             # Sus datos NO se borran — alimentan la comparación entre proveedores.
-            "provider_variant": bool(cfg.get("provider_variant")),
+            "provider_variant": bool(cfg_key in JUBILADOS or cfg.get("provider_variant")),
             # Variante que es la ÚNICA ruta para medir una capacidad. Entra a las
             # páginas pSEO pese a no estar en el plano común, porque excluirla
             # publicaría "no puede" cuando lo cierto es "por esa ruta no".
@@ -1169,6 +1171,7 @@ def build_export(recalibrate=False, scoring_version=None):
                 # como datos en orden.
                 metrics.get("examen_completo") is True
                 and ":free" not in str(model_id)
+                and cfg_key not in JUBILADOS  # Check against jubilacion.py first
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
                 # Variante de mayor esfuerzo del MISMO modelo al MISMO precio: no es un

@@ -61,8 +61,8 @@ Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del 
 | 6 | **Qwen 3.7 Flash** | **8.49** | $0.20 | 29s | openrouter | 163 |
 | 7 | **Tencent Hy3** | **8.49** | $0.83 | 62s | openrouter | 143 |
 | 8 | **Fugu Max** | **8.49** | $9.60 | 35s | openrouter | 143 |
-| 9 | **Gemma 4 31B** | **8.48** | $0.54 | 17s | openrouter | 143 |
-| 10 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
+| 9 | **Claude Opus 4.8** | **8.48** | $39.00 | 20s | openrouter | 165 |
+| 10 | **Claude Opus 4.6** | **8.48** | $39.00 | 33s | openrouter | 213 |
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
@@ -83,7 +83,7 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **13 de 97** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
@@ -91,7 +91,6 @@ Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a
 | **GPT-5.6 Luna** | 8.52 | $1.86 | 11s | openrouter |
 | **Qwen 3.7 Flash** | 8.49 | $0.20 | 29s | openrouter |
 | **Tencent Hy3** | 8.49 | $0.83 | 62s | openrouter |
-| **Gemma 4 31B** | 8.48 | $0.54 | 17s | openrouter |
 | **Gemma 4 26B MoE (3.8B activos)** | 8.34 | $0.48 | 25s | openrouter |
 | **Ling 3.0 Flash VL** | 8.33 | $0.10 | 21s | openrouter |
 | **GPT-6 Luna** | 8.27 | $0.78 | 11s | openrouter |
@@ -102,7 +101,7 @@ Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a
 | **Gemini 3.1 Flash Lite** | 8.09 | $2.33 | 4s | openrouter |
 | **Ling 3.0 Flash** | 7.98 | $0.10 | 12s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 115 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 97 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 

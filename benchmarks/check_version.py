@@ -143,6 +143,15 @@ def main() -> int:
                     help="no verificar tag (para PRs antes de merge)")
     args = ap.parse_args()
 
+    # Auto-detect if we're on a non-main branch (skip tag check automatically)
+    current_branch = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=ROOT, capture_output=True, text=True
+    ).stdout.strip()
+    
+    # Skip tag check if on a non-main branch (unless --skip-tag-check was explicitly passed)
+    skip_tag = args.skip_tag_check or current_branch not in ("main", "master")
+
     fuentes = _leer()
     if not fuentes:
         print("✗ no encontré ninguna fuente de versión")
@@ -168,7 +177,7 @@ def main() -> int:
     tags = subprocess.run(["git", "tag", "--list"], cwd=ROOT,
                           capture_output=True, text=True).stdout.split()
     tiene_tag = any(_norm(t) == declarada for t in tags)
-    if declarada and not tiene_tag and not args.skip_tag_check:
+    if declarada and not tiene_tag and not skip_tag:
         if args.tag:
             nombre = fuentes.get("CHANGELOG.md") or declarada
             subprocess.run(["git", "tag", "-a", nombre, "-m",
@@ -192,7 +201,7 @@ def main() -> int:
     # fallara. El daño no se veía: `git describe` saltaba a v4.12.0 y check_changelog
     # comparaba contra la versión equivocada. Un tag publicado NO se mueve —quien ya lo
     # bajó lo sigue esperando ahí—: se crea `vX.Y.Z+main` sobre el commit equivalente.
-    if declarada and tiene_tag and not args.skip_tag_check:
+    if declarada and tiene_tag and not skip_tag:
         propios = [t for t in tags if _norm(t) == declarada]
         en_historia = [t for t in propios if subprocess.run(
             ["git", "merge-base", "--is-ancestor", t, "HEAD"], cwd=ROOT,
