@@ -600,6 +600,9 @@
    "mandatory": false,
    "supports_max_tokens": true
   },
+  "recursive/flint-v1.0:free": {
+   "mandatory": true
+  },
   "sakana/fugu-max": {
    "default_effort": "high",
    "default_enabled": true,
@@ -2350,6 +2353,19 @@
    "tool_choice",
    "tools",
    "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "recursive/flint-v1.0:free": [
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "reasoning",
+   "response_format",
+   "seed",
+   "stop",
+   "temperature",
+   "tools",
    "top_logprobs",
    "top_p"
   ],

@@ -98,6 +98,27 @@ MODELS = {
         "open_source": True,
     },
 
+    "flint-v1.0-free": {
+        # Recursive Superintelligence, 21-oct-2026. MoE 39.8B totales / ~2.5B activos,
+        # Apache 2.0, 262K, razonamiento + tool calls. Pensado para correr local (GB10,
+        # Mac); acá se mide por el endpoint gratis de OpenRouter ANTES de tocar el Spark
+        # (vLLM estable con soporte llega en 0.33.0). Benchmarks del autor sin reproducir:
+        # Terminal-Bench 2.1 54.9, SWE-bench Verified 74.2, IFBench 89.2. OpenRouter
+        # reporta 17.7 % de error en tool calls: la dimensión agéntica es la que importa.
+        # El endpoint gratis defiende con 429 -> correr con 1 runner (RUNBOOK).
+        "id": "recursive/flint-v1.0:free",
+        "name": "Flint 40B-A2.5B (free)",
+        "cost_input": 0.0,
+        "cost_output": 0.0,
+        "tier": "free",
+        "open_source": True,
+        "license": "Apache 2.0",
+        "publisher": "Recursive Superintelligence",
+        "weights_url": "https://huggingface.co/RecursiveSI/flint",
+        "context_window": 262144,
+        "notes": "MoE 40B-A2.5B abierto (21-oct-2026) hecho para correr local; medido gratis vía OpenRouter como paso previo a probarlo en el DGX Spark (receta flint-40b-a25b-nvfp4-v033 en el repo del Spark, bloqueada hasta vLLM 0.33.0).",
+    },
+
     # --- ULTRA ECONOMICOS (<$0.10/M) ---
     "mistral-nemo": {
         "id": "mistralai/mistral-nemo",
