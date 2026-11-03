@@ -198,3 +198,13 @@ Ningún chequeo baja de bloqueante a informativo.
   Action; nace en verde con 188 modelos y un modelo truncado fabricado frena el QA.
 - **Lo que sigue abierto:** `check_secretos` (H3, 1.7), las pruebas omitidas en CI (H5, 1.9) y
   las reglas de H6 que entran por 1.10.
+
+3-nov-2026, tareas 1.4 y 1.9:
+
+- **El instrumento del corte (1.4).** `check_cobertura` R8 pone en rojo un bloqueante bajado o
+  quitado sin fila en `DECISIONES.md`, un `--duro` perdido desde el tag y un conteo de pruebas
+  bajo el máximo desde el tag.
+- **H5 cerrado (1.9).** Las pruebas que no pueden correr se declaran omitidas y el resumen las
+  nombra. Las dos del blog corren sobre un fixture; quedan omitidas en CI `check_secretos` y
+  `generate_blog_tablas`.
+- **Lo que sigue abierto:** `check_secretos` (H3, 1.7) y las reglas de H6 que entran por 1.10.

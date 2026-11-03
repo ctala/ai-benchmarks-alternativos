@@ -5,6 +5,14 @@
 
 ## [No publicado]
 
+- **Lo que el CI no prueba, se ve (3-nov-2026, tarea 1.9 de corte-v5).** Una prueba de
+  sabotaje que no puede correr devuelve «omitida»: sale con ⏭️, no se suma a las verificadas y
+  el resumen nombra cuáles. `_t_blog` y `_t_blog_datos` dejan de depender del blog clonado y
+  corren sobre un blog desechable con `--blog`, así que en CI sí prueban. En un worktree sin
+  `.env` ni blog el resumen dice 50 verificadas y 2 omitidas (`check_secretos` y
+  `generate_blog_tablas`); antes eran «todas». El resumen tiene su prueba: si suma las omitidas
+  a las verificadas, falla (52 pruebas).
+
 - **«Ningún guardrail se debilita» tiene instrumento: `check_cobertura` R8 (3-nov-2026, tarea
   1.4 de corte-v5).** Contra el último tag pone en rojo a un bloqueante que pasa a informativo
   o sale de `qa.py` sin fila en `DECISIONES.md` que nombre su script, y a un chequeo que pierde

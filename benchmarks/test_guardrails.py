@@ -42,7 +42,19 @@ if not Path(PY).exists():
     PY = sys.executable
 
 VERBOSE = "-v" in sys.argv
-resultados: list[tuple[str, bool, str]] = []
+resultados: list[tuple[str, str, str]] = []   # (nombre, "ok" | "falla" | "omitida", detalle)
+
+
+class Omitida:
+    """Lo que devuelve una prueba que NO pudo correr (sin `.env`, sin el blog).
+
+    3-nov-2026 (corte-v5 1.9). Esas pruebas devolvían `True`: en el CI pasaban sin haber
+    probado nada y el resumen las sumaba a «los N guardrails fallan cuando deben»
+    (AUDITORIA-GUARDRAILS-2026-11, H5). Una omitida no falla, pero tampoco cuenta como
+    verificada: se imprime con ⏭️ y el resumen dice cuántas fueron.
+    """
+    def __init__(self, motivo: str):
+        self.motivo = motivo
 
 
 def _correr(script: str, *args) -> int:
@@ -94,7 +106,10 @@ def prueba(nombre: str, detalle: str):
             ok, detalle_final = False, f"{detalle} — excepción: {e}"
         else:
             detalle_final = detalle
-        resultados.append((nombre, bool(ok), detalle_final))
+        if isinstance(ok, Omitida):
+            resultados.append((nombre, "omitida", f"{detalle_final} — OMITIDA: {ok.motivo}"))
+        else:
+            resultados.append((nombre, "ok" if ok else "falla", detalle_final))
         return fn
     return deco
 
@@ -487,7 +502,7 @@ def _t_secretos():
     from check_secretos import valores_del_env
     env = valores_del_env()
     if not env:
-        return True  # sin .env en esta máquina no hay nada que probar (CI)
+        return Omitida("sin .env en esta máquina no hay un valor real que plantar")
     valor = next(iter(env.values()))
     tmp = ROOT / "_prueba_secreto.md"
     try:
@@ -502,12 +517,12 @@ def _t_secretos():
 
 @prueba("check_blog_consistency", "un post del blog citando un score que ya no existe")
 def _t_blog():
-    # El blog es OTRO repo, así que puede no estar clonado en esta máquina (CI). Sin él
-    # no hay nada que probar y la prueba pasa: acusar en falso sería peor.
-    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    # 3-nov-2026 (corte-v5 1.9): sobre un blog DESECHABLE (`--blog`), no sobre el real. Antes,
+    # sin el blog clonado (CI) devolvía True sin probar nada. El estado del blog real lo mira
+    # el propio `check_blog_consistency` en el QA; esta prueba mira que el detector cace.
+    blog = Path(tempfile.mkdtemp())
     posts = blog / "src" / "content" / "blog"
-    if not posts.is_dir():
-        return True
+    posts.mkdir(parents=True)
     # El caso real de julio: ocho posts en producción con claims muertos, uno coronando
     # como «#1 de mi benchmark» a un modelo que estaba #9.
     #
@@ -525,41 +540,40 @@ def _t_blog():
     posicion_falsa = len(rankeados)      # decir que es el último: siempre lejos del real
     tmp = posts / "_prueba_guardrail_blog.md"
     try:
-        if _correr("check_blog_consistency.py") != 0:
+        if _correr("check_blog_consistency.py", "--blog", str(blog)) != 0:
             raise AssertionError(
-                "el blog ya publica cifras caducadas: el saboteo no probaría nada")
+                "el blog vacío ya da rojo: el saboteo no probaría nada")
         tmp.write_text(
             f"---\ntitle: prueba\nseoTitle: {modelo} es el #{posicion_falsa} de mi benchmark\n"
             "description: prueba\npubDate: 2026-08-17\n---\n\n"
             f"En mi benchmark, {modelo} aparece hoy como el #{posicion_falsa}.\n",
             encoding="utf-8")
-        return _correr("check_blog_consistency.py") != 0
+        return _correr("check_blog_consistency.py", "--blog", str(blog)) != 0
     finally:
-        tmp.unlink(missing_ok=True)
+        shutil.rmtree(blog, ignore_errors=True)
 
 
 @prueba("generate_blog_datos", "un dato marcado en un post con el valor viejo")
 def _t_blog_datos():
-    # El blog es OTRO repo y puede no estar clonado (CI): sin él no hay nada que probar.
-    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    # Sobre un blog DESECHABLE (`--blog`), como `_t_blog`: corre también en CI (corte-v5 1.9).
+    blog = Path(tempfile.mkdtemp())
     posts = blog / "src" / "content" / "blog"
-    if not posts.is_dir():
-        return True
+    posts.mkdir(parents=True)
     datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
     key = next(m["key"] for m in datos["models"] if m.get("ranked"))
     tmp = posts / "_prueba_guardrail_datos.md"
     try:
         # Control en verde primero — la lección del 16-sep: sobre un mundo ya sucio, un
         # saboteo no prueba nada y la prueba pasa por el motivo equivocado.
-        if _correr("generate_blog_datos.py", "--check") != 0:
-            raise AssertionError("ya había marcadores con valores viejos: el saboteo no probaría nada")
+        if _correr("generate_blog_datos.py", "--check", "--blog", str(blog)) != 0:
+            raise AssertionError("el blog vacío ya da rojo: el saboteo no probaría nada")
         tmp.write_text(
             "---\ntitle: prueba\ndescription: prueba\npubDate: 2026-09-16\n---\n\n"
             f"Calidad de prueba: <!-- D:{key}:calidad -->0,00<!-- /D -->\n",
             encoding="utf-8")
-        return _correr("generate_blog_datos.py", "--check") != 0
+        return _correr("generate_blog_datos.py", "--check", "--blog", str(blog)) != 0
     finally:
-        tmp.unlink(missing_ok=True)
+        shutil.rmtree(blog, ignore_errors=True)
 
 
 @prueba("check_changelog", "cambios sin su entrada, y un bump que no alcanza")
@@ -906,7 +920,7 @@ def _t_blog_tablas():
     from generate_blog_tablas import DEFAULT_BLOG, POST
     real = DEFAULT_BLOG / POST
     if not real.exists():
-        return True  # sin blog no hay post que copiar (CI): lo marca la tarea 1.9
+        return Omitida("sin el repo del blog no hay post pilar que copiar")
     tmp = Path(tempfile.mkdtemp())
     try:
         copia = tmp / POST
@@ -1108,19 +1122,43 @@ def _t_specs_sin_decisiones():
     return control == 0 and roto != 0
 
 
+def resumen(res: list[tuple[str, str, str]]) -> tuple[list[str], int]:
+    """Las líneas del reporte y el exit code. Aparte de `main` para que se pueda probar."""
+    marcas = {"ok": "✅", "falla": "❌", "omitida": "⏭️ "}
+    out = [f"  {marcas[e]} {n:<22} {d}" for n, e, d in res]
+    fallan = [n for n, e, _ in res if e == "falla"]
+    omitidas = [n for n, e, _ in res if e == "omitida"]
+    verificadas = len(res) - len(omitidas)
+    out.append("")
+    if fallan:
+        out.append(f"  ❌ {len(fallan)} guardrail(s) NO cazan lo que dicen cazar: {', '.join(fallan)}")
+        out.append("     Un guardrail que no falla ante su propio fallo es una promesa, no un control.")
+        code = 1
+    else:
+        out.append(f"  ✅ los {verificadas} guardrails verificados fallan cuando deben.")
+        code = 0
+    if omitidas:
+        out.append(f"  ⏭️  {len(omitidas)} omitida(s) en esta máquina, NO verificadas: {', '.join(omitidas)}")
+    return out, code
+
+
+@prueba("test_guardrails · omitidas", "una prueba omitida que se cuenta como verificada")
+def _t_omitidas():
+    # corte-v5 1.9. El resumen es lo que lee quien mira el CI: si una omitida se suma a las
+    # verificadas, el CI vuelve a decir «todo probado» sin `.env` ni blog.
+    lineas, code = resumen([("a", "ok", "x"), ("b", "omitida", "x — OMITIDA: sin blog")])
+    texto = "\n".join(lineas)
+    if code != 0 or "los 1 guardrails verificados" not in texto or "1 omitida(s)" not in texto:
+        return False
+    _, code = resumen([("a", "falla", "x"), ("b", "omitida", "x")])
+    return code != 0
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
-    for nombre, ok, detalle in resultados:
-        marca = "✅" if ok else "❌"
-        print(f"  {marca} {nombre:<22} {detalle}")
-    fallan = [n for n, ok, _ in resultados if not ok]
-    print()
-    if fallan:
-        print(f"  ❌ {len(fallan)} guardrail(s) NO cazan lo que dicen cazar: {', '.join(fallan)}")
-        print("     Un guardrail que no falla ante su propio fallo es una promesa, no un control.")
-        return 1
-    print(f"  ✅ los {len(resultados)} guardrails fallan cuando deben.")
-    return 0
+    lineas, code = resumen(resultados)
+    print("\n".join(lineas))
+    return code
 
 
 if __name__ == "__main__":
