@@ -267,19 +267,38 @@ def _t_ganadores():
 def _t_release():
     # El caso real: cifras escritas a mano dentro de un generador data-driven. El PDF
     # publicaba «GPT-OSS 120B · 8.15» cuando el valor vivo era 8,03, y lo reimprimía
-    # cada mes. Se prueba cambiando una nota del datasheet por la de otro modelo —7,18
-    # existe 15 veces en el JSON, así que sólo lo caza quien verifica la PAREJA.
+    # cada mes. Se prueba cambiando la nota de un modelo por otra: una cifra suelta
+    # existe decenas de veces en el JSON, así que sólo lo caza quien verifica la PAREJA.
+    #
+    # 3-nov-2026. La v1 exigía que existiera el DATASHEET del mes en curso y buscaba una
+    # pareja fija («Qwen 3.8 Flash | 9,85»). Entre el día 1 y el release de cada mes no
+    # hay datasheet, y cuando lo hay la pareja ya no está: la prueba daba ROJO sin que
+    # nada estuviera roto, y hasta entonces había dado verde sin probar nada. Ahora, si
+    # no hay datasheet del mes, se fabrica uno mínimo y correcto desde models.json; en
+    # los dos casos se exige control VERDE y recién entonces se sabotea la primera fila.
     from datetime import date
+    import re as _re
+    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    R = sorted([m for m in d["models"] if m.get("ranked")],
+               key=lambda x: -(x.get("quality_avg") or 0))
     ds = ROOT / f"DATASHEET_{date.today().strftime('%Y-%m')}.md"
-    if not ds.exists():
-        return False
+    FILA = _re.compile(r"^(\| \*\*([^*|]+)\*\* \| \**)([5-9][.,]\d{2})\b", _re.M)
     with Sabotaje(ds):
+        if not ds.exists():
+            ds.write_text(f"# Datasheet de prueba: {len(R)} modelos rankeados\n\n"
+                          f"| Modelo | Nota |\n|---|---|\n"
+                          f"| **{R[0]['name']}** | {R[0]['quality_avg']:.2f} |\n", encoding="utf-8")
+        if _correr("check_release_mensual.py") != 0:
+            return False  # control: el datasheet íntegro tiene que pasar
         t = ds.read_text(encoding="utf-8")
-        import re as _re
-        t2 = _re.sub(r"\| \*\*Qwen 3\.8 Flash\*\* \| 9,85", "| **Qwen 3.8 Flash** | 7,18", t, count=1)
-        if t2 == t:
+        m = FILA.search(t)
+        if not m:
             return False
-        ds.write_text(t2, encoding="utf-8")
+        # una cifra que NO sea de ningún modelo cuyo nombre esté en esa celda
+        fam = [x for x in d["models"] if x["name"] in m.group(2)]
+        usadas = {f"{float(v):.2f}" for x in fam for v in _re.findall(r"-?\d+\.\d+", json.dumps(x))}
+        otra = next(c for c in ("5.01", "5.02", "5.03", "5.04") if c not in usadas)
+        ds.write_text(t[:m.start(3)] + otra + t[m.end(3):], encoding="utf-8")
         return _correr("check_release_mensual.py") != 0
 
 

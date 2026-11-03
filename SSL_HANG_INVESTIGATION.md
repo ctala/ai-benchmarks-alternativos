@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 # Investigación: Cuelgue SSL en Qwen 3.8 Omni Flash y Bonsai 2 27B
 
 **Fecha:** 10 octubre 2026  

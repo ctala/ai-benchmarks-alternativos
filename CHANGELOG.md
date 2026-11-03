@@ -5,6 +5,22 @@
 
 ## [No publicado]
 
+- **La prueba de `check_release_mensual` daba rojo los primeros días de cada mes sin que nada
+  estuviera roto (3-nov-2026).** Exigía el `DATASHEET_<mes>.md` del mes en curso y una pareja fija
+  («Qwen 3.8 Flash | 9,85») que ya no existía en ningún datasheet: entre el día 1 y el release no
+  había archivo, y con archivo tampoco cazaba. Ahora, si no hay datasheet del mes, fabrica uno
+  mínimo y correcto desde `models.json`, exige control verde y recién entonces sabotea la primera
+  fila con una cifra que no es de ese modelo. Misma familia que el arreglo de `_t_docs` del 16-ago:
+  una prueba que depende del estado del repo da verde sin probar nada. De paso, cuatro docs sin
+  estado declarado (`OCASIONES.md` → borrador; los tres del agente de la nube del 10-oct →
+  snapshot) tenían rojo a `check_docs` incluso con tolerancia de un siglo.
+- **Se borran `judge_posthoc.py`, `judge_posthoc_simple.py` y `judge_final.py` (3-nov-2026).**
+  Eran el camino con el que el agente de la nube juzgó la familia Claude 5.5 después de medirla,
+  por fuera del runner (`check_caminos` en rojo desde el 11-oct). Un script de un solo uso que
+  salta el canario, el presupuesto y la procedencia no se sanciona: se borra. Los runs que
+  produjo siguen en disco y rankeados; la simulación sin juez muestra que ese juicio es lo que
+  hunde a los cuatro entre 34 y 49 puestos. Cuando se decida el corte sin juez, se re-juzgan
+  por el runner o dejan de necesitar juez.
 - **Sacar al juez del índice se simuló antes de decidirlo, y el juez no es lo que falta
   (3-nov-2026).** Cristian abrió la puerta a cambiar el cómo —*"no me importa dejar de hacer
   suites si estandarizamos"*— con la condición de que el qué (emprendedores hispanohablantes)

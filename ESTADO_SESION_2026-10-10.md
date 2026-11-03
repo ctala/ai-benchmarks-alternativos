@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 # Estado de Sesión: Cierre Lote Octubre 2026
 
 **Fecha**: 10 de octubre de 2026  

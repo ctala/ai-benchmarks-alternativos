@@ -1,3 +1,4 @@
+<!-- doc: snapshot -->
 # Estado de Sesión - 10 Octubre 2026
 
 ## Resumen Ejecutivo

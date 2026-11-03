@@ -1,4 +1,5 @@
-<!-- doc: borrador | creado: 2026-11-03 | pendiente de corrección de Cristian -->
+<!-- doc: borrador -->
+<!-- creado: 2026-11-03 | pendiente de corrección de Cristian -->
 # Ocasiones — la unidad en la que un emprendedor decide qué modelo usar
 
 > **Borrador para corregir, no decisión.** Sale de la conversación del 3-nov-2026: el cómo se
@@ -80,6 +81,13 @@ Resumir una reunión y sacar los pendientes, auditar un P&L, extraer y verificar
 ### 6. Programar mi producto
 Funcionalidades, bugs y refactors en el código propio, con un agente de código.
 
+> **Duda de Cristian (3-nov-2026):** *«siempre probamos coding de manera sencilla, no sé si
+> deberíamos»*. Tiene razón en el diagnóstico: `code_generation` son 4 tests de una sola llamada
+> puntuados por el juez; miden «escribe un fragmento», no «programa». Opción a decidir: que esta
+> ocasión tome su evidencia **solo** del banco de código real (Harbor, repos propios, tests
+> ocultos, agente + modelo) y `code_generation` se jubile del titular en vez de convertirse.
+> `structured_output` y `string_precision` se quedan, pero bajo «Automatizar», que es lo que miden.
+
 - **Demanda:** «producto / MVP» es chico en el survey (1,7 %) pero es donde Cristian gasta US$730 al mes en suscripciones y donde más preguntan los miembros técnicos.
 - **Verificable hoy:** `string_precision` (σ 1,11) y, sobre todo, el banco de código real del Spark: 30 tareas de commits reales de Flip (TypeScript, NestJS, Nuxt) y CTM (PHP), tests ocultos, repos privados, es decir **sin contaminación**, lo que SWE-bench Pro consigue comprando repos comerciales.
 - **Convertir:** `code_generation` (hoy juez): checks que ejecutan el código contra casos, no que lo leen.
@@ -129,4 +137,5 @@ el juez sale del titular y caduca lo publicado.
 1. ¿Siete ocasiones o se funden «Vender» y «Responder a clientes» en una sola de relación comercial?
 2. «Educación y cursos» era la categoría 8 de `CASOS_DE_USO`. ¿Entra como ocasión propia o queda dentro de «Escribir para publicar»?
 3. ¿Qué volumen típico declaras por ocasión para que el precio salga en US$ al mes sin que el usuario lo calcule? (Ejemplo: Escribir 100 piezas al mes; Automatizar 3.000 ejecuciones.)
-4. Para «Automatizar», ¿las apps reales del banco son NocoDB, Sheets y Gmail, o prefieres empezar solo con NocoDB, que es el destino de 86 de tus flujos?
+4. ¿«Programar» se mide solo con el banco de código real y `code_generation` se jubila del titular? (ver la nota en la ocasión 6)
+5. Para «Automatizar», ¿las apps reales del banco son NocoDB, Sheets y Gmail, o prefieres empezar solo con NocoDB, que es el destino de 86 de tus flujos?
