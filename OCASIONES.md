@@ -147,3 +147,28 @@ el juez sale del titular y caduca lo publicado.
    NocoDB es copia de otro benchmark o aporte propio. Ver «Automatizar: qué se copia y qué es nuestro».
 
 **Bump:** el corte es **mayor (v5.0.0)**, decidido el 3-nov-2026.
+
+## Automatizar: qué se copia y qué es nuestro (3-nov-2026)
+
+**Lo que se copia es el método, no el stack.** Toolathlon (HKUST, arXiv 2510.25726) mide 108 tareas sobre
+32 apps y 604 herramientas: estado inicial realista, el agente ejecuta, y un script determinístico por tarea
+compara el **estado final de la app** contra el esperado. Mezcla servicios remotos (Google Sheets, Notion)
+con apps open source en contenedor (poste.io como correo, Canvas LMS, WooCommerce, Kubernetes). El mejor
+modelo ronda 39 % pass@1 (cifra de segunda mano).
+
+**NocoDB no está en Toolathlon ni en ningún benchmark público encontrado.** Es aporte propio: el destino de
+86 de los 166 flujos de n8n de Cristian. Lo que nadie más mide es «el stack que usa un founder LATAM con
+n8n», en español, con datos de acá (RUT, CLP/MXN, nombres).
+
+**Costo de sumar las otras dos apps:**
+- *Correo:* Gmail real es impracticable (OAuth, correos reales, limpieza entre corridas); Toolathlon mismo lo
+  reemplazó por poste.io. Hacemos igual: servidor de correo en contenedor con la misma superficie de
+  herramientas (buscar, leer, responder, etiquetar). Una sesión.
+- *Sheets:* Toolathlon lo usa real y remoto. Para nosotros: proyecto de Google Cloud, cuenta de servicio, una
+  hoja por tarea que se resetea por corrida, cuota de 300 req/min. Una a dos sesiones. El riesgo es
+  credenciales y limpieza, no el modelo.
+
+**Orden propuesto:** NocoDB (sesión 1) → correo en contenedor (sesión 2) → Sheets real (sesión 3). Al final,
+una tarea cruzada que es literalmente un flujo de Cristian: llega un lead por correo → se registra en NocoDB
+→ se anota en la hoja. Esa es la tarea larga al estilo Toolathlon. Y el correo trae la trampa que ningún
+benchmark de agentes mide en español: instrucciones escondidas en el mensaje (`prompt_injection_es`).
