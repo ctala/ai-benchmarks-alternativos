@@ -8,7 +8,7 @@
 
 ## 1. Auditoría de confianza de los guardrails (gate: nada de v5 avanza sin la tabla leída)
 
-- [ ] 1.1 Tabla de los 20 chequeos de `qa.py`: qué fallo dice cazar, si su prueba de sabotaje inyecta ese fallo o un sustituto cómodo, y si alguna vez cazó algo real según el CHANGELOG. Veredicto por fila: confiable, verde vacío o sin prueba. Archivo: `AUDITORIA-GUARDRAILS-2026-11.md` (snapshot). Verificar: 20 filas, ninguna sin veredicto.
+- [x] 1.1 Tabla de los 21 chequeos `check_*` de `qa.py` (20 más `check_specs`, que entró el 3-nov): qué fallo dice cazar, si su prueba de sabotaje inyecta ese fallo o un sustituto cómodo, y si alguna vez cazó algo real según el CHANGELOG. Veredicto por fila: confiable, verde vacío o sin prueba. Archivo: `AUDITORIA-GUARDRAILS-2026-11.md` (snapshot). Verificar: 21 filas, ninguna sin veredicto.
 - [ ] 1.2 Los 3 sin prueba (`check_agentico_publicado`, `check_ci`, `check_presupuesto`) reciben prueba de sabotaje o una fila que explique por qué no la pueden tener. Verificar: `check_cobertura.py` R5 sigue verde y el conteo de `@prueba` sube.
 - [ ] 1.3 Cada verde vacío se arregla igual que `check_release_mensual`: mundo roto fabricado desde el dato real, control verde primero. Verificar: la prueba falla si se le quita el sabotaje.
 - [ ] 1.4 Instrumento para «ningún guardrail se debilita»: el conteo de `@prueba` no baja y ningún chequeo pasa de bloqueante a informativo sin fila en `DECISIONES.md`. Antes, mirar si `check_cobertura.py` ya lo cubre. Verificar: prueba de sabotaje del instrumento.

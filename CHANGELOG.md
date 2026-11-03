@@ -5,11 +5,23 @@
 
 ## [No publicado]
 
+- **Auditoría de confianza de los 21 guardrails del QA (3-nov-2026, tarea 1.1 de corte-v5).**
+  `AUDITORIA-GUARDRAILS-2026-11.md`: 16 confiables, 2 verdes vacíos y 3 sin prueba. Las 41
+  pruebas de sabotaje pasan y los 21 chequeos dan verde sobre el repo limpio, así que ninguna
+  pasa gracias a la deuda. Lo que la tabla destapa está en otro lado: `check_caminos` cazó el
+  `judge_posthoc.py` del 11-oct, pero `main` siguió 23 días en rojo porque el merge fue en GitHub
+  y `check_ci` cuenta corridas, no días. `check_cobertura` R5 no mira `qa.py`, y por eso los 3 sin
+  prueba conviven con su verde. `check_secretos` da exit 0 con una clave hex de 64 como la de R2,
+  el caso que lo fundó. Además, 20 reglas internas no tienen sabotaje propio. No se arregla nada
+  todavía: los arreglos (1.2-1.4) esperan el ok de Cristian sobre la tabla.
+- La cifra de la tarea cero pasa de 20 a 21 chequeos en `tasks.md`, `proposal.md`,
+  `DECISIONES.md` y esta entrada: entró `check_specs`.
+
 - **Arranca el corte v5.0.0 en la rama `corte/v5`, con OpenSpec dentro del benchmark y un
   guardrail que no lo deja en el aire (3-nov-2026).** Cristian: *«me da miedo que con este cambio
   grande sin usar openspec nos desordenemos, y los guardrails dejen de funcionar»* y *«tampoco
   confío en los guardrails que ya tenemos»*. Lo segundo tenía evidencia del mismo día (el verde
-  vacío de `check_release_mensual`), así que la tarea cero del corte es auditar los 20 chequeos
+  vacío de `check_release_mensual`), así que la tarea cero del corte es auditar los 21 chequeos
   antes de tocar v5. OpenSpec entra revirtiendo la fila del 16-sep con la condición que esa fila
   protegía: `DECISIONES.md` sigue siendo la autoridad del porqué y el change solo apunta
   (`check_specs` S6). `check_specs.py` (S1-S6, bloqueante, nació en verde) exige un solo change
