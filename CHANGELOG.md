@@ -5,6 +5,15 @@
 
 ## [No publicado]
 
+- **El bump de versión y las reglas de los cortes por eje tienen quien las rompa (3-nov-2026,
+  tarea 1.10 de corte-v5).** `check_changelog` C2: una suite tocada y un salto declarado PATCH
+  da rojo con `--nivel`, verde con MINOR y verde sin el flag. `check_cortes`: C1 (un eje que
+  decide sin su corte, que avisa sin frenar: se prueba el aviso), C3 (un corte agéntico con
+  un modelo no apto), C4 (la segunda tabla contra el criterio medido) y C5 (un veredicto que
+  corona a otro que la tabla). La prueba vieja de C2 de cortes suma control verde. Apagando
+  cada regla falla exactamente su prueba (57 pruebas). Las otras 14 reglas de H6 quedan como
+  deuda nombrada.
+
 - **Lo que el CI no prueba, se ve (3-nov-2026, tarea 1.9 de corte-v5).** Una prueba de
   sabotaje que no puede correr devuelve «omitida»: sale con ⏭️, no se suma a las verificadas y
   el resumen nombra cuáles. `_t_blog` y `_t_blog_datos` dejan de depender del blog clonado y

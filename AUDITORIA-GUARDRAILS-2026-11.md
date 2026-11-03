@@ -207,4 +207,8 @@ Ningún chequeo baja de bloqueante a informativo.
 - **H5 cerrado (1.9).** Las pruebas que no pueden correr se declaran omitidas y el resumen las
   nombra. Las dos del blog corren sobre un fixture; quedan omitidas en CI `check_secretos` y
   `generate_blog_tablas`.
-- **Lo que sigue abierto:** `check_secretos` (H3, 1.7) y las reglas de H6 que entran por 1.10.
+- **H6, la parte acordada (1.10).** `check_changelog` C2 y `check_cortes` C1, C3, C4 y C5
+  tienen sabotaje; cada regla apagada hace fallar solo su prueba. R5 ya lo tenía (1.1b, 1.12). Las otras 14 siguen como
+  deuda nombrada: `check_suites` S1, S3-S5; `check_calculator` C2-C4; `check_cobertura` R1-R4
+  y R7; `check_ganadores` G1; `check_fichas_alcanzables` F1.
+- **Lo que sigue abierto:** `check_secretos` (H3, 1.7).

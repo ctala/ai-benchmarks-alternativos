@@ -256,11 +256,73 @@ def _t_cortes():
     pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
     if not pg.exists():
         return False
+    if _correr("check_cortes.py") != 0:
+        return False  # control verde (corte-v5 1.10: no lo tenía)
     with Sabotaje(pg):
         import re as _re
         pg.write_text(_re.sub(r"(<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?)[^<]+",
                               r"\1Modelo Inventado", pg.read_text(encoding="utf-8"), count=1),
                       encoding="utf-8")
+        return _correr("check_cortes.py") != 0
+
+
+# corte-v5 1.10: las otras cuatro reglas de check_cortes, cada una con su sabotaje. Hasta
+# acá solo C2 tenía prueba (AUDITORIA-GUARDRAILS-2026-11, H6).
+def _cortes_cfg():
+    sys.path.insert(0, str(ROOT))
+    from benchmarks.generate_rankings import RANKINGS
+    return RANKINGS
+
+
+@prueba("check_cortes C3", "un corte agéntico que recomienda a un modelo que no corre en un agente")
+def _t_cortes_c3():
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    no_apto = next((m["name"] for m in datos["models"] if m.get("sirve_para_agentes") is False), None)
+    if not no_apto:
+        raise AssertionError("ningún modelo marcado como no apto: no hay con qué sabotear")
+    cfg = next(c for c in _cortes_cfg() if c.get("criterion") == "suite"
+               and c["suite"] in {"tool_calling", "agent_long_horizon", "policy_adherence"})
+    pg = ROOT / "docs" / cfg["slug"] / "index.html"
+    if _correr("check_cortes.py") != 0:
+        return False
+    with Sabotaje(pg):
+        t = pg.read_text(encoding="utf-8")
+        roto = t.replace("<tr><td>1</td>", f"<tr><td>99</td><td>{no_apto}</td></tr><tr><td>1</td>", 1)
+        if roto == t:
+            raise AssertionError(f"{cfg['slug']} no tiene fila #1: el sabotaje no tocaría nada")
+        pg.write_text(roto, encoding="utf-8")
+        return _correr("check_cortes.py") != 0
+
+
+@prueba("check_cortes C4", "una página con la segunda tabla puesta (o quitada) contra lo que dice el dato")
+def _t_cortes_c4():
+    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    if _correr("check_cortes.py") != 0:
+        return False
+    marca = "La misma capacidad, por lo que cuesta"
+    with Sabotaje(pg):
+        t = pg.read_text(encoding="utf-8")
+        roto = (t.replace(marca, "Otra tabla") if marca in t
+                else t.replace("</body>", f"<h2>{marca}</h2></body>", 1))
+        if roto == t:
+            raise AssertionError("la página no cambió: el sabotaje no tocaría nada")
+        pg.write_text(roto, encoding="utf-8")
+        return _correr("check_cortes.py") != 0
+
+
+@prueba("check_cortes C5", "un veredicto que corona a uno y una tabla que pone primero a otro")
+def _t_cortes_c5():
+    pg = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
+    if _correr("check_cortes.py") != 0:
+        return False
+    import re as _re
+    with Sabotaje(pg):
+        t = pg.read_text(encoding="utf-8")
+        roto = _re.sub(r'(<p class="verdict-lead">).*?(</p>)',
+                       r"\1Modelo Inventado encabeza la tabla en calidad.\2", t, count=1, flags=_re.S)
+        if roto == t:
+            raise AssertionError("la página ya no tiene `verdict-lead`: el sabotaje no tocaría nada")
+        pg.write_text(roto, encoding="utf-8")
         return _correr("check_cortes.py") != 0
 
 
@@ -758,6 +820,9 @@ def _t_effort_parametros():
 # saboteaba (AUDITORIA-GUARDRAILS-2026-11). Cada prueba de abajo arranca con control VERDE
 # sobre un mundo fabricado, y recién entonces lo rompe.
 
+_salida_en_proceso = ""
+
+
 def _en_proceso(archivo: str, argv: list[str], **reemplazos) -> int:
     """Corre el `main()` de un chequeo dentro de este proceso, con funciones reemplazadas.
 
@@ -786,8 +851,13 @@ def _en_proceso(archivo: str, argv: list[str], **reemplazos) -> int:
             originales.append((objetivo, ultimo, getattr(objetivo, ultimo)))
             setattr(objetivo, ultimo, valor)
         sys.argv = [archivo, *argv]
-        with contextlib.redirect_stdout(io.StringIO()):
-            return mod.main()
+        buf = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(buf):
+                return mod.main()
+        finally:
+            global _salida_en_proceso
+            _salida_en_proceso = buf.getvalue()  # para las reglas que solo AVISAN (exit 0)
     finally:
         sys.argv = argv_orig
         for objetivo, nombre, valor in reversed(originales):
@@ -838,6 +908,43 @@ def _t_ci():
     if ci([run("failure", 10), run("success", 12), run("success", 13)], sin_cron) == 0:
         return False
     return ci([run("success", 5)], con_cron) != 0
+
+
+@prueba("check_cortes C1", "un eje que decide, medido y sin su corte publicado (aviso)")
+def _t_cortes_c1():
+    # C1 AVISA y no frena (un corte que falta no rompe nada publicado): la prueba mira que el
+    # aviso salga y nombre al eje, no el exit code. Necesita `_en_proceso`, por eso vive acá.
+    eje = "tool_calling"
+    if _en_proceso("check_cortes.py", []) != 0 or f"`{eje}` está medida" in _salida_en_proceso:
+        return False  # control: con su corte, no hay aviso
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_cc_c1", ROOT / "benchmarks" / "check_cortes.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+
+    def sin_el_corte():
+        cortes = m._cortes_publicados()
+        if eje not in cortes:
+            raise AssertionError(f"`{eje}` ya no tiene corte: el sabotaje no quitaría nada")
+        cortes.pop(eje)
+        return cortes
+    _en_proceso("check_cortes.py", [], _cortes_publicados=sin_el_corte)
+    return f"`{eje}` está medida" in _salida_en_proceso
+
+
+@prueba("check_changelog C2", "un cambio de medición publicado como patch")
+def _t_changelog_bump():
+    # corte-v5 1.10. La prueba de arriba corre SIN `--nivel`: C2 nunca se saboteaba aunque la
+    # descripción lo nombrara (AUDITORIA-GUARDRAILS-2026-11, H6). Sin git ni CHANGELOG reales:
+    # se fija lo tocado (una suite, que exige MINOR) y el salto declarado.
+    tocado = lambda tag: ["benchmarks/tests/test_inventado.py"]  # noqa: E731
+    base = dict(ultimo_tag=lambda: "v9.0.0", cambios_desde=tocado,
+                seccion_no_publicado=lambda texto: "- una entrada")
+    if _en_proceso("check_changelog.py", ["--nivel"], salto_de_version=lambda tag: "minor", **base) != 0:
+        return False  # control: un MINOR alcanza para tocar una suite
+    if _en_proceso("check_changelog.py", [], salto_de_version=lambda tag: "patch", **base) != 0:
+        return False  # control: sin `--nivel`, C2 no corre
+    return _en_proceso("check_changelog.py", ["--nivel"], salto_de_version=lambda tag: "patch", **base) != 0
 
 
 @prueba("cobertura.py", "el núcleo bajo el piso de cobertura")
