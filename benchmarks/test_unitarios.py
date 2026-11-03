@@ -1576,6 +1576,10 @@ def test_fuentes_externas_otra_version_no_se_muestra():
     assert not fe.misma_version("grok-4.20-0309-reasoning", "x-ai/grok-4.20")
     assert not fe.misma_version("qwen/qwen3-coder-480b-a35b-instruct-fp8", "qwen/qwen3-coder")
     assert not fe.misma_version("gpt-5.4", "gpt-5.5")
+    # Mismo modelo + sufijo de fecha: es un snapshot, otra versión. Si alguien afloja la regla
+    # para «tolerar fechas», este caso cae (Cristian, 3-nov-2026).
+    assert not fe.misma_version("gpt-5.5-2026-04-23", "gpt-5.5")
+    assert not fe.misma_version("anthropic/claude-opus-4-6-20260205", "anthropic/claude-opus-4-6")
     foto = _foto_tb([_envio("Terminus 2", "m-x-0309", 0.9), _envio("Otro", "m-x", 0.5)])
     por_key, _, otra = fe.cifras_por_key(foto, {"m-x-0309": "k-x", "m-x": "k-x"}, ids={"k-x": "prov/m-x"})
     assert por_key["k-x"]["referencia"] is None, "se mostró la cifra de otra versión como referencia"

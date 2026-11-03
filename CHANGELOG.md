@@ -5,6 +5,13 @@
 
 ## [No publicado] · próximo: mayor
 
+- **`sin_dato_comunitario` en todos los modelos, y la ficha de la calculadora lo dice sin alarma
+  (3-nov-2026, tarea 2.4 de corte-v5).** Es `true` cuando el modelo no tiene banda externa de su misma
+  versión: 103 de 115 rankeados. La ficha suma el dato «Dato comunitario», que muestra la banda
+  (`Terminal-Bench 2.0: 0,63 (Terminus 2)`) o «sin dato comunitario», nunca como alerta ni tag. Q16 de
+  `qa_calculadora.mjs` lo verifica y entra con su sabotaje (60 guardrails verificados). `scores` intactos
+  en los 228. Cache-bust de `app.js` resincronizado. La prueba de `misma_version` suma el caso de un sufijo
+  de fecha (`gpt-5.5-2026-04-23`), saboteado con una regla que ignora fechas.
 - **`models.json` lleva `externos`: Terminal-Bench 2.0 como banda, solo con la misma versión exacta
   (3-nov-2026, tarea 2.2 de corte-v5).** Por fuente y versión: la cifra del agente de referencia (Terminus 2)
   y la del mejor agente con su nombre, con fecha, licencia y URL. `misma_version()` compara el nombre del

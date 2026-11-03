@@ -476,6 +476,34 @@ def _t_huerfanas():
         d.rmdir() if d.exists() else None
 
 
+@prueba("qa Q16", "un modelo sin `sin_dato_comunitario`, o una ficha que dice «sin dato» teniendo banda")
+def _t_dato_comunitario():
+    # corte-v5 2.4. Control verde y dos mundos rotos: el export que pierde el campo en un
+    # modelo, y una ficha que dice «sin dato comunitario» a todos aunque tengan banda.
+    qa = lambda: subprocess.run(["node", str(ROOT / "benchmarks" / "qa_calculadora.mjs")],  # noqa: E731
+                                capture_output=True, text=True, cwd=ROOT)
+    def q16_falla(r):
+        return r.returncode != 0 and any("❌ Q16" in ln for ln in r.stdout.splitlines())
+    r = qa()
+    if r.returncode != 0 or "✅ Q16" not in r.stdout:
+        return False  # control verde
+    mj = ROOT / "docs" / "data" / "models.json"
+    with Sabotaje(mj):
+        d = json.loads(mj.read_text(encoding="utf-8"))
+        d["models"][0].pop("sin_dato_comunitario", None)
+        mj.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+        if not q16_falla(qa()):
+            return False
+    app = ROOT / "docs" / "app.js"
+    with Sabotaje(app):
+        original = app.read_text(encoding="utf-8")
+        roto = original.replace("if (m.sin_dato_comunitario || !m.externos) {", "if (true) {", 1)
+        if roto == original:
+            raise AssertionError("el sabotaje no cambió nada: datoComunitario ya no se escribe así")
+        app.write_text(roto, encoding="utf-8")
+        return q16_falla(qa())
+
+
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")
 def _t_consistency():
     rm = ROOT / "MODELOS.md"

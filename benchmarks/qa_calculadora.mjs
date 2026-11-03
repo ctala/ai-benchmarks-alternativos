@@ -67,7 +67,7 @@ function cargarApp() {
     `${src}
      return { getScore, filterAndRank, costPerMonth, PRESETS_BUDGET, state,
               TOOL_CALLING_MIN, clampUmbralAlEje, WIZ, WIZ_AGENTES, wizEje,
-              computeZScore, wizCandidatos, cargarRegistroDeSuites, wizDecidir, PRESETS_BUDGET,
+              computeZScore, wizCandidatos, cargarRegistroDeSuites, wizDecidir, PRESETS_BUDGET, datoComunitario, fichaModelo, modelTags,
               get SUITES_BY_PILLAR() { return SUITES_BY_PILLAR; } };`);
   return fn(document, window,
             { getItem: () => null, setItem: () => {} },
@@ -891,6 +891,43 @@ chequeo("W10 · «un poco de todo» recomienda un modelo parejo, no un especiali
                    `de la media en ${p} (${q.toFixed(2)}) y se ofrece para «un poco de todo»`);
       }
     }
+  }
+  return malas;
+});
+
+// ── Q16 · «sin dato comunitario» se muestra, y como dato, no como alerta ────
+// corte-v5 2.4 (DECISIONES, 3-nov-2026). La mayoría de los modelos no tiene banda externa
+// de su misma versión: es la norma. Si el campo falta, la ficha no puede decirlo; si se
+// pinta como alerta o como tag, dramatiza lo normal. Y un modelo CON banda tiene que
+// mostrar la cifra, no el «sin dato».
+chequeo("Q16 · la ficha dice «sin dato comunitario» como un dato más, y la banda cuando existe", () => {
+  const malas = [];
+  for (const m of MODELOS) {
+    if (typeof m.sin_dato_comunitario !== "boolean") { malas.push(`${m.key}: falta \`sin_dato_comunitario\``); continue; }
+    if (m.sin_dato_comunitario === Boolean(m.externos))
+      malas.push(`${m.key}: sin_dato_comunitario=${m.sin_dato_comunitario} contradice a \`externos\``);
+  }
+  const con = RANKED.filter(m => m.sin_dato_comunitario === false);
+  const sin = RANKED.filter(m => m.sin_dato_comunitario === true);
+  if (!con.length) malas.push("ningún rankeado trae banda externa: la ficha nunca mostraría una cifra");
+  if (!sin.length) malas.push("ningún rankeado sin dato comunitario: el caso normal no se está probando");
+  const partes = html => {
+    const i = html.indexOf("ficha-alertas");
+    return [i < 0 ? html : html.slice(0, i), i < 0 ? "" : html.slice(i)];
+  };
+  for (const m of sin) {
+    const [grid, alertas] = partes(app.fichaModelo(m));
+    if (!grid.includes("sin dato comunitario")) malas.push(`${m.key}: la ficha no dice «sin dato comunitario»`);
+    if (/comunitari/i.test(alertas)) malas.push(`${m.key}: «sin dato comunitario» aparece como alerta`);
+    if (/comunitari/i.test(app.modelTags(m))) malas.push(`${m.key}: «sin dato comunitario» aparece como tag`);
+  }
+  for (const m of con) {
+    const [grid] = partes(app.fichaModelo(m));
+    const e = Object.values(m.externos)[0];
+    const d = e.referencia || e.mejor;
+    const cifra = d.cifra.toFixed(2).replace(".", ",");
+    if (grid.includes("sin dato comunitario")) malas.push(`${m.key}: tiene banda y la ficha dice «sin dato comunitario»`);
+    if (!grid.includes(`${e.fuente} ${e.version}: ${cifra}`)) malas.push(`${m.key}: la ficha no muestra ${e.fuente} ${e.version}: ${cifra}`);
   }
   return malas;
 });

@@ -1085,6 +1085,27 @@ function celdaAgentica(m) {
 //
 // Así que la fila se abre. Lo que aparece no es "más data": es **lo que explica el puesto**
 // — y la advertencia cuando el #1 tiene un costo escondido que no se ve en su nota.
+// Dato comunitario (corte-v5 2.4): la banda externa, o «sin dato comunitario» dicho en el
+// mismo tono que cualquier otro dato. Es lo normal —la mayoría no tiene— y no es una alerta:
+// la recomendación sale de la medición propia (DECISIONES, 3-nov-2026).
+function datoComunitario(m) {
+  const fmt = v => (+v).toFixed(2).replace(".", ",");
+  if (m.sin_dato_comunitario || !m.externos) {
+    return { valor: "sin dato comunitario",
+             tip: "Ningún benchmark público verificado midió esta misma versión. La nota sale solo de nuestra medición." };
+  }
+  const partes = Object.values(m.externos).map(e => {
+    const d = e.referencia || e.mejor;
+    return `${e.fuente} ${e.version}: ${fmt(d.cifra)} (${d.agente})`;
+  });
+  const tip = Object.values(m.externos).map(e =>
+    `${e.fuente} ${e.version}, consultado ${e.fecha}, licencia ${e.licencia}. ` +
+    (e.referencia ? `Con ${e.agente_referencia}: ${fmt(e.referencia.cifra)}. ` : `Sin corrida con ${e.agente_referencia}. `) +
+    (e.mejor ? `Mejor agente: ${e.mejor.agente}, ${fmt(e.mejor.cifra)}. ` : "") +
+    "Banda informativa: no entra a la nota.").join(" ");
+  return { valor: partes.join(" · "), tip };
+}
+
 function fichaModelo(m) {
   const n = (v, d = 1) => v == null ? "—" : (+v).toFixed(d);
   const seg = (m.score_by_suite || {}).prompt_injection_es;
@@ -1126,6 +1147,7 @@ function fichaModelo(m) {
         ${dato("Tarea real", vals.length ? `${n(vals.reduce((a, x) => a + x.media, 0) / vals.length, 2)} · piso ${n(piso, 2)}` : "sin medir",
                "Tareas de negocio ejecutadas de punta a punta dentro de un agente")}
         ${dato("Muestra", `${m.runs || 0} corridas`, "De cuántas ejecuciones sale su nota")}
+        ${(c => dato("Dato comunitario", c.valor, c.tip))(datoComunitario(m))}
       </div>
       ${alertas.length ? `<ul class="ficha-alertas">${alertas.map(a => `<li>${a}</li>`).join("")}</ul>` : ""}
       <div class="ficha-pie">${m.open_source ? "Pesos abiertos" : "Propietario"} · ${m.id}</div>

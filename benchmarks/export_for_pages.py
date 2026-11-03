@@ -914,6 +914,15 @@ def _adjuntar_externos(models_export: list[dict]) -> None:
                              dict(base, referencia=dato(e["referencia"]), mejor=dato(e["mejor"]))}
 
 
+def _marcar_sin_dato_comunitario(models_export: list[dict]) -> None:
+    """`sin_dato_comunitario` en TODOS los modelos: true si no tiene banda externa de su
+    misma versión. Es la norma, no la excepción (DECISIONES, 3-nov-2026): la calculadora lo
+    muestra como un dato más, sin alarma. Va siempre, también sin foto, para que el
+    consumidor no tenga que distinguir «falso» de «ausente»."""
+    for m in models_export:
+        m["sin_dato_comunitario"] = not m.get("externos")
+
+
 def build_export(recalibrate=False, scoring_version=None):
     by_id, by_id_and_name = load_all_results()
     or_lookup = build_openrouter_lookup()
@@ -1517,6 +1526,7 @@ def build_export(recalibrate=False, scoring_version=None):
     # DESPUÉS de todo el cálculo propio y nada de lo de arriba las lee: no entran a
     # `quality_avg`, al índice ni al compuesto. `test_unitarios` lo hace cumplir.
     _adjuntar_externos(models_export)
+    _marcar_sin_dato_comunitario(models_export)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
     # Asi cualquier consumidor que tome los primeros N del array obtiene un
