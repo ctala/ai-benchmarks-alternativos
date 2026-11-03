@@ -5,6 +5,15 @@
 
 ## [No publicado]
 
+- **«Ningún guardrail se debilita» tiene instrumento: `check_cobertura` R8 (3-nov-2026, tarea
+  1.4 de corte-v5).** Contra el último tag pone en rojo a un bloqueante que pasa a informativo
+  o sale de `qa.py` sin fila en `DECISIONES.md` que nombre su script, y a un chequeo que pierde
+  el `--duro` que tenía. El conteo de `@prueba` no puede bajar del máximo que tuvo en cualquier
+  commit desde el tag. La primera versión comparaba solo contra el tag (35, hoy 51) y su propia
+  prueba la cazó: se podían borrar 16 pruebas del corte sin rojo. Nace en verde: lee 28
+  chequeos en el tag (20 bloqueantes) y 29 hoy (22). Su prueba cubre los cuatro casos y falla
+  si se le quita cualquiera de las cuatro ramas (51 pruebas).
+
 - **`check_truncamiento` pasa a bloqueante (3-nov-2026, tarea 1.8 de corte-v5).** Nace en
   verde: 0 de 188 modelos cruzan el umbral del 12%. `qa.py` y el Action lo llaman con `--duro`,
   que el Action tampoco le pasaba, así que su paso nunca podía fallar. Con un modelo fabricado

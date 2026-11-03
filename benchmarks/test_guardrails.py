@@ -957,6 +957,51 @@ def _t_cobertura_r5():
         return r5_rojo()
 
 
+@prueba("check_cobertura R8", "una prueba borrada, un bloqueante bajado sin fila o un --duro quitado")
+def _t_cobertura_r8():
+    # corte-v5 1.4: el instrumento de «ningún guardrail se debilita». Se sabotea el árbol de
+    # trabajo que R8 lee (`_texto_actual`) y se deja el tag real como base; nada toca disco.
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_sab_r8", ROOT / "benchmarks" / "check_cobertura.py")
+    cc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cc)
+    real = cc._texto_actual
+
+    def r8(**cambios):
+        def falso(rel):
+            t = real(rel)
+            for viejo, nuevo in cambios.get(rel, []):
+                if viejo not in t:
+                    raise AssertionError(f"{rel} ya no contiene {viejo!r}: el sabotaje no tocaría nada")
+                t = t.replace(viejo, nuevo, 1)
+            return t
+        cc._texto_actual = falso
+        try:
+            return cc.r8_ningun_guardrail_se_debilita()
+        finally:
+            cc._texto_actual = real
+
+    qa, tg, dec = "benchmarks/qa.py", "benchmarks/test_guardrails.py", "DECISIONES.md"
+    cortes = ('[PY, "benchmarks/check_cortes.py"], True, True)',
+              '[PY, "benchmarks/check_cortes.py"], False, True)')
+    if r8():
+        return False  # control verde
+    # Exactamente una por debajo del máximo histórico desde el tag: el borde de la regla.
+    maximo, _ = cc._maximo_de_pruebas()
+    sobran = cc._n_pruebas(real(tg)) - maximo + 1
+    if sobran < 1 or not r8(**{tg: [("\n@prueba(", "\n#prueba(")] * sobran}):
+        return False  # una prueba menos que el máximo
+    if not any("check_cortes.py" in x for x in r8(**{qa: [cortes]})):
+        return False  # bloqueante → informativo sin fila
+    fila = ("| 3-nov-2026 | **Vigente** | `check_cortes.py` pasa a informativo |",
+            "| 3-nov-2026 | **Vigente** | `check_cortes.py` pasa a informativo |\n| x |")
+    con_fila = r8(**{qa: [cortes], dec: [("\n| 3-nov-2026 |", "\n" + fila[0] + "\n| 3-nov-2026 |")]})
+    if any("check_cortes.py" in x for x in con_fila):
+        return False  # control: con su fila, bajar a informativo es una decisión, no un descuido
+    duro = ('"benchmarks/auditar_paginas.py", "--duro"]', '"benchmarks/auditar_paginas.py"]')
+    return any("auditar_paginas.py" in x for x in r8(**{qa: [duro]}))
+
+
 @prueba("check_cobertura R5", "una exención huérfana (no corre en ningún lado) o ya probada (tiene sabotaje)")
 def _t_cobertura_r5_exenciones():
     # corte-v5 1.12. La regla que impide que `EXENTOS_R5` crezca en silencio no tenía quien

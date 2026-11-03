@@ -236,6 +236,110 @@ def r7_contrato_de_pagina():
             f"estructura, y ahí es donde nacen los puntos ciegos" for s in sin]
 
 
+# ── R8 · ningún guardrail se debilita desde el último tag ─────────────────────
+def _texto_en_tag(rel: str) -> str | None:
+    """El archivo tal como estaba en el último tag (la base de `check_changelog` C1)."""
+    import subprocess
+    tag = subprocess.run(["git", "describe", "--tags", "--abbrev=0"], capture_output=True,
+                         text=True, cwd=ROOT).stdout.strip()
+    if not tag:
+        return None
+    r = subprocess.run(["git", "show", f"{tag}:{rel}"], capture_output=True, text=True, cwd=ROOT)
+    return r.stdout if r.returncode == 0 else None
+
+
+def _maximo_de_pruebas() -> tuple[int, str]:
+    """El MÁXIMO de `@prueba` en el tag y en cada commit posterior que tocó el archivo.
+
+    Contra el tag solo no alcanza: el tag tenía 35 y el corte ya va en 51, así que se podían
+    borrar 16 de las nuevas sin que nada se pusiera rojo. Lo cazó la prueba de sabotaje al
+    nacer. «Nunca baja» quiere decir nunca, no «no baja del tag».
+    """
+    import subprocess
+    rel = "benchmarks/test_guardrails.py"
+    tag = subprocess.run(["git", "describe", "--tags", "--abbrev=0"], capture_output=True,
+                         text=True, cwd=ROOT).stdout.strip()
+    commits = subprocess.run(["git", "log", "--format=%H", f"{tag}..HEAD", "--", rel],
+                             capture_output=True, text=True, cwd=ROOT).stdout.split()
+    mejor, donde = -1, tag
+    for ref in [tag, *commits]:
+        r = subprocess.run(["git", "show", f"{ref}:{rel}"], capture_output=True, text=True, cwd=ROOT)
+        n = _n_pruebas(r.stdout) if r.returncode == 0 else -1
+        if n > mejor:
+            mejor, donde = n, ref[:9]
+    return mejor, donde
+
+
+def _n_pruebas(s: str) -> int:
+    return len(re.findall(r"^@prueba\(", s, re.M))
+
+
+def _texto_actual(rel: str) -> str:
+    """El árbol de trabajo: R8 tiene que ver lo que todavía no se commiteó."""
+    return (ROOT / rel).read_text(encoding="utf-8")
+
+
+def _chequeos_de(fuente: str) -> dict[str, tuple[list[str], bool]]:
+    """script → (argumentos, bloqueante) de un `qa.py` dado como TEXTO.
+
+    Se ejecuta el texto como si fuera el archivo real: así el `qa.py` del tag se lee con
+    las mismas reglas que el de hoy, sin depender de cómo se formatee la lista.
+    """
+    import types
+    mod = types.ModuleType("_qa_r8")
+    mod.__file__ = str(ROOT / "benchmarks" / "qa.py")
+    exec(compile(fuente, mod.__file__, "exec"), mod.__dict__)
+    out = {}
+    for c in mod.CHEQUEOS:
+        args = [str(a) for a in c[2]]
+        script = next((m.group(1) for a in args
+                       if (m := re.search(r"benchmarks/(\w+\.(?:py|mjs))$", a))), None)
+        if script:
+            out[script] = (args, bool(c[3]))
+    return out
+
+
+def r8_ningun_guardrail_se_debilita():
+    """El instrumento de la fila del 3-nov «durante un corte mayor ningún guardrail se
+    debilita para que pase» (corte-v5 1.4). Contra el último tag, rojo si:
+
+      · `test_guardrails.py` tiene MENOS `@prueba` que el máximo que tuvo desde el tag, en
+        cualquier commit (el conteo nunca baja);
+      · un chequeo que era bloqueante pasó a informativo o salió de `qa.py`, y desde el tag
+        no entró a `DECISIONES.md` ninguna línea que nombre su script;
+      · un chequeo que en el tag corría con `--duro` ya no lo lleva: sin el flag sale con 0
+        siempre y es un bloqueante de mentira (pasó con `check_truncamiento` y `check_ci`).
+
+    Sin tag no hay base: no se puede afirmar nada, y lo dice en vez de dar verde.
+    """
+    tg_tag = _texto_en_tag("benchmarks/test_guardrails.py")
+    qa_tag = _texto_en_tag("benchmarks/qa.py")
+    if tg_tag is None or qa_tag is None:
+        return ["no hay un tag con test_guardrails.py y qa.py contra el cual comparar"]
+    faltan = []
+
+    antes, donde = _maximo_de_pruebas()
+    ahora = _n_pruebas(_texto_actual("benchmarks/test_guardrails.py"))
+    if ahora < antes:
+        faltan.append(f"test_guardrails.py tiene {ahora} pruebas de sabotaje y llegó a tener "
+                      f"{antes} ({donde}): el conteo no baja")
+
+    dec_tag = set((_texto_en_tag("DECISIONES.md") or "").splitlines())
+    nuevas = [ln for ln in _texto_actual("DECISIONES.md").splitlines() if ln not in dec_tag]
+    viejo = _chequeos_de(qa_tag)
+    nuevo = _chequeos_de(_texto_actual("benchmarks/qa.py"))
+    for script, (args, bloq) in sorted(viejo.items()):
+        hoy = nuevo.get(script)
+        if bloq and (hoy is None or not hoy[1]):
+            if not any(script in ln for ln in nuevas):
+                que = "salió de qa.py" if hoy is None else "pasó de bloqueante a informativo"
+                faltan.append(f"{script} {que} sin una fila nueva en DECISIONES.md que lo nombre")
+        if "--duro" in args and hoy is not None and "--duro" not in hoy[0]:
+            faltan.append(f"{script} corría con --duro en el tag y ya no: sin el flag sale con "
+                          f"0 siempre")
+    return faltan
+
+
 REGLAS = [
     ("R1", "el filtro de no-aptos está en TODA superficie agéntica", r1_filtro_agentico),
     ("R2", "cada tarea del wizard tiene quien verifique su promesa", r2_promesas_del_wizard),
@@ -244,6 +348,7 @@ REGLAS = [
     ("R5", "todo lo que corre el QA está probado contra su fallo, o exento con motivo", r5_guardrails_probados),
     ("R6", "la segunda tabla se decide midiendo, no con un flag", r6_segunda_tabla),
     ("R7", "toda página publicada declara lo que publica", r7_contrato_de_pagina),
+    ("R8", "ningún guardrail se debilita desde el último tag", r8_ningun_guardrail_se_debilita),
 ]
 
 
