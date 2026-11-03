@@ -207,3 +207,26 @@ precedente: `effort.py --actualizar` ya trae datos de OpenRouter).
 
 **Primer paso de la próxima sesión:** inventario de fuentes por ocasión con su cobertura real sobre nuestros
 115 rankeados. Ese número decide si la dirección aguanta.
+
+## Modelos sin dato público: medirlos nosotros con el harness oficial (Cristian, 3-nov-2026)
+
+> *"En los modelos que ellos no midan, podríamos analizar si hacemos las mediciones. Por ejemplo, lo de
+> Qwen 3.8 contra Ornith es importante que exista. Y eso lo podemos publicar en nuestro benchmark y hacerle
+> referencia desde Hugging Face."*
+
+- **Qué:** correr el **harness oficial** del benchmark externo (no una imitación) sobre los modelos que su
+  leaderboard no cubre, y publicar el resultado como «corrida independiente con el harness oficial», con
+  logs, fecha, versión del harness y costo. Donde el leaderboard acepte envíos por PR, se envía: la cita
+  más fuerte es aparecer en el leaderboard de ellos.
+- **Primer caso:** Qwen 3.8 Flash vs Ornith 1.5 (RL fine-tune de Qwen, MIT, solo cifras del vendor). Hoy la
+  única evidencia externa es nuestro 3/8. Una corrida con el harness oficial es la primera independiente
+  que existiría, y se publica en la discusión del repo del modelo en Hugging Face y en la nuestra.
+- **Orden:** Terminal-Bench primero (todo en contenedor, sin cuentas remotas, harness maduro) → Toolathlon
+  después (necesita cuentas de Google y Notion). Los modelos abiertos chicos pueden correr en el Spark por
+  `sparkctl`, a costo cero de API, cuando Cristian lo autorice.
+- **Riesgo de proceso:** esto es medir **fuera del runner**, y `check_caminos` lo sanciona por diseño. Hace
+  falta un camino declarado (`externos/` con procedencia, recibo de presupuesto y checksum del harness) y su
+  fila en `DECISIONES.md` antes de la primera corrida. No se salta el guardrail: se le abre una puerta con
+  nombre.
+- **Honestidad al publicar:** «medido por nosotros con el harness oficial vX, N intentos, fecha» y nunca
+  «según Terminal-Bench». La diferencia es la que le reprochamos a Ornith.
