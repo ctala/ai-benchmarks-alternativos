@@ -5,81 +5,26 @@
 
 ## [No publicado]
 
-## [v4.17.0] - 2026-10-10 — Claude 5.5 family medida con exceso presupuestario
-
-> **⚠️ IMPORTANTE:** Lote `lote/2026-10-10-claude55` excedió presupuesto: **$181.32 gastados vs
-> $55 aprobados** (3.3× sobre el límite). Scores en **0.00 pendientes de juez** (requiere ~$7.91
-> adicionales y nueva aprobación). Ver [ESTADO_SESION_2026-10-10.md](ESTADO_SESION_2026-10-10.md)
-> para análisis completo de causas y parches propuestos.
-
-- **Claude 5.5 family medida: Haiku, Sonnet, Opus y Fable (10-oct-2026).** Anthropic lanzó
-  cuatro modelos de la familia Claude 5.5, todos medidos en examen general completo (207-209/213
-  tests por modelo, modo `--quick`). **Scores actuales: 0.00** - pendientes de fase de judging
-  que requiere ~$7.91 adicionales con Phi-4. Precios: Haiku $0.10/$0.50, Sonnet $2.00/$10.00,
-  Opus $4.00/$20.00, Fable $10.00/$50.00 por millón de tokens input/output.
-  
-  **Costos reales por modelo:**
-  - Claude Haiku 5.5: $1.13 (9.5M input, 349K output)
-  - Claude Sonnet 5.5: $22.90 (9.5M input, 383K output)
-  - Claude Opus 5.5: $46.38 (9.6M input, 408K output)
-  - Claude Fable 5.1: $114.10 (9.6M input, 366K output)
-  
-  **Causa del exceso:** Input tokens **14.9× más altos** que lo estimado (45K vs 3K por test).
-  Los tests del benchmark incluyen contextos largos que no estaban reflejados en
-  `calculate_costs.py`. Sin checkpoint monitoring durante ejecución paralela que permitiera
-  detener al llegar al límite de $55.
-
-- **Suites de noticias removidas del branch (10-oct-2026).** Las 5 suites implementadas
-  (`noticias_relevancia`, `noticias_repetidas`, `noticias_pauta`, `noticias_verificacion`,
-  `noticias_seo_discover`) fueron **removidas** porque: (1) no coincidían con el diseño aprobado
-  en `benchmark-pack-noticias.md`, (2) licencia CC BY 4.0 de Ecosistema Startup pendiente de
-  aprobación, (3) test counts y scoring methodology incorrectos. Reimplementación pospuesta a
-  sesión futura.
-
-- **Investigación SSL hang pospuesta (10-oct-2026).** Qwen 3.8 Omni Flash y Prism Bonsai 2 27B
-  con hang SSL en ~50% de tests - investigación **no iniciada** por prioridad de detener gastos
-  tras descubrir exceso presupuestario. Pendiente para sesión futura con presupuesto asignado
-  (máximo $1, 45 min).
-
-## [v4.16.0] - 2026-10-10 — GPT-6 Luna y el patrón que se repite: la versión Pro cuesta 3× por la misma nota
-
-> **Lote `lote/2026-09-26-gpt6-y-video`**: 4 modelos completos + 2 parciales (Qwen 3.8 Omni y
-> Bonsai 2 a medias). El release cierra con los 4 completos; los 2 parciales entran en v4.17.0
-> tras completar sus 209 runs pendientes (~$1 estimado). Ver [DATASHEET_2026-10.md](DATASHEET_2026-10.md).
-
-- **GPT-6 Luna NO supera a su predecesor (10-oct-2026).** GPT-6 Luna saca **8.75** contra
-  **8.93** de GPT-5.6 Luna, costando la mitad ($0.93 vs $1.86 el examen). No es un upgrade en
-  calidad de texto — puede ser velocidad o multimodal, pero en este examen mide peor.
-- **GPT-6 Luna Pro cuesta 3× por la misma nota (10-oct-2026).** Luna y Luna Pro son el mismo
-  modelo base servido con `reasoning.mode: pro`. La medición: ambos **8.75** de calidad, pero
-  Pro cuesta **$2.83** contra **$0.93** de Luna regular (+204% de gasto por +0.00 en nota).
-  OpenAI declara que Pro razona más profundo; **en este examen no justifica su precio**. Es el
-  segundo mes consecutivo donde la versión cara no compra calidad medible — en septiembre fue
-  GLM 5.3 vs GLM 5.3 Flash (+0.01 por 18× el precio).
-- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52, el mejor open source del lote
-  (10-oct-2026).** MoE 309B/15B activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio
-  nativos. GPT-6 Luna y Luna Pro sacan 8.75, pero MiMo gana en calidad/costo: $1.52 examen
-  completo vs $0.93-$2.83 de los Luna. Declarado thinking con el patrón `mimo-v2.6` en
-  `providers/adapters.py`.
-- **Ling 3.0 Flash VL: el más barato con vídeo, pero entre los peores en agentes (10-oct-2026).**
-  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. **199 de 213
-  runs** (le faltan 14 de `niah_es`, que es omitible sin perder el ranking según
-  `RUNBOOK-MEDICION.md:133-140`). **7.63 de calidad** y **de los 5 peores de 104** en
-  `orchestration` (4.38) y `tool_calling` (4.37). Si el caso de uso es orquestar un agente, el
-  precio bajo no compensa.
-- **Qwen 3.8 Omni y Bonsai 2 quedaron a medias, y no se publican (10-oct-2026).** Qwen 3.8
-  Omni Flash 114/213 runs, Bonsai 2 27B 103/213. Ambos razonan mucho (157-165 s/run, ~10 h
-  de reloj cada uno) y el lote se pausó en la rama sin completarlos para no gastar sin
-  autorización explícita. **No se publican promedios de exámenes incompletos** — es el error
-  que en septiembre infló a Qwen 3.8 Flash con 8 centésimas de sesgo de supervivencia. Faltan
-  209 runs (~$1 estimado) + Harbor tasks de los 6 (~$3-8). El lote queda en la rama
-  `lote/2026-09-26-gpt6-y-video`, y se cierra con los 4 completos para no retrasar el release
-  mensual.
-- **El caso Bonsai 2 responde algo que nadie publica (10-oct-2026).** Bonsai 2 27B es Qwen 3.8
-  27B con **compresión ternaria** (1.58 bits/peso), del mismo proveedor. El benchmark ya tiene
-  medido el original (#5, calidad 8.50). Completar Bonsai 2 mide **cuánta calidad pierde un
-  modelo al comprimirlo** — dato que ningún paper reporta contra el mismo examen del original,
-  porque los papers comparan contra otros modelos. Este sí.
+- **Sacar al juez del índice se simuló antes de decidirlo, y el juez no es lo que falta
+  (3-nov-2026).** Cristian abrió la puerta a cambiar el cómo —*"no me importa dejar de hacer
+  suites si estandarizamos"*— con la condición de que el qué (emprendedores hispanohablantes)
+  no se toque. `benchmarks/simular_sin_juez.py` reutiliza `aggregate_metrics` (control verde:
+  107/107 reproducidos con error 0,0000) y prueba tres escenarios contra los runs en disco.
+  Hoy el juez decide el **30 %** de los runs del índice (12.285 de 40.306) en 8 suites enteras
+  y 5 mixtas. Con el juez a peso cero y los mismos 143 tests (S1) el ranking se reordena
+  (Spearman 0,948, mediana 5 puestos, máximo 31) y la discriminación **no cambia** (señal/ruido
+  0,69 → 0,67): la rúbrica de formato que lo reemplaza es tan ciega como él. Con solo lo
+  verificable (S2, 98 tests) la dispersión sube (0,258 → 0,309) pero el IC95 sube más
+  (0,376 → 0,494) y los que se solapan con el #1 pasan de 94 a 98: la misma lección del
+  17-sep, quitar tests tira muestra. Lo que sí muestra la simulación es **dónde está el
+  lastre**: las 8 suites juzgadas separan modelos con sigma mediana 0,55 y media 8,6 (cuatro
+  con más de un tercio de notas perfectas), contra 0,84 de las verificables. Aportan muestra,
+  no señal: estrechan el intervalo alrededor de un número que no distingue. Lectura para la
+  decisión: el juez se saca por honestidad y costo, pero solo paga si las 13 suites se
+  **convierten** a trampa verificable (como pasó con `content_verificable`, sigma 1,18 frente
+  a 0,40 de `content_generation`) y si el IC95 se recupera con pass^k: tres intentos sobre
+  los 98 verificables dan un IC95 estimado de 0,285, por debajo del 0,376 de hoy. Nada se
+  cambió en lo publicado; la decisión es de Cristian y va con bump mayor si se toma.
 - **Un `git add` con un path inexistente aborta el add COMPLETO (26-sep-2026).** El commit
   `c39b297b5` se publicó con el mensaje del arreglo del QA y **sin una línea de su código**:
   el `git add` listaba cinco archivos y uno (`results/_foto_effort.json`) no existía, así que
@@ -162,6 +107,82 @@
   medición), superficies, costo, qué verifica cada etapa y **dónde se para**, para cambiar ocho
   «¿sigo?» por una aprobación de alcance. No crea una segunda fuente de verdad: el plan es de la
   sesión, las decisiones siguen yendo a `DECISIONES.md`.
+
+## [v4.17.0] - 2026-10-10 — Claude 5.5 family medida con exceso presupuestario
+
+> **⚠️ IMPORTANTE:** Lote `lote/2026-10-10-claude55` excedió presupuesto: **$181.32 gastados vs
+> $55 aprobados** (3.3× sobre el límite). Scores en **0.00 pendientes de juez** (requiere ~$7.91
+> adicionales y nueva aprobación). Ver [ESTADO_SESION_2026-10-10.md](ESTADO_SESION_2026-10-10.md)
+> para análisis completo de causas y parches propuestos.
+
+- **Claude 5.5 family medida: Haiku, Sonnet, Opus y Fable (10-oct-2026).** Anthropic lanzó
+  cuatro modelos de la familia Claude 5.5, todos medidos en examen general completo (207-209/213
+  tests por modelo, modo `--quick`). **Scores actuales: 0.00** - pendientes de fase de judging
+  que requiere ~$7.91 adicionales con Phi-4. Precios: Haiku $0.10/$0.50, Sonnet $2.00/$10.00,
+  Opus $4.00/$20.00, Fable $10.00/$50.00 por millón de tokens input/output.
+  
+  **Costos reales por modelo:**
+  - Claude Haiku 5.5: $1.13 (9.5M input, 349K output)
+  - Claude Sonnet 5.5: $22.90 (9.5M input, 383K output)
+  - Claude Opus 5.5: $46.38 (9.6M input, 408K output)
+  - Claude Fable 5.1: $114.10 (9.6M input, 366K output)
+  
+  **Causa del exceso:** Input tokens **14.9× más altos** que lo estimado (45K vs 3K por test).
+  Los tests del benchmark incluyen contextos largos que no estaban reflejados en
+  `calculate_costs.py`. Sin checkpoint monitoring durante ejecución paralela que permitiera
+  detener al llegar al límite de $55.
+
+- **Suites de noticias removidas del branch (10-oct-2026).** Las 5 suites implementadas
+  (`noticias_relevancia`, `noticias_repetidas`, `noticias_pauta`, `noticias_verificacion`,
+  `noticias_seo_discover`) fueron **removidas** porque: (1) no coincidían con el diseño aprobado
+  en `benchmark-pack-noticias.md`, (2) licencia CC BY 4.0 de Ecosistema Startup pendiente de
+  aprobación, (3) test counts y scoring methodology incorrectos. Reimplementación pospuesta a
+  sesión futura.
+
+- **Investigación SSL hang pospuesta (10-oct-2026).** Qwen 3.8 Omni Flash y Prism Bonsai 2 27B
+  con hang SSL en ~50% de tests - investigación **no iniciada** por prioridad de detener gastos
+  tras descubrir exceso presupuestario. Pendiente para sesión futura con presupuesto asignado
+  (máximo $1, 45 min).
+
+## [v4.16.0] - 2026-10-10 — GPT-6 Luna y el patrón que se repite: la versión Pro cuesta 3× por la misma nota
+
+> **Lote `lote/2026-09-26-gpt6-y-video`**: 4 modelos completos + 2 parciales (Qwen 3.8 Omni y
+> Bonsai 2 a medias). El release cierra con los 4 completos; los 2 parciales entran en v4.17.0
+> tras completar sus 209 runs pendientes (~$1 estimado). Ver [DATASHEET_2026-10.md](DATASHEET_2026-10.md).
+
+- **GPT-6 Luna NO supera a su predecesor (10-oct-2026).** GPT-6 Luna saca **8.75** contra
+  **8.93** de GPT-5.6 Luna, costando la mitad ($0.93 vs $1.86 el examen). No es un upgrade en
+  calidad de texto — puede ser velocidad o multimodal, pero en este examen mide peor.
+- **GPT-6 Luna Pro cuesta 3× por la misma nota (10-oct-2026).** Luna y Luna Pro son el mismo
+  modelo base servido con `reasoning.mode: pro`. La medición: ambos **8.75** de calidad, pero
+  Pro cuesta **$2.83** contra **$0.93** de Luna regular (+204% de gasto por +0.00 en nota).
+  OpenAI declara que Pro razona más profundo; **en este examen no justifica su precio**. Es el
+  segundo mes consecutivo donde la versión cara no compra calidad medible — en septiembre fue
+  GLM 5.3 vs GLM 5.3 Flash (+0.01 por 18× el precio).
+- **MiMo V2.6 Flash (Xiaomi, open source): 8.66 por $1.52, el mejor open source del lote
+  (10-oct-2026).** MoE 309B/15B activos, MIT license según Xiaomi. Texto, imagen, vídeo y audio
+  nativos. GPT-6 Luna y Luna Pro sacan 8.75, pero MiMo gana en calidad/costo: $1.52 examen
+  completo vs $0.93-$2.83 de los Luna. Declarado thinking con el patrón `mimo-v2.6` en
+  `providers/adapters.py`.
+- **Ling 3.0 Flash VL: el más barato con vídeo, pero entre los peores en agentes (10-oct-2026).**
+  **$0.08 el examen** completo ($0.021/$0.062 por millón), MoE 124B/5.5B activos. **199 de 213
+  runs** (le faltan 14 de `niah_es`, que es omitible sin perder el ranking según
+  `RUNBOOK-MEDICION.md:133-140`). **7.63 de calidad** y **de los 5 peores de 104** en
+  `orchestration` (4.38) y `tool_calling` (4.37). Si el caso de uso es orquestar un agente, el
+  precio bajo no compensa.
+- **Qwen 3.8 Omni y Bonsai 2 quedaron a medias, y no se publican (10-oct-2026).** Qwen 3.8
+  Omni Flash 114/213 runs, Bonsai 2 27B 103/213. Ambos razonan mucho (157-165 s/run, ~10 h
+  de reloj cada uno) y el lote se pausó en la rama sin completarlos para no gastar sin
+  autorización explícita. **No se publican promedios de exámenes incompletos** — es el error
+  que en septiembre infló a Qwen 3.8 Flash con 8 centésimas de sesgo de supervivencia. Faltan
+  209 runs (~$1 estimado) + Harbor tasks de los 6 (~$3-8). El lote queda en la rama
+  `lote/2026-09-26-gpt6-y-video`, y se cierra con los 4 completos para no retrasar el release
+  mensual.
+- **El caso Bonsai 2 responde algo que nadie publica (10-oct-2026).** Bonsai 2 27B es Qwen 3.8
+  27B con **compresión ternaria** (1.58 bits/peso), del mismo proveedor. El benchmark ya tiene
+  medido el original (#5, calidad 8.50). Completar Bonsai 2 mide **cuánta calidad pierde un
+  modelo al comprimirlo** — dato que ningún paper reporta contra el mismo examen del original,
+  porque los papers comparan contra otros modelos. Este sí.
 
 ## [v4.15.0] - 2026-09-17 — el índice que declaramos pasa a ser el que promedia: integridad de idioma entra al titular, tool calling sale
 
