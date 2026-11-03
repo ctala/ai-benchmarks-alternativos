@@ -132,10 +132,18 @@ Trece conversiones, cuatro suites nuevas, un banco de tareas con apps reales y d
 Es el alcance del corte de medición siguiente; va en una ventana declarada, con bump mayor, porque
 el juez sale del titular y caduca lo publicado.
 
-## Preguntas para Cristian
+## Preguntas para Cristian (respondidas el 3-nov-2026, salvo la 5)
 
-1. ¿Siete ocasiones o se funden «Vender» y «Responder a clientes» en una sola de relación comercial?
-2. «Educación y cursos» era la categoría 8 de `CASOS_DE_USO`. ¿Entra como ocasión propia o queda dentro de «Escribir para publicar»?
-3. ¿Qué volumen típico declaras por ocasión para que el precio salga en US$ al mes sin que el usuario lo calcule? (Ejemplo: Escribir 100 piezas al mes; Automatizar 3.000 ejecuciones.)
-4. ¿«Programar» se mide solo con el banco de código real y `code_generation` se jubila del titular? (ver la nota en la ocasión 6)
-5. Para «Automatizar», ¿las apps reales del banco son NocoDB, Sheets y Gmail, o prefieres empezar solo con NocoDB, que es el destino de 86 de tus flujos?
+1. **Fusionar «Vender» y «Responder a clientes» en una sola: Relación comercial.** → Sí. Quedan seis ocasiones.
+2. **«Educación y cursos»** → dentro de «Escribir para publicar». No es ocasión propia.
+3. **Volumen por ocasión** → defectos: Escribir 100 piezas/mes · Relación comercial 500 mensajes ·
+   Automatizar 3.000 ejecuciones · Decidir con documentos 50 documentos · Programar 200 tareas.
+   La calculadora los muestra y deja cambiarlos.
+4. **Programar solo con el banco de código real; `code_generation` se jubila del titular** → Sí, con una
+   condición de Cristian: *"es distinto usar el agente con conversación en español, eso sí lo
+   mantendría de alguna manera"*. Las tareas de Harbor se piden en español de founder no programador
+   (enunciado, aclaraciones y criterios en español); lo que se verifica sigue siendo el test que pasa.
+5. **Apps reales de «Automatizar»** → pendiente. Cristian preguntó cuánto cuesta sumar Sheets y Gmail, y si
+   NocoDB es copia de otro benchmark o aporte propio. Ver «Automatizar: qué se copia y qué es nuestro».
+
+**Bump:** el corte es **mayor (v5.0.0)**, decidido el 3-nov-2026.
