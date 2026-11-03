@@ -32,7 +32,7 @@ Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante 
 
 ## 2. Fuentes externas y conjunto base
 
-- [ ] 2.1 `benchmarks/fuentes_externas.py`: ingesta Terminal-Bench (dataset HF del leaderboard), Toolathlon-Verified y SWE-bench Pro público; mapea nombres a `key` de `models.py` (nunca por `name`); imprime cobertura sobre los 115. Verificar: el script corre offline sobre una foto guardada con fecha y licencia por fuente.
+- [x] 2.1 `benchmarks/fuentes_externas.py`: ingesta Terminal-Bench (dataset HF del leaderboard), Toolathlon-Verified y SWE-bench Pro público; mapea nombres a `key` de `models.py` (nunca por `name`); imprime cobertura sobre los 115. Verificar: el script corre offline sobre una foto guardada con fecha y licencia por fuente. Hecho el 3-nov-2026: entra solo Terminal-Bench 2.0; Toolathlon (sin licencia, issues #87 y #97) y SWE-bench Pro (sin datos fuera de JavaScript) se enlazan. La cifra de cobertura se le muestra a Cristian antes de 2.3.
 - [ ] 2.2 Las cifras externas entran a `models.json` como banda por fuente (`externos: {fuente, cifra, version, fecha, licencia}`) y ningún generador las promedia con las propias. Verificar: `test_unitarios.py` tiene un test que falla si una cifra externa entra a `quality_avg`.
 - [ ] 2.3 Conjunto base = intersección (medidos por alguna fuente) ∩ (llamables por OpenRouter). Se publica el número y la lista. Verificar: `FUENTES-EXTERNAS.md` deja de ser borrador y cita el número desde el dato, no a mano.
 - [ ] 2.4 Los modelos fuera del conjunto base llevan `sin_dato_comunitario: true` y la calculadora lo muestra. Verificar: `qa_calculadora.mjs` lo comprueba.

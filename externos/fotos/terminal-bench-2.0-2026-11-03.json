@@ -1,0 +1,2605 @@
+{
+ "fuente": "Terminal-Bench",
+ "version": "2.0",
+ "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+ "licencia": "apache-2.0",
+ "consultado": "2026-11-03",
+ "dataset_modificado": "2026-05-15T21:18:55.000Z",
+ "agente_referencia": "Terminus 2",
+ "metrica": "aciertos / intentos totales del job (89 tareas × k); un intento sin resultado es fallo",
+ "envios": [
+  {
+   "envio": "0error-Ledger__Claude-Opus-4.7",
+   "agente": "0error Ledger",
+   "agente_url": "https://github.com/0error-ob/terminal-bench-21-scaffold",
+   "modelos": [
+    {
+     "model_name": "anthropic/claude-opus-4-7",
+     "provider": "openrouter",
+     "display": "Claude Opus 4.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "tbench-2.1-k5-v01",
+     "aciertos": 177,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 177,
+   "intentos": 445,
+   "cifra": 0.3978,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Ante__Gemini-3-Pro-Preview",
+   "agente": "Ante",
+   "agente_url": "https://antigma.ai",
+   "modelos": [
+    {
+     "model_name": "gemini-3-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2025-12-31__22-36-36",
+     "aciertos": 288,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 288,
+   "intentos": 445,
+   "cifra": 0.6472,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Ante__Gemini-3.1-Pro-Preview",
+   "agente": "Ante",
+   "agente_url": "https://antigma.ai",
+   "modelos": [
+    {
+     "model_name": "gemini-3-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-20__19-31-44",
+     "aciertos": 328,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 328,
+   "intentos": 445,
+   "cifra": 0.7371,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "BashAgent__TermiGen-32B",
+   "agente": "Bash Agent",
+   "agente_url": "https://huggingface.co/UCSB-SURFI/TermiGen-32B",
+   "modelos": [
+    {
+     "model_name": "UCSB-SURFI/TermiGen-32B",
+     "provider": "UCSB-SURFI",
+     "display": "TermiGen-32B"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "qwen_claude_5",
+     "aciertos": 72,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 72,
+   "intentos": 445,
+   "cifra": 0.1618,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Capy__Claude-Opus-4.6",
+   "agente": "Capy",
+   "agente_url": "https://capy.ai",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "eval-terminal-bench-2-0-anthropic-claude-opus-4-6-2550be0a-1773212093281",
+     "aciertos": 66,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-anthropic-claude-opus-4-6-ae1eef84-1773189792834",
+     "aciertos": 21,
+     "intentos": 29
+    },
+    {
+     "job": "eval-terminal-bench-2-0-anthropic-claude-opus-4-6-b5a5edf0-1773245492872",
+     "aciertos": 67,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-anthropic-claude-opus-4-6-e4c20869-1773208202009",
+     "aciertos": 68,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-anthropic-claude-opus-4-6-f67d7dea-1773208226179",
+     "aciertos": 66,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 288,
+   "intentos": 385,
+   "cifra": 0.7481,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Capy__GPT-5.5",
+   "agente": "Capy",
+   "agente_url": "https://capy.ai",
+   "modelos": [
+    {
+     "model_name": "gpt-5.5",
+     "provider": "openai",
+     "display": "GPT-5.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "eval-terminal-bench-2-0-gpt-5-5-7c56da63-1777349417783",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-gpt-5-5-8eb9f930-1777342655208",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-gpt-5-5-969914d5-1777349417757",
+     "aciertos": 77,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-gpt-5-5-a3c01e29-1777400580464",
+     "aciertos": 74,
+     "intentos": 89
+    },
+    {
+     "job": "eval-terminal-bench-2-0-gpt-5-5-e25dd8c5-1777356131551",
+     "aciertos": 73,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 370,
+   "intentos": 445,
+   "cifra": 0.8315,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "ClaudeCode__GLM-4.7",
+   "agente": "Claude Code",
+   "agente_url": "https://claude.com/product/claude-code",
+   "modelos": [
+    {
+     "model_name": "GLM-4.7",
+     "provider": "z-ai",
+     "display": "GLM 4.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-06__13-08-08",
+     "aciertos": 148,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 148,
+   "intentos": 445,
+   "cifra": 0.3326,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "CodeBrain-1.5__GPT-5.3-Codex",
+   "agente": "CodeBrain-1.5",
+   "agente_url": "https://feeling-ai.com",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "OpenAI",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-25__23-09-28",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-26__09-20-33",
+     "aciertos": 71,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-26__19-46-49",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-27__14-46-04",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-28__12-07-28",
+     "aciertos": 72,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 362,
+   "intentos": 445,
+   "cifra": 0.8135,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "CodeBrain-1__GPT-5.3-Codex",
+   "agente": "CodeBrain-1",
+   "agente_url": "https://feeling-ai.com",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "OpenAI",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-08__11-01-20",
+     "aciertos": 60,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-08__20-43-33",
+     "aciertos": 66,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-09__01-09-07",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-09__10-03-38",
+     "aciertos": 60,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-09__14-06-10",
+     "aciertos": 62,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 313,
+   "intentos": 445,
+   "cifra": 0.7034,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "CodeBrain-1__Gemini-3-Pro-Preview",
+   "agente": "CodeBrain-1",
+   "agente_url": "https://feeling-ai.com",
+   "modelos": [
+    {
+     "model_name": "gemini-3-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-31__22-50-53",
+     "aciertos": 56,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-01__11-30-31",
+     "aciertos": 56,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-01__16-43-15",
+     "aciertos": 54,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-05__00-52-21",
+     "aciertos": 56,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-05__11-19-55",
+     "aciertos": 55,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 277,
+   "intentos": 445,
+   "cifra": 0.6225,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Codelia__GPT-5.3-Codex",
+   "agente": "Codelia",
+   "agente_url": "https://github.com/kousw/codelia",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "gpt-5.3-codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-19__13-21-41",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-20__01-17-35",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-20__06-21-30",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-20__16-44-43",
+     "aciertos": 66,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-21__12-12-19",
+     "aciertos": 68,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 337,
+   "intentos": 445,
+   "cifra": 0.7573,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Crux__Claude-Opus-4.6",
+   "agente": "Crux",
+   "agente_url": "https://github.com/0xDarkMatter/crux-agent",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "submission-run",
+     "aciertos": 272,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 272,
+   "intentos": 445,
+   "cifra": 0.6112,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Deep-Agents__GPT-5.2-Codex",
+   "agente": "Deep Agents",
+   "agente_url": "https://github.com/langchain-ai/deepagents",
+   "modelos": [
+    {
+     "model_name": "gpt-5.2-codex",
+     "provider": "openai",
+     "display": "GPT-5.2-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-10__12-43-13",
+     "aciertos": 293,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 293,
+   "intentos": 445,
+   "cifra": 0.6584,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Dirac__Gemini-3-Flash-Preview",
+   "agente": "Dirac",
+   "agente_url": "https://github.com/dirac-run/dirac",
+   "modelos": [
+    {
+     "model_name": "gemini-3-flash-preview",
+     "provider": "google",
+     "display": "Gemini 3 Flash"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-18__15-04-03",
+     "aciertos": 290,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 290,
+   "intentos": 445,
+   "cifra": 0.6517,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Droid__Claude-Opus-4.6",
+   "agente": "Droid",
+   "agente_url": "https://factory.ai/",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "fudge_2026-01-29__03-21-39",
+     "aciertos": 61,
+     "intentos": 89
+    },
+    {
+     "job": "fudge_2026-01-29__06-23-59",
+     "aciertos": 64,
+     "intentos": 89
+    },
+    {
+     "job": "fudge_2026-01-29__07-55-11",
+     "aciertos": 61,
+     "intentos": 89
+    },
+    {
+     "job": "fudge_2026-01-29__23-21-40",
+     "aciertos": 63,
+     "intentos": 89
+    },
+    {
+     "job": "fudge_2026-01-30__02-21-25",
+     "aciertos": 62,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 311,
+   "intentos": 445,
+   "cifra": 0.6989,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Droid__GPT-5.3-Codex",
+   "agente": "Droid",
+   "agente_url": "https://factory.ai/",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "53codex_2026-02-16__17-43-12",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "53codex_2026-02-21__21-58-56",
+     "aciertos": 68,
+     "intentos": 89
+    },
+    {
+     "job": "53codex_2026-02-22__06-09-07",
+     "aciertos": 68,
+     "intentos": 89
+    },
+    {
+     "job": "53codex_2026-02-22__09-59-36",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "53codex_2026-02-22__10-19-01",
+     "aciertos": 70,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 344,
+   "intentos": 445,
+   "cifra": 0.773,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Forge__GPT-5.4",
+   "agente": "ForgeCode",
+   "agente_url": "https://forgecode.dev",
+   "modelos": [
+    {
+     "model_name": "gpt-5.4",
+     "provider": "OpenAI",
+     "display": "GPT-5.4"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-07__04-54-03",
+     "aciertos": 364,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 364,
+   "intentos": 445,
+   "cifra": 0.818,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Forge__Gemini-3.1-Pro-Preview",
+   "agente": "Forge Code",
+   "agente_url": "https://forgecode.dev",
+   "modelos": [
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-26__14-28-30",
+     "aciertos": 349,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 349,
+   "intentos": 445,
+   "cifra": 0.7843,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Forge__Opus-4.6",
+   "agente": "ForgeCode",
+   "agente_url": "https://forgecode.dev",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "Anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-11__06-58-11",
+     "aciertos": 364,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 364,
+   "intentos": 445,
+   "cifra": 0.818,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Gemini_CLI__Gemini-3-Flash-Preview",
+   "agente": "Gemini CLI",
+   "agente_url": "https://github.com/google-gemini/gemini-cli",
+   "modelos": [
+    {
+     "model_name": "gemini-3-flash-preview",
+     "provider": "Google",
+     "display": "Gemini 3 Flash"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-05__16-55-44",
+     "aciertos": 211,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 211,
+   "intentos": 445,
+   "cifra": 0.4742,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Gemini_CLI__Gemini-3.1-Pro-Preview",
+   "agente": "Gemini CLI",
+   "agente_url": "https://github.com/google-gemini/gemini-cli",
+   "modelos": [
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "eval-pro-3.1-preview",
+     "aciertos": 266,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 266,
+   "intentos": 445,
+   "cifra": 0.5978,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "IndusAGICodingAgent__MiniMax-M2.7",
+   "agente": "IndusAGI Coding Agent",
+   "agente_url": "https://github.com/varun-israni/indusagi-coding-agent",
+   "modelos": [
+    {
+     "model_name": "minimax/MiniMax-M2.7",
+     "provider": "Minimax",
+     "display": "MiniMax M2.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-21__09-39-15",
+     "aciertos": 153,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 153,
+   "intentos": 445,
+   "cifra": 0.3438,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "IndusAGICodingAgent__gpt-5.3-codex",
+   "agente": "IndusAGI Coding Agent",
+   "agente_url": "https://www.indusagi.com",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3 Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-17__07-15-58",
+     "aciertos": 261,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 261,
+   "intentos": 445,
+   "cifra": 0.5865,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "JJAgent__Multiple",
+   "agente": "JJAgent",
+   "agente_url": "https://github.com/bddppq",
+   "modelos": [
+    {
+     "model_name": "multiple",
+     "provider": "multiple",
+     "display": "Multiple"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-05-04__14-46-15",
+     "aciertos": 385,
+     "intentos": 445
+    },
+    {
+     "job": "2026-05-05__18-36-48",
+     "aciertos": 390,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 775,
+   "intentos": 890,
+   "cifra": 0.8708,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Judy__Claude-Opus-4.6",
+   "agente": "Judy",
+   "agente_url": "https://www.bigai.ai/",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4.6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-10__18-07-36",
+     "aciertos": 64,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-11__11-58-19",
+     "aciertos": 63,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-12__11-31-57",
+     "aciertos": 62,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-12__18-19-55",
+     "aciertos": 64,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-13__00-57-16",
+     "aciertos": 67,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 320,
+   "intentos": 445,
+   "cifra": 0.7191,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Judy__Gemini-3.1-Pro-Preview",
+   "agente": "TongAgents",
+   "agente_url": "https://www.bigai.ai/",
+   "modelos": [
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-07__01-45-03",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-07__14-20-34",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-08__06-54-22",
+     "aciertos": 79,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-08__16-45-59",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-08__16-47-12",
+     "aciertos": 71,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 357,
+   "intentos": 445,
+   "cifra": 0.8022,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Junie_CLI__Gemini-3-Flash-Preview-Gemini-3.1-Pro-Preview-Claude-Opus-4.6-GPT-5.3-Codex",
+   "agente": "Junie CLI",
+   "agente_url": "https://junie.jetbrains.com",
+   "modelos": [
+    {
+     "model_name": "gemini-3-flash-preview",
+     "provider": "Google",
+     "display": "Gemini 3 Flash"
+    },
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    },
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    },
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "OpenAI",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-06__12-25-19",
+     "aciertos": 316,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 316,
+   "intentos": 445,
+   "cifra": 0.7101,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "LemonCode__GPT-5.3-Codex",
+   "agente": "Lemon Code",
+   "agente_url": "https://github.com/Open-Lemon/LemonAgent",
+   "modelos": [
+    {
+     "model_name": "gpt-3.5-codex",
+     "provider": "openai",
+     "display": "GPT-5.3 Codex"
+    },
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "google",
+     "display": "Gemini 3.1 Pro Preview"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-20__19-24-11",
+     "aciertos": 63,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-21__21-02-37",
+     "aciertos": 71,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-22__20-13-58",
+     "aciertos": 72,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-23__21-08-00",
+     "aciertos": 72,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-24__20-07-02",
+     "aciertos": 71,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 349,
+   "intentos": 445,
+   "cifra": 0.7843,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "LemonHarness_GPT-5.3-CodeX",
+   "agente": "LemonHarness",
+   "agente_url": "https://github.com/Open-Lemon/LemonAgent",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3-Codex"
+    },
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "google",
+     "display": "Gemini 3.1 Pro Preview"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-25__23-23-13",
+     "aciertos": 76,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-26__20-40-52",
+     "aciertos": 80,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-27__20-59-57",
+     "aciertos": 72,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-28__12-03-11",
+     "aciertos": 72,
+     "intentos": 89
+    },
+    {
+     "job": "2026-04-29__10-54-12",
+     "aciertos": 76,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 376,
+   "intentos": 445,
+   "cifra": 0.8449,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "MAYA__Claude-4.5-sonnet",
+   "agente": "MAYA",
+   "agente_url": "https://adya.ai/maya",
+   "modelos": [
+    {
+     "model_name": "claude-4.5-sonnet",
+     "provider": "anthropic",
+     "display": "Claude 4.5 Sonnet"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2025-11-13__09-25-32",
+     "aciertos": 38,
+     "intentos": 89
+    },
+    {
+     "job": "2025-12-05__06-20-00",
+     "aciertos": 38,
+     "intentos": 89
+    },
+    {
+     "job": "2025-12-05__16-42-55",
+     "aciertos": 38,
+     "intentos": 89
+    },
+    {
+     "job": "2025-12-06__16-31-45",
+     "aciertos": 38,
+     "intentos": 89
+    },
+    {
+     "job": "2025-12-09__13-26-21",
+     "aciertos": 38,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 190,
+   "intentos": 445,
+   "cifra": 0.427,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "MAYA__Claude-4.6-opus",
+   "agente": "MAYA-V2",
+   "agente_url": "https://adya.ai/maya",
+   "modelos": [
+    {
+     "model_name": "claude-4.6-opus",
+     "provider": "anthropic",
+     "display": "Claude 4.6 Opus"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-27__16-48-59",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-02__08-17-24",
+     "aciertos": 66,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-04__07-44-02",
+     "aciertos": 63,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-05__07-04-22",
+     "aciertos": 61,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-09__08-44-46",
+     "aciertos": 65,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 320,
+   "intentos": 445,
+   "cifra": 0.7191,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Meta-Harness__Claude-Opus-4.6",
+   "agente": "Meta-Harness",
+   "agente_url": "https://github.com/stanford-iris-lab/meta-harness-tbench2-artifact",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-26__meta-harness-v1",
+     "aciertos": 340,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 340,
+   "intentos": 445,
+   "cifra": 0.764,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Mux__Claude-Opus-4.5",
+   "agente": "Mux",
+   "agente_url": "https://github.com/coder/mux",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-5",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-16__00-15-05",
+     "aciertos": 52,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 52,
+   "intentos": 89,
+   "cifra": 0.5843,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Mux__Claude-Opus-4.6",
+   "agente": "Mux",
+   "agente_url": "https://github.com/coder/mux",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-09__01-47-04",
+     "aciertos": 59,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-09__01-47-09",
+     "aciertos": 62,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-10__00-43-32",
+     "aciertos": 57,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-10__02-03-21",
+     "aciertos": 60,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-10__02-43-25",
+     "aciertos": 58,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 296,
+   "intentos": 445,
+   "cifra": 0.6652,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Mux__GPT-5.2",
+   "agente": "Mux",
+   "agente_url": "https://github.com/coder/mux",
+   "modelos": [
+    {
+     "model_name": "gpt-5.2",
+     "provider": "openai",
+     "display": "GPT-5.2"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-16__00-55-00",
+     "aciertos": 54,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 54,
+   "intentos": 89,
+   "cifra": 0.6067,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Mux__GPT-5.3-Codex",
+   "agente": "Mux",
+   "agente_url": "https://github.com/coder/mux",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3 Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-11__13-01-28",
+     "aciertos": 68,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-11__15-49-49",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-11__17-02-37",
+     "aciertos": 66,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-12__09-49-12",
+     "aciertos": 67,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-12__13-28-42",
+     "aciertos": 66,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 332,
+   "intentos": 445,
+   "cifra": 0.7461,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "NexAU-AHE__gpt-5.5",
+   "agente": "NexAU-AHE",
+   "agente_url": "https://github.com/china-qijizhifeng/agentic-harness-engineering.git",
+   "modelos": [
+    {
+     "model_name": "gpt-5.5",
+     "provider": "openai",
+     "display": "GPT-5.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "run-1",
+     "aciertos": 74,
+     "intentos": 89
+    },
+    {
+     "job": "run-2",
+     "aciertos": 76,
+     "intentos": 89
+    },
+    {
+     "job": "run-3",
+     "aciertos": 151,
+     "intentos": 178
+    },
+    {
+     "job": "run-4",
+     "aciertos": 75,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 376,
+   "intentos": 445,
+   "cifra": 0.8449,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "OB-1_GPT-5.3-Codex-Claude-Opus-4.5-Claude-Opus-4.6",
+   "agente": "OB-1",
+   "agente_url": "https://www.openblocklabs.com/",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3 Codex"
+    },
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    },
+    {
+     "model_name": "claude-opus-4-5",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-21__12-03-27",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-22__10-25-31",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-24__01-21-30",
+     "aciertos": 65,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-25__10-05-26",
+     "aciertos": 63,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-25__17-36-00",
+     "aciertos": 64,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 322,
+   "intentos": 445,
+   "cifra": 0.7236,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "OB-1_GPT-5.4-GPT-5.3-Codex-Claude-Opus-4.5-Claude-Opus-4.6",
+   "agente": "OB-1",
+   "agente_url": "https://www.openblocklabs.com/",
+   "modelos": [
+    {
+     "model_name": "gpt-5.4",
+     "provider": "openai",
+     "display": "GPT-5.4"
+    },
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3 Codex"
+    },
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    },
+    {
+     "model_name": "claude-opus-4-5",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-06__15-35-05",
+     "aciertos": 71,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-06__18-04-12",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-06__22-10-12",
+     "aciertos": 75,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-07__00-42-23",
+     "aciertos": 73,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-10__12-20-19",
+     "aciertos": 75,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 367,
+   "intentos": 445,
+   "cifra": 0.8247,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "OpenCode__Claude-Opus-4.5",
+   "agente": "OpenCode",
+   "agente_url": "https://opencode.ai",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-5",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-11__01-42-13",
+     "aciertos": 46,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 46,
+   "intentos": 89,
+   "cifra": 0.5169,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "OpenSage__GPT-5.3-Codex",
+   "agente": "SageAgent",
+   "agente_url": "https://github.com/opensage-agent",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "OpenAI",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-04__17-15-16",
+     "aciertos": 69,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-06__14-31-56",
+     "aciertos": 70,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-06__23-35-01",
+     "aciertos": 70,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-07__02-36-36",
+     "aciertos": 70,
+     "intentos": 89
+    },
+    {
+     "job": "2026-03-08__01-10-22",
+     "aciertos": 70,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 349,
+   "intentos": 445,
+   "cifra": 0.7843,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "OpenSage__Gemini-3-Pro-Preview",
+   "agente": "SageAgent",
+   "agente_url": "https://github.com/opensage-agent",
+   "modelos": [
+    {
+     "model_name": "gemini-3-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-23__08-25-43",
+     "aciertos": 57,
+     "intentos": 89
+    },
+    {
+     "job": "2026-01-23__22-00-30",
+     "aciertos": 59,
+     "intentos": 89
+    },
+    {
+     "job": "2026-01-25__05-43-22",
+     "aciertos": 60,
+     "intentos": 89
+    },
+    {
+     "job": "2026-01-25__20-11-02",
+     "aciertos": 57,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-12__20-47-36",
+     "aciertos": 57,
+     "intentos": 89
+    }
+   ],
+   "aciertos": 290,
+   "intentos": 445,
+   "cifra": 0.6517,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Polaris__Claude-Opus-4.7-GPT-5.5-Gemini-3.1-Pro",
+   "agente": "Polaris",
+   "agente_url": "https://polarops.ai",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-7",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.7"
+    },
+    {
+     "model_name": "gpt-5.5",
+     "provider": "openai",
+     "display": "GPT-5.5"
+    },
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "google",
+     "display": "Gemini 3.1 Pro Preview"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "tbench-polaris-api-k5-concurrent8-20260506-193109",
+     "aciertos": 365,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 365,
+   "intentos": 445,
+   "cifra": 0.8202,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Simplai-Agent__Claude-Sonnet-4.6",
+   "agente": "Simplai Agent",
+   "agente_url": "https://simplai.ai",
+   "modelos": [
+    {
+     "model_name": "claude-sonnet-4-6",
+     "provider": "anthropic",
+     "display": "Claude Sonnet 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "submission-sonnet46-20260417-100503",
+     "aciertos": 232,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 232,
+   "intentos": 445,
+   "cifra": 0.5213,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Simple-Codex__GPT-5.3-Codex",
+   "agente": "Simple Codex",
+   "agente_url": "https://openai.com/codex",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "simple-codex-gpt-5.3-codex-5x-duplicate",
+     "aciertos": 332,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 332,
+   "intentos": 445,
+   "cifra": 0.7461,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus-KIRA__Claude-Opus-4.6",
+   "agente": "Terminus-KIRA",
+   "agente_url": "https://www.krafton.ai/en/",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-13__11-48-54",
+     "aciertos": 331,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 331,
+   "intentos": 445,
+   "cifra": 0.7438,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus-KIRA__Gemini-3.1-Pro-Preview",
+   "agente": "Terminus-KIRA",
+   "agente_url": "https://www.krafton.ai/en/",
+   "modelos": [
+    {
+     "model_name": "gemini-3.1-pro-preview",
+     "provider": "Google",
+     "display": "Gemini 3.1 Pro"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-20__11-30-30",
+     "aciertos": 333,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 333,
+   "intentos": 445,
+   "cifra": 0.7483,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__Claude-Opus-4.6",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-05__16-08-28",
+     "aciertos": 61,
+     "intentos": 89
+    },
+    {
+     "job": "2026-02-05__17-41-47",
+     "aciertos": 219,
+     "intentos": 356
+    }
+   ],
+   "aciertos": 280,
+   "intentos": 445,
+   "cifra": 0.6292,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__DeepSeek-V3.2",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "deepseek-v3.2",
+     "provider": "deepseek",
+     "display": "DeepSeek-V3.2"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-07__07-47-43",
+     "aciertos": 176,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 176,
+   "intentos": 445,
+   "cifra": 0.3955,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__GLM-4.7",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "glm-4.7",
+     "provider": "z-ai",
+     "display": "GLM 4.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-27__12-34-00",
+     "aciertos": 147,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 147,
+   "intentos": 445,
+   "cifra": 0.3303,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__GLM-5",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "glm-5",
+     "provider": "z-ai",
+     "display": "GLM 5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-14__13-57-51",
+     "aciertos": 231,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 231,
+   "intentos": 445,
+   "cifra": 0.5191,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__GPT-5.3-Codex",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "terminus-gpt-5.3-codex-5x",
+     "aciertos": 288,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 288,
+   "intentos": 445,
+   "cifra": 0.6472,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__Kimi-k2.5",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "kimi-k2.5",
+     "provider": "kimi",
+     "display": "Kimi k2.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-26__22-34-00",
+     "aciertos": 189,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 189,
+   "intentos": 445,
+   "cifra": 0.4247,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Terminus2__Minimax-m2.5",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "minimax-m2.5",
+     "provider": "Minimax",
+     "display": "Minimax m2.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-02-18__13-31-00",
+     "aciertos": 188,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 188,
+   "intentos": 445,
+   "cifra": 0.4225,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "WOZCODE__Claude-Opus-4-7",
+   "agente": "WOZCODE",
+   "agente_url": "https://github.com/WithWoz/wozcode-plugin",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-7",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-19__20-07-00",
+     "aciertos": 357,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 357,
+   "intentos": 445,
+   "cifra": 0.8022,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "Wecode__GPT-5.5",
+   "agente": "Wecode",
+   "agente_url": "https://pixboostai.com/",
+   "modelos": [
+    {
+     "model_name": "gpt-5.5",
+     "provider": "openai",
+     "display": "GPT-5.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "wecode-tb2-4-30-5",
+     "aciertos": 392,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 392,
+   "intentos": 445,
+   "cifra": 0.8809,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "WozCode__Claude-Opus-4.6",
+   "agente": "WozCode",
+   "agente_url": "https://github.com/WithWoz/WozCode",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [],
+   "aciertos": 0,
+   "intentos": 0,
+   "cifra": null,
+   "jobs_ilegibles": [
+    "2026-03-28__16-52-39: HTTPError: HTTP Error 404: Not Found"
+   ]
+  },
+  {
+   "envio": "cchuter__minimax-m2.5",
+   "agente": "cchuter",
+   "agente_url": "https://github.com/cchuter/blobfish",
+   "modelos": [
+    {
+     "model_name": "minimax-m2.5",
+     "provider": "minimax",
+     "display": "minimax-m2.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-08__22-02-04",
+     "aciertos": 188,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 188,
+   "intentos": 445,
+   "cifra": 0.4225,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "clnkr__GPT-5.5",
+   "agente": "clnkr",
+   "agente_url": "https://github.com/clnkr-ai/clnkr",
+   "modelos": [
+    {
+     "model_name": "gpt-5.5",
+     "provider": "openai",
+     "display": "GPT-5.5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-05-07__03-15-33",
+     "aciertos": 294,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 294,
+   "intentos": 445,
+   "cifra": 0.6607,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "copilot-cli__claude-opus-4.6",
+   "agente": "Copilot CLI",
+   "agente_url": "https://docs.github.com/en/copilot/how-tos/copilot-cli",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4.6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-02__18-13-37",
+     "aciertos": 269,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 269,
+   "intentos": 445,
+   "cifra": 0.6045,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "dakou__qwen3-coder-480b",
+   "agente": "Dakou Agent",
+   "agente_url": "https://dakou.iflow.cn/",
+   "modelos": [
+    {
+     "model_name": "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
+     "provider": "modelscope",
+     "display": "Qwen 3 Coder 480B"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2025-12-25__23-49-10",
+     "aciertos": 121,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 121,
+   "intentos": 445,
+   "cifra": 0.2719,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "grok-cli__grok-4.20-0309-reasoning",
+   "agente": "Grok CLI",
+   "agente_url": "https://github.com/superagent-ai/grok-cli",
+   "modelos": [
+    {
+     "model_name": "grok-4.20-0309-reasoning",
+     "provider": "xai",
+     "display": "Grok 4.20 Reasoning"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "job-part1",
+     "aciertos": 81,
+     "intentos": 445
+    },
+    {
+     "job": "job-part2",
+     "aciertos": 124,
+     "intentos": 356
+    },
+    {
+     "job": "job-part3",
+     "aciertos": 4,
+     "intentos": 11
+    }
+   ],
+   "aciertos": 209,
+   "intentos": 812,
+   "cifra": 0.2574,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "harness-agent__minimax-m2-7-highspeed",
+   "agente": "Harness Agent",
+   "agente_url": "https://github.com/lazyFrogLOL/Harness_Engineering",
+   "modelos": [
+    {
+     "model_name": "MiniMax-M2.7-highspeed",
+     "provider": "minimax",
+     "display": "MiniMax M2.7 Highspeed"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-27__02-11-40",
+     "aciertos": 189,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 189,
+   "intentos": 445,
+   "cifra": 0.4247,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "hookele__gpt5.1-codex-mini",
+   "agente": "hookele",
+   "agente_url": "https://github.com/sady4850/hookele_coding_agent",
+   "modelos": [
+    {
+     "model_name": "gpt-5.1-codex-mini",
+     "provider": "openai",
+     "display": "GPT-5.1 Codex mini"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-01-15__14-18-06",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__14-43-11",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__17-31-50",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__18-17-16",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__19-09-35",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__19-27-41",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__20-33-53",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__21-26-23",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__21-33-44",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__22-02-11",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-15__23-37-27",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__00-57-03",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__09-00-42",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__10-14-28",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__10-36-27",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__11-24-23",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__18-26-05",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__18-47-40",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__19-31-33",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__19-57-03",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__22-42-32",
+     "aciertos": 4,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-16__23-14-33",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-17__01-30-36",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-17__13-33-21",
+     "aciertos": 4,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-17__18-59-56",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-17__20-02-03",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-17__20-50-10",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-18__16-20-01",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-18__22-00-43",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-19__11-45-13",
+     "aciertos": 2,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-20__10-20-52",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-21__13-58-53",
+     "aciertos": 1,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-21__17-43-03",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-21__22-29-46",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-21__23-47-08",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-22__19-27-40",
+     "aciertos": 2,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-23__10-39-25",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-24__10-46-42",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-24__14-05-36",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-24__18-04-38",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-24__19-06-08",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-24__23-27-55",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-25__15-26-58",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-25__23-46-51",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__10-29-58",
+     "aciertos": 4,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__14-30-45",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__16-14-59",
+     "aciertos": 1,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__19-49-15",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__20-06-35",
+     "aciertos": 1,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__20-16-21",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__20-44-12",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-26__20-45-21",
+     "aciertos": 0,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-27__00-55-22",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-27__11-31-09",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-27__15-48-31",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-27__20-08-18",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-27__23-29-16",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-28__09-02-48",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-28__10-01-15",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-01-28__14-47-09",
+     "aciertos": 4,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-04__15-30-16",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-04__15-56-21",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-04__17-15-38",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-04__21-22-17",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-05__08-59-48",
+     "aciertos": 3,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-05__09-42-14",
+     "aciertos": 1,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-05__16-06-58",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-05__18-40-54",
+     "aciertos": 5,
+     "intentos": 5
+    },
+    {
+     "job": "2026-02-06__09-44-35",
+     "aciertos": 0,
+     "intentos": 95
+    },
+    {
+     "job": "2026-02-06__18-43-36",
+     "aciertos": 0,
+     "intentos": 10
+    }
+   ],
+   "aciertos": 272,
+   "intentos": 445,
+   "cifra": 0.6112,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "just-another-coding-agent__GLM-5",
+   "agente": "just-another-coding-agent",
+   "agente_url": "https://github.com/SahilDahiya/just-another-coding-agent",
+   "modelos": [
+    {
+     "model_name": "glm-5",
+     "provider": "zhipu",
+     "display": "GLM 5"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "glm5-high-a-pass-1-20260327-225519",
+     "aciertos": 14,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-a-pass-2-20260329-013636",
+     "aciertos": 14,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-a-pass-3-20260330-095106",
+     "aciertos": 17,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-a-pass-4-20260402-104213",
+     "aciertos": 14,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-a-pass-5-20260404-003458",
+     "aciertos": 9,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-b-fix-pass-6-b-pass-1-20260404-194141",
+     "aciertos": 13,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-b-fix-pass-6-b-pass-1-20260404-200455",
+     "aciertos": 16,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-b-pass-3-20260401-194923",
+     "aciertos": 17,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-b-pass-4-20260403-202327",
+     "aciertos": 18,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-b-pass-5-20260404-003432",
+     "aciertos": 11,
+     "intentos": 30
+    },
+    {
+     "job": "glm5-high-c-pass-1-20260328-175515",
+     "aciertos": 15,
+     "intentos": 29
+    },
+    {
+     "job": "glm5-high-c-pass-2-20260330-022919",
+     "aciertos": 16,
+     "intentos": 29
+    },
+    {
+     "job": "glm5-high-c-pass-3-20260330-050917",
+     "aciertos": 10,
+     "intentos": 29
+    },
+    {
+     "job": "glm5-high-c-pass-4-20260402-001716",
+     "aciertos": 15,
+     "intentos": 29
+    },
+    {
+     "job": "glm5-high-c-pass-5-20260403-202413",
+     "aciertos": 12,
+     "intentos": 29
+    }
+   ],
+   "aciertos": 211,
+   "intentos": 445,
+   "cifra": 0.4742,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "little-coder__qwen3.5-9b",
+   "agente": "little-coder",
+   "agente_url": "https://github.com/itayinbarr/little-coder",
+   "modelos": [
+    {
+     "model_name": "Qwen/Qwen3.5-9B",
+     "provider": "llamacpp",
+     "display": "Qwen3.5-9B"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "tb2-leaderboard-k5-v0.1.24-9b-2026-04-26__20-32-42",
+     "aciertos": 41,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 41,
+   "intentos": 445,
+   "cifra": 0.0921,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "little-coder__qwen3.6-35b-a3b",
+   "agente": "little-coder",
+   "agente_url": "https://github.com/itayinbarr/little-coder",
+   "modelos": [
+    {
+     "model_name": "Qwen/Qwen3.6-35B-A3B",
+     "provider": "llamacpp",
+     "display": "Qwen3.6-35B-A3B"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "tb2-leaderboard-k5-2026-04-24__00-34-46",
+     "aciertos": 106,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 106,
+   "intentos": 445,
+   "cifra": 0.2382,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "logos-latest__claude-opus-4.7",
+   "error": "metadata.yaml ilegible: HTTPError"
+  },
+  {
+   "envio": "logos-ts__claude-opus-4.7",
+   "error": "metadata.yaml ilegible: HTTPError"
+  },
+  {
+   "envio": "logos__claude-opus-4.6",
+   "agente": "LogosAgent",
+   "agente_url": "https://github.com/tommy0103/kairos-bench",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4.6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-09",
+     "aciertos": 295,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 295,
+   "intentos": 445,
+   "cifra": 0.6629,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "pilot-real__claude-opus-4-6",
+   "agente": "Pilot",
+   "agente_url": "https://github.com/alekspetrov/pilot",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-6",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.6"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "pilot-cc-v35-k5",
+     "aciertos": 365,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 365,
+   "intentos": 445,
+   "cifra": 0.8202,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "spoox-o-m__GPT-5-Nano",
+   "agente": "spoox-o-m",
+   "agente_url": "https://github.com/plaume8/spoox",
+   "modelos": [
+    {
+     "model_name": "gpt-5-nano",
+     "provider": "openai",
+     "display": "GPT-5-Nano"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-22__16-49-45",
+     "aciertos": 97,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 97,
+   "intentos": 445,
+   "cifra": 0.218,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "spoox-o-m__GPT-5.3-Codex",
+   "agente": "spoox-o-m",
+   "agente_url": "https://github.com/plaume8/spoox",
+   "modelos": [
+    {
+     "model_name": "gpt-5.3-codex",
+     "provider": "openai",
+     "display": "GPT-5.3-Codex"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-03-15__21-10-02",
+     "aciertos": 318,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 318,
+   "intentos": 445,
+   "cifra": 0.7146,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "terminus-2__AfterQuery-GPT-OSS-20B",
+   "agente": "Terminus 2",
+   "agente_url": "https://www.tbench.ai/terminus",
+   "modelos": [
+    {
+     "model_name": "gpt-oss-20b-rl",
+     "provider": "afterquery",
+     "display": "AfterQuery-GPT-OSS-20B"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "new-s30-k5-dragon",
+     "aciertos": 75,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 75,
+   "intentos": 445,
+   "cifra": 0.1685,
+   "jobs_ilegibles": []
+  },
+  {
+   "envio": "vix__claude-opus-4-7",
+   "agente": "vix",
+   "agente_url": "https://github.com/kirby88/vix-releases",
+   "modelos": [
+    {
+     "model_name": "claude-opus-4-7",
+     "provider": "anthropic",
+     "display": "Claude Opus 4.7"
+    }
+   ],
+   "jobs": [
+    {
+     "job": "2026-04-30__17-57-22",
+     "aciertos": 400,
+     "intentos": 445
+    }
+   ],
+   "aciertos": 400,
+   "intentos": 445,
+   "cifra": 0.8989,
+   "jobs_ilegibles": []
+  }
+ ]
+}

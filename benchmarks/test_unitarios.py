@@ -1514,3 +1514,53 @@ def test_las_fichas_ordenan_por_la_nota_que_muestran():
         f"{len(malas)} ficha(s) publican un puesto que no corresponde a su nota de "
         f"calidad (ordenadas por otra escala): {malas[:5]}"
     )
+
+
+# ── fuentes_externas: la foto se lee offline y el mapeo no inventa ──────────
+# corte-v5 2.1 (3-nov-2026). Las cifras externas viajan por agente y nunca se promedian.
+def _foto_tb(envios):
+    return {"fuente": "Terminal-Bench", "version": "2.0", "consultado": "2026-11-03",
+            "agente_referencia": "Terminus 2", "envios": envios}
+
+
+def _envio(agente, model_name, cifra, envio=None):
+    return {"envio": envio or f"{agente}__{model_name}", "agente": agente, "cifra": cifra,
+            "intentos": 445, "modelos": [{"model_name": model_name}]}
+
+
+def test_fuentes_externas_referencia_y_mejor_agente_sin_promediar():
+    import fuentes_externas as fe
+    foto = _foto_tb([_envio("Terminus 2", "m-x", 0.40), _envio("Otro", "m-x", 0.70),
+                     _envio("Tercero", "m-x", 0.55)])
+    por_key, sin = fe.cifras_por_key(foto, {"m-x": "k-x"})
+    assert sin == []
+    assert por_key["k-x"]["referencia"]["cifra"] == 0.40
+    assert por_key["k-x"]["mejor"] == {"cifra": 0.70, "agente": "Otro", "envio": "Otro__m-x", "intentos": 445}
+
+
+def test_fuentes_externas_multimodelo_y_sin_mapear_no_se_atribuyen():
+    import fuentes_externas as fe
+    multi = {"envio": "J__Multiple", "agente": "J", "cifra": 0.9, "intentos": 445,
+             "modelos": [{"model_name": "a"}, {"model_name": "b"}]}
+    por_key, sin = fe.cifras_por_key(_foto_tb([multi, _envio("Terminus 2", "nuevo", 0.3)]), {"a": "k-a"})
+    assert por_key == {}
+    assert sin == ["nuevo"]
+
+
+def test_fuentes_externas_un_alias_a_una_key_inexistente_explota():
+    import pytest
+    import fuentes_externas as fe
+    with pytest.raises(ValueError, match="no existen"):
+        fe.cobertura(_foto_tb([]), [], {"x": "key-que-no-existe"})
+
+
+def test_fuentes_externas_corre_offline_sobre_la_foto_guardada():
+    import fuentes_externas as fe
+    ruta = fe.ultima_foto(f"terminal-bench-{fe.TB_VERSION}")
+    assert ruta is not None, "no hay foto de Terminal-Bench en externos/fotos/"
+    foto = json.loads(ruta.read_text())
+    for campo in ("fuente", "version", "url", "licencia", "consultado"):
+        assert foto.get(campo), f"la foto no declara `{campo}`"
+    rankeados = [m for m in json.loads(fe.MODELS_JSON.read_text())["models"] if m.get("ranked")]
+    c = fe.cobertura(foto, rankeados)
+    assert set(c["con_agente_referencia"]) <= set(c["con_algun_agente"]) <= {m["key"] for m in rankeados}

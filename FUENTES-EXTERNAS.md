@@ -21,8 +21,8 @@
 | Fuente | Ocasión | Entra | Por qué, con lo que se vio |
 |---|---|---|---|
 | **Terminal-Bench** (Harbor / Laude) | Programar | **Sí, filtro duro** | Envíos por PR a un dataset Apache-2.0 con `result.json` por intento, mínimo 5 intentos por tarea, validación automática. Ojo: el sitio ya muestra **Terminal-Bench 4.0**; los envíos a 2.0 están cerrados a la espera de un proceso nuevo. Nuestro banco ya corre sobre Harbor. |
-| **Toolathlon-Verified** (HKUST) | Automatizar | **Sí, filtro duro** | Trayectorias públicas en HF, Pass@1 y Pass^3, estado final de la app. Cobertura chica: 7 modelos en la tabla principal (GLM 5.3 Flash, Kimi K3, Opus 4.8, Muse Spark 1.2, DeepSeek V4 Pro, GPT-5.5, Gemini 3.5 Flash). Última fila 30-ago-2026. |
-| **SWE-bench Pro público** (Scale) | Programar | **Secundaria** | 25 modelos, incluye baratos y abiertos (Qwen3 Coder, GLM 4.6, Gemma 3, DeepSeek). Pero el harness no es uniforme (5 filas con mini-swe-agent, el resto sin declarar) y lo corre una empresa, no la comunidad. Se muestra como banda, no como filtro. |
+| **Toolathlon-Verified** (HKUST) | Automatizar | **No se ingesta: se enlaza** (3-nov-2026) | Cumplía los criterios 1, 2, 4 y 5, y falla el 3: ni el repo (`hkust-nlp/Toolathlon`) ni el dataset de trayectorias declaran licencia, y el dataset pide login. Dos issues abiertos preguntan exactamente eso y no tienen respuesta: [#87](https://github.com/hkust-nlp/Toolathlon/issues/87) (24-ago) y [#97](https://github.com/hkust-nlp/Toolathlon/issues/97) (1-oct). Automatizar sigue con la capa propia hasta que respondan. 7 modelos en la tabla principal; última fila 30-ago-2026. |
+| **SWE-bench Pro público** (Scale) | Programar | **No se ingesta: se enlaza** (3-nov-2026) | 25 modelos, incluidos baratos y abiertos, pero la tabla pública se arma con JavaScript y no hay dataset con los resultados. El repo `scaleapi/SWE-bench_Pro-os` (MIT) solo trae trayectorias de 9 modelos de 2025 en `traj/`. Además el harness no es uniforme y lo corre una empresa, no la comunidad. |
 | **τ²/τ³-bench** (Sierra) | Relación comercial | **Solo si lo corremos nosotros** | MIT y harness abierto, pero la tabla acepta cifras autodeclaradas y no exige trayectorias. Sirve el *método* (pass^k, usuario simulado); la tabla no. |
 | **Arena** (ex LMArena) | ninguna como filtro | **Banda de preferencia, nada más** | 419 modelos y 9 M de votos: la mayor cobertura que existe, pero es preferencia humana, no verdad. Sin categoría *Spanish* visible (29 categorías ocultas por revisar). |
 | **Artificial Analysis** | velocidad, precio | **No se ingesta** | Independiente, pero el tier gratis es «uso interno, sin redistribución» y republicar exige licencia comercial. Precio y velocidad ya los traemos de OpenRouter (`effort.py --actualizar`). Se enlaza, no se copia. |
@@ -40,9 +40,14 @@ completa por ocasión. Los demás modelos de nuestros 115 se publican con la cap
 comunitario», y se eligen para medir con el harness oficial solo cuando le importan a un founder (baratos,
 abiertos, locales: Qwen 3.8 Flash vs Ornith 1.5 es el primer caso).
 
-**Primer paso de la sesión de apertura:** `benchmarks/fuentes_externas.py` que ingesta las tres fuentes,
-mapea nombres a nuestras `key` (regla R5: por key, nunca por name) e imprime la cobertura real sobre los
-115. Ese número decide el tamaño del conjunto base.
+**La ingesta (tarea 2.1, 3-nov-2026):** `benchmarks/fuentes_externas.py` guarda una foto fechada con
+URL y licencia en `externos/fotos/`, mapea cada envío a nuestras `key` con una tabla explícita (nunca por
+`name`) e imprime la cobertura sobre los rankeados, por versión y por agente. La cifra se lee de ahí, no
+de este documento. Hoy entra solo Terminal-Bench 2.0: Toolathlon-Verified y SWE-bench Pro se enlazan.
+
+**Cómo se lee Terminal-Bench:** puntúa pares agente + modelo. La cifra principal de un modelo es la del
+agente de referencia del harness (Terminus 2); la del mejor agente va aparte y con su nombre. Nunca se
+promedian agentes ni versiones.
 
 ## Fuentes consultadas
 

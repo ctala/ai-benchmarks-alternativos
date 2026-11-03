@@ -5,6 +5,16 @@
 
 ## [No publicado]
 
+- **`fuentes_externas.py`: la cobertura comunitaria sale de una foto, no de una opinión
+  (3-nov-2026, tarea 2.1 de corte-v5).** Baja Terminal-Bench 2.0 (Apache-2.0, 75 envíos) a
+  `externos/fotos/` con fecha, URL y licencia, y desde ahí corre sin red. Lee los dos formatos de
+  `result.json` que hay en el dataset; un envío con un job ilegible queda sin cifra (3, por 404).
+  Mapea a `key` con una tabla explícita y lista lo que no está en nuestro catálogo. La cifra
+  principal es la de Terminus 2 y la del mejor agente va aparte, sin promediar. Toolathlon y
+  SWE-bench Pro se enlazan y no se ingestan (sin licencia; sin datos fuera de JavaScript). No
+  se abrió un issue nuevo en Toolathlon: el #97 pregunta lo mismo desde el 1-oct. Cuatro tests
+  en `test_unitarios.py`, cada uno roto a propósito.
+
 - **Grupo 1 de corte-v5 cerrado: los guardrails del QA, auditados y arreglados (3-nov-2026).**
   Es el gate del corte y quedó superado. De las 29 entradas de `qa.py` auditadas, 27 son
   confiables y 2 están exentas con motivo; no queda ningún verde vacío ni ninguna sin prueba
