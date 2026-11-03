@@ -11,8 +11,8 @@ Estado de partida, leído el 3-nov-2026 en `main` (v4.17.0):
 ## Goals / Non-Goals
 
 **Goals**
-- Que la recomendación por ocasión salga de un filtro duro comunitario más la capa propia (gap español, tareas de founder con datos LATAM, pass^k, modelos baratos y locales), con el precio mensual al volumen declarado.
-- Que el conjunto base quede definido por un número, no por una opinión: cobertura de las tres fuentes sobre los 115.
+- Que la recomendación por ocasión salga de la capa propia (gap español, tareas de founder con datos LATAM, pass^k, modelos baratos y locales), con la cifra comunitaria al lado como banda cuando la fuente midió la misma versión, y con el precio mensual al volumen declarado.
+- Que el conjunto base quede definido por un número, no por una opinión: vigentes del índice ∩ llamables por OpenRouter, contado desde `models.py`.
 - Que los guardrails merezcan confianza antes de construir encima.
 - Que el plan sobreviva sesiones y se cierre.
 
@@ -30,13 +30,13 @@ Cada decisión está en `DECISIONES.md` con su porqué; acá solo el puntero y l
 | OpenSpec entra, dentro del benchmark y solo para un corte mayor | `openspec/` en la raíz del benchmark; el hub no se toca. `check_specs` S6 exige que el change nombre a `DECISIONES.md` |
 | Un change se completa y se archiva; en `main` no queda ninguno | `check_specs.py` S1-S6, bloqueante, nació en verde, 6 pruebas de sabotaje sobre un `openspec/` desechable |
 | v5.0.0 mayor por 6 ocasiones | `scoring_reference.json` se recalibra en el release (`--recalibrate --scoring-version v5.0`); el esquema de `models.json` agrega `ocasiones` |
-| Enriquecer, no replicar: fuentes comunitarias como filtro duro | `fuentes_externas.py` ingesta con fecha y licencia; las cifras externas viajan como **banda** por fuente, nunca entran al promedio propio |
+| Fuentes externas como banda informativa, no filtro duro | `fuentes_externas.py` ingesta con fecha y licencia; la cifra externa viaja como **banda** por fuente, solo con la misma versión exacta del modelo, nunca entra al promedio propio y no filtra el conjunto base |
 | Lo no medido se mide con el harness oficial | camino `externos/` declarado en `check_caminos` antes de la primera corrida; la publicación dice «medido por nosotros con el harness oficial vX, N intentos, fecha» |
 | Ningún guardrail se debilita durante el corte | la auditoría es la tarea 1 y su tabla es gate; un chequeo que queda obsoleto cambia con su prueba y su fila en el mismo commit |
 
 ## Risks / Trade-offs
 
-- **Cobertura chica de las fuentes.** Toolathlon-Verified tiene 7 modelos. Si el conjunto base queda en 15, la recomendación completa cubre pocos modelos y el resto va con «sin dato comunitario». Se acepta: es honesto y se amplía midiendo nosotros.
+- **Cobertura chica de las fuentes (medida el 3-nov).** La foto de Terminal-Bench 2.0 es de mayo: 5 de 115 con Terminus 2, 14 con cualquier agente, y la familia actual no aparece. Por eso la fuente externa dejó de filtrar: ya no achica la recomendación, solo deja a la mayoría sin banda. Programar se sostiene en las tareas Harbor propias, y lo que falta se amplía midiendo nosotros (grupo 4, sin crecer).
 - **Terminal-Bench cambió de versión.** Las cifras públicas son de 2.0 y el sitio muestra 4.0. Se ingesta la versión que tenga dataset público con trayectorias y se declara cuál.
 - **Esquema nuevo rompe `check_consistency` y el blog.** Es el momento de la tentación de aflojar. Regla: el chequeo cambia con su prueba, no se apaga.
 - **Spark.** La corrida oficial depende de la GPU y el modelo principal está abajo por decisión de Cristian. No se sube; se espera su ventana.

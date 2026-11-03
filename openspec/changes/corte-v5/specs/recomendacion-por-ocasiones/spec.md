@@ -11,8 +11,12 @@ La recomendación MUST organizarse en seis ocasiones (Escribir, Relación comerc
 - **WHEN** el usuario edita el volumen de una ocasión en la calculadora
 - **THEN** el precio mensual de cada modelo se recalcula con ese volumen y el orden de la recomendación puede cambiar
 
-### Requirement: Fuente comunitaria como filtro duro
-Una fuente externa MUST entrar solo si cumple los cinco criterios de `FUENTES-EXTERNAS.md` (verificada por la comunidad con trayectorias públicas, verdad objetiva, datos por modelo leíbles por script con licencia para republicar, cobertura de modelos que un emprendedor paga o corre, y mapeo a una ocasión). Toda cifra externa MUST viajar con fuente, versión, fecha y licencia, y MUST mostrarse como banda. Cifras de harnesses distintos MUST NOT promediarse entre sí ni con las propias.
+### Requirement: Fuente comunitaria como banda informativa
+Una fuente externa es banda informativa y MUST NOT filtrar qué modelos se recomiendan. MUST entrar solo si cumple los cinco criterios de `FUENTES-EXTERNAS.md` (verificada por la comunidad con trayectorias públicas, verdad objetiva, datos por modelo leíbles por script con licencia para republicar, cobertura de modelos que un emprendedor paga o corre, y mapeo a una ocasión). Toda cifra externa MUST viajar con fuente, versión, fecha y licencia, y MUST mostrarse como banda. Cifras de harnesses distintos MUST NOT promediarse entre sí ni con las propias. La banda MUST mostrarse solo si la fuente midió la misma versión exacta del modelo que está en el índice.
+
+#### Scenario: Versión distinta
+- **WHEN** la fuente midió otra versión o variante del modelo (otro snapshot, otra cuantización, otro modo)
+- **THEN** la cifra no se muestra en ese modelo
 
 #### Scenario: Cifra externa en models.json
 - **WHEN** `fuentes_externas.py` ingesta una fila de una fuente aceptada
@@ -23,7 +27,7 @@ Una fuente externa MUST entrar solo si cumple los cinco criterios de `FUENTES-EX
 - **THEN** no se ingesta; como mucho se enlaza o se muestra como banda de preferencia rotulada
 
 ### Requirement: Conjunto base y marca «sin dato comunitario»
-El conjunto base MUST ser la intersección entre los modelos medidos por al menos una fuente aceptada y los que se pueden llamar por OpenRouter, y MUST publicarse como número y lista. Todo modelo fuera del conjunto base MUST llevar `sin_dato_comunitario: true` y la calculadora MUST mostrarlo.
+El conjunto base MUST ser la intersección entre los modelos vigentes del índice y los que se pueden llamar por OpenRouter, contada desde `models.py`, y MUST publicarse como número y lista. Las fuentes externas MUST NOT recortarlo. Todo modelo sin banda externa de su misma versión MUST llevar `sin_dato_comunitario: true`, y la calculadora MUST mostrarlo como estado normal, sin alarma.
 
 #### Scenario: Modelo sin fuente
 - **WHEN** un modelo rankeado no aparece en ninguna fuente aceptada

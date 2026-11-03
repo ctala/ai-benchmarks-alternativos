@@ -187,7 +187,7 @@ benchmark de agentes mide en español: instrucciones escondidas en el mensaje (`
 
 Por ocasión, tres columnas y una recomendación que sale de cruzarlas:
 
-1. **Lo que ya midieron otros, independientes** (filtro duro): Terminal-Bench y SWE-bench para Programar;
+1. **Lo que ya midieron otros, independientes** (banda informativa desde el 3-nov, no filtro): Terminal-Bench y SWE-bench para Programar;
    Toolathlon y τ²-bench para Automatizar y Relación comercial; Artificial Analysis para velocidad y precio;
    la categoría *Spanish* de LMArena como única señal pública en español (preferencia, no verificable).
    Solo leaderboards independientes, nunca la tarjeta del vendor (lección Ornith). Cada celda con fuente y fecha.
@@ -205,8 +205,11 @@ muchos quedarán «sin dato público» y hay que decir qué se hace con ellos), 
 distintos (no se promedian: se muestran como bandas), caducidad (ingesta por script con fecha, no a mano;
 precedente: `effort.py --actualizar` ya trae datos de OpenRouter).
 
-**Primer paso de la próxima sesión:** inventario de fuentes por ocasión con su cobertura real sobre nuestros
-115 rankeados. Ese número decide si la dirección aguanta.
+**Resuelto el 3-nov-2026 (DECISIONES):** la cobertura se midió y no sostiene un filtro. La foto de
+Terminal-Bench 2.0 es de mayo: 5 de 115 con Terminus 2, 14 con cualquier agente, y la familia actual no
+aparece; Toolathlon y SWE-bench Pro no se pueden ingestar. Las fuentes externas quedan como banda
+informativa (solo con la misma versión exacta), el conjunto base es vigentes del índice ∩ llamables por
+OpenRouter, y `sin_dato_comunitario` es la norma. La dirección aguanta porque se apoya en la capa propia.
 
 ## Modelos sin dato público: medirlos nosotros con el harness oficial (Cristian, 3-nov-2026)
 

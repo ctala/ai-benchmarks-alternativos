@@ -3,8 +3,18 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado]
+## [No publicado] · próximo: mayor
 
+- **Las fuentes externas pasan de filtro duro a banda informativa (3-nov-2026, decisión de Cristian).**
+  La foto de Terminal-Bench 2.0 es de mayo: 5 de 115 con Terminus 2, 14 con cualquier agente, sin la familia
+  actual. El conjunto base pasa a ser vigentes del índice ∩ llamables por OpenRouter, y una cifra externa se
+  muestra solo con la misma versión exacta del modelo. Se actualizan el change `corte-v5` (proposal, design,
+  spec y tareas 2.2-2.4 y 3.3), `OCASIONES.md` y `FUENTES-EXTERNAS.md`; la fila original de DECISIONES queda
+  como corregida.
+- **`check_changelog` lee el nivel declarado en `## [No publicado] · próximo: <nivel>` (opción d).** C2
+  compara lo tocado contra ese nivel sin que el número se mueva antes del release; un `próximo` corto o mal
+  escrito da rojo. Prueba de sabotaje nueva (`próximo: patch` con una suite tocada) y la de C1 adaptada al
+  sufijo. 59 guardrails verificados.
 - **`fuentes_externas.py`: la cobertura comunitaria sale de una foto, no de una opinión
   (3-nov-2026, tarea 2.1 de corte-v5).** Baja Terminal-Bench 2.0 (Apache-2.0, 75 envíos) a
   `externos/fotos/` con fecha, URL y licencia, y desde ahí corre sin red. Lee los dos formatos de

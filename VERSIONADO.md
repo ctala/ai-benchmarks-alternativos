@@ -56,6 +56,10 @@ Un cambio que toca varias filas se lleva **la más alta**.
    el **tag anotado**.
 3. **`## [No publicado]` queda vacía otra vez.** Si no lo está después de un release, algo
    se olvidó.
+4. **Un corte largo declara el nivel que viene:** `## [No publicado] · próximo: mayor` (o
+   `menor`, `patch`). `check_changelog --nivel` compara lo tocado contra ese nivel sin que el
+   número se mueva antes del release; al publicar, el número final tiene que coincidir con
+   lo declarado y el sufijo se quita (DECISIONES, 3-nov-2026).
 
 **Por qué así y no «changelog al final»:** porque el porqué se escribe cuando está fresco.
 Reconstruirlo tres horas después es escribir lo que uno *recuerda* haber hecho, que no es lo

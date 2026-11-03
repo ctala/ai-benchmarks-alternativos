@@ -648,7 +648,7 @@ def _t_changelog():
         # Se vacía `## [No publicado]`: si hay cambios desde el último tag —y en un repo
         # vivo siempre los hay— tiene que protestar.
         import re as _re
-        roto = _re.sub(r"(^##\s*\[No publicado\]\s*$).*?(?=^##\s*\[)",
+        roto = _re.sub(r"(^##\s*\[No publicado\][^\n]*$).*?(?=^##\s*\[)",
                        r"\1\n\n", txt, count=1, flags=_re.S | _re.M)
         if roto == txt:
             return False  # sin la sección no se puede probar; mejor fallar que fingir
@@ -939,12 +939,39 @@ def _t_changelog_bump():
     # se fija lo tocado (una suite, que exige MINOR) y el salto declarado.
     tocado = lambda tag: ["benchmarks/tests/test_inventado.py"]  # noqa: E731
     base = dict(ultimo_tag=lambda: "v9.0.0", cambios_desde=tocado,
-                seccion_no_publicado=lambda texto: "- una entrada")
+                seccion_no_publicado=lambda texto: "- una entrada",
+                nivel_proximo=lambda texto: None)  # el camino por número, sin `próximo`
     if _en_proceso("check_changelog.py", ["--nivel"], salto_de_version=lambda tag: "minor", **base) != 0:
         return False  # control: un MINOR alcanza para tocar una suite
     if _en_proceso("check_changelog.py", [], salto_de_version=lambda tag: "patch", **base) != 0:
         return False  # control: sin `--nivel`, C2 no corre
     return _en_proceso("check_changelog.py", ["--nivel"], salto_de_version=lambda tag: "patch", **base) != 0
+
+
+@prueba("check_changelog", "`próximo` en [No publicado] que no alcanza para lo tocado, o mal escrito")
+def _t_changelog_proximo():
+    # corte-v5, opción d (3-nov-2026): el corte declara el nivel que viene sin mover el número.
+    # El salto por número se fija en PATCH para que solo el `próximo` pueda dar el verde.
+    base = dict(ultimo_tag=lambda: "v9.0.0",
+                cambios_desde=lambda tag: ["benchmarks/tests/test_inventado.py"],  # exige MINOR
+                seccion_no_publicado=lambda texto: "- una entrada",
+                salto_de_version=lambda tag: "patch")
+    con = lambda nivel: dict(base, nivel_proximo=lambda texto: nivel)  # noqa: E731
+    if _en_proceso("check_changelog.py", ["--nivel"], **con("major")) != 0:
+        return False  # control: «próximo: mayor» alcanza para una suite
+    if _en_proceso("check_changelog.py", ["--nivel"], **con("minor")) != 0:
+        return False  # control: «próximo: menor» también
+    if _en_proceso("check_changelog.py", ["--nivel"], **con("patch")) == 0:
+        return False  # sabotaje: MINOR tocado con «próximo: patch»
+    # Mal escrito: la función real sobre un texto real tiene que levantar, no caer al número.
+    import check_changelog as cc
+    try:
+        cc.nivel_proximo("## [No publicado] · próximo: grande\n\n## [v1.0.0]\n")
+        return False
+    except ValueError:
+        pass
+    return cc.nivel_proximo("## [No publicado] · próximo: mayor\n\n## [v1.0.0]\n") == "major" \
+        and cc.nivel_proximo("## [No publicado]\n\n## [v1.0.0]\n") is None
 
 
 @prueba("check_gitleaks", "un hex de 64 con contexto de clave, un JSON generado nuevo con keys, o sin gitleaks")

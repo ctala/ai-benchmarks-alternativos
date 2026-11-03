@@ -20,7 +20,7 @@
 
 | Fuente | Ocasión | Entra | Por qué, con lo que se vio |
 |---|---|---|---|
-| **Terminal-Bench** (Harbor / Laude) | Programar | **Sí, filtro duro** | Envíos por PR a un dataset Apache-2.0 con `result.json` por intento, mínimo 5 intentos por tarea, validación automática. Ojo: el sitio ya muestra **Terminal-Bench 4.0**; los envíos a 2.0 están cerrados a la espera de un proceso nuevo. Nuestro banco ya corre sobre Harbor. |
+| **Terminal-Bench** (Harbor / Laude) | Programar | **Sí, banda informativa** | Envíos por PR a un dataset Apache-2.0 con `result.json` por intento, mínimo 5 intentos por tarea, validación automática. Ojo: el sitio ya muestra **Terminal-Bench 4.0**; los envíos a 2.0 están cerrados a la espera de un proceso nuevo. Nuestro banco ya corre sobre Harbor. |
 | **Toolathlon-Verified** (HKUST) | Automatizar | **No se ingesta: se enlaza** (3-nov-2026) | Cumplía los criterios 1, 2, 4 y 5, y falla el 3: ni el repo (`hkust-nlp/Toolathlon`) ni el dataset de trayectorias declaran licencia, y el dataset pide login. Dos issues abiertos preguntan exactamente eso y no tienen respuesta: [#87](https://github.com/hkust-nlp/Toolathlon/issues/87) (24-ago) y [#97](https://github.com/hkust-nlp/Toolathlon/issues/97) (1-oct). Automatizar sigue con la capa propia hasta que respondan. 7 modelos en la tabla principal; última fila 30-ago-2026. |
 | **SWE-bench Pro público** (Scale) | Programar | **No se ingesta: se enlaza** (3-nov-2026) | 25 modelos, incluidos baratos y abiertos, pero la tabla pública se arma con JavaScript y no hay dataset con los resultados. El repo `scaleapi/SWE-bench_Pro-os` (MIT) solo trae trayectorias de 9 modelos de 2025 en `traj/`. Además el harness no es uniforme y lo corre una empresa, no la comunidad. |
 | **τ²/τ³-bench** (Sierra) | Relación comercial | **Solo si lo corremos nosotros** | MIT y harness abierto, pero la tabla acepta cifras autodeclaradas y no exige trayectorias. Sirve el *método* (pass^k, usuario simulado); la tabla no. |
@@ -34,10 +34,11 @@ verdad), seguridad en español. Ahí la capa propia no es complemento: es la ún
 
 ## El conjunto base de modelos
 
-El **conjunto base** es la unión de lo que Terminal-Bench, Toolathlon-Verified y SWE-bench Pro público ya
-midieron, cruzada con lo que podemos llamar por OpenRouter. Sobre ese conjunto se publica la recomendación
-completa por ocasión. Los demás modelos de nuestros 115 se publican con la capa propia y la marca «sin dato
-comunitario», y se eligen para medir con el harness oficial solo cuando le importan a un founder (baratos,
+El **conjunto base** son los modelos vigentes del índice que se pueden llamar por OpenRouter, contados desde
+`models.py` (el número se publica en la tarea 2.3). Las fuentes externas no lo recortan: son **banda
+informativa**, y una cifra se muestra solo si la fuente midió la misma versión exacta del modelo. La
+cobertura medida el 3-nov (5 de 115 con Terminus 2, 14 con cualquier agente, foto de mayo) hace que
+«sin dato comunitario» sea la norma, no la excepción. Los modelos sin banda se eligen para medir con el harness oficial solo cuando le importan a un founder (baratos,
 abiertos, locales: Qwen 3.8 Flash vs Ornith 1.5 es el primer caso).
 
 **La ingesta (tarea 2.1, 3-nov-2026):** `benchmarks/fuentes_externas.py` guarda una foto fechada con

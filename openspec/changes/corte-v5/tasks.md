@@ -33,15 +33,15 @@ Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante 
 ## 2. Fuentes externas y conjunto base
 
 - [x] 2.1 `benchmarks/fuentes_externas.py`: ingesta Terminal-Bench (dataset HF del leaderboard), Toolathlon-Verified y SWE-bench Pro público; mapea nombres a `key` de `models.py` (nunca por `name`); imprime cobertura sobre los 115. Verificar: el script corre offline sobre una foto guardada con fecha y licencia por fuente. Hecho el 3-nov-2026: entra solo Terminal-Bench 2.0; Toolathlon (sin licencia, issues #87 y #97) y SWE-bench Pro (sin datos fuera de JavaScript) se enlazan. La cifra de cobertura se le muestra a Cristian antes de 2.3.
-- [ ] 2.2 Las cifras externas entran a `models.json` como banda por fuente (`externos: {fuente, cifra, version, fecha, licencia}`) y ningún generador las promedia con las propias. Verificar: `test_unitarios.py` tiene un test que falla si una cifra externa entra a `quality_avg`.
-- [ ] 2.3 Conjunto base = intersección (medidos por alguna fuente) ∩ (llamables por OpenRouter). Se publica el número y la lista. Verificar: `FUENTES-EXTERNAS.md` deja de ser borrador y cita el número desde el dato, no a mano.
-- [ ] 2.4 Los modelos fuera del conjunto base llevan `sin_dato_comunitario: true` y la calculadora lo muestra. Verificar: `qa_calculadora.mjs` lo comprueba.
+- [ ] 2.2 Las cifras externas entran a `models.json` como banda por fuente (`externos: {fuente, cifra, version, fecha, licencia}`) y ningún generador las promedia con las propias. La banda se muestra solo si la fuente midió la misma versión exacta del modelo que está en el índice; una versión distinta no se muestra. Verificar: `test_unitarios.py` tiene un test que falla si una cifra externa entra a `quality_avg` y otro que falla si se muestra la cifra de otra versión, cada uno con su sabotaje.
+- [ ] 2.3 Conjunto base = vigentes del índice ∩ llamables por OpenRouter; el número y la lista salen de `models.py`. Las fuentes externas no lo filtran (DECISIONES, 3-nov-2026). Verificar: `FUENTES-EXTERNAS.md` deja de ser borrador y lo dice así, citando el número desde el dato, no a mano.
+- [ ] 2.4 Los modelos sin banda externa de su misma versión llevan `sin_dato_comunitario: true`, que es la norma y no la excepción; la calculadora lo muestra sin dramatizarlo. Verificar: `qa_calculadora.mjs` lo comprueba.
 
 ## 3. Ocasiones
 
 - [ ] 3.1 Registro de las 6 ocasiones en `suites.py` (qué suites y qué fuente externa alimentan cada una) con volúmenes por defecto de `OCASIONES.md`. Verificar: `check_suites.py` falla si una suite del índice no pertenece a ninguna ocasión.
 - [ ] 3.2 `export_for_pages.py` emite `ocasiones` por modelo y recalibra con `--recalibrate --scoring-version v5.0` solo en el release. Verificar: simulación contra los runs en disco antes de aplicar, con control verde sobre v4.17.0.
-- [ ] 3.3 Programar: jubilar `code_generation` del índice (no se borra); las tareas Harbor propias con instrucción en español se mantienen y se nombran como capa propia. Verificar: `suites.del_indice()` lo refleja y ningún doc vivo cita `code_generation` como vigente.
+- [ ] 3.3 Programar: jubilar `code_generation` del índice (no se borra); las tareas Harbor propias con instrucción en español se mantienen y sostienen la ocasión como capa propia, con la cifra de Terminal-Bench al lado como banda. Verificar: `suites.del_indice()` lo refleja y ningún doc vivo cita `code_generation` como vigente.
 - [ ] 3.4 Calculadora: selector de ocasión, volúmenes editables, precio mensual al volumen declarado. Verificar: `qa_calculadora.mjs` con un caso por ocasión.
 - [ ] 3.5 Páginas y blog: generadores pSEO y `generate_blog_tablas.py` leen ocasiones; `check_consistency` y `check_blog_consistency` se adaptan **con su prueba** en el mismo commit. Verificar: QA verde sin tocar ningún bloqueante a informativo.
 
@@ -53,7 +53,7 @@ Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante 
 
 ## 5. Release v5.0.0
 
-- [ ] 5.1 `CHANGELOG.md` cierra `[No publicado]` como `[v5.0.0]`; `check_changelog.py --nivel` exige mayor y lo encuentra. Verificar: `check_version.py` con las 7 superficies y el tag.
+- [ ] 5.1 `CHANGELOG.md` cierra `[No publicado] · próximo: mayor` como `[v5.0.0]` (el número coincide con el nivel declarado y el sufijo se quita); `check_changelog.py --nivel` exige mayor y lo encuentra. Verificar: `check_version.py` con las 7 superficies y el tag.
 - [ ] 5.2 QA completo verde en la rama (no solo `--pre-merge`), blog regenerado y verificado cifra por cifra, cheatsheet y datasheet del mes. Verificar: `qa.py` sin tolerancias.
 - [ ] 5.3 Ok textual de Cristian para merge a `main` y push. Verificar: citado en el CHANGELOG.
 - [ ] 5.4 Archivar este change con `openspec archive corte-v5` antes del merge: `check_specs` S1 no deja un change activo en `main`. Verificar: `openspec/changes/archive/2026-xx-xx-corte-v5/` sin tareas abiertas.

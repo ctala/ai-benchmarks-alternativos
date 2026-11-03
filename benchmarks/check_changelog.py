@@ -24,6 +24,15 @@ QUÉ VERIFICA
       Tocar `scoring_reference.json` y publicar un PATCH es exactamente cómo se reescribe
       en silencio el significado de una cifra ya citada.
 
+      El nivel declarado es el que dice el encabezado `## [No publicado] · próximo: mayor`
+      (o `menor`, `patch`) si lo trae; si no, el salto entre el último tag y el último
+      `## [vX]`. El encabezado existe para un corte largo (3-nov-2026, corte-v5): la rama
+      toca archivos que exigen MINOR o MAYOR semanas antes del release, y el número no se
+      puede mover antes de tiempo sin desalinear las 7 superficies de `check_version`.
+      Declarar el nivel que viene deja C2 bloqueante sin mover el número; un `próximo`
+      que no alcanza para lo tocado da rojo igual que un bump corto. Que el número final
+      coincida con lo declarado se verifica al publicar (tarea 5.1 de corte-v5).
+
 LO QUE NO PUEDE VERIFICAR, Y CONVIENE SABERLO
 ---------------------------------------------
 Que la entrada sea **buena**. Puede decir «varios arreglos» y pasa. Contra eso no hay
@@ -159,8 +168,25 @@ def nivel_minimo(paths: list[str], tag: str | None = None) -> str:
 
 def seccion_no_publicado(texto: str) -> str | None:
     """El cuerpo de `## [No publicado]`, o None si la sección no existe."""
-    m = re.search(r"^##\s*\[No publicado\]\s*$(.*?)(?=^##\s*\[)", texto, re.S | re.M)
+    m = re.search(r"^##\s*\[No publicado\][^\n]*$(.*?)(?=^##\s*\[)", texto, re.S | re.M)
     return m.group(1).strip() if m else None
+
+
+NIVEL_DECLARADO = {"mayor": "major", "major": "major", "menor": "minor", "minor": "minor",
+                   "patch": "patch", "parche": "patch"}
+
+
+def nivel_proximo(texto: str) -> str | None:
+    """El nivel de `## [No publicado] · próximo: <nivel>`. None si el encabezado no lo
+    declara. Un valor que no se reconoce levanta ValueError: un nivel mal escrito no puede
+    caer en silencio al salto por número."""
+    m = re.search(r"^##\s*\[No publicado\]\s*·\s*próximo:\s*(\S+)\s*$", texto, re.M)
+    if not m:
+        return None
+    valor = m.group(1).lower()
+    if valor not in NIVEL_DECLARADO:
+        raise ValueError(f"`próximo: {m.group(1)}` no es un nivel: usa mayor, menor o patch.")
+    return NIVEL_DECLARADO[valor]
 
 
 def salto_de_version(tag: str) -> str | None:
@@ -218,9 +244,15 @@ def main() -> int:
     # C2 · el bump alcanza para lo que se tocó
     if a.nivel and paths:
         exige = nivel_minimo(paths, tag)
-        hizo = salto_de_version(tag)
+        try:
+            proximo = nivel_proximo(texto)
+        except ValueError as e:
+            proximo = None
+            problemas.append(str(e))
+        hizo = proximo or salto_de_version(tag)
+        origen = "`próximo` en [No publicado]" if proximo else "salto de versión"
         print(f"\n  nivel exigido por lo tocado: {exige.upper()}"
-              f" · salto declarado: {(hizo or '—').upper()}")
+              f" · declarado ({origen}): {(hizo or '—').upper()}")
         if hizo and ORDEN[hizo] < ORDEN[exige]:
             culpables = [p for _, pref in NIVEL_POR_PATH for p in paths
                          if p.startswith(pref)][:3]
