@@ -9,22 +9,27 @@
   (3-nov-2026).** Cristian abrió la puerta a cambiar el cómo —*"no me importa dejar de hacer
   suites si estandarizamos"*— con la condición de que el qué (emprendedores hispanohablantes)
   no se toque. `benchmarks/simular_sin_juez.py` reutiliza `aggregate_metrics` (control verde:
-  107/107 reproducidos con error 0,0000) y prueba tres escenarios contra los runs en disco.
-  Hoy el juez decide el **30 %** de los runs del índice (12.285 de 40.306) en 8 suites enteras
-  y 5 mixtas. Con el juez a peso cero y los mismos 143 tests (S1) el ranking se reordena
-  (Spearman 0,948, mediana 5 puestos, máximo 31) y la discriminación **no cambia** (señal/ruido
-  0,69 → 0,67): la rúbrica de formato que lo reemplaza es tan ciega como él. Con solo lo
-  verificable (S2, 98 tests) la dispersión sube (0,258 → 0,309) pero el IC95 sube más
-  (0,376 → 0,494) y los que se solapan con el #1 pasan de 94 a 98: la misma lección del
-  17-sep, quitar tests tira muestra. Lo que sí muestra la simulación es **dónde está el
-  lastre**: las 8 suites juzgadas separan modelos con sigma mediana 0,55 y media 8,6 (cuatro
-  con más de un tercio de notas perfectas), contra 0,84 de las verificables. Aportan muestra,
-  no señal: estrechan el intervalo alrededor de un número que no distingue. Lectura para la
-  decisión: el juez se saca por honestidad y costo, pero solo paga si las 13 suites se
-  **convierten** a trampa verificable (como pasó con `content_verificable`, sigma 1,18 frente
-  a 0,40 de `content_generation`) y si el IC95 se recupera con pass^k: tres intentos sobre
-  los 98 verificables dan un IC95 estimado de 0,285, por debajo del 0,376 de hoy. Nada se
-  cambió en lo publicado; la decisión es de Cristian y va con bump mayor si se toma.
+  115/115 rankeados de v4.17.0 reproducidos con error 0,0000) y prueba tres escenarios contra
+  los runs en disco. Hoy el juez decide el **31 %** de los runs del índice (12.645 de 41.450)
+  en 8 suites enteras y 5 mixtas. Con el juez a peso cero y los mismos 143 tests (S1) el
+  ranking se reordena (Spearman 0,919, mediana 7 puestos, máximo 49) y la discriminación
+  **no cambia** (señal/ruido 0,68 → 0,65): la rúbrica de formato que lo reemplaza es tan
+  ciega como él. Con solo lo verificable (S2, 98 tests) la dispersión sube (0,255 → 0,302)
+  pero el IC95 sube más (0,376 → 0,494) y los que se solapan con el #1 pasan de 102 a 106:
+  la misma lección del 17-sep, quitar tests tira muestra. Lo que sí muestra la simulación es
+  **dónde está el lastre**: las 8 suites juzgadas separan modelos con sigma mediana 0,61 y
+  media 8,6, contra 0,83 de las verificables; el par más limpio es `content_verificable`
+  (1,18) frente a `content_generation` (0,49), mismo tema, otra forma de puntuar. Aportan
+  muestra, no señal. **Y un hallazgo que no estaba en la corrida sobre 107:** sin el juez, la
+  familia Claude 5.5 sube entre 34 y 49 puestos (Fable 5.1 +49, Haiku +45, Opus +37, Sonnet
+  +34). Son los cuatro modelos cuyo juicio se hizo después y por fuera del runner
+  (`judge_posthoc.py`, lote del 10-oct): el juez es lo que hoy los hunde al fondo del
+  ranking, y el camino por el que se juzgaron es el que `check_caminos` marca en rojo.
+  Lectura para la decisión: el juez se saca por honestidad y costo, pero solo paga si las
+  13 suites se **convierten** a trampa verificable y si el IC95 se recupera con pass^k: tres
+  intentos sobre los 98 verificables dan un IC95 estimado de 0,285, por debajo del 0,376 de
+  hoy. Nada se cambió en lo publicado; la decisión es de Cristian y va con bump mayor.
+  Borrador de la unidad de decisión en `OCASIONES.md`.
 - **Un `git add` con un path inexistente aborta el add COMPLETO (26-sep-2026).** El commit
   `c39b297b5` se publicó con el mensaje del arreglo del QA y **sin una línea de su código**:
   el `git add` listaba cinco archivos y uno (`results/_foto_effort.json`) no existía, así que
