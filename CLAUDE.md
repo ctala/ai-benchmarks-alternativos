@@ -249,6 +249,13 @@ auditar ni revertir.**
    la regla de oro del repo (*una regla sin instrumento que la haga cumplir es una regla
    que ya se rompió*).
 
+8. **Un corte mayor se planifica con OpenSpec dentro del benchmark**
+   (`openspec/changes/<change>/`): propuesta, diseño y tareas que sobreviven sesiones.
+   `DECISIONES.md` sigue siendo la autoridad del porqué; el change apunta, no repite.
+   `check_specs.py` exige como mucho un change activo, que nadie lo deje 14 días sin tocar,
+   que se archive sin tareas abiertas y que en `main` no quede ninguno. Para el trabajo de una
+   sesión alcanza la skill `abrir-sesion`. (3-nov-2026; revierte la fila del 16-sep.)
+
 ## Reglas del proyecto
 
 - **Guardado atómico**: el runner vuelca JSON tras cada test, no esperar al final

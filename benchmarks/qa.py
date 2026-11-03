@@ -82,6 +82,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_cobertura.py"], True, True),
     ("guardrails", "nadie mide por fuera del runner",
      [PY, "benchmarks/check_caminos.py"], True, True),
+    # 3-nov-2026: un change de OpenSpec se completa y se archiva; en `main` no queda ninguno
+    # activo, como mucho hay uno, y 14 días sin tocarlo es rojo. Bloqueante porque nació en verde.
+    ("guardrails", "ningún change de OpenSpec queda en el aire",
+     [PY, "benchmarks/check_specs.py"], True, True),
     ("version", "las 7 superficies declaran lo mismo, con tag y CHANGELOG",
      [PY, "benchmarks/check_version.py"], True, True),
     # 17-ago-2026: lo que se hizo tiene que estar ESCRITO antes de publicarlo, y el bump

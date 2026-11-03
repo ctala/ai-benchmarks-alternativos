@@ -1,0 +1,25 @@
+schema: spec-driven
+
+context: |
+  Benchmark de modelos de IA para emprendedores hispanohablantes (benchmarks.cristiantala.com).
+  Python 3 en .venv; QA bloqueante en el hook de pre-push (benchmarks/qa.py --pre-merge).
+  DECISIONES.md es la única autoridad del porqué: un change apunta a sus filas, no las repite.
+  Todo guardrail entra con su prueba de sabotaje en test_guardrails.py y su fila en DECISIONES.md.
+  Español neutro en todo lo publicable. Nada se publica ni se sube sin el ok textual de Cristian.
+  OpenSpec se usa solo para cortes mayores; el trabajo de una sesión usa la skill abrir-sesion.
+
+rules:
+  proposal:
+    - Citar la fila de DECISIONES.md de cada decisión en vez de repetir su porqué
+    - Decir si el cambio es BREAKING según VERSIONADO.md (mayor, menor, parche)
+  tasks:
+    - Cada tarea termina con «Verificar:» y un instrumento concreto, no «revisar»
+    - Una tarea que no se hará se marca hecha con «descartada: motivo», nunca se borra
+  design:
+    - Declarar qué guardrails rompe el cambio y cómo se adaptan con su prueba en el mismo commit
+
+operations:
+  archive:
+    guidance:
+      - Antes de archivar, correr python benchmarks/check_specs.py y qa.py --pre-merge
+      - El archivo va en el commit anterior al merge a main; S1 no deja un change activo allí

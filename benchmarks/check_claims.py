@@ -54,6 +54,10 @@ CLAIMS = [
      "eso era cierto con z-score vivo; desde v4.0 la referencia está congelada y desde "
      "v4.1 la escala es absoluta",
      "17-jul-2026 · referencia congelada por versión · 13-ago-2026 · escala absoluta"),
+    (r"No se adopt[óoa]\s+(OpenSpec|ninguna herramienta de specs)",
+     "desde el 3-nov-2026 OpenSpec vive dentro del benchmark para los cortes mayores, con "
+     "DECISIONES.md como autoridad del porqué y check_specs.py vigilando que se cierre",
+     "3-nov-2026 · OpenSpec entra, dentro del benchmark y solo para un corte mayor"),
     (r"\b23 suites\b",
      "el número de suites cambió y quedó escrito a mano",
      "los conteos se sincronizan con sync_doc_counts.py, no se escriben"),

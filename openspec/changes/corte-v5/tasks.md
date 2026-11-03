@@ -1,0 +1,43 @@
+## 0. Orden desde el comienzo (3-nov-2026)
+
+- [x] 0.1 Rama `corte/v5` desde `main` (v4.17.0). Verificar: `git branch --show-current` = corte/v5.
+- [x] 0.2 `openspec init --tools none --language es` dentro del benchmark; el hub no se toca. Verificar: existe `openspec/config.yaml` con schema spec-driven.
+- [x] 0.3 `check_specs.py` (S1-S6) con 6 pruebas de sabotaje en `test_guardrails.py` y registrado como bloqueante en `qa.py`. Verificar: `qa.py --pre-merge` verde en la rama; `check_specs.py --rama main` rojo con este change activo.
+- [x] 0.4 Filas de `DECISIONES.md`: OpenSpec dentro del benchmark (revierte la del 16-sep), change se archiva, v5.0.0 por ocasiones, enriquecer no replicar, medir con harness oficial, ningún guardrail se debilita. Verificar: `check_claims.py` vigila la afirmación vieja.
+- [x] 0.5 `CLAUDE.md`, skill `abrir-sesion` y `CHANGELOG.md` dicen lo mismo que las filas. Verificar: `grep -rn "No se adopt" CLAUDE.md .claude` vacío.
+
+## 1. Auditoría de confianza de los guardrails (gate: nada de v5 avanza sin la tabla leída)
+
+- [ ] 1.1 Tabla de los 20 chequeos de `qa.py`: qué fallo dice cazar, si su prueba de sabotaje inyecta ese fallo o un sustituto cómodo, y si alguna vez cazó algo real según el CHANGELOG. Veredicto por fila: confiable, verde vacío o sin prueba. Archivo: `AUDITORIA-GUARDRAILS-2026-11.md` (snapshot). Verificar: 20 filas, ninguna sin veredicto.
+- [ ] 1.2 Los 3 sin prueba (`check_agentico_publicado`, `check_ci`, `check_presupuesto`) reciben prueba de sabotaje o una fila que explique por qué no la pueden tener. Verificar: `check_cobertura.py` R5 sigue verde y el conteo de `@prueba` sube.
+- [ ] 1.3 Cada verde vacío se arregla igual que `check_release_mensual`: mundo roto fabricado desde el dato real, control verde primero. Verificar: la prueba falla si se le quita el sabotaje.
+- [ ] 1.4 Instrumento para «ningún guardrail se debilita»: el conteo de `@prueba` no baja y ningún chequeo pasa de bloqueante a informativo sin fila en `DECISIONES.md`. Antes, mirar si `check_cobertura.py` ya lo cubre. Verificar: prueba de sabotaje del instrumento.
+- [ ] 1.5 Cristian lee la tabla y da el ok para seguir. Verificar: su ok textual citado en la tabla.
+
+## 2. Fuentes externas y conjunto base
+
+- [ ] 2.1 `benchmarks/fuentes_externas.py`: ingesta Terminal-Bench (dataset HF del leaderboard), Toolathlon-Verified y SWE-bench Pro público; mapea nombres a `key` de `models.py` (nunca por `name`); imprime cobertura sobre los 115. Verificar: el script corre offline sobre una foto guardada con fecha y licencia por fuente.
+- [ ] 2.2 Las cifras externas entran a `models.json` como banda por fuente (`externos: {fuente, cifra, version, fecha, licencia}`) y ningún generador las promedia con las propias. Verificar: `test_unitarios.py` tiene un test que falla si una cifra externa entra a `quality_avg`.
+- [ ] 2.3 Conjunto base = intersección (medidos por alguna fuente) ∩ (llamables por OpenRouter). Se publica el número y la lista. Verificar: `FUENTES-EXTERNAS.md` deja de ser borrador y cita el número desde el dato, no a mano.
+- [ ] 2.4 Los modelos fuera del conjunto base llevan `sin_dato_comunitario: true` y la calculadora lo muestra. Verificar: `qa_calculadora.mjs` lo comprueba.
+
+## 3. Ocasiones
+
+- [ ] 3.1 Registro de las 6 ocasiones en `suites.py` (qué suites y qué fuente externa alimentan cada una) con volúmenes por defecto de `OCASIONES.md`. Verificar: `check_suites.py` falla si una suite del índice no pertenece a ninguna ocasión.
+- [ ] 3.2 `export_for_pages.py` emite `ocasiones` por modelo y recalibra con `--recalibrate --scoring-version v5.0` solo en el release. Verificar: simulación contra los runs en disco antes de aplicar, con control verde sobre v4.17.0.
+- [ ] 3.3 Programar: jubilar `code_generation` del índice (no se borra); las tareas Harbor propias con instrucción en español se mantienen y se nombran como capa propia. Verificar: `suites.del_indice()` lo refleja y ningún doc vivo cita `code_generation` como vigente.
+- [ ] 3.4 Calculadora: selector de ocasión, volúmenes editables, precio mensual al volumen declarado. Verificar: `qa_calculadora.mjs` con un caso por ocasión.
+- [ ] 3.5 Páginas y blog: generadores pSEO y `generate_blog_tablas.py` leen ocasiones; `check_consistency` y `check_blog_consistency` se adaptan **con su prueba** en el mismo commit. Verificar: QA verde sin tocar ningún bloqueante a informativo.
+
+## 4. Modelos sin dato comunitario
+
+- [ ] 4.1 Camino `externos/` declarado en `check_caminos.py` (qué puede llamar a un modelo fuera del runner: solo el harness oficial de una fuente, con su versión fijada) y fila en `DECISIONES.md`. Verificar: prueba de sabotaje con un script fuera del camino.
+- [ ] 4.2 Qwen 3.8 Flash contra Ornith 1.5 en el harness oficial de Terminal-Bench, mínimo 5 intentos por tarea, en el Spark vía `sparkctl` cuando Cristian autorice la ventana. El modelo principal del Spark no se sube. Verificar: `result.json` por intento y `metadata.yaml` como pide el leaderboard.
+- [ ] 4.3 Publicación como corrida independiente («medido por nosotros con el harness oficial vX, N intentos, fecha») en el sitio y referencia desde Hugging Face. Verificar: ok textual de Cristian antes de publicar.
+
+## 5. Release v5.0.0
+
+- [ ] 5.1 `CHANGELOG.md` cierra `[No publicado]` como `[v5.0.0]`; `check_changelog.py --nivel` exige mayor y lo encuentra. Verificar: `check_version.py` con las 7 superficies y el tag.
+- [ ] 5.2 QA completo verde en la rama (no solo `--pre-merge`), blog regenerado y verificado cifra por cifra, cheatsheet y datasheet del mes. Verificar: `qa.py` sin tolerancias.
+- [ ] 5.3 Ok textual de Cristian para merge a `main` y push. Verificar: citado en el CHANGELOG.
+- [ ] 5.4 Archivar este change con `openspec archive corte-v5` antes del merge: `check_specs` S1 no deja un change activo en `main`. Verificar: `openspec/changes/archive/2026-xx-xx-corte-v5/` sin tareas abiertas.

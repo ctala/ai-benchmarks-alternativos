@@ -5,6 +5,20 @@
 
 ## [No publicado]
 
+- **Arranca el corte v5.0.0 en la rama `corte/v5`, con OpenSpec dentro del benchmark y un
+  guardrail que no lo deja en el aire (3-nov-2026).** Cristian: *«me da miedo que con este cambio
+  grande sin usar openspec nos desordenemos, y los guardrails dejen de funcionar»* y *«tampoco
+  confío en los guardrails que ya tenemos»*. Lo segundo tenía evidencia del mismo día (el verde
+  vacío de `check_release_mensual`), así que la tarea cero del corte es auditar los 20 chequeos
+  antes de tocar v5. OpenSpec entra revirtiendo la fila del 16-sep con la condición que esa fila
+  protegía: `DECISIONES.md` sigue siendo la autoridad del porqué y el change solo apunta
+  (`check_specs` S6). `check_specs.py` (S1-S6, bloqueante, nació en verde) exige un solo change
+  activo, 14 días como máximo sin tocarlo, archivo sin tareas abiertas y ninguno activo en
+  `main`; seis pruebas de sabotaje sobre un `openspec/` desechable, nunca el real. El change
+  `corte-v5` lleva la propuesta (de `OCASIONES.md` y `FUENTES-EXTERNAS.md`), el diseño, dos
+  specs y 5 grupos de tareas con su gate: nada de v5 avanza hasta que la auditoría esté leída.
+  Seis filas nuevas en `DECISIONES.md` (OpenSpec, archivo, v5 por ocasiones, enriquecer no
+  replicar, harness oficial, ningún guardrail se debilita).
 - **La prueba de `check_release_mensual` daba rojo los primeros días de cada mes sin que nada
   estuviera roto (3-nov-2026).** Exigía el `DATASHEET_<mes>.md` del mes en curso y una pareja fija
   («Qwen 3.8 Flash | 9,85») que ya no existía en ningún datasheet: entre el día 1 y el release no

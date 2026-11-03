@@ -22,7 +22,10 @@ alcance se preguntó por separado, así que nunca hubo un momento donde se viera
 trabajo. Aprobar ocho veces «¿sigo?» no es lo mismo que aprobar una vez «esto es lo que vamos a
 hacer».
 
-No se adoptó ninguna herramienta de specs para esto: ver la fila de OpenSpec en `DECISIONES.md`.
+Para el trabajo de **una sesión** no hay herramienta de specs: el plan de seis líneas alcanza. Un
+**corte mayor** dura varias sesiones y se planifica con OpenSpec **dentro del benchmark** (`openspec/`),
+con `DECISIONES.md` como autoridad del porqué y `check_specs.py` exigiendo que el change se complete
+y se archive (filas del 3-nov-2026). Cada sesión del corte igual abre con este plan, leyendo su `tasks.md`.
 El mecanismo ya existe (`PLAN-ESTABILIDAD.md` R1-R3 + el calendario); lo que faltaba era usarlo al
 abrir, no sólo al ejecutar.
 

@@ -735,6 +735,79 @@ def _t_effort_parametros():
         return _correr("check_effort.py") != 0
 
 
+# ── check_specs: un change de OpenSpec que queda en el aire ───────────────────
+def _raiz_specs(tmp: Path, *, activos=("corte-x",), archivados=(), tasks="- [x] 1.1 hecha\n",
+                design=True, decisiones=True) -> Path:
+    """Un `openspec/` DESECHABLE con la forma mínima correcta. Nunca el real: la prueba no
+    debe depender de qué change esté abierto hoy (lección de `_t_release`, 3-nov-2026)."""
+    raiz = tmp / "openspec"
+    (raiz / "changes" / "archive").mkdir(parents=True)
+    for n in activos:
+        c = raiz / "changes" / n
+        c.mkdir()
+        (c / ".openspec.yaml").write_text("schema: spec-driven\ncreated: 2026-11-03\n")
+        (c / "proposal.md").write_text("## Why\nx\n" + ("Ver DECISIONES.md.\n" if decisiones else ""))
+        if design:
+            (c / "design.md").write_text("## Context\nx\n")
+        (c / "tasks.md").write_text(tasks)
+    for n in archivados:
+        c = raiz / "changes" / "archive" / n
+        c.mkdir()
+        (c / "tasks.md").write_text("- [x] 1.1 hecha\n- [ ] 1.2 quedó abierta\n")
+    return raiz
+
+
+def _specs(**kw) -> tuple[int, int]:
+    """(exit del control limpio, exit del caso saboteado) sobre raíces desechables."""
+    import tempfile as _tf
+    rama = kw.pop("rama", "corte/x"); hoy = kw.pop("hoy", "2026-11-10")
+    t1, t2 = Path(_tf.mkdtemp()), Path(_tf.mkdtemp())
+    try:
+        control = _correr("check_specs.py", "--raiz", str(_raiz_specs(t1)),
+                          "--rama", "corte/x", "--hoy", "2026-11-10")
+        roto = _correr("check_specs.py", "--raiz", str(_raiz_specs(t2, **kw)),
+                       "--rama", rama, "--hoy", hoy)
+        return control, roto
+    finally:
+        shutil.rmtree(t1, ignore_errors=True); shutil.rmtree(t2, ignore_errors=True)
+
+
+@prueba("check_specs", "un change activo en main (S1)")
+def _t_specs_en_main():
+    control, roto = _specs(rama="main")
+    return control == 0 and roto != 0
+
+
+@prueba("check_specs", "dos changes activos a la vez (S2)")
+def _t_specs_dos_activos():
+    control, roto = _specs(activos=("a", "b"))
+    return control == 0 and roto != 0
+
+
+@prueba("check_specs", "un change sin tareas ni design (S3)")
+def _t_specs_sin_artefactos():
+    control, roto = _specs(tasks="## 1\n", design=False)
+    return control == 0 and roto != 0
+
+
+@prueba("check_specs", "un change que nadie toca en 28 días (S4)")
+def _t_specs_en_el_aire():
+    control, roto = _specs(hoy="2026-12-01")
+    return control == 0 and roto != 0
+
+
+@prueba("check_specs", "un change archivado con una tarea abierta (S5)")
+def _t_specs_archivado_abierto():
+    control, roto = _specs(archivados=("2026-11-30-viejo",))
+    return control == 0 and roto != 0
+
+
+@prueba("check_specs", "un change que no apunta a DECISIONES.md (S6)")
+def _t_specs_sin_decisiones():
+    control, roto = _specs(decisiones=False)
+    return control == 0 and roto != 0
+
+
 def main() -> int:
     print("Probando que cada guardrail CACE su propio fallo:\n")
     for nombre, ok, detalle in resultados:
