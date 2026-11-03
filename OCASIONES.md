@@ -230,3 +230,8 @@ precedente: `effort.py --actualizar` ya trae datos de OpenRouter).
   nombre.
 - **Honestidad al publicar:** «medido por nosotros con el harness oficial vX, N intentos, fecha» y nunca
   «según Terminal-Bench». La diferencia es la que le reprochamos a Ornith.
+
+**Dato que abarata el primer caso:** nuestro banco `tareas-agente/harbor-*` ya corre sobre
+[Harbor](https://www.harborframework.com/), el harness de Terminal-Bench 2.0 (`PLAN-TAREAS-HARBOR.md`,
+`export_harbor.py`, `jobs/`). Correr el set oficial de Terminal-Bench 2 sobre Qwen 3.8 Flash y Ornith 1.5 es
+cambiar el set de tareas, no montar infraestructura nueva.
