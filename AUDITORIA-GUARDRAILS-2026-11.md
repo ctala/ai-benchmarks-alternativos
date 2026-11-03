@@ -126,4 +126,15 @@ decide Cristian.
 
 ## Ok de Cristian (tarea 1.5)
 
-_Pendiente._
+3-nov-2026: *«OK a la tabla (1.5).»* Con él vinieron el orden y los límites de lo que sigue,
+que ahora están en `tasks.md` como 1.1b y 1.6 a 1.11:
+
+- R5 se arregla antes de 1.2;
+- gitleaks reemplaza a los patrones propios;
+- `check_truncamiento` pasa a bloqueante;
+- las pruebas que se saltan en CI se imprimen como omitidas;
+- solo se sabotean las reglas que prometen sin probar (`check_changelog` C2 y `check_cortes`
+  C1, C3, C4 y C5);
+- las 8 entradas que no son `check_*` entran a la tabla.
+
+Ningún chequeo baja de bloqueante a informativo.

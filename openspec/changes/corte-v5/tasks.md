@@ -9,10 +9,19 @@
 ## 1. Auditoría de confianza de los guardrails (gate: nada de v5 avanza sin la tabla leída)
 
 - [x] 1.1 Tabla de los 21 chequeos `check_*` de `qa.py` (20 más `check_specs`, que entró el 3-nov): qué fallo dice cazar, si su prueba de sabotaje inyecta ese fallo o un sustituto cómodo, y si alguna vez cazó algo real según el CHANGELOG. Veredicto por fila: confiable, verde vacío o sin prueba. Archivo: `AUDITORIA-GUARDRAILS-2026-11.md` (snapshot). Verificar: 21 filas, ninguna sin veredicto.
+- [ ] 1.1b **Antes de 1.2.** `check_cobertura` R5 lee la lista completa de `qa.py` (los 21 `check_*` y las 8 entradas que no lo son), no `regenerate_all.py`. Hasta que esté hecho, «R5 verde» no cuenta como verificación de nada. Verificar: un sabotaje con un chequeo de `qa.py` sin prueba pone R5 en rojo, con control verde primero.
 - [ ] 1.2 Los 3 sin prueba (`check_agentico_publicado`, `check_ci`, `check_presupuesto`) reciben prueba de sabotaje o una fila que explique por qué no la pueden tener. Verificar: `check_cobertura.py` R5 sigue verde y el conteo de `@prueba` sube.
 - [ ] 1.3 Cada verde vacío se arregla igual que `check_release_mensual`: mundo roto fabricado desde el dato real, control verde primero. Verificar: la prueba falla si se le quita el sabotaje.
 - [ ] 1.4 Instrumento para «ningún guardrail se debilita»: el conteo de `@prueba` no baja y ningún chequeo pasa de bloqueante a informativo sin fila en `DECISIONES.md`. Antes, mirar si `check_cobertura.py` ya lo cubre. Verificar: prueba de sabotaje del instrumento.
-- [ ] 1.5 Cristian lee la tabla y da el ok para seguir. Verificar: su ok textual citado en la tabla.
+- [x] 1.5 Cristian lee la tabla y da el ok para seguir. Verificar: su ok textual citado en la tabla. Hecho el 3-nov-2026: «OK a la tabla (1.5)».
+- [ ] 1.6 El aviso llega: el Action corre en todo push a `main` y una vez al día, y `check_ci` alarma por **días** con el último estado en rojo, no por fallos seguidos (H1). Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: un fallo aislado simulado de hace 10 días hace saltar la alarma.
+- [ ] 1.7 Secretos: se adopta gitleaks en `qa.py` y no se escriben patrones propios (H3). Entra bloqueante si nace en verde; si nace en rojo, entra informativo con su motivo escrito. Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: una clave hex de 64 al azar en un archivo versionado lo pone en rojo.
+- [ ] 1.8 `check_truncamiento` pasa a bloqueante (H4), con su fila en `DECISIONES.md`. Verificar: nace en verde con los 188 modelos.
+- [ ] 1.9 Las 3 pruebas que en CI pasan sin `.env` ni blog (`_t_secretos`, `_t_blog`, `_t_blog_datos`) se marcan «omitida» y se imprimen como tales; el CI clona el blog o esas pruebas usan fixtures (H5). Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: el resumen del CI dice cuántas omitió.
+- [ ] 1.10 De las 20 reglas internas sin sabotaje (H6), solo las que prometen algo que no prueban: el bump de `check_changelog` (C2) y las 4 de `check_cortes` (C1, C3, C4 y C5). Cada una con su sabotaje y control verde. El resto queda en la tabla como deuda nombrada. Verificar: cada prueba falla si se le quita el sabotaje.
+- [ ] 1.11 Las 8 entradas de `qa.py` que no son `check_*` (pytest unitario, `qa_calculadora.mjs`, `auditar_paginas --duro`, `test_guardrails`, `cobertura.py --duro` y los `--check` del censo, de las tablas del blog y de los datos del blog) entran a la tabla con las mismas tres preguntas. Verificar: la tabla tiene 29 filas y ninguna sin veredicto.
+
+Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante a informativo; si un arreglo lo exige, se para y se dimensiona. Push de `corte/v5`: no todavía.
 
 ## 2. Fuentes externas y conjunto base
 

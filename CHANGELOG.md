@@ -13,7 +13,10 @@
   y `check_ci` cuenta corridas, no días. `check_cobertura` R5 no mira `qa.py`, y por eso los 3 sin
   prueba conviven con su verde. `check_secretos` da exit 0 con una clave hex de 64 como la de R2,
   el caso que lo fundó. Además, 20 reglas internas no tienen sabotaje propio. No se arregla nada
-  todavía: los arreglos (1.2-1.4) esperan el ok de Cristian sobre la tabla.
+  todavía. Cristian dio el ok a la tabla y fijó el orden en `tasks.md`: primero R5 (1.1b),
+  después 1.2-1.4, el aviso por días del CI (1.6), gitleaks (1.7), `check_truncamiento`
+  bloqueante (1.8), las pruebas omitidas en CI (1.9), los sabotajes de `check_changelog` C2 y
+  `check_cortes` (1.10) y las 8 entradas de `qa.py` que no son `check_*` (1.11).
 - La cifra de la tarea cero pasa de 20 a 21 chequeos en `tasks.md`, `proposal.md`,
   `DECISIONES.md` y esta entrada: entró `check_specs`.
 
