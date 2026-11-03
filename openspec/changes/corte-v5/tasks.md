@@ -16,7 +16,7 @@
 - [x] 1.5 Cristian lee la tabla y da el ok para seguir. Verificar: su ok textual citado en la tabla. Hecho el 3-nov-2026: «OK a la tabla (1.5)».
 - [x] 1.6 El aviso llega: el Action corre en todo push a `main` y una vez al día, y `check_ci` alarma por **días** con el último estado en rojo, no por fallos seguidos (H1). Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: un fallo aislado simulado de hace 10 días hace saltar la alarma.
 - [ ] 1.7 Secretos: se adopta gitleaks en `qa.py` y no se escriben patrones propios (H3). Entra bloqueante si nace en verde; si nace en rojo, entra informativo con su motivo escrito. Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: una clave hex de 64 al azar en un archivo versionado lo pone en rojo.
-- [x] 1.8 `check_truncamiento` pasa a bloqueante (H4), con su fila en `DECISIONES.md`. Verificar: nace en verde con los 188 modelos.
+- [x] 1.8 `check_truncamiento` pasa a bloqueante (H4), con su fila en `DECISIONES.md`. Verificar: nace en verde con los 188 modelos. Hecho el 3-nov-2026: `--duro` en `qa.py` y en el Action. `regenerate_all.py` lo sigue corriendo sin `--duro` y con `allow_fail`, y no frena a propósito: el pipeline regenera, y quienes frenan son el QA pre-push y el Action.
 - [ ] 1.9 Las 3 pruebas que en CI pasan sin `.env` ni blog (`_t_secretos`, `_t_blog`, `_t_blog_datos`) se marcan «omitida» y se imprimen como tales; el CI clona el blog o esas pruebas usan fixtures (H5). Prueba de sabotaje y fila en `DECISIONES.md`. Verificar: el resumen del CI dice cuántas omitió.
 - [ ] 1.10 De las 20 reglas internas sin sabotaje (H6), solo las que prometen algo que no prueban: el bump de `check_changelog` (C2) y las 4 de `check_cortes` (C1, C3, C4 y C5). Cada una con su sabotaje y control verde. El resto queda en la tabla como deuda nombrada. Verificar: cada prueba falla si se le quita el sabotaje.
 - [x] 1.11 Las 8 entradas de `qa.py` que no son `check_*` (pytest unitario, `qa_calculadora.mjs`, `auditar_paginas --duro`, `test_guardrails`, `cobertura.py --duro` y los `--check` del censo, de las tablas del blog y de los datos del blog) entran a la tabla con las mismas tres preguntas. Verificar: la tabla tiene 29 filas y ninguna sin veredicto.
@@ -24,7 +24,7 @@
 - [x] 1.12 Sabotaje para la regla de R5 que pone en rojo una exención huérfana (ya no corre en `qa.py` ni en el pipeline) o ya probada (`test_guardrails` la invoca). Verificar: control verde, y cada uno de los dos casos pone R5 en rojo; la prueba falla si se le quita la regla.
 - [x] 1.13 La etiqueta «lo que publican las 71 páginas…» de `qa.py` se deriva del dato en vez de escribirse a mano. Verificar: la etiqueta coincide con el conteo que imprime `auditar_paginas.py` (hoy 187) y cambia sola si se agrega una página.
 
-Orden de la próxima sesión (Cristian, 3-nov-2026): 1.12 y 1.13 → 1.6 (borra la exención temporal de `check_ci` en `EXENTOS_R5`) → 1.8 si queda tiempo.
+Orden de la próxima sesión (Cristian, 3-nov-2026, tras cerrar 1.12, 1.13, 1.6 y 1.8): 1.4 (el instrumento de «ningún guardrail se debilita», que protege lo que viene) → 1.9 → 1.10 → 1.7 (gitleaks) al final, porque trae una herramienta nueva.
 
 Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante a informativo; si un arreglo lo exige, se para y se dimensiona. Push de `corte/v5`: no todavía.
 
