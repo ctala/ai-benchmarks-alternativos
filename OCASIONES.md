@@ -235,3 +235,5 @@ precedente: `effort.py --actualizar` ya trae datos de OpenRouter).
 [Harbor](https://www.harborframework.com/), el harness de Terminal-Bench 2.0 (`PLAN-TAREAS-HARBOR.md`,
 `export_harbor.py`, `jobs/`). Correr el set oficial de Terminal-Bench 2 sobre Qwen 3.8 Flash y Ornith 1.5 es
 cambiar el set de tareas, no montar infraestructura nueva.
+
+**Qué fuentes externas entran y cuáles no → `FUENTES-EXTERNAS.md`** (criterio de cinco puntos y veredicto por fuente, 3-nov-2026).
