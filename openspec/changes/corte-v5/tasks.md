@@ -21,6 +21,11 @@
 - [ ] 1.10 De las 20 reglas internas sin sabotaje (H6), solo las que prometen algo que no prueban: el bump de `check_changelog` (C2) y las 4 de `check_cortes` (C1, C3, C4 y C5). Cada una con su sabotaje y control verde. El resto queda en la tabla como deuda nombrada. Verificar: cada prueba falla si se le quita el sabotaje.
 - [x] 1.11 Las 8 entradas de `qa.py` que no son `check_*` (pytest unitario, `qa_calculadora.mjs`, `auditar_paginas --duro`, `test_guardrails`, `cobertura.py --duro` y los `--check` del censo, de las tablas del blog y de los datos del blog) entran a la tabla con las mismas tres preguntas. Verificar: la tabla tiene 29 filas y ninguna sin veredicto.
 
+- [ ] 1.12 Sabotaje para la regla de R5 que pone en rojo una exención huérfana (ya no corre en `qa.py` ni en el pipeline) o ya probada (`test_guardrails` la invoca). Verificar: control verde, y cada uno de los dos casos pone R5 en rojo; la prueba falla si se le quita la regla.
+- [ ] 1.13 La etiqueta «lo que publican las 71 páginas…» de `qa.py` se deriva del dato en vez de escribirse a mano. Verificar: la etiqueta coincide con el conteo que imprime `auditar_paginas.py` (hoy 187) y cambia sola si se agrega una página.
+
+Orden de la próxima sesión (Cristian, 3-nov-2026): 1.12 y 1.13 → 1.6 (borra la exención temporal de `check_ci` en `EXENTOS_R5`) → 1.8 si queda tiempo.
+
 Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante a informativo; si un arreglo lo exige, se para y se dimensiona. Push de `corte/v5`: no todavía.
 
 ## 2. Fuentes externas y conjunto base
