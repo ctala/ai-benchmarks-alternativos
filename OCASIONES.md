@@ -179,3 +179,31 @@ benchmark de agentes mide en español: instrucciones escondidas en el mensaje (`
 > contra su versión en inglés, (b) tareas a escala de founder con datos LATAM y trampas que cuestan dinero,
 > (c) los modelos baratos, abiertos y locales que Toolathlon no mide, y (d) el precio mensual a volumen con
 > pass^k. El orden NocoDB → correo → Sheets de arriba queda **suspendido** hasta decidir eso.
+
+## Enriquecer, no replicar (dirección de Cristian, 3-nov-2026)
+
+> *"Podemos usar los resultados de los distintos benchmarks y enriquecerlo con lo propio. Aquí el resultado
+> debe de ser útil."*
+
+Por ocasión, tres columnas y una recomendación que sale de cruzarlas:
+
+1. **Lo que ya midieron otros, independientes** (filtro duro): Terminal-Bench y SWE-bench para Programar;
+   Toolathlon y τ²-bench para Automatizar y Relación comercial; Artificial Analysis para velocidad y precio;
+   la categoría *Spanish* de LMArena como única señal pública en español (preferencia, no verificable).
+   Solo leaderboards independientes, nunca la tarjeta del vendor (lección Ornith). Cada celda con fuente y fecha.
+2. **Lo que nadie mide y nosotros sí:** la misma tarea en español vs inglés (el «gap español»), tareas a
+   escala de founder con datos LATAM y trampas que cuestan dinero, pass^k, y los modelos baratos, abiertos y
+   locales que los leaderboards no cubren.
+3. **Precio mensual al volumen declarado** de la ocasión.
+
+**Consecuencias:** `Programar` toma el filtro de Terminal-Bench/SWE-bench y agrega solo tareas de Harbor en
+español de founder. `Automatizar` no replica apps: toma Toolathlon/τ²-bench y agrega pocas tareas en español
+con trampa. Las suites propias que sobreviven son las que miden algo que no está afuera.
+
+**Riesgos a resolver antes de construir:** cobertura (los leaderboards traen 20-40 modelos; de nuestros 115,
+muchos quedarán «sin dato público» y hay que decir qué se hace con ellos), comparabilidad entre harnesses
+distintos (no se promedian: se muestran como bandas), caducidad (ingesta por script con fecha, no a mano;
+precedente: `effort.py --actualizar` ya trae datos de OpenRouter).
+
+**Primer paso de la próxima sesión:** inventario de fuentes por ocasión con su cobertura real sobre nuestros
+115 rankeados. Ese número decide si la dirección aguanta.
