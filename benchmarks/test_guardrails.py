@@ -735,6 +735,190 @@ def _t_effort_parametros():
         return _correr("check_effort.py") != 0
 
 
+# ── Tarea 1.1b/1.2 de corte-v5 (3-nov-2026): lo que corría en el QA sin prueba ──────
+# R5 de `check_cobertura` pasó a leer `qa.py` entero y destapó seis entradas que nadie
+# saboteaba (AUDITORIA-GUARDRAILS-2026-11). Cada prueba de abajo arranca con control VERDE
+# sobre un mundo fabricado, y recién entonces lo rompe.
+
+def _en_proceso(archivo: str, argv: list[str], **reemplazos) -> int:
+    """Corre el `main()` de un chequeo dentro de este proceso, con funciones reemplazadas.
+
+    Para lo que no se puede fabricar en disco: la red (`check_presupuesto`) o una
+    recursión (`cobertura.py` corre este mismo archivo para medir).
+    """
+    import contextlib
+    import importlib.util
+    import io
+    spec = importlib.util.spec_from_file_location(f"_sab_{archivo}", ROOT / "benchmarks" / archivo)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    # Un reemplazo como `subprocess__run` toca el módulo `subprocess` de TODO el proceso,
+    # no solo el del chequeo: sin restaurarlo, cada prueba posterior corría contra el falso.
+    # Pasó al escribir esto: 7 pruebas de `check_specs` en rojo sin haber cambiado nada.
+    originales = []
+    argv_orig = sys.argv
+    try:
+        for ruta, valor in reemplazos.items():
+            objetivo = mod
+            *pre, ultimo = ruta.split("__")
+            for p in pre:
+                objetivo = getattr(objetivo, p)
+            if not hasattr(objetivo, ultimo):
+                raise AssertionError(f"{archivo}: ya no existe `{ruta}`, el sabotaje no tocaría nada")
+            originales.append((objetivo, ultimo, getattr(objetivo, ultimo)))
+            setattr(objetivo, ultimo, valor)
+        sys.argv = [archivo, *argv]
+        with contextlib.redirect_stdout(io.StringIO()):
+            return mod.main()
+    finally:
+        sys.argv = argv_orig
+        for objetivo, nombre, valor in reversed(originales):
+            setattr(objetivo, nombre, valor)
+
+
+@prueba("check_presupuesto", "saldo de cuenta corto escondido detrás de una key con tope holgado")
+def _t_presupuesto():
+    # El falso verde del 17-ago tal cual: $720 libres en la key y $16,81 en la cuenta.
+    # Sin red: se reemplaza `estado()`, que es lo único que consulta OpenRouter.
+    holgado = ({"limit": 1000, "limit_remaining": 720.0}, {"total_credits": 500, "total_usage": 10})
+    corto = ({"limit": 1000, "limit_remaining": 720.0}, {"total_credits": 100, "total_usage": 83.19})
+    if _en_proceso("check_presupuesto.py", ["--necesito", "20"], estado=lambda: holgado) != 0:
+        return False  # control: con saldo de sobra tiene que dejar pasar
+    return _en_proceso("check_presupuesto.py", ["--necesito", "20"], estado=lambda: corto) != 0
+
+
+@prueba("cobertura.py", "el núcleo bajo el piso de cobertura")
+def _t_cobertura_nucleo():
+    # No se puede correr de verdad desde acá: mide corriendo test_guardrails, y eso es
+    # recursivo. Se reemplaza `subprocess.run` por uno que devuelve el reporte de coverage;
+    # lo que se prueba es lo que decide: leer la línea TOTAL y compararla con el piso.
+    from types import SimpleNamespace
+
+    def corrida(pct):
+        def fake(cmd, **kw):
+            out = f"Name  Stmts  Miss  Cover\nTOTAL  100  0  {pct}%\n" if "report" in cmd else "✅"
+            return SimpleNamespace(stdout=out, returncode=0)
+        return _en_proceso("cobertura.py", ["--duro"], subprocess__run=fake)
+
+    if corrida(95) != 0:
+        return False  # control: sobre el piso, pasa
+    return corrida(60) != 0
+
+
+@prueba("check_agentico_publicado", "un rankeado por OpenRouter publicado sin su tarea agéntica")
+def _t_agentico():
+    # Hoy el chequeo está en rojo informativo (8 sin tarea), así que sobre el dato real no
+    # hay control posible. Se fabrica el mundo limpio —todo rankeado con tarea— y se le quita
+    # la tarea a UNO servido por OpenRouter, que es el único caso que el chequeo reclama.
+    mj = ROOT / "docs" / "data" / "models.json"
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from models import MODELS
+    with Sabotaje(mj):
+        d = json.loads(mj.read_text(encoding="utf-8"))
+        for m in d["models"]:
+            if m.get("ranked"):
+                m["agentico"] = {**(m.get("agentico") or {}), "tareas": {"prueba": {"media": 1.0}}}
+        mj.write_text(json.dumps(d), encoding="utf-8")
+        if _correr("check_agentico_publicado.py", "--duro") != 0:
+            return False  # control: todos con tarea
+        victima = next(m for m in d["models"] if m.get("ranked")
+                       and MODELS.get(m.get("key") or "", {}).get("provider", "openrouter") == "openrouter")
+        victima["agentico"].pop("tareas")
+        mj.write_text(json.dumps(d), encoding="utf-8")
+        return _correr("check_agentico_publicado.py", "--duro") != 0
+
+
+@prueba("auditar_paginas", "una página de ranking que no publica ninguna fila")
+def _t_auditar_paginas():
+    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    if _correr("auditar_paginas.py", "--duro") != 0:
+        raise AssertionError("ya hay hallazgos ALTA: el saboteo no probaría nada")
+    with Sabotaje(pg):
+        import re as _re
+        html = pg.read_text(encoding="utf-8")
+        roto = _re.sub(r"<tr[^>]*>\s*<td.*?</tr>", "", html, flags=_re.S)
+        if roto == html:
+            raise AssertionError("el sabotaje no cambió nada: la tabla ya no tiene esa forma")
+        pg.write_text(roto, encoding="utf-8")
+        return _correr("auditar_paginas.py", "--duro") != 0
+
+
+@prueba("generate_censo_proveedores", "un censo de proveedores más viejo que su caducidad")
+def _t_censo():
+    # 3-nov-2026: `--check` devolvía 0 con 45 días encima y el QA imprimía ✅ (H7).
+    from datetime import date, timedelta
+    censo = ROOT / "docs" / "data" / "censo_proveedores.json"
+    with Sabotaje(censo):
+        d = json.loads(censo.read_text(encoding="utf-8"))
+        d["consultado_at"] = date.today().isoformat()
+        censo.write_text(json.dumps(d), encoding="utf-8")
+        if _correr("generate_censo_proveedores.py", "--check") != 0:
+            return False  # control: recién consultado
+        d["consultado_at"] = (date.today() - timedelta(days=45)).isoformat()
+        censo.write_text(json.dumps(d), encoding="utf-8")
+        return _correr("generate_censo_proveedores.py", "--check") != 0
+
+
+@prueba("generate_blog_tablas", "una tabla del pilar que quedó con el ranking viejo")
+def _t_blog_tablas():
+    # Sobre una COPIA del post en un blog desechable (`--blog`): no se toca el repo del
+    # blog y la prueba corre igual donde no está clonado, con el post de este repo si no.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from generate_blog_tablas import DEFAULT_BLOG, POST
+    real = DEFAULT_BLOG / POST
+    if not real.exists():
+        return True  # sin blog no hay post que copiar (CI): lo marca la tarea 1.9
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        copia = tmp / POST
+        copia.parent.mkdir(parents=True)
+        shutil.copy2(real, copia)
+        if _correr("generate_blog_tablas.py", "--check", "--blog", str(tmp)) != 0:
+            raise AssertionError("el pilar real ya está desfasado: el saboteo no probaría nada")
+        import re as _re
+        t = copia.read_text(encoding="utf-8")
+        roto = _re.sub(r"(<!-- AUTO-[\w-]+-START -->).*?(<!-- AUTO-[\w-]+-END -->)",
+                       r"\1\n| tabla vieja |\n\2", t, count=1, flags=_re.S)
+        if roto == t:
+            raise AssertionError("el post ya no tiene bloques AUTO: el sabotaje no tocaría nada")
+        copia.write_text(roto, encoding="utf-8")
+        return _correr("generate_blog_tablas.py", "--check", "--blog", str(tmp)) != 0
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+@prueba("check_cobertura R5", "algo que corre en qa.py sin prueba ni exención, o una exención sin motivo")
+def _t_cobertura_r5():
+    def r5_rojo() -> bool:
+        salida = subprocess.run([PY, str(ROOT / "benchmarks" / "check_cobertura.py")],
+                                capture_output=True, text=True, cwd=ROOT).stdout
+        return any(ln.strip().startswith("❌ R5") for ln in salida.splitlines())
+
+    if r5_rojo():
+        return False  # control: R5 tiene que estar en verde antes de romperlo
+    qa_py = ROOT / "benchmarks" / "qa.py"
+    with Sabotaje(qa_py):
+        t = qa_py.read_text(encoding="utf-8")
+        roto = t.replace("CHEQUEOS = [\n", 'CHEQUEOS = [\n    ("datos", "chequeo sin prueba", '
+                         '[PY, "benchmarks/check_inventado.py"], True, True),\n', 1)
+        if roto == t:
+            raise AssertionError("qa.py ya no declara `CHEQUEOS = [`: el sabotaje no tocaría nada")
+        qa_py.write_text(roto, encoding="utf-8")
+        if not r5_rojo():
+            return False
+    cc = ROOT / "benchmarks" / "check_cobertura.py"
+    with Sabotaje(cc):
+        t = cc.read_text(encoding="utf-8")
+        import re as _re
+        # Vacía el motivo de `test_unitarios.py`: una exención sin porqué.
+        roto = _re.sub(r'("test_unitarios\.py":\s*)"[^"]*"', r'\1""', t, count=1)
+        if roto == t:
+            raise AssertionError("EXENTOS_R5 ya no tiene la forma esperada")
+        cc.write_text(roto, encoding="utf-8")
+        return r5_rojo()
+
+
+
 # ── check_specs: un change de OpenSpec que queda en el aire ───────────────────
 def _raiz_specs(tmp: Path, *, activos=("corte-x",), archivados=(), tasks="- [x] 1.1 hecha\n",
                 design=True, decisiones=True) -> Path:

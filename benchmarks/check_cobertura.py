@@ -131,20 +131,75 @@ def r4_suites_registradas():
 
 
 # ── R5 · todo chequeo nuevo, probado contra su propio fallo ───────────────────
+# Lo que corre el QA o el pipeline y NO puede tener sabotaje, con el motivo escrito. Una
+# exención sin motivo, una que ya no corre en ningún lado o una que ya tiene prueba ponen R5
+# en rojo: la lista solo puede achicarse con razón, nunca crecer en silencio.
+EXENTOS_R5 = {
+    "test_unitarios.py":
+        "es un conjunto de pruebas: cada assert es el sabotaje de su propia función",
+    "test_guardrails.py":
+        "es la prueba de los demás; la cuidan la trampa de argparse de `_correr` y el "
+        "control verde antes de cada sabotaje",
+    "check_ci.py":
+        "TEMPORAL: su lógica pasa de racha de fallos a días en rojo en la tarea 1.6 de "
+        "corte-v5; la prueba llega con ese cambio y esta exención se borra ahí",
+}
+
+
+def _scripts_de_qa() -> set[str]:
+    """El archivo que corre cada entrada de `qa.CHEQUEOS` (`check_x.py`, `qa_calculadora.mjs`…).
+
+    Se lee el módulo, no el texto: el docstring de qa.py nombra scripts que no corre.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_qa_r5", ROOT / "benchmarks" / "qa.py")
+    qa = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(qa)
+    out = set()
+    for c in qa.CHEQUEOS:
+        for arg in c[2]:
+            m = re.search(r"benchmarks/(\w+\.(?:py|mjs))$", str(arg))
+            if m:
+                out.add(m.group(1))
+                break
+        else:
+            raise ValueError(f"entrada de qa.py sin script reconocible: {c[1]!r}")
+    return out
+
+
 def r5_guardrails_probados():
-    """Un chequeo que nunca falla no es un chequeo. Cada `check_*.py` del núcleo tiene
-    que tener su prueba de sabotaje en `test_guardrails.py`."""
+    """Un chequeo que nunca falla no es un chequeo. Todo lo que corre `qa.py` —y los
+    `check_*` del pipeline— tiene su prueba de sabotaje en `test_guardrails.py`, o una
+    exención con motivo en `EXENTOS_R5`.
+
+    3-nov-2026. Hasta hoy R5 solo miraba `regenerate_all.py`, y 8 de los 21 chequeos del QA
+    no están ahí: los 3 sin prueba convivían con este verde (AUDITORIA-GUARDRAILS-2026-11,
+    H2). Y «tiene prueba» era que el nombre apareciera en cualquier lugar del archivo, un
+    comentario incluido. Ahora la prueba tiene que INVOCARLO: el nombre del archivo entre
+    comillas, que es como lo llaman `_correr(...)` y `ROOT / "benchmarks" / ...`.
+    """
     tg = (ROOT / "benchmarks" / "test_guardrails.py").read_text()
     pipe = (ROOT / "benchmarks" / "regenerate_all.py").read_text()
+    universo = _scripts_de_qa()
+    universo |= {p.name for p in (ROOT / "benchmarks").glob("check_*.py") if p.name in pipe}
+
+    def invocado(archivo: str) -> bool:
+        return re.search(rf"[\"']{re.escape(archivo)}[\"']", tg) is not None
+
     faltan = []
-    for p in sorted((ROOT / "benchmarks").glob("check_*.py")):
-        n = p.stem
-        # solo los que el pipeline hace cumplir: los de uso manual no bloquean nada
-        if f"{n}.py" not in pipe:
-            continue
-        if n not in tg:
-            faltan.append(f"{n}.py corre en el pipeline y NO tiene prueba de que falle "
-                          f"cuando debe (test_guardrails.py)")
+    for archivo, motivo in sorted(EXENTOS_R5.items()):
+        if not motivo.strip():
+            faltan.append(f"{archivo} está exento SIN motivo: una exención se justifica o se borra")
+        if archivo not in universo:
+            faltan.append(f"{archivo} está exento y ya no corre en qa.py ni en el pipeline: "
+                          f"borrar la exención")
+        elif invocado(archivo):
+            faltan.append(f"{archivo} está exento y YA tiene prueba en test_guardrails.py: "
+                          f"borrar la exención")
+    for archivo in sorted(universo - EXENTOS_R5.keys()):
+        if not invocado(archivo):
+            faltan.append(f"{archivo} corre en qa.py o en el pipeline y NO tiene prueba de "
+                          f"que falle cuando debe (test_guardrails.py)")
     return faltan
 
 
@@ -189,7 +244,7 @@ REGLAS = [
     ("R2", "cada tarea del wizard tiene quien verifique su promesa", r2_promesas_del_wizard),
     ("R3", "la elegibilidad se LEE del dato, no se recalcula", r3_elegibilidad_unica),
     ("R4", "toda suite medida está declarada, y el chequeo corre", r4_suites_registradas),
-    ("R5", "todo guardrail del pipeline está probado contra su fallo", r5_guardrails_probados),
+    ("R5", "todo lo que corre el QA está probado contra su fallo, o exento con motivo", r5_guardrails_probados),
     ("R6", "la segunda tabla se decide midiendo, no con un flag", r6_segunda_tabla),
     ("R7", "toda página publicada declara lo que publica", r7_contrato_de_pagina),
 ]

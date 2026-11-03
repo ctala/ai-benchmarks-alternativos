@@ -5,6 +5,19 @@
 
 ## [No publicado]
 
+- **R5 mira todo el QA, y lo que corría sin prueba ahora la tiene (3-nov-2026, tareas 1.1b, 1.2
+  y 1.11 de corte-v5).** `check_cobertura` R5 lee `qa.CHEQUEOS` en vez de `regenerate_all.py` y
+  exige que `test_guardrails.py` **invoque** cada script, no que lo nombre. Al leer el QA entero
+  marcó seis: `check_agentico_publicado`, `check_presupuesto`, `auditar_paginas`, `cobertura.py`,
+  el `--check` del censo y el de las tablas del blog. Las seis tienen prueba, y R5 la suya, todo
+  en el mismo commit para que R5 naciera en verde (de 41 a 48 pruebas). Cada prueba nueva falla
+  si se rompe su detector. Las exenciones (`test_unitarios`, `test_guardrails` y `check_ci`
+  hasta la 1.6) llevan motivo; sin motivo, R5 se pone en rojo. La tabla suma las 8 entradas que
+  no son `check_*` (29 filas) y destapa un tercer verde vacío: `generate_censo_proveedores --check`
+  devolvía 0 con el censo de 45 días y `qa.py` imprimía ✅. Ahora sale con 1 y el QA muestra ⚠️,
+  sin frenar. En el camino apareció un bug de la propia prueba: reemplazar `subprocess.run` sin
+  restaurarlo puso en rojo las 7 de `check_specs`. Ahora el reemplazo se restaura.
+
 - **Auditoría de confianza de los 21 guardrails del QA (3-nov-2026, tarea 1.1 de corte-v5).**
   `AUDITORIA-GUARDRAILS-2026-11.md`: 16 confiables, 2 verdes vacíos y 3 sin prueba. Las 41
   pruebas de sabotaje pasan y los 21 chequeos dan verde sobre el repo limpio, así que ninguna

@@ -116,13 +116,34 @@ internas sin sabotaje propio: `check_cortes` C1, C3, C4 y C5; `check_suites` S1,
 `check_fichas_alcanzables` F1, y `check_changelog` C2. No están rotas: no hay evidencia de que
 funcionen.
 
-## Fuera de la tabla
+## Las 8 entradas de `qa.py` que no son `check_*` (tarea 1.11, 3-nov-2026)
 
-Lo demás que corre `qa.py`: `test_unitarios.py` (pytest), `qa_calculadora.mjs` (Q15 tiene
-sabotaje), `auditar_paginas.py --duro`, `test_guardrails.py` (es la prueba de los demás),
-`cobertura.py --duro`, `generate_censo_proveedores --check`, `generate_blog_tablas --check` y
-`generate_blog_datos --check` (con sabotaje). Si deben entrar al alcance de la tarea 1 lo
-decide Cristian.
+Al principio estaban fuera de la tabla. Entraron con el ok del 3-nov, con las mismas tres
+preguntas. Se suma un cuarto veredicto, **exento**: aplica a la entrada que no puede tener
+sabotaje porque ella misma es una prueba. Cada exención lleva su motivo en `check_cobertura` y
+su fila en `DECISIONES.md`. Estado de hoy: todas salen con exit 0, salvo `cobertura.py --duro`,
+que da exit 1 (68 % contra un piso de 80 %, deuda conocida).
+
+| # | Entrada | Clase en `qa.py` | Qué dice cazar | Alcance de la prueba | ¿Cazó algo real? | Veredicto |
+|---|---|---|---|---|---|---|
+| 22 | `test_unitarios.py` (pytest, 140 tests) | bloqueante | que una función pura del núcleo rompa su caso borde | no aplica: es un conjunto de pruebas, y cada `assert` es el sabotaje de su función | sí, en uso (lo vigila `cobertura.py`) | **exento** |
+| 23 | `qa_calculadora.mjs` (31 chequeos) | bloqueante | que el `app.js` real, wizard incluido, contradiga a los datos | 1 de 31 con sabotaje automático (Q15, página huérfana). W16 se saboteó a mano una vez y no quedó como prueba | **en uso:** Q15 encontró 4 páginas huérfanas, una mintiendo sobre su frescura | **confiable** (1/31) |
+| 24 | `auditar_paginas.py --duro` | bloqueante | que una página publicada diga algo que la data no sostiene | sin sabotaje. Su etiqueta en `qa.py` dice «71 páginas» y audita 187 | al nacer: cinco falsos positivos y puntos ciegos en un día, que dieron origen a R7 | **sin prueba** |
+| 25 | `test_guardrails.py` | bloqueante | que un guardrail no falle ante su propio fallo | no aplica: es la prueba de los demás. Se cuida con la trampa de argparse de `_correr` y con el control verde antes de sabotear | **en uso:** destapó los falsos verdes de `_t_docs`, `_t_blog` y `_t_release` | **exento** |
+| 26 | `cobertura.py --duro` | informativo | que el núcleo baje del piso de 80 % | sin sabotaje | hoy en rojo y honesto (68 %) | **sin prueba** |
+| 27 | `generate_censo_proveedores.py --check` | informativo | un censo de proveedores de más de 30 días | sin sabotaje, y **no podría tenerlo**: `--check` devuelve 0 en todas sus ramas | **no.** Hoy `qa.py` imprime «✅ … no está viejo» con un censo de **45 días** | **verde vacío** (ver H7) |
+| 28 | `generate_blog_tablas.py --check` | informativo | tablas del pilar desfasadas del ranking | sin sabotaje. Sin blog clonado avisa y pasa | sin registro de una detección en uso | **sin prueba** |
+| 29 | `generate_blog_datos.py --check` | bloqueante | un dato marcado en un post con un valor viejo | 1 sabotaje con control verde. En CI pasa sin probar (H5) | nació en verde; sin registro de una detección en uso | **confiable** |
+
+**Conteo de las 29 filas:** 18 confiables, 3 verdes vacíos (`check_cobertura` R5,
+`check_secretos` y el `--check` del censo), 6 sin prueba y 2 exentos.
+
+**H7. Un informativo que nunca falla dice ✅ sobre lo que vino a avisar.** Pasa con
+`generate_censo_proveedores --check`: imprime el ⚠️ por stdout pero sale con 0, y `qa.py` lee el
+exit code. El aviso existe y queda debajo de un ✅. Es el mismo mecanismo de H1, un canal que no
+llega. El arreglo no debilita nada: que `--check` salga con 1 cuando el censo está viejo. Sigue
+siendo informativo, así que `qa.py` muestra ⚠️ y no frena. Entra con la tarea 1.1b, porque R5
+le va a exigir una prueba y a algo que nunca falla no se le puede escribir una.
 
 ## Ok de Cristian (tarea 1.5)
 
@@ -138,3 +159,24 @@ que ahora están en `tasks.md` como 1.1b y 1.6 a 1.11:
 - las 8 entradas que no son `check_*` entran a la tabla.
 
 Ningún chequeo baja de bloqueante a informativo.
+
+## Arreglos posteriores (la foto de arriba no se reescribe)
+
+3-nov-2026, tareas 1.1b, 1.2 y 1.11, en un solo commit para que R5 no naciera en rojo:
+
+- **R5 (H2) cerrado.** `check_cobertura` R5 lee `qa.CHEQUEOS` y los `check_*` del pipeline, y
+  exige que `test_guardrails.py` **invoque** cada script, no que lo nombre. Las exenciones van
+  en `EXENTOS_R5`, cada una con su motivo: `test_unitarios.py`, `test_guardrails.py` y
+  `check_ci.py`. La de `check_ci.py` es temporal y se borra en 1.6.
+- **Con prueba nueva:** `check_presupuesto` (filas 12), `check_agentico_publicado` (16),
+  `auditar_paginas` (24), `cobertura.py` (26), `generate_censo_proveedores --check` (27),
+  `generate_blog_tablas --check` (28) y R5 mismo. Las pruebas pasaron de 41 a 48.
+- **El censo (H7) cerrado.** `--check` sale con 1 cuando el censo está viejo. Sigue siendo
+  informativo en `qa.py`, que ahora muestra ⚠️ en vez de ✅.
+- **Verificación.** Cada prueba nueva se puso en rojo al romper su detector (7 de 7), y la
+  mitad de R5 que exige motivo se probó aparte. La regla de exención huérfana o ya probada no
+  tiene sabotaje propio.
+- **Lo que sigue abierto:** `check_secretos` (H3, tarea 1.7), `check_ci` (H1, 1.6),
+  `check_truncamiento` (H4, 1.8), las pruebas omitidas en CI (H5, 1.9) y las reglas de H6
+  que entran por 1.10.
+

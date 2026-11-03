@@ -142,7 +142,10 @@ def main() -> int:
         if d > CADUCIDAD_DIAS:
             print(f"  ⚠️  el censo de proveedores tiene {d} días (máximo {CADUCIDAD_DIAS}): "
                   f"precios y cuantizaciones cambian sin aviso. Regeneralo antes de citarlo.")
-            return 0
+            # 3-nov-2026: devolvía 0 y `qa.py` —que lee el exit code— imprimía «✅ no está
+            # viejo» con 45 días encima. Sigue siendo INFORMATIVO en el QA (muestra ⚠️ y no
+            # frena): lo que cambia es que el aviso llega (AUDITORIA-GUARDRAILS-2026-11, H7).
+            return 1
         print(f"  ✅ censo de proveedores al día ({d} días)")
         return 0
 
