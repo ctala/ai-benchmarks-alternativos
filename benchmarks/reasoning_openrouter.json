@@ -3,11 +3,14 @@
   "anthropic/claude-opus-4-6",
   "anthropic/claude-opus-4-7",
   "anthropic/claude-opus-5-fast",
+  "anthropic/claude-sonnet-4",
   "anthropic/claude-sonnet-4-6",
   "bytedance/seed-oss-36b-instruct",
   "cohere/north-mini-code",
+  "deepseek/deepseek-r1",
   "deepseek/deepseek-r1:free",
   "kwaipilot/kat-coder-air-v2.5",
+  "kwaipilot/kat-coder-pro-v2.5",
   "liquid/lfm-2-24b-a2b",
   "meta-llama/llama-3.3-70b-instruct:free",
   "mistralai/devstral-medium",
@@ -17,8 +20,12 @@
   "nvidia/llama-3.3-nemotron-super-49b-v1.5",
   "nvidia/nemotron-nano-9b-v2:free",
   "openai/gpt-4o:high",
+  "poolside/laguna-s-2.1",
+  "poolside/laguna-xs-2.1",
   "qwen/qwen3-coder-480b:free",
+  "qwen/qwen3-next-80b-a3b-thinking",
   "qwen/qwen3.5-plus",
+  "qwen/qwen3.6-max-preview",
   "qwen/qwen3.6-plus:free",
   "qwen/qwen3.8-max",
   "stepfun-ai/step3",
@@ -41,8 +48,31 @@
     "low"
    ]
   },
+  "anthropic/claude-fable-5.1": {
+   "default_effort": "high",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "anthropic/claude-haiku-4.5": {
    "mandatory": false
+  },
+  "anthropic/claude-haiku-5.5": {
+   "default_effort": "medium",
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
   },
   "anthropic/claude-opus-4.8": {
    "default_effort": "high",
@@ -53,7 +83,8 @@
     "xhigh",
     "high",
     "medium",
-    "low"
+    "low",
+    "none"
    ]
   },
   "anthropic/claude-opus-5": {
@@ -65,16 +96,37 @@
     "xhigh",
     "high",
     "medium",
-    "low"
+    "low",
+    "none"
    ]
   },
-  "anthropic/claude-sonnet-4": {
-   "mandatory": false
+  "anthropic/claude-opus-5.5": {
+   "default_effort": "high",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
   },
   "anthropic/claude-sonnet-5": {
    "default_effort": "high",
    "default_enabled": true,
    "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
+  },
+  "anthropic/claude-sonnet-5.5": {
+   "default_effort": "high",
+   "mandatory": true,
    "supported_efforts": [
     "max",
     "xhigh",
@@ -92,13 +144,11 @@
    "supported_efforts": [
     "high",
     "medium",
-    "low"
+    "low",
+    "none"
    ]
   },
   "deepseek/deepseek-chat": null,
-  "deepseek/deepseek-r1": {
-   "mandatory": true
-  },
   "deepseek/deepseek-v3.2": {
    "default_enabled": false,
    "mandatory": false
@@ -108,7 +158,8 @@
    "mandatory": false,
    "supported_efforts": [
     "xhigh",
-    "high"
+    "high",
+    "none"
    ]
   },
   "deepseek/deepseek-v4-flash-0731": {
@@ -118,7 +169,8 @@
    "supported_efforts": [
     "max",
     "high",
-    "low"
+    "low",
+    "none"
    ]
   },
   "deepseek/deepseek-v4-pro": {
@@ -126,7 +178,8 @@
    "mandatory": false,
    "supported_efforts": [
     "xhigh",
-    "high"
+    "high",
+    "none"
    ]
   },
   "deepseek/deepseek-v4-pro-0813": {
@@ -135,7 +188,8 @@
    "supported_efforts": [
     "max",
     "high",
-    "low"
+    "low",
+    "none"
    ]
   },
   "deepseek/deepseek-v4.1-flash": {
@@ -145,7 +199,8 @@
    "supported_efforts": [
     "max",
     "high",
-    "low"
+    "low",
+    "none"
    ]
   },
   "google/gemini-2.5-flash": {
@@ -165,7 +220,8 @@
     "high",
     "medium",
     "low",
-    "minimal"
+    "minimal",
+    "none"
    ]
   },
   "google/gemini-3.1-pro-preview": {
@@ -267,7 +323,6 @@
    "default_enabled": true,
    "mandatory": false
   },
-  "kwaipilot/kat-coder-pro-v2.5": null,
   "meituan/longcat-2.0": {
    "default_enabled": true,
    "mandatory": false,
@@ -357,7 +412,8 @@
    "supported_efforts": [
     "max",
     "high",
-    "low"
+    "low",
+    "none"
    ]
   },
   "nousresearch/hermes-4-405b": {
@@ -377,7 +433,8 @@
    "mandatory": false,
    "supported_efforts": [
     "medium",
-    "low"
+    "low",
+    "none"
    ],
    "supports_max_tokens": true
   },
@@ -387,7 +444,8 @@
    "mandatory": false,
    "supported_efforts": [
     "high",
-    "medium"
+    "medium",
+    "none"
    ],
    "supports_max_tokens": true
   },
@@ -504,30 +562,20 @@
     "low"
    ]
   },
-  "poolside/laguna-s-2.1": {
-   "default_enabled": true,
-   "mandatory": false
-  },
-  "poolside/laguna-xs-2.1": {
-   "default_enabled": true,
-   "mandatory": false
-  },
   "prism-ml/ternary-bonsai-2-27b": {
    "default_effort": "xhigh",
    "default_enabled": true,
    "mandatory": false,
    "supported_efforts": [
     "xhigh",
-    "medium"
+    "medium",
+    "none"
    ]
   },
   "qwen/qwen-2.5-72b-instruct": null,
   "qwen/qwen3-coder": null,
   "qwen/qwen3-coder-next": null,
   "qwen/qwen3-next-80b-a3b-instruct": null,
-  "qwen/qwen3-next-80b-a3b-thinking": {
-   "mandatory": true
-  },
   "qwen/qwen3.5-35b-a3b": {
    "mandatory": false
   },
@@ -539,10 +587,6 @@
    "mandatory": false
   },
   "qwen/qwen3.6-35b-a3b": {
-   "default_enabled": true,
-   "mandatory": false
-  },
-  "qwen/qwen3.6-max-preview": {
    "default_enabled": true,
    "mandatory": false
   },
@@ -575,7 +619,8 @@
    "supported_efforts": [
     "xhigh",
     "medium",
-    "low"
+    "low",
+    "none"
    ]
   },
   "qwen/qwen3.8-flash": {
@@ -742,7 +787,8 @@
    "mandatory": false,
    "supported_efforts": [
     "xhigh",
-    "high"
+    "high",
+    "none"
    ]
   },
   "z-ai/glm-5.3": {
@@ -780,6 +826,19 @@
    "tools",
    "verbosity"
   ],
+  "anthropic/claude-fable-5.1": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
   "anthropic/claude-haiku-4.5": [
    "include_reasoning",
    "max_completion_tokens",
@@ -794,6 +853,19 @@
    "top_k",
    "top_p"
   ],
+  "anthropic/claude-haiku-5.5": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
   "anthropic/claude-opus-4.8": [
    "include_reasoning",
    "max_completion_tokens",
@@ -803,7 +875,6 @@
    "response_format",
    "stop",
    "structured_outputs",
-   "temperature",
    "tool_choice",
    "tools",
    "verbosity"
@@ -817,23 +888,37 @@
    "response_format",
    "stop",
    "structured_outputs",
-   "temperature",
    "tool_choice",
    "tools",
    "verbosity"
   ],
-  "anthropic/claude-sonnet-4": [
+  "anthropic/claude-opus-5.5": [
    "include_reasoning",
+   "max_completion_tokens",
    "max_tokens",
    "reasoning",
+   "reasoning_effort",
+   "response_format",
    "stop",
-   "temperature",
+   "structured_outputs",
    "tool_choice",
    "tools",
-   "top_k",
-   "top_p"
+   "verbosity"
   ],
   "anthropic/claude-sonnet-5": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "anthropic/claude-sonnet-5.5": [
    "include_reasoning",
    "max_completion_tokens",
    "max_tokens",
@@ -884,22 +969,6 @@
    "seed",
    "stop",
    "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools",
-   "top_k",
-   "top_p"
-  ],
-  "deepseek/deepseek-r1": [
-   "frequency_penalty",
-   "include_reasoning",
-   "max_tokens",
-   "presence_penalty",
-   "reasoning",
-   "repetition_penalty",
-   "response_format",
-   "seed",
-   "stop",
    "temperature",
    "tool_choice",
    "tools",
@@ -1027,6 +1096,7 @@
    "logprobs",
    "max_tokens",
    "min_p",
+   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -1038,6 +1108,7 @@
    "temperature",
    "tool_choice",
    "tools",
+   "top_a",
    "top_k",
    "top_logprobs",
    "top_p"
@@ -1074,7 +1145,6 @@
    "reasoning",
    "response_format",
    "seed",
-   "stop",
    "structured_outputs",
    "temperature",
    "tool_choice",
@@ -1183,6 +1253,7 @@
    "include_reasoning",
    "logit_bias",
    "logprobs",
+   "max_completion_tokens",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -1204,6 +1275,7 @@
    "include_reasoning",
    "logit_bias",
    "logprobs",
+   "max_completion_tokens",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -1278,29 +1350,10 @@
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
-   "logprobs",
    "max_tokens",
    "min_p",
    "presence_penalty",
    "reasoning",
-   "repetition_penalty",
-   "response_format",
-   "seed",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools",
-   "top_k",
-   "top_logprobs",
-   "top_p"
-  ],
-  "kwaipilot/kat-coder-pro-v2.5": [
-   "frequency_penalty",
-   "logit_bias",
-   "max_tokens",
-   "min_p",
-   "presence_penalty",
    "repetition_penalty",
    "response_format",
    "seed",
@@ -1372,7 +1425,6 @@
    "logit_bias",
    "logprobs",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "repetition_penalty",
    "response_format",
@@ -1407,7 +1459,6 @@
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
-   "logprobs",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -1422,7 +1473,6 @@
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "meta/muse-spark-1.2": [
@@ -1478,7 +1528,6 @@
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
-   "logprobs",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -1487,12 +1536,10 @@
    "response_format",
    "seed",
    "stop",
-   "structured_outputs",
    "temperature",
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "minimax/minimax-m3": [
@@ -1619,7 +1666,6 @@
   "moonshotai/kimi-k2-thinking": [
    "frequency_penalty",
    "include_reasoning",
-   "logprobs",
    "max_tokens",
    "presence_penalty",
    "reasoning",
@@ -1632,7 +1678,6 @@
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "moonshotai/kimi-k2.5": [
@@ -1705,8 +1750,10 @@
    "include_reasoning",
    "logit_bias",
    "logprobs",
+   "max_completion_tokens",
    "max_tokens",
    "min_p",
+   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -1725,13 +1772,16 @@
   "nousresearch/hermes-4-405b": [
    "frequency_penalty",
    "include_reasoning",
+   "logprobs",
    "max_tokens",
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
    "response_format",
+   "structured_outputs",
    "temperature",
    "top_k",
+   "top_logprobs",
    "top_p"
   ],
   "nvidia/nemotron-3-nano-30b-a3b": [
@@ -1740,7 +1790,6 @@
    "logit_bias",
    "logprobs",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
@@ -1857,7 +1906,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-5.6-luna-pro": [
    "include_reasoning",
@@ -1869,7 +1919,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-5.6-sol": [
    "include_reasoning",
@@ -1881,7 +1932,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-5.6-terra": [
    "include_reasoning",
@@ -1893,7 +1945,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-5.6-terra-pro": [
    "include_reasoning",
@@ -1905,7 +1958,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-6-luna": [
    "include_reasoning",
@@ -1917,7 +1971,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-6-luna-pro": [
    "include_reasoning",
@@ -1929,7 +1984,8 @@
    "seed",
    "structured_outputs",
    "tool_choice",
-   "tools"
+   "tools",
+   "verbosity"
   ],
   "openai/gpt-oss-120b": [
    "frequency_penalty",
@@ -1976,22 +2032,6 @@
    "top_logprobs",
    "top_p"
   ],
-  "poolside/laguna-s-2.1": [
-   "include_reasoning",
-   "max_tokens",
-   "reasoning",
-   "temperature",
-   "tool_choice",
-   "tools"
-  ],
-  "poolside/laguna-xs-2.1": [
-   "include_reasoning",
-   "max_tokens",
-   "reasoning",
-   "temperature",
-   "tool_choice",
-   "tools"
-  ],
   "prism-ml/ternary-bonsai-2-27b": [
    "frequency_penalty",
    "include_reasoning",
@@ -2032,7 +2072,6 @@
   "qwen/qwen3-coder": [
    "frequency_penalty",
    "logit_bias",
-   "logprobs",
    "max_tokens",
    "min_p",
    "presence_penalty",
@@ -2045,7 +2084,6 @@
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "qwen/qwen3-coder-next": [
@@ -2073,25 +2111,6 @@
    "max_tokens",
    "min_p",
    "presence_penalty",
-   "repetition_penalty",
-   "response_format",
-   "seed",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools",
-   "top_k",
-   "top_logprobs",
-   "top_p"
-  ],
-  "qwen/qwen3-next-80b-a3b-thinking": [
-   "frequency_penalty",
-   "include_reasoning",
-   "logprobs",
-   "max_tokens",
-   "presence_penalty",
-   "reasoning",
    "repetition_penalty",
    "response_format",
    "seed",
@@ -2177,24 +2196,6 @@
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
-   "response_format",
-   "seed",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools",
-   "top_k",
-   "top_logprobs",
-   "top_p"
-  ],
-  "qwen/qwen3.6-max-preview": [
-   "frequency_penalty",
-   "include_reasoning",
-   "logprobs",
-   "max_tokens",
-   "presence_penalty",
-   "reasoning",
    "response_format",
    "seed",
    "stop",
@@ -2422,8 +2423,12 @@
   "tencent/hy4-preview": [
    "frequency_penalty",
    "include_reasoning",
+   "logit_bias",
+   "logprobs",
    "max_completion_tokens",
    "max_tokens",
+   "min_p",
+   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -2436,6 +2441,7 @@
    "tool_choice",
    "tools",
    "top_k",
+   "top_logprobs",
    "top_p"
   ],
   "thinkingmachines/inkling-small": [
@@ -2548,12 +2554,9 @@
   "xiaomi/mimo-v2.5": [
    "frequency_penalty",
    "include_reasoning",
-   "logit_bias",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "reasoning",
-   "repetition_penalty",
    "response_format",
    "seed",
    "stop",
@@ -2565,12 +2568,27 @@
    "top_p"
   ],
   "xiaomi/mimo-v2.5-pro": [
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "reasoning",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_logprobs",
+   "top_p"
+  ],
+  "xiaomi/mimo-v2.6-flash": [
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
    "logprobs",
    "max_tokens",
    "min_p",
+   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
@@ -2583,25 +2601,6 @@
    "tools",
    "top_k",
    "top_logprobs",
-   "top_p"
-  ],
-  "xiaomi/mimo-v2.6-flash": [
-   "frequency_penalty",
-   "include_reasoning",
-   "logit_bias",
-   "max_tokens",
-   "min_p",
-   "presence_penalty",
-   "reasoning",
-   "repetition_penalty",
-   "response_format",
-   "seed",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools",
-   "top_k",
    "top_p"
   ],
   "z-ai/glm-5": [
@@ -2714,5 +2713,5 @@
    "top_p"
   ]
  },
- "tomada": "2026-09-26"
+ "tomada": "2026-11-03"
 }

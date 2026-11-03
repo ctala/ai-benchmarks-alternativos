@@ -13,7 +13,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 5 | [Mercury 2.5](inception_mercury-2_5.md) | 8.09 | 8.09 | 472 | 198/199 | [ver detalles](inception_mercury-2_5.md) |
 | 6 | [Devstral Small](mistralai_devstral-small.md) | 8.06 | 7.96 | 147 | 42/126 | [ver detalles](mistralai_devstral-small.md) |
 | 7 | [GPT-6 Luna Pro](openai_gpt-6-luna-pro.md) | 8.01 | 8.75 | 111 | 213/213 | [ver detalles](openai_gpt-6-luna-pro.md) |
-| 8 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 7.95 | 8.00 | 148 | 209/426 | [ver detalles](anthropic_claude-haiku-5_5.md) |
+| 8 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 7.95 | 8.00 | 148 | 209/213 | [ver detalles](anthropic_claude-haiku-5_5.md) |
 | 9 | [Llama 3.1 8B Instant (Groq)](llama-3_1-8b-instant.md) | 7.93 | 7.38 | 367 | 87/181 | [ver detalles](llama-3_1-8b-instant.md) |
 | 10 | [Llama 3.3 70B (Groq)](llama-3_3-70b-versatile.md) | 7.90 | 7.73 | 239 | 87/171 | [ver detalles](llama-3_3-70b-versatile.md) |
 | 11 | [Qwen 3.7 Flash](qwen_qwen3_7-flash.md) | 7.89 | 8.16 | 107 | 306/307 | [ver detalles](qwen_qwen3_7-flash.md) |

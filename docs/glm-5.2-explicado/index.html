@@ -4,12 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026</title>
+<title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026</title>
 <meta name="description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="keywords" content="glm 5.2, zhipu glm 5.2, glm 5.2 benchmark, glm 5.2 score bajo, glm 5.2 vs opus 4.8, glm 5.2 seguridad, modelo chino ia 2026">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
-<meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026">
+<meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026">
 <meta property="og:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:type" content="article">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GLM 5.2: score compuesto vs calidad pura en el benchmark">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026">
+<meta name="twitter:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026">
 <meta name="twitter:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
@@ -31,7 +31,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "GLM 5.2: por qué su score no refleja su calidad real | Benchmark Octubre 2026",
+  "headline": "GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026",
   "description": "GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#27 de 115 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.",
   "author": {
     "@type": "Person",
@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-06-29",
-  "dateModified": "2026-10-11",
+  "dateModified": "2026-11-03",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
@@ -148,7 +148,7 @@
       Acá explicamos por qué existe ese gap, dónde brilla el modelo y cuándo conviene usarlo.
     </p>
     <p class="meta">
-      Última actualización: 2026-10-11 ·
+      Última actualización: 2026-11-03 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -158,7 +158,7 @@
   <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
   Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
   costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong><!-- AUTO:total_models -->227<!-- /AUTO --> modelos catalogados</strong>,
+  <p>Contamos con <strong><!-- AUTO:total_models -->228<!-- /AUTO --> modelos catalogados</strong>,
   <strong><!-- AUTO:tested_count -->177<!-- /AUTO --> testeados</strong> y
   <strong><!-- AUTO:tests_marketing -->70,000+<!-- /AUTO --> tests reales</strong> evaluados por un
   <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
@@ -168,7 +168,7 @@
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
     <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
-  <p>El <strong>score global v4.15.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
+  <p>El <strong>score global v4.17.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
   Tool calling se reporta como badge de capacidad, no entra en el score. Mide <em>valor para producción</em>, no solo capacidad bruta.
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
@@ -223,7 +223,7 @@
   <section class="results">
     <div class="results-header">
       <h2>GLM 5.2 dentro de la familia GLM</h2>
-      <p class="meta">Score ponderado v4.15.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">Score ponderado v4.17.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
     </div>
     <div class="table-scroll"><table class="results-table">
       <thead>
