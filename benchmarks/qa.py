@@ -25,7 +25,7 @@ pierda ninguna cuando se agregue algo nuevo:
   datos        el dataset y sus invariantes (precio $0, `:free`, duplicados, umbrales)
   suites       el registro de ejes: una sola lista, todos con nombre humano
   calculadora  el `app.js` REAL contra los datos reales, incluido el wizard
-  paginas      las 71 publicadas: ¿lo que dicen lo sostiene la data?
+  paginas      todas las publicadas: ¿lo que dicen lo sostiene la data?
   guardrails   que cada guardrail falle cuando debe (si no, no es un guardrail)
   version      las 7 superficies que declaran la versión, + tag y CHANGELOG
 
@@ -46,6 +46,21 @@ ROOT = Path(__file__).resolve().parent.parent
 # Usar .venv si existe (entorno local de Cristian), python3 si no (Cloud Agent)
 VENV_PYTHON = ROOT / ".venv" / "bin" / "python"
 PY = str(VENV_PYTHON) if VENV_PYTHON.exists() else "python3"
+
+
+def _n_paginas() -> int:
+    """Cuántas páginas audita `auditar_paginas.py`, con SU definición de página.
+
+    3-nov-2026 (corte-v5 1.13): la etiqueta decía «las 71 páginas» escrita a mano, y el
+    auditor recorría 187. Un número del QA que nadie actualiza es el mismo pozo que las
+    cifras de los docs vivos, así que se pide a la misma función que las cuenta.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "_auditar_paginas_qa", ROOT / "benchmarks" / "auditar_paginas.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return len(mod.paginas())
 
 # área · qué prueba · comando · bloqueante · rápido (< ~5 s)
 CHEQUEOS = [
@@ -70,7 +85,7 @@ CHEQUEOS = [
      ["node", "benchmarks/qa_calculadora.mjs"], True, True),
     ("calculadora", "sus filtros y umbrales siguen alineados con lo que sirve",
      [PY, "benchmarks/check_calculator.py"], True, True),
-    ("paginas", "lo que publican las 71 páginas lo sostiene la data",
+    ("paginas", f"lo que publican las {_n_paginas()} páginas lo sostiene la data",
      [PY, "benchmarks/auditar_paginas.py", "--duro"], True, False),
     ("paginas", "los cortes por eje coinciden con models.json",
      [PY, "benchmarks/check_cortes.py"], True, True),

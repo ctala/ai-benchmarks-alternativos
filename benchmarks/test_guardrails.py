@@ -918,6 +918,38 @@ def _t_cobertura_r5():
         return r5_rojo()
 
 
+@prueba("check_cobertura R5", "una exención huérfana (no corre en ningún lado) o ya probada (tiene sabotaje)")
+def _t_cobertura_r5_exenciones():
+    # corte-v5 1.12. La regla que impide que `EXENTOS_R5` crezca en silencio no tenía quien
+    # la rompiera. Cada caso se inyecta por separado y se exige que el rojo NOMBRE al archivo
+    # inyectado: un R5 rojo por otra causa no prueba esta regla.
+    cc = ROOT / "benchmarks" / "check_cobertura.py"
+
+    def r5_rojo_por(archivo: str) -> bool:
+        salida = subprocess.run([PY, str(cc)], capture_output=True, text=True, cwd=ROOT).stdout
+        rojo = any(ln.strip().startswith("❌ R5") for ln in salida.splitlines())
+        return rojo and archivo in salida
+
+    salida = subprocess.run([PY, str(cc)], capture_output=True, text=True, cwd=ROOT).stdout
+    if any(ln.strip().startswith("❌ R5") for ln in salida.splitlines()):
+        return False  # control verde
+    # check_presupuesto.py corre en qa.py y tiene prueba: exentarlo es una exención ya probada.
+    import re as _re
+    if not _re.search(r"[\"']check_presupuesto\.py[\"']", Path(__file__).read_text()):
+        raise AssertionError("check_presupuesto.py ya no se invoca acá: elegir otro ya probado")
+    for archivo in ("check_fantasma.py", "check_presupuesto.py"):
+        with Sabotaje(cc):
+            t = cc.read_text(encoding="utf-8")
+            roto = t.replace("EXENTOS_R5 = {\n",
+                             f'EXENTOS_R5 = {{\n    "{archivo}": "motivo de sabotaje",\n', 1)
+            if roto == t:
+                raise AssertionError("check_cobertura.py ya no declara `EXENTOS_R5 = {`")
+            cc.write_text(roto, encoding="utf-8")
+            if not r5_rojo_por(archivo):
+                return False
+    return True
+
+
 
 # ── check_specs: un change de OpenSpec que queda en el aire ───────────────────
 def _raiz_specs(tmp: Path, *, activos=("corte-x",), archivados=(), tasks="- [x] 1.1 hecha\n",

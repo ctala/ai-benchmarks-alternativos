@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audita las 72 páginas publicadas: ¿recomiendan lo que la data sostiene?
+"""Audita todas las páginas publicadas: ¿recomiendan lo que la data sostiene?
 
 POR QUÉ EXISTE (16-ago-2026)
 ----------------------------

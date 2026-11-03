@@ -5,6 +5,13 @@
 
 ## [No publicado]
 
+- **La regla de exenciones de R5 tiene quien la rompa, y la etiqueta de páginas sale del dato
+  (3-nov-2026, tareas 1.12 y 1.13 de corte-v5).** Una prueba nueva inyecta en `EXENTOS_R5` una
+  exención huérfana (`check_fantasma.py`) y una ya probada (`check_presupuesto.py`) y exige que
+  R5 se ponga en rojo nombrando al archivo. Quitando cualquiera de las dos ramas, la prueba
+  falla (49 pruebas). La etiqueta del QA decía «las 71 páginas» y el auditor recorre 187: ahora
+  `qa.py` la pide a `auditar_paginas.paginas()`, y con una página temporal pasa a 188 sola.
+
 - **R5 mira todo el QA, y lo que corría sin prueba ahora la tiene (3-nov-2026, tareas 1.1b, 1.2
   y 1.11 de corte-v5).** `check_cobertura` R5 lee `qa.CHEQUEOS` en vez de `regenerate_all.py` y
   exige que `test_guardrails.py` **invoque** cada script, no que lo nombre. Al leer el QA entero
