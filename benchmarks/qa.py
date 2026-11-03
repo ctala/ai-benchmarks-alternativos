@@ -116,6 +116,12 @@ CHEQUEOS = [
     # único fallo del que no se vuelve: una clave publicada hay que rotarla.
     ("guardrails", "ninguna credencial real en los archivos versionados",
      [PY, "benchmarks/check_secretos.py"], True, False),
+    # 3-nov-2026 (corte-v5 1.7). Lo que TIENE FORMA de credencial, con las reglas de gitleaks
+    # y sin patrones propios; `check_secretos` sigue buscando los valores exactos del `.env`.
+    # Bloqueante porque nació en verde (con las exclusiones de `.gitleaks.toml`). Sin la
+    # herramienta sale en rojo con la instrucción: un chequeo de secretos no se omite.
+    ("guardrails", "nada con forma de credencial en lo que se versiona (gitleaks)",
+     [PY, "benchmarks/check_gitleaks.py"], True, False),
     # BLOQUEANTE desde el 3-nov-2026 (corte-v5 1.8). Fue informativo mientras los runs
     # truncados de los cuatro modelos del 17-ago seguían en disco; ya se archivaron y nace
     # en verde: 0 de 188 modelos cruzan el umbral (AUDITORIA-GUARDRAILS-2026-11, H4). Con

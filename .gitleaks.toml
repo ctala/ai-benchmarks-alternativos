@@ -1,0 +1,28 @@
+# gitleaks en el QA (corte-v5 1.7, DECISIONES.md 3-nov-2026).
+#
+# Reparto con `check_secretos.py`: este busca lo que TIENE FORMA de credencial con las
+# reglas de gitleaks, sin patrones propios; `check_secretos` busca los VALORES exactos del
+# `.env` en todo el repo, `results/` incluido. Lo que se excluye acá sigue cubierto por él.
+#
+# Las exclusiones dicen DÓNDE no mirar, nunca QUÉ buscar. Cada una lleva su porqué. Si
+# aparece otro JSON generado con keys de modelos, gitleaks sale en rojo y la ruta se agrega
+# a mano con su línea: eso se ve, no es ruido.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "rutas que heredan secretos de mentira o llevan keys de modelos"
+paths = [
+  # Cada run guarda su prompt y la respuesta del modelo: heredan los secretos de mentira de
+  # `prompt_injection_es` y `string_precision` (~2.000 coincidencias al 3-nov-2026).
+  '''^benchmarks/results/''',
+  # Se generan desde los prompts de los tests: heredan los mismos secretos de mentira.
+  '''^TESTS\.md$''',
+  '''^PROMPTS\.md$''',
+  # JSON generados con `"key": "<key-de-modelo>"`: generic-api-key los confunde con claves.
+  '''^docs/data/models\.json$''',
+  '''^docs/jubilacion-2026-10\.json$''',
+  '''^docs/jubilacion-2026-10-opcion-A\.json$''',
+  '''^benchmarks/dominancia_resultado\.json$''',
+]

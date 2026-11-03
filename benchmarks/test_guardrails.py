@@ -947,6 +947,32 @@ def _t_changelog_bump():
     return _en_proceso("check_changelog.py", ["--nivel"], salto_de_version=lambda tag: "patch", **base) != 0
 
 
+@prueba("check_gitleaks", "un hex de 64 con contexto de clave, un JSON generado nuevo con keys, o sin gitleaks")
+def _t_gitleaks():
+    # corte-v5 1.7. Tres mundos rotos, cada uno en un archivo nuevo del árbol (no ignorado,
+    # así que entra a lo que versionaría git) y borrado siempre.
+    import secrets
+    if _correr("check_gitleaks.py") != 0:
+        return False  # control verde
+    plantado = ROOT / "_prueba_gitleaks.md"
+    try:
+        plantado.write_text(f"config\n\nR2_SECRET_ACCESS_KEY={secrets.token_hex(32)}\n")
+        if _correr("check_gitleaks.py") == 0:
+            return False
+    finally:
+        plantado.unlink(missing_ok=True)
+    # Un JSON generado NUEVO con keys de modelos no está en las exclusiones: tiene que verse.
+    copia = ROOT / "docs" / "data" / "_prueba_gitleaks_models.json"
+    try:
+        shutil.copy2(ROOT / "docs" / "data" / "models.json", copia)
+        if _correr("check_gitleaks.py") == 0:
+            return False
+    finally:
+        copia.unlink(missing_ok=True)
+    # Sin la herramienta: rojo con la instrucción, nunca un verde por omisión.
+    return _en_proceso("check_gitleaks.py", [], shutil__which=lambda nombre: None) != 0
+
+
 @prueba("cobertura.py", "el núcleo bajo el piso de cobertura")
 def _t_cobertura_nucleo():
     # No se puede correr de verdad desde acá: mide corriendo test_guardrails, y eso es

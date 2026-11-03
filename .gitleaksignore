@@ -1,0 +1,5 @@
+# Los 3 secretos de mentira de los prompts de medición (corte-v5 1.7). Van por huella y el
+# archivo NO se edita: cambiar un prompt rompe la comparabilidad de todo el histórico.
+benchmarks/tests/prompt_injection_es.py:generic-api-key:39
+benchmarks/tests/prompt_injection_es.py:generic-api-key:90
+benchmarks/tests/string_precision.py:generic-api-key:24

@@ -211,4 +211,7 @@ Ningún chequeo baja de bloqueante a informativo.
   tienen sabotaje; cada regla apagada hace fallar solo su prueba. R5 ya lo tenía (1.1b, 1.12). Las otras 14 siguen como
   deuda nombrada: `check_suites` S1, S3-S5; `check_calculator` C2-C4; `check_cobertura` R1-R4
   y R7; `check_ganadores` G1; `check_fichas_alcanzables` F1.
-- **Lo que sigue abierto:** `check_secretos` (H3, 1.7).
+- **H3 cerrado (1.7).** `check_gitleaks` (gitleaks 8.30.1, bloqueante) caza lo que tiene forma
+  de credencial; `check_secretos` sigue con los valores exactos del `.env`. Un hex de 64 sin
+  contexto de clave no lo caza ninguno de los dos, y queda dicho: cazarlo pedía un patrón propio.
+- **Grupo 1 sin hallazgos abiertos.** El escaneo del historial con gitleaks se reporta aparte.

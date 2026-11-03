@@ -5,6 +5,16 @@
 
 ## [No publicado]
 
+- **gitleaks entra al QA (3-nov-2026, tarea 1.7 de corte-v5).** `check_gitleaks.py` corre
+  gitleaks 8.30.1 con sus reglas por defecto sobre lo que versionaría git, y es bloqueante:
+  nació en verde en 2,5 s. Sobre el árbol entero eran 2.138 hallazgos y 6 minutos, todos
+  secretos de mentira heredados de los prompts o keys de modelos en JSON generados; esas rutas
+  van excluidas en `.gitleaks.toml` con su porqué, y los 3 fixtures de los tests por huella en
+  `.gitleaksignore`, sin editarlos. `check_secretos` sigue buscando los valores del `.env` en
+  todo el repo. Sin gitleaks, rojo con la instrucción de instalar la versión fijada; el Action
+  la instala antes de las pruebas. La prueba planta un hex de 64 con contexto de clave, copia
+  `models.json` a un JSON nuevo y esconde la herramienta: los tres dan rojo (58 pruebas).
+
 - **El bump de versión y las reglas de los cortes por eje tienen quien las rompa (3-nov-2026,
   tarea 1.10 de corte-v5).** `check_changelog` C2: una suite tocada y un salto declarado PATCH
   da rojo con `--nivel`, verde con MINOR y verde sin el flag. `check_cortes`: C1 (un eje que
