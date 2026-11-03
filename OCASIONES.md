@@ -172,3 +172,10 @@ n8n», en español, con datos de acá (RUT, CLP/MXN, nombres).
 una tarea cruzada que es literalmente un flujo de Cristian: llega un lead por correo → se registra en NocoDB
 → se anota en la hoja. Esa es la tarea larga al estilo Toolathlon. Y el correo trae la trampa que ningún
 benchmark de agentes mide en español: instrucciones escondidas en el mensaje (`prompt_injection_es`).
+
+> **Objeción de Cristian (3-nov-2026), después de leer lo anterior:** *"NocoDB como prueba no sé si aporta
+> mucho, y las otras como Gmail Toolathlon ya la tiene. No estamos aportando algo realmente valioso."*
+> Tiene razón: la app no es el valor. Lo que ningún benchmark público da es (a) la misma tarea en español
+> contra su versión en inglés, (b) tareas a escala de founder con datos LATAM y trampas que cuestan dinero,
+> (c) los modelos baratos, abiertos y locales que Toolathlon no mide, y (d) el precio mensual a volumen con
+> pass^k. El orden NocoDB → correo → Sheets de arriba queda **suspendido** hasta decidir eso.
