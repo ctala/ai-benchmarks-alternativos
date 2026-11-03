@@ -5,6 +5,15 @@
 
 ## [No publicado]
 
+- **El aviso del CI llega por días, y el Action corre siempre (3-nov-2026, tarea 1.6 de
+  corte-v5).** `check_ci` dejó de contar fallos seguidos: es rojo si el último estado lleva 2
+  días o más en rojo y, cuando `origin/main` declara un cron, si el Action no corre hace 2 días.
+  Con la regla vieja, el fallo aislado del 11-oct pasó 23 días sin alarma. Sigue informativo en
+  `qa.py`, pero ahora sale con 1 y el QA muestra ⚠️ (antes devolvía 0 siempre, porque `qa.py`
+  no le pasaba `--duro`; el flag se borró). El Action pierde el filtro de paths (corría 9 veces
+  en dos meses) y suma un cron diario, que rige desde el merge. La prueba simula el fallo de
+  hace 10 días y el cron callado; sale la exención temporal de `EXENTOS_R5` (50 pruebas).
+
 - **La regla de exenciones de R5 tiene quien la rompa, y la etiqueta de páginas sale del dato
   (3-nov-2026, tareas 1.12 y 1.13 de corte-v5).** Una prueba nueva inyecta en `EXENTOS_R5` una
   exención huérfana (`check_fantasma.py`) y una ya probada (`check_presupuesto.py`) y exige que

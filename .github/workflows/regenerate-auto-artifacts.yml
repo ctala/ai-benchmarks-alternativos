@@ -11,30 +11,21 @@ name: Regenerar artefactos auto-generados
 # sin trabajo manual.
 
 on:
+  # 3-nov-2026 (corte-v5 1.6) · TODO push a main, sin filtro de paths, y una vez al día.
+  #
+  # Con el filtro, el Action corrió 9 veces en dos meses. El 11-oct falló una vez
+  # (`check_caminos`, por PRs mergeados en GitHub) y no volvió a correr hasta el 3-nov:
+  # 23 días con main en rojo, porque ningún push tocó un path de la lista y
+  # `check_ci.py` contaba fallos seguidos (AUDITORIA-GUARDRAILS-2026-11, H1). Los
+  # guardrails de este Action miran docs, CHANGELOG y secretos, que el filtro no cubría.
+  #
+  # El cron hace que el estado sea de HOY aunque nadie empuje, y `check_ci.py` exige
+  # una corrida en los últimos 2 días cuando main declara `schedule:` (GitHub apaga los
+  # crons de un repo sin actividad, y eso no deja ningún run rojo a la vista).
   push:
     branches: [main]
-    paths:
-      - 'benchmarks/results/*.json'
-      - 'benchmarks/results/responses/**'
-      - 'benchmarks/results/per-model/**'
-      - 'benchmarks/models.py'
-      - 'benchmarks/config.py'
-      - 'benchmarks/export_for_pages.py'
-      - 'benchmarks/generate_modelos_md_table.py'
-      - 'benchmarks/generate_tests_md.py'
-      - 'benchmarks/generate_sitemap.py'
-      - 'benchmarks/scoring.py'
-      - 'benchmarks/tests/**'
-      - 'providers/adapters.py'
-      - 'docs/**/*.html'
-      # La calculadora es código a mano que consume el JSON generado. Si alguien la
-      # edita, el guardrail `check_calculator.py` tiene que correr: el 13-ago-2026
-      # quedaron 11 umbrales calibrados para una escala que ya no existía, y la página
-      # cargaba igual sin una queja.
-      - 'docs/app.js'
-      - 'benchmarks/generate_readme_ranking.py'
-      - 'benchmarks/generate_rankings.py'
-      - 'benchmarks/generate_comparison.py'
+  schedule:
+    - cron: '0 10 * * *'   # 07:00 en Chile
   workflow_dispatch:  # permite re-correr manualmente
 
 permissions:

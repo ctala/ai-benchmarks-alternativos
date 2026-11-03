@@ -180,3 +180,19 @@ Ningún chequeo baja de bloqueante a informativo.
   `check_truncamiento` (H4, 1.8), las pruebas omitidas en CI (H5, 1.9) y las reglas de H6
   que entran por 1.10.
 
+
+3-nov-2026, tareas 1.12, 1.13 y 1.6:
+
+- **La regla de exenciones de R5 tiene sabotaje (1.12).** Una exención huérfana
+  (`check_fantasma.py`) y una ya probada (`check_presupuesto.py`) ponen R5 en rojo nombrando
+  al archivo. Quitando cualquiera de las dos ramas de la regla, la prueba falla.
+- **La etiqueta de páginas sale del dato (1.13).** `qa.py` la pide a `auditar_paginas.paginas()`:
+  dice 187, igual que el auditor, y con una página temporal pasó a 188 sola.
+- **`check_ci` (H1) cerrado (1.6).** Mide días con el último estado en rojo (2 de margen), y si
+  `origin/main` declara un cron, también el silencio. El Action corre en todo push a `main` y
+  una vez al día; el cron rige recién con el merge del corte. Su prueba simula el fallo
+  aislado de hace 10 días y el cron que no corre, con controles en verde para un rojo de 3
+  horas y para la ausencia sin cron; volver a la racha de 3, apagar el silencio o ignorar el
+  YAML la ponen en rojo. Se borró la exención temporal: `EXENTOS_R5` queda con las dos pruebas.
+- **Lo que sigue abierto:** `check_secretos` (H3, 1.7), `check_truncamiento` (H4, 1.8), las
+  pruebas omitidas en CI (H5, 1.9) y las reglas de H6 que entran por 1.10.

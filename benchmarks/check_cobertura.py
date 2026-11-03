@@ -140,9 +140,6 @@ EXENTOS_R5 = {
     "test_guardrails.py":
         "es la prueba de los demás; la cuidan la trampa de argparse de `_correr` y el "
         "control verde antes de cada sabotaje",
-    "check_ci.py":
-        "TEMPORAL: su lógica pasa de racha de fallos a días en rojo en la tarea 1.6 de "
-        "corte-v5; la prueba llega con ese cambio y esta exención se borra ahí",
 }
 
 

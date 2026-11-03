@@ -787,6 +787,41 @@ def _t_presupuesto():
     return _en_proceso("check_presupuesto.py", ["--necesito", "20"], estado=lambda: corto) != 0
 
 
+@prueba("check_ci", "un fallo aislado de hace 10 días, o un cron declarado que no corre")
+def _t_ci():
+    # corte-v5 1.6. El caso de H1 tal cual: UNA corrida roja como último estado, días
+    # atrás. Con la racha de 3 de antes esto daba verde. Sin red: se reemplazan las corridas
+    # de `gh`, el YAML de main y el reloj.
+    from datetime import datetime, timedelta, timezone
+    ahora = datetime(2026, 11, 3, 12, 0, tzinfo=timezone.utc)
+
+    def run(conclusion, hace_dias):
+        t = (ahora - timedelta(days=hace_dias)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        return {"conclusion": conclusion, "createdAt": t, "status": "completed", "event": "push"}
+
+    sin_cron = "on:\n  push:\n    branches: [main]\n"
+    con_cron = sin_cron + "  schedule:\n    - cron: '0 9 * * *'\n"
+
+    def ci(runs, yaml):
+        return _en_proceso("check_ci.py", [], _runs=lambda: runs,
+                           _yaml_de_main=lambda: yaml, _ahora=lambda: ahora)
+
+    # Controles: un verde de ayer pasa; un rojo de hace 3 horas todavía tiene margen; y sin
+    # cron en main, no correr hace 5 días es lo esperado (el Action solo corre en push).
+    if ci([run("success", 1), run("failure", 3)], sin_cron) != 0:
+        return False
+    if ci([run("failure", 0.125), run("success", 1)], sin_cron) != 0:
+        return False
+    if ci([run("success", 5)], sin_cron) != 0:
+        return False
+    if ci([run("success", 1)], con_cron) != 0:
+        return False
+    # Sabotajes: el fallo aislado de hace 10 días, y con cron, 5 días sin ninguna corrida.
+    if ci([run("failure", 10), run("success", 12), run("success", 13)], sin_cron) == 0:
+        return False
+    return ci([run("success", 5)], con_cron) != 0
+
+
 @prueba("cobertura.py", "el núcleo bajo el piso de cobertura")
 def _t_cobertura_nucleo():
     # No se puede correr de verdad desde acá: mide corriendo test_guardrails, y eso es
