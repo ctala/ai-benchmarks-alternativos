@@ -128,7 +128,9 @@ jobs:
       # (vacios, sin procedencia, rutas muertas, precio $0) y aca no falta nada, sobra
       # un techo. La respuesta se publica completa en forma y cortada a la mitad.
       - name: Verificar que ninguna nota se construyo sobre respuestas cortadas
-        run: python benchmarks/check_truncamiento.py
+        # Con `--duro` desde el 3-nov-2026: sin el flag sale con 0 siempre y este paso
+        # no podía fallar (corte-v5 1.8).
+        run: python benchmarks/check_truncamiento.py --duro
 
       # El unico fallo del que no se vuelve. El 17-ago-2026 la Secret Key real de R2 era
       # el FIXTURE de string_precision y se replico sola a PROMPTS.md, TESTS.md y ~600

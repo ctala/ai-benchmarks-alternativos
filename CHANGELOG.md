@@ -5,6 +5,11 @@
 
 ## [No publicado]
 
+- **`check_truncamiento` pasa a bloqueante (3-nov-2026, tarea 1.8 de corte-v5).** Nace en
+  verde: 0 de 188 modelos cruzan el umbral del 12%. `qa.py` y el Action lo llaman con `--duro`,
+  que el Action tampoco le pasaba, así que su paso nunca podía fallar. Con un modelo fabricado
+  con la mitad del examen cortada, el QA se frena con exit 1. Su prueba suma control verde.
+
 - **El aviso del CI llega por días, y el Action corre siempre (3-nov-2026, tarea 1.6 de
   corte-v5).** `check_ci` dejó de contar fallos seguidos: es rojo si el último estado lleva 2
   días o más en rojo y, cuando `origin/main` declara un cron, si el Action no corre hace 2 días.

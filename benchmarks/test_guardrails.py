@@ -458,6 +458,10 @@ def _t_truncamiento():
     # `_prueba_` y se borra siempre, incluso si la prueba explota.
     import json as _json
     tmp = ROOT / "benchmarks" / "results" / "_prueba_truncamiento.json"
+    # Control verde: desde el 3-nov es bloqueante, y un rojo previo haría pasar la prueba
+    # sin que el modelo fabricado tuviera nada que ver.
+    if _correr("check_truncamiento.py", "--duro") != 0:
+        return False
     try:
         runs = [{"model": "Modelo De Prueba Truncado", "model_id": "prueba/truncado",
                  "suite": "reasoning", "success": True, "quality": 7.0,

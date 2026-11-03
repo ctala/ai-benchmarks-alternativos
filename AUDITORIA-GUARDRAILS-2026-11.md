@@ -194,5 +194,7 @@ Ningún chequeo baja de bloqueante a informativo.
   aislado de hace 10 días y el cron que no corre, con controles en verde para un rojo de 3
   horas y para la ausencia sin cron; volver a la racha de 3, apagar el silencio o ignorar el
   YAML la ponen en rojo. Se borró la exención temporal: `EXENTOS_R5` queda con las dos pruebas.
-- **Lo que sigue abierto:** `check_secretos` (H3, 1.7), `check_truncamiento` (H4, 1.8), las
-  pruebas omitidas en CI (H5, 1.9) y las reglas de H6 que entran por 1.10.
+- **`check_truncamiento` (H4) cerrado (1.8).** Bloqueante con `--duro` en `qa.py` y en el
+  Action; nace en verde con 188 modelos y un modelo truncado fabricado frena el QA.
+- **Lo que sigue abierto:** `check_secretos` (H3, 1.7), las pruebas omitidas en CI (H5, 1.9) y
+  las reglas de H6 que entran por 1.10.

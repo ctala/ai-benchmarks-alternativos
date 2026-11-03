@@ -116,12 +116,12 @@ CHEQUEOS = [
     # único fallo del que no se vuelve: una clave publicada hay que rotarla.
     ("guardrails", "ninguna credencial real en los archivos versionados",
      [PY, "benchmarks/check_secretos.py"], True, False),
-    # NO bloqueante todavía, a propósito: los runs truncados de los cuatro modelos siguen
-    # en disco hasta que se archiven (el 17-ago se estaban re-midiendo). Pasa a bloqueante
-    # cuando se archiven — si no, el QA quedaría en rojo permanente y se aprendería a
-    # ignorarlo, que es peor que no tenerlo.
+    # BLOQUEANTE desde el 3-nov-2026 (corte-v5 1.8). Fue informativo mientras los runs
+    # truncados de los cuatro modelos del 17-ago seguían en disco; ya se archivaron y nace
+    # en verde: 0 de 188 modelos cruzan el umbral (AUDITORIA-GUARDRAILS-2026-11, H4). Con
+    # `--duro`, porque sin el flag devuelve 0 siempre y sería un bloqueante de mentira.
     ("datos", "ninguna nota se construyó sobre respuestas cortadas",
-     [PY, "benchmarks/check_truncamiento.py"], False, False),
+     [PY, "benchmarks/check_truncamiento.py", "--duro"], True, False),
     # Bloqueante desde el día uno, y se puede porque nació en verde: la primera corrida
     # encontró 5 páginas huérfanas y se arreglaron en el mismo commit. Un chequeo que
     # entra ya rojo se aprende a ignorar; uno que entra verde protege lo que costó cerrar.
