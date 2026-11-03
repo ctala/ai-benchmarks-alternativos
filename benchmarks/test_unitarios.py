@@ -1532,8 +1532,8 @@ def test_fuentes_externas_referencia_y_mejor_agente_sin_promediar():
     import fuentes_externas as fe
     foto = _foto_tb([_envio("Terminus 2", "m-x", 0.40), _envio("Otro", "m-x", 0.70),
                      _envio("Tercero", "m-x", 0.55)])
-    por_key, sin = fe.cifras_por_key(foto, {"m-x": "k-x"})
-    assert sin == []
+    por_key, sin, otra = fe.cifras_por_key(foto, {"m-x": "k-x"}, ids={"k-x": "prov/m-x"})
+    assert sin == [] and otra == []
     assert por_key["k-x"]["referencia"]["cifra"] == 0.40
     assert por_key["k-x"]["mejor"] == {"cifra": 0.70, "agente": "Otro", "envio": "Otro__m-x", "intentos": 445}
 
@@ -1542,7 +1542,8 @@ def test_fuentes_externas_multimodelo_y_sin_mapear_no_se_atribuyen():
     import fuentes_externas as fe
     multi = {"envio": "J__Multiple", "agente": "J", "cifra": 0.9, "intentos": 445,
              "modelos": [{"model_name": "a"}, {"model_name": "b"}]}
-    por_key, sin = fe.cifras_por_key(_foto_tb([multi, _envio("Terminus 2", "nuevo", 0.3)]), {"a": "k-a"})
+    por_key, sin, _ = fe.cifras_por_key(_foto_tb([multi, _envio("Terminus 2", "nuevo", 0.3)]), {"a": "k-a"},
+                                        ids={"k-a": "a"})
     assert por_key == {}
     assert sin == ["nuevo"]
 
@@ -1564,3 +1565,69 @@ def test_fuentes_externas_corre_offline_sobre_la_foto_guardada():
     rankeados = [m for m in json.loads(fe.MODELS_JSON.read_text())["models"] if m.get("ranked")]
     c = fe.cobertura(foto, rankeados)
     assert set(c["con_agente_referencia"]) <= set(c["con_algun_agente"]) <= {m["key"] for m in rankeados}
+
+
+def test_fuentes_externas_otra_version_no_se_muestra():
+    # corte-v5 2.2 (DECISIONES, 3-nov-2026): la banda va solo con la misma versión exacta. Un
+    # snapshot, un modo o una cuantización de más es otro modelo, aunque el MAPA lo apunte acá.
+    import fuentes_externas as fe
+    assert fe.misma_version("claude-4.6-opus", "anthropic/claude-opus-4-6")  # control: orden y separador no cuentan
+    assert fe.misma_version("anthropic/claude-opus-4-7", "anthropic/claude-opus-4-7")
+    assert not fe.misma_version("grok-4.20-0309-reasoning", "x-ai/grok-4.20")
+    assert not fe.misma_version("qwen/qwen3-coder-480b-a35b-instruct-fp8", "qwen/qwen3-coder")
+    assert not fe.misma_version("gpt-5.4", "gpt-5.5")
+    foto = _foto_tb([_envio("Terminus 2", "m-x-0309", 0.9), _envio("Otro", "m-x", 0.5)])
+    por_key, _, otra = fe.cifras_por_key(foto, {"m-x-0309": "k-x", "m-x": "k-x"}, ids={"k-x": "prov/m-x"})
+    assert por_key["k-x"]["referencia"] is None, "se mostró la cifra de otra versión como referencia"
+    assert por_key["k-x"]["mejor"]["cifra"] == 0.5
+    assert [o["model_name"] for o in otra] == ["m-x-0309"]
+
+
+def test_fuentes_externas_la_foto_real_no_muestra_otra_version():
+    # Sobre la foto guardada: ninguna cifra que llega a una key viene de un nombre de otra versión.
+    import fuentes_externas as fe
+    foto = json.loads(fe.ultima_foto(f"terminal-bench-{fe.TB_VERSION}").read_text())
+    ids = fe._ids()
+    por_key, _, otra = fe.cifras_por_key(foto)
+    for k, e in por_key.items():
+        for d in (e["referencia"], e["mejor"]):
+            if d:
+                mn = next(f for f in foto["envios"] if f["envio"] == d["envio"])["modelos"][0]["model_name"]
+                assert fe.misma_version(mn, ids[k]), f"{k} muestra la cifra de {mn}"
+    assert {o["key"] for o in otra} >= {"grok-4.20", "qwen3-coder"}
+
+
+def test_una_cifra_externa_no_entra_a_quality_avg_ni_al_compuesto(monkeypatch):
+    # corte-v5 2.2: las cifras externas viajan como BANDA por fuente. Se exporta dos veces —
+    # sin foto, y con una foto que le da 1,0 a todos— y la nota propia no se puede mover.
+    import contextlib
+    import io
+    from benchmarks import export_for_pages as ex
+    from benchmarks import fuentes_externas as fe
+
+    with contextlib.redirect_stdout(io.StringIO()):
+        monkeypatch.setattr(fe, "ultima_foto", lambda prefijo: None)
+        sin = ex.build_export()
+    keys = [m["key"] for m in sin["models"]]
+    extremo = {k: {"referencia": {"cifra": 1.0, "agente": "Terminus 2", "intentos": 445},
+                   "mejor": {"cifra": 1.0, "agente": "X", "intentos": 445}} for k in keys}
+    monkeypatch.setattr(fe, "ultima_foto", lambda prefijo: ROOT / "externos" / "fotos" / "_fija.json")
+    monkeypatch.setattr(fe, "cifras_por_key", lambda foto, mapa=None, ids=None: (extremo, [], []))
+    monkeypatch.setattr(Path, "read_text", _leer_foto_falsa(Path.read_text))
+    with contextlib.redirect_stdout(io.StringIO()):
+        con = ex.build_export()
+    assert all(m.get("externos") for m in con["models"]), "el sabotaje no llegó al export"
+    a = {m["key"]: (m.get("quality_avg"), m.get("score_global")) for m in sin["models"]}
+    b = {m["key"]: (m.get("quality_avg"), m.get("score_global")) for m in con["models"]}
+    movidos = [k for k in a if a[k] != b[k]]
+    assert not movidos, f"una cifra externa movió la nota propia de {len(movidos)} modelos: {movidos[:5]}"
+
+
+def _leer_foto_falsa(original):
+    foto = json.dumps({"fuente": "Terminal-Bench", "version": "2.0", "consultado": "2026-11-03",
+                       "licencia": "apache-2.0", "url": "x", "agente_referencia": "Terminus 2",
+                       "envios": []})
+
+    def leer(self, *a, **kw):
+        return foto if self.name == "_fija.json" else original(self, *a, **kw)
+    return leer

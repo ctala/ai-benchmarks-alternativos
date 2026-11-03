@@ -41,7 +41,9 @@ Uso:
 
 import argparse
 import json
+import re
 import sys
+from collections import Counter
 import time
 import urllib.request
 from datetime import date
@@ -203,13 +205,41 @@ def ultima_foto(prefijo: str) -> Path | None:
     return fotos[-1] if fotos else None
 
 
-def cifras_por_key(foto: dict, mapa: dict = MAPA) -> tuple[dict, list[str]]:
-    """key → {referencia, mejor} desde una foto de Terminal-Bench. Y los modelos sin mapear.
+# ── misma versión exacta (DECISIONES, 3-nov-2026) ───────────────────────────
+# La banda externa se muestra solo si la fuente midió la MISMA versión del modelo que está
+# en el índice. El `MAPA` dice a qué key apunta un nombre; esta regla dice si ese nombre es
+# la versión que medimos o un pariente: otro snapshot (`grok-4.20-0309-reasoning` contra
+# `x-ai/grok-4.20`), otro modo o otra cuantización (`…-fp8` contra `qwen/qwen3-coder`).
+# Se compara el multiconjunto de tokens del nombre sin el proveedor: el orden y el
+# separador no importan (`claude-4.6-opus` = `anthropic/claude-opus-4-6`), un token de más
+# o de menos sí.
+def _tokens(nombre: str) -> Counter:
+    return Counter(x for x in re.split(r"[-._:\s]+", nombre.lower().split("/")[-1]) if x)
+
+
+def misma_version(model_name: str, model_id: str) -> bool:
+    return _tokens(model_name) == _tokens(model_id)
+
+
+def _ids() -> dict[str, str]:
+    """key → id de `models.py`, la fuente del id que medimos."""
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from benchmarks.models import MODELS, OLLAMA_MODELS
+    return {k: c["id"] for k, c in {**OLLAMA_MODELS, **MODELS}.items()}
+
+
+def cifras_por_key(foto: dict, mapa: dict = MAPA,
+                   ids: dict | None = None) -> tuple[dict, list[str], list[dict]]:
+    """key → {referencia, mejor} desde una foto de Terminal-Bench; los modelos sin mapear; y
+    los envíos mapeados que midieron OTRA versión del modelo, que no se muestran.
 
     `referencia` es la cifra del agente de referencia (o None si nadie lo corrió con él);
     `mejor` es la mejor cifra con cualquier agente, con su nombre. Nunca un promedio.
+    Una key del `MAPA` sin id en `ids` levanta KeyError: sin id no se puede verificar la versión.
     """
-    por_key, sin_mapear = {}, set()
+    ids = _ids() if ids is None else ids
+    por_key, sin_mapear, otra_version = {}, set(), []
     for f in foto["envios"]:
         if f.get("cifra") is None or len(f.get("modelos") or []) != 1:
             continue  # un envío con varios modelos no se le atribuye a ninguno
@@ -217,6 +247,9 @@ def cifras_por_key(foto: dict, mapa: dict = MAPA) -> tuple[dict, list[str]]:
         key = mapa.get(mn)
         if key is None:
             sin_mapear.add(mn)
+            continue
+        if not misma_version(mn, ids[key]):
+            otra_version.append({"envio": f["envio"], "model_name": mn, "key": key, "id": ids[key]})
             continue
         dato = {"cifra": f["cifra"], "agente": f["agente"], "envio": f["envio"],
                 "intentos": f["intentos"]}
@@ -226,7 +259,7 @@ def cifras_por_key(foto: dict, mapa: dict = MAPA) -> tuple[dict, list[str]]:
                 e["referencia"] = dato
         if e["mejor"] is None or dato["cifra"] > e["mejor"]["cifra"]:
             e["mejor"] = dato
-    return por_key, sorted(sin_mapear)
+    return por_key, sorted(sin_mapear), otra_version
 
 
 def cobertura(foto: dict, rankeados: list[dict], mapa: dict = MAPA) -> dict:
@@ -234,7 +267,7 @@ def cobertura(foto: dict, rankeados: list[dict], mapa: dict = MAPA) -> dict:
     desconocidas = sorted(set(mapa.values()) - {m["key"] for m in rankeados} - _todas_las_keys())
     if desconocidas:
         raise ValueError(f"MAPA apunta a keys que no existen en models.json: {desconocidas}")
-    por_key, sin_mapear = cifras_por_key(foto, mapa)
+    por_key, sin_mapear, otra = cifras_por_key(foto, mapa)
     con_ref = sorted(k for k, v in por_key.items() if k in keys and v["referencia"])
     con_alguno = sorted(k for k, v in por_key.items() if k in keys)
     return {
@@ -244,6 +277,7 @@ def cobertura(foto: dict, rankeados: list[dict], mapa: dict = MAPA) -> dict:
         "con_algun_agente": con_alguno,
         "fuera_del_ranking": sorted(k for k in por_key if k not in keys),
         "sin_mapear": sin_mapear,
+        "otra_version": sorted({(o["model_name"], o["key"]) for o in otra}),
         "envios_multimodelo": [f["envio"] for f in foto["envios"] if len(f.get("modelos") or []) > 1],
     }
 
@@ -285,6 +319,9 @@ def main() -> int:
     if c["fuera_del_ranking"]:
         print(f"    mapeados pero no rankeados: {', '.join(c['fuera_del_ranking'])}")
     print(f"    sin mapear ({len(c['sin_mapear'])}): {', '.join(c['sin_mapear'])}")
+    if c["otra_version"]:
+        print("    otra versión del modelo, no se muestra: "
+              + ", ".join(f"{mn} ≠ {k}" for mn, k in c["otra_version"]))
     print(f"    envíos con varios modelos, sin atribuir: {len(c['envios_multimodelo'])}")
     for nombre, info in NO_INGESTADAS.items():
         print(f"  {nombre}: no se ingesta — {info['motivo']}")

@@ -5,6 +5,14 @@
 
 ## [No publicado] · próximo: mayor
 
+- **`models.json` lleva `externos`: Terminal-Bench 2.0 como banda, solo con la misma versión exacta
+  (3-nov-2026, tarea 2.2 de corte-v5).** Por fuente y versión: la cifra del agente de referencia (Terminus 2)
+  y la del mejor agente con su nombre, con fecha, licencia y URL. `misma_version()` compara el nombre del
+  envío contra el id de `models.py` sin proveedor, separador ni orden; un snapshot, modo o cuantización de
+  más no se muestra (`grok-4.20-0309-reasoning`, `qwen3-coder…fp8`). Cobertura mostrada: 5 de 115 con
+  Terminus 2 y 12 con cualquier agente (14 antes de la regla). Ningún `score_global` ni `quality_avg` se
+  movió en los 228; dos tests lo sostienen, cada uno saboteado (183 modelos movidos al mezclar; la regla
+  apagada deja pasar las dos versiones ajenas).
 - **Las fuentes externas pasan de filtro duro a banda informativa (3-nov-2026, decisión de Cristian).**
   La foto de Terminal-Bench 2.0 es de mayo: 5 de 115 con Terminus 2, 14 con cualquier agente, sin la familia
   actual. El conjunto base pasa a ser vigentes del índice ∩ llamables por OpenRouter, y una cifra externa se

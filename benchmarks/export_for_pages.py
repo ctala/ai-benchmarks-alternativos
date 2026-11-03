@@ -889,6 +889,31 @@ def _persist_scoring_reference(norm_stats, norm_stats_by_pillar, score_rescale, 
     print(f"🧊 scoring_reference.json congelado · versión={version} · {SCORING_REF_PATH}")
 
 
+def _adjuntar_externos(models_export: list[dict]) -> None:
+    """`externos` por modelo desde la última foto de `fuentes_externas.py` (offline).
+
+    Una entrada por fuente y versión, con la cifra del agente de referencia y la del mejor
+    agente nombrado, nunca un promedio (DECISIONES, 3-nov-2026). Sin foto, no hay campo.
+    """
+    from benchmarks import fuentes_externas as fe
+    ruta = fe.ultima_foto(f"terminal-bench-{fe.TB_VERSION}")
+    if ruta is None:
+        return
+    foto = json.loads(ruta.read_text())
+    por_key, _, _ = fe.cifras_por_key(foto)  # solo la misma versión exacta
+    base = {"fuente": foto["fuente"], "version": foto["version"], "fecha": foto["consultado"],
+            "licencia": foto["licencia"], "url": foto["url"],
+            "agente_referencia": foto["agente_referencia"]}
+
+    def dato(d):
+        return None if d is None else {"cifra": d["cifra"], "agente": d["agente"], "intentos": d["intentos"]}
+    for m in models_export:
+        e = por_key.get(m["key"])
+        if e:
+            m["externos"] = {f"terminal-bench-{foto['version']}":
+                             dict(base, referencia=dato(e["referencia"]), mejor=dato(e["mejor"]))}
+
+
 def build_export(recalibrate=False, scoring_version=None):
     by_id, by_id_and_name = load_all_results()
     or_lookup = build_openrouter_lookup()
@@ -1487,6 +1512,11 @@ def build_export(recalibrate=False, scoring_version=None):
         _persist_scoring_reference(norm_stats, norm_stats_by_pillar,
                                    {"offset": _OFFSET, "slope": round(_slope, 4)},
                                    scoring_version)
+
+    # (4) Cifras de fuentes comunitarias, como BANDA por fuente (corte-v5 2.2). Se agregan
+    # DESPUÉS de todo el cálculo propio y nada de lo de arriba las lee: no entran a
+    # `quality_avg`, al índice ni al compuesto. `test_unitarios` lo hace cumplir.
+    _adjuntar_externos(models_export)
 
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
     # Asi cualquier consumidor que tome los primeros N del array obtiene un

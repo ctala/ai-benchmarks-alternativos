@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T19:57:41",
+  "generated_at": "2026-11-03T17:27:20",
   "total_models": 228,
   "tested_count": 177,
   "ranked_count": 115,
@@ -11313,6 +11313,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.818,
+            "agente": "ForgeCode",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -11743,6 +11759,26 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": {
+            "cifra": 0.5191,
+            "agente": "Terminus 2",
+            "intentos": 445
+          },
+          "mejor": {
+            "cifra": 0.5191,
+            "agente": "Terminus 2",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -13495,6 +13531,26 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": {
+            "cifra": 0.6292,
+            "agente": "Terminus 2",
+            "intentos": 445
+          },
+          "mejor": {
+            "cifra": 0.8202,
+            "agente": "Pilot",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -19664,6 +19720,26 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": {
+            "cifra": 0.3955,
+            "agente": "Terminus 2",
+            "intentos": 445
+          },
+          "mejor": {
+            "cifra": 0.3955,
+            "agente": "Terminus 2",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -21387,6 +21463,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.8989,
+            "agente": "vix",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -31414,6 +31506,26 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": {
+            "cifra": 0.4225,
+            "agente": "Terminus 2",
+            "intentos": 445
+          },
+          "mejor": {
+            "cifra": 0.4225,
+            "agente": "Terminus 2",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -34871,6 +34983,26 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": {
+            "cifra": 0.4247,
+            "agente": "Terminus 2",
+            "intentos": 445
+          },
+          "mejor": {
+            "cifra": 0.4247,
+            "agente": "Terminus 2",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -37054,6 +37186,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.8809,
+            "agente": "Wecode",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -37478,6 +37626,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.5213,
+            "agente": "Simplai Agent",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -45328,6 +45492,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.2382,
+            "agente": "little-coder",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -47537,6 +47717,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.3438,
+            "agente": "IndusAGI Coding Agent",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -50987,6 +51183,22 @@
         "ranking": true,
         "agentico": true,
         "motivos": {}
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.8022,
+            "agente": "TongAgents",
+            "intentos": 445
+          }
+        }
       }
     },
     {
@@ -76960,6 +77172,22 @@
           "ranking": "variante_proveedor",
           "catalogo": "examen_incompleto",
           "agentico": "sin_evidencia_agentica"
+        }
+      },
+      "externos": {
+        "terminal-bench-2.0": {
+          "fuente": "Terminal-Bench",
+          "version": "2.0",
+          "fecha": "2026-11-03",
+          "licencia": "apache-2.0",
+          "url": "https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard",
+          "agente_referencia": "Terminus 2",
+          "referencia": null,
+          "mejor": {
+            "cifra": 0.4247,
+            "agente": "Harness Agent",
+            "intentos": 445
+          }
         }
       }
     },
