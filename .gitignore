@@ -42,3 +42,6 @@ jobs/
 # un symlink deliberado; una copia real driftea en silencio, que es justo lo que su CLAUDE.md
 # prohíbe. Artefacto de otra herramienta: no entra.
 .agents/
+
+# Permisos locales de Claude Code: son de cada máquina, no del repo (3-nov-2026)
+.claude/settings.local.json
