@@ -8,6 +8,8 @@
 
 ## 1. Auditoría de confianza de los guardrails (gate: nada de v5 avanza sin la tabla leída)
 
+**Gate superado el 3-nov-2026.** Las 13 tareas del grupo cerradas y verificadas rompiendo cada regla. Tabla final en `AUDITORIA-GUARDRAILS-2026-11.md` § *Tabla final*: 27 confiables y 2 exentas de 29, más `check_gitleaks`; 14 reglas internas quedan como deuda nombrada. El grupo 2 puede arrancar.
+
 - [x] 1.1 Tabla de los 21 chequeos `check_*` de `qa.py` (20 más `check_specs`, que entró el 3-nov): qué fallo dice cazar, si su prueba de sabotaje inyecta ese fallo o un sustituto cómodo, y si alguna vez cazó algo real según el CHANGELOG. Veredicto por fila: confiable, verde vacío o sin prueba. Archivo: `AUDITORIA-GUARDRAILS-2026-11.md` (snapshot). Verificar: 21 filas, ninguna sin veredicto.
 - [x] 1.1b **Antes de 1.2.** `check_cobertura` R5 lee la lista completa de `qa.py` (los 21 `check_*` y las 8 entradas que no lo son), no `regenerate_all.py`. Hasta que esté hecho, «R5 verde» no cuenta como verificación de nada. Verificar: un sabotaje con un chequeo de `qa.py` sin prueba pone R5 en rojo, con control verde primero.
 - [x] 1.2 Los 3 sin prueba (`check_agentico_publicado`, `check_ci`, `check_presupuesto`) reciben prueba de sabotaje o una fila que explique por qué no la pueden tener. Verificar: `check_cobertura.py` R5 sigue verde y el conteo de `@prueba` sube. Hecho el 3-nov-2026 junto con 1.1b, en el mismo commit para que R5 no naciera en rojo: `check_agentico_publicado` y `check_presupuesto` tienen prueba, y `check_ci` queda exento hasta 1.6. Se sumaron las entradas que R5 destapó al leer `qa.py` (`auditar_paginas`, `cobertura.py`, el `--check` del censo y el de las tablas del blog). Son 48 pruebas, antes 41, y cada una nueva falla si se rompe su detector.
@@ -24,7 +26,7 @@
 - [x] 1.12 Sabotaje para la regla de R5 que pone en rojo una exención huérfana (ya no corre en `qa.py` ni en el pipeline) o ya probada (`test_guardrails` la invoca). Verificar: control verde, y cada uno de los dos casos pone R5 en rojo; la prueba falla si se le quita la regla.
 - [x] 1.13 La etiqueta «lo que publican las 71 páginas…» de `qa.py` se deriva del dato en vez de escribirse a mano. Verificar: la etiqueta coincide con el conteo que imprime `auditar_paginas.py` (hoy 187) y cambia sola si se agrega una página.
 
-Orden de la próxima sesión (Cristian, 3-nov-2026, tras cerrar 1.12, 1.13, 1.6 y 1.8): 1.4 (el instrumento de «ningún guardrail se debilita», que protege lo que viene) → 1.9 → 1.10 → 1.7 (gitleaks) al final, porque trae una herramienta nueva.
+Orden de la próxima sesión (Cristian, 3-nov-2026, tras cerrar 1.12, 1.13, 1.6 y 1.8): 1.4 (el instrumento de «ningún guardrail se debilita», que protege lo que viene) → 1.9 → 1.10 → 1.7 (gitleaks) al final, porque trae una herramienta nueva. Hecho en ese orden el mismo día.
 
 Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante a informativo; si un arreglo lo exige, se para y se dimensiona. Push de `corte/v5`: no todavía.
 

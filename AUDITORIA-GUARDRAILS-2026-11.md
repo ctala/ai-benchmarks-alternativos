@@ -215,3 +215,66 @@ Ningún chequeo baja de bloqueante a informativo.
   de credencial; `check_secretos` sigue con los valores exactos del `.env`. Un hex de 64 sin
   contexto de clave no lo caza ninguno de los dos, y queda dicho: cazarlo pedía un patrón propio.
 - **Grupo 1 sin hallazgos abiertos.** El escaneo del historial con gitleaks se reporta aparte.
+
+## Tabla final: cierre del grupo 1 (3-nov-2026)
+
+La foto de arriba queda como estaba. Esta es la de hoy, con las mismas 29 filas y la tarea que
+movió cada veredicto. «Confiable (n/m)» sigue diciendo lo mismo: confiable en las reglas que
+su prueba ejerce. Las que no ejerce son la deuda nombrada que va al final.
+
+| # | Chequeo | Clase hoy | Prueba hoy | Veredicto hoy | Qué lo movió |
+|---|---|---|---|---|---|
+| 1 | `check_consistency` | bloqueante | 1 sabotaje | **confiable** | — |
+| 2 | `check_suites` | bloqueante | S2 y S6 | **confiable** (2/6) | — · S1, S3, S4, S5 en deuda |
+| 3 | `check_effort` | bloqueante | 5 sabotajes | **confiable** | — |
+| 4 | `check_calculator` | bloqueante | C1 y C5 | **confiable** (2/5) | — · C2, C3, C4 en deuda |
+| 5 | `check_cortes` | bloqueante | C1 (aviso), C2 con control verde, C3, C4, C5 | **confiable** (5/5) | 1.10 |
+| 6 | `check_claims` | bloqueante | 1 de 6 claims, string literal | **confiable** (alcance literal) | — |
+| 7 | `check_cobertura` | bloqueante | R5 (cuatro ramas), R6, R8 (cuatro ramas) | **confiable** (3/8) | 1.1b, 1.12, 1.4 · R1-R4 y R7 en deuda |
+| 8 | `check_caminos` | bloqueante | 1 sabotaje | **confiable** | 1.6: el Action corre en todo push y a diario (rige con el merge) |
+| 9 | `check_specs` | bloqueante | S1-S6 | **confiable** | — |
+| 10 | `check_version` | bloqueante | V1 y V4 | **confiable** | — |
+| 11 | `check_changelog` | bloqueante (`--nivel`) | C1 y C2 | **confiable** (2/2) | 1.10 |
+| 12 | `check_presupuesto` | informativo | saldo corto tras key holgada | **confiable** | 1.2 |
+| 13 | `check_secretos` | bloqueante | capa 1 (valores del `.env`); omitida en CI | **confiable** en su alcance | 1.7: la forma de credencial pasa a la fila 30; 1.9: en CI se declara omitida |
+| 14 | `check_truncamiento` | **bloqueante** (`--duro`) | 1 sabotaje con control verde | **confiable** | 1.8 |
+| 15 | `check_ci` | informativo, sale con 1 | fallo aislado de 10 días, cron callado | **confiable** | 1.6 |
+| 16 | `check_agentico_publicado` | informativo | un rankeado sin tarea | **confiable** | 1.2 |
+| 17 | `check_ganadores` | bloqueante | G2 | **confiable** (1/2) | — · G1 en deuda |
+| 18 | `check_release_mensual` | informativo | 1 sabotaje con control verde | **confiable** | — |
+| 19 | `check_blog_consistency` | bloqueante | 1 sabotaje sobre un blog desechable | **confiable**, también en CI | 1.9 |
+| 20 | `check_paleta` | bloqueante | P2 | **confiable** | — |
+| 21 | `check_fichas_alcanzables` | bloqueante | F2 | **confiable** (1/2) | — · F1 en deuda |
+| 22 | `test_unitarios.py` | bloqueante | no aplica | **exento** (`EXENTOS_R5`) | — |
+| 23 | `qa_calculadora.mjs` | bloqueante | Q15 | **confiable** (1/31) | — |
+| 24 | `auditar_paginas.py --duro` | bloqueante | filas borradas de una página | **confiable** | 1.11; 1.13: la etiqueta sale del conteo (187) |
+| 25 | `test_guardrails.py` | bloqueante | no aplica; su resumen tiene prueba | **exento** (`EXENTOS_R5`) | 1.9: nombra las omitidas |
+| 26 | `cobertura.py --duro` | informativo | 95 % pasa, 60 % falla | **confiable** (sigue en 68 %) | 1.11 |
+| 27 | `generate_censo_proveedores.py --check` | informativo, sale con 1 | censo de 45 días | **confiable** | 1.11 (H7) |
+| 28 | `generate_blog_tablas.py --check` | informativo | un bloque AUTO vaciado; omitida sin blog | **confiable** | 1.11, 1.9 |
+| 29 | `generate_blog_datos.py --check` | bloqueante | 1 sabotaje sobre un blog desechable | **confiable**, también en CI | 1.9 |
+| 30 | `check_gitleaks` *(nuevo)* | bloqueante | hex de 64 con contexto de clave, JSON generado nuevo, sin la herramienta | **confiable** | 1.7 |
+
+**Conteo de las 29 filas auditadas:** 27 confiables y 2 exentas con motivo. Ningún verde vacío
+y ninguna sin prueba (antes: 18, 3 y 6). La fila 30 entró después con su prueba. Nada pasó de
+bloqueante a informativo; `check_truncamiento` subió a bloqueante. Hay 58 pruebas de sabotaje
+(41 al abrir la auditoría) y R8 impide que el número baje.
+
+**Deuda nombrada (H6): 14 reglas internas sin sabotaje propio.** No están rotas; nada prueba
+que fallen cuando deben.
+
+| Chequeo | Reglas |
+|---|---|
+| `check_suites` | S1, S3, S4, S5 |
+| `check_calculator` | C2, C3, C4 |
+| `check_cobertura` | R1, R2, R3, R4, R7 |
+| `check_ganadores` | G1 |
+| `check_fichas_alcanzables` | F1 |
+
+Quedan fuera de esta lista dos alcances parciales que la tabla ya muestra: los 30 chequeos de
+`qa_calculadora` sin sabotaje automático y la capa 2 de `check_secretos` (sus patrones).
+
+Lo que esta tabla no ve: el historial de git. Se escaneó una vez con gitleaks y no apareció
+ninguna credencial real: 46 keys de modelos en dos JSON borrados y el fixture de
+`string_precision`. La clave de R2 del 17-ago sigue en el historial como `hex_64` y ninguna
+regla por defecto la caza; se rotó.

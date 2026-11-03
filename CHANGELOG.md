@@ -5,6 +5,19 @@
 
 ## [No publicado]
 
+- **Grupo 1 de corte-v5 cerrado: los guardrails del QA, auditados y arreglados (3-nov-2026).**
+  Es el gate del corte y quedó superado. De las 29 entradas de `qa.py` auditadas, 27 son
+  confiables y 2 están exentas con motivo; no queda ningún verde vacío ni ninguna sin prueba
+  (eran 18, 3 y 6). Hay 58 pruebas de sabotaje (eran 41) y `check_gitleaks` entró como
+  chequeo 30. Nada pasó de bloqueante a informativo. Tarea por tarea, en las entradas de
+  abajo: auditoría (1.1) y ok de Cristian (1.5); R5 lee todo `qa.py` y cada script tiene
+  prueba (1.1b, 1.2, 1.11); los verdes vacíos (1.3) se cerraron con R5, el censo y gitleaks;
+  R8 contra el debilitamiento (1.4); `check_ci` por días y Action diario (1.6); gitleaks
+  (1.7); `check_truncamiento` bloqueante (1.8); omitidas visibles (1.9); sabotaje de
+  `check_changelog` C2 y `check_cortes` (1.10); exenciones de R5 y etiqueta de páginas
+  (1.12, 1.13). Deuda nombrada: 14 reglas internas, listadas en la tabla final de
+  `AUDITORIA-GUARDRAILS-2026-11.md`.
+
 - **gitleaks entra al QA (3-nov-2026, tarea 1.7 de corte-v5).** `check_gitleaks.py` corre
   gitleaks 8.30.1 con sus reglas por defecto sobre lo que versionaría git, y es bloqueante:
   nació en verde en 2,5 s. Sobre el árbol entero eran 2.138 hallazgos y 6 minutos, todos
