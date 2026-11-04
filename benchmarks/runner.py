@@ -785,7 +785,7 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
                "reasoning_tokens", "reasoning_effort", "techo_omitido",
                # corte-v5 6.3/6.4: en qué endpoint se pidió rendir y con qué cuantización
                # lo sirvió. Sin esto el proveedor fijo no deja huella en el dato.
-               "proveedor_declarado", "cuantizacion"):
+               "proveedor_declarado", "cuantizacion", "techo_salida"):
         if _md.get(_k) is not None:
             scores[_k] = _md[_k]
 

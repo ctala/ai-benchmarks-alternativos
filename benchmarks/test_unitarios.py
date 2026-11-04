@@ -563,7 +563,7 @@ def test_las_notas_por_suite_estan_en_rango(rankeados):
 # ── corte-v5 grupo 6: examen con thinking por peldaño y proveedor fijo ──────────
 def _ep(tag, prov, q, params=("tools", "max_tokens", "reasoning"), status=0, prompt="0.000001"):
     return {"tag": tag, "provider_name": prov, "quantization": q, "status": status,
-            "supported_parameters": list(params),
+            "supported_parameters": list(params), "context_length": 262144,
             "pricing": {"prompt": prompt, "completion": prompt}}
 
 
@@ -654,6 +654,39 @@ def test_openai_directo_gpt55_apagado_viaja_como_reasoning_effort():
     assert "reasoning_effort" not in default["kwargs"]          # sin pedido: el default
     sin_rz = _espiar_request("gpt-4.1", provider="openai", effort="apagado")
     assert "reasoning_effort" not in sin_rz["kwargs"]          # no razona: nada que apagar
+
+
+def test_proveedor_fijo_prefiere_salida_suficiente():
+    # 4-nov-2026: Nemotron Super en deepinfra/bf16 aceptaba 16.384 de salida y el
+    # presupuesto por defecto es 32.768 → 404 en todo el examen. Se prefiere el que tiene aire;
+    # si ninguno lo tiene, se queda el apto (Muse Glimmer: un solo endpoint, 16.384).
+    from benchmarks import proveedor_fijo as pf
+    from benchmarks import suites
+    from collections import Counter
+    assert pf.SALIDA_MIN == suites.PRESUPUESTO_DEFECTO
+    corto = {**_ep("deepinfra/bf16", "DeepInfra", "bf16"), "max_completion_tokens": 16384}
+    largo = {**_ep("crusoe/fp8", "Crusoe", "fp8"), "max_completion_tokens": 262144}
+    e, _ = pf.elegir("nvidia/x", [corto, largo], Counter(), {"tools", "max_tokens"})
+    assert e["tag"] == "crusoe/fp8"
+    e, _ = pf.elegir("nvidia/x", [corto], Counter(), {"tools", "max_tokens"})
+    assert e["tag"] == "deepinfra/bf16"
+    chico = {**_ep("z/bf16", "Z", "bf16"), "context_length": 65536}     # CONTEXTO_MIN
+    assert pf.elegir("nvidia/x", [chico], Counter(), {"tools", "max_tokens"})[0] is None
+
+
+def test_proveedor_fijo_recorta_el_pedido_al_techo_del_declarado(monkeypatch):
+    # Sin el recorte, `max_tokens` 49.152 contra un techo de 32.768 da 404 sin generar nada.
+    from benchmarks import proveedor_fijo as pf
+    monkeypatch.setattr(pf, "_cache", {"modelos": {"k": {
+        "id": "inclusionai/ling-3.0-flash", "tag": "deepinfra/bf16", "provider_name": "DeepInfra",
+        "cuantizacion": "bf16", "techo_salida": 32768}}})
+    alto = _espiar_request("inclusionai/ling-3.0-flash", max_tokens=49152)
+    assert alto["kwargs"]["max_tokens"] == 32768
+    assert alto["extra_body"]["provider"]["order"] == ["deepinfra/bf16"]
+    bajo = _espiar_request("inclusionai/ling-3.0-flash", max_tokens=8192)
+    assert bajo["kwargs"]["max_tokens"] == 8192                 # bajo el techo: intacto
+    libre = _espiar_request("otro/modelo", max_tokens=49152)
+    assert libre["kwargs"]["max_tokens"] == 49152               # sin proveedor fijo: intacto
 
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
@@ -1373,7 +1406,7 @@ def test_todo_rankeado_publica_su_presupuesto_de_salida(datos):
 #
 # Lo destapó espiar el request real, no leer el código. De ahí que el test espíe.
 
-def _espiar_request(model, provider="openrouter", effort=None, tools=None):
+def _espiar_request(model, provider="openrouter", effort=None, tools=None, max_tokens=100):
     """Arma la llamada y devuelve (extra_body, kwargs) sin tocar la red."""
     import sys, os
     _prev = os.environ.get("BENCH_REASONING_EFFORT")
@@ -1396,7 +1429,7 @@ def _espiar_request(model, provider="openrouter", effort=None, tools=None):
 
     p.client.chat.completions.create = espia
     try:
-        p.chat(model=model, messages=[{"role": "user", "content": "hola"}], max_tokens=100,
+        p.chat(model=model, messages=[{"role": "user", "content": "hola"}], max_tokens=max_tokens,
                tools=tools)
     except Exception:
         pass

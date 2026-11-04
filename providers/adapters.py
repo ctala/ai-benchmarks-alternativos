@@ -463,6 +463,12 @@ class UnifiedProvider:
             if _ruteo:
                 extra_body["provider"] = {**extra_body.get("provider", {}), **_ruteo}
                 result.metadata["proveedor_declarado"] = _ruteo["order"][0]
+                # Se pide como mucho lo que el declarado acepta; más alto, responde 404
+                # sin generar nada (4-nov-2026, ver `proveedor_fijo.SALIDA_MIN`).
+                _techo = _fijo_mod.techo_salida(model)
+                if _techo and isinstance(kwargs.get(token_param), int) and kwargs[token_param] > _techo:
+                    kwargs[token_param] = _techo
+                    result.metadata["techo_salida"] = _techo
 
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"

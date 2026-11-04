@@ -1,5 +1,5 @@
 {
- "criterio": "apto (status 0, tools, max_tokens, reasoning si hay interruptor, sin variante de servicio) → sin cuantizar → autor → cuantización más alta → más runs nuestros → más barato",
+ "criterio": "apto (status 0, contexto ≥ 128.000, tools, max_tokens, reasoning si hay interruptor, sin variante de servicio) → salida ≥ SALIDA_MIN si existe → sin cuantizar → autor → cuantización más alta → más runs nuestros → más barato",
  "fuente": "https://openrouter.ai/api/v1/models/{id}/endpoints",
  "modelos": {
   "deepseek-v4-flash": {
@@ -10,7 +10,8 @@
    "precio_in_por_M": 0.0826,
    "precio_out_por_M": 0.1652,
    "provider_name": "StreamLake",
-   "tag": "streamlake/fp8"
+   "tag": "streamlake/fp8",
+   "techo_salida": 384000
   },
   "deepseek-v4-flash-0731": {
    "contexto": 1048576,
@@ -20,7 +21,8 @@
    "precio_in_por_M": 0.13,
    "precio_out_por_M": 0.26,
    "provider_name": "BaseTen",
-   "tag": "baseten/fp32"
+   "tag": "baseten/fp32",
+   "techo_salida": 384000
   },
   "deepseek-v4-pro": {
    "contexto": 1000000,
@@ -30,7 +32,8 @@
    "precio_in_por_M": 1.416,
    "precio_out_por_M": 2.832,
    "provider_name": "Alibaba",
-   "tag": "alibaba/fp8"
+   "tag": "alibaba/fp8",
+   "techo_salida": 393216
   },
   "deepseek-v4.1-flash": {
    "contexto": 1048575,
@@ -40,7 +43,8 @@
    "precio_in_por_M": 0.18,
    "precio_out_por_M": 0.72,
    "provider_name": "GMICloud",
-   "tag": "gmicloud/fp8"
+   "tag": "gmicloud/fp8",
+   "techo_salida": 943717
   },
   "gemma-4-26b": {
    "contexto": 262144,
@@ -50,7 +54,8 @@
    "precio_in_por_M": 0.09,
    "precio_out_por_M": 0.3,
    "provider_name": "NextBit",
-   "tag": "nextbit/bf16"
+   "tag": "nextbit/bf16",
+   "techo_salida": 235929
   },
   "glm-5.1": {
    "contexto": 202752,
@@ -60,7 +65,8 @@
    "precio_in_por_M": 1.4,
    "precio_out_por_M": 4.4,
    "provider_name": "Z.AI",
-   "tag": "z-ai/fp8"
+   "tag": "z-ai/fp8",
+   "techo_salida": 131072
   },
   "glm-5.2": {
    "contexto": 1048576,
@@ -70,7 +76,8 @@
    "precio_in_por_M": 1.4,
    "precio_out_por_M": 4.4,
    "provider_name": "Z.AI",
-   "tag": "z-ai/fp8"
+   "tag": "z-ai/fp8",
+   "techo_salida": 131072
   },
   "glm-5.3": {
    "contexto": 1048576,
@@ -80,7 +87,8 @@
    "precio_in_por_M": 1.4,
    "precio_out_por_M": 4.4,
    "provider_name": "Z.AI",
-   "tag": "z-ai/fp8"
+   "tag": "z-ai/fp8",
+   "techo_salida": 131072
   },
   "glm-5.3-flash": {
    "contexto": 1048576,
@@ -90,7 +98,8 @@
    "precio_in_por_M": 0.15,
    "precio_out_por_M": 0.5,
    "provider_name": "Z.AI",
-   "tag": "z-ai/fp8"
+   "tag": "z-ai/fp8",
+   "techo_salida": 131072
   },
   "granite-4.2-8b": {
    "contexto": 131072,
@@ -100,7 +109,8 @@
    "precio_in_por_M": 0.06,
    "precio_out_por_M": 0.25,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 117964
   },
   "hermes-4-405b": {
    "contexto": 131072,
@@ -110,7 +120,8 @@
    "precio_in_por_M": 1.0,
    "precio_out_por_M": 3.0,
    "provider_name": "Nebius",
-   "tag": "nebius/fp8"
+   "tag": "nebius/fp8",
+   "techo_salida": 117964
   },
   "inkling-small": {
    "contexto": 524288,
@@ -120,7 +131,8 @@
    "precio_in_por_M": 0.45,
    "precio_out_por_M": 1.2,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/fp8"
+   "tag": "deepinfra/fp8",
+   "techo_salida": 262144
   },
   "kimi-k2": {
    "contexto": 131072,
@@ -130,7 +142,8 @@
    "precio_in_por_M": 0.57,
    "precio_out_por_M": 2.3,
    "provider_name": "Novita",
-   "tag": "novita/fp8"
+   "tag": "novita/fp8",
+   "techo_salida": 98304
   },
   "kimi-k2.6": {
    "contexto": 262144,
@@ -140,7 +153,8 @@
    "precio_in_por_M": 0.7,
    "precio_out_por_M": 3.5,
    "provider_name": "Crusoe",
-   "tag": "crusoe/bf16"
+   "tag": "crusoe/bf16",
+   "techo_salida": 235929
   },
   "kimi-k2.7-code": {
    "contexto": 262144,
@@ -150,7 +164,8 @@
    "precio_in_por_M": 0.95,
    "precio_out_por_M": 4.0,
    "provider_name": "Moonshot AI",
-   "tag": "moonshotai"
+   "tag": "moonshotai",
+   "techo_salida": 235929
   },
   "kimi-k3": {
    "contexto": 1048576,
@@ -160,7 +175,8 @@
    "precio_in_por_M": 3.0,
    "precio_out_por_M": 15.0,
    "provider_name": "Moonshot AI",
-   "tag": "moonshotai"
+   "tag": "moonshotai",
+   "techo_salida": 943718
   },
   "ling-3.0-flash": {
    "contexto": 131072,
@@ -170,7 +186,8 @@
    "precio_in_por_M": 0.06,
    "precio_out_por_M": 0.18,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 32768
   },
   "llama-4-maverick": {
    "contexto": 524288,
@@ -180,7 +197,8 @@
    "precio_in_por_M": 0.35,
    "precio_out_por_M": 1.0,
    "provider_name": "Parasail",
-   "tag": "parasail/fp8"
+   "tag": "parasail/fp8",
+   "techo_salida": 32768
   },
   "mimo-v2.6-flash": {
    "contexto": 1048576,
@@ -190,7 +208,8 @@
    "precio_in_por_M": 0.14,
    "precio_out_por_M": 0.28,
    "provider_name": "Xiaomi",
-   "tag": "xiaomi/fp8"
+   "tag": "xiaomi/fp8",
+   "techo_salida": 131072
   },
   "mistral-small-4": {
    "contexto": 262144,
@@ -200,7 +219,8 @@
    "precio_in_por_M": 0.15,
    "precio_out_por_M": 0.6,
    "provider_name": "Mistral",
-   "tag": "mistral"
+   "tag": "mistral",
+   "techo_salida": 209715
   },
   "muse-glimmer-30b": {
    "contexto": 131072,
@@ -210,7 +230,8 @@
    "precio_in_por_M": 0.3,
    "precio_out_por_M": 1.2,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 16384
   },
   "nemotron-3.5-lightning": {
    "contexto": 262144,
@@ -220,7 +241,8 @@
    "precio_in_por_M": 0.06,
    "precio_out_por_M": 0.16,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 32768
   },
   "nemotron-nano": {
    "contexto": 262144,
@@ -230,17 +252,20 @@
    "precio_in_por_M": 0.06,
    "precio_out_por_M": 0.24,
    "provider_name": "Nebius",
-   "tag": "nebius/fp8"
+   "tag": "nebius/fp8",
+   "techo_salida": 235929
   },
   "nemotron-super": {
    "contexto": 262144,
-   "cuantizacion": "bf16",
+   "cuantizacion": "fp8",
    "id": "nvidia/nemotron-3-super-120b-a12b",
-   "motivo": "sin cuantizar",
-   "precio_in_por_M": 0.075,
-   "precio_out_por_M": 0.4,
-   "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "motivo": "cuantización más alta",
+   "nota": "4-nov-2026, a mitad del lote: el declarado anterior (deepinfra/bf16) aceptaba 16384 de salida, bajo SALIDA_MIN=32768; respondía 404 a todo el examen.",
+   "precio_in_por_M": 0.08,
+   "precio_out_por_M": 0.45,
+   "provider_name": "DekaLLM",
+   "tag": "dekallm/fp8",
+   "techo_salida": 235929
   },
   "openrouter-nemotron-3-ultra-550b": {
    "contexto": 256000,
@@ -250,7 +275,8 @@
    "precio_in_por_M": 0.625,
    "precio_out_por_M": 3.125,
    "provider_name": "Venice",
-   "tag": "venice/fp8"
+   "tag": "venice/fp8",
+   "techo_salida": 32768
   },
   "or-deepseek-v3": {
    "contexto": 163840,
@@ -260,7 +286,8 @@
    "precio_in_por_M": 0.26,
    "precio_out_por_M": 0.38,
    "provider_name": "AtlasCloud",
-   "tag": "atlas-cloud/fp8"
+   "tag": "atlas-cloud/fp8",
+   "techo_salida": 147456
   },
   "or-gemma-4-31b": {
    "contexto": 262144,
@@ -270,7 +297,8 @@
    "precio_in_por_M": 0.14,
    "precio_out_por_M": 0.4,
    "provider_name": "Crusoe",
-   "tag": "crusoe/bf16"
+   "tag": "crusoe/bf16",
+   "techo_salida": 262141
   },
   "or-glm5": {
    "contexto": 202752,
@@ -280,7 +308,8 @@
    "precio_in_por_M": 1.0,
    "precio_out_por_M": 3.2,
    "provider_name": "Z.AI",
-   "tag": "z-ai/fp8"
+   "tag": "z-ai/fp8",
+   "techo_salida": 131072
   },
   "or-gpt-oss-120b": {
    "contexto": 131072,
@@ -290,7 +319,8 @@
    "precio_in_por_M": 0.037,
    "precio_out_por_M": 0.17,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 117964
   },
   "or-gpt-oss-20b": {
    "contexto": 131072,
@@ -300,7 +330,8 @@
    "precio_in_por_M": 0.03,
    "precio_out_por_M": 0.14,
    "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16"
+   "tag": "deepinfra/bf16",
+   "techo_salida": 117964
   },
   "or-kimi-k2.5": {
    "contexto": 262144,
@@ -310,7 +341,8 @@
    "precio_in_por_M": 0.5,
    "precio_out_por_M": 2.5,
    "provider_name": "SiliconFlow",
-   "tag": "siliconflow/int4"
+   "tag": "siliconflow/int4",
+   "techo_salida": 235929
   },
   "or-llama-3.1-8b": {
    "contexto": 131072,
@@ -320,7 +352,8 @@
    "precio_in_por_M": 0.22,
    "precio_out_por_M": 0.22,
    "provider_name": "CoreWeave",
-   "tag": "coreweave/bf16"
+   "tag": "coreweave/bf16",
+   "techo_salida": 117964
   },
   "or-llama-3.3-70b": {
    "contexto": 128000,
@@ -330,7 +363,8 @@
    "precio_in_por_M": 0.71,
    "precio_out_por_M": 0.71,
    "provider_name": "CoreWeave",
-   "tag": "coreweave/fp16"
+   "tag": "coreweave/fp16",
+   "techo_salida": 115200
   },
   "or-llama-4-scout": {
    "contexto": 1310720,
@@ -340,7 +374,8 @@
    "precio_in_por_M": 0.25,
    "precio_out_por_M": 0.7,
    "provider_name": "Google",
-   "tag": "google-vertex/us-east5"
+   "tag": "google-vertex/us-east5",
+   "techo_salida": 8192
   },
   "or-minimax-m2.5": {
    "contexto": 196608,
@@ -350,7 +385,8 @@
    "precio_in_por_M": 0.295,
    "precio_out_por_M": 1.2,
    "provider_name": "AtlasCloud",
-   "tag": "atlas-cloud/fp8"
+   "tag": "atlas-cloud/fp8",
+   "techo_salida": 176947
   },
   "or-ministral-14b": {
    "contexto": 262144,
@@ -360,7 +396,8 @@
    "precio_in_por_M": 0.22,
    "precio_out_por_M": 0.22,
    "provider_name": "Mistral",
-   "tag": "mistral/eu"
+   "tag": "mistral/eu",
+   "techo_salida": 209715
   },
   "or-mistral-large-3": {
    "contexto": 262144,
@@ -370,7 +407,8 @@
    "precio_in_por_M": 0.5,
    "precio_out_por_M": 1.5,
    "provider_name": "Mistral",
-   "tag": "mistral/zdr"
+   "tag": "mistral/zdr",
+   "techo_salida": 209715
   },
   "or-qwen-3.5-35b": {
    "contexto": 262144,
@@ -380,7 +418,8 @@
    "precio_in_por_M": 0.1625,
    "precio_out_por_M": 1.3,
    "provider_name": "Alibaba",
-   "tag": "alibaba"
+   "tag": "alibaba",
+   "techo_salida": 65536
   },
   "or-qwen3-next-instruct": {
    "contexto": 262144,
@@ -390,7 +429,8 @@
    "precio_in_por_M": 0.1,
    "precio_out_por_M": 1.1,
    "provider_name": "Parasail",
-   "tag": "parasail/fp8"
+   "tag": "parasail/fp8",
+   "techo_salida": 235929
   },
   "or-qwen3.5-397b": {
    "contexto": 262144,
@@ -400,7 +440,8 @@
    "precio_in_por_M": 0.39,
    "precio_out_por_M": 2.34,
    "provider_name": "Alibaba",
-   "tag": "alibaba"
+   "tag": "alibaba",
+   "techo_salida": 65536
   },
   "or-step-3.5-flash": {
    "contexto": 262144,
@@ -410,17 +451,20 @@
    "precio_in_por_M": 0.1,
    "precio_out_por_M": 0.3,
    "provider_name": "SiliconFlow",
-   "tag": "siliconflow/fp8"
+   "tag": "siliconflow/fp8",
+   "techo_salida": 65536
   },
   "qwen-3.8-27b": {
-   "contexto": 65536,
-   "cuantizacion": "fp16",
+   "contexto": 262144,
+   "cuantizacion": "bf16",
    "id": "qwen/qwen3.8-27b",
    "motivo": "sin cuantizar",
-   "precio_in_por_M": 0.99,
-   "precio_out_por_M": 1.49,
-   "provider_name": "Cerebras",
-   "tag": "cerebras/fp16"
+   "nota": "re-declarado el 4-nov durante el lote: cerebras/fp16 tenía 65.536 de contexto (404 en cada request); los demás quedan con la declaración con que empezaron",
+   "precio_in_por_M": 0.15,
+   "precio_out_por_M": 1.875,
+   "provider_name": "DeepInfra",
+   "tag": "deepinfra/bf16",
+   "techo_salida": 235929
   },
   "qwen3-coder-next": {
    "contexto": 262144,
@@ -430,7 +474,8 @@
    "precio_in_por_M": 0.12,
    "precio_out_por_M": 0.8,
    "provider_name": "Parasail",
-   "tag": "parasail/bf16"
+   "tag": "parasail/bf16",
+   "techo_salida": 235929
   },
   "qwen3.6-27b": {
    "contexto": 262144,
@@ -440,7 +485,8 @@
    "precio_in_por_M": 0.45,
    "precio_out_por_M": 2.7,
    "provider_name": "Alibaba",
-   "tag": "alibaba"
+   "tag": "alibaba",
+   "techo_salida": 65536
   },
   "qwen3.6-35b": {
    "contexto": 262144,
@@ -450,7 +496,8 @@
    "precio_in_por_M": 0.1,
    "precio_out_por_M": 0.9,
    "provider_name": "AkashML",
-   "tag": "akashml/fp8"
+   "tag": "akashml/fp8",
+   "techo_salida": 235929
   },
   "tencent-hy3": {
    "contexto": 262144,
@@ -460,7 +507,8 @@
    "precio_in_por_M": 0.14,
    "precio_out_por_M": 0.58,
    "provider_name": "GMICloud",
-   "tag": "gmicloud/bf16"
+   "tag": "gmicloud/bf16",
+   "techo_salida": 235929
   }
  },
  "sin_endpoint_apto": {

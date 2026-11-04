@@ -5,6 +5,13 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Proveedor fijo: contexto y salida suficientes, y el pedido recortado al techo del declarado (4-nov-2026, a mitad
+  del lote de v5).** `proveedor_fijo` exige contexto ≥ 128.000 (`CONTEXTO_MIN`) y prefiere salida ≥ 32.768
+  (`SALIDA_MIN`); la declaración guarda `techo_salida` y el adapter no pide más que eso (el run lo registra). Qwen 3.8
+  27B pasa de `cerebras/fp16` a `deepinfra/bf16` (sus 108 runs de Cerebras quedan en `results/_experimentos/`) y
+  Nemotron Super de `deepinfra/bf16` a `dekallm/fp8`. Arregla de paso el fixture de los unitarios de `elegir`, que
+  no traía contexto y fallaba desde `CONTEXTO_MIN`. Dos pruebas nuevas con su sabotaje.
+
 - **Examen de v5, código listo para la ventana: thinking por peldaño y proveedor fijo (4-nov-2026, corte-v5 3.1.a y
   6.1-6.5).** Cada suite del índice declara su peldaño (`suites.PELDANO`, S7 en `check_suites`). En peldaño 1 y 2 el
   runner pide el thinking apagado y `effort.resolver` lo traduce por clase: `{effort: none}` o `{enabled: false}` al

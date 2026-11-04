@@ -13,7 +13,7 @@ QUÉ HACE
 --------
 `--declarar` lee el endpoints API de OpenRouter para cada abierto rankeado y elige UNO:
 
-  1. Apto: `status` 0, declara `tools` y `max_tokens` (y `reasoning` si el modelo tiene
+  1. Apto: `status` 0, contexto ≥ 128.000, declara `tools` y `max_tokens` (y `reasoning` si el modelo tiene
      interruptor, porque el examen de v5 lo apaga en peldaño 1-2), y no es una variante
      de nivel de servicio (`/turbo`, `/fast`, `/flex`…), que sirve otra cosa con el mismo id.
   2. Entre los aptos (DECISIONES, 4-nov-2026): uno SIN CUANTIZAR (bf16/fp16/fp32) si lo
@@ -54,6 +54,20 @@ AUTOR = {"z-ai": "z-ai", "moonshotai": "moonshotai", "qwen": "alibaba", "mistral
          "xiaomi": "xiaomi", "minimax": "minimax", "tencent": "tencent", "deepseek": "deepseek",
          "google": "google-ai-studio", "nvidia": "nvidia", "stepfun": "stepfun"}
 
+# El examen necesita prompt + techo de salida (hasta 98.304 en agent_long_horizon) y la
+# conversación de 12 turnos. 4-nov-2026: el declarado de Qwen 3.8 27B (`cerebras/fp16`,
+# 65.536) daba 404 «Filter by Context Length» en cada request del lote.
+CONTEXTO_MIN = 128000
+
+# Techo de salida. 4-nov-2026: un endpoint rechaza con 404 todo request cuyo `max_tokens`
+# supera su `max_completion_tokens` (Ling en DeepInfra, 32.768, contra los 49.152 de
+# `business_strategy`). Se prefiere un endpoint que acepte al menos el presupuesto por
+# defecto (`suites.PRESUPUESTO_DEFECTO`); si el modelo no tiene ninguno, se queda el apto.
+# Y el adapter recorta el pedido al techo del declarado (`techo_salida`): `max_tokens` es
+# un techo y no una reserva, así que pedir lo que el proveedor acepta no cambia la
+# respuesta salvo que el modelo de verdad lo necesitara, y eso lo caza check_truncamiento.
+SALIDA_MIN = 32768
+
 VARIANTE_DE_SERVICIO = re.compile(r"/(turbo|fast|spot|highspeed|flex|priority)\b")
 
 _cache: dict | None = None
@@ -75,6 +89,12 @@ def declarado(model_id: str) -> dict | None:
         if d.get("id") == model_id:
             return d
     return None
+
+
+def techo_salida(model_id: str) -> int | None:
+    """El `max_completion_tokens` del endpoint declarado; None = sin límite o sin proveedor fijo."""
+    d = declarado(model_id)
+    return (d or {}).get("techo_salida") or None
 
 
 def ruteo(model_id: str) -> dict | None:
@@ -144,6 +164,7 @@ def cuantizacion_de(model_id: str, upstream: str | None) -> str | None:
 
 def _apto(e: dict, necesita: set[str]) -> bool:
     return (e.get("status") == 0 and necesita <= set(e.get("supported_parameters") or [])
+            and (e.get("context_length") or 0) >= CONTEXTO_MIN
             and not VARIANTE_DE_SERVICIO.search(e.get("tag") or ""))
 
 
@@ -161,6 +182,9 @@ def elegir(model_id: str, endpoints: list[dict], runs: Counter,
     aptos = [e for e in endpoints if _apto(e, necesita)]
     if not aptos:
         return None, f"ningún endpoint declara {sorted(necesita)} con status 0"
+    con_aire = [e for e in aptos if (e.get("max_completion_tokens") or SALIDA_MIN) >= SALIDA_MIN]
+    if con_aire:
+        aptos = con_aire
     # DECISIONES 4-nov-2026: «la cuantización más alta disponible, o la que publica el
     # autor si no la hay sin cuantizar».
     pref = AUTOR.get(model_id.split("/")[0])
@@ -222,11 +246,12 @@ def declarar() -> dict:
         modelos[k] = {"id": c["id"], "tag": e["tag"], "provider_name": e["provider_name"],
                       "cuantizacion": e.get("quantization") or "unknown",
                       "contexto": e.get("context_length"), "motivo": motivo,
+                      "techo_salida": e.get("max_completion_tokens"),
                       "precio_in_por_M": round(float(e["pricing"]["prompt"]) * 1e6, 4),
                       "precio_out_por_M": round(float(e["pricing"]["completion"]) * 1e6, 4)}
     return {"tomada": date.today().isoformat(), "fuente": ENDPOINTS_API,
             "criterio": "apto (status 0, tools, max_tokens, reasoning si hay interruptor, sin "
-                        "variante de servicio) → sin cuantizar → autor → cuantización más "
+                        "variante de servicio) → salida ≥ SALIDA_MIN si existe → sin cuantizar → autor → cuantización más "
                         "alta → más runs nuestros → más barato",
             "modelos": modelos, "sin_endpoint_apto": sin}
 
