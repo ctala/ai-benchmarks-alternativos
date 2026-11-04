@@ -75,6 +75,10 @@ SUBSCRIPTIONS = {
 MODELS = {
     # --- GRATIS (subsidiados por OpenRouter) ---
     "deepseek-r1-free": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: deepseek/deepseek-r1:free is no longer available on OpenRouter: no provider serves this model anymore. See available models ",
+        "retired_kind": "provider",
         "id": "deepseek/deepseek-r1:free",
         "name": "DeepSeek R1 (free)",
         "cost_input": 0.0,
@@ -327,6 +331,10 @@ MODELS = {
         "notes": "MoE 2,4T totales / 95B activos. Licencia sin verificar: NO marcado open_source.",
     },
     "kat-coder-air-2.5": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: kwaipilot/kat-coder-air-v2.5 is no longer available on OpenRouter: no provider serves this model anymore. See available mode",
+        "retired_kind": "provider",
         "id": "kwaipilot/kat-coder-air-v2.5",
         "name": "KAT Coder Air v2.5",
         "cost_input": 0.15, "cost_output": 0.60,
@@ -335,6 +343,10 @@ MODELS = {
         "notes": "Orientado a coding, muy barato. Licencia sin verificar.",
     },
     "kat-coder-pro-2.5": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: kwaipilot/kat-coder-pro-v2.5 is no longer available on OpenRouter: no provider serves this model anymore. See available mode",
+        "retired_kind": "provider",
         "id": "kwaipilot/kat-coder-pro-v2.5",
         "name": "KAT Coder Pro v2.5",
         "cost_input": 0.74, "cost_output": 2.96,
@@ -407,6 +419,10 @@ MODELS = {
         "notes": "Licencia sin verificar.",
     },
     "qwen-3.6-max": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: Qwen3.6 Max Preview was deprecated on Oct 9, 2026. We recommend migrating to Qwen3.8 Max (0902) (openrouter.ai/qwen/qwen3.8-",
+        "retired_kind": "provider",
         "id": "qwen/qwen3.6-max-preview",
         "name": "Qwen 3.6 Max",
         "cost_input": 1.027,
@@ -1724,6 +1740,10 @@ MODELS = {
         "notes": "284B params, 13B activos, 1M context. Sucesor V3.2. Precio re-verificado vía OpenRouter API 1 jun 2026 ($0.098/$0.197, antes $0.112/$0.224).",
     },
     "deepseek-r1": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: deepseek/deepseek-r1 is no longer available on OpenRouter: no provider serves this model anymore. See available models at ht",
+        "retired_kind": "provider",
         "id": "deepseek/deepseek-r1",
         "name": "DeepSeek R1 (reasoning)",
         "cost_input": 0.70, "cost_output": 2.50,
@@ -2062,6 +2082,10 @@ MODELS = {
         "notes": "1M de contexto a $0,03. Multimodal texto+imagen+video. Tier 'Flash' nuevo: NO se sabe si los pesos son abiertos (la regla Base/Plus/Max no lo cubre).",
     },
     "nex-n2-mini": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: nex-agi/nex-n2-mini is no longer available on OpenRouter: no provider serves this model anymore. See available models at htt",
+        "retired_kind": "provider",
         "id": "nex-agi/nex-n2-mini",
         "name": "Nex-N2-Mini",
         "cost_input": 0.025, "cost_output": 0.10,
@@ -2073,6 +2097,10 @@ MODELS = {
         "notes": "Publicado 24-jun-2026. Multimodal texto+imagen. ⚠️ En el pre-vuelo falló un cálculo de porcentaje simple (dio 17,49% donde iba 19,13%) — n=1, lo dirá el examen.",
     },
     "laguna-xs-2.1": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: poolside/laguna-xs-2.1 is no longer available on OpenRouter: no provider serves this model anymore. See available models at ",
+        "retired_kind": "provider",
         "id": "poolside/laguna-xs-2.1",
         "name": "Poolside Laguna XS 2.1",
         "cost_input": 0.06, "cost_output": 0.12,
@@ -2110,6 +2138,10 @@ MODELS = {
         "notes": "Publicado 6-jul-2026. Existe también hy3-preview a mitad de precio, sin medir. Licencia sin verificar.",
     },
     "laguna-s-2.1": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: poolside/laguna-s-2.1 is no longer available on OpenRouter: no provider serves this model anymore. See available models at h",
+        "retired_kind": "provider",
         "id": "poolside/laguna-s-2.1",
         "name": "Poolside Laguna S 2.1",
         "cost_input": 0.09, "cost_output": 0.18,
@@ -2173,6 +2205,10 @@ MODELS = {
 
     # --- Nous Research Hermes 4 (open, abril 2026) ---
     "hermes-4-70b": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: nousresearch/hermes-4-70b is no longer available on OpenRouter: no provider serves this model anymore. See available models ",
+        "retired_kind": "provider",
         # OJO, COLISIÓN DE NOMBRES: este Hermes es el MODELO de Nous Research
         # (fine-tune de Llama 3.1), NO el Hermes Agent que corre Nyx en el Spark.
         # Son cosas distintas con el mismo nombre. El `name` no se puede cambiar sin
@@ -2195,6 +2231,10 @@ MODELS = {
         "notes": "Hybrid reasoning mode. Open-source de Nous Research. Sin reasoning explícito en este config.",
     },
     "hermes-4-70b-thinking": {
+        "retired": True,
+        "retired_at": "2026-11-04",
+        "retired_reason": "openrouter 404: nousresearch/hermes-4-70b is no longer available on OpenRouter: no provider serves this model anymore. See available models ",
+        "retired_kind": "provider",
         # Variante de mayor ESFUERZO del mismo modelo, no otro producto (decisión
         # 15-ago-2026, reafirmada el 18: *"los thinking aparte no se miden. Solo
         # medimos los default del thinking de cada modelo"*). El criterio es el

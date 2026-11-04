@@ -43,7 +43,7 @@ MODELS_JSON = ROOT / "docs" / "data" / "models.json"
 DEFAULT_BLOG = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
 
 MARCA_DATO = re.compile(r"<!-- D:([\w.\-+]+):([\w:]+) -->(.*?)<!-- /D -->", re.S)
-MARCA_EJE = re.compile(r"<!-- V:(\w+) -->(.*?)<!-- /V -->", re.S)
+MARCA_EJE = re.compile(r"<!-- V:([\w:]+) -->(.*?)<!-- /V -->", re.S)
 
 
 def _num(x) -> str:
@@ -81,6 +81,14 @@ def dato(m: dict, campo: str, orden: list[dict]) -> str:
         return _usd(m["cost_per_1k_calls_usd"])
     if campo == "posicion":
         return str(orden.index(m) + 1)
+    if campo == "puesto_compuesto":
+        # El puesto en el SCORE COMPUESTO (calidad + costo + velocidad + latencia), que es
+        # otro orden que `posicion` (calidad pura). Existe porque dos posts escribían a mano
+        # «puesto 51» y «puesto 90» del compuesto y ya no coincidían (4-nov-2026).
+        por_score = sorted(orden, key=lambda x: -x["score_global"])
+        return str(por_score.index(m) + 1)
+    if campo == "compuesto":
+        return _num(m["score_global"])
     if campo == "velocidad":
         return f"{round(m['tokens_per_second'])} tok/s"
     if campo == "latencia":
@@ -93,7 +101,7 @@ def dato(m: dict, campo: str, orden: list[dict]) -> str:
     if campo == "seguridad":
         return _num(m["security_score"]) if m.get("security_score") is not None else "—"
     raise SystemExit(f"ERROR: campo desconocido «{campo}» (calidad, precio1k, posicion, "
-                     f"velocidad, contexto, seguridad)")
+                     f"puesto_compuesto, compuesto, velocidad, contexto, seguridad)")
 
 
 # Cada eje es una pregunta que un post le hace al ranking: «¿quién manda hoy en esto?».
@@ -111,6 +119,47 @@ EJES = {
     "agentico":  lambda ms: max([m for m in ms if m.get("agentic_score") is not None],
                                 key=lambda m: m["agentic_score"]),
 }
+
+
+def _landings():
+    """El elegidor de las landings: un solo criterio de «quién lidera» para el sitio y el blog."""
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import generate_manual_landings as g
+    return g
+
+
+def vigente_compuesto(eje: str, data: dict) -> str:
+    """`pilar:<Pilar>` o `suite:<suite>`, con `:nombre` / `:nota` y un puesto opcional.
+
+        <!-- V:pilar:Agentes -->Qwen 3.7 Flash (8,12)<!-- /V -->
+        <!-- V:suite:tool_calling:nombre -->Gemini 3.1 Flash Lite<!-- /V -->
+        <!-- V:suite:tool_calling:nota:2 -->7,10<!-- /V -->
+
+    Elige `generate_manual_landings._lider`: conjunto base (rankeado, recomendable, sin
+    `unavailable` ni `pendiente_proveedor`) y el desempate de DECISIONES (4-nov-2026). Existe
+    porque el blog recomendaba a mano a modelos retirados («DeepSeek R1 (7,45)» en tool calling).
+    """
+    partes = eje.split(":")
+    tipo, cual, resto = partes[0], partes[1] if len(partes) > 1 else "", partes[2:]
+    puesto = int(resto.pop()) if resto and resto[-1].isdigit() else 1
+    forma = resto[0] if resto else "ambos"
+    if forma not in ("ambos", "nombre", "nota") or not cual:
+        raise SystemExit(f"ERROR: marcador «V:{eje}» mal formado (pilar|suite:<cual>[:nombre|:nota][:n])")
+    g = _landings()
+    if tipo == "pilar":
+        m = g._lider_pilar_modelo(data, cual, puesto)
+        nota = m["score_by_pillar"][cual]
+    elif tipo == "suite":
+        m = g._lider(data, lambda x: (x.get("quality_by_suite") or {}).get(cual),
+                     lambda x: x.get("quality_avg") or 0, puesto, f"suite {cual}")
+        nota = m["quality_by_suite"][cual]
+    else:
+        raise SystemExit(f"ERROR: eje desconocido «{eje}»")
+    if forma == "nombre":
+        return m["name"]
+    if forma == "nota":
+        return _num(nota)
+    return f"{m['name']} ({_num(nota)})"
 
 
 def vigente(eje: str, ms: list[dict]) -> str:
@@ -144,9 +193,12 @@ def aplicar(texto: str, data: dict, archivo: str) -> tuple[str, list[str]]:
             cambios.append(f"{archivo}: {key}.{campo} «{viejo}» → «{nuevo}»")
         return f"<!-- D:{key}:{campo} -->{nuevo}<!-- /D -->"
 
+    base = {m["key"] for m in _landings()._conjunto_base(data)}
+    orden_base = [m for m in orden if m["key"] in base]
+
     def _eje(mm):
         eje, viejo = mm.group(1), mm.group(2)
-        nuevo = vigente(eje, orden)
+        nuevo = vigente_compuesto(eje, data) if ":" in eje else vigente(eje, orden_base)
         if nuevo != viejo:
             cambios.append(f"{archivo}: vigente[{eje}] «{viejo}» → «{nuevo}»")
         return f"<!-- V:{eje} -->{nuevo}<!-- /V -->"

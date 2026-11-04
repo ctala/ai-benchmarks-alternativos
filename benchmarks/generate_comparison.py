@@ -146,13 +146,6 @@ COMPARISONS = [
         "title": "Fable 5 vs MiniMax M3 en 2026: comparación con benchmark real",
         "intent_kw": "fable 5 vs minimax m3, claude fable vs minimax, fable 5 benchmark costo, minimax m3 vs fable 5",
     },
-    {
-        "slug": "fable-5-vs-deepseek-r1",
-        "a": {"name": "Claude Fable 5", "match": ["fable"]},
-        "b": {"name": "DeepSeek R1", "match": ["deepseek-r1"]},
-        "title": "Fable 5 vs DeepSeek R1 en 2026: comparación con benchmark real",
-        "intent_kw": "fable 5 vs deepseek r1, claude fable vs deepseek, fable 5 razonamiento, deepseek r1 vs fable 5",
-    },
     # --- Nuevas comparaciones junio 2026 (modelos recién disponibles / por medir) ---
     {
         "slug": "nemotron-3-ultra-vs-deepseek-v4-flash",
@@ -334,6 +327,12 @@ HUERFANAS_DECLARADAS = {
         "destino": "grok-4.3-vs-gpt-5-5",
         "por_que": "duplicado del slug canónico (punto vs guion). Dos URLs compitiendo "
                    "por la misma búsqueda: se sirve como redirect, no se regenera.",
+    },
+    "fable-5-vs-deepseek-r1": {
+        "destino": "fable-5-review",
+        "por_que": "DeepSeek R1 se retiró el 4-nov-2026 (OpenRouter ya no lo sirve): una "
+                   "comparación con un lado muerto no tiene a quién recomendar. La review de "
+                   "Fable 5 conserva la foto fechada con R1.",
     },
 }
 # NOTA para quien agregue una entrada acá: `grok-4-1-vs-4-5` PARECE huérfana desde este
@@ -1167,8 +1166,13 @@ def main():
             continue
         A, B = family(models, cfg["a"]), family(models, cfg["b"])
         if not A or not B:
-            print(f"⚠️  {cfg['slug']}: sin modelos (A={len(A)} B={len(B)})")
-            continue
+            # Error, no aviso (4-nov-2026). Saltarse la página dejaba publicada la versión
+            # anterior sin regenerar: /fable-5-vs-deepseek-r1/ siguió recomendando a R1 después
+            # de retirarlo. Un lado vacío se resuelve en el registro (sacarla de COMPARISONS y
+            # declararla en HUERFANAS_DECLARADAS como redirect), no en silencio.
+            raise SystemExit(
+                f"\n  ERROR en /{cfg['slug']}/: un lado quedó sin modelos (A={len(A)} B={len(B)}).\n"
+                f"  Si un modelo se retiró, declarala en HUERFANAS_DECLARADAS con su destino.\n")
         outdir = DOCS / cfg["slug"]
         outdir.mkdir(exist_ok=True)
         (outdir / "index.html").write_text(render(cfg, A, B), encoding="utf-8")

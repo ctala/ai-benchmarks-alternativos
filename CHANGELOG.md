@@ -5,6 +5,39 @@
 
 ## [No publicado]
 
+## [v4.17.1] - 2026-11-04 — diez endpoints muertos fuera del ranking, y las reviews pasan a ser fotos fechadas
+
+- **Retirados 10 modelos que OpenRouter ya no sirve (4-nov-2026).** Ocho rankeados: KAT Coder Air y Pro v2.5, Qwen 3.6 Max
+  (deprecado el 9-oct), DeepSeek R1, Nex-N2-Mini, Poolside Laguna XS y S 2.1 y Hermes 4 70B; y dos no rankeados con el mismo
+  endpoint: Hermes 4 70B (thinking) y DeepSeek R1 (free). Todos dieron 404 «no longer available» el 3 y el 4-nov. El ranking
+  pasa de 115 a 107. Sus runs quedan en los datos y en *Retirados* de MODELOS.md.
+- **El guardia de landings busca el nombre a secas.** Buscaba «DeepSeek R1 (reasoning)» y el HTML escribe «DeepSeek R1»: R1 y
+  las Laguna nunca se veían. Un nombre vivo por otro proveedor (Llama 3.3 70B) no cuenta como muerto. Prueba nueva con
+  cuatro casos en rojo, saboteada volviendo al nombre con sufijo y aceptando todo lo declarado.
+- **Las reviews y las fichas de retirados son fotos fechadas; las alternativas recomiendan solo vivos (DECISIONES).**
+  `fable-5-review` y `glm-5.2-explicado` llevan bajo el título la fecha de medición y los modelos retirados después; las
+  8 fichas `/modelo/<key>/` de los retirados se regeneran con la fecha del retiro, sin recomendarlos (antes quedaban
+  publicadas tal cual, porque el generador solo escribe rankeados). `validate.py` C1 respeta esa línea y ahora mira
+  también las fichas, que su glob no alcanzaba. Prueba nueva, saboteada tres veces.
+- **14 frases de 6 landings dejan de recomendar retirados**, y «Llama 3.3 70B en Groq» pierde «en Groq» y la velocidad
+  de Groq escrita a mano en las alternativas a ChatGPT y a Gemini (la variante de Groq está retirada desde agosto).
+  «Lidera el pilar X» sale de `_lider_pilar()` y no a mano; el empate lo decide la calidad del pilar (DECISIONES). Corrige
+  de paso «Ministral 14B lidera el pilar Razonamiento (8.39)», falso hoy.
+- **`/fable-5-vs-deepseek-r1/` pasa a redirect a `/fable-5-review/`**, y una comparación con un lado sin modelos es error
+  del generador, no aviso: saltarla dejaba publicada la versión vieja. Prueba nueva.
+- **La review de Fable atribuía a Sonnet 4.6 la nota de Agentes de DeepSeek R1.** Corregido con la cifra de Sonnet 4.6
+  canónico, leída del dato, y la marca visible «corregido el 4-nov-2026».
+- **«en Groq» sale también de las alternativas a Claude y a DeepSeek, de modelos para n8n, de baratos y de local.** La
+  velocidad de Groq escrita a mano (240+ tok/s) y el «Llama 4 Scout 17B (Groq)» con su score de julio se reemplazan por
+  el más rápido vivo del conjunto base (`_mas_rapido()`); las dos filas de Llama 3.3 70B en local dejan el «7.70* con
+  Groq» por «sin score local medido». Queda solo la nota fechada de n8n que cuenta que Groq apagó Llama.
+- **El blog: lo que recomienda lee el dato vivo; lo que analiza un corte es foto fechada (DECISIONES).**
+  `generate_blog_datos.py` suma `V:pilar:<Pilar>` y `V:suite:<suite>` (con `:nombre`, `:nota` y puesto), elegidos por el
+  mismo `_lider()` de las landings —conjunto base y desempate del 4-nov—, y los campos `puesto_compuesto` y `compuesto`.
+  Con eso el pilar y la guía de Claude Code dejan de recomendar a R1 en tool calling («7,45» a mano) y a Laguna XS como
+  agente; los puestos del compuesto de DeepSeek V4 Flash y Qwen3-Coder-Next, escritos a mano y ya corridos, pasan a
+  marcador. Prueba nueva con tres saboteos.
+
 - **La prueba de `check_release_mensual` daba rojo los primeros días de cada mes sin que nada
   estuviera roto (3-nov-2026).** Exigía el `DATASHEET_<mes>.md` del mes en curso y una pareja fija
   («Qwen 3.8 Flash | 9,85») que ya no existía en ningún datasheet: entre el día 1 y el release no

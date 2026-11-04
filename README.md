@@ -1,7 +1,7 @@
 <!-- doc: generado -->
 # Benchmark de Modelos AI Alternativos: comparación abierta de LLMs en español para N8N, Hermes y emprendedores
 
-**Versión v4.17.0** | Última actualización: 11 de octubre de 2026 | [📊 Datasheet septiembre](DATASHEET_2026-09.md) · [📄 CheatSheet PDF septiembre](cheatsheet/AI_Model_Benchmark_CheatSheet_Septiembre_2026.pdf) · [📈 Uso real vs calidad](USO_VS_CALIDAD.md)
+**Versión v4.17.1** | Última actualización: 11 de octubre de 2026 | [📊 Datasheet septiembre](DATASHEET_2026-09.md) · [📄 CheatSheet PDF septiembre](cheatsheet/AI_Model_Benchmark_CheatSheet_Septiembre_2026.pdf) · [📈 Uso real vs calidad](USO_VS_CALIDAD.md)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->70,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
@@ -73,17 +73,17 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 | 1 | **Ling 3.0 Flash VL** | **84.1** | 8.33 | $0.10 | openrouter |
 | 2 | **Ling 3.0 Flash** | **79.0** | 7.98 | $0.10 | openrouter |
 | 3 | **Llama 3.1 8B Instant** | **53.8** | 7.26 | $0.14 | openrouter |
-| 4 | **Nex-N2-Mini** | **51.5** | 8.13 | $0.16 | openrouter |
-| 5 | **Poolside Laguna XS 2.1** | **41.7** | 8.26 | $0.20 | openrouter |
-| 6 | **Qwen 3.7 Flash** | **41.6** | 8.49 | $0.20 | openrouter |
-| 7 | **DeepSeek V4 Flash 0731** | **40.7** | 8.05 | $0.20 | openrouter |
-| 8 | **GPT-OSS 20B** | **36.1** | 7.91 | $0.22 | openrouter |
-| 9 | **Mercury 2.5** | **34.8** | 8.24 | $0.24 | openrouter |
-| 10 | **GPT-OSS 120B** | **28.9** | 8.11 | $0.28 | openrouter |
+| 4 | **Qwen 3.7 Flash** | **41.6** | 8.49 | $0.20 | openrouter |
+| 5 | **DeepSeek V4 Flash 0731** | **40.7** | 8.05 | $0.20 | openrouter |
+| 6 | **GPT-OSS 20B** | **36.1** | 7.91 | $0.22 | openrouter |
+| 7 | **Mercury 2.5** | **34.8** | 8.24 | $0.24 | openrouter |
+| 8 | **GPT-OSS 120B** | **28.9** | 8.11 | $0.28 | openrouter |
+| 9 | **DeepSeek V4 Flash (OpenRouter)** | **27.9** | 8.16 | $0.29 | openrouter |
+| 10 | **Nemotron 3 Nano 30B** | **24.4** | 7.69 | $0.32 | openrouter |
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **12 de 107** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
@@ -95,14 +95,12 @@ Los **14 de 115** modelos que nadie domina: para el resto existe otro que es **a
 | **Gemma 4 26B MoE (3.8B activos)** | 8.34 | $0.48 | 25s | openrouter |
 | **Ling 3.0 Flash VL** | 8.33 | $0.10 | 21s | openrouter |
 | **GPT-6 Luna** | 8.27 | $0.78 | 11s | openrouter |
-| **Poolside Laguna XS 2.1** | 8.26 | $0.20 | 10s | openrouter |
 | **Mercury 2.5** | 8.24 | $0.24 | 5s | openrouter |
 | **Gemini 3.5 Flash Lite** | 8.23 | $3.84 | 5s | openrouter |
-| **Nex-N2-Mini** | 8.13 | $0.16 | 17s | openrouter |
 | **Gemini 3.1 Flash Lite** | 8.09 | $2.33 | 4s | openrouter |
 | **Ling 3.0 Flash** | 7.98 | $0.10 | 12s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 115 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 107 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 

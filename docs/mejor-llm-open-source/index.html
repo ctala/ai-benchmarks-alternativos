@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/mejor-llm-open-source/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/mejor-llm-open-source/",
@@ -125,18 +125,18 @@
   <section class="hero">
     <h1>Mejor LLM open source (2026)</h1>
     <p class="lead">Si quieres correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el benchmark — ordenados por score global. Verificamos la licencia (cuidado con los "Plus" propietarios).</p>
-    <p class="meta">Última actualización: 2026-11-03 ·
+    <p class="meta">Última actualización: 2026-11-04 ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
   </section>
   <section class="verdict verdict-open">
     <h2>La respuesta corta</h2>
     <p class="verdict-lead">Acá el benchmark <strong>no logra separar a los modelos</strong>:
-    21 de 53 (40% del catálogo) quedan dentro del margen de error
+    19 de 48 (40% del catálogo) quedan dentro del margen de error
     en esta tarea. Cuando la medición no distingue, <strong>lo honesto es decirlo</strong>, no
     inventar un ganador.</p>
     <p class="verdict-lead">Con esa salvedad: el de mayor calidad medida es
     <strong>GLM 5.3</strong> (8.52/10). Si el presupuesto manda,
-    <strong>Poolside Laguna XS 2.1</strong> queda dentro del mismo grupo por
+    <strong>Granite 4.2 8B</strong> queda dentro del mismo grupo por
     <strong>≈$1/mes</strong>. Pero acá, más que nunca:
     <strong>prueba los dos con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
   </section>
@@ -157,8 +157,9 @@
         <tr><td>4</td><td><a class="a-ficha" href="/modelo/glm-5.3-flash/">GLM 5.3 Flash</a></td><td>7.49</td><td>9.7</td><td>8.9</td><td>8.1</td><td>7.9</td><td>$0.15 / $0.50</td><td>40 tok/s</td></tr>
         <tr><td>5</td><td><a class="a-ficha" href="/modelo/qwen-3.8-27b/">Qwen 3.8 27B</a></td><td>7.27</td><td>10.0</td><td>8.4</td><td>7.5</td><td>7.8</td><td>$0.21 / $2.55</td><td>35 tok/s</td></tr>
         <tr><td>6</td><td><a class="a-ficha" href="/modelo/glm-5.3/">GLM 5.3</a> <span class="row-badge">← el caro</span></td><td>7.21</td><td>9.6</td><td>8.9</td><td>7.9</td><td>7.9</td><td>$1.40 / $4.40</td><td>69 tok/s</td></tr>
-        <tr><td>7</td><td><a class="a-ficha" href="/modelo/laguna-xs-2.1/">Poolside Laguna XS 2.1</a> <span class="row-badge">← la mejor compra</span></td><td>7.18</td><td>9.7</td><td>8.5</td><td>8.1</td><td>7.6</td><td>$0.06 / $0.12</td><td>171 tok/s</td></tr>
-        <tr><td>8</td><td><a class="a-ficha" href="/modelo/inkling-small/">Inkling Small</a></td><td>7.16</td><td>9.7</td><td>8.8</td><td>8.4</td><td>7.6</td><td>$0.45 / $1.20</td><td>62 tok/s</td></tr>
+        <tr><td>7</td><td><a class="a-ficha" href="/modelo/inkling-small/">Inkling Small</a></td><td>7.16</td><td>9.7</td><td>8.8</td><td>8.4</td><td>7.6</td><td>$0.45 / $1.20</td><td>62 tok/s</td></tr>
+        <tr><td>8</td><td><a class="a-ficha" href="/modelo/gemma-4-26b/">Gemma 4 26B MoE (3.8B activos)</a></td><td>7.02</td><td>9.2</td><td>8.6</td><td>8.1</td><td>7.9</td><td>$0.09 / $0.30</td><td>50 tok/s</td></tr>
+        <tr><td>10</td><td><a class="a-ficha" href="/modelo/granite-4.2-8b/">Granite 4.2 8B</a> <span class="row-badge">← la mejor compra</span></td><td>6.95</td><td>9.3</td><td>8.5</td><td>7.9</td><td>8.0</td><td>$0.06 / $0.25</td><td>88 tok/s</td></tr>
       </tbody>
     </table></div>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
@@ -192,7 +193,7 @@
 </section>
   <section>
   <h2>Por qué Gemma 4 31B lidera</h2>
-  <p><strong>Gemma 4 31B</strong> encabeza el ranking para open source (pesos abiertos — corres local o en cualquier provider, sin lock-in) con 7.9/10, a $0.10 / $0.34 por millón de tokens (47 tok/s, openrouter). Recuerda que el score global v4.17.0 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
+  <p><strong>Gemma 4 31B</strong> encabeza el ranking para open source (pesos abiertos — corres local o en cualquier provider, sin lock-in) con 7.9/10, a $0.10 / $0.34 por millón de tokens (47 tok/s, openrouter). Recuerda que el score global v4.17.1 pondera calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% — no es solo "el más inteligente",
   sino el que mejor rinde en producción para este caso.</p>
   <h3>Cuándo conviene este modelo</h3>
   <ul>
@@ -285,7 +286,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "license": "https://opensource.org/licenses/MIT",
   "distribution": [
     {
@@ -363,7 +364,7 @@
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>
 <script type="application/json" id="contrato-pagina">
-{"tipo": "ranking", "generador": "generate_rankings", "recomienda": ["Gemma 4 31B", "Tencent Hy3", "DeepSeek V4.1 Flash", "GLM 5.3 Flash", "Qwen 3.8 27B", "GLM 5.3", "Poolside Laguna XS 2.1", "Inkling Small"], "ordena_por": "Score global", "tablas": [{"rol": "principal", "ordena_por": "Score global", "filas": 8}]}
+{"tipo": "ranking", "generador": "generate_rankings", "recomienda": ["Gemma 4 31B", "Tencent Hy3", "DeepSeek V4.1 Flash", "GLM 5.3 Flash", "Qwen 3.8 27B", "GLM 5.3", "Inkling Small", "Gemma 4 26B MoE (3.8B activos)"], "ordena_por": "Score global", "tablas": [{"rol": "principal", "ordena_por": "Score global", "filas": 8}]}
 </script>
 </main>
 <footer>

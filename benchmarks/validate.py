@@ -320,14 +320,24 @@ def c1_nada_muerto_recomendado(models, verbose):
     # La home ENTRA al barrido. Era el punto ciego: docs.glob("*/index.html") solo mira
     # subpáginas, y la FAQ de la home (visible + schema FAQPage que Google muestra como
     # snippet) siguió recomendando a Devstral Small muerto sin que C1 chistara. (14-jul-2026)
-    paginas = [docs / "index.html", *docs.glob("*/index.html")]
+    # Las fichas `/modelo/<key>/` también (4-nov-2026): viven un nivel más abajo y el glob
+    # `*/index.html` no las alcanzaba. Una ficha que recomienda a un retirado es la página que
+    # más tráfico de búsqueda por nombre de modelo recibe.
+    paginas = [docs / "index.html", *docs.glob("*/index.html"), *docs.glob("modelo/*/index.html")]
     for pagina in paginas:
         try:
             txt = pagina.read_text(encoding="utf-8")
         except Exception:  # noqa: BLE001
             continue
+        # Foto fechada (DECISIONES, 4-nov-2026): una review o la ficha de un retirado lo
+        # declara en su línea visible `<p class="meta fechada" … data-retirados="A|B">`. Lo
+        # declarado ahí no es una recomendación; lo no declarado sigue contando.
+        fechada = re.search(r'<p class="meta fechada" data-medido="[^"]*" data-retirados="([^"]*)"', txt)
+        declarados = set(filter(None, fechada.group(1).split("|"))) if fechada else set()
         for n in muertos:
             if n not in txt:
+                continue
+            if re.sub(r"\s*\([^)]*\)", "", n).strip() in declarados:
                 continue
             # RECOMENDARLO y DECIR QUE ESTÁ MUERTO no son lo mismo.
             #
@@ -345,7 +355,8 @@ def c1_nada_muerto_recomendado(models, verbose):
             if any(w in cerca for w in ("retirad", "apagó su endpoint", "ya no existe",
                                         "quedó fuera", "descontinuad")):
                 continue
-            culpables[n].append("home" if pagina.parent == docs else pagina.parent.name)
+            culpables[n].append("home" if pagina.parent == docs
+                                else str(pagina.parent.relative_to(docs)))
     if culpables:
         det = "; ".join(f"«{n}» en {len(p)} páginas" for n, p in list(culpables.items())[:3])
         fallo("C1 · nada muerto recomendado",
