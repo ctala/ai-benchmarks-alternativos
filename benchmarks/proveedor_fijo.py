@@ -163,8 +163,13 @@ def cuantizacion_de(model_id: str, upstream: str | None) -> str | None:
 
 
 def _apto(e: dict, necesita: set[str]) -> bool:
+    # `uptime_last_1d` None = el endpoint no sirve tráfico público. 4-nov-2026: el de Llama 4
+    # Scout en Vertex es BYOK (solo con key propia de Google) y figuraba con status 0; daba 404
+    # en cada request del lote. El endpoints API no trae un campo BYOK: ésta es su huella.
     return (e.get("status") == 0 and necesita <= set(e.get("supported_parameters") or [])
             and (e.get("context_length") or 0) >= CONTEXTO_MIN
+            and e.get("uptime_last_1d") is not None
+            and not e.get("service_tier")
             and not VARIANTE_DE_SERVICIO.search(e.get("tag") or ""))
 
 

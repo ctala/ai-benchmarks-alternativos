@@ -563,7 +563,7 @@ def test_las_notas_por_suite_estan_en_rango(rankeados):
 # ── corte-v5 grupo 6: examen con thinking por peldaño y proveedor fijo ──────────
 def _ep(tag, prov, q, params=("tools", "max_tokens", "reasoning"), status=0, prompt="0.000001"):
     return {"tag": tag, "provider_name": prov, "quantization": q, "status": status,
-            "supported_parameters": list(params), "context_length": 262144,
+            "supported_parameters": list(params), "context_length": 262144, "uptime_last_1d": 99.9,
             "pricing": {"prompt": prompt, "completion": prompt}}
 
 
@@ -672,6 +672,10 @@ def test_proveedor_fijo_prefiere_salida_suficiente():
     assert e["tag"] == "deepinfra/bf16"
     chico = {**_ep("z/bf16", "Z", "bf16"), "context_length": 65536}     # CONTEXTO_MIN
     assert pf.elegir("nvidia/x", [chico], Counter(), {"tools", "max_tokens"})[0] is None
+    byok = {**_ep("google-vertex/us-east5", "Google", "bf16"), "uptime_last_1d": None}
+    assert pf.elegir("meta-llama/x", [byok], Counter(), {"tools", "max_tokens"})[0] is None
+    tier = {**_ep("deepinfra/fp8", "DeepInfra", "fp8"), "service_tier": "priority"}
+    assert pf.elegir("meta-llama/x", [tier], Counter(), {"tools", "max_tokens"})[0] is None
 
 
 def test_proveedor_fijo_recorta_el_pedido_al_techo_del_declarado(monkeypatch):

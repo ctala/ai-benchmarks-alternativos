@@ -216,10 +216,11 @@
    "cuantizacion": "unknown",
    "id": "mistralai/mistral-small-2603",
    "motivo": "autor",
+   "nota": "4-nov-2026, a mitad del lote y antes de su primer run: Mistral renombró el endpoint `mistral` a `mistral/us`, `/eu` y `/zdr` (mismo proveedor). Se declara `/us`.",
    "precio_in_por_M": 0.15,
    "precio_out_por_M": 0.6,
    "provider_name": "Mistral",
-   "tag": "mistral",
+   "tag": "mistral/us",
    "techo_salida": 209715
   },
   "muse-glimmer-30b": {
@@ -366,17 +367,6 @@
    "tag": "coreweave/fp16",
    "techo_salida": 115200
   },
-  "or-llama-4-scout": {
-   "contexto": 1310720,
-   "cuantizacion": "unknown",
-   "id": "meta-llama/llama-4-scout",
-   "motivo": "cuantización más alta",
-   "precio_in_por_M": 0.25,
-   "precio_out_por_M": 0.7,
-   "provider_name": "Google",
-   "tag": "google-vertex/us-east5",
-   "techo_salida": 8192
-  },
   "or-minimax-m2.5": {
    "contexto": 196608,
    "cuantizacion": "fp8",
@@ -512,6 +502,7 @@
   }
  },
  "sin_endpoint_apto": {
+  "or-llama-4-scout": "4-nov-2026: google-vertex es BYOK (sin uptime; 404 en cada request); deepinfra/fp8 no declara tools; /priority y /flex son variantes de servicio",
   "qwen3-coder": "ningún endpoint declara ['max_tokens', 'tools'] con status 0"
  },
  "tomada": "2026-11-04"
