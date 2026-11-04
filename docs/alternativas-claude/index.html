@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/alternativas-claude/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/alternativas-claude/",
@@ -92,7 +92,7 @@
       "name": "¿Puedo correr alternativas a Claude local sin GPU dedicada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."
+        "text": "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."
       }
     }
   ]
@@ -161,7 +161,7 @@
       o proyectos grandes.
     </p>
     <p class="meta">
-      Última actualización: 2026-11-03 ·
+      Última actualización: 2026-11-04 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -169,7 +169,7 @@
   <section class="results">
     <div class="results-header">
       <h2>Top 10 alternativas a Claude (ranking global)</h2>
-      <p class="meta">Score ponderado v4.17.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">Score ponderado v4.17.1: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
     </div>
 
     <div class="table-scroll"><table class="results-table">
@@ -216,21 +216,21 @@
     <h3>Si quieres open-source para correr local</h3>
     <p>
       <strong>Mistral Small 4</strong> (Apache 2.0, 24B) es la mejor relación performance/tamaño.
-      Para hardware con más RAM (≥80GB), <strong>Qwen 3.6 Max</strong> o <strong>DeepSeek V4 Flash</strong>
-      compiten con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
+      Para hardware con más RAM (≥80GB), <strong>DeepSeek V4 Flash</strong>
+      compite con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
     <h3>Si quieres contenido en español</h3>
     <p>
-      <strong>Gemini 3.1 Flash Lite</strong> y <strong>Qwen 3.6 Max</strong> superan a Claude Haiku
+      <strong>Gemini 3.1 Flash Lite</strong> supera a Claude Haiku
       en blogs, traducciones y marketing en español. La diferencia se vuelve significativa en textos largos.
     </p>
 
     <h3>Si necesitas razonamiento profundo</h3>
     <p>
       Para razonamiento de élite (matemáticas, lógica formal, deep planning), Claude Opus 4.8 sigue arriba —
-      pero por margen menor al que el marketing sugiere. Las alternativas reales son <strong>DeepSeek R1</strong>
-      y <strong>Hermes 4 70B</strong> (hybrid reasoning, mucho más barato).
+      pero por margen menor al que el marketing sugiere. La alternativa real es <strong>Mercury 2.5</strong>,
+      que lidera el pilar Razonamiento del benchmark.
     </p>
   </section>
 <section class="faq">
@@ -239,7 +239,7 @@
     <details><summary><strong>¿Hay alguna alternativa a Claude que sea mejor en TODO?</strong></summary><p>No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es &#x27;alternativa a Claude para qué&#x27;.</p></details>
     <details><summary><strong>¿Las alternativas a Claude soportan tool calling?</strong></summary><p>Sí — Devstral, Mistral Small 4, Llama 3.3, Hermes 4 y Qwen soportan tool calling estructurado. El benchmark testea esto como badge; modelos sin tool calling robusto se identifican claramente.</p></details>
     <details><summary><strong>¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?</strong></summary><p>Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es &lt;100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI.</p></details>
-    <details><summary><strong>¿Puedo correr alternativas a Claude local sin GPU dedicada?</strong></summary><p>Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/.</p></details>
+    <details><summary><strong>¿Puedo correr alternativas a Claude local sin GPU dedicada?</strong></summary><p>Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/.</p></details>
 </section><section class="cta-block">
   <h2>Prueba la calculadora con tu caso real</h2>
   <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>

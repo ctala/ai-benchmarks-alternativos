@@ -30,6 +30,7 @@ Uso:
 """
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -397,6 +398,112 @@ def _t_huerfanas():
     finally:
         (d / "index.html").unlink(missing_ok=True)
         d.rmdir() if d.exists() else None
+
+
+@prueba("validate C1", "una página que nombra a un retirado sin declararlo en su línea fechada")
+def _t_c1_foto_fechada():
+    # 4-nov-2026. C1 deja pasar a un retirado solo si la página es una foto fechada que lo
+    # declara (`data-retirados`). Control verde con el sitio real; después: la ficha de un
+    # retirado sin su línea, una página de alternativas que lo nombra, y una línea fechada
+    # que declara a otro modelo (no excusa al que no nombra).
+    if _correr("validate.py") != 0:
+        return False  # control verde
+    ficha = ROOT / "docs" / "modelo" / "qwen-3.6-max" / "index.html"
+    alt = ROOT / "docs" / "alternativas-claude" / "index.html"
+    resultados = []
+    with Sabotaje(ficha):
+        html = ficha.read_text(encoding="utf-8")
+        roto = re.sub(r'<p class="meta fechada"[^>]*>.*?</p>', "", html, count=1)
+        if roto == html:
+            raise AssertionError("el sabotaje no encontró la línea fechada en la ficha")
+        ficha.write_text(roto, encoding="utf-8")
+        resultados.append(_correr("validate.py") != 0)
+    with Sabotaje(alt):
+        alt.write_text(alt.read_text(encoding="utf-8").replace(
+            "</main>", "<p>Qwen 3.6 Max</p></main>", 1), encoding="utf-8")
+        resultados.append(_correr("validate.py") != 0)
+    with Sabotaje(ficha):
+        html = ficha.read_text(encoding="utf-8")
+        ficha.write_text(html.replace('data-retirados="Qwen 3.6 Max"', 'data-retirados="Hermes 4 70B"', 1),
+                         encoding="utf-8")
+        resultados.append(_correr("validate.py") != 0)
+    return all(resultados)
+
+
+@prueba("generate_comparison", "una comparación con un lado sin modelos que se salta en silencio")
+def _t_comparacion_sin_modelos():
+    # 4-nov-2026. Saltarse la página dejaba publicada la versión vieja: /fable-5-vs-deepseek-r1/
+    # siguió recomendando a R1 retirado. Control: una comparación real genera; sabotaje: un
+    # lado que no matchea nada tiene que ser error, no aviso.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import generate_comparison as gc
+    real = gc.COMPARISONS[0]
+    pagina = ROOT / "docs" / real["slug"] / "index.html"
+    antes = list(gc.COMPARISONS)
+    argv = sys.argv
+    try:
+        with Sabotaje(pagina):
+            gc.COMPARISONS[:] = [real]
+            sys.argv = ["generate_comparison.py", "--slug", real["slug"]]
+            gc.main()  # control verde: no levanta
+        roto = {**real, "slug": "prueba-lado-vacio",
+                "b": {"name": "Nadie", "match": ["no-existe-ningun-modelo-asi"]}}
+        gc.COMPARISONS[:] = [roto]
+        sys.argv = ["generate_comparison.py", "--slug", "prueba-lado-vacio"]
+        try:
+            gc.main()
+        except SystemExit:
+            return not (ROOT / "docs" / "prueba-lado-vacio").exists()
+        return False
+    finally:
+        gc.COMPARISONS[:] = antes
+        sys.argv = argv
+        shutil.rmtree(ROOT / "docs" / "prueba-lado-vacio", ignore_errors=True)
+
+
+@prueba("generate_manual_landings", "una landing que recomienda un muerto por su nombre a secas")
+def _t_landings_sin_muertos():
+    # 4-nov-2026. El guardia buscaba el nombre CON sufijo («DeepSeek R1 (reasoning)») y el
+    # HTML lo escribe a secas: R1 y las Laguna pasaban sin verse. Y las reviews son fotos
+    # fechadas (DECISIONES, 4-nov-2026): citan a un retirado solo si la línea visible lo
+    # declara y se retiró DESPUÉS de la medición.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import generate_manual_landings as g
+    data = g.load_data()
+    paginas = {}
+    for slug, fn in g.LANDINGS:
+        html = fn(data)
+        if slug in g.FECHADAS:
+            html = g._con_linea_fechada(html, slug, data["models"])
+        paginas[slug] = html
+
+    def rojo(html, slug):
+        try:
+            g._no_recomendar_muertos(html, slug)
+        except SystemExit:
+            return True
+        return False
+
+    if any(rojo(h, s) for s, h in paginas.items()):
+        return False  # control verde: las páginas reales pasan
+    alt = paginas["alternativas-claude"]
+    if rojo(alt.replace("</main>", "<p>Llama 3.3 70B</p></main>", 1), "alternativas-claude"):
+        return False  # retirado en Groq y vivo en OpenRouter: no es un muerto
+    review = paginas["fable-5-review"]
+    sin_linea = re.sub(r'<p class="meta fechada"[^>]*>.*?</p>', "", review, count=1)
+    if sin_linea == review:
+        raise AssertionError("el sabotaje no encontró la línea fechada en fable-5-review")
+    return all([
+        # el bug: el nombre a secas, sin el sufijo de models.json
+        rojo(alt.replace("</main>", "<p><strong>Hermes 4 70B</strong></p></main>", 1),
+             "alternativas-claude"),
+        # una review sin su línea de fecha
+        rojo(sin_linea, "fable-5-review"),
+        # un retirado ANTES de la medición (Devstral Small, 13-jul) no entra en la foto
+        rojo(review.replace("</main>", "<p>Devstral Small</p></main>", 1), "fable-5-review"),
+        # el retirado que la review sí declara, en una página de alternativas, es rojo
+        rojo(alt.replace("</main>", "<p>DeepSeek R1</p></main>", 1), "alternativas-claude"),
+    ])
 
 
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")

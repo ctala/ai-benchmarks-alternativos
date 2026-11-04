@@ -399,22 +399,21 @@ def gen_alternativas_chatgpt(data):
     <h3>Si usas ChatGPT para coding</h3>
     <p>
       <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
-      <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B Groq es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
+      <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura compleja</strong> → solo aquí GPT-5.5 o Claude Opus 4.8 justifican el costo.
     </p>
 
     <h3>Si usas ChatGPT para contenido en español</h3>
     <p>
-      <strong>Qwen 3.6 Max</strong> y <strong>Gemini 3.1 Flash Lite</strong> superan a GPT-4 en
+      <strong>Gemini 3.1 Flash Lite</strong> supera a GPT-4 en
       blog técnico y contenido de actualidad startup en español. Caso real: Cristian usa modelos Qwen en producción para
       <a href="https://ecosistemastartup.com" target="_blank" rel="noopener">ecosistemastartup.com</a>.
     </p>
 
     <h3>Si usas ChatGPT para agentes (con tool calling)</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> + <strong>Hermes 4 70B</strong> son los más sólidos para
-      tool calling estructurado. La velocidad de Groq (240+ tok/s) hace que agentes con muchas iteraciones
-      se sientan instantáneos.
+      <strong>Llama 3.3 70B</strong> es el más sólido para
+      tool calling estructurado.
     </p>
   </section>
 """
@@ -447,6 +446,7 @@ def gen_alternativas_chatgpt(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_claude(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -511,21 +511,21 @@ def gen_alternativas_claude(data):
     <h3>Si quieres open-source para correr local</h3>
     <p>
       <strong>Mistral Small 4</strong> (Apache 2.0, 24B) es la mejor relación performance/tamaño.
-      Para hardware con más RAM (≥80GB), <strong>Qwen 3.6 Max</strong> o <strong>DeepSeek V4 Flash</strong>
-      compiten con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
+      Para hardware con más RAM (≥80GB), <strong>DeepSeek V4 Flash</strong>
+      compite con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
     <h3>Si quieres contenido en español</h3>
     <p>
-      <strong>Gemini 3.1 Flash Lite</strong> y <strong>Qwen 3.6 Max</strong> superan a Claude Haiku
+      <strong>Gemini 3.1 Flash Lite</strong> supera a Claude Haiku
       en blogs, traducciones y marketing en español. La diferencia se vuelve significativa en textos largos.
     </p>
 
     <h3>Si necesitas razonamiento profundo</h3>
     <p>
       Para razonamiento de élite (matemáticas, lógica formal, deep planning), Claude Opus 4.8 sigue arriba —
-      pero por margen menor al que el marketing sugiere. Las alternativas reales son <strong>DeepSeek R1</strong>
-      y <strong>Hermes 4 70B</strong> (hybrid reasoning, mucho más barato).
+      pero por margen menor al que el marketing sugiere. La alternativa real es <strong>{lider_raz}</strong>,
+      que lidera el pilar Razonamiento del benchmark.
     </p>
   </section>
 """
@@ -539,7 +539,7 @@ def gen_alternativas_claude(data):
         ("¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?",
          "Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es <100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI."),
         ("¿Puedo correr alternativas a Claude local sin GPU dedicada?",
-         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
+         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -558,6 +558,8 @@ def gen_alternativas_claude(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_gemini(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
+    lider_cont = _lider_pilar(data, "Contenido")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -606,13 +608,12 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini Flash Lite por la velocidad/costo</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> tiene 240+ tok/s avg (más rápido que Flash Lite) a precio
-      similar. <strong>Mistral Small 4</strong> es la opción más barata con calidad superior.
+      <strong>Mistral Small 4</strong> es la opción más barata con calidad superior.
     </p>
 
     <h3>Si usas Gemini Pro para razonamiento</h3>
     <p>
-      <strong>DeepSeek R1</strong> y <strong>Hermes 4 70B</strong> (hybrid reasoning) cubren bien
+      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark y cubre bien
       razonamiento multi-step. Para razonamiento de élite (matemáticas formales, planning complejo)
       <strong>Claude Opus 4.8</strong> o <strong>GPT-5.5</strong> son superiores pero a costo premium.
     </p>
@@ -626,31 +627,31 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini para contenido en español</h3>
     <p>
-      <strong>Qwen 3.6 Max</strong> es el modelo que destaca en producción para contenido de actualidad startup.
-      <strong>Mistral Small 4</strong> y <strong>Llama 3.3 Groq</strong> también dan resultados sólidos en blog técnico y newsletters.
+      <strong>{lider_cont}</strong> es el que lidera el pilar Contenido del benchmark.
+      <strong>Mistral Small 4</strong> y <strong>Llama 3.3 70B</strong> también dan resultados sólidos en blog técnico y newsletters.
     </p>
 
     <h3>Si usas Gemini para coding</h3>
     <p>
       <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
-      <strong>Templates N8N</strong> → Llama 3.3 70B Groq (ver <a href="/modelos-n8n/">modelos para N8N</a>).
+      <strong>Templates N8N</strong> → Llama 3.3 70B (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura</strong> → GPT-5.5 o Claude Opus 4.8 cuando justifica el costo.
     </p>
 
     <h3>Si usas Gemini para agentes con tool calling</h3>
     <p>
-      <strong>Llama 3.3 70B Groq</strong> + <strong>Hermes 4 70B</strong> son los más sólidos.
+      <strong>Llama 3.3 70B</strong> es el más sólido.
       Detalles en <a href="/modelos-n8n/">modelos para N8N</a>.
     </p>
   </section>
 """
     faqs = [
         ("¿Qué alternativa a Gemini Flash Lite es realmente equivalente?",
-         "Llama 3.3 70B en Groq es el match más cercano: precio similar, velocidad superior (240+ tok/s), calidad ligeramente mejor en español. Gemini Flash Lite gana en latencia bajo cargas globales y multimodal."),
+         "Llama 3.3 70B es el match más cercano: precio similar y calidad ligeramente mejor en español. Gemini Flash Lite gana en latencia bajo cargas globales y multimodal."),
         ("¿Hay alguna alternativa a Gemini gratis?",
          "NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para local sin costos: Mistral Small 4 corre en 32GB RAM."),
         ("¿Gemini 3.1 Flash Lite vale más que las alternativas?",
-         "Gemini 3.1 Flash Lite ranquea alto. Pero DeepSeek V4 Flash, Mistral Small 4 y Llama 3.3 70B Groq lo superan en score absoluto para text-only. Si tu caso es contenido o coding estándar, las alternativas ganan. Si necesitas contexto >100K tokens o multimodal, Gemini sigue."),
+         "Gemini 3.1 Flash Lite ranquea alto. Pero DeepSeek V4 Flash, Mistral Small 4 y Llama 3.3 70B lo superan en score absoluto para text-only. Si tu caso es contenido o coding estándar, las alternativas ganan. Si necesitas contexto >100K tokens o multimodal, Gemini sigue."),
         ("¿Las alternativas a Gemini soportan contexto largo?",
          "Gemini sigue dominando contexto largo (1M+ tokens). Alternativas con contexto &gt;128K viables: Claude Opus 4.8 (1M), GPT-5.5 (256K+), Llama 4 (1M). Para context típico (8K-32K) casi todas las alternativas listadas son válidas."),
         ("¿Vale la pena migrar de Gemini API a alternativas?",
@@ -687,6 +688,7 @@ def row_n8n(rank, m):
 
 def gen_modelos_n8n(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
     c = counts(data)
     # Un agente n8n LLAMA HERRAMIENTAS. Ordenar por el pilar «Agentes» ponía arriba a
     # quien escribe bien sobre agentes: medido el 16-ago, ese pilar correlaciona **−0,20**
@@ -784,8 +786,7 @@ def gen_modelos_n8n(data):
 
     <h3>Si tu agente requiere razonamiento (no solo tool calling)</h3>
     <p>
-      <strong>Hermes 4 70B</strong> tiene "hybrid reasoning" — combina respuestas rápidas con modo
-      razonamiento profundo cuando lo amerita. <strong>DeepSeek R1</strong> es backup sólido si necesitas reasoning puro.
+      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark.
     </p>
 
     <h3>Si quieres open-source para correr local + N8N self-hosted</h3>
@@ -813,7 +814,7 @@ def gen_modelos_n8n(data):
     </p>
     <p>
       Por qué no eligió uno del top 5 del benchmark global: el caso de uso es <em>contenido largo en
-      español sobre actualidad</em>, donde Qwen 3.5 supera en context preservation y tono natural.
+      español sobre actualidad</em>, donde Qwen 3.5 397B supera en context preservation y tono natural.
       <strong>Lección</strong>: el ranking global es referencia, pero valida en tu caso real.
     </p>
   </section>
@@ -1145,6 +1146,7 @@ def gen_modelos_open_source_local(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_deepseek(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -1199,10 +1201,10 @@ def gen_alternativas_deepseek(data):
       y precio similar ($0.11/$0.34).
     </p>
 
-    <h3>Si reemplazas DeepSeek R1 por razonamiento</h3>
+    <h3>Si usas DeepSeek para razonamiento</h3>
     <p>
-      <strong>Claude Opus 4.8</strong> y <strong>Hermes 4 70B</strong> cubren reasoning profundo. Ministral 14B
-      lidera el pilar Razonamiento (8.39) a costo mínimo.
+      <strong>Claude Opus 4.8</strong> cubre reasoning profundo. <strong>{lider_raz}</strong>
+      lidera el pilar Razonamiento del benchmark.
     </p>
 
     <h3>Si quieres alternativa open-source con mejor soporte comercial</h3>
@@ -1215,8 +1217,8 @@ def gen_alternativas_deepseek(data):
     faqs = [
         ("¿Cuál es la mejor alternativa a DeepSeek V4 Flash?",
          "Para velocidad y costo: Llama 4 Scout 17B (Groq). Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
-        ("¿DeepSeek R1 tiene buena alternativa en razonamiento?",
-         "Sí: Claude Opus 4.8, Hermes 4 70B y Ministral 14B (que lidera el pilar Razonamiento en el benchmark)."),
+        ("¿DeepSeek tiene buena alternativa en razonamiento?",
+         f"Sí: Claude Opus 4.8 y {lider_raz}, que lidera el pilar Razonamiento del benchmark."),
         ("¿Las alternativas a DeepSeek son más caras?",
          "Algunas sí, pero no necesariamente mejores. DeepSeek V4 Flash es #1 global porque combina calidad 8.28 con costo $0.10/$0.20. Alternativas con score similar suelen costar más, salvo Llama 4 Scout."),
     ]
@@ -1241,8 +1243,11 @@ def gen_fable_5_review(data):
     _f_runs = fable.get("runs", 0) if fable else 0
     _f_q = f"{fable.get('quality_avg'):.2f}" if fable and fable.get('quality_avg') is not None else "—"
     compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
+    # Review fechada (FECHADAS): la tabla es la foto de la medición y conserva a los que se
+    # retiraron después, con el mismo filtro que `_recomendables` salvo `retired`.
     compare = sorted(
-        [m for m in models if m.get("id") in compare_ids],
+        [m for m in data["models"] if m.get("id") in compare_ids
+         and not m.get("provider_variant") and not m.get("self_hosted")],
         key=lambda m: -m.get("score_global", 0),
     )
     table_models = ([fable] + compare) if fable else compare
@@ -1255,16 +1260,22 @@ def gen_fable_5_review(data):
     url = f"{SITE}/fable-5-review/"
     og_alt = "Review de Claude Fable 5 comparado con Opus 4.8 y Sonnet 4.6"
 
-    best_reasoning = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Razonamiento", 0))
-    best_agents = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Agentes", 0))
 
     # Valores comparativos seguros (buscan por id, no por orden)
     sonnet_coding = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Coding")
     fable_contenido = fmt_pillar(fable, "Contenido")
     sonnet_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Contenido")
     opus_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-opus-4-8"), {}), "Contenido")
-    r1_reasoning = fmt_pillar(best_reasoning, "Razonamiento")
-    best_agents_score = fmt_pillar(best_agents, "Agentes")
+    # La frase dice «DeepSeek R1 lidera este grupo»: la cifra tiene que ser la de R1. Antes
+    # salía del mejor de la tabla, y tras retirar R1 (4-nov-2026) la tabla ya no lo trae y le
+    # habría atribuido a R1 la nota de otro modelo. R1 sigue en los datos con sus runs.
+    _r1 = next((m for m in data["models"] if m.get("key") == "deepseek-r1"), None)
+    r1_reasoning = fmt_pillar(_r1, "Razonamiento") if _r1 else "—"
+    # Corregido el 4-nov-2026: la frase nombra a Sonnet 4.6 y la cifra salía del mejor de la
+    # tabla, que era DeepSeek R1 (6.86). No era la foto: era un error. Se lee la de Sonnet 4.6
+    # canónico (el rankeado, comparable con el Fable de OpenRouter de esta review).
+    _sonnet = next((m for m in data["models"] if m.get("key") == "claude-sonnet-4.6"), None)
+    best_agents_score = fmt_pillar(_sonnet, "Agentes") if _sonnet else "—"
 
     body = f"""  <section class="hero">
     <h1>Claude Fable 5: review con benchmark real ({MES_DATA})</h1>
@@ -1334,7 +1345,7 @@ def gen_fable_5_review(data):
       <li><strong>Coding:</strong> {fmt_pillar(fable, 'Coding')}/10. Por debajo de Sonnet 4.6 ({sonnet_coding}/10) y muy por debajo de modelos open-source baratos como Ministral 14B. No lo elegiría para code-generation en producción.</li>
       <li><strong>Contenido:</strong> {fable_contenido}/10. Bueno, pero Opus 4.8 ({opus_contenido}/10) y Sonnet 4.6 ({sonnet_contenido}/10) rinden similar o mejor por menos.</li>
       <li><strong>Razonamiento:</strong> {fmt_pillar(fable, 'Razonamiento')}/10. Sólido, pero DeepSeek R1 lidera este grupo ({r1_reasoning}/10).</li>
-      <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera.</li>
+      <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera <em>(corregido el 4-nov-2026)</em>.</li>
     </ul>
   </section>
 
@@ -1348,7 +1359,6 @@ def gen_fable_5_review(data):
       <li><a href="/fable-5-vs-opus-4-8/">Fable 5 vs Claude Opus 4.8</a></li>
       <li><a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Claude Sonnet 4.6</a></li>
       <li><a href="/fable-5-vs-minimax-m3/">Fable 5 vs MiniMax M3</a></li>
-      <li><a href="/fable-5-vs-deepseek-r1/">Fable 5 vs DeepSeek R1</a></li>
     </ul>
   </section>
 """
@@ -1369,6 +1379,15 @@ def gen_fable_5_review(data):
         '<a href="/alternativas-claude/">alternativas a Claude</a>',
         '<a href="/modelos-baratos-emprendedores/">modelos baratos</a>',
     ])
+    # Contrato declarado: una review fechada no se adivina. Recomienda los vivos de su tabla;
+    # los que se retiraron después siguen en la foto, pero no como opción para el lector.
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from contrato_pagina import emitir as _emitir
+    body += "\n" + _emitir(
+        tipo="landing", generador="generate_manual_landings",
+        recomienda=[m["name"] for m in table_models if not m.get("retired")],
+        nota=f"review fechada: foto de la medición del {FECHADAS['fable-5-review']}")
     extra = f"<script type=\"application/ld+json\">\n{faq_schema(faqs)}\n</script>"
     return header(title, desc, kw, url, og_alt=og_alt, extra_head=extra) + body + FOOTER
 
@@ -1618,32 +1637,17 @@ def _no_recomendar_muertos(html: str, slug: str) -> None:
     if not mj.exists():
         return
     datos = _j.loads(mj.read_text())["models"]
-    muertos = [m["name"] for m in datos if m.get("retired")]
-    vivos = [m["name"] for m in datos if not m.get("retired")]
-
-    # Matching por SUBCADENA no sirve. Existe "Devstral Small 2 24B" (VIVO) que contiene
-    # "Devstral Small" (MUERTO): buscar el muerto a secas bloquearía una página correcta.
-    # Es el mismo falso positivo del viejo matcher de keywords, que reprobaba respuestas
-    # por usar sinónimos.
-    #
-    # Regla: una mención al muerto cuenta SOLO si en esa posición no empieza el nombre de
-    # un modelo vivo más largo.
-    # El nombre en models.json trae el sufijo del proveedor —"Devstral Small 2 24B (DGX
-    # Spark Q4_K_M)"— pero el HTML lo escribe sin él. Comparamos sin el paréntesis.
-    import re as _re
-    _limpio = lambda s: _re.sub(r"\s*\([^)]*\)", "", s).strip()
-
-    encontrados = []
-    for n in muertos:
-        extensiones = [_limpio(v) for v in vivos
-                       if _limpio(v).startswith(n) and _limpio(v) != n]
-        i = 0
-        while (i := html.find(n, i)) != -1:
-            if any(html.startswith(v, i) for v in extensiones):
-                i += len(n)          # es "Devstral Small 2 24B", no el muerto
-                continue
-            encontrados.append(n)    # es el muerto de verdad
-            break
+    encontrados = _muertos_citados(html, datos)
+    if slug in FECHADAS:
+        # Una review es una foto fechada (DECISIONES, 4-nov-2026): puede citar a un modelo que
+        # se retiró DESPUÉS de medirla, siempre que la línea visible lo diga. Uno retirado antes
+        # de la medición, o una review sin la línea, sigue siendo rojo.
+        m = re.search(r'<p class="meta fechada" data-medido="([^"]+)" data-retirados="([^"]*)"', html)
+        if not m:
+            raise SystemExit(f"\n  ERROR en /{slug}/: es una review fechada y no lleva la línea de "
+                             f"fecha de medición.\n")
+        declarados = set(filter(None, m.group(2).split("|")))
+        encontrados = [n for n in encontrados if n not in declarados]
 
     if encontrados:
         raise SystemExit(
@@ -1653,6 +1657,109 @@ def _no_recomendar_muertos(html: str, slug: str) -> None:
             f"  antes de publicar. Un modelo que devuelve 404 no es un candidato.\n"
         )
 
+
+def _limpio(nombre: str) -> str:
+    """El nombre sin el sufijo entre paréntesis: el HTML escribe «DeepSeek R1», no
+    «DeepSeek R1 (reasoning)»."""
+    return re.sub(r"\s*\([^)]*\)", "", nombre).strip()
+
+
+def _muertos(datos) -> dict:
+    """Nombre a secas → fecha de retiro más reciente. Un nombre que sigue vivo por otro
+    proveedor (Llama 3.3 70B: retirado en Groq, vivo en OpenRouter) no es un muerto.
+    Hasta el 4-nov-2026 se buscaba el nombre CON sufijo y «DeepSeek R1 (reasoning)» o
+    «Poolside Laguna XS 2.1» no aparecían nunca en el HTML: pasaban sin verse."""
+    vivos = {_limpio(m["name"]) for m in datos if not m.get("retired")}
+    out: dict = {}
+    for m in datos:
+        n = _limpio(m["name"])
+        if m.get("retired") and n not in vivos:
+            out[n] = max(out.get(n, ""), m.get("retired_at") or "")
+    return out
+
+
+def _muertos_citados(html: str, datos) -> list:
+    """Los muertos que el HTML nombra.
+
+    Matching por SUBCADENA no sirve. Existe "Devstral Small 2 24B" (VIVO) que contiene
+    "Devstral Small" (MUERTO): buscar el muerto a secas bloquearía una página correcta.
+    Regla: una mención al muerto cuenta SOLO si en esa posición no empieza el nombre de un
+    modelo vivo más largo."""
+    vivos = sorted({_limpio(m["name"]) for m in datos if not m.get("retired")})
+    encontrados = []
+    for n in sorted(_muertos(datos)):
+        extensiones = [v for v in vivos if v.startswith(n) and v != n]
+        i = 0
+        while (i := html.find(n, i)) != -1:
+            if any(html.startswith(v, i) for v in extensiones):
+                i += len(n)          # es "Devstral Small 2 24B", no el muerto
+                continue
+            encontrados.append(n)    # es el muerto de verdad
+            break
+    return encontrados
+
+
+# Reviews: fotos fechadas (DECISIONES, 4-nov-2026). La fecha es la de la medición que citan
+# sus cifras escritas a mano (la de publicación). No se les reescriben cifras: llevan una línea
+# visible con esa fecha y los modelos citados que se retiraron después.
+FECHADAS = {
+    "fable-5-review": "2026-07-17",
+    "glm-5.2-explicado": "2026-06-29",
+}
+_MESES = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+          "septiembre", "octubre", "noviembre", "diciembre")
+
+
+def _fecha_es(iso: str) -> str:
+    a, m, d = iso.split("-")
+    return f"{int(d)} de {_MESES[int(m) - 1]} de {a}"
+
+
+def _con_linea_fechada(html: str, slug: str, datos) -> str:
+    """Agrega, bajo el <h1>, la línea visible de la foto fechada. Lista solo los citados que se
+    retiraron DESPUÉS de la medición; uno retirado antes no entra y el guardia lo deja en rojo."""
+    medido = FECHADAS[slug]
+    muertos = _muertos(datos)
+    despues = [n for n in _muertos_citados(html, datos) if muertos[n] > medido]
+    if despues:
+        detalle = "Se retiraron después: " + ", ".join(
+            f"{n} (el {_fecha_es(muertos[n])})" for n in despues) + "."
+    else:
+        detalle = "Ningún modelo citado se retiró después."
+    linea = (f'<p class="meta fechada" data-medido="{medido}" data-retirados="{"|".join(despues)}">'
+             f"Review con datos medidos el {_fecha_es(medido)}; sus cifras son de esa fecha. "
+             f"{detalle}</p>")
+    return re.sub(r"</h1>", lambda m: m.group(0) + "\n    " + linea, html, count=1)
+
+
+def _lider_pilar(data, pilar: str) -> str:
+    """El nombre del mejor vivo de un pilar, para la prosa que dice «lidera el pilar X».
+
+    Candidatos: el conjunto base — rankeados recomendables y vigentes en `models.py` (sin
+    `unavailable` ni `pendiente_proveedor`). Gana la mayor nota PUBLICADA del pilar
+    (`score_by_pillar`, dos decimales); si empatan, la mayor calidad dentro del pilar
+    (`dims_by_pillar[pilar].quality_avg`), y después la key, para que el resultado no dependa
+    del orden (DECISIONES, 4-nov-2026). Caso real: GPT-5.6 Luna y Ling 3.0 Flash VL empataban
+    en Contenido con 8.24; gana Luna por calidad (8.899 contra 8.822).
+
+    El nombre sale del dato y no se escribe a mano: una frase escrita «X lidera el pilar» se
+    queda mintiendo en cuanto otro modelo lo supera (pasó con «Ministral 14B lidera el pilar
+    Razonamiento (8.39)», falso al 4-nov-2026)."""
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from models import MODELS, OLLAMA_MODELS
+    cat = {**OLLAMA_MODELS, **MODELS}
+    cands = [m for m in _recomendables(data)
+             if m.get("ranked") and (m.get("score_by_pillar") or {}).get(pilar) is not None
+             and not cat.get(m["key"], {}).get("unavailable")
+             and not cat.get(m["key"], {}).get("pendiente_proveedor")]
+    if not cands:
+        raise SystemExit(f"_lider_pilar: ningún candidato en el pilar {pilar!r}")
+
+    def clave(m):
+        calidad = ((m.get("dims_by_pillar") or {}).get(pilar) or {}).get("quality_avg") or 0
+        return (m["score_by_pillar"][pilar], calidad, m["key"])
+    return max(cands, key=clave)["name"]
 
 
 def _recomendables(data):
@@ -1714,6 +1821,8 @@ def main():
         if args.slug and slug != args.slug:
             continue
         out = fn(data)
+        if slug in FECHADAS:
+            out = _con_linea_fechada(out, slug, data["models"])
         # Este archivo hardcodea recomendaciones (nombres y precios en el HTML). Eso no
         # cuadra solo: cuando un proveedor apaga un modelo, el texto sigue recomendándolo.
         # El guardia hace que reviente en vez de publicarse.
