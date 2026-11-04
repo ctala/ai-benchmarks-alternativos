@@ -64,6 +64,10 @@ SANCIONADOS = {
     # es justo la señal que este chequeo busca, y prefiero ese sobresalto a que se escape
     # uno que sí mida. (Si algún día este script empieza a puntuar algo, sale de esta lista.)
     "benchmarks/generate_censo_proveedores.py",
+    # NO mide: lee el mismo endpoints API que el censo para DECLARAR en qué proveedor se
+    # rinde cada abierto (corte-v5 6.3). Ni un prompt, ni un modelo llamado; la medición
+    # en ese proveedor la hace el adapter, que lee la declaración.
+    "benchmarks/proveedor_fijo.py",
     # NO mide: instancia el provider para ESPIAR el request que se armaría y corta
     # con una excepción antes de que salga a la red (ver `_espiar_request`). Está acá
     # justamente porque el 2-sep se descubrió que la única forma de comprobar que un

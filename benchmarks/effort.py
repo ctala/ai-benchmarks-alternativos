@@ -78,6 +78,9 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 FOTO = AQUI / "reasoning_openrouter.json"
+# corte-v5 6.2: los rankeados que no van por OpenRouter no salen en su API. Su default se
+# lee de la documentación del proveedor, con la cita, y se versiona aparte.
+FOTO_DIRECTA = AQUI / "reasoning_directo.json"
 OR_API = "https://openrouter.ai/api/v1/models"
 
 # Niveles que aparecen en los `supported_efforts` de OpenRouter (14-sep-2026). Un test que
@@ -101,13 +104,100 @@ def cargar_foto() -> dict:
     return _foto_cache
 
 
+# ── El examen de v5: thinking por peldaño (DECISIONES, 4-nov-2026; revisa la del 14-sep) ──
+#
+# La regla del 14-sep («el examen es el default») se revisó con el post «Modo thinking:
+# cuándo usarlo»: en los peldaños 1 y 2 (buscar, ordenar) el razonamiento solo agrega
+# costo y latencia, así que un modelo que se PUEDE apagar se mide apagado ahí. En los
+# peldaños 3 y 4, al default. Un modelo que siempre piensa se mide al default en todo, y
+# la etiqueta lo dice. El peldaño de cada suite vive en `suites.PELDANO`.
+#
+# Cómo se apaga: con `reasoning: {effort: "none"}` si el modelo declara ese nivel, y con
+# `reasoning: {enabled: false}` si no declara niveles. El canario lo verifica mirando que
+# `reasoning_tokens` dé 0: un apagado que el proveedor ignora es un examen distinto del
+# que dice la etiqueta.
+APAGADO = "apagado"
+
+
+def clase(model_id: str, foto: dict | None = None) -> str:
+    """interruptor · siempre_piensa · apagado_por_defecto · sin_razonamiento · sin_foto."""
+    modelos = (foto if foto is not None else cargar_foto()).get("modelos", {})
+    if model_id not in modelos:
+        return "sin_foto"
+    rz = modelos[model_id]
+    if not rz:
+        return "sin_razonamiento"
+    if rz.get("default_enabled") is False:
+        return "apagado_por_defecto"
+    if rz.get("mandatory"):
+        return "siempre_piensa"
+    return "interruptor"
+
+
+def foto_directa() -> dict:
+    try:
+        return json.loads(FOTO_DIRECTA.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {"modelos": {}}
+
+
+def nivel_declarado(model_id: str, provider: str = "openrouter") -> str | None:
+    """El default de razonamiento publicado para un modelo, en una palabra.
+
+    `default:X` · `sin_razonamiento` · `apagado_por_defecto` · `no_registrado` (ausente de la
+    API el día de la foto) · `None` si nadie lo sabe.
+    Es lo que la línea «medido en» de cada ficha consume (corte-v5 3.5.c).
+    """
+    foto = cargar_foto() if provider == "openrouter" else foto_directa()
+    modelos = foto.get("modelos", {})
+    if model_id not in modelos:
+        # Ausente de la API de OpenRouter el día de la foto: sus runs son históricos y su
+        # default de entonces no quedó escrito. Se publica así, sin inventarlo.
+        return "no_registrado" if model_id in foto.get("ausentes", []) else None
+    rz = modelos[model_id]
+    if not rz:
+        return "sin_razonamiento"
+    if rz.get("default_enabled") is False or rz.get("default_effort") == "none":
+        return "apagado_por_defecto"
+    return f"default:{rz.get('default_effort') or 'sin_declarar'}"
+
+
+def pedido_por_suite(suite: str | None) -> str | None:
+    """Lo que el examen de v5 pide para esta suite: `APAGADO` en peldaño 1-2, si no nada."""
+    try:
+        from benchmarks.suites import peldano_de
+    except ImportError:  # corriendo desde benchmarks/ como script
+        from suites import peldano_de
+    p = peldano_de(suite)
+    return APAGADO if p is not None and p <= 2 else None
+
+
+def _apagar(model_id: str, rz: dict, cls: str) -> tuple[dict | None, str]:
+    default = rz.get("default_effort") or "sin_declarar"
+    if cls == "interruptor":
+        if "none" in (rz.get("supported_efforts") or []):
+            return {"effort": "none"}, "apagado:effort_none"
+        return {"enabled": False}, "apagado:enabled_false"
+    if cls == "siempre_piensa":
+        return None, f"siempre_piensa:default:{default}"
+    if cls == "apagado_por_defecto":
+        return None, "apagado_por_defecto"
+    return None, "sin_razonamiento" if cls == "sin_razonamiento" else cls
+
+
 def resolver(model_id: str, pedido: str | None = None,
-             foto: dict | None = None) -> tuple[str | None, str]:
-    """(effort a mandar —None: no se manda nada—, etiqueta que queda en el run)."""
+             foto: dict | None = None) -> tuple[str | dict | None, str]:
+    """(effort a mandar —None: no se manda nada—, etiqueta que queda en el run).
+
+    Con `pedido == APAGADO` devuelve el bloque `reasoning` entero (un dict), porque
+    apagar no es un nivel: según el modelo es `{effort: none}` o `{enabled: false}`.
+    """
     modelos = (foto if foto is not None else cargar_foto()).get("modelos", {})
     if model_id not in modelos:
         return None, "sin_foto"
     rz = modelos[model_id] or {}
+    if (pedido or "").strip().lower() == APAGADO:
+        return _apagar(model_id, rz, clase(model_id, foto))
     niveles = rz.get("supported_efforts") or []
     if not niveles:
         return None, "sin_niveles" if rz else "sin_metadata"

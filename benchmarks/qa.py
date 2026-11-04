@@ -70,6 +70,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_consistency.py"], True, True),
     ("suites", "el registro de ejes es UNO y nadie lo copió a mano",
      [PY, "benchmarks/check_suites.py"], True, True),
+    # 4-nov-2026 (corte-v5 6.5): un examen rendido en varios proveedores o cuantizaciones
+    # es una mezcla. INFORMATIVO: nace en rojo en la mayoría; bloqueante en 5.2.a.
+    ("datos", "ningún rankeado rindió su examen en más de un proveedor (informativo)",
+     [PY, "benchmarks/check_mezcla.py"], False, True),
     # 14-sep-2026: el effort que se manda sale de lo que cada modelo declara, no de un
     # string fijo. Bloqueante porque nació en verde.
     ("datos", "el effort de razonamiento sale de la regla y de la foto de OpenRouter",

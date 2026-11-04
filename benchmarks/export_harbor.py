@@ -163,6 +163,18 @@ def _checksum_vigente() -> dict[str, str]:
     return vigente
 
 
+_PROVEEDOR = re.compile(r'"provider"\s*:\s*"([^"]+)"')
+
+
+def _proveedores(trayectoria: str) -> list[str]:
+    """Quién sirvió cada paso del intento, según la trayectoria (corte-v5 6.4).
+
+    mini-swe-agent guarda `"provider"` por llamada y el export lo tiraba: un intento de
+    10 pasos podía repartirse entre tres endpoints sin que nada lo dijera.
+    """
+    return sorted(set(_PROVEEDOR.findall(trayectoria)))
+
+
 def recolectar() -> dict:
     por_modelo: dict[tuple[str, str], list[dict]] = defaultdict(list)
     meta_tarea: dict[str, dict] = {}
@@ -229,7 +241,8 @@ def recolectar() -> dict:
         costo, fuente = _costo(tray, modelo)
         por_modelo[(tarea, modelo)].append(
             {"reward": reward, "causa": causa, "detalle": detalle,
-             "costo_usd": costo, "costo_fuente": fuente, "checksum": checksum})
+             "costo_usd": costo, "costo_fuente": fuente, "checksum": checksum,
+             "proveedores": _proveedores(tray)})
 
     return _resumir(por_modelo, meta_tarea, descartadas)
 
@@ -265,6 +278,8 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             "costo_usd": round(sum(costos), 4) if costos else None,
             # Cuántos intentos tienen costo conocido: un total sobre 1 de 3 no es el total.
             "costo_intentos": len(costos),
+            # Proveedores que sirvieron los intentos. Más de uno = examen mezclado (6.5).
+            "proveedores": sorted({p for i in intentos for p in i.get("proveedores") or []}),
         }
         detalle = next((i["detalle"] for i in intentos if i["detalle"]), None)
         if detalle:

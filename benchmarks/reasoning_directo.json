@@ -1,0 +1,16 @@
+{
+ "fuente": "https://developers.openai.com/api/docs/models/<id> (sección «Reasoning.effort supports»), leída el 2026-11-04",
+ "nota": "Foto propia del default de razonamiento de los rankeados que NO van por OpenRouter (corte-v5 6.2). Mismos campos que reasoning_openrouter.json; null = el modelo no razona. Se rehace a mano leyendo la documentación del proveedor.",
+ "tomada": "2026-11-04",
+ "modelos": {
+  "gpt-4.1": null,
+  "gpt-4.1-mini": null,
+  "gpt-5.4": {"default_effort": "none", "mandatory": false, "supported_efforts": ["none", "low", "medium", "high", "xhigh"], "cita": "Reasoning.effort supports: none (default), low, medium, high and xhigh"},
+  "gpt-5.4-mini": {"default_effort": "none", "mandatory": false, "supported_efforts": ["none", "low", "medium", "high", "xhigh"], "cita": "Reasoning.effort supports: none (default), low, medium, high and xhigh"},
+  "gpt-5.5": {"default_effort": "medium", "mandatory": false, "supported_efforts": ["none", "low", "medium", "high", "xhigh"], "cita": "Reasoning.effort supports: none, low, medium (default), high and xhigh"}
+ },
+ "citas_sin_razonamiento": {
+  "gpt-4.1": "Smartest non-reasoning model … low latency without a reasoning step",
+  "gpt-4.1-mini": "low latency without a reasoning step"
+ }
+}

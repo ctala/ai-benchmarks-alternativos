@@ -21,8 +21,10 @@ import httpx
 # adapter se carga desde la raíz (`providers.adapters`) y desde `benchmarks/`.
 try:
     from benchmarks import effort as _effort_mod
+    from benchmarks import proveedor_fijo as _fijo_mod
 except ImportError:  # sys.path con `benchmarks/` pero sin la raíz
     import effort as _effort_mod
+    import proveedor_fijo as _fijo_mod
 
 
 @dataclass
@@ -371,7 +373,9 @@ class UnifiedProvider:
             else:
                 _ef, _ef_etiqueta = None, "no_aplica_proveedor"
             result.metadata["reasoning_effort"] = _ef_etiqueta
-            _effort = {"effort": _ef} if _ef else None
+            # Un dict es el bloque `reasoning` entero: así llega el APAGADO del examen de v5
+            # (`{effort: none}` o `{enabled: false}`, según declare el modelo).
+            _effort = _ef if isinstance(_ef, dict) else ({"effort": _ef} if _ef else None)
 
             # Ollama (local o cloud) acepta `keep_alive` como extension del body.
             # Mantiene el modelo cargado en VRAM 30 min entre requests durante el
@@ -438,6 +442,16 @@ class UnifiedProvider:
                 if getattr(_effort_mod, "declara", lambda *a, **k: None)(model, token_param) is False:
                     kwargs.pop(token_param, None)
                     result.metadata["techo_omitido"] = token_param
+
+            # ── Proveedor fijo (corte-v5 6.3) ────────────────────────────────────
+            # Un abierto con proveedor declarado se rinde SOLO ahí: `order` con su tag y
+            # sin fallback. Se suma a `require_parameters` (el endpoint declarado ya se
+            # eligió por declarar tools y max_tokens). Si OpenRouter lo sirve igual desde
+            # otro lado, el run se marca fallido más abajo.
+            _ruteo = (_fijo_mod.ruteo(model) if self.provider_name == "openrouter" else None)
+            if _ruteo:
+                extra_body["provider"] = {**extra_body.get("provider", {}), **_ruteo}
+                result.metadata["proveedor_declarado"] = _ruteo["order"][0]
 
             if "ollama" in self.provider_name.lower():
                 extra_body["keep_alive"] = "30m"
@@ -526,6 +540,18 @@ class UnifiedProvider:
             upstream = getattr(response, "provider", None)
             if upstream:
                 result.metadata["upstream_provider"] = str(upstream)
+                # 6.4: la cuantización no se calcula, se lee (declaración o censo del día).
+                _q = _fijo_mod.cuantizacion_de(model, str(upstream))
+                if _q:
+                    result.metadata["cuantizacion"] = _q
+                # 6.3: un run servido fuera del proveedor declarado no es un éxito.
+                if _fijo_mod.coincide(model, str(upstream)) is False:
+                    result.success = False
+                    result.error = (f"proveedor fijo violado: declarado "
+                                    f"{result.metadata.get('proveedor_declarado')}, lo sirvió "
+                                    f"{upstream}")
+                    result.latency_total = end - start
+                    return result
             else:
                 # `response.provider` lo devuelve OPENROUTER, porque es lo único que
                 # rutea. En una API directa (NIM, MiniMax, Groq, Kimi) no hay ruteo: el

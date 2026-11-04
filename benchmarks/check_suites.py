@@ -32,6 +32,9 @@ S4. Toda suite con pilar y `en_promedio: False` tiene el motivo escrito. Es la c
     publicados y se toma con simulación (`PLAN-ESTABILIDAD.md`), no de pasada.
 S6. Lo que el registro DECLARA sobre el promedio es lo que el export HACE. También
     AVISO: hoy nace en rojo, y un bloqueante que arranca fallando se aprende a ignorar.
+S7. Toda suite del índice tiene peldaño (1-4) y ninguna otra lo tiene (corte-v5 3.1.a).
+    El peldaño decide con qué thinking se mide cada suite: una suite del índice sin
+    peldaño se mediría al default en silencio, y eso es un examen distinto del resto.
 
 Uso:  python benchmarks/check_suites.py
 """
@@ -44,7 +47,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from benchmarks.suites import SUITES  # noqa: E402
+from benchmarks.suites import SUITES, PELDANO, del_indice  # noqa: E402
 
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
 APP_JS = ROOT / "docs" / "app.js"
@@ -135,8 +138,26 @@ def s6_lo_declarado_es_lo_que_promedia(verbose=False) -> list[str]:
     return avisos
 
 
+def s7_peldanos(verbose=False) -> list[str]:
+    fallos = []
+    idx = del_indice()
+    for s in sorted(idx - set(PELDANO)):
+        fallos.append(f"S7 · `{s}` está en el índice y no tiene peldaño en suites.PELDANO — "
+                      f"se mediría al default sin que nada lo diga")
+    for s in sorted(set(PELDANO) - idx):
+        fallos.append(f"S7 · `{s}` tiene peldaño y no está en el índice — el peldaño solo "
+                      f"aplica al examen que se compara")
+    for s, p in sorted(PELDANO.items()):
+        if p not in (1, 2, 3, 4):
+            fallos.append(f"S7 · `{s}` tiene peldaño {p!r}; la escalera va de 1 a 4")
+    if verbose and not fallos:
+        print(f"  ✅ S7 · las {len(idx)} suites del índice tienen peldaño")
+    return fallos
+
+
 def main() -> int:
     fallos, avisos = [], []
+    fallos += s7_peldanos(True)
     fallos += s5_nadie_reimplementa_el_indice(True)
     avisos += s6_lo_declarado_es_lo_que_promedia(True)
     d = json.loads(MODELS_JSON.read_text())

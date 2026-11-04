@@ -559,6 +559,77 @@ def test_las_notas_por_suite_estan_en_rango(rankeados):
             assert 0 <= v <= 10, f"{m['name']}/{s} = {v}"
 
 
+
+# ── corte-v5 grupo 6: examen con thinking por peldaño y proveedor fijo ──────────
+def _ep(tag, prov, q, params=("tools", "max_tokens", "reasoning"), status=0, prompt="0.000001"):
+    return {"tag": tag, "provider_name": prov, "quantization": q, "status": status,
+            "supported_parameters": list(params),
+            "pricing": {"prompt": prompt, "completion": prompt}}
+
+
+def test_proveedor_fijo_sin_cuantizar_primero_y_si_no_el_autor():
+    # DECISIONES 4-nov: la más alta disponible, o la del autor si no la hay sin cuantizar.
+    from benchmarks import proveedor_fijo as pf
+    from collections import Counter
+    eps = [_ep("deepinfra/bf16", "DeepInfra", "bf16"), _ep("z-ai/fp8", "Z.AI", "fp8"),
+           _ep("x/fp8", "X", "fp8")]
+    e, motivo = pf.elegir("z-ai/glm-5.1", eps, Counter(), {"tools", "max_tokens"})
+    assert (e["tag"], motivo) == ("deepinfra/bf16", "sin cuantizar")
+    e, motivo = pf.elegir("z-ai/glm-5.1", eps[1:], Counter({"X": 99}), {"tools", "max_tokens"})
+    assert (e["tag"], motivo) == ("z-ai/fp8", "autor")
+
+
+def test_proveedor_fijo_sin_autor_elige_cuantizacion_y_descarta_no_aptos():
+    from benchmarks import proveedor_fijo as pf
+    from collections import Counter
+    eps = [_ep("a/fp4", "A", "fp4"),
+           _ep("b/bf16", "B", "bf16", params=("max_tokens",)),          # sin tools
+           _ep("c/bf16", "C", "bf16", status=-2),                         # caído
+           _ep("d/fp8/turbo", "D", "fp8"),                                # variante
+           _ep("e/fp8", "E", "fp8", prompt="0.000009"),
+           _ep("f/fp8", "F", "fp8", prompt="0.000001")]
+    e, motivo = pf.elegir("meta-llama/x", eps, Counter(), {"tools", "max_tokens"})
+    assert (e["tag"], motivo) == ("f/fp8", "cuantización más alta")    # empate → más barato
+    e, _ = pf.elegir("meta-llama/x", eps, Counter({"E": 30}), {"tools", "max_tokens"})
+    assert e["tag"] == "e/fp8"                                          # empate → más runs
+    assert pf.elegir("meta-llama/x", eps[1:4], Counter(), {"tools", "max_tokens"})[0] is None
+
+
+def test_proveedor_fijo_coincide_y_ruteo(monkeypatch):
+    from benchmarks import proveedor_fijo as pf
+    monkeypatch.setattr(pf, "_cache", {"modelos": {"k": {
+        "id": "z-ai/glm-5.1", "tag": "z-ai/fp8", "provider_name": "Z.AI", "cuantizacion": "fp8"}}})
+    assert pf.ruteo("z-ai/glm-5.1") == {"order": ["z-ai/fp8"], "allow_fallbacks": False}
+    assert pf.coincide("z-ai/glm-5.1", "Z.AI") is True
+    assert pf.coincide("z-ai/glm-5.1", "DeepInfra") is False
+    assert pf.coincide("otro/modelo", "DeepInfra") is None and pf.ruteo("otro/modelo") is None
+    assert pf.cuantizacion_de("z-ai/glm-5.1", "Z.AI") == "fp8"
+
+
+def test_export_harbor_conserva_el_proveedor_de_la_trayectoria():
+    from benchmarks import export_harbor as eh
+    tray = '{"messages": [{"extra": {"provider": "Alibaba"}}, {"provider":"DeepInfra"}, {"provider": "Alibaba"}]}'
+    assert eh._proveedores(tray) == ["Alibaba", "DeepInfra"]
+    assert eh._proveedores("") == []
+
+
+def test_effort_apagado_por_clase():
+    from benchmarks import effort
+    foto = {"modelos": {
+        "i/none": {"mandatory": False, "supported_efforts": ["high", "none"], "default_effort": "high"},
+        "i/sin": {"mandatory": False},
+        "s/p": {"mandatory": True, "supported_efforts": ["high"], "default_effort": "high"},
+        "a/d": {"default_enabled": False, "supported_efforts": ["high"]},
+        "n/r": None}}
+    assert effort.resolver("i/none", "apagado", foto) == ({"effort": "none"}, "apagado:effort_none")
+    assert effort.resolver("i/sin", "apagado", foto) == ({"enabled": False}, "apagado:enabled_false")
+    assert effort.resolver("s/p", "apagado", foto) == (None, "siempre_piensa:default:high")
+    assert effort.resolver("a/d", "apagado", foto)[0] is None
+    assert effort.resolver("n/r", "apagado", foto)[0] is None
+    assert effort.pedido_por_suite("hallucination") == "apagado"
+    assert effort.pedido_por_suite("deep_reasoning") is None
+    assert effort.pedido_por_suite("niah_es") is None
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
 

@@ -128,6 +128,37 @@ JUEZ_CANONICO = "phi4-or"
 # **los 7 aceptan los cuatro techos.** Por eso 98.304 y no 131.072.
 
 
+# ── Peldaño de cada suite (corte-v5 3.1.a · DECISIONES, 4-nov-2026) ──────────
+#
+# Del post «Modo thinking: cuándo usarlo» (cristiantala.com/modo-thinking-ia-cuando-usarlo/):
+# el razonamiento paga cuando la tarea sube la escalera, y en los dos primeros peldaños
+# solo agrega costo y latencia.
+#
+#     1 buscar un dato · 2 ordenar la data · 3 concluir · 4 decidir
+#
+# Decide el MODO del examen de v5 (`effort.modo_examen`): en los peldaños 1 y 2 un modelo
+# con interruptor se mide con el thinking APAGADO; en el 3 y el 4, a su default. La
+# escritura va en el 2 (decisión de Cristian). Toda suite del índice tiene peldaño y
+# ninguna otra lo tiene: lo exige `check_suites.py` S7. Una suite fuera del índice se mide
+# al default (no es parte del examen que se compara).
+PELDANO = {
+    "string_precision": 1, "hallucination": 1, "ocr_extraction": 1,
+    "summarization": 2, "translation": 2, "structured_output": 2, "task_management": 2,
+    "customer_support": 2, "integridad_idioma": 2, "policy_adherence": 2,
+    "content_generation": 2, "presentation": 2, "startup_content": 2,
+    "news_seo_writing": 2, "sales_outreach": 2,
+    "business_audit": 3, "verificar_claim": 3, "reasoning": 3, "content_verificable": 3,
+    "creativity": 3, "tool_calling_adversarial": 3, "multi_turn": 3, "orchestration": 3,
+    "agent_capabilities": 3, "code_generation": 3,
+    "business_strategy": 4, "strategy": 4, "deep_reasoning": 4, "agent_long_horizon": 4,
+}
+
+
+def peldano_de(suite: str | None) -> int | None:
+    """El peldaño de la escalera (1-4) de una suite del índice; `None` fuera de él."""
+    return PELDANO.get(suite) if suite else None
+
+
 def presupuesto_de(suite: str) -> int:
     """Cuántos tokens de salida se le dan a esta tarea. Igual para TODOS los modelos."""
     return PRESUPUESTO_SALIDA.get(suite, PRESUPUESTO_DEFECTO)

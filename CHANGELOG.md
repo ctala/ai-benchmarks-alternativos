@@ -5,6 +5,16 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Examen de v5, código listo para la ventana: thinking por peldaño y proveedor fijo (4-nov-2026, corte-v5 3.1.a y
+  6.1-6.5).** Cada suite del índice declara su peldaño (`suites.PELDANO`, S7 en `check_suites`). En peldaño 1 y 2 el
+  runner pide el thinking apagado y `effort.resolver` lo traduce por clase: `{effort: none}` o `{enabled: false}` al
+  que tiene interruptor; nada, con etiqueta `siempre_piensa:default:X`, al que no (E8 en `check_effort`). Foto propia
+  del default para los 5 de API directa (`reasoning_directo.json`, con la cita de OpenAI) y nivel «no registrado» para
+  5 rankeados que ya no figuran en la API de OpenRouter (E9). `proveedor_fijo.py` declara un endpoint por abierto (46
+  de 47; qwen3-coder sin endpoint apto); el adapter fija el ruteo sin fallback, falla el run servido por otro
+  proveedor y guarda la cuantización. Harbor recibe el mismo ruteo y `export_harbor` conserva los proveedores de la
+  trayectoria. `check_mezcla.py` (informativo hasta 5.2.a): 65 rankeados con el examen mezclado. Nada medido todavía.
+
 - **El costo de Harbor decía $0 y la prueba lo aprobaba (4-nov-2026).** `export_harbor` leía el acumulado que
   mini-swe-agent imprime redondeado a dos decimales ($0,0029 → $0,00), y el `instance_cost` de la trayectoria viene en 0
   en 807 de 1.229 intentos porque litellm no conoce esos precios. La prueba aceptaba `None` o cualquier float. Ahora el

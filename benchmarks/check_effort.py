@@ -31,6 +31,18 @@ E7. La foto tiene los parámetros que declara cada modelo. Sin ellos `effort.dec
     devuelve None, el adapter vuelve a mandar `max_tokens` a quien no lo acepta, y los
     tests con herramientas dan 404: así perdió Sakana Namazu 81 runs y el ranking.
 
+E8. El examen de v5 (thinking por peldaño, DECISIONES 4-nov-2026), un caso por clase:
+      · interruptor → el apagado manda `{effort: none}` si declara el nivel, si no
+        `{enabled: false}`, y la etiqueta empieza con `apagado:`;
+      · siempre piensa → no se manda nada y la etiqueta dice `siempre_piensa:default:X`;
+      · apagado por defecto y sin razonamiento → no se manda nada.
+    Y el pedido por suite: apagado en TODO peldaño 1-2, nada en 3-4 ni fuera del índice.
+    Si alguna clase no aparece en la foto, el detector está ciego y es rojo.
+
+E9. Todo RANKEADO tiene su nivel de razonamiento declarado: los de OpenRouter en la foto,
+    los demás en `reasoning_directo.json` con la fuente citada (corte-v5 6.2). Sin eso la
+    línea «medido en» de su ficha diría «default» a secas.
+
 E5 y E6 cazan contaminación por PRESENCIA: tiene número, tiene forma válida y pasa
 `validate.py`. Los detectores de ausencia del repo no la iban a ver.
 
@@ -144,6 +156,58 @@ def e7_parametros(foto: dict) -> list[str]:
             for mid in sorted(foto.get("modelos", {})) if mid not in params]
 
 
+def e8_examen_v5(foto: dict) -> list[str]:
+    from benchmarks.suites import PELDANO, SUITES
+    out, vistas = [], set()
+    for mid, rz in sorted(foto.get("modelos", {}).items()):
+        cls = effort.clase(mid, foto=foto)
+        vistas.add(cls)
+        ef, et = effort.resolver(mid, effort.APAGADO, foto=foto)
+        niveles = (rz or {}).get("supported_efforts") or []
+        if cls == "interruptor":
+            esperado = {"effort": "none"} if "none" in niveles else {"enabled": False}
+            if ef != esperado or not et.startswith("apagado:"):
+                out.append(f"E8 {mid} (interruptor): apagar manda {ef!r} con etiqueta "
+                           f"{et!r}; se esperaba {esperado!r} y `apagado:…`")
+        elif ef is not None:
+            out.append(f"E8 {mid} ({cls}): el apagado le manda {ef!r} — solo se apaga a "
+                       f"quien tiene interruptor")
+        elif cls == "siempre_piensa" and not et.startswith("siempre_piensa:default:"):
+            out.append(f"E8 {mid}: siempre piensa y la etiqueta {et!r} no lo dice")
+    for falta in sorted({"interruptor", "siempre_piensa", "apagado_por_defecto",
+                         "sin_razonamiento"} - vistas):
+        out.append(f"E8 ninguna entrada de la foto es `{falta}`: el detector está ciego")
+    for suite in SUITES:
+        p = PELDANO.get(suite)
+        quiere = effort.APAGADO if p is not None and p <= 2 else None
+        if effort.pedido_por_suite(suite) != quiere:
+            out.append(f"E8 `{suite}` (peldaño {p}): el examen pide "
+                       f"{effort.pedido_por_suite(suite)!r}, debía pedir {quiere!r}")
+    return out
+
+
+def e9_rankeados_con_nivel(catalogo: dict) -> list[str]:
+    import json
+    mj = ROOT / "docs" / "data" / "models.json"
+    rank = [m["key"] for m in json.loads(mj.read_text())["models"] if m.get("ranked")]
+    if not rank:
+        return ["E9 models.json no trae rankeados: el detector está ciego"]
+    out = []
+    for k in rank:
+        c = catalogo.get(k)
+        if not c:
+            continue
+        prov = c.get("provider", "openrouter")
+        prov = "openrouter" if prov == "openrouter" else "directo"
+        nivel = effort.nivel_declarado(c["id"], prov)
+        if nivel == "no_registrado":
+            print(f"  ⚠ E9 {k}: ausente de OpenRouter el día de la foto — nivel «no registrado»")
+        if nivel is None:
+            fuente = "la foto de OpenRouter" if prov == "openrouter" else "reasoning_directo.json"
+            out.append(f"E9 {k} ({c['id']}) está rankeado y no tiene nivel declarado en {fuente}")
+    return out
+
+
 def main() -> int:
     foto = effort.cargar_foto()
     if not foto.get("modelos"):
@@ -154,7 +218,8 @@ def main() -> int:
     from benchmarks.models import MODELS
     tests = _tests_declarados()
     fallos = (e1_cobertura(foto, MODELS) + e2_niveles(tests) + e3_resolver(foto)
-              + e5_e6_indice_limpio() + e7_parametros(foto))
+              + e5_e6_indice_limpio() + e7_parametros(foto) + e8_examen_v5(foto)
+              + e9_rankeados_con_nivel(MODELS))
 
     tomada = foto.get("tomada")
     if tomada and (date.today() - date.fromisoformat(tomada)).days > DIAS_AVISO:
@@ -168,7 +233,7 @@ def main() -> int:
 
     con = sum(1 for v in foto["modelos"].values() if v and v.get("supported_efforts"))
     print(f"✅ effort: foto del {tomada} · {len(foto['modelos'])} modelos ({con} con niveles "
-          f"declarados) · {len(tests)} tests leídos · E1-E3, E5-E7 en verde")
+          f"declarados) · {len(tests)} tests leídos · E1-E3, E5-E9 en verde")
     return 0
 
 

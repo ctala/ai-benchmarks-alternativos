@@ -51,6 +51,7 @@ from benchmarks.tests import integridad_idioma  # suite nueva 12-ago-2026
 from benchmarks.tests import verificar_claim, extraer_claims, dominio_entidad
 from benchmarks.tests import verificar_claims_lote
 from benchmarks.suites import presupuesto_de
+from benchmarks.effort import pedido_por_suite
 # Suites duras (13-ago-2026). Se AGREGAN, no reemplazan: ningún run previo se
 # invalida. Miden donde el examen todavía discrimina — tool calling (0% de notas
 # perfectas) — y cubren el hueco que dejó el recorte de niah_es a 128K+.
@@ -217,6 +218,18 @@ def _parse_prompt_tool_calls(text: str) -> list:
     return calls
 
 
+def _pedido_effort(test: dict, suite: str) -> str | None:
+    """Qué esfuerzo se pide para este test: el del test, el del lote o el del peldaño.
+
+    Examen de v5 (DECISIONES, 4-nov-2026): en las suites de peldaño 1 y 2 se pide el
+    thinking APAGADO, y `effort.resolver` decide si el modelo lo admite (interruptor) o
+    se queda en su default con la etiqueta que lo dice (siempre piensa). Un pedido
+    explícito —del test o de `BENCH_REASONING_EFFORT`— gana: es para experimentos.
+    """
+    return (test.get("reasoning_effort") or os.getenv("BENCH_REASONING_EFFORT")
+            or pedido_por_suite(suite))
+
+
 def run_single_test(
     provider: UnifiedProvider,
     model_id: str,
@@ -258,7 +271,7 @@ def run_single_test(
     # (Cristian, 2-sep-2026: *"a menos que definamos que el test tenga que ser con high
     # o xhigh, u otro"*). Se declara en el dict del test: `"reasoning_effort": "high"`.
     # Vale sólo para thinking models por OpenRouter; el adapter lo ignora en el resto.
-    reasoning_effort = test.get("reasoning_effort")
+    reasoning_effort = _pedido_effort(test, suite)
     # TOOL CALLING PROMPT-BASED: modelos entrenados para function calling pero sin el
     # parámetro `tools` nativo en su ruta (Hermes 4 en OpenRouter). Se inyectan las tools
     # en el system prompt y se parsea el <tool_call> de la respuesta → se MIDE de verdad
@@ -368,7 +381,7 @@ def run_multi_turn_script(
     manteniendo historial completo. La trayectoria se guarda en metadata.
     """
     force_reasoning = bool((model_config or {}).get("force_reasoning", False))
-    reasoning_effort = test.get("reasoning_effort")   # ver run_single_test
+    reasoning_effort = _pedido_effort(test, suite)   # ver run_single_test
     messages = [{"role": "system", "content": test["system_prompt"]}]
     trajectory = []  # lista de (user_turn, assistant_response)
     last_result = None

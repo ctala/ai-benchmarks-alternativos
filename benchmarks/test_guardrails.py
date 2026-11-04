@@ -461,6 +461,41 @@ def _t_suites_declarado_vs_real():
         return s6_menciona("reasoning")
 
 
+@prueba("check_suites S7", "una suite del índice sin peldaño (se mediría al default en silencio)")
+def _t_suites_peldano():
+    reg = ROOT / "benchmarks" / "suites.py"
+    if _correr("check_suites.py") != 0:
+        return False  # control sucio: ya falla antes de romper nada
+    with Sabotaje(reg):
+        original = reg.read_text(encoding="utf-8")
+        roto = original.replace('"hallucination": 1, ', "", 1)
+        if roto == original:
+            raise AssertionError("el sabotaje no cambió nada: `hallucination` ya no está así en PELDANO")
+        reg.write_text(roto, encoding="utf-8")
+        return _correr("check_suites.py") != 0
+
+
+@prueba("check_mezcla", "un modelo abierto con su examen repartido entre dos proveedores")
+def _t_mezcla():
+    """Informativo: el exit code no cambia, así que se prueba la función que decide."""
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from benchmarks.check_mezcla import veredicto
+    # Y el script de verdad lee runs: un informativo ciego también da 0.
+    salida = subprocess.run([PY, str(ROOT / "benchmarks" / "check_mezcla.py")],
+                            capture_output=True, text=True, cwd=ROOT).stdout
+    if " 0 runs del índice leídos" in salida or "mezclados:" not in salida:
+        return False
+    limpio = [{"upstream_provider": "Z.AI", "cuantizacion": "fp8"}] * 3
+    if veredicto(limpio, abierto=True)[0] != "limpio":
+        return False  # control sucio
+    mezcla = limpio + [{"upstream_provider": "DeepInfra", "cuantizacion": "fp4"}]
+    sin_reg = limpio + [{"upstream_provider": None}]
+    return (veredicto(mezcla, abierto=True)[0] == "mezclado"
+            and veredicto(sin_reg, abierto=True)[0] == "mezclado"
+            and veredicto(sin_reg, abierto=False)[0] == "no_registrado"
+            and veredicto(limpio, abierto=True, harbor=["Z.AI", "Novita"])[0] == "mezclado")
+
+
 @prueba("qa Q15", "una página de comparación publicada que ya nadie regenera")
 def _t_huerfanas():
     d = ROOT / "docs" / "modelo-fantasma-vs-otro"
@@ -1039,6 +1074,51 @@ def _t_juez_canonico():
                        capture_output=True, text=True, cwd=ROOT, timeout=120)
     salida = (r.stdout or "") + (r.stderr or "")
     return r.returncode != 0 and "juez canónico" in salida
+
+
+@prueba("check_effort · E8", "el apagado de v5 le llega a un modelo que siempre piensa")
+def _t_effort_e8_siempre_piensa():
+    ef = ROOT / "benchmarks" / "effort.py"
+    if _correr("check_effort.py") != 0:
+        return False  # control sucio
+    with Sabotaje(ef):
+        o = ef.read_text(encoding="utf-8")
+        r = o.replace('return None, f"siempre_piensa:default:{default}"',
+                      'return {"effort": "none"}, f"siempre_piensa:default:{default}"', 1)
+        if r == o:
+            raise AssertionError("el sabotaje no cambió nada: `_apagar` ya no se escribe así")
+        ef.write_text(r, encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
+@prueba("check_effort · E8 peldaño", "el examen deja de apagar el thinking en peldaño 1-2")
+def _t_effort_e8_peldano():
+    ef = ROOT / "benchmarks" / "effort.py"
+    if _correr("check_effort.py") != 0:
+        return False
+    with Sabotaje(ef):
+        o = ef.read_text(encoding="utf-8")
+        r = o.replace("return APAGADO if p is not None and p <= 2 else None",
+                      "return APAGADO if p is not None and p <= 1 else None", 1)
+        if r == o:
+            raise AssertionError("el sabotaje no cambió nada: `pedido_por_suite` ya no se escribe así")
+        ef.write_text(r, encoding="utf-8")
+        return _correr("check_effort.py") != 0
+
+
+@prueba("check_effort · E9", "un rankeado fuera de OpenRouter sin su default declarado")
+def _t_effort_e9():
+    import json as _j
+    fd = ROOT / "benchmarks" / "reasoning_directo.json"
+    if _correr("check_effort.py") != 0:
+        return False
+    with Sabotaje(fd):
+        d = _j.loads(fd.read_text(encoding="utf-8"))
+        if "gpt-5.5" not in d["modelos"]:
+            raise AssertionError("el sabotaje no cambió nada: gpt-5.5 ya no está en la foto directa")
+        del d["modelos"]["gpt-5.5"]
+        fd.write_text(_j.dumps(d), encoding="utf-8")
+        return _correr("check_effort.py") != 0
 
 
 @prueba("check_effort · E7", "una foto sin los parámetros que declara cada modelo")
