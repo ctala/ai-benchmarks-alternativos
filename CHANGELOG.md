@@ -5,6 +5,9 @@
 
 ## [No publicado] · próximo: mayor
 
+- **El `?v=` de la calculadora pasa a ser un chequeo bloqueante del QA (3-nov-2026, tarea 2.5 de corte-v5).**
+  `sync_cachebust.py --check` existía y nadie lo llamaba: tras 2.4 el `?v=` de `app.js` quedó viejo sin que nada
+  fallara. Entra a `qa.py` en verde, con su prueba de sabotaje (un `?v=` desincronizado da rojo).
 - **`sin_dato_comunitario` en todos los modelos, y la ficha de la calculadora lo dice sin alarma
   (3-nov-2026, tarea 2.4 de corte-v5).** Es `true` cuando el modelo no tiene banda externa de su misma
   versión: 103 de 115 rankeados. La ficha suma el dato «Dato comunitario», que muestra la banda

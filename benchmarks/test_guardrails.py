@@ -30,6 +30,7 @@ Uso:
 """
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -502,6 +503,22 @@ def _t_dato_comunitario():
             raise AssertionError("el sabotaje no cambió nada: datoComunitario ya no se escribe así")
         app.write_text(roto, encoding="utf-8")
         return q16_falla(qa())
+
+
+@prueba("sync_cachebust", "un ?v= de app.js que no corresponde a su contenido")
+def _t_cachebust():
+    # corte-v5 2.5. Control verde con el index.html real; después un `?v=` viejo, que es
+    # exactamente lo que pasó tras 2.4 sin que nada fallara.
+    if _correr("sync_cachebust.py", "--check") != 0:
+        return False  # control verde
+    idx = ROOT / "docs" / "index.html"
+    with Sabotaje(idx):
+        original = idx.read_text(encoding="utf-8")
+        roto, n = re.subn(r"app\.js\?v=[A-Za-z0-9._-]+", "app.js?v=00000000", original, count=1)
+        if n == 0 or roto == original:
+            raise AssertionError("el sabotaje no cambió nada: index.html ya no carga app.js?v=")
+        idx.write_text(roto, encoding="utf-8")
+        return _correr("sync_cachebust.py", "--check") != 0
 
 
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")

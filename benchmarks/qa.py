@@ -85,6 +85,11 @@ CHEQUEOS = [
      ["node", "benchmarks/qa_calculadora.mjs"], True, True),
     ("calculadora", "sus filtros y umbrales siguen alineados con lo que sirve",
      [PY, "benchmarks/check_calculator.py"], True, True),
+    # 3-nov-2026 (corte-v5 2.5). `sync_cachebust.py --check` existía desde el 21-ago y no lo
+    # llamaba nadie: el `?v=` de app.js quedó viejo tras corte-v5 2.4 y ningún chequeo lo vio.
+    # Un visitante que ya entró seguiría con el JavaScript anterior. Bloqueante: nació en verde.
+    ("calculadora", "el ?v= de app.js y style.css sale de su contenido",
+     [PY, "benchmarks/sync_cachebust.py", "--check"], True, True),
     ("paginas", f"lo que publican las {_n_paginas()} páginas lo sostiene la data",
      [PY, "benchmarks/auditar_paginas.py", "--duro"], True, False),
     ("paginas", "los cortes por eje coinciden con models.json",
