@@ -5,6 +5,13 @@
 
 ## [No publicado] · próximo: mayor
 
+- **El costo de Harbor decía $0 y la prueba lo aprobaba (4-nov-2026).** `export_harbor` leía el acumulado que
+  mini-swe-agent imprime redondeado a dos decimales ($0,0029 → $0,00), y el `instance_cost` de la trayectoria viene en 0
+  en 807 de 1.229 intentos porque litellm no conoce esos precios. La prueba aceptaba `None` o cualquier float. Ahora el
+  costo es tokens de la trayectoria × precio del catálogo (el mismo del runner), con `instance_cost` de respaldo y `None`
+  —nunca 0— si no hay ninguno; cada fila lleva `costo_intentos`. Total histórico: de ~$1,80 a $67,87; ningún reward
+  cambió (verificado campo por campo). Pruebas nuevas saboteadas dos veces. Tareas nuevas en `corte-v5`: 3.5.d (CTA único
+  al go-link, sin «gratis» ni `skool.com`, guardrail en `check_claims`) y 5.2.b (los nueve docs sin revisar).
 - **Examen de v5 decidido y dimensionado, sin medir (4-nov-2026).** Dos filas en `DECISIONES.md`: thinking por
   peldaño (1 y 2 apagado donde hay interruptor, 3 y 4 al default; revisa la del 14-sep, que pasa a *Revisada*) y
   mismo modelo, mismas condiciones (proveedor y cuantización declarados, sin fallback; estricto para abiertos, fecha

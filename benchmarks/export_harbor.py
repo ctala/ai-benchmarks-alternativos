@@ -81,10 +81,46 @@ def _causa(traza: str) -> tuple[str | None, str | None]:
     return None, None
 
 
-def _costo(traza: str) -> float | None:
-    """mini-swe-agent imprime el acumulado en cada paso: `(step N, $0.0123)`."""
-    montos = re.findall(r"\(step \d+, \$([0-9.]+)\)", traza)
-    return max(float(m) for m in montos) if montos else None
+_PRECIOS: dict[str, tuple[float, float]] | None = None
+
+
+def _precio(modelo: str) -> tuple[float, float] | None:
+    """USD por millón (entrada, salida) del catálogo, por id de OpenRouter: el mismo precio
+    con que el runner costea sus runs, para que Harbor y el índice se lean igual."""
+    global _PRECIOS
+    if _PRECIOS is None:
+        sys.path.insert(0, str(ROOT / "benchmarks"))
+        from models import MODELS, OLLAMA_MODELS
+        _PRECIOS = {}
+        for cfg in {**OLLAMA_MODELS, **MODELS}.values():
+            if cfg.get("id") and cfg.get("cost_input") is not None:
+                _PRECIOS.setdefault(cfg["id"], (cfg["cost_input"], cfg.get("cost_output") or 0))
+    return _PRECIOS.get(modelo)
+
+
+def _costo(trayectoria: str, modelo: str) -> tuple[float | None, str | None]:
+    """El costo de un intento y de dónde salió.
+
+    4-nov-2026 · ANTES leía el acumulado que mini-swe-agent IMPRIME en la traza,
+    `(step N, $0.01)`, y ese número viene **redondeado a dos decimales**: un intento de
+    $0,0029 quedaba en $0,00 y uno de $0,0093 en $0,01. De paso, `instance_cost` de la
+    trayectoria es 0 en 807 de 1.229 intentos porque litellm no conoce el precio de esos
+    modelos. Resultado: `resultados.json` decía $0 para casi todo, la única prueba aceptaba
+    cualquier float o None, y el dimensionamiento de la ventana de v5 tuvo que recalcular
+    a mano. Un verde vacío.
+
+    Ahora: tokens de la trayectoria × precio del catálogo (`tokens_x_precio`); si no hay
+    precio, `instance_cost` cuando es > 0; si no hay ninguno, None — **nunca 0**, que se
+    lee como «gratis» y no como «no se sabe»."""
+    pi = sum(int(x) for x in re.findall(r'"prompt_tokens":\s*(\d+)', trayectoria))
+    po = sum(int(x) for x in re.findall(r'"completion_tokens":\s*(\d+)', trayectoria))
+    precio = _precio(modelo)
+    if precio and (pi or po):
+        return round(pi / 1e6 * precio[0] + po / 1e6 * precio[1], 6), "tokens_x_precio"
+    m = re.search(r'"instance_cost":\s*([0-9.eE-]+)', trayectoria)
+    if m and float(m.group(1)) > 0:
+        return float(m.group(1)), "instance_cost"
+    return None, None
 
 
 def _checksum_vigente() -> dict[str, str]:
@@ -188,9 +224,12 @@ def recolectar() -> dict:
         if tarea not in meta_tarea and checksum:
             meta_tarea[tarea] = {"task_checksum": checksum, "agente": agente}
 
+        tray_p = trial / "agent" / "mini-swe-agent.trajectory.json"
+        tray = tray_p.read_text(errors="replace") if tray_p.exists() else ""
+        costo, fuente = _costo(tray, modelo)
         por_modelo[(tarea, modelo)].append(
             {"reward": reward, "causa": causa, "detalle": detalle,
-             "costo_usd": _costo(traza), "checksum": checksum})
+             "costo_usd": costo, "costo_fuente": fuente, "checksum": checksum})
 
     return _resumir(por_modelo, meta_tarea, descartadas)
 
@@ -224,6 +263,8 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             "rewards": rewards,
             "estado": estado,
             "costo_usd": round(sum(costos), 4) if costos else None,
+            # Cuántos intentos tienen costo conocido: un total sobre 1 de 3 no es el total.
+            "costo_intentos": len(costos),
         }
         detalle = next((i["detalle"] for i in intentos if i["detalle"]), None)
         if detalle:

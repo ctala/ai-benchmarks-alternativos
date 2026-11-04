@@ -919,10 +919,28 @@ def test_export_harbor_causas_cubren_los_ceros_conocidos():
     assert "sin_herramientas" in causas
 
 
-def test_export_harbor_costo_lee_la_traza():
+def test_export_harbor_costo_no_redondea_a_cero():
+    """4-nov-2026: la versión anterior aceptaba `None or float` y nunca podía fallar,
+    mientras `resultados.json` decía $0 para casi todo (la traza imprime el acumulado
+    redondeado a dos decimales). Esta exige el costo por tokens × precio del catálogo."""
     import export_harbor as eh
-    c = eh._costo("total cost: $0.0123\nalgo más")
-    assert c is None or isinstance(c, float)
+    eh._precio("carga/el-catalogo")
+    modelo = next(i for i, p in eh._PRECIOS.items() if p[0] > 0)
+    pin, pout = eh._PRECIOS[modelo]
+    tray = ('{"info": {"model_stats": {"instance_cost": 0.0}}, "messages": ['
+            '{"usage": {"prompt_tokens": 20000, "completion_tokens": 1000}},'
+            '{"usage": {"prompt_tokens": 30000, "completion_tokens": 500}}]}')
+    costo, fuente = eh._costo(tray, modelo)
+    assert fuente == "tokens_x_precio"
+    assert costo == pytest.approx(50000 / 1e6 * pin + 1500 / 1e6 * pout, rel=1e-6)
+    assert costo > 0
+
+
+def test_export_harbor_sin_tokens_ni_precio_es_none_no_cero():
+    import export_harbor as eh
+    assert eh._costo('{"info": {"model_stats": {"instance_cost": 0.0}}}', "no/existe") == (None, None)
+    c, f = eh._costo('{"info": {"model_stats": {"instance_cost": 0.0042}}}', "no/existe")
+    assert (c, f) == (0.0042, "instance_cost")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -982,7 +1000,7 @@ def test_causa_reconoce_las_firmas_conocidas():
 
 def test_costo_devuelve_none_si_no_esta_en_la_traza():
     import export_harbor as eh
-    assert eh._costo("sin información de costo acá") is None
+    assert eh._costo("sin información de costo acá", "no/existe") == (None, None)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
