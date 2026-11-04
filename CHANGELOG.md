@@ -5,6 +5,11 @@
 
 ## [No publicado] · próximo: mayor
 
+- **El Action no commitea cuando solo cambió la fecha de corrida (4-nov-2026, tarea 2.7 de corte-v5).** `benchmarks/solo_fechas.py`
+  compara el diff ignorando las líneas de fecha de corrida (con marcador: `generated_at`, `dateModified`, `<lastmod>`, «actualizado»);
+  si no queda nada, `--restaurar` las descarta. 12 de los 13 commits del bot desde agosto eran solo eso. La fecha de la calculadora
+  pasa a ser la del último cambio real de datos. Prueba de sabotaje en un repo desechable: un dato real o una fecha que es dato
+  (`retired_at`) junto a `generated_at` dan rojo; rota la condición del marcador, la prueba falla. 62 guardrails verificados.
 - **Reverificación de los 14 que el ping del 3-nov no dio VIVOS (4-nov-2026, corte-v5 2.3).** `check_endpoints.py --keys` pinguea solo esas
   keys y con `--guardar` lo anota como `reverificaciones` dentro del último ping, sin reemplazarlo; `fuentes_externas.py` aplica la más
   reciente por key. Los 5 de `openai_direct` (GPT-4.1, GPT-4.1 mini, GPT-5.4, GPT-5.4 mini y GPT-5.5) responden con la `OPENAI_API_KEY`

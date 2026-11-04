@@ -30,6 +30,7 @@ Uso:
 """
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -519,6 +520,61 @@ def _t_cachebust():
             raise AssertionError("el sabotaje no cambió nada: index.html ya no carga app.js?v=")
         idx.write_text(roto, encoding="utf-8")
         return _correr("sync_cachebust.py", "--check") != 0
+
+
+@prueba("solo_fechas", "un cambio real de datos escondido entre las fechas de corrida")
+def _t_solo_fechas():
+    # corte-v5 2.7. En un repo desechable con el models.json real: el control es el commit
+    # diario del Action (solo cambia `generated_at`) y tiene que dar 0 y restaurarse. Los dos
+    # sabotajes son lo que NO puede descartarse: un dato real junto a la fecha de corrida, y
+    # una fecha que es dato (`retired_at`), que no lleva marcador de fecha de corrida.
+    #
+    # El entorno va sin variables GIT_*: dentro del pre-push heredan el GIT_DIR del repo real
+    # y un `git init` acá lo reconfiguraría (pasó, ver la memoria del 2026).
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        def git(*a):
+            subprocess.run(["git", *a], cwd=tmp, env=env, check=True, capture_output=True)
+
+        def correr(*a):
+            r = subprocess.run([PY, str(ROOT / "benchmarks" / "solo_fechas.py"), *a],
+                               cwd=tmp, env=env, capture_output=True, text=True)
+            if r.returncode not in (0, 1):
+                raise AssertionError(f"solo_fechas salió con {r.returncode}: {r.stderr[-200:]}")
+            return r.returncode
+
+        git("init", "-q")
+        git("config", "user.email", "prueba@local")
+        git("config", "user.name", "prueba")
+        original = (ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8")
+        mj = tmp / "models.json"
+        mj.write_text(original, encoding="utf-8")
+        git("add", "models.json")
+        git("commit", "-q", "-m", "base")
+
+        def con(*cambios):
+            texto = original
+            for patron, reemplazo in cambios:
+                texto, n = re.subn(patron, reemplazo, texto, count=1)
+                if n == 0:
+                    raise AssertionError(f"el sabotaje no encontró {patron!r} en models.json")
+            mj.write_text(texto, encoding="utf-8")
+
+        fecha = (r'"generated_at": "[^"]+"', '"generated_at": "2099-01-01T00:00:00"')
+        con(fecha)
+        git("add", "models.json")
+        if correr("--cached", "--restaurar") != 0:
+            return False  # control verde: solo la fecha de corrida
+        if mj.read_text(encoding="utf-8") != original:
+            raise AssertionError("--restaurar no devolvió models.json al commit")
+        con(fecha, (r'"retired_at": "\d{4}-\d{2}-\d{2}"', '"retired_at": "1999-01-01"'))
+        dato_fecha = correr()
+        con(fecha, (r'"score_global": [0-9.]+', '"score_global": 1.23'))
+        dato_real = correr()
+        return dato_fecha == 1 and dato_real == 1
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")

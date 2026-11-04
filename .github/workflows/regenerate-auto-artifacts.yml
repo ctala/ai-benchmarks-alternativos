@@ -160,8 +160,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/models.json docs/sitemap.xml MODELOS.md TESTS.md README.md
+          # corte-v5 2.7 (DECISIONES, 4-nov-2026): si lo único distinto es la fecha de corrida
+          # (`generated_at`, «última regeneración»), no se commitea. Al 3-nov, 12 de los 13
+          # commits del bot desde agosto eran eso, y la calculadora decía «actualizado hoy»
+          # sobre datos de semanas. La fecha publicada es la del último cambio real de datos.
           if git diff --cached --quiet; then
             echo "Sin cambios en artefactos auto-generados"
+          elif python benchmarks/solo_fechas.py --cached --restaurar; then
+            echo "Solo cambió la fecha de corrida: no se commitea"
           else
             git commit -m "chore: regenera artefactos auto-generados [skip ci]"
             git push
