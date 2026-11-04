@@ -47,6 +47,8 @@ Límites del grupo 1 (Cristian, 3-nov-2026): ningún chequeo baja de bloqueante 
 - [ ] 3.3 Programar: jubilar `code_generation` del índice (no se borra); las tareas Harbor propias con instrucción en español se mantienen y sostienen la ocasión como capa propia, con la cifra de Terminal-Bench al lado como banda. Verificar: `suites.del_indice()` lo refleja y ningún doc vivo cita `code_generation` como vigente.
 - [ ] 3.4 Calculadora: selector de ocasión, volúmenes editables, precio mensual al volumen declarado. Verificar: `qa_calculadora.mjs` con un caso por ocasión.
 - [ ] 3.5 Páginas y blog: generadores pSEO y `generate_blog_tablas.py` leen ocasiones; `check_consistency` y `check_blog_consistency` se adaptan **con su prueba** en el mismo commit. Verificar: QA verde sin tocar ningún bloqueante a informativo.
+  - [ ] 3.5.a `auditar_paginas` verifica cada «X lidera el pilar Y» / «el líder en Z» del sitio y del blog contra `models.json` (el elegido de `_lider()` sobre el conjunto base). Hoy el nombre se genera desde el dato, pero nada caza una frase así escrita a mano (4-nov-2026). Verificar: prueba en `test_guardrails.py` que escribe un líder falso y exige rojo, con control verde antes.
+  - [ ] 3.5.b Fichas huérfanas: `/modelo/<key>/` publicada de un modelo que no está rankeado ni retirado (caso `or-qwen3-next-thinking`) se regenera o se redirige; `validate.py` la detecta. Verificar: prueba que publica una ficha huérfana y exige rojo.
 
 ## 4. Modelos sin dato comunitario
 
