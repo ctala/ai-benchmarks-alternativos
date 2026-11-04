@@ -153,7 +153,13 @@ def nivel_declarado(model_id: str, provider: str = "openrouter") -> str | None:
     if model_id not in modelos:
         # Ausente de la API de OpenRouter el día de la foto: sus runs son históricos y su
         # default de entonces no quedó escrito. Se publica así, sin inventarlo.
-        return "no_registrado" if model_id in foto.get("ausentes", []) else None
+        # Su default se lee de la documentación del autor (`reasoning_directo.json`).
+        if model_id in foto.get("ausentes", []):
+            directa = foto_directa().get("modelos", {})
+            if model_id in directa:
+                return nivel_declarado(model_id, provider="directo")
+            return "no_registrado"
+        return None
     rz = modelos[model_id]
     if not rz:
         return "sin_razonamiento"

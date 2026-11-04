@@ -370,6 +370,17 @@ class UnifiedProvider:
             elif self.provider_name == "openrouter":
                 _ef, _ef_etiqueta = _effort_mod.resolver(
                     model, reasoning_effort or os.getenv("BENCH_REASONING_EFFORT"))
+            elif self.provider_name in ("openai", "openai_direct"):   # el registry lo llama "openai"
+                # Examen de v5 (DECISIONES 4-nov-2026, revisa la del 15-ago): GPT-5.5 tiene
+                # interruptor (`none`) y en peldaño 1 y 2 se mide apagado. La regla y la
+                # foto son las mismas; cambia cómo viaja: `reasoning_effort` de primer nivel
+                # en /chat/completions, no un bloque `reasoning`.
+                _ef, _ef_etiqueta = _effort_mod.resolver(
+                    model, reasoning_effort or os.getenv("BENCH_REASONING_EFFORT"),
+                    foto=_effort_mod.foto_directa())
+                if _ef:
+                    kwargs["reasoning_effort"] = _ef["effort"] if isinstance(_ef, dict) else _ef
+                _ef = None   # ya viajó; no va en extra_body
             else:
                 _ef, _ef_etiqueta = None, "no_aplica_proveedor"
             result.metadata["reasoning_effort"] = _ef_etiqueta

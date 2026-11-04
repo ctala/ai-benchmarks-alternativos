@@ -643,6 +643,18 @@ def test_canario_caza_un_apagado_que_razona_y_un_proveedor_violado():
     violado = limpio + [dict(base, success=False, error="proveedor fijo violado: declarado z-ai/fp8, lo sirvió X")]
     assert any("fuera del proveedor declarado" in p for p in canario.revisar("m", violado))
 
+
+def test_openai_directo_gpt55_apagado_viaja_como_reasoning_effort():
+    # DECISIONES 4-nov-2026 (revisa la del 15-ago): GPT-5.5 entra a la ventana de v5 y en
+    # peldaño 1-2 se mide con `reasoning_effort: none`, de primer nivel, nunca en extra_body.
+    apagado = _espiar_request("gpt-5.5", provider="openai", effort="apagado")
+    assert apagado["kwargs"].get("reasoning_effort") == "none"
+    assert "reasoning" not in apagado["extra_body"]
+    default = _espiar_request("gpt-5.5", provider="openai")
+    assert "reasoning_effort" not in default["kwargs"]          # sin pedido: el default
+    sin_rz = _espiar_request("gpt-4.1", provider="openai", effort="apagado")
+    assert "reasoning_effort" not in sin_rz["kwargs"]          # no razona: nada que apagar
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
 

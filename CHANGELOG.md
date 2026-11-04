@@ -18,6 +18,10 @@
   proveedor. El canario lanzaba el runner con `python3` a secas y fuera del venv daba «CERO runs»: ahora usa
   `sys.executable`. Canario de GLM 5.2 (4-nov, 12:26): 18/18 con el ruteo fijo en `z-ai/fp8`; en peldaño 2 rinde
   `apagado:effort_none` sin tokens de razonamiento (23–263 con el default) y cada run guarda Z.AI y fp8.
+- **GPT-5.5 entra a la ventana de v5 (4-nov-2026; revisa la fila del 15-ago).** En peldaño 1 y 2 recibe `reasoning_effort: none`
+  por `/chat/completions`, también con herramientas (verificado: 8/8 sin tokens de razonamiento). Los 5 rankeados ausentes de la
+  API de OpenRouter toman su default de la documentación de Anthropic y Alibaba (`reasoning_directo.json`). Tareas nuevas: qwen3-coder
+  en 5.2.a (o endpoint apto y se mide, o sale del índice) y la prueba intermitente de gitleaks (5.2.c, con la hipótesis).
 
 - **El costo de Harbor decía $0 y la prueba lo aprobaba (4-nov-2026).** `export_harbor` leía el acumulado que
   mini-swe-agent imprime redondeado a dos decimales ($0,0029 → $0,00), y el `instance_cost` de la trayectoria viene en 0
