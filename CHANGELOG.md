@@ -5,6 +5,10 @@
 
 ## [No publicado] · próximo: mayor
 
+- **El `lastmod` del sitemap sale de `git log`, no del mtime (3-nov-2026, tarea 2.6 de corte-v5).** El Action fechaba
+  con el día de la corrida páginas intactas desde agosto, porque el checkout reescribe todos los archivos. Un clon como el
+  del Action da hoy el mismo sitemap que el local (`or-qwen3-next-thinking`: 2026-08-20; con mtime, 2026-11-03). En un
+  clon superficial el script se niega. Test nuevo que le pone mtime de ahora a la página, saboteado volviendo al mtime.
 - **El `?v=` de la calculadora pasa a ser un chequeo bloqueante del QA (3-nov-2026, tarea 2.5 de corte-v5).**
   `sync_cachebust.py --check` existía y nadie lo llamaba: tras 2.4 el `?v=` de `app.js` quedó viejo sin que nada
   fallara. Entra a `qa.py` en verde, con su prueba de sabotaje (un `?v=` desincronizado da rojo).

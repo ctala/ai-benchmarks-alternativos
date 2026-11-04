@@ -6,10 +6,15 @@ Lista:
 1. Todos los index.html bajo docs/ (calculadora + landing pages)
 2. MDs criticos del repo en GitHub (README, MODELOS, TESTS, AGENTS, etc.)
 
-Para cada URL toma lastmod de la ultima modificacion del archivo (mtime): tras
-regenerar, las paginas reescritas quedan con la fecha de regeneracion (hoy), una
-senal de frescura honesta y coherente con dateModified del JSON-LD. Las paginas
-que no se regeneran conservan su fecha real. Fallback: hoy.
+Para cada URL, lastmod es la fecha del ultimo commit que toco el archivo (`git log`), y
+hoy si el archivo tiene cambios sin commitear o no esta versionado. Nunca el mtime.
+
+Por que (3-nov-2026, corte-v5 2.6): con mtime, el Action fechaba con el dia de la
+corrida paginas que no cambiaban desde agosto, porque `actions/checkout` escribe todos
+los archivos al clonar. Cada corrida movia un `lastmod` y el local lo devolvia: la
+ficha de `or-qwen3-next-thinking` iba y volvia entre 2026-08-20 y el dia del Action
+(commit 5ffb51406). La fecha del commit es la misma en cualquier clon completo; en un
+clon superficial seria falsa, y por eso el script se niega a correr ahi.
 
 Uso:
     python benchmarks/generate_sitemap.py        # genera docs/sitemap.xml
@@ -23,7 +28,8 @@ Pesos por defecto (ajustables en PRIORITY_OVERRIDES):
 - CHANGELOG -> 0.5
 """
 
-from datetime import datetime, timezone
+import subprocess
+from datetime import date
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -55,15 +61,42 @@ PRIORITY_OVERRIDES = {
 }
 
 
-def file_lastmod(path: Path) -> str:
-    """Fecha (YYYY-MM-DD, hora local) de la ultima escritura del archivo. Tras regenerar,
-    las paginas reescritas quedan con la fecha de regeneracion (hoy) -> coherente con el
-    dateModified del JSON-LD. Se usa hora local (naive) para alinear con date.today().
-    Fallback: hoy."""
-    try:
-        return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d")
-    except OSError:
-        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def _git(*args: str) -> str:
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True,
+                          check=True).stdout
+
+
+def fechas_git(raiz: Path = DOCS) -> dict[str, str]:
+    """ruta relativa al repo → fecha (AAAA-MM-DD) del ultimo commit que la toco.
+
+    Una sola pasada por el log en vez de un `git log` por pagina (son ~190). `%cs` es la
+    fecha del committer en su propia zona: no depende de la maquina que regenera.
+    """
+    if _git("rev-parse", "--is-shallow-repository").strip() == "true":
+        raise SystemExit("generate_sitemap: clon superficial; el lastmod saldria falso. "
+                         "En el Action, checkout con fetch-depth: 0.")
+    rel = raiz.relative_to(ROOT).as_posix()
+    fechas, actual = {}, None
+    for linea in _git("log", "--format=\x01%cs", "--name-only", "--", rel).splitlines():
+        if linea.startswith("\x01"):
+            actual = linea[1:]
+        elif linea and linea not in fechas:
+            fechas[linea] = actual
+    return fechas
+
+
+def sin_commitear(raiz: Path = DOCS) -> set[str]:
+    """Rutas con cambios respecto de HEAD o sin versionar: su lastmod es hoy."""
+    rel = raiz.relative_to(ROOT).as_posix()
+    salida = _git("status", "--porcelain", "--untracked-files=all", "--", rel)
+    return {ln[3:].split(" -> ")[-1] for ln in salida.splitlines() if ln.strip()}
+
+
+def file_lastmod(path: Path, fechas: dict[str, str], sucias: set[str]) -> str:
+    rel = path.relative_to(ROOT).as_posix()
+    if rel in sucias or rel not in fechas:
+        return date.today().isoformat()
+    return fechas[rel]
 
 
 # Paginas que NO van al sitemap: son redirects/noindex, no contenido.
@@ -125,9 +158,10 @@ def build_sitemap() -> str:
     # descubren por sus enlaces desde las páginas del dominio, NO desde este sitemap.
     # (repo_mds() se conserva por si en el futuro se publica un sitemap aparte para GitHub.)
     entries = docs_pages()
+    fechas, sucias = fechas_git(), sin_commitear()
 
     for url, path, priority in entries:
-        lastmod = file_lastmod(path)
+        lastmod = file_lastmod(path, fechas, sucias)
         lines.append("  <url>")
         lines.append(f"    <loc>{escape(url)}</loc>")
         lines.append(f"    <lastmod>{lastmod}</lastmod>")

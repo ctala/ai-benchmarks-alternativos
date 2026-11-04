@@ -1635,3 +1635,27 @@ def _leer_foto_falsa(original):
     def leer(self, *a, **kw):
         return foto if self.name == "_fija.json" else original(self, *a, **kw)
     return leer
+
+
+def test_sitemap_lastmod_sale_de_git_y_no_del_mtime():
+    # corte-v5 2.6. El checkout del Action escribe todos los archivos con la hora de la corrida;
+    # con mtime, una ficha intacta desde agosto salía fechada hoy (commit 5ffb51406). Se le pone
+    # el mtime de ahora y el lastmod tiene que seguir siendo el del último commit que la tocó.
+    import os
+    import subprocess
+    import time
+    from benchmarks import generate_sitemap as gs
+    pagina = ROOT / "docs" / "modelo" / "or-qwen3-next-thinking" / "index.html"
+    rel = pagina.relative_to(ROOT).as_posix()
+    sucias = gs.sin_commitear()
+    if rel in sucias:
+        pytest.skip(f"{rel} tiene cambios sin commitear")
+    esperado = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT,
+                              capture_output=True, text=True, check=True).stdout.strip()
+    antes = pagina.stat()
+    try:
+        os.utime(pagina, (time.time(), time.time()))
+        assert gs.file_lastmod(pagina, gs.fechas_git(), sucias) == esperado
+    finally:
+        os.utime(pagina, (antes.st_atime, antes.st_mtime))
+
