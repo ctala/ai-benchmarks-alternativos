@@ -1,0 +1,365 @@
+{
+ "fecha": "2026-11-03",
+ "comando": "check_endpoints.py --ranked",
+ "resultados": {
+  "claude-fable-5.1": {
+   "estado": "VIVO"
+  },
+  "claude-haiku-4.5": {
+   "estado": "VIVO"
+  },
+  "claude-haiku-5.5": {
+   "estado": "VIVO"
+  },
+  "claude-opus-4.6": {
+   "estado": "VIVO"
+  },
+  "claude-opus-4.7": {
+   "estado": "VIVO"
+  },
+  "claude-opus-4.8": {
+   "estado": "VIVO"
+  },
+  "claude-opus-5": {
+   "estado": "VIVO"
+  },
+  "claude-opus-5-fast": {
+   "estado": "VIVO"
+  },
+  "claude-opus-5.5": {
+   "estado": "VIVO"
+  },
+  "claude-sonnet-4.6": {
+   "estado": "VIVO"
+  },
+  "claude-sonnet-5": {
+   "estado": "VIVO"
+  },
+  "claude-sonnet-5.5": {
+   "estado": "VIVO"
+  },
+  "deepseek-r1": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'deepseek/deepseek-r1 is no longer available on OpenRouter: no provide"
+  },
+  "deepseek-v3": {
+   "estado": "VIVO"
+  },
+  "deepseek-v4-flash": {
+   "estado": "VIVO"
+  },
+  "deepseek-v4-flash-0731": {
+   "estado": "VIVO"
+  },
+  "deepseek-v4-pro": {
+   "estado": "VIVO"
+  },
+  "deepseek-v4-pro-0813": {
+   "estado": "VIVO"
+  },
+  "deepseek-v4.1-flash": {
+   "estado": "VIVO"
+  },
+  "fugu-max": {
+   "estado": "VIVO"
+  },
+  "gemini-3.1-flash-lite": {
+   "estado": "VIVO"
+  },
+  "gemini-3.1-pro": {
+   "estado": "VIVO"
+  },
+  "gemini-3.5-flash": {
+   "estado": "VIVO"
+  },
+  "gemini-3.5-flash-lite": {
+   "estado": "VIVO"
+  },
+  "gemini-3.6-flash": {
+   "estado": "VIVO"
+  },
+  "gemini-3.7-flash": {
+   "estado": "VIVO"
+  },
+  "gemini-3.8-flash": {
+   "estado": "VIVO"
+  },
+  "gemini-flash": {
+   "estado": "VIVO"
+  },
+  "gemini-flash-lite": {
+   "estado": "VIVO"
+  },
+  "gemini-pro": {
+   "estado": "VIVO"
+  },
+  "gemma-4-26b": {
+   "estado": "VIVO"
+  },
+  "glm-5.1": {
+   "estado": "VIVO"
+  },
+  "glm-5.2": {
+   "estado": "VIVO"
+  },
+  "glm-5.3": {
+   "estado": "VIVO"
+  },
+  "glm-5.3-flash": {
+   "estado": "VIVO"
+  },
+  "gpt-4.1": {
+   "estado": "SIN CREDENCIAL",
+   "detalle": "falta la credencial de «openai_direct» — el modelo no está muerto, no lo podemos llamar"
+  },
+  "gpt-4.1-mini": {
+   "estado": "SIN CREDENCIAL",
+   "detalle": "falta la credencial de «openai_direct» — el modelo no está muerto, no lo podemos llamar"
+  },
+  "gpt-5.4": {
+   "estado": "SIN CREDENCIAL",
+   "detalle": "falta la credencial de «openai_direct» — el modelo no está muerto, no lo podemos llamar"
+  },
+  "gpt-5.4-mini": {
+   "estado": "SIN CREDENCIAL",
+   "detalle": "falta la credencial de «openai_direct» — el modelo no está muerto, no lo podemos llamar"
+  },
+  "gpt-5.5": {
+   "estado": "SIN CREDENCIAL",
+   "detalle": "falta la credencial de «openai_direct» — el modelo no está muerto, no lo podemos llamar"
+  },
+  "gpt-5.6-luna": {
+   "estado": "VIVO"
+  },
+  "gpt-5.6-sol": {
+   "estado": "VIVO"
+  },
+  "gpt-5.6-terra": {
+   "estado": "VIVO"
+  },
+  "gpt-6-luna": {
+   "estado": "VIVO"
+  },
+  "gpt-6-luna-pro": {
+   "estado": "VIVO"
+  },
+  "granite-4.2-8b": {
+   "estado": "VIVO"
+  },
+  "grok-4.20": {
+   "estado": "VIVO"
+  },
+  "grok-4.3": {
+   "estado": "VIVO"
+  },
+  "grok-4.5": {
+   "estado": "VIVO"
+  },
+  "grok-4.6": {
+   "estado": "VIVO"
+  },
+  "hermes-4-405b": {
+   "estado": "VIVO"
+  },
+  "hermes-4-70b": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'nousresearch/hermes-4-70b is no longer available on OpenRouter: no pr"
+  },
+  "hy4-preview": {
+   "estado": "VIVO"
+  },
+  "inkling-small": {
+   "estado": "VIVO"
+  },
+  "kat-coder-air-2.5": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'kwaipilot/kat-coder-air-v2.5 is no longer available on OpenRouter: no"
+  },
+  "kat-coder-pro-2.5": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'kwaipilot/kat-coder-pro-v2.5 is no longer available on OpenRouter: no"
+  },
+  "kimi-k2": {
+   "estado": "VIVO"
+  },
+  "kimi-k2.6": {
+   "estado": "VIVO"
+  },
+  "kimi-k2.7-code": {
+   "estado": "VIVO"
+  },
+  "kimi-k3": {
+   "estado": "VIVO"
+  },
+  "laguna-s-2.1": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'poolside/laguna-s-2.1 is no longer available on OpenRouter: no provid"
+  },
+  "laguna-xs-2.1": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'poolside/laguna-xs-2.1 is no longer available on OpenRouter: no provi"
+  },
+  "ling-3.0-flash": {
+   "estado": "VIVO"
+  },
+  "ling-3.0-flash-vl": {
+   "estado": "VIVO"
+  },
+  "llama-4-maverick": {
+   "estado": "VIVO"
+  },
+  "mercury-2.5": {
+   "estado": "VIVO"
+  },
+  "mimo-v2.5-or": {
+   "estado": "VIVO"
+  },
+  "mimo-v2.5-pro-or": {
+   "estado": "VIVO"
+  },
+  "mimo-v2.6-flash": {
+   "estado": "VIVO"
+  },
+  "minimax-m2.7": {
+   "estado": "VIVO"
+  },
+  "minimax-m3": {
+   "estado": "VIVO"
+  },
+  "mistral-large": {
+   "estado": "VIVO"
+  },
+  "mistral-small-4": {
+   "estado": "VIVO"
+  },
+  "muse-glimmer-30b": {
+   "estado": "VIVO"
+  },
+  "muse-spark-1.2": {
+   "estado": "VIVO"
+  },
+  "muse-spark-1.3": {
+   "estado": "VIVO"
+  },
+  "nemotron-3.5-lightning": {
+   "estado": "VIVO"
+  },
+  "nemotron-nano": {
+   "estado": "VIVO"
+  },
+  "nemotron-super": {
+   "estado": "VIVO"
+  },
+  "nex-n2-mini": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'nex-agi/nex-n2-mini is no longer available on OpenRouter: no provider"
+  },
+  "openrouter-nemotron-3-ultra-550b": {
+   "estado": "VIVO"
+  },
+  "or-claude-fable-5": {
+   "estado": "VIVO"
+  },
+  "or-deepseek-v3": {
+   "estado": "VIVO"
+  },
+  "or-gemma-4-31b": {
+   "estado": "VIVO"
+  },
+  "or-glm5": {
+   "estado": "VIVO"
+  },
+  "or-gpt-oss-120b": {
+   "estado": "VIVO"
+  },
+  "or-gpt-oss-20b": {
+   "estado": "VIVO"
+  },
+  "or-kimi-k2.5": {
+   "estado": "VIVO"
+  },
+  "or-llama-3.1-8b": {
+   "estado": "VIVO"
+  },
+  "or-llama-3.3-70b": {
+   "estado": "VIVO"
+  },
+  "or-llama-4-scout": {
+   "estado": "VIVO"
+  },
+  "or-minimax-m2.5": {
+   "estado": "VIVO"
+  },
+  "or-ministral-14b": {
+   "estado": "VIVO"
+  },
+  "or-mistral-large-3": {
+   "estado": "VIVO"
+  },
+  "or-qwen-3.5-35b": {
+   "estado": "VIVO"
+  },
+  "or-qwen3-next-instruct": {
+   "estado": "VIVO"
+  },
+  "or-qwen3.5-397b": {
+   "estado": "VIVO"
+  },
+  "or-step-3.5-flash": {
+   "estado": "VIVO"
+  },
+  "qwen-3.6-max": {
+   "estado": "MUERTO",
+   "detalle": "Error code: 404 - {'error': {'message': 'Qwen3.6 Max Preview was deprecated on Oct 9, 2026. We recommend migra"
+  },
+  "qwen-3.6-plus": {
+   "estado": "VIVO"
+  },
+  "qwen-3.7-max": {
+   "estado": "VIVO"
+  },
+  "qwen-3.8-2.4t": {
+   "estado": "VIVO"
+  },
+  "qwen-3.8-27b": {
+   "estado": "VIVO"
+  },
+  "qwen-3.8-max": {
+   "estado": "VIVO"
+  },
+  "qwen-3.8-max-0902": {
+   "estado": "VIVO"
+  },
+  "qwen3-coder": {
+   "estado": "VIVO"
+  },
+  "qwen3-coder-next": {
+   "estado": "VIVO"
+  },
+  "qwen3.6-27b": {
+   "estado": "VIVO"
+  },
+  "qwen3.6-35b": {
+   "estado": "VIVO"
+  },
+  "qwen3.7-flash": {
+   "estado": "VIVO"
+  },
+  "qwen3.8-flash": {
+   "estado": "INTERMITENTE",
+   "detalle": "Error code: 429 - {'error': {'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'qwen/qwen"
+  },
+  "seed-2-1-turbo": {
+   "estado": "VIVO"
+  },
+  "seed-2.0-code": {
+   "estado": "VIVO"
+  },
+  "solar-pro4": {
+   "estado": "VIVO"
+  },
+  "tencent-hy3": {
+   "estado": "VIVO"
+  }
+ }
+}

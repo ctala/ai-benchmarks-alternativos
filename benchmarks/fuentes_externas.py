@@ -282,6 +282,62 @@ def cobertura(foto: dict, rankeados: list[dict], mapa: dict = MAPA) -> dict:
     }
 
 
+# ── Conjunto base (corte-v5 2.3) ────────────────────────────────────────────────
+#
+# Conjunto base = rankeados vigentes en `models.py` (sin `retired`, `unavailable` ni
+# `pendiente_proveedor`) menos los que el último ping de `check_endpoints.py --ranked
+# --guardar` dio MUERTOS. Las fuentes externas no lo recortan (DECISIONES, 3-nov-2026).
+# El ping se guarda fechado en `externos/endpoints/` para que el número se recalcule sin red
+# y sin volver a gastar. INTERMITENTE, SIN CREDENCIAL o ERROR no sacan a nadie: el modelo
+# existe y un mal momento no es un retiro; se listan para que se vean.
+ENDPOINTS = ROOT / "externos" / "endpoints"
+NO_VIGENTE = ("retired", "unavailable", "pendiente_proveedor")
+
+
+def ultimo_ping() -> Path | None:
+    pings = sorted(ENDPOINTS.glob("endpoints-*.json"))
+    return pings[-1] if pings else None
+
+
+def conjunto_base(rankeados: list[str], catalogo: dict, ping: dict) -> dict:
+    """Las keys del conjunto base, las que quedan fuera con su motivo, las que el ping no
+    cubrió y las que respondieron con algo distinto de VIVO sin estar MUERTAS."""
+    res = ping["resultados"]
+    base, fuera = [], {}
+    for k in sorted(set(rankeados)):
+        cfg = catalogo[k]  # una key rankeada sin config en models.py es un error, no un cero
+        motivo = next((f for f in NO_VIGENTE if cfg.get(f)), None)
+        if motivo is None and res.get(k, {}).get("estado") == "MUERTO":
+            motivo = f"MUERTO en el ping del {ping['fecha']}: {res[k].get('detalle', '')}"
+        if motivo:
+            fuera[k] = motivo
+        else:
+            base.append(k)
+    return {
+        "ping": ping["fecha"],
+        "rankeados": len(set(rankeados)),
+        "base": base,
+        "fuera": fuera,
+        "sin_ping": [k for k in base if k not in res],
+        "no_vivos": {k: res[k]["estado"] for k in base
+                     if k in res and res[k]["estado"] != "VIVO"},
+    }
+
+
+def conjunto_base_actual() -> dict | None:
+    """El conjunto base con los datos del repo: models.json (rankeados), models.py y el
+    último ping guardado. None si todavía no hay ping."""
+    ruta = ultimo_ping()
+    if ruta is None:
+        return None
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from benchmarks.models import MODELS, OLLAMA_MODELS
+    rankeados = [m["key"] for m in json.loads(MODELS_JSON.read_text())["models"]
+                 if m.get("ranked")]
+    return conjunto_base(rankeados, {**OLLAMA_MODELS, **MODELS}, json.loads(ruta.read_text()))
+
+
 def _todas_las_keys() -> set[str]:
     return {m["key"] for m in json.loads(MODELS_JSON.read_text())["models"]}
 
@@ -306,8 +362,9 @@ def main() -> int:
     foto = json.loads(ruta.read_text())
     rankeados = [m for m in json.loads(MODELS_JSON.read_text())["models"] if m.get("ranked")]
     c = cobertura(foto, rankeados)
+    cb = conjunto_base_actual()
     if a.json:
-        print(json.dumps(c, ensure_ascii=False, indent=1))
+        print(json.dumps({**c, "conjunto_base": cb}, ensure_ascii=False, indent=1))
         return 0
 
     print(f"\nFuentes externas · foto {ruta.name}\n")
@@ -325,6 +382,18 @@ def main() -> int:
     print(f"    envíos con varios modelos, sin atribuir: {len(c['envios_multimodelo'])}")
     for nombre, info in NO_INGESTADAS.items():
         print(f"  {nombre}: no se ingesta — {info['motivo']}")
+    if cb is None:
+        print("\n  ⚠️  sin ping guardado: correr check_endpoints.py --ranked --guardar")
+        return 0
+    print(f"\n  Conjunto base: {len(cb['base'])} de {cb['rankeados']} rankeados "
+          f"(models.py + ping del {cb['ping']})")
+    for k, motivo in cb["fuera"].items():
+        print(f"    fuera: {k} — {motivo}")
+    if cb["no_vivos"]:
+        print("    no respondieron VIVO, siguen dentro: "
+              + ", ".join(f"{k} ({e})" for k, e in cb["no_vivos"].items()))
+    if cb["sin_ping"]:
+        print(f"    sin ping (rankeados después del {cb['ping']}): {', '.join(cb['sin_ping'])}")
     return 0
 
 

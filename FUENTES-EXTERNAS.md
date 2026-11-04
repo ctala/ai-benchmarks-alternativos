@@ -1,5 +1,4 @@
-<!-- doc: borrador -->
-<!-- creado: 2026-11-03 | para corregir en la sesión de apertura del corte v5.0.0 -->
+<!-- doc: vigente | verificado: 2026-11-03 -->
 # Fuentes externas: qué benchmarks públicos usamos y cuáles no
 
 > **Regla de Cristian (3-nov-2026):** *"usemos benchmarks públicos verificados por la comunidad. No
@@ -34,12 +33,19 @@ verdad), seguridad en español. Ahí la capa propia no es complemento: es la ún
 
 ## El conjunto base de modelos
 
-El **conjunto base** son los modelos vigentes del índice que se pueden llamar por OpenRouter, contados desde
-`models.py` (el número se publica en la tarea 2.3). Las fuentes externas no lo recortan: son **banda
-informativa**, y una cifra se muestra solo si la fuente midió la misma versión exacta del modelo. La
-cobertura medida el 3-nov (5 de 115 con Terminus 2, 14 con cualquier agente, foto de mayo) hace que
-«sin dato comunitario» sea la norma, no la excepción. Los modelos sin banda se eligen para medir con el harness oficial solo cuando le importan a un founder (baratos,
-abiertos, locales: Qwen 3.8 Flash vs Ornith 1.5 es el primer caso).
+El **conjunto base** son los modelos rankeados vigentes en `models.py` (sin `retired`, `unavailable` ni
+`pendiente_proveedor`) menos los que el último ping de `check_endpoints.py --ranked --guardar` dio MUERTOS.
+Hoy son **<!-- AUTO:conjunto_base -->107<!-- /AUTO --> modelos**, con el ping del
+<!-- AUTO:conjunto_base_ping -->2026-11-03<!-- /AUTO -->. El número lo calcula `fuentes_externas.py` desde `models.py`,
+`models.json` y el ping guardado en `externos/endpoints/`, sin red; `sync_doc_counts.py` lo escribe acá.
+Un modelo intermitente o sin credencial no sale del conjunto: existe, y un mal momento no es un retiro.
+`python benchmarks/fuentes_externas.py` lista cuáles quedan fuera y por qué.
+
+Las fuentes externas no lo recortan: son **banda informativa**, y una cifra se muestra solo si la fuente midió
+la misma versión exacta del modelo. La cobertura medida el 3-nov (5 de 115 con Terminus 2, 12 con cualquier
+agente tras la regla de versión, foto de mayo) hace que «sin dato comunitario» sea la norma, no la excepción.
+Los modelos sin banda se eligen para medir con el harness oficial solo cuando le importan a un founder
+(baratos, abiertos, locales: Qwen 3.8 Flash vs Ornith 1.5 es el primer caso).
 
 **La ingesta (tarea 2.1, 3-nov-2026):** `benchmarks/fuentes_externas.py` guarda una foto fechada con
 URL y licencia en `externos/fotos/`, mapea cada envío a nuestras `key` con una tabla explícita (nunca por

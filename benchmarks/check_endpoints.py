@@ -33,6 +33,8 @@ Uso:
     python benchmarks/check_endpoints.py                 # solo reporta
     python benchmarks/check_endpoints.py --ranked        # solo los que están en el ranking
     python benchmarks/check_endpoints.py --fix           # además parchea models.py
+    python benchmarks/check_endpoints.py --ranked --guardar   # deja el resultado fechado en
+                                                              # externos/endpoints/ (corte-v5 2.3)
 """
 import argparse
 import json
@@ -58,6 +60,10 @@ from providers.registry import MissingCredential, build_providers, provider_for 
 
 MODELS_PY = ROOT / "benchmarks" / "models.py"
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+# El resultado del ping se guarda fechado para que quien lo use (el conjunto base de
+# `fuentes_externas.py`) se recalcule sin red y sin volver a gastar. Un ping es una foto:
+# vale para su fecha, y la fecha va en el nombre.
+ENDPOINTS_DIR = ROOT / "externos" / "endpoints"
 
 # Errores que significan "el proveedor lo retiró". Permanentes, no se reintentan.
 DEAD_MARKERS = (
@@ -169,6 +175,8 @@ def main():
     ap.add_argument("--fix", action="store_true", help="Parchea models.py con retired: True")
     ap.add_argument("--recheck-retired", action="store_true",
                     help="Al revés: pinguea SOLO los retirados y avisa si alguno revivió")
+    ap.add_argument("--guardar", action="store_true",
+                    help="Guarda el estado por key en externos/endpoints/endpoints-<fecha>.json")
     args = ap.parse_args()
 
     catalog = {**MODELS, **OLLAMA_MODELS}
@@ -229,6 +237,21 @@ def main():
         print("\n  … INTERMITENTES — NO se retiran; el modelo existe:")
         for k, name, det in buckets["INTERMITENTE"]:
             print(f"       {name[:34]:<36} {det[:44]}")
+
+    if args.guardar and not args.recheck_retired:
+        fecha = time.strftime("%Y-%m-%d")
+        resultados = {}
+        for estado, filas in buckets.items():
+            for k, _name, det in filas:
+                resultados[k] = {"estado": estado, **({"detalle": det} if det else {})}
+        ENDPOINTS_DIR.mkdir(parents=True, exist_ok=True)
+        destino = ENDPOINTS_DIR / f"endpoints-{fecha}.json"
+        destino.write_text(json.dumps({
+            "fecha": fecha,
+            "comando": "check_endpoints.py" + (" --ranked" if args.ranked else ""),
+            "resultados": dict(sorted(resultados.items())),
+        }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        print(f"\n  ✅ resultado guardado: {destino.relative_to(ROOT)} · {len(resultados)} keys")
 
     if args.recheck_retired:
         # En este modo la noticia es al revés: un retirado que responde REVIVIÓ.

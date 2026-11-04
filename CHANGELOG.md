@@ -5,6 +5,12 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Conjunto base: 107 de 115 rankeados, contado desde `models.py` y un ping guardado (3-nov-2026, tarea 2.3 de
+  corte-v5).** `check_endpoints.py --guardar` deja el resultado fechado en `externos/endpoints/`; `fuentes_externas.py`
+  calcula el conjunto sin red y `sync_doc_counts.py` lo escribe en `FUENTES-EXTERNAS.md`, que deja de ser borrador.
+  Quedan fuera 8 rankeados que OpenRouter ya no sirve (KAT Coder Air y Pro 2.5, Qwen 3.6 Max, DeepSeek R1, Nex-N2-Mini,
+  Laguna XS y S 2.1, Hermes 4 70B); siguen en el ranking hasta que se decida retirarlos. Los 5 de `openai_direct`
+  no se pudieron pinguear (falta `OPENAI_API_KEY` en el `.env`) y siguen dentro. Test nuevo, saboteado.
 - **El `lastmod` del sitemap sale de `git log`, no del mtime (3-nov-2026, tarea 2.6 de corte-v5).** El Action fechaba
   con el día de la corrida páginas intactas desde agosto, porque el checkout reescribe todos los archivos. Un clon como el
   del Action da hoy el mismo sitemap que el local (`or-qwen3-next-thinking`: 2026-08-20; con mtime, 2026-11-03). En un

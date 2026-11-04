@@ -14,6 +14,8 @@ Solo reemplaza marcadores explícitos:
     <!-- AUTO:total_runs -->8,000<!-- /AUTO -->
     <!-- AUTO:tests_marketing -->7,000+<!-- /AUTO -->
     <!-- AUTO:lotes -->15<!-- /AUTO -->
+    <!-- AUTO:conjunto_base -->115<!-- /AUTO -->        (fuentes_externas.conjunto_base_actual)
+    <!-- AUTO:conjunto_base_ping -->2026-11-03<!-- /AUTO -->
 
 Para proteger bloques históricos o ejemplos de agentes, envolver en:
     <!-- nosync-start -->
@@ -40,6 +42,8 @@ COUNT_KEYS = [
     "total_runs",
     "tests_marketing",
     "lotes",
+    "conjunto_base",
+    "conjunto_base_ping",
 ]
 
 # Archivos a actualizar (relativos a ROOT)
@@ -51,6 +55,7 @@ TARGET_GLOBS = [
     "MODELOS.md",
     "ESTADO_SESION.md",
     "ROADMAP.md",
+    "FUENTES-EXTERNAS.md",
     ".claude/agents/*.md",
     "docs/alternativas-*/index.html",
     "docs/modelos-*/index.html",
@@ -88,7 +93,16 @@ def load_counts():
         except Exception:
             pass
 
+    # corte-v5 2.3: el conjunto base sale de models.py + el último ping guardado, nunca a mano.
+    try:
+        from benchmarks.fuentes_externas import conjunto_base_actual
+    except ImportError:
+        from fuentes_externas import conjunto_base_actual
+    cb = conjunto_base_actual()
+
     return {
+        "conjunto_base": len(cb["base"]) if cb else None,
+        "conjunto_base_ping": cb["ping"] if cb else None,
         "total_models": total,
         "tested_count": tested,
         "with_runs": with_runs,
@@ -116,9 +130,13 @@ def build_marker_substitutions(c: dict) -> dict[str, tuple[re.Pattern, str]]:
         "total_runs": f"{c['total_runs']:,}",
         "tests_marketing": c["tests_marketing"],
         "lotes": str(c["lotes"]),
+        "conjunto_base": str(c["conjunto_base"]),
+        "conjunto_base_ping": str(c["conjunto_base_ping"]),
     }
     subs = {}
     for key, value in values.items():
+        if value == "None":
+            continue  # sin ping guardado no se escribe un número inventado
         pattern = re.compile(
             rf"<!-- AUTO:{re.escape(key)} -->.*?<!-- /AUTO -->", re.DOTALL
         )

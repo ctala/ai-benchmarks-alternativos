@@ -1659,3 +1659,21 @@ def test_sitemap_lastmod_sale_de_git_y_no_del_mtime():
     finally:
         os.utime(pagina, (antes.st_atime, antes.st_mtime))
 
+
+def test_conjunto_base_models_py_menos_los_muertos_del_ping():
+    # corte-v5 2.3. Solo un MUERTO en el ping o un modelo no vigente en models.py sacan a una
+    # key; un INTERMITENTE o un 401 siguen dentro y quedan a la vista.
+    from benchmarks import fuentes_externas as fe
+    catalogo = {"vivo": {}, "muerto": {}, "lento": {}, "retirado": {"retired": True},
+                "sin_ruta": {"unavailable": "sin key"}, "pendiente": {"pendiente_proveedor": True},
+                "nuevo": {}}
+    ping = {"fecha": "2026-11-03", "resultados": {
+        "vivo": {"estado": "VIVO"}, "muerto": {"estado": "MUERTO", "detalle": "no endpoints"},
+        "lento": {"estado": "INTERMITENTE", "detalle": "429"}}}
+    cb = fe.conjunto_base(list(catalogo), catalogo, ping)
+    assert cb["base"] == ["lento", "nuevo", "vivo"]
+    assert set(cb["fuera"]) == {"muerto", "retirado", "sin_ruta", "pendiente"}
+    assert cb["no_vivos"] == {"lento": "INTERMITENTE"}
+    assert cb["sin_ping"] == ["nuevo"]
+    with pytest.raises(KeyError):
+        fe.conjunto_base(["fantasma"], catalogo, ping)
