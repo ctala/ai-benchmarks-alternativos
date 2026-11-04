@@ -16,7 +16,8 @@
   trayectoria. `check_mezcla.py` (informativo hasta 5.2.a): 65 rankeados con el examen mezclado. Cada run guarda
   `proveedor_declarado` y `cuantizacion`, y el canario es rojo si un run `apagado:` razonó o si un run salió de otro
   proveedor. El canario lanzaba el runner con `python3` a secas y fuera del venv daba «CERO runs»: ahora usa
-  `sys.executable`. Nada medido todavía.
+  `sys.executable`. Canario de GLM 5.2 (4-nov, 12:26): 18/18 con el ruteo fijo en `z-ai/fp8`; en peldaño 2 rinde
+  `apagado:effort_none` sin tokens de razonamiento (23–263 con el default) y cada run guarda Z.AI y fp8.
 
 - **El costo de Harbor decía $0 y la prueba lo aprobaba (4-nov-2026).** `export_harbor` leía el acumulado que
   mini-swe-agent imprime redondeado a dos decimales ($0,0029 → $0,00), y el `instance_cost` de la trayectoria viene en 0

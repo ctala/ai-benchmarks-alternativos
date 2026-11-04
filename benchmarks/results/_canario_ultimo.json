@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-10-10T19:20:29",
+  "cuando": "2026-11-04T12:26:36",
   "modelos": [
-    "claude-haiku-5.5"
+    "glm-5.2"
   ],
   "suites": [
     "tool_calling",
