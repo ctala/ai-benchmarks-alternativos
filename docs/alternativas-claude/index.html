@@ -68,7 +68,7 @@
       "name": "¿Hay alguna alternativa a Claude que sea mejor en TODO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."
+        "text": "No. Cada modelo tiene perfil distinto: Mercury 2.5 gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."
       }
     },
     {
@@ -208,8 +208,8 @@
 
     <h3>Si usas Claude para agentes N8N o Hermes</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> domina por velocidad (240+ tok/s — mucho más rápido que
-      Claude Sonnet) y precio ($0.59 input vs $3.00+ de Sonnet). Para agentes con muchas calls/mes
+      <strong>Mercury 2.5</strong> es el más rápido del benchmark (499 tok/s) y
+      <strong>Llama 3.3 70B</strong> cuesta una fracción de Sonnet. Para agentes con muchas calls/mes
       el ahorro es sustancial. Ver más en <a href="/modelos-n8n/">modelos para N8N</a>.
     </p>
 
@@ -236,7 +236,7 @@
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
   <details><summary><strong>¿Por qué dejar de usar Claude?</strong></summary><p>No necesariamente &#x27;dejar&#x27; — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo.</p></details>
-    <details><summary><strong>¿Hay alguna alternativa a Claude que sea mejor en TODO?</strong></summary><p>No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es &#x27;alternativa a Claude para qué&#x27;.</p></details>
+    <details><summary><strong>¿Hay alguna alternativa a Claude que sea mejor en TODO?</strong></summary><p>No. Cada modelo tiene perfil distinto: Mercury 2.5 gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es &#x27;alternativa a Claude para qué&#x27;.</p></details>
     <details><summary><strong>¿Las alternativas a Claude soportan tool calling?</strong></summary><p>Sí — Devstral, Mistral Small 4, Llama 3.3, Hermes 4 y Qwen soportan tool calling estructurado. El benchmark testea esto como badge; modelos sin tool calling robusto se identifican claramente.</p></details>
     <details><summary><strong>¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?</strong></summary><p>Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es &lt;100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI.</p></details>
     <details><summary><strong>¿Puedo correr alternativas a Claude local sin GPU dedicada?</strong></summary><p>Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/.</p></details>

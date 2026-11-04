@@ -447,6 +447,7 @@ def gen_alternativas_chatgpt(data):
 def gen_alternativas_claude(data):
     models = _recomendables(data)
     lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -503,8 +504,8 @@ def gen_alternativas_claude(data):
 
     <h3>Si usas Claude para agentes N8N o Hermes</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> domina por velocidad (240+ tok/s — mucho más rápido que
-      Claude Sonnet) y precio ($0.59 input vs $3.00+ de Sonnet). Para agentes con muchas calls/mes
+      <strong>{rapido}</strong> es el más rápido del benchmark ({rapido_tps} tok/s) y
+      <strong>Llama 3.3 70B</strong> cuesta una fracción de Sonnet. Para agentes con muchas calls/mes
       el ahorro es sustancial. Ver más en <a href="/modelos-n8n/">modelos para N8N</a>.
     </p>
 
@@ -533,7 +534,7 @@ def gen_alternativas_claude(data):
         ("¿Por qué dejar de usar Claude?",
          "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo."),
         ("¿Hay alguna alternativa a Claude que sea mejor en TODO?",
-         "No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."),
+         f"No. Cada modelo tiene perfil distinto: {rapido} gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."),
         ("¿Las alternativas a Claude soportan tool calling?",
          "Sí — Devstral, Mistral Small 4, Llama 3.3, Hermes 4 y Qwen soportan tool calling estructurado. El benchmark testea esto como badge; modelos sin tool calling robusto se identifican claramente."),
         ("¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?",
@@ -559,6 +560,7 @@ def gen_alternativas_claude(data):
 def gen_alternativas_gemini(data):
     models = _recomendables(data)
     lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     lider_cont = _lider_pilar(data, "Contenido")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
@@ -689,6 +691,7 @@ def row_n8n(rank, m):
 def gen_modelos_n8n(data):
     models = _recomendables(data)
     lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     # Un agente n8n LLAMA HERRAMIENTAS. Ordenar por el pilar «Agentes» ponía arriba a
     # quien escribe bien sobre agentes: medido el 16-ago, ese pilar correlaciona **−0,20**
@@ -707,7 +710,7 @@ def gen_modelos_n8n(data):
 
     title = "Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)"
     desc = ("Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, "
-            "JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.")
+            "JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.")
     kw = ("modelos IA N8N, mejor modelo agente N8N, N8N AI agent, N8N OpenRouter, N8N tool calling, "
           "modelo barato N8N, agente automation IA, workflow IA español")
     url = f"{SITE}/modelos-n8n/"
@@ -821,15 +824,15 @@ def gen_modelos_n8n(data):
 """
     faqs = [
         ("¿Cómo configuro un modelo del benchmark en N8N?",
-         "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o Groq, NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."),
+         "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."),
         ("¿Qué pasa si el modelo open-source que elijo deja de funcionar?",
-         "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 Groq, fallback final a GPT-4.1."),
+         "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 70B, fallback final a GPT-4.1."),
         ("¿Tool calling funciona igual en todos los modelos del benchmark?",
          "No. Tool calling es OpenAI-compatible en mayoría pero la robustez varía. El benchmark mide esto como badge; los del top 10 de agentes tienen tool calling testado robusto."),
         ("¿Cuánto cuesta correr un agente N8N con 1000 calls/día?",
-         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
+         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
         ("¿Debería usar un modelo distinto por nodo en N8N?",
-         "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 Groq, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."),
+         "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 70B, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -856,6 +859,7 @@ def row_cheap(rank, m):
 
 
 def gen_modelos_baratos(data):
+    rapido, rapido_tps = _mas_rapido(data)
     models = _recomendables(data)
     c = counts(data)
     cheap = [m for m in models if m.get("tested") and m.get("score_global", 0) >= 6.8
@@ -930,8 +934,8 @@ def gen_modelos_baratos(data):
     <h3>Local con Ollama (cero costos por call, una vez setupeado)</h3>
     <p>
       <strong>Mistral Small 4</strong> en Mac M-series 32GB. <strong>Ministral 14B</strong> incluso
-      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s vs 240+ tok/s
-      Groq. Para batch jobs es perfecto. Detalles en
+      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s contra los {rapido_tps} tok/s
+      de {rapido}, el más rápido por API. Para batch jobs es perfecto. Detalles en
       <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
@@ -954,14 +958,14 @@ def gen_modelos_baratos(data):
 
     <h3>Startup con producto en MVP, $50-100/mes</h3>
     <ul>
-      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 Groq</strong> (latencia crítica)</li>
+      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 70B</strong> (respaldo)</li>
       <li>Routing/clasificación con Gemini 2.5 Flash Lite (más barato aún)</li>
       <li>Volumen sostenible: ~50K-100K calls/mes</li>
     </ul>
 
     <h3>Negocio establecido escalando, $200-500/mes</h3>
     <ul>
-      <li><strong>Llama 3.3 70B Groq</strong> (calidad + velocidad) como principal</li>
+      <li><strong>Llama 3.3 70B</strong> como principal</li>
       <li><strong>GPT-4.1</strong> sólo para casos críticos identificados</li>
       <li>Local con DGX Spark cuando volumen &gt;$300/mes en API</li>
     </ul>
@@ -982,11 +986,11 @@ def gen_modelos_baratos(data):
         ("¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?",
          "Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen >5K calls/mes. OpenRouter pre-paid: solo paga lo que usas, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usas chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre."),
         ("¿Cómo manejo límites de rate y errores con modelos baratos?",
-         "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
+         "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 70B, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
         ("¿Qué moneda paga en estos servicios? ¿Hay opción local sin tarjeta de crédito?",
          "OpenRouter, OpenAI, Anthropic: tarjeta USD. NVIDIA NIM: gratis con email. Ollama Cloud: requiere tarjeta. Local con Ollama: cero costos, sólo hardware. Para Latinoamérica con limitaciones de moneda, opciones gratis (NVIDIA NIM) + local son el fallback principal."),
         ("¿Cómo empiezo si nunca usé estos modelos antes?",
-         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq."),
+         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 70B."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -1059,7 +1063,7 @@ def gen_modelos_open_source_local(data):
         <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q5_K_M (~17GB)</td><td>7.62</td><td>Apache 2.0</td><td>Top calidad/recursos</td></tr>
         <tr><td><strong>Qwen 3-Next 80B (Dic 2025)</strong></td><td>Q5_K_M (~22GB)</td><td>—</td><td>Apache 2.0</td><td>Coding profesional</td></tr>
         <tr><td>Qwen 3.6 35B base</td><td>Q4_K_M (~22GB)</td><td>7.32</td><td>Apache 2.0</td><td>Versatil</td></tr>
-        <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score con Groq, no local</td></tr>
+        <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
       </tbody>
     </table></div>
 
@@ -1069,7 +1073,7 @@ def gen_modelos_open_source_local(data):
       <tbody>
         <tr><td><strong>DeepSeek V4 Flash</strong></td><td>Q4_K_M (~140GB)</td><td>8.28</td><td>MIT</td><td>Top open-source large</td></tr>
         <tr><td><strong>Qwen 3.6 35B base</strong></td><td>Q5_K_M (~25GB)</td><td>7.32</td><td>Apache 2.0</td><td>Balance calidad/tamaño</td></tr>
-        <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score Groq, local más lento</td></tr>
+        <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
         <tr><td>Nemotron Ultra 253B</td><td>Q4_K_M (~150GB)</td><td>—</td><td>Open weights</td><td>Demasiado grande para Spark</td></tr>
       </tbody>
     </table></div>
@@ -1120,7 +1124,7 @@ def gen_modelos_open_source_local(data):
         ("¿Cómo instalo Ollama y descargo un modelo?",
          "Mac/Linux: curl -fsSL https://ollama.com/install.sh | sh. Después ollama pull mistral-small:24b-instruct-2503-q5_K_M. Para correr: ollama run mistral-small. API OpenAI-compatible expuesta en http://localhost:11434/v1."),
         ("¿Qué pasa con la velocidad local vs API?",
-         "Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con Groq (240+ tok/s) o Gemini Flash (145+ tok/s) es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar."),
+         "Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con las APIs más rápidas del benchmark es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar."),
         ("¿Open-source local sirve para producción comercial?",
          "Sí, con Apache 2.0/MIT (Mistral, Devstral, Qwen base, DeepSeek, Phi-4). Llama 3 tiene cláusula de >700M MAU pero para 99% de startups latinas no es problema. Verifica siempre la licencia del modelo específico antes de comercializar."),
         ("¿NVIDIA DGX Spark vale la pena para emprendedores?",
@@ -1128,7 +1132,7 @@ def gen_modelos_open_source_local(data):
         ("¿Quantization Q3 vs Q4 vs Q5 — cuánto pierdo?",
          "Q5_K_M: pérdida casi imperceptible (~1-2% en métricas). Q4_K_M: pérdida ~3-5%, balance recomendado. Q3_K_M: pérdida 8-15%, sólo si necesitas meter el modelo en RAM justa. Para casos comerciales, mantenete en Q4 o Q5."),
         ("¿Cómo combino modelos local con APIs cuando local no alcanza?",
-         "Pattern de 'fallback chain': tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, Groq). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez."),
+         "Pattern de 'fallback chain': tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, NVIDIA NIM). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -1147,6 +1151,7 @@ def gen_modelos_open_source_local(data):
 def gen_alternativas_deepseek(data):
     models = _recomendables(data)
     lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -1190,15 +1195,14 @@ def gen_alternativas_deepseek(data):
     <h2>¿Por qué buscar alternativas a DeepSeek?</h2>
     <ul>
       <li><strong>Diversificación de proveedor</strong>: no depender de un solo endpoint crítico para tu producto.</li>
-      <li><strong>Latencia</strong>: Llama 3.3 70B en Groq entrega 240+ tok/s, ideal para agentes interactivos.</li>
+      <li><strong>Latencia</strong>: {rapido} entrega {rapido_tps} tok/s, ideal para agentes interactivos.</li>
       <li><strong>Licencia</strong>: DeepSeek es MIT, pero si necesitas Apache 2.0, Mistral/Devstral/Qwen base son mejores.</li>
       <li><strong>Contexto y multimodal</strong>: Gemini y Claude dominan contexto largo y visión nativa.</li>
     </ul>
 
     <h3>Si reemplazas DeepSeek V4 Flash por latencia</h3>
     <p>
-      <strong>Llama 4 Scout 17B (Groq)</strong> es la alternativa más rápida (240+ tok/s) con score global 7.76
-      y precio similar ($0.11/$0.34).
+      <strong>{rapido}</strong> es la alternativa más rápida del benchmark ({rapido_tps} tok/s).
     </p>
 
     <h3>Si usas DeepSeek para razonamiento</h3>
@@ -1216,7 +1220,7 @@ def gen_alternativas_deepseek(data):
 """
     faqs = [
         ("¿Cuál es la mejor alternativa a DeepSeek V4 Flash?",
-         "Para velocidad y costo: Llama 4 Scout 17B (Groq). Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
+         f"Para velocidad: {rapido}. Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
         ("¿DeepSeek tiene buena alternativa en razonamiento?",
          f"Sí: Claude Opus 4.8 y {lider_raz}, que lidera el pilar Razonamiento del benchmark."),
         ("¿Las alternativas a DeepSeek son más caras?",
@@ -1732,11 +1736,40 @@ def _con_linea_fechada(html: str, slug: str, datos) -> str:
     return re.sub(r"</h1>", lambda m: m.group(0) + "\n    " + linea, html, count=1)
 
 
-def _lider_pilar(data, pilar: str) -> str:
+def _conjunto_base(data):
+    """Rankeados recomendables y vigentes en `models.py` (sin `unavailable` ni
+    `pendiente_proveedor`): los únicos que una frase puede recomendar como «el mejor»."""
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from models import MODELS, OLLAMA_MODELS
+    cat = {**OLLAMA_MODELS, **MODELS}
+    return [m for m in _recomendables(data)
+            if m.get("ranked")
+            and not cat.get(m["key"], {}).get("unavailable")
+            and not cat.get(m["key"], {}).get("pendiente_proveedor")]
+
+
+def _lider(data, valor, desempate=lambda m: 0, puesto: int = 1, que: str = "eje"):
+    """El modelo en el `puesto` de un eje, dentro del conjunto base. Orden: `valor` (la nota
+    PUBLICADA), luego `desempate`, luego la key — así el resultado no depende del orden del
+    JSON (DECISIONES, 4-nov-2026). Lo usan las landings y el blog (`generate_blog_datos`)."""
+    cands = [m for m in _conjunto_base(data) if valor(m) is not None]
+    if len(cands) < puesto:
+        raise SystemExit(f"_lider: no hay {puesto} candidato(s) en {que!r}")
+    return sorted(cands, key=lambda m: (valor(m), desempate(m), m["key"]), reverse=True)[puesto - 1]
+
+
+def _mas_rapido(data):
+    """(nombre, tok/s) del más rápido vivo del conjunto base. Reemplaza a «Llama 3.3 70B en Groq,
+    240+ tok/s», que se escribió a mano y quedó mintiendo cuando Groq apagó Llama (16-ago-2026)."""
+    m = _lider(data, lambda x: x.get("tokens_per_second"), que="velocidad")
+    return m["name"], round(m["tokens_per_second"])
+
+
+def _lider_pilar(data, pilar: str, puesto: int = 1) -> str:
     """El nombre del mejor vivo de un pilar, para la prosa que dice «lidera el pilar X».
 
-    Candidatos: el conjunto base — rankeados recomendables y vigentes en `models.py` (sin
-    `unavailable` ni `pendiente_proveedor`). Gana la mayor nota PUBLICADA del pilar
+    Candidatos: el conjunto base (`_conjunto_base`). Gana la mayor nota PUBLICADA del pilar
     (`score_by_pillar`, dos decimales); si empatan, la mayor calidad dentro del pilar
     (`dims_by_pillar[pilar].quality_avg`), y después la key, para que el resultado no dependa
     del orden (DECISIONES, 4-nov-2026). Caso real: GPT-5.6 Luna y Ling 3.0 Flash VL empataban
@@ -1745,21 +1778,15 @@ def _lider_pilar(data, pilar: str) -> str:
     El nombre sale del dato y no se escribe a mano: una frase escrita «X lidera el pilar» se
     queda mintiendo en cuanto otro modelo lo supera (pasó con «Ministral 14B lidera el pilar
     Razonamiento (8.39)», falso al 4-nov-2026)."""
-    import sys as _s
-    _s.path.insert(0, str(Path(__file__).resolve().parent))
-    from models import MODELS, OLLAMA_MODELS
-    cat = {**OLLAMA_MODELS, **MODELS}
-    cands = [m for m in _recomendables(data)
-             if m.get("ranked") and (m.get("score_by_pillar") or {}).get(pilar) is not None
-             and not cat.get(m["key"], {}).get("unavailable")
-             and not cat.get(m["key"], {}).get("pendiente_proveedor")]
-    if not cands:
-        raise SystemExit(f"_lider_pilar: ningún candidato en el pilar {pilar!r}")
+    return _lider_pilar_modelo(data, pilar, puesto)["name"]
 
-    def clave(m):
-        calidad = ((m.get("dims_by_pillar") or {}).get(pilar) or {}).get("quality_avg") or 0
-        return (m["score_by_pillar"][pilar], calidad, m["key"])
-    return max(cands, key=clave)["name"]
+
+def _lider_pilar_modelo(data, pilar: str, puesto: int = 1):
+    return _lider(
+        data,
+        lambda m: (m.get("score_by_pillar") or {}).get(pilar),
+        lambda m: ((m.get("dims_by_pillar") or {}).get(pilar) or {}).get("quality_avg") or 0,
+        puesto, f"pilar {pilar}")
 
 
 def _recomendables(data):

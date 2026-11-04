@@ -665,6 +665,38 @@ def _t_blog_datos():
         tmp.unlink(missing_ok=True)
 
 
+@prueba("generate_blog_datos", "un líder de pilar/suite retirado y un puesto del compuesto viejo")
+def _t_blog_datos_lideres():
+    # 4-nov-2026: el pilar del blog recomendaba a DeepSeek R1 en tool calling («7,45») y a
+    # Poolside Laguna XS como agente; los dos ya no tenían endpoint. Los marcadores
+    # `V:pilar:…`, `V:suite:…` y `D:<key>:puesto_compuesto` existen para eso: cada saboteo
+    # escribe lo que un post diría si alguien lo copiara a mano, y el --check debe caerse.
+    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    posts = blog / "src" / "content" / "blog"
+    if not posts.is_dir():
+        return True
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    muerto = next(m["name"] for m in datos["models"] if m.get("retired"))
+    key = next(m["key"] for m in datos["models"] if m.get("ranked"))
+    saboteos = [
+        f"<!-- V:suite:tool_calling -->{muerto} (7,45)<!-- /V -->",
+        f"<!-- V:pilar:Agentes:nombre -->{muerto}<!-- /V -->",
+        f"<!-- D:{key}:puesto_compuesto -->999<!-- /D -->",
+    ]
+    tmp = posts / "_prueba_guardrail_lideres.md"
+    try:
+        if _correr("generate_blog_datos.py", "--check") != 0:
+            raise AssertionError("ya había marcadores con valores viejos: el saboteo no probaría nada")
+        for linea in saboteos:
+            tmp.write_text("---\ntitle: prueba\ndescription: prueba\npubDate: 2026-11-04\n---\n\n"
+                           f"{linea}\n", encoding="utf-8")
+            if _correr("generate_blog_datos.py", "--check") == 0:
+                return False
+        return True
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 @prueba("check_changelog", "cambios sin su entrada, y un bump que no alcanza")
 def _t_changelog():
     # Dos fallos en uno, porque son las dos mitades del estándar (VERSIONADO.md):

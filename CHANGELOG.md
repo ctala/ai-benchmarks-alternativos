@@ -27,6 +27,16 @@
   del generador, no aviso: saltarla dejaba publicada la versión vieja. Prueba nueva.
 - **La review de Fable atribuía a Sonnet 4.6 la nota de Agentes de DeepSeek R1.** Corregido con la cifra de Sonnet 4.6
   canónico, leída del dato, y la marca visible «corregido el 4-nov-2026».
+- **«en Groq» sale también de las alternativas a Claude y a DeepSeek, de modelos para n8n, de baratos y de local.** La
+  velocidad de Groq escrita a mano (240+ tok/s) y el «Llama 4 Scout 17B (Groq)» con su score de julio se reemplazan por
+  el más rápido vivo del conjunto base (`_mas_rapido()`); las dos filas de Llama 3.3 70B en local dejan el «7.70* con
+  Groq» por «sin score local medido». Queda solo la nota fechada de n8n que cuenta que Groq apagó Llama.
+- **El blog: lo que recomienda lee el dato vivo; lo que analiza un corte es foto fechada (DECISIONES).**
+  `generate_blog_datos.py` suma `V:pilar:<Pilar>` y `V:suite:<suite>` (con `:nombre`, `:nota` y puesto), elegidos por el
+  mismo `_lider()` de las landings —conjunto base y desempate del 4-nov—, y los campos `puesto_compuesto` y `compuesto`.
+  Con eso el pilar y la guía de Claude Code dejan de recomendar a R1 en tool calling («7,45» a mano) y a Laguna XS como
+  agente; los puestos del compuesto de DeepSeek V4 Flash y Qwen3-Coder-Next, escritos a mano y ya corridos, pasan a
+  marcador. Prueba nueva con tres saboteos.
 
 - **La prueba de `check_release_mensual` daba rojo los primeros días de cada mes sin que nada
   estuviera roto (3-nov-2026).** Exigía el `DATASHEET_<mes>.md` del mes en curso y una pareja fija
