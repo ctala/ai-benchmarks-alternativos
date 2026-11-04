@@ -361,5 +361,64 @@
   "tencent-hy3": {
    "estado": "VIVO"
   }
- }
+ },
+ "reverificaciones": [
+  {
+   "fecha": "2026-11-04",
+   "comando": "check_endpoints.py --keys kat-coder-air-2.5 kat-coder-pro-2.5 qwen-3.6-max deepseek-r1 nex-n2-mini laguna-xs-2.1 laguna-s-2.1 hermes-4-70b gpt-4.1 gpt-4.1-mini gpt-5.4 gpt-5.4-mini gpt-5.5 qwen3.8-flash",
+   "nota": "Los 5 de openai_direct (gpt-4.1, gpt-4.1-mini, gpt-5.4, gpt-5.4-mini, gpt-5.5) dieron SIN CREDENCIAL el 3-nov porque OPENAI_API_KEY estaba vacía en el .env; se cargó desde Infisical y se verificaron aparte el 4-nov: VIVOS. Los 8 MUERTOS del 3-nov se repitieron el mismo día y siguen MUERTOS (retirados con --fix). qwen3.8-flash, INTERMITENTE (429) el 3-nov, responde.",
+   "resultados": {
+    "deepseek-r1": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'deepseek/deepseek-r1 is no longer available on OpenRouter: no provide"
+    },
+    "gpt-4.1": {
+     "estado": "VIVO"
+    },
+    "gpt-4.1-mini": {
+     "estado": "VIVO"
+    },
+    "gpt-5.4": {
+     "estado": "VIVO"
+    },
+    "gpt-5.4-mini": {
+     "estado": "VIVO"
+    },
+    "gpt-5.5": {
+     "estado": "VIVO"
+    },
+    "hermes-4-70b": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'nousresearch/hermes-4-70b is no longer available on OpenRouter: no pr"
+    },
+    "kat-coder-air-2.5": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'kwaipilot/kat-coder-air-v2.5 is no longer available on OpenRouter: no"
+    },
+    "kat-coder-pro-2.5": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'kwaipilot/kat-coder-pro-v2.5 is no longer available on OpenRouter: no"
+    },
+    "laguna-s-2.1": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'poolside/laguna-s-2.1 is no longer available on OpenRouter: no provid"
+    },
+    "laguna-xs-2.1": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'poolside/laguna-xs-2.1 is no longer available on OpenRouter: no provi"
+    },
+    "nex-n2-mini": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'nex-agi/nex-n2-mini is no longer available on OpenRouter: no provider"
+    },
+    "qwen-3.6-max": {
+     "estado": "MUERTO",
+     "detalle": "Error code: 404 - {'error': {'message': 'Qwen3.6 Max Preview was deprecated on Oct 9, 2026. We recommend migra"
+    },
+    "qwen3.8-flash": {
+     "estado": "VIVO"
+    }
+   }
+  }
+ ]
 }

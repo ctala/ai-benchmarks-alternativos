@@ -35,6 +35,8 @@ Uso:
     python benchmarks/check_endpoints.py --fix           # además parchea models.py
     python benchmarks/check_endpoints.py --ranked --guardar   # deja el resultado fechado en
                                                               # externos/endpoints/ (corte-v5 2.3)
+    python benchmarks/check_endpoints.py --keys a b --guardar # re-pingea solo esas keys y lo
+                                                              # anota en el último ping guardado
 """
 import argparse
 import json
@@ -133,10 +135,23 @@ def ping(cfg: dict, P: dict) -> tuple[str, str]:
             timeout=30,
         )
         if getattr(r, "error", None):
-            return classify(str(r.error)), str(r.error)[:110]
+            return classify(str(r.error)), str(r.error)[:240]
         return "VIVO", ""
     except Exception as e:  # noqa: BLE001
-        return classify(str(e)), str(e)[:110]
+        return classify(str(e)), str(e)[:240]
+
+
+def motivo_retiro(prov: str, detalle: str) -> str:
+    """El motivo que queda en `retired_reason`: el mensaje del proveedor, no el envoltorio.
+    Hasta el 4-nov-2026 se guardaban los primeros 60 caracteres del error crudo, que en un 404
+    de OpenRouter son `Error code: 404 - {'error': {'message': '…` y cortan justo antes de la
+    causa. Sin comillas dobles ni barras: el valor se escribe dentro de un literal de models.py."""
+    import re
+    m = re.search(r"'message': '([^']+)", detalle)
+    texto = m.group(1) if m else detalle
+    codigo = re.search(r"Error code: (\d{3})", detalle)
+    pre = f"{prov} {codigo.group(1)}" if codigo else prov
+    return f"{pre}: {texto}".replace('"', "'").replace("\\", "")[:140]
 
 
 def patch_models_py(dead: dict) -> int:
@@ -177,6 +192,10 @@ def main():
                     help="Al revés: pinguea SOLO los retirados y avisa si alguno revivió")
     ap.add_argument("--guardar", action="store_true",
                     help="Guarda el estado por key en externos/endpoints/endpoints-<fecha>.json")
+    ap.add_argument("--keys", nargs="+", metavar="KEY",
+                    help="Solo estas keys de models.py. Con --guardar, se anotan como "
+                         "reverificación dentro del último ping guardado, sin reescribirlo")
+    ap.add_argument("--nota", help="Con --keys --guardar: por qué se reverificaron aparte")
     args = ap.parse_args()
 
     catalog = {**MODELS, **OLLAMA_MODELS}
@@ -188,7 +207,12 @@ def main():
         d = json.loads(MODELS_JSON.read_text())
         only = {m["name"] for m in d["models"] if m.get("ranked")}
 
-    if args.recheck_retired:
+    if args.keys:
+        faltan = [k for k in args.keys if k not in catalog]
+        if faltan:
+            sys.exit(f"Keys que no están en models.py: {', '.join(faltan)}")
+        targets = {k: catalog[k] for k in args.keys}
+    elif args.recheck_retired:
         # El retiro NO es una puerta de una sola vía, y esto lo descubrimos tarde.
         # `stepfun/step-3.5-flash` y `qwen/qwen-2.5-72b-instruct` se retiraron el
         # 14-jul-2026 con razón —ningún proveedor los servía— y el 12-ago-2026 volvían a
@@ -214,7 +238,7 @@ def main():
         buckets[estado].append((k, cfg.get("name"), detalle))
         if estado == "MUERTO":
             prov = cfg.get("provider", "openrouter")
-            dead_reasons[k] = f"{prov}: {detalle[:60]}"
+            dead_reasons[k] = motivo_retiro(prov, detalle)
         icon = {"VIVO": "·", "MUERTO": "💀", "INTERMITENTE": "…", "SIN CREDENCIAL": "🔑",
                 "APAGADO": "🔌", "ERROR": "?"}[estado]
         print(f"  [{i:>3}/{len(targets)}] {icon} {cfg.get('name','')[:34]:<36} {estado}")
@@ -244,14 +268,33 @@ def main():
         for estado, filas in buckets.items():
             for k, _name, det in filas:
                 resultados[k] = {"estado": estado, **({"detalle": det} if det else {})}
-        ENDPOINTS_DIR.mkdir(parents=True, exist_ok=True)
-        destino = ENDPOINTS_DIR / f"endpoints-{fecha}.json"
-        destino.write_text(json.dumps({
-            "fecha": fecha,
-            "comando": "check_endpoints.py" + (" --ranked" if args.ranked else ""),
-            "resultados": dict(sorted(resultados.items())),
-        }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-        print(f"\n  ✅ resultado guardado: {destino.relative_to(ROOT)} · {len(resultados)} keys")
+        if args.keys:
+            # Una reverificación de pocas keys NO es un ping nuevo: no cubre el ranking, así que
+            # se anota dentro del último ping completo, con su fecha, y el original queda intacto.
+            # `fuentes_externas.resultados_efectivos()` aplica la más reciente por key.
+            pings = sorted(ENDPOINTS_DIR.glob("endpoints-*.json"))
+            if not pings:
+                sys.exit("No hay ping guardado donde anotar: correr primero --ranked --guardar")
+            destino = pings[-1]
+            d = json.loads(destino.read_text())
+            d.setdefault("reverificaciones", []).append({
+                "fecha": fecha,
+                "comando": "check_endpoints.py --keys " + " ".join(args.keys),
+                **({"nota": args.nota} if args.nota else {}),
+                "resultados": dict(sorted(resultados.items())),
+            })
+            destino.write_text(json.dumps(d, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            print(f"\n  ✅ reverificación anotada en {destino.relative_to(ROOT)} · "
+                  f"{len(resultados)} keys · {fecha}")
+        else:
+            ENDPOINTS_DIR.mkdir(parents=True, exist_ok=True)
+            destino = ENDPOINTS_DIR / f"endpoints-{fecha}.json"
+            destino.write_text(json.dumps({
+                "fecha": fecha,
+                "comando": "check_endpoints.py" + (" --ranked" if args.ranked else ""),
+                "resultados": dict(sorted(resultados.items())),
+            }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            print(f"\n  ✅ resultado guardado: {destino.relative_to(ROOT)} · {len(resultados)} keys")
 
     if args.recheck_retired:
         # En este modo la noticia es al revés: un retirado que responde REVIVIÓ.

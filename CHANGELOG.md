@@ -5,6 +5,11 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Reverificación de los 14 que el ping del 3-nov no dio VIVOS (4-nov-2026, corte-v5 2.3).** `check_endpoints.py --keys` pinguea solo esas
+  keys y con `--guardar` lo anota como `reverificaciones` dentro del último ping, sin reemplazarlo; `fuentes_externas.py` aplica la más
+  reciente por key. Los 5 de `openai_direct` (GPT-4.1, GPT-4.1 mini, GPT-5.4, GPT-5.4 mini y GPT-5.5) responden con la `OPENAI_API_KEY`
+  cargada desde Infisical; Qwen 3.8 Flash, que dio 429, responde; los 8 MUERTOS siguen muertos. El conjunto base queda en 107 de 115.
+  `retired_reason` guarda ahora el mensaje del proveedor (antes, los primeros 60 caracteres del envoltorio del error). Test nuevo con dos sabotajes.
 - **Conjunto base: 107 de 115 rankeados, contado desde `models.py` y un ping guardado (3-nov-2026, tarea 2.3 de
   corte-v5).** `check_endpoints.py --guardar` deja el resultado fechado en `externos/endpoints/`; `fuentes_externas.py`
   calcula el conjunto sin red y `sync_doc_counts.py` lo escribe en `FUENTES-EXTERNAS.md`, que deja de ser borrador.

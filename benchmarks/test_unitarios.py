@@ -1677,3 +1677,25 @@ def test_conjunto_base_models_py_menos_los_muertos_del_ping():
     assert cb["sin_ping"] == ["nuevo"]
     with pytest.raises(KeyError):
         fe.conjunto_base(["fantasma"], catalogo, ping)
+
+
+def test_conjunto_base_aplica_la_reverificacion_mas_reciente():
+    # Una reverificación (`check_endpoints --keys … --guardar`) pisa al ping completo por key, y
+    # entre dos reverificaciones manda la de fecha más nueva aunque esté anotada antes.
+    from benchmarks import fuentes_externas as fe
+    catalogo = {"revive": {}, "muere": {}, "sin_key": {}, "quieto": {}}
+    ping = {"fecha": "2026-11-03", "resultados": {
+        "revive": {"estado": "MUERTO", "detalle": "404"},
+        "muere": {"estado": "VIVO"},
+        "sin_key": {"estado": "SIN CREDENCIAL"},
+        "quieto": {"estado": "VIVO"}},
+        "reverificaciones": [
+            {"fecha": "2026-11-05", "resultados": {"muere": {"estado": "MUERTO", "detalle": "404"}}},
+            {"fecha": "2026-11-04", "resultados": {
+                "revive": {"estado": "VIVO"}, "sin_key": {"estado": "VIVO"},
+                "muere": {"estado": "VIVO"}}}]}
+    cb = fe.conjunto_base(list(catalogo), catalogo, ping)
+    assert cb["base"] == ["quieto", "revive", "sin_key"]
+    assert list(cb["fuera"]) == ["muere"] and "2026-11-05" in cb["fuera"]["muere"]
+    assert cb["no_vivos"] == {}
+    assert cb["reverificado"] == "2026-11-05"

@@ -299,22 +299,34 @@ def ultimo_ping() -> Path | None:
     return pings[-1] if pings else None
 
 
+def resultados_efectivos(ping: dict) -> dict:
+    """El estado vigente de cada key: el del ping completo, pisado por cada reverificación
+    (`check_endpoints.py --keys … --guardar`) en orden de fecha. Cada resultado lleva la
+    fecha en que se observó, para que el conteo diga de cuándo es cada dato."""
+    res = {k: {**v, "fecha": ping["fecha"]} for k, v in ping["resultados"].items()}
+    for rev in sorted(ping.get("reverificaciones", []), key=lambda r: r["fecha"]):
+        for k, v in rev["resultados"].items():
+            res[k] = {**v, "fecha": rev["fecha"]}
+    return res
+
+
 def conjunto_base(rankeados: list[str], catalogo: dict, ping: dict) -> dict:
     """Las keys del conjunto base, las que quedan fuera con su motivo, las que el ping no
     cubrió y las que respondieron con algo distinto de VIVO sin estar MUERTAS."""
-    res = ping["resultados"]
+    res = resultados_efectivos(ping)
     base, fuera = [], {}
     for k in sorted(set(rankeados)):
         cfg = catalogo[k]  # una key rankeada sin config en models.py es un error, no un cero
         motivo = next((f for f in NO_VIGENTE if cfg.get(f)), None)
         if motivo is None and res.get(k, {}).get("estado") == "MUERTO":
-            motivo = f"MUERTO en el ping del {ping['fecha']}: {res[k].get('detalle', '')}"
+            motivo = f"MUERTO en el ping del {res[k]['fecha']}: {res[k].get('detalle', '')}"
         if motivo:
             fuera[k] = motivo
         else:
             base.append(k)
     return {
         "ping": ping["fecha"],
+        "reverificado": max((r["fecha"] for r in ping.get("reverificaciones", [])), default=None),
         "rankeados": len(set(rankeados)),
         "base": base,
         "fuera": fuera,
@@ -386,7 +398,8 @@ def main() -> int:
         print("\n  ⚠️  sin ping guardado: correr check_endpoints.py --ranked --guardar")
         return 0
     print(f"\n  Conjunto base: {len(cb['base'])} de {cb['rankeados']} rankeados "
-          f"(models.py + ping del {cb['ping']})")
+          f"(models.py + ping del {cb['ping']}"
+          + (f", reverificado el {cb['reverificado']}" if cb.get("reverificado") else "") + ")")
     for k, motivo in cb["fuera"].items():
         print(f"    fuera: {k} — {motivo}")
     if cb["no_vivos"]:
