@@ -782,7 +782,10 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # del lote. Guarda la etiqueta de `effort.resolver` («default:max», «sin_niveles»…).
     # `techo_omitido` (14-sep): el request salió SIN max_tokens porque el modelo no lo declara.
     for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
-               "reasoning_tokens", "reasoning_effort", "techo_omitido"):
+               "reasoning_tokens", "reasoning_effort", "techo_omitido",
+               # corte-v5 6.3/6.4: en qué endpoint se pidió rendir y con qué cuantización
+               # lo sirvió. Sin esto el proveedor fijo no deja huella en el dato.
+               "proveedor_declarado", "cuantizacion"):
         if _md.get(_k) is not None:
             scores[_k] = _md[_k]
 

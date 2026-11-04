@@ -630,6 +630,19 @@ def test_effort_apagado_por_clase():
     assert effort.pedido_por_suite("deep_reasoning") is None
     assert effort.pedido_por_suite("niah_es") is None
 
+
+def test_canario_caza_un_apagado_que_razona_y_un_proveedor_violado():
+    from benchmarks import canario
+    base = {"success": True, "response_preview": "ok", "upstream_provider": "Z.AI",
+            "suite": "structured_output", "test_name": "t", "prompt_sha": "x",
+            "proveedor_declarado": "z-ai/fp8", "cuantizacion": "fp8"}
+    limpio = [dict(base, reasoning_effort="apagado:effort_none", reasoning_tokens=0)] * 3
+    assert not any("APAGADO" in p or "proveedor" in p for p in canario.revisar("m", limpio))
+    razona = limpio[:2] + [dict(base, reasoning_effort="apagado:effort_none", reasoning_tokens=40)]
+    assert any("APAGADO" in p for p in canario.revisar("m", razona))
+    violado = limpio + [dict(base, success=False, error="proveedor fijo violado: declarado z-ai/fp8, lo sirvió X")]
+    assert any("fuera del proveedor declarado" in p for p in canario.revisar("m", violado))
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
 

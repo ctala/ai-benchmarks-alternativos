@@ -193,6 +193,25 @@ def revisar(model_key: str, runs: list[dict]) -> list[str]:
         problemas.append(f"{model_key}: {len(tool_all)-len(tool_ok)} de {len(tool_all)} "
                          f"tests con herramientas fallaron (parcial, revisar por qué)")
 
+    # 2b. Examen de v5 (corte-v5 6.1 y 6.3). Un run etiquetado `apagado:` que razonó no
+    # rindió apagado: el proveedor ignoró el parámetro y la etiqueta miente. Y un run con
+    # proveedor declarado tiene que venir de ahí y traer su cuantización.
+    for r in ok:
+        if str(r.get("reasoning_effort") or "").startswith("apagado:") and \
+                int(float(r.get("reasoning_tokens") or 0)) > 0:
+            problemas.append(f"{model_key}: {r.get('suite')}/{r.get('test_name')} se pidió "
+                             f"APAGADO ({r['reasoning_effort']}) y razonó "
+                             f"{r.get('reasoning_tokens')} tokens — el proveedor no lo respeta")
+            break
+    declarados = [r for r in runs if r.get("proveedor_declarado")]
+    violados = [r for r in runs if "proveedor fijo violado" in str(r.get("error") or "")]
+    if violados:
+        problemas.append(f"{model_key}: {len(violados)} run(s) servidos fuera del proveedor "
+                         f"declarado — {str(violados[0].get('error'))[:90]}")
+    if declarados and not any(r.get("cuantizacion") for r in declarados if r.get("success")):
+        problemas.append(f"{model_key}: tiene proveedor declarado y ningún run guardó su "
+                         f"cuantización")
+
     # 3. Proveedor upstream registrado: sin esto no se puede auditar después.
     if not any(r.get("upstream_provider") for r in ok):
         problemas.append(f"{model_key}: ningún run registró `upstream_provider`")
