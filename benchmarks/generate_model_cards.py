@@ -34,6 +34,7 @@ Uso:  python benchmarks/generate_model_cards.py
 """
 
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -743,8 +744,25 @@ def oficial(m: dict) -> str:
   </section>"""
 
 
+_MESES = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+          "septiembre", "octubre", "noviembre", "diciembre")
+
+
+def _fecha_es(iso: str) -> str:
+    a, mes, d = iso.split("-")
+    return f"{int(d)} de {_MESES[int(mes) - 1]} de {a}"
+
+
+def _nombre_a_secas(nombre: str) -> str:
+    return re.sub(r"\s*\([^)]*\)", "", nombre).strip()
+
+
 def render(m: dict, ranked: list, puesto: int | None) -> str:
+    """La ficha de un modelo. Si está retirado, es una foto fechada (DECISIONES, 4-nov-2026):
+    sus mediciones quedan, una línea visible dice cuándo y por qué se retiró, el titular no lo
+    recomienda y el contrato solo recomienda las alternativas vivas."""
     nombre = m["name"]
+    retirado = bool(m.get("retired"))
     hoy = date.today().isoformat()
     url = f"{SITE}/modelo/{slug(m)}/"
     alt_html, alt_nombres = alternativas(m, ranked)
@@ -760,9 +778,25 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
     #
     # Acá se fusionan en un solo contenedor. No cambia ningún dato ni se pierde nada: es
     # la misma información dentro de un marco, que es lo que la convierte en ficha.
+    if retirado:
+        fecha = m.get("retired_at") or hoy
+        linea_retiro = (
+            f'    <p class="meta fechada" data-medido="{fecha}" '
+            f'data-retirados="{esc(_nombre_a_secas(nombre))}">Retirado el {_fecha_es(fecha)}: '
+            f'el proveedor ya no lo sirve y su endpoint ya no existe. Esta ficha es la foto de sus '
+            f'mediciones; no es una opción para integrar.</p>\n')
+        lead = (f"{esc(nombre)} se retiró: quien lo integre hoy se estrella. Abajo quedan sus "
+                f"mediciones y las alternativas vivas.")
+        cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué "
+               f"modelo vivo reemplaza a {esc(nombre)} en lo que haces.")
+    else:
+        linea_retiro = ""
+        lead = veredicto(m, ranked)
+        cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabes si\n"
+               f"    {esc(nombre)} es tu opción o hay algo mejor para lo que haces.")
     body = f"""  <section class="hero ficha-hero">
     <h1>{esc(nombre)}: para qué sirve de verdad (benchmark en español)</h1>
-    <p class="lead">{veredicto(m, ranked)}</p>
+{linea_retiro}    <p class="lead">{lead}</p>
   </section>
   <section class="ficha-bloque" aria-label="Ficha de {esc(nombre)}">
 {kpis(m, puesto, len(ranked), ranked)}
@@ -779,14 +813,14 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
 {oficial(m)}
   <section class="cta-block">
     <h2>¿Es el mejor para TU caso?</h2>
-    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabes si
-    {esc(nombre)} es tu opción o hay algo mejor para lo que haces.</p>
+    <p>{cta}</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>"""
     contrato = emitir(
         tipo="ficha", generador="generate_model_cards",
-        recomienda=[nombre] + alt_nombres,
-        nota="ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante",
+        recomienda=(alt_nombres if retirado else [nombre] + alt_nombres),
+        nota=("ficha de un modelo retirado: foto fechada de sus mediciones" if retirado else
+              "ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante"),
     )
     html = page_shell(f"{nombre}: benchmark real en español (2026)", desc,
                       f"{nombre.lower()} benchmark, {nombre.lower()} precio, {nombre.lower()} opiniones",
@@ -827,7 +861,15 @@ def main() -> int:
         p.mkdir(exist_ok=True)
         (p / "index.html").write_text(render(m, ranked, puestos.get(m["key"])))
         n += 1
-    print(f"✓ {n} fichas de modelo → docs/modelo/<key>/index.html")
+    # Una ficha publicada no se abandona (4-nov-2026). El bucle de arriba solo escribe a los
+    # rankeados: la ficha de un modelo que se retira quedaba publicada como estaba, con su
+    # titular recomendándolo. Ahora se regenera como foto fechada.
+    r = 0
+    for m in d["models"]:
+        if m.get("retired") and (out / slug(m) / "index.html").exists():
+            (out / slug(m) / "index.html").write_text(render(m, ranked, None))
+            r += 1
+    print(f"✓ {n} fichas de modelo → docs/modelo/<key>/index.html · {r} de retirados como foto fechada")
     con_pesos = sum(1 for m in ranked if m.get("weights_url"))
     print(f"  con enlace a pesos oficiales: {con_pesos} de {n} "
           f"(el resto enlaza la ficha del proveedor; nunca se inventa una URL)")

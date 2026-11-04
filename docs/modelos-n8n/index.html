@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)</title>
-<meta name="description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
+<meta name="description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
 <meta name="keywords" content="modelos IA N8N, mejor modelo agente N8N, N8N AI agent, N8N OpenRouter, N8N tool calling, modelo barato N8N, agente automation IA, workflow IA español">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/modelos-n8n/">
 <meta property="og:title" content="Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)">
-<meta property="og:description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
+<meta property="og:description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/modelos-n8n/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Top modelos IA para agentes N8N según benchmark real">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)">
-<meta name="twitter:description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
+<meta name="twitter:description" content="Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,14 +32,14 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)",
-  "description": "Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.",
+  "description": "Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/modelos-n8n/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/modelos-n8n/",
@@ -60,7 +60,7 @@
       "name": "¿Cómo configuro un modelo del benchmark en N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o Groq, NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."
+        "text": "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."
       }
     },
     {
@@ -68,7 +68,7 @@
       "name": "¿Qué pasa si el modelo open-source que elijo deja de funcionar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 Groq, fallback final a GPT-4.1."
+        "text": "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 70B, fallback final a GPT-4.1."
       }
     },
     {
@@ -84,7 +84,7 @@
       "name": "¿Cuánto cuesta correr un agente N8N con 1000 calls/día?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."
+        "text": "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."
       }
     },
     {
@@ -92,7 +92,7 @@
       "name": "¿Debería usar un modelo distinto por nodo en N8N?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 Groq, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."
+        "text": "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 70B, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."
       }
     }
   ]
@@ -161,7 +161,7 @@
       usuario o es batch nocturno.
     </p>
     <p class="meta">
-      Última actualización: 2026-11-03 ·
+      Última actualización: 2026-11-04 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -169,7 +169,7 @@
   <section class="results">
     <div class="results-header">
       <h2>Top 10 modelos para N8N (priorizando tool calling + velocidad)</h2>
-      <p class="meta">Ordenados por score en el pilar Agentes. Tool calling es badge de capacidad, no entra en el score global v4.17.0.</p>
+      <p class="meta">Ordenados por score en el pilar Agentes. Tool calling es badge de capacidad, no entra en el score global v4.17.1.</p>
     </div>
 
     <div class="table-scroll"><table class="results-table">
@@ -227,8 +227,7 @@
 
     <h3>Si tu agente requiere razonamiento (no solo tool calling)</h3>
     <p>
-      <strong>Hermes 4 70B</strong> tiene "hybrid reasoning" — combina respuestas rápidas con modo
-      razonamiento profundo cuando lo amerita. <strong>DeepSeek R1</strong> es backup sólido si necesitas reasoning puro.
+      <strong>Mercury 2.5</strong> lidera el pilar Razonamiento del benchmark.
     </p>
 
     <h3>Si quieres open-source para correr local + N8N self-hosted</h3>
@@ -256,17 +255,17 @@
     </p>
     <p>
       Por qué no eligió uno del top 5 del benchmark global: el caso de uso es <em>contenido largo en
-      español sobre actualidad</em>, donde Qwen 3.5 supera en context preservation y tono natural.
+      español sobre actualidad</em>, donde Qwen 3.5 397B supera en context preservation y tono natural.
       <strong>Lección</strong>: el ranking global es referencia, pero valida en tu caso real.
     </p>
   </section>
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Cómo configuro un modelo del benchmark en N8N?</strong></summary><p>N8N tiene nodo &#x27;OpenAI Chat Model&#x27; — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o Groq, NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603.</p></details>
-    <details><summary><strong>¿Qué pasa si el modelo open-source que elijo deja de funcionar?</strong></summary><p>Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 Groq, fallback final a GPT-4.1.</p></details>
+  <details><summary><strong>¿Cómo configuro un modelo del benchmark en N8N?</strong></summary><p>N8N tiene nodo &#x27;OpenAI Chat Model&#x27; — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603.</p></details>
+    <details><summary><strong>¿Qué pasa si el modelo open-source que elijo deja de funcionar?</strong></summary><p>Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 70B, fallback final a GPT-4.1.</p></details>
     <details><summary><strong>¿Tool calling funciona igual en todos los modelos del benchmark?</strong></summary><p>No. Tool calling es OpenAI-compatible en mayoría pero la robustez varía. El benchmark mide esto como badge; los del top 10 de agentes tienen tool calling testado robusto.</p></details>
-    <details><summary><strong>¿Cuánto cuesta correr un agente N8N con 1000 calls/día?</strong></summary><p>Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica.</p></details>
-    <details><summary><strong>¿Debería usar un modelo distinto por nodo en N8N?</strong></summary><p>Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 Groq, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad.</p></details>
+    <details><summary><strong>¿Cuánto cuesta correr un agente N8N con 1000 calls/día?</strong></summary><p>Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica.</p></details>
+    <details><summary><strong>¿Debería usar un modelo distinto por nodo en N8N?</strong></summary><p>Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 70B, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad.</p></details>
 </section><section class="cta-block">
   <h2>Prueba la calculadora con tu caso real</h2>
   <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>

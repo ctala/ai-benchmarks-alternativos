@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/fable-5-review/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/fable-5-review/",
@@ -142,6 +142,7 @@
 <main class="container">
   <section class="hero">
     <h1>Claude Fable 5: review con benchmark real (Noviembre 2026)</h1>
+    <p class="meta fechada" data-medido="2026-07-17" data-retirados="DeepSeek R1">Review con datos medidos el 17 de julio de 2026; sus cifras son de esa fecha. Se retiraron después: DeepSeek R1 (el 4 de noviembre de 2026).</p>
     <p class="lead">
       <strong>Claude Fable 5</strong> es la nueva línea "Mythos" de Anthropic, lanzada en junio de 2026.
       Lo corrimos por <strong>213 tests reales</strong> con juez neutral Phi-4: obtiene
@@ -150,7 +151,7 @@
       <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
     </p>
     <p class="meta">
-      Última actualización: 2026-11-03 ·
+      Última actualización: 2026-11-04 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -170,7 +171,7 @@
     <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
     <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
-  <p>El <strong>score global v4.17.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
+  <p>El <strong>score global v4.17.1</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
   Tool calling se reporta como badge de capacidad, no entra en el score. Mide <em>valor para producción</em>, no solo capacidad bruta.
   <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
@@ -178,7 +179,7 @@
   <section class="results">
     <div class="results-header">
       <h2>Fable 5 vs alternativas directas</h2>
-      <p class="meta">Score ponderado v4.17.0: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">Score ponderado v4.17.1: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
     </div>
 
     <div class="table-scroll"><table class="results-table">
@@ -187,7 +188,7 @@
       </thead>
       <tbody>
         <tr><td>1</td><td><a class="a-ficha" href="/modelo/or-claude-fable-5/"><strong>Claude Fable 5</strong></a></td><td>5.96</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>openrouter (44 tok/s)</td></tr>
-        <tr><td>2</td><td><a class="a-ficha" href="/modelo/deepseek-r1/">DeepSeek R1 (reasoning)</a></td><td>6.59</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+        <tr><td>2</td><td>DeepSeek R1 (reasoning) <span class="row-badge no-rankea" title="su endpoint ya no existe: quien lo integre se estrella">no rankea</span></td><td>6.59</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
       </tbody>
     </table></div>
 
@@ -234,7 +235,7 @@
       <li><strong>Coding:</strong> 7.28/10. Por debajo de Sonnet 4.6 (—/10) y muy por debajo de modelos open-source baratos como Ministral 14B. No lo elegiría para code-generation en producción.</li>
       <li><strong>Contenido:</strong> 7.43/10. Bueno, pero Opus 4.8 (—/10) y Sonnet 4.6 (—/10) rinden similar o mejor por menos.</li>
       <li><strong>Razonamiento:</strong> 6.79/10. Sólido, pero DeepSeek R1 lidera este grupo (7.08/10).</li>
-      <li><strong>Agentes:</strong> 6.31/10. Competitivo, aunque Sonnet 4.6 (6.86/10) lo supera.</li>
+      <li><strong>Agentes:</strong> 6.31/10. Competitivo, aunque Sonnet 4.6 (6.93/10) lo supera <em>(corregido el 4-nov-2026)</em>.</li>
     </ul>
   </section>
 
@@ -248,7 +249,6 @@
       <li><a href="/fable-5-vs-opus-4-8/">Fable 5 vs Claude Opus 4.8</a></li>
       <li><a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Claude Sonnet 4.6</a></li>
       <li><a href="/fable-5-vs-minimax-m3/">Fable 5 vs MiniMax M3</a></li>
-      <li><a href="/fable-5-vs-deepseek-r1/">Fable 5 vs DeepSeek R1</a></li>
     </ul>
   </section>
 <section class="faq">
@@ -263,10 +263,10 @@
   <a href="/" class="cta-primary">Ir a la calculadora →</a>
   <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/fable-5-vs-opus-4-8/">Fable 5 vs Opus 4.8</a> · <a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Sonnet 4.6</a> · <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/modelos-baratos-emprendedores/">modelos baratos</a></p>
 </section>
-{contrato}
 <script type="application/json" id="contrato-pagina">
-{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["Propietaria", "MIT"]}
+{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["Claude Fable 5"], "nota": "review fechada: foto de la medición del 2026-07-17"}
 </script>
+{contrato}
 </main>
 
 <footer>

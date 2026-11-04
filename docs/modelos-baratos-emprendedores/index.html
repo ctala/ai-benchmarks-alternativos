@@ -39,7 +39,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-03",
+  "dateModified": "2026-11-04",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/modelos-baratos-emprendedores/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/modelos-baratos-emprendedores/",
@@ -76,7 +76,7 @@
       "name": "¿Cómo manejo límites de rate y errores con modelos baratos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."
+        "text": "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 70B, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."
       }
     },
     {
@@ -92,7 +92,7 @@
       "name": "¿Cómo empiezo si nunca usé estos modelos antes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq."
+        "text": "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 70B."
       }
     }
   ]
@@ -160,7 +160,7 @@
       global, superando a modelos 50× más caros. El precio premium ya no garantiza calidad superior.
     </p>
     <p class="meta">
-      Última actualización: 2026-11-03 ·
+      Última actualización: 2026-11-04 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -214,8 +214,8 @@
     <h3>Local con Ollama (cero costos por call, una vez setupeado)</h3>
     <p>
       <strong>Mistral Small 4</strong> en Mac M-series 32GB. <strong>Ministral 14B</strong> incluso
-      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s vs 240+ tok/s
-      Groq. Para batch jobs es perfecto. Detalles en
+      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s contra los 499 tok/s
+      de Mercury 2.5, el más rápido por API. Para batch jobs es perfecto. Detalles en
       <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
@@ -238,14 +238,14 @@
 
     <h3>Startup con producto en MVP, $50-100/mes</h3>
     <ul>
-      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 Groq</strong> (latencia crítica)</li>
+      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 70B</strong> (respaldo)</li>
       <li>Routing/clasificación con Gemini 2.5 Flash Lite (más barato aún)</li>
       <li>Volumen sostenible: ~50K-100K calls/mes</li>
     </ul>
 
     <h3>Negocio establecido escalando, $200-500/mes</h3>
     <ul>
-      <li><strong>Llama 3.3 70B Groq</strong> (calidad + velocidad) como principal</li>
+      <li><strong>Llama 3.3 70B</strong> como principal</li>
       <li><strong>GPT-4.1</strong> sólo para casos críticos identificados</li>
       <li>Local con DGX Spark cuando volumen &gt;$300/mes en API</li>
     </ul>
@@ -263,9 +263,9 @@
   <h2>Preguntas frecuentes</h2>
   <details><summary><strong>¿Los modelos baratos son inferiores a Claude Opus o GPT-5?</strong></summary><p>Para razonamiento profundo y proyectos grandes, sí: Claude Opus 4.8 y GPT-5.5 mantienen ventaja. Para 80% de tareas estándar (contenido, agentes, coding mediano), DeepSeek V4 Flash o Mistral Small 4 a 1/100 del costo de Opus dan resultados prácticamente equivalentes. El benchmark cuantifica el delta exacto.</p></details>
     <details><summary><strong>¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?</strong></summary><p>Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen &gt;5K calls/mes. OpenRouter pre-paid: solo paga lo que usas, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usas chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre.</p></details>
-    <details><summary><strong>¿Cómo manejo límites de rate y errores con modelos baratos?</strong></summary><p>Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto.</p></details>
+    <details><summary><strong>¿Cómo manejo límites de rate y errores con modelos baratos?</strong></summary><p>Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 70B, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto.</p></details>
     <details><summary><strong>¿Qué moneda paga en estos servicios? ¿Hay opción local sin tarjeta de crédito?</strong></summary><p>OpenRouter, OpenAI, Anthropic: tarjeta USD. NVIDIA NIM: gratis con email. Ollama Cloud: requiere tarjeta. Local con Ollama: cero costos, sólo hardware. Para Latinoamérica con limitaciones de moneda, opciones gratis (NVIDIA NIM) + local son el fallback principal.</p></details>
-    <details><summary><strong>¿Cómo empiezo si nunca usé estos modelos antes?</strong></summary><p>Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq.</p></details>
+    <details><summary><strong>¿Cómo empiezo si nunca usé estos modelos antes?</strong></summary><p>Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 70B.</p></details>
 </section><section class="cta-block">
   <h2>Prueba la calculadora con tu caso real</h2>
   <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>

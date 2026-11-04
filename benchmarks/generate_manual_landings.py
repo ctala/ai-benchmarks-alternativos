@@ -399,22 +399,21 @@ def gen_alternativas_chatgpt(data):
     <h3>Si usas ChatGPT para coding</h3>
     <p>
       <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
-      <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B Groq es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
+      <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura compleja</strong> → solo aquí GPT-5.5 o Claude Opus 4.8 justifican el costo.
     </p>
 
     <h3>Si usas ChatGPT para contenido en español</h3>
     <p>
-      <strong>Qwen 3.6 Max</strong> y <strong>Gemini 3.1 Flash Lite</strong> superan a GPT-4 en
+      <strong>Gemini 3.1 Flash Lite</strong> supera a GPT-4 en
       blog técnico y contenido de actualidad startup en español. Caso real: Cristian usa modelos Qwen en producción para
       <a href="https://ecosistemastartup.com" target="_blank" rel="noopener">ecosistemastartup.com</a>.
     </p>
 
     <h3>Si usas ChatGPT para agentes (con tool calling)</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> + <strong>Hermes 4 70B</strong> son los más sólidos para
-      tool calling estructurado. La velocidad de Groq (240+ tok/s) hace que agentes con muchas iteraciones
-      se sientan instantáneos.
+      <strong>Llama 3.3 70B</strong> es el más sólido para
+      tool calling estructurado.
     </p>
   </section>
 """
@@ -447,6 +446,8 @@ def gen_alternativas_chatgpt(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_claude(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -503,29 +504,29 @@ def gen_alternativas_claude(data):
 
     <h3>Si usas Claude para agentes N8N o Hermes</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> domina por velocidad (240+ tok/s — mucho más rápido que
-      Claude Sonnet) y precio ($0.59 input vs $3.00+ de Sonnet). Para agentes con muchas calls/mes
+      <strong>{rapido}</strong> es el más rápido del benchmark ({rapido_tps} tok/s) y
+      <strong>Llama 3.3 70B</strong> cuesta una fracción de Sonnet. Para agentes con muchas calls/mes
       el ahorro es sustancial. Ver más en <a href="/modelos-n8n/">modelos para N8N</a>.
     </p>
 
     <h3>Si quieres open-source para correr local</h3>
     <p>
       <strong>Mistral Small 4</strong> (Apache 2.0, 24B) es la mejor relación performance/tamaño.
-      Para hardware con más RAM (≥80GB), <strong>Qwen 3.6 Max</strong> o <strong>DeepSeek V4 Flash</strong>
-      compiten con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
+      Para hardware con más RAM (≥80GB), <strong>DeepSeek V4 Flash</strong>
+      compite con modelos premium. Detalles en <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
     <h3>Si quieres contenido en español</h3>
     <p>
-      <strong>Gemini 3.1 Flash Lite</strong> y <strong>Qwen 3.6 Max</strong> superan a Claude Haiku
+      <strong>Gemini 3.1 Flash Lite</strong> supera a Claude Haiku
       en blogs, traducciones y marketing en español. La diferencia se vuelve significativa en textos largos.
     </p>
 
     <h3>Si necesitas razonamiento profundo</h3>
     <p>
       Para razonamiento de élite (matemáticas, lógica formal, deep planning), Claude Opus 4.8 sigue arriba —
-      pero por margen menor al que el marketing sugiere. Las alternativas reales son <strong>DeepSeek R1</strong>
-      y <strong>Hermes 4 70B</strong> (hybrid reasoning, mucho más barato).
+      pero por margen menor al que el marketing sugiere. La alternativa real es <strong>{lider_raz}</strong>,
+      que lidera el pilar Razonamiento del benchmark.
     </p>
   </section>
 """
@@ -533,13 +534,13 @@ def gen_alternativas_claude(data):
         ("¿Por qué dejar de usar Claude?",
          "No necesariamente 'dejar' — más bien usar la herramienta correcta por caso. Claude Opus es excelente pero su costo (~$5-25 per M tokens) hace que para agentes con volumen real (1,000+ calls/mes) se vuelva insostenible. Modelos como Ministral 14B ($0.20/$0.20) cubren el 80% de casos a 1/50 del costo."),
         ("¿Hay alguna alternativa a Claude que sea mejor en TODO?",
-         "No. Cada modelo tiene perfil distinto: Llama 3.3 Groq gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."),
+         f"No. Cada modelo tiene perfil distinto: {rapido} gana en velocidad, Devstral en coding, Gemini/Qwen en contenido español, GPT-5.5 en razonamiento profundo. La pregunta correcta es 'alternativa a Claude para qué'."),
         ("¿Las alternativas a Claude soportan tool calling?",
          "Sí — Devstral, Mistral Small 4, Llama 3.3, Hermes 4 y Qwen soportan tool calling estructurado. El benchmark testea esto como badge; modelos sin tool calling robusto se identifican claramente."),
         ("¿Qué pasa con Claude Sonnet 4.6 / Opus 4.8?",
          "Están en el benchmark global. Ranquean alto en tareas premium, pero su precio los saca de competencia para volumen. Si tu uso es <100 calls/día y no te importa el costo, Claude sigue siendo válido. Para volumen, las alternativas listadas dan mejor ROI."),
         ("¿Puedo correr alternativas a Claude local sin GPU dedicada?",
-         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B, Qwen 3.6 Max) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
+         "Sí — Mistral Small 4 corre cómodamente en Mac M-series con 32GB RAM. Ministral 14B también. Para modelos más grandes (Llama 70B) necesitas 64GB+ unified memory o GPU dedicada. Detalles en /modelos-open-source-local/."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -558,6 +559,9 @@ def gen_alternativas_claude(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_gemini(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
+    lider_cont = _lider_pilar(data, "Contenido")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -606,13 +610,12 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini Flash Lite por la velocidad/costo</h3>
     <p>
-      <strong>Llama 3.3 70B en Groq</strong> tiene 240+ tok/s avg (más rápido que Flash Lite) a precio
-      similar. <strong>Mistral Small 4</strong> es la opción más barata con calidad superior.
+      <strong>Mistral Small 4</strong> es la opción más barata con calidad superior.
     </p>
 
     <h3>Si usas Gemini Pro para razonamiento</h3>
     <p>
-      <strong>DeepSeek R1</strong> y <strong>Hermes 4 70B</strong> (hybrid reasoning) cubren bien
+      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark y cubre bien
       razonamiento multi-step. Para razonamiento de élite (matemáticas formales, planning complejo)
       <strong>Claude Opus 4.8</strong> o <strong>GPT-5.5</strong> son superiores pero a costo premium.
     </p>
@@ -626,31 +629,31 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini para contenido en español</h3>
     <p>
-      <strong>Qwen 3.6 Max</strong> es el modelo que destaca en producción para contenido de actualidad startup.
-      <strong>Mistral Small 4</strong> y <strong>Llama 3.3 Groq</strong> también dan resultados sólidos en blog técnico y newsletters.
+      <strong>{lider_cont}</strong> es el que lidera el pilar Contenido del benchmark.
+      <strong>Mistral Small 4</strong> y <strong>Llama 3.3 70B</strong> también dan resultados sólidos en blog técnico y newsletters.
     </p>
 
     <h3>Si usas Gemini para coding</h3>
     <p>
       <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
-      <strong>Templates N8N</strong> → Llama 3.3 70B Groq (ver <a href="/modelos-n8n/">modelos para N8N</a>).
+      <strong>Templates N8N</strong> → Llama 3.3 70B (ver <a href="/modelos-n8n/">modelos para N8N</a>).
       <strong>Proyectos grandes con arquitectura</strong> → GPT-5.5 o Claude Opus 4.8 cuando justifica el costo.
     </p>
 
     <h3>Si usas Gemini para agentes con tool calling</h3>
     <p>
-      <strong>Llama 3.3 70B Groq</strong> + <strong>Hermes 4 70B</strong> son los más sólidos.
+      <strong>Llama 3.3 70B</strong> es el más sólido.
       Detalles en <a href="/modelos-n8n/">modelos para N8N</a>.
     </p>
   </section>
 """
     faqs = [
         ("¿Qué alternativa a Gemini Flash Lite es realmente equivalente?",
-         "Llama 3.3 70B en Groq es el match más cercano: precio similar, velocidad superior (240+ tok/s), calidad ligeramente mejor en español. Gemini Flash Lite gana en latencia bajo cargas globales y multimodal."),
+         "Llama 3.3 70B es el match más cercano: precio similar y calidad ligeramente mejor en español. Gemini Flash Lite gana en latencia bajo cargas globales y multimodal."),
         ("¿Hay alguna alternativa a Gemini gratis?",
          "NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para local sin costos: Mistral Small 4 corre en 32GB RAM."),
         ("¿Gemini 3.1 Flash Lite vale más que las alternativas?",
-         "Gemini 3.1 Flash Lite ranquea alto. Pero DeepSeek V4 Flash, Mistral Small 4 y Llama 3.3 70B Groq lo superan en score absoluto para text-only. Si tu caso es contenido o coding estándar, las alternativas ganan. Si necesitas contexto >100K tokens o multimodal, Gemini sigue."),
+         "Gemini 3.1 Flash Lite ranquea alto. Pero DeepSeek V4 Flash, Mistral Small 4 y Llama 3.3 70B lo superan en score absoluto para text-only. Si tu caso es contenido o coding estándar, las alternativas ganan. Si necesitas contexto >100K tokens o multimodal, Gemini sigue."),
         ("¿Las alternativas a Gemini soportan contexto largo?",
          "Gemini sigue dominando contexto largo (1M+ tokens). Alternativas con contexto &gt;128K viables: Claude Opus 4.8 (1M), GPT-5.5 (256K+), Llama 4 (1M). Para context típico (8K-32K) casi todas las alternativas listadas son válidas."),
         ("¿Vale la pena migrar de Gemini API a alternativas?",
@@ -687,6 +690,8 @@ def row_n8n(rank, m):
 
 def gen_modelos_n8n(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     # Un agente n8n LLAMA HERRAMIENTAS. Ordenar por el pilar «Agentes» ponía arriba a
     # quien escribe bien sobre agentes: medido el 16-ago, ese pilar correlaciona **−0,20**
@@ -705,7 +710,7 @@ def gen_modelos_n8n(data):
 
     title = "Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)"
     desc = ("Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, "
-            "JSON estructurado y workflows. Llama 3.3 Groq, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.")
+            "JSON estructurado y workflows. Llama 3.3 70B, Mistral Small 4, Devstral, Hermes 4 y más. Datos abiertos en español.")
     kw = ("modelos IA N8N, mejor modelo agente N8N, N8N AI agent, N8N OpenRouter, N8N tool calling, "
           "modelo barato N8N, agente automation IA, workflow IA español")
     url = f"{SITE}/modelos-n8n/"
@@ -784,8 +789,7 @@ def gen_modelos_n8n(data):
 
     <h3>Si tu agente requiere razonamiento (no solo tool calling)</h3>
     <p>
-      <strong>Hermes 4 70B</strong> tiene "hybrid reasoning" — combina respuestas rápidas con modo
-      razonamiento profundo cuando lo amerita. <strong>DeepSeek R1</strong> es backup sólido si necesitas reasoning puro.
+      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark.
     </p>
 
     <h3>Si quieres open-source para correr local + N8N self-hosted</h3>
@@ -813,22 +817,22 @@ def gen_modelos_n8n(data):
     </p>
     <p>
       Por qué no eligió uno del top 5 del benchmark global: el caso de uso es <em>contenido largo en
-      español sobre actualidad</em>, donde Qwen 3.5 supera en context preservation y tono natural.
+      español sobre actualidad</em>, donde Qwen 3.5 397B supera en context preservation y tono natural.
       <strong>Lección</strong>: el ranking global es referencia, pero valida en tu caso real.
     </p>
   </section>
 """
     faqs = [
         ("¿Cómo configuro un modelo del benchmark en N8N?",
-         "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o Groq, NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."),
+         "N8N tiene nodo 'OpenAI Chat Model' — usa cualquier endpoint OpenAI-compatible. Configura: baseURL: https://openrouter.ai/api/v1 (o NVIDIA NIM, Ollama Cloud), tu API key y el model del benchmark. Ejemplo: mistralai/mistral-small-2603."),
         ("¿Qué pasa si el modelo open-source que elijo deja de funcionar?",
-         "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 Groq, fallback final a GPT-4.1."),
+         "Modelos open-source en OpenRouter pueden deprecar. Estrategia: tener un fallback configurado. N8N permite chains con if/error — primer modelo Mistral Small 4, fallback a Llama 3.3 70B, fallback final a GPT-4.1."),
         ("¿Tool calling funciona igual en todos los modelos del benchmark?",
          "No. Tool calling es OpenAI-compatible en mayoría pero la robustez varía. El benchmark mide esto como badge; los del top 10 de agentes tienen tool calling testado robusto."),
         ("¿Cuánto cuesta correr un agente N8N con 1000 calls/día?",
-         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Llama 3.3 Groq ~$25/mes, Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
+         "Asumiendo 300 input + 1500 output tokens promedio (~30K calls/mes): Mistral Small 4 ~$32/mes, Ministral 14B ~$15/mes, Claude Sonnet 4.6 ~$162/mes. El benchmark es la diferencia entre $15 y $162 por la misma calidad práctica."),
         ("¿Debería usar un modelo distinto por nodo en N8N?",
-         "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 Groq, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."),
+         "Sí, es buena práctica. Routing/clasificación con Gemini Flash Lite (rápido, barato), generación con Llama 3.3 70B, validación final con GPT-4.1 si es crítico. Stack híbrido suele superar al single-modelo en costo y calidad."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -855,6 +859,7 @@ def row_cheap(rank, m):
 
 
 def gen_modelos_baratos(data):
+    rapido, rapido_tps = _mas_rapido(data)
     models = _recomendables(data)
     c = counts(data)
     cheap = [m for m in models if m.get("tested") and m.get("score_global", 0) >= 6.8
@@ -929,8 +934,8 @@ def gen_modelos_baratos(data):
     <h3>Local con Ollama (cero costos por call, una vez setupeado)</h3>
     <p>
       <strong>Mistral Small 4</strong> en Mac M-series 32GB. <strong>Ministral 14B</strong> incluso
-      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s vs 240+ tok/s
-      Groq. Para batch jobs es perfecto. Detalles en
+      en 16GB. Cero costo per call, privacidad total. Tradeoff: velocidad ~30-50 tok/s contra los {rapido_tps} tok/s
+      de {rapido}, el más rápido por API. Para batch jobs es perfecto. Detalles en
       <a href="/modelos-open-source-local/">modelos open-source local</a>.
     </p>
 
@@ -953,14 +958,14 @@ def gen_modelos_baratos(data):
 
     <h3>Startup con producto en MVP, $50-100/mes</h3>
     <ul>
-      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 Groq</strong> (latencia crítica)</li>
+      <li><strong>Mistral Small 4</strong> (calidad principal) + <strong>Llama 3.3 70B</strong> (respaldo)</li>
       <li>Routing/clasificación con Gemini 2.5 Flash Lite (más barato aún)</li>
       <li>Volumen sostenible: ~50K-100K calls/mes</li>
     </ul>
 
     <h3>Negocio establecido escalando, $200-500/mes</h3>
     <ul>
-      <li><strong>Llama 3.3 70B Groq</strong> (calidad + velocidad) como principal</li>
+      <li><strong>Llama 3.3 70B</strong> como principal</li>
       <li><strong>GPT-4.1</strong> sólo para casos críticos identificados</li>
       <li>Local con DGX Spark cuando volumen &gt;$300/mes en API</li>
     </ul>
@@ -981,11 +986,11 @@ def gen_modelos_baratos(data):
         ("¿Vale la pena pagar por suscripciones (Ollama Cloud, OpenRouter, ChatGPT Plus)?",
          "Ollama Cloud (~$30/mes calls ilimitadas a Qwen 3.5 397B): sí si volumen >5K calls/mes. OpenRouter pre-paid: solo paga lo que usas, no hay suscripción mensual. ChatGPT Plus ($20/mes): solo si usas chat conversacional sin construir agentes/herramientas. Para producto: API direct con modelos baratos gana siempre."),
         ("¿Cómo manejo límites de rate y errores con modelos baratos?",
-         "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 Groq, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
+         "Patrón fallback chain: principal Mistral Small 4, si falla Ministral 14B, si falla Llama 3.3 70B, último recurso GPT-4.1. N8N permite implementar esto con nodos If/Error nativos. Robustez sin pagar premium por defecto."),
         ("¿Qué moneda paga en estos servicios? ¿Hay opción local sin tarjeta de crédito?",
          "OpenRouter, OpenAI, Anthropic: tarjeta USD. NVIDIA NIM: gratis con email. Ollama Cloud: requiere tarjeta. Local con Ollama: cero costos, sólo hardware. Para Latinoamérica con limitaciones de moneda, opciones gratis (NVIDIA NIM) + local son el fallback principal."),
         ("¿Cómo empiezo si nunca usé estos modelos antes?",
-         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 Groq."),
+         "Pasos: 1) Crear cuenta en OpenRouter ($5 mínimo), 2) Probar Ministral 14B ($0.20/$0.20) con tu caso real, 3) Si funciona, escalar volumen, 4) Si calidad insuficiente, subir a Mistral Small 4 o Llama 3.3 70B."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -1058,7 +1063,7 @@ def gen_modelos_open_source_local(data):
         <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q5_K_M (~17GB)</td><td>7.62</td><td>Apache 2.0</td><td>Top calidad/recursos</td></tr>
         <tr><td><strong>Qwen 3-Next 80B (Dic 2025)</strong></td><td>Q5_K_M (~22GB)</td><td>—</td><td>Apache 2.0</td><td>Coding profesional</td></tr>
         <tr><td>Qwen 3.6 35B base</td><td>Q4_K_M (~22GB)</td><td>7.32</td><td>Apache 2.0</td><td>Versatil</td></tr>
-        <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score con Groq, no local</td></tr>
+        <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
       </tbody>
     </table></div>
 
@@ -1068,7 +1073,7 @@ def gen_modelos_open_source_local(data):
       <tbody>
         <tr><td><strong>DeepSeek V4 Flash</strong></td><td>Q4_K_M (~140GB)</td><td>8.28</td><td>MIT</td><td>Top open-source large</td></tr>
         <tr><td><strong>Qwen 3.6 35B base</strong></td><td>Q5_K_M (~25GB)</td><td>7.32</td><td>Apache 2.0</td><td>Balance calidad/tamaño</td></tr>
-        <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>7.70*</td><td>Llama 3</td><td>* Score Groq, local más lento</td></tr>
+        <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
         <tr><td>Nemotron Ultra 253B</td><td>Q4_K_M (~150GB)</td><td>—</td><td>Open weights</td><td>Demasiado grande para Spark</td></tr>
       </tbody>
     </table></div>
@@ -1119,7 +1124,7 @@ def gen_modelos_open_source_local(data):
         ("¿Cómo instalo Ollama y descargo un modelo?",
          "Mac/Linux: curl -fsSL https://ollama.com/install.sh | sh. Después ollama pull mistral-small:24b-instruct-2503-q5_K_M. Para correr: ollama run mistral-small. API OpenAI-compatible expuesta en http://localhost:11434/v1."),
         ("¿Qué pasa con la velocidad local vs API?",
-         "Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con Groq (240+ tok/s) o Gemini Flash (145+ tok/s) es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar."),
+         "Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con las APIs más rápidas del benchmark es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar."),
         ("¿Open-source local sirve para producción comercial?",
          "Sí, con Apache 2.0/MIT (Mistral, Devstral, Qwen base, DeepSeek, Phi-4). Llama 3 tiene cláusula de >700M MAU pero para 99% de startups latinas no es problema. Verifica siempre la licencia del modelo específico antes de comercializar."),
         ("¿NVIDIA DGX Spark vale la pena para emprendedores?",
@@ -1127,7 +1132,7 @@ def gen_modelos_open_source_local(data):
         ("¿Quantization Q3 vs Q4 vs Q5 — cuánto pierdo?",
          "Q5_K_M: pérdida casi imperceptible (~1-2% en métricas). Q4_K_M: pérdida ~3-5%, balance recomendado. Q3_K_M: pérdida 8-15%, sólo si necesitas meter el modelo en RAM justa. Para casos comerciales, mantenete en Q4 o Q5."),
         ("¿Cómo combino modelos local con APIs cuando local no alcanza?",
-         "Pattern de 'fallback chain': tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, Groq). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez."),
+         "Pattern de 'fallback chain': tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, NVIDIA NIM). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -1145,6 +1150,8 @@ def gen_modelos_open_source_local(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_deepseek(data):
     models = _recomendables(data)
+    lider_raz = _lider_pilar(data, "Razonamiento")
+    rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -1188,21 +1195,20 @@ def gen_alternativas_deepseek(data):
     <h2>¿Por qué buscar alternativas a DeepSeek?</h2>
     <ul>
       <li><strong>Diversificación de proveedor</strong>: no depender de un solo endpoint crítico para tu producto.</li>
-      <li><strong>Latencia</strong>: Llama 3.3 70B en Groq entrega 240+ tok/s, ideal para agentes interactivos.</li>
+      <li><strong>Latencia</strong>: {rapido} entrega {rapido_tps} tok/s, ideal para agentes interactivos.</li>
       <li><strong>Licencia</strong>: DeepSeek es MIT, pero si necesitas Apache 2.0, Mistral/Devstral/Qwen base son mejores.</li>
       <li><strong>Contexto y multimodal</strong>: Gemini y Claude dominan contexto largo y visión nativa.</li>
     </ul>
 
     <h3>Si reemplazas DeepSeek V4 Flash por latencia</h3>
     <p>
-      <strong>Llama 4 Scout 17B (Groq)</strong> es la alternativa más rápida (240+ tok/s) con score global 7.76
-      y precio similar ($0.11/$0.34).
+      <strong>{rapido}</strong> es la alternativa más rápida del benchmark ({rapido_tps} tok/s).
     </p>
 
-    <h3>Si reemplazas DeepSeek R1 por razonamiento</h3>
+    <h3>Si usas DeepSeek para razonamiento</h3>
     <p>
-      <strong>Claude Opus 4.8</strong> y <strong>Hermes 4 70B</strong> cubren reasoning profundo. Ministral 14B
-      lidera el pilar Razonamiento (8.39) a costo mínimo.
+      <strong>Claude Opus 4.8</strong> cubre reasoning profundo. <strong>{lider_raz}</strong>
+      lidera el pilar Razonamiento del benchmark.
     </p>
 
     <h3>Si quieres alternativa open-source con mejor soporte comercial</h3>
@@ -1214,9 +1220,9 @@ def gen_alternativas_deepseek(data):
 """
     faqs = [
         ("¿Cuál es la mejor alternativa a DeepSeek V4 Flash?",
-         "Para velocidad y costo: Llama 4 Scout 17B (Groq). Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
-        ("¿DeepSeek R1 tiene buena alternativa en razonamiento?",
-         "Sí: Claude Opus 4.8, Hermes 4 70B y Ministral 14B (que lidera el pilar Razonamiento en el benchmark)."),
+         f"Para velocidad: {rapido}. Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
+        ("¿DeepSeek tiene buena alternativa en razonamiento?",
+         f"Sí: Claude Opus 4.8 y {lider_raz}, que lidera el pilar Razonamiento del benchmark."),
         ("¿Las alternativas a DeepSeek son más caras?",
          "Algunas sí, pero no necesariamente mejores. DeepSeek V4 Flash es #1 global porque combina calidad 8.28 con costo $0.10/$0.20. Alternativas con score similar suelen costar más, salvo Llama 4 Scout."),
     ]
@@ -1241,8 +1247,11 @@ def gen_fable_5_review(data):
     _f_runs = fable.get("runs", 0) if fable else 0
     _f_q = f"{fable.get('quality_avg'):.2f}" if fable and fable.get('quality_avg') is not None else "—"
     compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
+    # Review fechada (FECHADAS): la tabla es la foto de la medición y conserva a los que se
+    # retiraron después, con el mismo filtro que `_recomendables` salvo `retired`.
     compare = sorted(
-        [m for m in models if m.get("id") in compare_ids],
+        [m for m in data["models"] if m.get("id") in compare_ids
+         and not m.get("provider_variant") and not m.get("self_hosted")],
         key=lambda m: -m.get("score_global", 0),
     )
     table_models = ([fable] + compare) if fable else compare
@@ -1255,16 +1264,22 @@ def gen_fable_5_review(data):
     url = f"{SITE}/fable-5-review/"
     og_alt = "Review de Claude Fable 5 comparado con Opus 4.8 y Sonnet 4.6"
 
-    best_reasoning = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Razonamiento", 0))
-    best_agents = max(table_models, key=lambda m: (m.get("score_by_pillar") or {}).get("Agentes", 0))
 
     # Valores comparativos seguros (buscan por id, no por orden)
     sonnet_coding = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Coding")
     fable_contenido = fmt_pillar(fable, "Contenido")
     sonnet_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Contenido")
     opus_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-opus-4-8"), {}), "Contenido")
-    r1_reasoning = fmt_pillar(best_reasoning, "Razonamiento")
-    best_agents_score = fmt_pillar(best_agents, "Agentes")
+    # La frase dice «DeepSeek R1 lidera este grupo»: la cifra tiene que ser la de R1. Antes
+    # salía del mejor de la tabla, y tras retirar R1 (4-nov-2026) la tabla ya no lo trae y le
+    # habría atribuido a R1 la nota de otro modelo. R1 sigue en los datos con sus runs.
+    _r1 = next((m for m in data["models"] if m.get("key") == "deepseek-r1"), None)
+    r1_reasoning = fmt_pillar(_r1, "Razonamiento") if _r1 else "—"
+    # Corregido el 4-nov-2026: la frase nombra a Sonnet 4.6 y la cifra salía del mejor de la
+    # tabla, que era DeepSeek R1 (6.86). No era la foto: era un error. Se lee la de Sonnet 4.6
+    # canónico (el rankeado, comparable con el Fable de OpenRouter de esta review).
+    _sonnet = next((m for m in data["models"] if m.get("key") == "claude-sonnet-4.6"), None)
+    best_agents_score = fmt_pillar(_sonnet, "Agentes") if _sonnet else "—"
 
     body = f"""  <section class="hero">
     <h1>Claude Fable 5: review con benchmark real ({MES_DATA})</h1>
@@ -1334,7 +1349,7 @@ def gen_fable_5_review(data):
       <li><strong>Coding:</strong> {fmt_pillar(fable, 'Coding')}/10. Por debajo de Sonnet 4.6 ({sonnet_coding}/10) y muy por debajo de modelos open-source baratos como Ministral 14B. No lo elegiría para code-generation en producción.</li>
       <li><strong>Contenido:</strong> {fable_contenido}/10. Bueno, pero Opus 4.8 ({opus_contenido}/10) y Sonnet 4.6 ({sonnet_contenido}/10) rinden similar o mejor por menos.</li>
       <li><strong>Razonamiento:</strong> {fmt_pillar(fable, 'Razonamiento')}/10. Sólido, pero DeepSeek R1 lidera este grupo ({r1_reasoning}/10).</li>
-      <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera.</li>
+      <li><strong>Agentes:</strong> {fmt_pillar(fable, 'Agentes')}/10. Competitivo, aunque Sonnet 4.6 ({best_agents_score}/10) lo supera <em>(corregido el 4-nov-2026)</em>.</li>
     </ul>
   </section>
 
@@ -1348,7 +1363,6 @@ def gen_fable_5_review(data):
       <li><a href="/fable-5-vs-opus-4-8/">Fable 5 vs Claude Opus 4.8</a></li>
       <li><a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Claude Sonnet 4.6</a></li>
       <li><a href="/fable-5-vs-minimax-m3/">Fable 5 vs MiniMax M3</a></li>
-      <li><a href="/fable-5-vs-deepseek-r1/">Fable 5 vs DeepSeek R1</a></li>
     </ul>
   </section>
 """
@@ -1369,6 +1383,15 @@ def gen_fable_5_review(data):
         '<a href="/alternativas-claude/">alternativas a Claude</a>',
         '<a href="/modelos-baratos-emprendedores/">modelos baratos</a>',
     ])
+    # Contrato declarado: una review fechada no se adivina. Recomienda los vivos de su tabla;
+    # los que se retiraron después siguen en la foto, pero no como opción para el lector.
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from contrato_pagina import emitir as _emitir
+    body += "\n" + _emitir(
+        tipo="landing", generador="generate_manual_landings",
+        recomienda=[m["name"] for m in table_models if not m.get("retired")],
+        nota=f"review fechada: foto de la medición del {FECHADAS['fable-5-review']}")
     extra = f"<script type=\"application/ld+json\">\n{faq_schema(faqs)}\n</script>"
     return header(title, desc, kw, url, og_alt=og_alt, extra_head=extra) + body + FOOTER
 
@@ -1618,32 +1641,17 @@ def _no_recomendar_muertos(html: str, slug: str) -> None:
     if not mj.exists():
         return
     datos = _j.loads(mj.read_text())["models"]
-    muertos = [m["name"] for m in datos if m.get("retired")]
-    vivos = [m["name"] for m in datos if not m.get("retired")]
-
-    # Matching por SUBCADENA no sirve. Existe "Devstral Small 2 24B" (VIVO) que contiene
-    # "Devstral Small" (MUERTO): buscar el muerto a secas bloquearía una página correcta.
-    # Es el mismo falso positivo del viejo matcher de keywords, que reprobaba respuestas
-    # por usar sinónimos.
-    #
-    # Regla: una mención al muerto cuenta SOLO si en esa posición no empieza el nombre de
-    # un modelo vivo más largo.
-    # El nombre en models.json trae el sufijo del proveedor —"Devstral Small 2 24B (DGX
-    # Spark Q4_K_M)"— pero el HTML lo escribe sin él. Comparamos sin el paréntesis.
-    import re as _re
-    _limpio = lambda s: _re.sub(r"\s*\([^)]*\)", "", s).strip()
-
-    encontrados = []
-    for n in muertos:
-        extensiones = [_limpio(v) for v in vivos
-                       if _limpio(v).startswith(n) and _limpio(v) != n]
-        i = 0
-        while (i := html.find(n, i)) != -1:
-            if any(html.startswith(v, i) for v in extensiones):
-                i += len(n)          # es "Devstral Small 2 24B", no el muerto
-                continue
-            encontrados.append(n)    # es el muerto de verdad
-            break
+    encontrados = _muertos_citados(html, datos)
+    if slug in FECHADAS:
+        # Una review es una foto fechada (DECISIONES, 4-nov-2026): puede citar a un modelo que
+        # se retiró DESPUÉS de medirla, siempre que la línea visible lo diga. Uno retirado antes
+        # de la medición, o una review sin la línea, sigue siendo rojo.
+        m = re.search(r'<p class="meta fechada" data-medido="([^"]+)" data-retirados="([^"]*)"', html)
+        if not m:
+            raise SystemExit(f"\n  ERROR en /{slug}/: es una review fechada y no lleva la línea de "
+                             f"fecha de medición.\n")
+        declarados = set(filter(None, m.group(2).split("|")))
+        encontrados = [n for n in encontrados if n not in declarados]
 
     if encontrados:
         raise SystemExit(
@@ -1653,6 +1661,132 @@ def _no_recomendar_muertos(html: str, slug: str) -> None:
             f"  antes de publicar. Un modelo que devuelve 404 no es un candidato.\n"
         )
 
+
+def _limpio(nombre: str) -> str:
+    """El nombre sin el sufijo entre paréntesis: el HTML escribe «DeepSeek R1», no
+    «DeepSeek R1 (reasoning)»."""
+    return re.sub(r"\s*\([^)]*\)", "", nombre).strip()
+
+
+def _muertos(datos) -> dict:
+    """Nombre a secas → fecha de retiro más reciente. Un nombre que sigue vivo por otro
+    proveedor (Llama 3.3 70B: retirado en Groq, vivo en OpenRouter) no es un muerto.
+    Hasta el 4-nov-2026 se buscaba el nombre CON sufijo y «DeepSeek R1 (reasoning)» o
+    «Poolside Laguna XS 2.1» no aparecían nunca en el HTML: pasaban sin verse."""
+    vivos = {_limpio(m["name"]) for m in datos if not m.get("retired")}
+    out: dict = {}
+    for m in datos:
+        n = _limpio(m["name"])
+        if m.get("retired") and n not in vivos:
+            out[n] = max(out.get(n, ""), m.get("retired_at") or "")
+    return out
+
+
+def _muertos_citados(html: str, datos) -> list:
+    """Los muertos que el HTML nombra.
+
+    Matching por SUBCADENA no sirve. Existe "Devstral Small 2 24B" (VIVO) que contiene
+    "Devstral Small" (MUERTO): buscar el muerto a secas bloquearía una página correcta.
+    Regla: una mención al muerto cuenta SOLO si en esa posición no empieza el nombre de un
+    modelo vivo más largo."""
+    vivos = sorted({_limpio(m["name"]) for m in datos if not m.get("retired")})
+    encontrados = []
+    for n in sorted(_muertos(datos)):
+        extensiones = [v for v in vivos if v.startswith(n) and v != n]
+        i = 0
+        while (i := html.find(n, i)) != -1:
+            if any(html.startswith(v, i) for v in extensiones):
+                i += len(n)          # es "Devstral Small 2 24B", no el muerto
+                continue
+            encontrados.append(n)    # es el muerto de verdad
+            break
+    return encontrados
+
+
+# Reviews: fotos fechadas (DECISIONES, 4-nov-2026). La fecha es la de la medición que citan
+# sus cifras escritas a mano (la de publicación). No se les reescriben cifras: llevan una línea
+# visible con esa fecha y los modelos citados que se retiraron después.
+FECHADAS = {
+    "fable-5-review": "2026-07-17",
+    "glm-5.2-explicado": "2026-06-29",
+}
+_MESES = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+          "septiembre", "octubre", "noviembre", "diciembre")
+
+
+def _fecha_es(iso: str) -> str:
+    a, m, d = iso.split("-")
+    return f"{int(d)} de {_MESES[int(m) - 1]} de {a}"
+
+
+def _con_linea_fechada(html: str, slug: str, datos) -> str:
+    """Agrega, bajo el <h1>, la línea visible de la foto fechada. Lista solo los citados que se
+    retiraron DESPUÉS de la medición; uno retirado antes no entra y el guardia lo deja en rojo."""
+    medido = FECHADAS[slug]
+    muertos = _muertos(datos)
+    despues = [n for n in _muertos_citados(html, datos) if muertos[n] > medido]
+    if despues:
+        detalle = "Se retiraron después: " + ", ".join(
+            f"{n} (el {_fecha_es(muertos[n])})" for n in despues) + "."
+    else:
+        detalle = "Ningún modelo citado se retiró después."
+    linea = (f'<p class="meta fechada" data-medido="{medido}" data-retirados="{"|".join(despues)}">'
+             f"Review con datos medidos el {_fecha_es(medido)}; sus cifras son de esa fecha. "
+             f"{detalle}</p>")
+    return re.sub(r"</h1>", lambda m: m.group(0) + "\n    " + linea, html, count=1)
+
+
+def _conjunto_base(data):
+    """Rankeados recomendables y vigentes en `models.py` (sin `unavailable` ni
+    `pendiente_proveedor`): los únicos que una frase puede recomendar como «el mejor»."""
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from models import MODELS, OLLAMA_MODELS
+    cat = {**OLLAMA_MODELS, **MODELS}
+    return [m for m in _recomendables(data)
+            if m.get("ranked")
+            and not cat.get(m["key"], {}).get("unavailable")
+            and not cat.get(m["key"], {}).get("pendiente_proveedor")]
+
+
+def _lider(data, valor, desempate=lambda m: 0, puesto: int = 1, que: str = "eje"):
+    """El modelo en el `puesto` de un eje, dentro del conjunto base. Orden: `valor` (la nota
+    PUBLICADA), luego `desempate`, luego la key — así el resultado no depende del orden del
+    JSON (DECISIONES, 4-nov-2026). Lo usan las landings y el blog (`generate_blog_datos`)."""
+    cands = [m for m in _conjunto_base(data) if valor(m) is not None]
+    if len(cands) < puesto:
+        raise SystemExit(f"_lider: no hay {puesto} candidato(s) en {que!r}")
+    return sorted(cands, key=lambda m: (valor(m), desempate(m), m["key"]), reverse=True)[puesto - 1]
+
+
+def _mas_rapido(data):
+    """(nombre, tok/s) del más rápido vivo del conjunto base. Reemplaza a «Llama 3.3 70B en Groq,
+    240+ tok/s», que se escribió a mano y quedó mintiendo cuando Groq apagó Llama (16-ago-2026)."""
+    m = _lider(data, lambda x: x.get("tokens_per_second"), que="velocidad")
+    return m["name"], round(m["tokens_per_second"])
+
+
+def _lider_pilar(data, pilar: str, puesto: int = 1) -> str:
+    """El nombre del mejor vivo de un pilar, para la prosa que dice «lidera el pilar X».
+
+    Candidatos: el conjunto base (`_conjunto_base`). Gana la mayor nota PUBLICADA del pilar
+    (`score_by_pillar`, dos decimales); si empatan, la mayor calidad dentro del pilar
+    (`dims_by_pillar[pilar].quality_avg`), y después la key, para que el resultado no dependa
+    del orden (DECISIONES, 4-nov-2026). Caso real: GPT-5.6 Luna y Ling 3.0 Flash VL empataban
+    en Contenido con 8.24; gana Luna por calidad (8.899 contra 8.822).
+
+    El nombre sale del dato y no se escribe a mano: una frase escrita «X lidera el pilar» se
+    queda mintiendo en cuanto otro modelo lo supera (pasó con «Ministral 14B lidera el pilar
+    Razonamiento (8.39)», falso al 4-nov-2026)."""
+    return _lider_pilar_modelo(data, pilar, puesto)["name"]
+
+
+def _lider_pilar_modelo(data, pilar: str, puesto: int = 1):
+    return _lider(
+        data,
+        lambda m: (m.get("score_by_pillar") or {}).get(pilar),
+        lambda m: ((m.get("dims_by_pillar") or {}).get(pilar) or {}).get("quality_avg") or 0,
+        puesto, f"pilar {pilar}")
 
 
 def _recomendables(data):
@@ -1714,6 +1848,8 @@ def main():
         if args.slug and slug != args.slug:
             continue
         out = fn(data)
+        if slug in FECHADAS:
+            out = _con_linea_fechada(out, slug, data["models"])
         # Este archivo hardcodea recomendaciones (nombres y precios en el HTML). Eso no
         # cuadra solo: cuando un proveedor apaga un modelo, el texto sigue recomendándolo.
         # El guardia hace que reviente en vez de publicarse.
