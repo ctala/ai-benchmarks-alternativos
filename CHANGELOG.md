@@ -5,6 +5,9 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Censo de proveedores regenerado (4-nov-2026).** Tenía 46 días contra un máximo de 30 (aviso informativo del QA). Quedan 110 de 115
+  rankeados con censo y 71 proveedores distintos; 16 modelos tienen un solo proveedor y 5 no se sirven por OpenRouter. Ninguna página
+  cambió más que la fecha.
 - **El Action no commitea cuando solo cambió la fecha de corrida (4-nov-2026, tarea 2.7 de corte-v5).** `benchmarks/solo_fechas.py`
   compara el diff ignorando las líneas de fecha de corrida (con marcador: `generated_at`, `dateModified`, `<lastmod>`, «actualizado»);
   si no queda nada, `--restaurar` las descarta. 12 de los 13 commits del bot desde agosto eran solo eso. La fecha de la calculadora

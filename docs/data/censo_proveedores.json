@@ -1,36 +1,47 @@
 {
- "consultado_at": "2026-09-19T08:14:50",
+ "consultado_at": "2026-11-04T07:24:10",
  "fuente": "https://openrouter.ai/api/v1/models/{id}/endpoints",
  "caducidad_dias": 30,
  "totales": {
-  "modelos_rankeados": 107,
-  "modelos_con_censo": 102,
-  "proveedores_distintos": 67,
-  "modelos_con_un_solo_proveedor": 21
+  "modelos_rankeados": 115,
+  "modelos_con_censo": 110,
+  "proveedores_distintos": 71,
+  "modelos_con_un_solo_proveedor": 16
  },
  "proveedores": {
   "Google": {
-   "modelos": 64,
+   "modelos": 63,
    "cuantizaciones": {
-    "unknown": 64
+    "unknown": 63
    }
   },
   "DeepInfra": {
-   "modelos": 47,
+   "modelos": 51,
    "cuantizaciones": {
-    "fp4": 14,
-    "fp8": 23,
-    "bf16": 10
+    "fp4": 13,
+    "fp8": 28,
+    "bf16": 8,
+    "fp16": 1,
+    "mxfp4": 1
    }
   },
-  "Novita": {
-   "modelos": 38,
+  "Amazon Bedrock": {
+   "modelos": 45,
    "cuantizaciones": {
-    "bf16": 5,
-    "unknown": 8,
-    "fp8": 21,
-    "fp4": 3,
-    "int4": 1
+    "unknown": 45
+   }
+  },
+  "Azure": {
+   "modelos": 35,
+   "cuantizaciones": {
+    "unknown": 35
+   }
+  },
+  "Alibaba": {
+   "modelos": 32,
+   "cuantizaciones": {
+    "unknown": 24,
+    "fp8": 8
    }
   },
   "Google AI Studio": {
@@ -39,56 +50,46 @@
     "unknown": 30
    }
   },
-  "Amazon Bedrock": {
+  "Venice": {
    "modelos": 29,
    "cuantizaciones": {
-    "unknown": 29
-   }
-  },
-  "Alibaba": {
-   "modelos": 27,
-   "cuantizaciones": {
-    "unknown": 20,
-    "fp8": 7
-   }
-  },
-  "Venice": {
-   "modelos": 27,
-   "cuantizaciones": {
     "fp4": 1,
-    "fp8": 11,
+    "fp8": 12,
     "unknown": 12,
     "bf16": 1,
-    "int4": 2
+    "int4": 3
    }
   },
-  "BaseTen": {
-   "modelos": 27,
+  "Novita": {
+   "modelos": 24,
    "cuantizaciones": {
-    "fp8": 14,
-    "fp4": 13
-   }
-  },
-  "Parasail": {
-   "modelos": 23,
-   "cuantizaciones": {
-    "fp8": 16,
     "bf16": 2,
-    "fp4": 4,
+    "unknown": 7,
+    "fp8": 14,
     "int4": 1
    }
   },
   "SiliconFlow": {
-   "modelos": 23,
+   "modelos": 24,
    "cuantizaciones": {
-    "fp8": 22,
+    "fp8": 23,
     "int4": 1
    }
   },
-  "Azure": {
+  "Parasail": {
    "modelos": 22,
    "cuantizaciones": {
-    "unknown": 22
+    "fp8": 14,
+    "fp4": 5,
+    "bf16": 2,
+    "int4": 1
+   }
+  },
+  "GMICloud": {
+   "modelos": 21,
+   "cuantizaciones": {
+    "bf16": 4,
+    "fp8": 17
    }
   },
   "AtlasCloud": {
@@ -99,36 +100,53 @@
     "int4": 2
    }
   },
-  "GMICloud": {
-   "modelos": 19,
+  "BaseTen": {
+   "modelos": 20,
    "cuantizaciones": {
-    "bf16": 2,
-    "fp8": 17
-   }
-  },
-  "Phala": {
-   "modelos": 19,
-   "cuantizaciones": {
-    "unknown": 17,
-    "fp8": 2
-   }
-  },
-  "StreamLake": {
-   "modelos": 19,
-   "cuantizaciones": {
-    "fp8": 11,
-    "unknown": 8
+    "unknown": 2,
+    "fp8": 10,
+    "fp4": 7,
+    "fp32": 1
    }
   },
   "CoreWeave": {
-   "modelos": 16,
+   "modelos": 19,
    "cuantizaciones": {
     "fp4": 6,
+    "fp8": 6,
     "nvfp4": 1,
-    "fp8": 4,
-    "bf16": 3,
+    "bf16": 4,
     "fp16": 1,
     "int4": 1
+   }
+  },
+  "Wafer": {
+   "modelos": 17,
+   "cuantizaciones": {
+    "mxfp4": 8,
+    "nvfp4": 4,
+    "fp8": 1,
+    "fp4": 4
+   }
+  },
+  "Mistral": {
+   "modelos": 17,
+   "cuantizaciones": {
+    "unknown": 13,
+    "nvfp4": 4
+   }
+  },
+  "xAI": {
+   "modelos": 17,
+   "cuantizaciones": {
+    "unknown": 17
+   }
+  },
+  "StreamLake": {
+   "modelos": 16,
+   "cuantizaciones": {
+    "fp8": 10,
+    "unknown": 6
    }
   },
   "DigitalOcean": {
@@ -137,13 +155,20 @@
     "unknown": 16
    }
   },
-  "xAI": {
-   "modelos": 16,
+  "OpenAI": {
+   "modelos": 15,
    "cuantizaciones": {
-    "unknown": 16
+    "unknown": 15
    }
   },
-  "Together": {
+  "Phala": {
+   "modelos": 15,
+   "cuantizaciones": {
+    "unknown": 14,
+    "nvfp4": 1
+   }
+  },
+  "Anthropic": {
    "modelos": 15,
    "cuantizaciones": {
     "unknown": 15
@@ -155,130 +180,163 @@
     "unknown": 14
    }
   },
-  "Cloudflare": {
-   "modelos": 12,
+  "Sail Research": {
+   "modelos": 13,
    "cuantizaciones": {
-    "unknown": 10,
+    "fp4": 11,
     "fp8": 2
    }
   },
   "Baidu": {
-   "modelos": 11,
+   "modelos": 12,
    "cuantizaciones": {
-    "fp8": 9,
+    "fp8": 10,
     "fp4": 2
    }
   },
-  "Anthropic": {
+  "Relace": {
+   "modelos": 11,
+   "cuantizaciones": {
+    "fp4": 11
+   }
+  },
+  "PrimeIntellect": {
+   "modelos": 10,
+   "cuantizaciones": {
+    "fp8": 3,
+    "unknown": 3,
+    "bf16": 1,
+    "fp4": 3
+   }
+  },
+  "InferenceNet": {
+   "modelos": 10,
+   "cuantizaciones": {
+    "fp8": 2,
+    "fp4": 8
+   }
+  },
+  "Nebius": {
+   "modelos": 10,
+   "cuantizaciones": {
+    "fp8": 6,
+    "fp4": 4
+   }
+  },
+  "Cloudflare": {
+   "modelos": 10,
+   "cuantizaciones": {
+    "unknown": 8,
+    "fp8": 2
+   }
+  },
+  "Claude Platform on AWS": {
    "modelos": 10,
    "cuantizaciones": {
     "unknown": 10
    }
   },
-  "OpenAI": {
+  "Crusoe": {
+   "modelos": 9,
+   "cuantizaciones": {
+    "bf16": 3,
+    "fp8": 4,
+    "fp4": 2
+   }
+  },
+  "Together": {
    "modelos": 9,
    "cuantizaciones": {
     "unknown": 9
    }
   },
-  "Sail Research": {
-   "modelos": 9,
+  "Darkbloom": {
+   "modelos": 8,
    "cuantizaciones": {
     "fp4": 5,
-    "fp8": 4
-   }
-  },
-  "Mistral": {
-   "modelos": 9,
-   "cuantizaciones": {
-    "nvfp4": 1,
-    "unknown": 8
-   }
-  },
-  "Friendli": {
-   "modelos": 7,
-   "cuantizaciones": {
-    "unknown": 7
-   }
-  },
-  "Claude Platform on AWS": {
-   "modelos": 7,
-   "cuantizaciones": {
-    "unknown": 7
-   }
-  },
-  "Chutes": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "fp4": 1,
-    "fp8": 3,
-    "int4": 1,
-    "mxfp4": 1
-   }
-  },
-  "Crusoe": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "bf16": 3,
-    "fp4": 2,
-    "fp8": 1
-   }
-  },
-  "SambaNova": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "unknown": 6
-   }
-  },
-  "Wafer": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "unknown": 6
-   }
-  },
-  "NextBit": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "fp8": 5,
-    "bf16": 1
-   }
-  },
-  "Darkbloom": {
-   "modelos": 6,
-   "cuantizaciones": {
-    "fp4": 3,
     "unknown": 1,
     "fp8": 1,
     "int4": 1
    }
   },
   "AkashML": {
-   "modelos": 6,
+   "modelos": 8,
    "cuantizaciones": {
-    "fp8": 4,
-    "bf16": 1,
-    "fp4": 1
+    "fp8": 3,
+    "fp4": 4,
+    "bf16": 1
    }
   },
-  "Morph": {
+  "Chutes": {
+   "modelos": 7,
+   "cuantizaciones": {
+    "fp4": 1,
+    "fp8": 4,
+    "int4": 1,
+    "mxfp4": 1
+   }
+  },
+  "DekaLLM": {
+   "modelos": 7,
+   "cuantizaciones": {
+    "unknown": 3,
+    "bf16": 3,
+    "fp8": 1
+   }
+  },
+  "Modal": {
+   "modelos": 6,
+   "cuantizaciones": {
+    "unknown": 4,
+    "fp4": 1,
+    "mxfp4": 1
+   }
+  },
+  "Reka": {
+   "modelos": 6,
+   "cuantizaciones": {
+    "unknown": 5,
+    "fp8": 1
+   }
+  },
+  "Makora": {
+   "modelos": 6,
+   "cuantizaciones": {
+    "fp8": 2,
+    "unknown": 2,
+    "fp4": 2
+   }
+  },
+  "Inceptron": {
+   "modelos": 6,
+   "cuantizaciones": {
+    "fp8": 1,
+    "fp4": 3,
+    "int4": 2
+   }
+  },
+  "Friendli": {
    "modelos": 5,
    "cuantizaciones": {
     "unknown": 5
    }
   },
-  "Makora": {
+  "Morph": {
    "modelos": 5,
    "cuantizaciones": {
-    "unknown": 4,
-    "fp4": 1
+    "fp8": 5
    }
   },
-  "Modal": {
+  "Mancer 2": {
    "modelos": 5,
    "cuantizaciones": {
-    "unknown": 3,
-    "fp8": 1,
-    "mxfp4": 1
+    "fp8": 5
+   }
+  },
+  "Cohere": {
+   "modelos": 5,
+   "cuantizaciones": {
+    "unknown": 5
    }
   },
   "Z.AI": {
@@ -287,25 +345,10 @@
     "fp8": 5
    }
   },
-  "DekaLLM": {
-   "modelos": 5,
-   "cuantizaciones": {
-    "unknown": 1,
-    "bf16": 3,
-    "fp8": 1
-   }
-  },
-  "Inceptron": {
-   "modelos": 5,
-   "cuantizaciones": {
-    "fp4": 3,
-    "int4": 2
-   }
-  },
   "Minimax": {
    "modelos": 5,
    "cuantizaciones": {
-    "fp8": 5
+    "unknown": 5
    }
   },
   "Groq": {
@@ -314,68 +357,51 @@
     "unknown": 5
    }
   },
-  "Relace": {
+  "ModelRun": {
    "modelos": 4,
    "cuantizaciones": {
     "fp4": 3,
-    "unknown": 1
-   }
-  },
-  "Reka": {
-   "modelos": 4,
-   "cuantizaciones": {
-    "fp8": 3,
-    "fp4": 1
-   }
-  },
-  "Io Net": {
-   "modelos": 4,
-   "cuantizaciones": {
-    "fp8": 4
-   }
-  },
-  "Mancer 2": {
-   "modelos": 4,
-   "cuantizaciones": {
-    "fp8": 4
-   }
-  },
-  "Mara": {
-   "modelos": 4,
-   "cuantizaciones": {
-    "unknown": 4
-   }
-  },
-  "Nebius": {
-   "modelos": 4,
-   "cuantizaciones": {
-    "fp8": 3,
-    "fp4": 1
+    "fp8": 1
    }
   },
   "Moonshot AI": {
    "modelos": 4,
    "cuantizaciones": {
-    "int4": 3,
-    "mxfp4": 1
+    "unknown": 4
    }
   },
-  "ModelRun": {
+  "NextBit": {
    "modelos": 3,
    "cuantizaciones": {
-    "fp4": 3
+    "fp4": 2,
+    "bf16": 1
    }
   },
-  "InferenceNet": {
+  "Io Net": {
    "modelos": 3,
    "cuantizaciones": {
-    "fp4": 3
+    "unknown": 2,
+    "bf16": 1
    }
   },
-  "Decart": {
+  "SambaNova": {
    "modelos": 3,
    "cuantizaciones": {
-    "fp4": 3
+    "unknown": 3
+   }
+  },
+  "Tenstorrent": {
+   "modelos": 3,
+   "cuantizaciones": {
+    "fp8": 2,
+    "fp4": 1
+   }
+  },
+  "Near AI": {
+   "modelos": 3,
+   "cuantizaciones": {
+    "fp8": 2,
+    "fp4": 1
    }
   },
   "Tencent": {
@@ -384,10 +410,10 @@
     "fp8": 2
    }
   },
-  "DeepSeek": {
+  "OpenInference": {
    "modelos": 2,
    "cuantizaciones": {
-    "unknown": 2
+    "fp4": 2
    }
   },
   "Ionstream": {
@@ -397,17 +423,23 @@
     "unknown": 1
    }
   },
+  "Cerebras": {
+   "modelos": 2,
+   "cuantizaciones": {
+    "fp16": 2
+   }
+  },
+  "Decart": {
+   "modelos": 2,
+   "cuantizaciones": {
+    "fp4": 1,
+    "mxfp4": 1
+   }
+  },
   "Seed": {
    "modelos": 2,
    "cuantizaciones": {
     "fp8": 2
-   }
-  },
-  "Poolside": {
-   "modelos": 2,
-   "cuantizaciones": {
-    "fp8": 1,
-    "fp4": 1
    }
   },
   "Meta": {
@@ -416,10 +448,10 @@
     "unknown": 2
    }
   },
-  "Xiaomi": {
+  "Mara": {
    "modelos": 2,
    "cuantizaciones": {
-    "fp8": 2
+    "unknown": 2
    }
   },
   "Upstage": {
@@ -428,10 +460,10 @@
     "unknown": 2
    }
   },
-  "Near AI": {
+  "Particle AI": {
    "modelos": 1,
    "cuantizaciones": {
-    "fp8": 1
+    "nvfp4": 1
    }
   },
   "Sakana AI": {
@@ -446,22 +478,28 @@
     "unknown": 1
    }
   },
+  "DeepSeek": {
+   "modelos": 1,
+   "cuantizaciones": {
+    "unknown": 1
+   }
+  },
+  "Xiaomi": {
+   "modelos": 1,
+   "cuantizaciones": {
+    "fp8": 1
+   }
+  },
   "Ambient": {
    "modelos": 1,
    "cuantizaciones": {
     "fp8": 1
    }
   },
-  "OpenInference": {
+  "ParetoAlpha": {
    "modelos": 1,
    "cuantizaciones": {
-    "fp8": 1
-   }
-  },
-  "Cerebras": {
-   "modelos": 1,
-   "cuantizaciones": {
-    "fp16": 1
+    "unknown": 1
    }
   }
  },
@@ -474,6 +512,13 @@
      "proveedor": "OpenAI",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 0.6,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 1.2,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     },
@@ -531,6 +576,13 @@
      "precio_out_por_M": 0.13,
      "contexto": 1000000,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 0.0345,
+     "precio_out_por_M": 0.1495,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -539,18 +591,18 @@
    "id": "google/gemma-4-31b-it",
    "endpoints": [
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.34,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "CoreWeave",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 0.34,
      "contexto": 262144,
      "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.102,
+     "precio_out_por_M": 0.171,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "Venice",
@@ -568,10 +620,10 @@
     },
     {
      "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.13,
-     "precio_out_por_M": 0.38,
+     "precio_in_por_M": 0.135,
+     "precio_out_por_M": 0.51,
      "contexto": 262144,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Crusoe",
@@ -595,6 +647,13 @@
      "cuantizacion": "bf16"
     },
     {
+     "proveedor": "NextBit",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.4,
+     "contexto": 262144,
+     "cuantizacion": "fp4"
+    },
+    {
      "proveedor": "Parasail",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.4,
@@ -603,23 +662,44 @@
     },
     {
      "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.27,
-     "precio_out_por_M": 0.76,
-     "contexto": 131072,
+     "precio_in_por_M": 0.16,
+     "precio_out_por_M": 0.32,
+     "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 0.4,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 0.6,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Modal",
+     "precio_in_por_M": 0.34,
+     "precio_out_por_M": 0.1,
+     "contexto": 131072,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Io Net",
+     "precio_in_por_M": 0.361,
+     "precio_out_por_M": 1.0925,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "SambaNova",
      "precio_in_por_M": 0.38,
      "precio_out_por_M": 1.15,
      "contexto": 131072,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Together",
-     "precio_in_por_M": 0.39,
-     "precio_out_por_M": 0.97,
-     "contexto": 262144,
      "cuantizacion": "unknown"
     },
     {
@@ -648,6 +728,13 @@
      "precio_out_por_M": 0.47,
      "contexto": 1000000,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.47,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -668,13 +755,6 @@
      "precio_out_por_M": 0.58,
      "contexto": 262144,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.14,
-     "precio_out_por_M": 0.58,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
     },
     {
      "proveedor": "GMICloud",
@@ -704,18 +784,81 @@
    "id": "deepseek/deepseek-v4.1-flash",
    "endpoints": [
     {
-     "proveedor": "Relace",
-     "precio_in_por_M": 0.13,
-     "precio_out_por_M": 0.52,
+     "proveedor": "Morph",
+     "precio_in_por_M": 0.032,
+     "precio_out_por_M": 0.288,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "OpenInference",
+     "precio_in_por_M": 0.035,
+     "precio_out_por_M": 0.5,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Morph",
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.035,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.045,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.09,
+     "precio_out_por_M": 0.25,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.09,
+     "precio_out_por_M": 0.25,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.103,
+     "precio_out_por_M": 0.6,
+     "contexto": 1040000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.103,
+     "precio_out_por_M": 0.6,
+     "contexto": 1040000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.112,
+     "precio_out_por_M": 0.336,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.13,
+     "precio_out_por_M": 0.65,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "AtlasCloud",
      "precio_in_por_M": 0.135,
      "precio_out_por_M": 0.54,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "DeepInfra",
@@ -725,56 +868,126 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "DeepSeek",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.6,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 0.6,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Wafer",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 0.6,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 0.22,
-     "precio_out_por_M": 0.66,
+     "proveedor": "Reka",
+     "precio_in_por_M": 0.1425,
+     "precio_out_por_M": 1.14,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
      "proveedor": "StreamLake",
-     "precio_in_por_M": 0.282,
-     "precio_out_por_M": 1.128,
+     "precio_in_por_M": 0.147,
+     "precio_out_por_M": 0.588,
      "contexto": 1024000,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "GMICloud",
-     "precio_in_por_M": 0.285,
-     "precio_out_por_M": 1.14,
-     "contexto": 1048575,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.285,
-     "precio_out_por_M": 1.14,
+     "proveedor": "Mancer 2",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.75,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "AtlasCloud",
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.156,
+     "precio_out_por_M": 1.2,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "GMICloud",
+     "precio_in_por_M": 0.18,
+     "precio_out_por_M": 0.72,
+     "contexto": 1048575,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.19,
+     "precio_out_por_M": 0.65,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "Novita",
+     "precio_in_por_M": 0.195,
+     "precio_out_por_M": 0.78,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.21,
+     "precio_out_por_M": 0.63,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.21,
+     "precio_out_por_M": 0.84,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.21,
+     "precio_out_por_M": 0.84,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "DigitalOcean",
+     "precio_in_por_M": 0.225,
+     "precio_out_por_M": 0.9,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Makora",
+     "precio_in_por_M": 0.26,
+     "precio_out_por_M": 1.17,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Crusoe",
+     "precio_in_por_M": 0.29,
+     "precio_out_por_M": 1.2,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 0.9,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Nebius",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Cohere",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Baidu",
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 1048576,
@@ -785,27 +998,6 @@
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Makora",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.2,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "DigitalOcean",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.2,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.2,
-     "contexto": 1000000,
      "cuantizacion": "unknown"
     },
     {
@@ -834,7 +1026,7 @@
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Parasail",
@@ -844,18 +1036,32 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.345,
-     "precio_out_por_M": 1.38,
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
      "proveedor": "Venice",
-     "precio_in_por_M": 0.375,
-     "precio_out_por_M": 1.5,
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
      "contexto": 1000000,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 0.33,
+     "precio_out_por_M": 1.32,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.45,
+     "precio_out_por_M": 1.8,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -864,77 +1070,182 @@
    "id": "z-ai/glm-5.3-flash",
    "endpoints": [
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.075,
-     "precio_out_por_M": 0.25,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "InferenceNet",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.28,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "Relace",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.3,
+     "precio_in_por_M": 0.0269,
+     "precio_out_por_M": 0.0996,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "OpenInference",
+     "precio_in_por_M": 0.0283,
+     "precio_out_por_M": 0.208,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Wafer",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.35,
+     "precio_in_por_M": 0.044,
+     "precio_out_por_M": 0.2,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "Morph",
+     "precio_in_por_M": 0.047,
+     "precio_out_por_M": 0.268,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.054,
+     "precio_out_por_M": 0.2,
+     "contexto": 1048576,
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "Darkbloom",
+     "precio_in_por_M": 0.065,
+     "precio_out_por_M": 0.18,
+     "contexto": 262144,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Tenstorrent",
+     "precio_in_por_M": 0.075,
+     "precio_out_por_M": 0.25,
+     "contexto": 262000,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "GMICloud",
-     "precio_in_por_M": 0.105,
-     "precio_out_por_M": 0.35,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.132,
-     "precio_out_por_M": 0.44,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.141,
-     "precio_out_por_M": 0.47,
-     "contexto": 1024000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.1425,
-     "precio_out_por_M": 0.475,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.1425,
-     "precio_out_por_M": 0.475,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
+     "precio_in_por_M": 0.075,
+     "precio_out_por_M": 0.25,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
      "proveedor": "Near AI",
+     "precio_in_por_M": 0.08,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Novita",
+     "precio_in_por_M": 0.084,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "StreamLake",
+     "precio_in_por_M": 0.0885,
+     "precio_out_por_M": 0.295,
+     "contexto": 1024000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Particle AI",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.108,
+     "precio_out_por_M": 0.35,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.108,
+     "precio_out_por_M": 0.35,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.1125,
+     "precio_out_por_M": 0.375,
+     "contexto": 1048576,
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "DigitalOcean",
+     "precio_in_por_M": 0.1125,
+     "precio_out_por_M": 0.375,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Reka",
+     "precio_in_por_M": 0.12,
+     "precio_out_por_M": 0.3,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.12,
+     "precio_out_por_M": 0.38,
+     "contexto": 1048576,
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "NextBit",
+     "precio_in_por_M": 0.12,
+     "precio_out_por_M": 0.45,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Makora",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.24,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Cohere",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Nebius",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Modal",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.5,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "BaseTen",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.5,
      "contexto": 1048576,
@@ -946,13 +1257,6 @@
      "precio_out_por_M": 0.5,
      "contexto": 1048576,
      "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "CoreWeave",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
-     "contexto": 1048576,
-     "cuantizacion": "nvfp4"
     },
     {
      "proveedor": "AtlasCloud",
@@ -967,13 +1271,6 @@
      "precio_out_por_M": 0.5,
      "contexto": 1048576,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
     },
     {
      "proveedor": "Friendli",
@@ -990,13 +1287,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "DigitalOcean",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Together",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.5,
@@ -1004,18 +1294,11 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Reka",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "Parasail",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.5,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "BaseTen",
@@ -1032,18 +1315,11 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Io Net",
+     "proveedor": "DeepInfra",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.5,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Cloudflare",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.5,
-     "contexto": 1310720,
-     "cuantizacion": "unknown"
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Z.AI",
@@ -1053,18 +1329,32 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "NextBit",
-     "precio_in_por_M": 0.18,
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 0.16,
      "precio_out_por_M": 0.6,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Modal",
-     "precio_in_por_M": 0.45,
-     "precio_out_por_M": 1.5,
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.175,
+     "precio_out_por_M": 0.625,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.175,
+     "precio_out_por_M": 0.625,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.225,
+     "precio_out_por_M": 0.75,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -1074,10 +1364,59 @@
    "endpoints": [
     {
      "proveedor": "Darkbloom",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 1.8,
+     "precio_in_por_M": 0.035,
+     "precio_out_por_M": 1.5,
      "contexto": 262144,
      "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.035,
+     "precio_out_por_M": 1.932,
+     "contexto": 131072,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Chutes",
+     "precio_in_por_M": 0.039,
+     "precio_out_por_M": 1.25,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Near AI",
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 1.35,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Ionstream",
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 1.95,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Modal",
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 2.3,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "DekaLLM",
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 2.5,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.06,
+     "precio_out_por_M": 2.3,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "DeepInfra",
@@ -1087,30 +1426,44 @@
      "cuantizacion": "bf16"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.1992,
-     "precio_out_por_M": 2.075,
+     "proveedor": "Tenstorrent",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 2.0,
      "contexto": 262144,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
     },
     {
-     "proveedor": "DekaLLM",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 2.5,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Mancer 2",
-     "precio_in_por_M": 0.2,
+     "proveedor": "Reka",
+     "precio_in_por_M": 0.15,
      "precio_out_por_M": 2.5,
      "contexto": 262144,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Reka",
-     "precio_in_por_M": 0.214,
-     "precio_out_por_M": 2.55,
+     "proveedor": "Mancer 2",
+     "precio_in_por_M": 0.175,
+     "precio_out_por_M": 2.5,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "ModelRun",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 2.5,
+     "contexto": 262144,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 2.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "AkashML",
+     "precio_in_por_M": 0.225,
+     "precio_out_por_M": 1.98,
      "contexto": 262144,
      "cuantizacion": "fp8"
     },
@@ -1122,32 +1475,11 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Chutes",
-     "precio_in_por_M": 0.24,
-     "precio_out_por_M": 2.2,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "AkashML",
+     "proveedor": "StreamLake",
      "precio_in_por_M": 0.25,
-     "precio_out_por_M": 2.2,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Ionstream",
-     "precio_in_por_M": 0.28,
-     "precio_out_por_M": 2.55,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Io Net",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 2.8,
-     "contexto": 65536,
-     "cuantizacion": "fp8"
+     "precio_out_por_M": 1.5,
+     "contexto": 1024000,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "CoreWeave",
@@ -1183,6 +1515,26 @@
      "precio_out_por_M": 3.2,
      "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Cerebras",
+     "precio_in_por_M": 0.99,
+     "precio_out_por_M": 1.49,
+     "contexto": 65536,
+     "cuantizacion": "fp16"
+    }
+   ]
+  },
+  "ling-3.0-flash-vl": {
+   "nombre": "Ling 3.0 Flash VL",
+   "id": "inclusionai/ling-3.0-flash-vl",
+   "endpoints": [
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.06,
+     "precio_out_por_M": 0.18,
+     "contexto": 131072,
+     "cuantizacion": "fp16"
     }
    ]
   },
@@ -1217,46 +1569,165 @@
    "id": "z-ai/glm-5.3",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.8918,
-     "precio_out_por_M": 2.8028,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.0699,
+     "precio_out_por_M": 1.4,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Morph",
-     "precio_in_por_M": 0.8925,
-     "precio_out_por_M": 2.805,
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.0703,
+     "precio_out_por_M": 4.3843,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "InferenceNet",
-     "precio_in_por_M": 0.9,
-     "precio_out_por_M": 3.0,
-     "contexto": 1000000,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.9,
-     "precio_out_por_M": 3.0,
+     "precio_in_por_M": 0.08,
+     "precio_out_por_M": 3.6,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.91,
-     "precio_out_por_M": 2.86,
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.08,
+     "precio_out_por_M": 3.6,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Reka",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 2.1,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.91,
-     "precio_out_por_M": 2.86,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.179,
+     "precio_out_por_M": 1.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "DekaLLM",
+     "precio_in_por_M": 0.18,
+     "precio_out_por_M": 2.95,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Makora",
+     "precio_in_por_M": 0.18,
+     "precio_out_por_M": 3.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "AkashML",
+     "precio_in_por_M": 0.19,
+     "precio_out_por_M": 4.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Morph",
+     "precio_in_por_M": 0.206,
+     "precio_out_por_M": 1.4,
      "contexto": 1048576,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Baidu",
+     "precio_in_por_M": 0.28,
+     "precio_out_por_M": 0.88,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.5,
+     "precio_out_por_M": 3.08,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.5625,
+     "precio_out_por_M": 2.5,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Tenstorrent",
+     "precio_in_por_M": 0.6,
+     "precio_out_por_M": 2.5,
+     "contexto": 1044480,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Novita",
+     "precio_in_por_M": 0.63,
+     "precio_out_por_M": 1.98,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "SiliconFlow",
+     "precio_in_por_M": 0.7,
+     "precio_out_por_M": 2.2,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "GMICloud",
+     "precio_in_por_M": 0.7,
+     "precio_out_por_M": 2.2,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Cloudflare",
+     "precio_in_por_M": 0.7,
+     "precio_out_por_M": 2.2,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.75,
+     "precio_out_por_M": 3.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.75,
+     "precio_out_por_M": 3.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.75,
+     "precio_out_por_M": 3.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.84,
+     "precio_out_por_M": 2.64,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Decart",
+     "precio_in_por_M": 0.84,
+     "precio_out_por_M": 2.71,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "DigitalOcean",
@@ -1266,53 +1737,11 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Io Net",
-     "precio_in_por_M": 0.91,
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.98,
      "precio_out_por_M": 3.08,
-     "contexto": 262124,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Reka",
-     "precio_in_por_M": 0.936,
-     "precio_out_por_M": 3.168,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 1.025,
-     "precio_out_por_M": 3.29,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "GMICloud",
-     "precio_in_por_M": 1.05,
-     "precio_out_por_M": 3.3,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Makora",
-     "precio_in_por_M": 1.05,
-     "precio_out_por_M": 4.2,
-     "contexto": 980000,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Inceptron",
-     "precio_in_por_M": 1.0686,
-     "precio_out_por_M": 4.0022,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "SiliconFlow",
-     "precio_in_por_M": 1.12,
-     "precio_out_por_M": 3.52,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Alibaba",
@@ -1322,20 +1751,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Decart",
-     "precio_in_por_M": 1.19,
-     "precio_out_por_M": 3.74,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 1.207,
-     "precio_out_por_M": 3.871,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "Friendli",
      "precio_in_por_M": 1.26,
      "precio_out_por_M": 3.96,
@@ -1343,11 +1758,18 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "AkashML",
-     "precio_in_por_M": 1.3,
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 1.4,
+     "precio_out_por_M": 3.96,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "nvfp4"
     },
     {
      "proveedor": "BaseTen",
@@ -1364,18 +1786,18 @@
      "cuantizacion": "nvfp4"
     },
     {
-     "proveedor": "Crusoe",
+     "proveedor": "Nebius",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Wafer",
+     "proveedor": "Crusoe",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Venice",
@@ -1420,13 +1842,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Cloudflare",
-     "precio_in_por_M": 1.4,
-     "precio_out_por_M": 4.4,
-     "contexto": 1310720,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "AtlasCloud",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
@@ -1441,6 +1856,34 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 1.54,
+     "precio_out_por_M": 4.84,
+     "contexto": 1048576,
+     "cuantizacion": "nvfp4"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 1.68,
+     "precio_out_por_M": 5.28,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "ModelRun",
+     "precio_in_por_M": 2.1,
+     "precio_out_por_M": 6.6,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 2.1,
+     "precio_out_por_M": 6.6,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "BaseTen",
      "precio_in_por_M": 2.1,
      "precio_out_por_M": 6.6,
@@ -1453,6 +1896,13 @@
      "precio_out_por_M": 6.6,
      "contexto": 1048576,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 2.8,
+     "precio_out_por_M": 8.8,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -1472,15 +1922,7 @@
   "laguna-xs-2.1": {
    "nombre": "Poolside Laguna XS 2.1",
    "id": "poolside/laguna-xs-2.1",
-   "endpoints": [
-    {
-     "proveedor": "Poolside",
-     "precio_in_por_M": 0.06,
-     "precio_out_por_M": 0.12,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    }
-   ]
+   "endpoints": []
   },
   "inkling-small": {
    "nombre": "Inkling Small",
@@ -1492,20 +1934,6 @@
      "precio_out_por_M": 1.2,
      "contexto": 524288,
      "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 0.5,
-     "precio_out_por_M": 1.2,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Together",
-     "precio_in_por_M": 0.5,
-     "precio_out_por_M": 1.2,
-     "contexto": 524288,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -1577,8 +2005,8 @@
    "endpoints": [
     {
      "proveedor": "Darkbloom",
-     "precio_in_por_M": 0.042,
-     "precio_out_por_M": 0.22,
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 0.15,
      "contexto": 131072,
      "cuantizacion": "unknown"
     },
@@ -1590,11 +2018,32 @@
      "cuantizacion": "bf16"
     },
     {
+     "proveedor": "AkashML",
+     "precio_in_por_M": 0.07,
+     "precio_out_por_M": 0.24,
+     "contexto": 131072,
+     "cuantizacion": "fp4"
+    },
+    {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.07,
      "precio_out_por_M": 0.34,
      "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.078,
+     "precio_out_por_M": 0.234,
+     "contexto": 262144,
+     "cuantizacion": "bf16"
+    },
+    {
+     "proveedor": "Makora",
+     "precio_in_por_M": 0.08,
+     "precio_out_por_M": 0.1,
+     "contexto": 256000,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "NextBit",
@@ -1604,17 +2053,24 @@
      "cuantizacion": "bf16"
     },
     {
+     "proveedor": "Io Net",
+     "precio_in_por_M": 0.09,
+     "precio_out_por_M": 0.31,
+     "contexto": 262142,
+     "cuantizacion": "bf16"
+    },
+    {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.3,
+     "contexto": 262144,
+     "cuantizacion": "bf16"
+    },
+    {
      "proveedor": "Cloudflare",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 0.3,
      "contexto": 256000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Makora",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.34,
-     "contexto": 262144,
      "cuantizacion": "unknown"
     },
     {
@@ -1659,44 +2115,37 @@
    "id": "deepseek/deepseek-v4-pro-0813",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.5782,
-     "precio_out_por_M": 1.7345,
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.1035,
+     "precio_out_por_M": 8.0,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
-     "proveedor": "DeepSeek",
-     "precio_in_por_M": 0.66,
-     "precio_out_por_M": 1.98,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.115,
+     "precio_out_por_M": 4.6,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.285,
+     "precio_out_por_M": 4.3,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
     },
     {
      "proveedor": "Ionstream",
-     "precio_in_por_M": 0.7,
-     "precio_out_por_M": 2.88,
+     "precio_in_por_M": 0.37,
+     "precio_out_por_M": 2.93,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.7,
-     "precio_out_por_M": 2.96,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.7,
-     "precio_out_por_M": 2.96,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "StreamLake",
-     "precio_in_por_M": 0.9887,
-     "precio_out_por_M": 2.966,
+     "precio_in_por_M": 0.66,
+     "precio_out_por_M": 1.98,
      "contexto": 1024000,
      "cuantizacion": "unknown"
     },
@@ -1712,13 +2161,6 @@
      "precio_in_por_M": 1.056,
      "precio_out_por_M": 3.168,
      "contexto": 1048575,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "NextBit",
-     "precio_in_por_M": 1.122,
-     "precio_out_por_M": 3.366,
-     "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
@@ -1743,6 +2185,20 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "BaseTen",
+     "precio_in_por_M": 1.32,
+     "precio_out_por_M": 3.96,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 1.32,
+     "precio_out_por_M": 3.96,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "AtlasCloud",
      "precio_in_por_M": 1.32,
      "precio_out_por_M": 3.96,
@@ -1750,11 +2206,18 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "BaseTen",
+     "proveedor": "Nebius",
      "precio_in_por_M": 1.32,
      "precio_out_por_M": 3.96,
      "contexto": 1048576,
-     "cuantizacion": "fp4"
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Baidu",
+     "precio_in_por_M": 1.32,
+     "precio_out_por_M": 3.96,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "Parasail",
@@ -1785,13 +2248,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 1.32,
-     "precio_out_por_M": 3.96,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "Cloudflare",
      "precio_in_por_M": 1.32,
      "precio_out_por_M": 3.96,
@@ -1799,11 +2255,25 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Fireworks",
+     "proveedor": "DeepSeek",
      "precio_in_por_M": 1.32,
      "precio_out_por_M": 3.96,
      "contexto": 1048576,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 1.35,
+     "precio_out_por_M": 2.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 1.35,
+     "precio_out_por_M": 2.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Phala",
@@ -1817,6 +2287,68 @@
      "precio_in_por_M": 1.65,
      "precio_out_por_M": 4.95,
      "contexto": 1000000,
+     "cuantizacion": "unknown"
+    }
+   ]
+  },
+  "gpt-6-luna": {
+   "nombre": "GPT-6 Luna",
+   "id": "openai/gpt-6-luna",
+   "endpoints": [
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.05,
+     "precio_out_por_M": 0.25,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 1.0,
+     "contexto": 1050000,
      "cuantizacion": "unknown"
     }
    ]
@@ -1854,25 +2386,66 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Modal",
-     "precio_in_por_M": 2.0,
-     "precio_out_por_M": 6.0,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 2.0,
-     "precio_out_por_M": 6.0,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "Together",
      "precio_in_por_M": 2.0,
      "precio_out_por_M": 6.0,
      "contexto": 1010000,
      "cuantizacion": "unknown"
+    }
+   ]
+  },
+  "mimo-v2.6-flash": {
+   "nombre": "MiMo V2.6 Flash",
+   "id": "xiaomi/mimo-v2.6-flash",
+   "endpoints": [
+    {
+     "proveedor": "Darkbloom",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "GMICloud",
+     "precio_in_por_M": 0.112,
+     "precio_out_por_M": 0.224,
+     "contexto": 1050000,
+     "cuantizacion": "bf16"
+    },
+    {
+     "proveedor": "Cohere",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Makora",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Xiaomi",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Venice",
+     "precio_in_por_M": 0.175,
+     "precio_out_por_M": 0.35,
+     "contexto": 1000000,
+     "cuantizacion": "fp8"
     }
    ]
   },
@@ -1882,13 +2455,6 @@
    "endpoints": [
     {
      "proveedor": "Claude Platform on AWS",
-     "precio_in_por_M": 5.0,
-     "precio_out_por_M": 25.0,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Azure",
      "precio_in_por_M": 5.0,
      "precio_out_por_M": 25.0,
      "contexto": 1000000,
@@ -1919,6 +2485,13 @@
      "proveedor": "Anthropic",
      "precio_in_por_M": 5.0,
      "precio_out_por_M": 25.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 5.5,
+     "precio_out_por_M": 27.5,
      "contexto": 1000000,
      "cuantizacion": "unknown"
     },
@@ -1964,16 +2537,16 @@
    "id": "ibm-granite/granite-4.2-8b",
    "endpoints": [
     {
-     "proveedor": "DeepInfra",
+     "proveedor": "CoreWeave",
      "precio_in_por_M": 0.06,
-     "precio_out_por_M": 0.25,
+     "precio_out_por_M": 0.15,
      "contexto": 131072,
      "cuantizacion": "bf16"
     },
     {
-     "proveedor": "CoreWeave",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.15,
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.06,
+     "precio_out_por_M": 0.25,
      "contexto": 131072,
      "cuantizacion": "bf16"
     }
@@ -2038,6 +2611,61 @@
      "precio_out_por_M": 3.2,
      "contexto": 202752,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Venice",
+     "precio_in_por_M": 1.2,
+     "precio_out_por_M": 4.0,
+     "contexto": 200000,
+     "cuantizacion": "unknown"
+    }
+   ]
+  },
+  "gpt-6-luna-pro": {
+   "nombre": "GPT-6 Luna Pro",
+   "id": "openai/gpt-6-luna-pro",
+   "endpoints": [
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.05,
+     "precio_out_por_M": 0.25,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 1.0,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -2100,6 +2728,13 @@
    "nombre": "Qwen 3.8 Max",
    "id": "qwen/qwen3.8-max",
    "endpoints": [
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 6.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
     {
      "proveedor": "Alibaba",
      "precio_in_por_M": 2.0,
@@ -2191,6 +2826,13 @@
     },
     {
      "proveedor": "Google",
+     "precio_in_por_M": 0.825,
+     "precio_out_por_M": 4.125,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
      "precio_in_por_M": 1.35,
      "precio_out_por_M": 6.75,
      "contexto": 1048576,
@@ -2215,6 +2857,13 @@
      "precio_out_por_M": 6.0,
      "contexto": 1000000,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 6.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -2223,18 +2872,46 @@
    "id": "z-ai/glm-5.2",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.5544,
-     "precio_out_por_M": 1.7424,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.006,
+     "precio_out_por_M": 6.8,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.0065,
+     "precio_out_por_M": 7.9057,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.19,
+     "precio_out_por_M": 8.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Cloudflare",
+     "precio_in_por_M": 0.19,
+     "precio_out_por_M": 8.0,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Morph",
+     "precio_in_por_M": 0.206,
+     "precio_out_por_M": 1.4,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.5555,
-     "precio_out_por_M": 1.7459,
-     "contexto": 1024000,
-     "cuantizacion": "fp8"
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.45,
+     "precio_out_por_M": 1.44,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "DeepInfra",
@@ -2251,9 +2928,16 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.648,
-     "precio_out_por_M": 2.2694,
+     "proveedor": "StreamLake",
+     "precio_in_por_M": 0.6131,
+     "precio_out_por_M": 1.9268,
+     "contexto": 1024000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.62,
+     "precio_out_por_M": 2.42,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
@@ -2268,15 +2952,15 @@
      "proveedor": "DigitalOcean",
      "precio_in_por_M": 0.7,
      "precio_out_por_M": 2.2,
-     "contexto": 262144,
+     "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "CoreWeave",
-     "precio_in_por_M": 0.76,
-     "precio_out_por_M": 2.42,
+     "proveedor": "SiliconFlow",
+     "precio_in_por_M": 0.7,
+     "precio_out_por_M": 2.2,
      "contexto": 1048576,
-     "cuantizacion": "fp4"
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "AtlasCloud",
@@ -2293,25 +2977,25 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "SiliconFlow",
-     "precio_in_por_M": 1.19,
-     "precio_out_por_M": 3.74,
-     "contexto": 1048576,
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 1.12,
+     "precio_out_por_M": 3.52,
+     "contexto": 1000000,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Inceptron",
-     "precio_in_por_M": 1.2507,
-     "precio_out_por_M": 3.3402,
+     "proveedor": "Nebius",
+     "precio_in_por_M": 1.4,
+     "precio_out_por_M": 4.4,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 1.26,
-     "precio_out_por_M": 3.0,
+     "proveedor": "Mistral",
+     "precio_in_por_M": 1.4,
+     "precio_out_por_M": 4.4,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "nvfp4"
     },
     {
      "proveedor": "BaseTen",
@@ -2321,25 +3005,25 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 1.4,
+     "precio_out_por_M": 4.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
      "proveedor": "Together",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
-     "contexto": 512000,
+     "contexto": 1048575,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Wafer",
+     "proveedor": "Baidu",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 1.4,
-     "precio_out_por_M": 4.4,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "BaseTen",
@@ -2377,13 +3061,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Cloudflare",
-     "precio_in_por_M": 1.4,
-     "precio_out_por_M": 4.4,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Z.AI",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
@@ -2391,16 +3068,9 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 2.1,
-     "precio_out_por_M": 6.6,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 2.1,
-     "precio_out_por_M": 6.6,
+     "proveedor": "Mistral",
+     "precio_in_por_M": 1.54,
+     "precio_out_por_M": 4.84,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -2412,16 +3082,16 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Fireworks",
+     "proveedor": "BaseTen",
      "precio_in_por_M": 2.1,
      "precio_out_por_M": 6.6,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Decart",
+     "proveedor": "Baidu",
      "precio_in_por_M": 2.25,
-     "precio_out_por_M": 8.0,
+     "precio_out_por_M": 7.88,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
@@ -2437,28 +3107,12 @@
   "deepseek-r1": {
    "nombre": "DeepSeek R1 (reasoning)",
    "id": "deepseek/deepseek-r1",
-   "endpoints": [
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.7,
-     "precio_out_por_M": 2.5,
-     "contexto": 64000,
-     "cuantizacion": "fp8"
-    }
-   ]
+   "endpoints": []
   },
   "qwen-3.6-max": {
    "nombre": "Qwen 3.6 Max",
    "id": "qwen/qwen3.6-max-preview",
-   "endpoints": [
-    {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 1.027,
-     "precio_out_por_M": 6.162,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    }
-   ]
+   "endpoints": []
   },
   "gpt-5.6-terra": {
    "nombre": "GPT-5.6 Terra",
@@ -2520,6 +3174,48 @@
    "id": "tencent/hy4-preview",
    "endpoints": [
     {
+     "proveedor": "GMICloud",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 262144,
+     "cuantizacion": "bf16"
+    },
+    {
+     "proveedor": "AtlasCloud",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Cohere",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Novita",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 1000000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "SiliconFlow",
+     "precio_in_por_M": 0.834,
+     "precio_out_por_M": 2.501,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
      "proveedor": "Tencent",
      "precio_in_por_M": 0.834,
      "precio_out_por_M": 2.501,
@@ -2531,7 +3227,22 @@
   "or-mistral-large-3": {
    "nombre": "Mistral Large 3 675B",
    "id": "mistralai/mistral-large-2512",
-   "endpoints": []
+   "endpoints": [
+    {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 0.5,
+     "precio_out_por_M": 1.5,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 0.55,
+     "precio_out_por_M": 1.65,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    }
+   ]
   },
   "kat-coder-air-2.5": {
    "nombre": "KAT Coder Air v2.5",
@@ -2638,16 +3349,9 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.2145,
-     "precio_out_por_M": 0.3217,
-     "contexto": 128000,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "SiliconFlow",
      "precio_in_por_M": 0.259,
-     "precio_out_por_M": 0.42,
+     "precio_out_por_M": 0.8,
      "contexto": 163840,
      "cuantizacion": "fp8"
     },
@@ -2666,20 +3370,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Venice",
-     "precio_in_por_M": 0.2683,
-     "precio_out_por_M": 0.3902,
-     "contexto": 160000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.269,
-     "precio_out_por_M": 0.4,
-     "contexto": 163840,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "Baidu",
      "precio_in_por_M": 0.28,
      "precio_out_por_M": 0.42,
@@ -2694,45 +3384,10 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.3705,
-     "precio_out_por_M": 1.1115,
-     "contexto": 131072,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Friendli",
-     "precio_in_por_M": 0.5,
-     "precio_out_por_M": 1.5,
-     "contexto": 163840,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.56,
-     "precio_out_por_M": 1.68,
-     "contexto": 163840,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Phala",
      "precio_in_por_M": 1.0,
      "precio_out_por_M": 1.0,
      "contexto": 163840,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Mara",
-     "precio_in_por_M": 3.0,
-     "precio_out_por_M": 4.5,
-     "contexto": 32768,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "SambaNova",
-     "precio_in_por_M": 3.0,
-     "precio_out_por_M": 4.5,
-     "contexto": 32768,
      "cuantizacion": "unknown"
     }
    ]
@@ -2747,9 +3402,9 @@
    "id": "z-ai/glm-5.1",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.9646,
-     "precio_out_por_M": 3.0316,
+     "proveedor": "Chutes",
+     "precio_in_por_M": 0.9,
+     "precio_out_por_M": 2.9,
      "contexto": 202752,
      "cuantizacion": "fp8"
     },
@@ -2759,20 +3414,6 @@
      "precio_out_por_M": 3.036,
      "contexto": 200000,
      "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Chutes",
-     "precio_in_por_M": 0.98,
-     "precio_out_por_M": 3.08,
-     "contexto": 202752,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 1.05,
-     "precio_out_por_M": 3.5,
-     "contexto": 202752,
-     "cuantizacion": "fp4"
     },
     {
      "proveedor": "SiliconFlow",
@@ -2811,6 +3452,13 @@
     },
     {
      "proveedor": "Nebius",
+     "precio_in_por_M": 1.4,
+     "precio_out_por_M": 4.4,
+     "contexto": 202752,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Baidu",
      "precio_in_por_M": 1.4,
      "precio_out_por_M": 4.4,
      "contexto": 202752,
@@ -2940,32 +3588,11 @@
    "id": "meta/muse-glimmer-30b",
    "endpoints": [
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.1,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 131072,
      "cuantizacion": "bf16"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 0.35,
-     "precio_out_por_M": 1.5,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Together",
-     "precio_in_por_M": 0.35,
-     "precio_out_por_M": 1.5,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -2998,6 +3625,13 @@
      "proveedor": "Google",
      "precio_in_por_M": 0.75,
      "precio_out_por_M": 3.75,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 0.825,
+     "precio_out_por_M": 4.125,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -3049,13 +3683,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Azure",
-     "precio_in_por_M": 2.0,
-     "precio_out_por_M": 10.0,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Google",
      "precio_in_por_M": 2.0,
      "precio_out_por_M": 10.0,
@@ -3078,6 +3705,13 @@
     },
     {
      "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
      "precio_in_por_M": 2.2,
      "precio_out_por_M": 11.0,
      "contexto": 1000000,
@@ -3112,15 +3746,22 @@
    "endpoints": [
     {
      "proveedor": "OpenAI",
-     "precio_in_por_M": 1.0,
-     "precio_out_por_M": 5.0,
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "OpenAI",
-     "precio_in_por_M": 2.0,
-     "precio_out_por_M": 10.0,
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     },
@@ -3128,6 +3769,13 @@
      "proveedor": "OpenAI",
      "precio_in_por_M": 4.0,
      "precio_out_por_M": 20.0,
+     "contexto": 1050000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     },
@@ -3140,22 +3788,15 @@
     },
     {
      "proveedor": "Azure",
-     "precio_in_por_M": 5.0,
-     "precio_out_por_M": 30.0,
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Azure",
-     "precio_in_por_M": 5.5,
-     "precio_out_por_M": 33.0,
-     "contexto": 1050000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Azure",
-     "precio_in_por_M": 5.5,
-     "precio_out_por_M": 33.0,
+     "proveedor": "OpenAI",
+     "precio_in_por_M": 8.0,
+     "precio_out_por_M": 40.0,
      "contexto": 1050000,
      "cuantizacion": "unknown"
     }
@@ -3214,24 +3855,17 @@
    "id": "deepseek/deepseek-v4-flash",
    "endpoints": [
     {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.0445,
-     "precio_out_por_M": 0.089,
-     "contexto": 1024000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.0447,
-     "precio_out_por_M": 0.0893,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "OpenInference",
+     "proveedor": "Relace",
      "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.14,
+     "precio_out_por_M": 0.45,
      "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "StreamLake",
+     "precio_in_por_M": 0.0826,
+     "precio_out_por_M": 0.1652,
+     "contexto": 1024000,
      "cuantizacion": "fp8"
     },
     {
@@ -3263,6 +3897,13 @@
      "cuantizacion": "unknown"
     },
     {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.105,
+     "precio_out_por_M": 0.21,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "SiliconFlow",
      "precio_in_por_M": 0.13,
      "precio_out_por_M": 0.28,
@@ -3270,14 +3911,14 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.134,
-     "precio_out_por_M": 0.268,
-     "contexto": 1000000,
+     "proveedor": "Crusoe",
+     "precio_in_por_M": 0.14,
+     "precio_out_por_M": 0.28,
+     "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Novita",
+     "proveedor": "Baidu",
      "precio_in_por_M": 0.14,
      "precio_out_por_M": 0.28,
      "contexto": 1048576,
@@ -3298,10 +3939,10 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "NextBit",
+     "proveedor": "Alibaba",
      "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.35,
-     "contexto": 1048576,
+     "precio_out_por_M": 0.3,
+     "contexto": 1000000,
      "cuantizacion": "fp8"
     },
     {
@@ -3312,18 +3953,18 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 0.4,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Azure",
      "precio_in_por_M": 0.21,
      "precio_out_por_M": 0.56,
      "contexto": 1048576,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.6,
+     "precio_out_por_M": 0.17,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
     }
    ]
   },
@@ -3391,6 +4032,13 @@
      "precio_out_por_M": 0.66,
      "contexto": 262144,
      "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Mistral",
+     "precio_in_por_M": 0.165,
+     "precio_out_por_M": 0.66,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -3409,6 +4057,13 @@
      "proveedor": "xAI",
      "precio_in_por_M": 2.0,
      "precio_out_por_M": 6.0,
+     "contexto": 500000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "xAI",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 6.6,
      "contexto": 500000,
      "cuantizacion": "unknown"
     },
@@ -3440,23 +4095,9 @@
    "id": "moonshotai/kimi-k2.6",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.3743,
-     "precio_out_por_M": 1.576,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Inceptron",
-     "precio_in_por_M": 0.3746,
-     "precio_out_por_M": 2.1007,
-     "contexto": 262144,
-     "cuantizacion": "int4"
-    },
-    {
      "proveedor": "Chutes",
-     "precio_in_por_M": 0.5,
-     "precio_out_por_M": 2.85,
+     "precio_in_por_M": 0.39,
+     "precio_out_por_M": 1.8,
      "contexto": 262144,
      "cuantizacion": "int4"
     },
@@ -3466,13 +4107,6 @@
      "precio_out_por_M": 2.4,
      "contexto": 262144,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Decart",
-     "precio_in_por_M": 0.5865,
-     "precio_out_por_M": 2.4696,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
     },
     {
      "proveedor": "StreamLake",
@@ -3524,6 +4158,13 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 0.78,
+     "precio_out_por_M": 3.75,
+     "contexto": 262144,
+     "cuantizacion": "int4"
+    },
+    {
      "proveedor": "Novita",
      "precio_in_por_M": 0.8,
      "precio_out_por_M": 3.4,
@@ -3536,6 +4177,13 @@
      "precio_out_por_M": 3.6,
      "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Baidu",
+     "precio_in_por_M": 0.95,
+     "precio_out_por_M": 4.0,
+     "contexto": 262144,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "AtlasCloud",
@@ -3556,28 +4204,7 @@
      "precio_in_por_M": 0.95,
      "precio_out_por_M": 4.0,
      "contexto": 262144,
-     "cuantizacion": "int4"
-    },
-    {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 0.95,
-     "precio_out_por_M": 4.0,
-     "contexto": 262000,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 0.95,
-     "precio_out_por_M": 4.0,
-     "contexto": 262144,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 0.95,
-     "precio_out_por_M": 4.0,
-     "contexto": 262000,
-     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Phala",
@@ -3600,24 +4227,10 @@
      "cuantizacion": "bf16"
     },
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.39,
-     "precio_out_por_M": 1.17,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "AtlasCloud",
      "precio_in_por_M": 0.435,
      "precio_out_por_M": 0.87,
      "contexto": 1024000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Xiaomi",
-     "precio_in_por_M": 0.435,
-     "precio_out_por_M": 0.87,
-     "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
@@ -3626,20 +4239,6 @@
      "precio_out_por_M": 1.8,
      "contexto": 262144,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.4802,
-     "precio_out_por_M": 0.9605,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.522,
-     "precio_out_por_M": 1.044,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -3647,6 +4246,13 @@
    "nombre": "MiniMax M3",
    "id": "minimax/minimax-m3",
    "endpoints": [
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.224,
+     "precio_out_por_M": 0.88,
+     "contexto": 524288,
+     "cuantizacion": "fp8"
+    },
     {
      "proveedor": "CoreWeave",
      "precio_in_por_M": 0.23,
@@ -3715,6 +4321,13 @@
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 524288,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "ModelRun",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.3,
+     "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
@@ -3723,20 +4336,6 @@
      "precio_out_por_M": 2.4,
      "contexto": 1048576,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "SambaNova",
-     "precio_in_por_M": 0.6,
-     "precio_out_por_M": 2.4,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "ModelRun",
-     "precio_in_por_M": 0.75,
-     "precio_out_por_M": 3.0,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
     }
    ]
   },
@@ -3752,37 +4351,9 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 2.5,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 2.5,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Google AI Studio",
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 2.5,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 2.5,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.54,
-     "precio_out_por_M": 4.5,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -3800,16 +4371,16 @@
    "id": "deepseek/deepseek-v4-pro",
    "endpoints": [
     {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.4715,
-     "precio_out_por_M": 0.943,
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.9,
+     "precio_out_por_M": 1.5,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "StreamLake",
-     "precio_in_por_M": 0.4729,
-     "precio_out_por_M": 0.9459,
+     "precio_in_por_M": 0.9553,
+     "precio_out_por_M": 1.9105,
      "contexto": 1024000,
      "cuantizacion": "fp8"
     },
@@ -3821,16 +4392,16 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "SiliconFlow",
+     "precio_in_por_M": 1.0,
+     "precio_out_por_M": 3.135,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
      "proveedor": "DigitalOcean",
      "precio_in_por_M": 1.044,
      "precio_out_por_M": 2.088,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Cloudflare",
-     "precio_in_por_M": 1.15,
-     "precio_out_por_M": 2.55,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -3849,10 +4420,10 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "SiliconFlow",
-     "precio_in_por_M": 1.5016,
-     "precio_out_por_M": 3.135,
-     "contexto": 1048576,
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 1.56,
+     "precio_out_por_M": 3.12,
+     "contexto": 1000000,
      "cuantizacion": "fp8"
     },
     {
@@ -3877,30 +4448,23 @@
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 1.74,
-     "precio_out_por_M": 3.48,
+     "proveedor": "Baidu",
+     "precio_in_por_M": 1.69,
+     "precio_out_por_M": 3.38,
      "contexto": 1048576,
-     "cuantizacion": "fp4"
+     "cuantizacion": "fp8"
     },
     {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 1.74,
-     "precio_out_por_M": 3.48,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Parasail",
+     "proveedor": "Crusoe",
      "precio_in_por_M": 1.74,
      "precio_out_por_M": 3.48,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "NextBit",
-     "precio_in_por_M": 1.91,
-     "precio_out_por_M": 3.828,
+     "proveedor": "Nebius",
+     "precio_in_por_M": 1.75,
+     "precio_out_por_M": 3.5,
      "contexto": 1048576,
      "cuantizacion": "fp8"
     },
@@ -3921,6 +4485,13 @@
      "proveedor": "Alibaba",
      "precio_in_por_M": 1.475,
      "precio_out_por_M": 4.425,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 6.0,
      "contexto": 1000000,
      "cuantizacion": "unknown"
     }
@@ -3970,17 +4541,17 @@
    "endpoints": [
     {
      "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 1.1,
+     "precio_in_por_M": 0.072,
+     "precio_out_por_M": 0.88,
      "contexto": 262144,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.0975,
-     "precio_out_por_M": 0.78,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.09,
+     "precio_out_por_M": 1.1,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "Parasail",
@@ -3990,18 +4561,11 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 1.2,
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.135,
+     "precio_out_por_M": 1.65,
      "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 1.5,
-     "contexto": 131072,
-     "cuantizacion": "bf16"
+     "cuantizacion": "fp8"
     }
    ]
   },
@@ -4031,17 +4595,17 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "GMICloud",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 1.2,
+     "contexto": 196608,
+     "cuantizacion": "fp8"
+    },
+    {
      "proveedor": "DigitalOcean",
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 65536,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Friendli",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.2,
-     "contexto": 196608,
      "cuantizacion": "unknown"
     },
     {
@@ -4056,14 +4620,14 @@
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 204800,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Minimax",
      "precio_in_por_M": 0.6,
      "precio_out_por_M": 2.4,
      "contexto": 204800,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -4072,11 +4636,18 @@
    "id": "openai/gpt-oss-120b",
    "endpoints": [
     {
-     "proveedor": "AkashML",
+     "proveedor": "Near AI",
      "precio_in_por_M": 0.03,
-     "precio_out_por_M": 0.17,
+     "precio_out_por_M": 0.15,
      "contexto": 131072,
-     "cuantizacion": "bf16"
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Venice",
+     "precio_in_por_M": 0.03,
+     "precio_out_por_M": 0.15,
+     "contexto": 128000,
+     "cuantizacion": "int4"
     },
     {
      "proveedor": "CoreWeave",
@@ -4093,11 +4664,25 @@
      "cuantizacion": "bf16"
     },
     {
+     "proveedor": "AkashML",
+     "precio_in_por_M": 0.03,
+     "precio_out_por_M": 0.187,
+     "contexto": 131072,
+     "cuantizacion": "bf16"
+    },
+    {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.037,
      "precio_out_por_M": 0.17,
      "contexto": 131072,
      "cuantizacion": "bf16"
+    },
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.04,
+     "precio_out_por_M": 0.15,
+     "contexto": 131072,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Crusoe",
@@ -4107,18 +4692,18 @@
      "cuantizacion": "bf16"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.05,
+     "proveedor": "Mancer 2",
+     "precio_in_por_M": 0.055,
      "precio_out_por_M": 0.25,
      "contexto": 131072,
-     "cuantizacion": "fp4"
+     "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Mancer 2",
-     "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.3,
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.06,
+     "precio_out_por_M": 0.4,
      "contexto": 131072,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "DigitalOcean",
@@ -4184,13 +4769,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 0.6,
-     "contexto": 131072,
-     "cuantizacion": "bf16"
-    },
-    {
      "proveedor": "SiliconFlow",
      "precio_in_por_M": 0.15,
      "precio_out_por_M": 0.6,
@@ -4247,7 +4825,7 @@
    "endpoints": [
     {
      "proveedor": "Darkbloom",
-     "precio_in_por_M": 0.08,
+     "precio_in_por_M": 0.065,
      "precio_out_por_M": 0.75,
      "contexto": 262144,
      "cuantizacion": "fp4"
@@ -4265,6 +4843,13 @@
      "precio_out_por_M": 1.0,
      "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Venice",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 1.0,
+     "contexto": 256000,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Alibaba",
@@ -4286,13 +4871,6 @@
      "precio_out_por_M": 1.8,
      "contexto": 262144,
      "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Venice",
-     "precio_in_por_M": 0.3125,
-     "precio_out_por_M": 1.25,
-     "contexto": 256000,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -4300,41 +4878,6 @@
    "nombre": "MiMo-V2.5 (omnimodal)",
    "id": "xiaomi/mimo-v2.5",
    "endpoints": [
-    {
-     "proveedor": "GMICloud",
-     "precio_in_por_M": 0.119,
-     "precio_out_por_M": 0.238,
-     "contexto": 1050000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.133,
-     "precio_out_por_M": 0.266,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Xiaomi",
-     "precio_in_por_M": 0.14,
-     "precio_out_por_M": 0.28,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.168,
-     "precio_out_por_M": 0.336,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.168,
-     "precio_out_por_M": 0.336,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
     {
      "proveedor": "Venice",
      "precio_in_por_M": 0.4,
@@ -4397,15 +4940,15 @@
    "endpoints": [
     {
      "proveedor": "Upstage",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.36,
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.6,
      "contexto": 524288,
      "cuantizacion": "unknown"
     },
     {
      "proveedor": "Upstage",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.36,
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.6,
      "contexto": 524288,
      "cuantizacion": "unknown"
     }
@@ -4415,13 +4958,6 @@
    "nombre": "Claude Opus 5",
    "id": "anthropic/claude-opus-5",
    "endpoints": [
-    {
-     "proveedor": "Azure",
-     "precio_in_por_M": 5.0,
-     "precio_out_por_M": 25.0,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
-    },
     {
      "proveedor": "Claude Platform on AWS",
      "precio_in_por_M": 5.0,
@@ -4465,6 +5001,13 @@
      "cuantizacion": "unknown"
     },
     {
+     "proveedor": "Azure",
+     "precio_in_por_M": 5.5,
+     "precio_out_por_M": 27.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "Google",
      "precio_in_por_M": 5.5,
      "precio_out_por_M": 27.5,
@@ -4499,15 +5042,15 @@
    "id": "moonshotai/kimi-k2.5",
    "endpoints": [
     {
-     "proveedor": "SiliconFlow",
-     "precio_in_por_M": 0.45,
-     "precio_out_por_M": 2.25,
+     "proveedor": "AtlasCloud",
+     "precio_in_por_M": 0.49,
+     "precio_out_por_M": 2.5,
      "contexto": 262144,
      "cuantizacion": "int4"
     },
     {
-     "proveedor": "AtlasCloud",
-     "precio_in_por_M": 0.49,
+     "proveedor": "SiliconFlow",
+     "precio_in_por_M": 0.5,
      "precio_out_por_M": 2.5,
      "contexto": 262144,
      "cuantizacion": "int4"
@@ -4553,6 +5096,13 @@
    "id": "deepseek/deepseek-chat",
    "endpoints": [
     {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.256,
+     "precio_out_por_M": 0.712,
+     "contexto": 163840,
+     "cuantizacion": "fp4"
+    },
+    {
      "proveedor": "StreamLake",
      "precio_in_por_M": 0.2574,
      "precio_out_por_M": 1.0287,
@@ -4573,25 +5123,11 @@
    "id": "deepseek/deepseek-v4-flash-0731",
    "endpoints": [
     {
-     "proveedor": "Relace",
-     "precio_in_por_M": 0.04,
-     "precio_out_por_M": 0.08,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.059,
+     "precio_out_por_M": 0.3,
      "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.044,
-     "precio_out_por_M": 0.132,
-     "contexto": 1024000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Baidu",
-     "precio_in_por_M": 0.048,
-     "precio_out_por_M": 0.1439,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "nvfp4"
     },
     {
      "proveedor": "DeepInfra",
@@ -4601,39 +5137,39 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 0.0741,
-     "precio_out_por_M": 0.342,
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.07,
+     "precio_out_por_M": 0.14,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Inceptron",
-     "precio_in_por_M": 0.08,
-     "precio_out_por_M": 0.2,
+     "proveedor": "Relace",
+     "precio_in_por_M": 0.07,
+     "precio_out_por_M": 0.14,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Makora",
+     "proveedor": "PrimeIntellect",
      "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.195,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
+     "precio_out_por_M": 0.23,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Wafer",
      "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.25,
+     "precio_out_por_M": 0.23,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "nvfp4"
     },
     {
      "proveedor": "Reka",
-     "precio_in_por_M": 0.11,
-     "precio_out_por_M": 0.66,
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.28,
      "contexto": 262144,
-     "cuantizacion": "fp4"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "DigitalOcean",
@@ -4654,7 +5190,14 @@
      "precio_in_por_M": 0.13,
      "precio_out_por_M": 0.26,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "fp32"
+    },
+    {
+     "proveedor": "Venice",
+     "precio_in_por_M": 0.13,
+     "precio_out_por_M": 0.26,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "CoreWeave",
@@ -4664,7 +5207,21 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Together",
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 0.13,
+     "precio_out_por_M": 0.495,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "StreamLake",
+     "precio_in_por_M": 0.132,
+     "precio_out_por_M": 0.396,
+     "contexto": 1024000,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Cohere",
      "precio_in_por_M": 0.14,
      "precio_out_por_M": 0.28,
      "contexto": 1048576,
@@ -4678,18 +5235,18 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Morph",
-     "precio_in_por_M": 0.142,
-     "precio_out_por_M": 0.3996,
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.3,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Venice",
-     "precio_in_por_M": 0.175,
-     "precio_out_por_M": 0.35,
-     "contexto": 1000000,
-     "cuantizacion": "unknown"
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.3,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
     },
     {
      "proveedor": "Mancer 2",
@@ -4697,13 +5254,6 @@
      "precio_out_por_M": 0.6,
      "contexto": 1048576,
      "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 0.22,
-     "precio_out_por_M": 0.66,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
     },
     {
      "proveedor": "SiliconFlow",
@@ -4720,16 +5270,23 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "NextBit",
-     "precio_in_por_M": 0.352,
-     "precio_out_por_M": 1.056,
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.308,
+     "precio_out_por_M": 0.924,
      "contexto": 1048576,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Alibaba",
      "precio_in_por_M": 0.352,
      "precio_out_por_M": 1.056,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Alibaba",
+     "precio_in_por_M": 0.374,
+     "precio_out_por_M": 1.122,
      "contexto": 1000000,
      "cuantizacion": "unknown"
     },
@@ -4741,11 +5298,18 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Phala",
+     "proveedor": "Chutes",
      "precio_in_por_M": 0.44,
      "precio_out_por_M": 1.32,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Baidu",
+     "precio_in_por_M": 0.44,
+     "precio_out_por_M": 1.32,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "AtlasCloud",
@@ -4758,7 +5322,7 @@
      "proveedor": "Cloudflare",
      "precio_in_por_M": 0.44,
      "precio_out_por_M": 1.32,
-     "contexto": 1310720,
+     "contexto": 1048576,
      "cuantizacion": "unknown"
     }
    ]
@@ -4767,6 +5331,13 @@
    "nombre": "Nemotron 3 Ultra 550B",
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
    "endpoints": [
+    {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.4,
+     "precio_out_por_M": 1.76,
+     "contexto": 262144,
+     "cuantizacion": "fp4"
+    },
     {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.5,
@@ -4878,13 +5449,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.135,
-     "precio_out_por_M": 0.4,
-     "contexto": 12288,
-     "cuantizacion": "bf16"
-    },
-    {
      "proveedor": "AkashML",
      "precio_in_por_M": 0.2,
      "precio_out_por_M": 0.52,
@@ -4939,13 +5503,6 @@
      "precio_out_por_M": 0.72,
      "contexto": 128000,
      "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Together",
-     "precio_in_por_M": 1.04,
-     "precio_out_por_M": 1.04,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -4955,17 +5512,24 @@
    "endpoints": [
     {
      "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.08,
+     "precio_out_por_M": 0.24,
+     "contexto": 327680,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DeepInfra",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 0.3,
      "contexto": 327680,
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.18,
-     "precio_out_por_M": 0.59,
-     "contexto": 131072,
-     "cuantizacion": "bf16"
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.15,
+     "precio_out_por_M": 0.45,
+     "contexto": 327680,
+     "cuantizacion": "fp8"
     },
     {
      "proveedor": "Google",
@@ -4979,15 +5543,7 @@
   "laguna-s-2.1": {
    "nombre": "Poolside Laguna S 2.1",
    "id": "poolside/laguna-s-2.1",
-   "endpoints": [
-    {
-     "proveedor": "Poolside",
-     "precio_in_por_M": 0.09,
-     "precio_out_por_M": 0.18,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    }
-   ]
+   "endpoints": []
   },
   "gemini-flash-lite": {
    "nombre": "Gemini 2.5 Flash Lite",
@@ -4997,20 +5553,6 @@
      "proveedor": "Google AI Studio",
      "precio_in_por_M": 0.05,
      "precio_out_por_M": 0.2,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.4,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.1,
-     "precio_out_por_M": 0.4,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -5042,20 +5584,6 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 0.8,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.27,
-     "precio_out_por_M": 0.85,
-     "contexto": 1048576,
-     "cuantizacion": "fp8"
-    },
-    {
      "proveedor": "Parasail",
      "precio_in_por_M": 0.35,
      "precio_out_por_M": 1.0,
@@ -5075,6 +5603,13 @@
    "nombre": "GPT-OSS 20B",
    "id": "openai/gpt-oss-20b",
    "endpoints": [
+    {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.007,
+     "precio_out_por_M": 0.03,
+     "contexto": 131072,
+     "cuantizacion": "fp4"
+    },
     {
      "proveedor": "Darkbloom",
      "precio_in_por_M": 0.018,
@@ -5118,13 +5653,6 @@
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.04,
-     "precio_out_por_M": 0.15,
-     "contexto": 131072,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "SiliconFlow",
      "precio_in_por_M": 0.04,
      "precio_out_por_M": 0.18,
@@ -5132,13 +5660,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Together",
-     "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.2,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Amazon Bedrock",
      "precio_in_por_M": 0.07,
      "precio_out_por_M": 0.15,
@@ -5149,13 +5670,6 @@
      "proveedor": "Amazon Bedrock",
      "precio_in_por_M": 0.07,
      "precio_out_por_M": 0.15,
-     "contexto": 131072,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.07,
-     "precio_out_por_M": 0.25,
      "contexto": 131072,
      "cuantizacion": "unknown"
     },
@@ -5173,22 +5687,15 @@
    "id": "moonshotai/kimi-k2.7-code",
    "endpoints": [
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.68,
-     "precio_out_por_M": 3.4,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "Inceptron",
-     "precio_in_por_M": 0.7062,
-     "precio_out_por_M": 3.21,
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.6,
+     "precio_out_por_M": 3.0,
      "contexto": 262144,
      "cuantizacion": "int4"
     },
     {
-     "proveedor": "CoreWeave",
-     "precio_in_por_M": 0.71,
+     "proveedor": "Inceptron",
+     "precio_in_por_M": 0.6,
      "precio_out_por_M": 3.5,
      "contexto": 262144,
      "cuantizacion": "int4"
@@ -5208,13 +5715,6 @@
      "cuantizacion": "int4"
     },
     {
-     "proveedor": "ModelRun",
-     "precio_in_por_M": 0.85,
-     "precio_out_por_M": 3.75,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
      "proveedor": "SiliconFlow",
      "precio_in_por_M": 0.8592,
      "precio_out_por_M": 3.8,
@@ -5227,20 +5727,6 @@
      "precio_out_por_M": 3.84,
      "contexto": 262144,
      "cuantizacion": "int4"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 0.95,
-     "precio_out_por_M": 4.0,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "BaseTen",
-     "precio_in_por_M": 0.95,
-     "precio_out_por_M": 4.0,
-     "contexto": 262000,
-     "cuantizacion": "fp4"
     },
     {
      "proveedor": "GMICloud",
@@ -5268,14 +5754,90 @@
      "precio_in_por_M": 0.95,
      "precio_out_por_M": 4.0,
      "contexto": 262144,
-     "cuantizacion": "int4"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Moonshot AI",
      "precio_in_por_M": 1.9,
      "precio_out_por_M": 8.0,
      "contexto": 262144,
-     "cuantizacion": "int4"
+     "cuantizacion": "unknown"
+    }
+   ]
+  },
+  "claude-haiku-5.5": {
+   "nombre": "Claude Haiku 5.5",
+   "id": "anthropic/claude-haiku-5.5",
+   "endpoints": [
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Claude Platform on AWS",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Anthropic",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.5,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 0.11,
+     "precio_out_por_M": 0.55,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -5309,27 +5871,6 @@
      "precio_out_por_M": 0.8,
      "contexto": 262144,
      "cuantizacion": "bf16"
-    },
-    {
-     "proveedor": "StreamLake",
-     "precio_in_por_M": 0.18,
-     "precio_out_por_M": 0.9,
-     "contexto": 256000,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.2,
-     "precio_out_por_M": 1.5,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.3,
-     "precio_out_por_M": 1.5,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
     }
    ]
   },
@@ -5338,6 +5879,13 @@
    "id": "nvidia/nemotron-3-super-120b-a12b",
    "endpoints": [
     {
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.075,
+     "precio_out_por_M": 0.4,
+     "contexto": 262144,
+     "cuantizacion": "bf16"
+    },
+    {
      "proveedor": "DekaLLM",
      "precio_in_por_M": 0.08,
      "precio_out_por_M": 0.45,
@@ -5345,11 +5893,11 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.085,
-     "precio_out_por_M": 0.4,
-     "contexto": 262144,
-     "cuantizacion": "bf16"
+     "proveedor": "Crusoe",
+     "precio_in_por_M": 0.3,
+     "precio_out_por_M": 2.4,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
     }
    ]
   },
@@ -5364,28 +5912,35 @@
    "endpoints": [
     {
      "proveedor": "Darkbloom",
-     "precio_in_por_M": 0.04,
-     "precio_out_por_M": 0.18,
+     "precio_in_por_M": 0.025,
+     "precio_out_por_M": 0.12,
      "contexto": 262144,
      "cuantizacion": "int4"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.07,
+     "proveedor": "Io Net",
+     "precio_in_por_M": 0.0469,
+     "precio_out_por_M": 0.134,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 0.05,
      "precio_out_por_M": 0.2,
      "contexto": 262144,
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "CoreWeave",
-     "precio_in_por_M": 0.07,
-     "precio_out_por_M": 0.2,
+     "proveedor": "DeepInfra",
+     "precio_in_por_M": 0.06,
+     "precio_out_por_M": 0.16,
      "contexto": 262144,
      "cuantizacion": "bf16"
     },
     {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.08,
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.07,
      "precio_out_por_M": 0.2,
      "contexto": 262144,
      "cuantizacion": "bf16"
@@ -5398,48 +5953,125 @@
    "endpoints": [
     {
      "proveedor": "Relace",
-     "precio_in_por_M": 1.7,
-     "precio_out_por_M": 8.5,
-     "contexto": 1048576,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "InferenceNet",
-     "precio_in_por_M": 2.1,
-     "precio_out_por_M": 10.95,
+     "precio_in_por_M": 0.19,
+     "precio_out_por_M": 8.94,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
      "proveedor": "Wafer",
-     "precio_in_por_M": 2.1,
-     "precio_out_por_M": 10.95,
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 16.0,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "mxfp4"
     },
     {
-     "proveedor": "Sail Research",
-     "precio_in_por_M": 2.144,
-     "precio_out_por_M": 10.758,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.233,
+     "precio_out_por_M": 22.0,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.234,
+     "precio_out_por_M": 16.5,
      "contexto": 1048576,
      "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Morph",
-     "precio_in_por_M": 2.375,
-     "precio_out_por_M": 13.3,
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.234,
+     "precio_out_por_M": 16.5,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "fp4"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 2.4,
-     "precio_out_por_M": 12.0,
+     "proveedor": "Wafer",
+     "precio_in_por_M": 0.276,
+     "precio_out_por_M": 13.0,
      "contexto": 1048576,
-     "cuantizacion": "unknown"
+     "cuantizacion": "mxfp4"
     },
     {
      "proveedor": "Makora",
+     "precio_in_por_M": 0.36,
+     "precio_out_por_M": 12.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.5,
+     "precio_out_por_M": 22.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "InferenceNet",
+     "precio_in_por_M": 0.5,
+     "precio_out_por_M": 22.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.5796,
+     "precio_out_por_M": 27.738,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Sail Research",
+     "precio_in_por_M": 0.5796,
+     "precio_out_por_M": 27.738,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "ParetoAlpha",
+     "precio_in_por_M": 1.0,
+     "precio_out_por_M": 11.25,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "AkashML",
+     "precio_in_por_M": 1.2,
+     "precio_out_por_M": 14.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp4"
+    },
+    {
+     "proveedor": "Chutes",
+     "precio_in_por_M": 1.85,
+     "precio_out_por_M": 9.5,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "Decart",
+     "precio_in_por_M": 1.95,
+     "precio_out_por_M": 9.75,
+     "contexto": 1048576,
+     "cuantizacion": "mxfp4"
+    },
+    {
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 2.1,
+     "precio_out_por_M": 10.5,
+     "contexto": 1048576,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Morph",
+     "precio_in_por_M": 2.12,
+     "precio_out_por_M": 12.0,
+     "contexto": 1048576,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Phala",
      "precio_in_por_M": 2.55,
      "precio_out_por_M": 12.75,
      "contexto": 1048576,
@@ -5457,14 +6089,14 @@
      "precio_in_por_M": 2.85,
      "precio_out_por_M": 14.25,
      "contexto": 1048576,
-     "cuantizacion": "bf16"
+     "cuantizacion": "mxfp4"
     },
     {
-     "proveedor": "Chutes",
+     "proveedor": "Amazon Bedrock",
      "precio_in_por_M": 3.0,
      "precio_out_por_M": 15.0,
      "contexto": 1048576,
-     "cuantizacion": "mxfp4"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Parasail",
@@ -5506,13 +6138,6 @@
      "precio_in_por_M": 3.0,
      "precio_out_por_M": 15.0,
      "contexto": 1048576,
-     "cuantizacion": "mxfp4"
-    },
-    {
-     "proveedor": "Fireworks",
-     "precio_in_por_M": 3.3,
-     "precio_out_por_M": 16.5,
-     "contexto": 1048576,
      "cuantizacion": "unknown"
     },
     {
@@ -5530,8 +6155,8 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Morph",
-     "precio_in_por_M": 6.0,
+     "proveedor": "Fireworks",
+     "precio_in_por_M": 4.5,
      "precio_out_por_M": 22.5,
      "contexto": 1048576,
      "cuantizacion": "unknown"
@@ -5541,13 +6166,39 @@
   "kat-coder-pro-2.5": {
    "nombre": "KAT Coder Pro v2.5",
    "id": "kwaipilot/kat-coder-pro-v2.5",
+   "endpoints": []
+  },
+  "claude-fable-5.1": {
+   "nombre": "Claude Fable 5.1",
+   "id": "anthropic/claude-fable-5.1",
    "endpoints": [
     {
-     "proveedor": "AtlasCloud",
-     "precio_in_por_M": 0.74,
-     "precio_out_por_M": 2.96,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
+     "proveedor": "Azure",
+     "precio_in_por_M": 10.0,
+     "precio_out_por_M": 50.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Anthropic",
+     "precio_in_por_M": 10.0,
+     "precio_out_por_M": 50.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 10.0,
+     "precio_out_por_M": 50.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 10.0,
+     "precio_out_por_M": 50.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -5556,14 +6207,28 @@
    "id": "qwen/qwen3.6-35b-a3b",
    "endpoints": [
     {
+     "proveedor": "PrimeIntellect",
+     "precio_in_por_M": 0.01,
+     "precio_out_por_M": 0.092,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
      "proveedor": "Darkbloom",
-     "precio_in_por_M": 0.04,
+     "precio_in_por_M": 0.05,
      "precio_out_por_M": 0.7,
      "contexto": 262144,
      "cuantizacion": "fp4"
     },
     {
      "proveedor": "AkashML",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.9,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Parasail",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 0.9,
      "contexto": 262144,
@@ -5577,31 +6242,24 @@
      "cuantizacion": "fp8"
     },
     {
+     "proveedor": "CoreWeave",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 0.95,
+     "contexto": 262144,
+     "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "DekaLLM",
+     "precio_in_por_M": 0.1,
+     "precio_out_por_M": 1.0,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "Venice",
      "precio_in_por_M": 0.1,
      "precio_out_por_M": 1.0,
      "contexto": 256000,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Parasail",
-     "precio_in_por_M": 0.15,
-     "precio_out_por_M": 1.0,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "AtlasCloud",
-     "precio_in_por_M": 0.186,
-     "precio_out_por_M": 1.1138,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Io Net",
-     "precio_in_por_M": 0.19,
-     "precio_out_por_M": 0.99,
-     "contexto": 262144,
      "cuantizacion": "fp8"
     },
     {
@@ -5619,7 +6277,7 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "CoreWeave",
+     "proveedor": "AtlasCloud",
      "precio_in_por_M": 0.25,
      "precio_out_por_M": 1.25,
      "contexto": 262144,
@@ -5631,13 +6289,6 @@
    "nombre": "Qwen3 Coder",
    "id": "qwen/qwen3-coder",
    "endpoints": [
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 0.22,
-     "precio_out_por_M": 1.8,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
     {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.3,
@@ -5651,19 +6302,164 @@
      "precio_out_por_M": 1.5,
      "contexto": 256000,
      "cuantizacion": "fp8"
+    }
+   ]
+  },
+  "claude-sonnet-5.5": {
+   "nombre": "Claude Sonnet 5.5",
+   "id": "anthropic/claude-sonnet-5.5",
+   "endpoints": [
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.38,
-     "precio_out_por_M": 1.55,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Alibaba",
-     "precio_in_por_M": 0.975,
-     "precio_out_por_M": 4.875,
-     "contexto": 262144,
+     "proveedor": "Azure",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Claude Platform on AWS",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Anthropic",
+     "precio_in_por_M": 2.0,
+     "precio_out_por_M": 10.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 2.2,
+     "precio_out_por_M": 11.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    }
+   ]
+  },
+  "claude-opus-5.5": {
+   "nombre": "Claude Opus 5.5",
+   "id": "anthropic/claude-opus-5.5",
+   "endpoints": [
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Claude Platform on AWS",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Anthropic",
+     "precio_in_por_M": 4.0,
+     "precio_out_por_M": 20.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Amazon Bedrock",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Azure",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Google",
+     "precio_in_por_M": 4.4,
+     "precio_out_por_M": 22.0,
+     "contexto": 1000000,
+     "cuantizacion": "unknown"
+    },
+    {
+     "proveedor": "Anthropic",
+     "precio_in_por_M": 8.0,
+     "precio_out_por_M": 40.0,
+     "contexto": 1000000,
      "cuantizacion": "unknown"
     }
    ]
@@ -5714,13 +6510,6 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Mara",
-     "precio_in_por_M": 0.24,
-     "precio_out_por_M": 0.96,
-     "contexto": 196608,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Novita",
      "precio_in_por_M": 0.27,
      "precio_out_por_M": 1.08,
@@ -5739,14 +6528,7 @@
      "precio_in_por_M": 0.3,
      "precio_out_por_M": 1.2,
      "contexto": 204800,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.38,
-     "precio_out_por_M": 1.7,
-     "contexto": 196608,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Groq",
@@ -5756,18 +6538,11 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "SambaNova",
-     "precio_in_por_M": 0.6,
-     "precio_out_por_M": 2.4,
-     "contexto": 196608,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Minimax",
      "precio_in_por_M": 0.6,
      "precio_out_por_M": 2.4,
      "contexto": 204800,
-     "cuantizacion": "fp8"
+     "cuantizacion": "unknown"
     }
    ]
   },
@@ -5775,27 +6550,6 @@
    "nombre": "Nemotron 3 Nano 30B",
    "id": "nvidia/nemotron-3-nano-30b-a3b",
    "endpoints": [
-    {
-     "proveedor": "Crusoe",
-     "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.2,
-     "contexto": 262144,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.2,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
-    {
-     "proveedor": "DeepInfra",
-     "precio_in_por_M": 0.05,
-     "precio_out_por_M": 0.2,
-     "contexto": 262144,
-     "cuantizacion": "fp4"
-    },
     {
      "proveedor": "Nebius",
      "precio_in_por_M": 0.06,
@@ -5920,8 +6674,15 @@
    "id": "qwen/qwen3.6-27b",
    "endpoints": [
     {
+     "proveedor": "Reka",
+     "precio_in_por_M": 0.2,
+     "precio_out_por_M": 3.0,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
+    },
+    {
      "proveedor": "Chutes",
-     "precio_in_por_M": 0.3,
+     "precio_in_por_M": 0.25,
      "precio_out_por_M": 2.0,
      "contexto": 262144,
      "cuantizacion": "fp8"
@@ -5934,18 +6695,18 @@
      "cuantizacion": "fp8"
     },
     {
-     "proveedor": "Phala",
-     "precio_in_por_M": 0.32,
-     "precio_out_por_M": 2.7,
-     "contexto": 262144,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "DeepInfra",
      "precio_in_por_M": 0.32,
      "precio_out_por_M": 3.2,
      "contexto": 262144,
      "cuantizacion": "fp8"
+    },
+    {
+     "proveedor": "Phala",
+     "precio_in_por_M": 0.32,
+     "precio_out_por_M": 3.25,
+     "contexto": 262144,
+     "cuantizacion": "unknown"
     },
     {
      "proveedor": "Venice",
@@ -5975,37 +6736,9 @@
      "cuantizacion": "unknown"
     },
     {
-     "proveedor": "Google",
-     "precio_in_por_M": 1.25,
-     "precio_out_por_M": 10.0,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 1.25,
-     "precio_out_por_M": 10.0,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
      "proveedor": "Google AI Studio",
      "precio_in_por_M": 1.25,
      "precio_out_por_M": 10.0,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 1.25,
-     "precio_out_por_M": 10.0,
-     "contexto": 1048576,
-     "cuantizacion": "unknown"
-    },
-    {
-     "proveedor": "Google",
-     "precio_in_por_M": 2.25,
-     "precio_out_por_M": 18.0,
      "contexto": 1048576,
      "cuantizacion": "unknown"
     },
@@ -6082,13 +6815,6 @@
      "precio_in_por_M": 0.02,
      "precio_out_por_M": 0.04,
      "contexto": 131072,
-     "cuantizacion": "fp8"
-    },
-    {
-     "proveedor": "Novita",
-     "precio_in_por_M": 0.02,
-     "precio_out_por_M": 0.05,
-     "contexto": 16384,
      "cuantizacion": "fp8"
     },
     {
