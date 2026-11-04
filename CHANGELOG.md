@@ -5,6 +5,14 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Examen de v5 decidido y dimensionado, sin medir (4-nov-2026).** Dos filas en `DECISIONES.md`: thinking por
+  peldaño (1 y 2 apagado donde hay interruptor, 3 y 4 al default; revisa la del 14-sep, que pasa a *Revisada*) y
+  mismo modelo, mismas condiciones (proveedor y cuantización declarados, sin fallback; estricto para abiertos, fecha
+  de corte para cerrados). En `corte-v5`: peldaño por suite (3.1.a), una línea «medido en: proveedor, cuantización, thinking»
+  consumida del censo y de la foto (3.5.c), reporte de razonamiento desde runs existentes (3.6), guardrail de runs
+  mezclados bloqueante en 5.2.a y el grupo 6 de la ventana, que se justifica por dos hallazgos publicables (delta de
+  thinking apagado contra default en peldaño 1-2; delta por proveedor en los 40 abiertos): 64 modelos, 6.616 tests,
+  ≈ $47 a $53 con juez y Harbor. Nada se mide sin el ok de Cristian.
 - **Censo de proveedores regenerado (4-nov-2026).** Tenía 46 días contra un máximo de 30 (aviso informativo del QA). Quedan 110 de 115
   rankeados con censo y 71 proveedores distintos; 16 modelos tienen un solo proveedor y 5 no se sirven por OpenRouter. Ninguna página
   cambió más que la fecha.
