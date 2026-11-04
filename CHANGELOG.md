@@ -15,7 +15,8 @@
   proveedor y guarda la cuantización. Harbor recibe el mismo ruteo y `export_harbor` conserva los proveedores de la
   trayectoria. `check_mezcla.py` (informativo hasta 5.2.a): 65 rankeados con el examen mezclado. Cada run guarda
   `proveedor_declarado` y `cuantizacion`, y el canario es rojo si un run `apagado:` razonó o si un run salió de otro
-  proveedor. Nada medido todavía.
+  proveedor. El canario lanzaba el runner con `python3` a secas y fuera del venv daba «CERO runs»: ahora usa
+  `sys.executable`. Nada medido todavía.
 
 - **El costo de Harbor decía $0 y la prueba lo aprobaba (4-nov-2026).** `export_harbor` leía el acumulado que
   mini-swe-agent imprime redondeado a dos decimales ($0,0029 → $0,00), y el `instance_cost` de la trayectoria viene en 0
