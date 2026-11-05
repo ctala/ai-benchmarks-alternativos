@@ -722,6 +722,19 @@ def test_multi_turno_guarda_la_procedencia_en_el_run():
     assert s["upstream_provider"] == "Crusoe|DekaLLM"
 
 
+def test_proveedor_fijo_cerrados_se_declaran_y_sobreviven_a_declarar(monkeypatch):
+    # 5-nov-2026: los cerrados de peldaño 1-2 se fijan en su proveedor histórico al default,
+    # a mano; `--declarar` rehace solo los abiertos y no puede borrarlos.
+    from benchmarks import proveedor_fijo as pf
+    viejo = {"modelos": {"a": {"id": "x/abierto", "tag": "deepinfra/bf16", "provider_name": "DeepInfra"}},
+             "cerrados": {"c": {"id": "minimax/minimax-m3", "tag": "minimax", "provider_name": "Minimax"}}}
+    monkeypatch.setattr(pf, "_cache", viejo)
+    assert pf.ruteo("minimax/minimax-m3") == {"order": ["minimax"], "allow_fallbacks": False}
+    assert pf.coincide("minimax/minimax-m3", "Novita") is False
+    nuevo = pf.fusionar({"modelos": {}, "sin_endpoint_apto": {}}, viejo)
+    assert nuevo["cerrados"] == viejo["cerrados"]
+
+
 def test_proveedor_fijo_recorta_el_pedido_al_techo_del_declarado(monkeypatch):
     # Sin el recorte, `max_tokens` 49.152 contra un techo de 32.768 da 404 sin generar nada.
     from benchmarks import proveedor_fijo as pf
@@ -1894,3 +1907,13 @@ def test_conjunto_base_aplica_la_reverificacion_mas_reciente():
     assert list(cb["fuera"]) == ["muere"] and "2026-11-05" in cb["fuera"]["muere"]
     assert cb["no_vivos"] == {}
     assert cb["reverificado"] == "2026-11-05"
+
+
+def test_runner_pausa_alarga_la_espera_entre_requests():
+    # 5-nov-2026: GPT-OSS 20B se queda en deepinfra/bf16 sin fallback y corta por 429;
+    # `--pausa` espacia los requests. Nunca baja del 0,5 s base ni toca a los locales.
+    from benchmarks.runner import pausa_entre_requests as p
+    assert p(False) == 0.5
+    assert p(False, 6) == 6
+    assert p(False, 0.1) == 0.5
+    assert p(True, 6) == 0

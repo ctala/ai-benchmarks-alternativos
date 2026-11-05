@@ -896,6 +896,15 @@ def _exigir_canario(args) -> None:
         sys.exit(2)
 
 
+def pausa_entre_requests(is_local, pausa=None):
+    """Segundos de espera entre requests. 0,5 s por defecto en la nube; `--pausa` la alarga
+    para un proveedor fijo que corta por 429 (GPT-OSS 20B en DeepInfra, 5-nov-2026): con
+    `allow_fallbacks: false` no hay otro endpoint que absorba el exceso."""
+    if is_local:
+        return 0
+    return max(0.5, pausa) if pausa else 0.5
+
+
 def run_benchmark(args):
     """Ejecuta el benchmark completo."""
     _exigir_canario(args)
@@ -1629,8 +1638,9 @@ def run_benchmark(args):
                         print(f"ERROR ({result.latency_total:.1f}s) {err_short}", flush=True)
 
                     # Pausa entre requests para no saturar rate limits
-                    if not is_local:
-                        time.sleep(0.5)
+                    _p = pausa_entre_requests(is_local, getattr(args, "pausa", None))
+                    if _p:
+                        time.sleep(_p)
 
                 # Promediar runs
                 if len(run_scores) > 1:
@@ -1801,6 +1811,8 @@ def main():
                        help="Path a un benchmark_*.json previo: carga resultados y saltea tests ya completados (mismo archivo se sobreescribe)")
     parser.add_argument("--rerun-empty", action="store_true",
                        help="Con --resume: re-correr los tests que tienen response_preview vacío (típicamente thinking models que agotaron max_tokens en reasoning)")
+    parser.add_argument("--pausa", type=float, default=None,
+                       help="Segundos entre requests (default 0,5). Para un proveedor fijo que corta por 429.")
     parser.add_argument("--rerun-failed", action="store_true",
                        help="Con --resume: re-correr los tests que fallaron (timeouts, errores 4xx/5xx). Compatible con --rerun-empty.")
 

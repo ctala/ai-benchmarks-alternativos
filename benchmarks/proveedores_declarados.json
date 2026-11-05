@@ -1,4 +1,130 @@
 {
+ "cerrados": {
+  "claude-haiku-5.5": {
+   "cuantizacion": "no_aplica",
+   "id": "anthropic/claude-haiku-5.5",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Claude Platform on AWS",
+   "tag": "claude-on-aws",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "claude-opus-5": {
+   "cuantizacion": "no_aplica",
+   "id": "anthropic/claude-opus-5",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Amazon Bedrock",
+   "tag": "amazon-bedrock",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "claude-sonnet-5": {
+   "cuantizacion": "no_aplica",
+   "id": "anthropic/claude-sonnet-5",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Amazon Bedrock",
+   "tag": "amazon-bedrock",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "deepseek-v4-pro-0813": {
+   "cuantizacion": "no_aplica",
+   "id": "deepseek/deepseek-v4-pro-0813",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Alibaba",
+   "tag": "alibaba",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "gpt-6-luna": {
+   "cuantizacion": "no_aplica",
+   "id": "openai/gpt-6-luna",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "gpt-6-luna-pro": {
+   "cuantizacion": "no_aplica",
+   "id": "openai/gpt-6-luna-pro",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "grok-4.3": {
+   "cuantizacion": "no_aplica",
+   "id": "x-ai/grok-4.3",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "xAI",
+   "tag": "xai",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "hy4-preview": {
+   "cuantizacion": "no_aplica",
+   "id": "tencent/hy4-preview",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Tencent",
+   "tag": "tencent",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "mercury-2.5": {
+   "cuantizacion": "no_aplica",
+   "id": "inception/mercury-2.5",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Inception",
+   "tag": "inception",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "minimax-m3": {
+   "cuantizacion": "no_aplica",
+   "id": "minimax/minimax-m3",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Minimax",
+   "tag": "minimax",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "qwen-3.6-plus": {
+   "cuantizacion": "no_aplica",
+   "id": "qwen/qwen3.6-plus",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Alibaba",
+   "tag": "alibaba",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "qwen-3.7-max": {
+   "cuantizacion": "no_aplica",
+   "id": "qwen/qwen3.7-max",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Alibaba",
+   "tag": "alibaba",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "qwen3.8-flash": {
+   "cuantizacion": "no_aplica",
+   "id": "qwen/qwen3.8-flash",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Alibaba",
+   "tag": "alibaba",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "seed-2-1-turbo": {
+   "cuantizacion": "no_aplica",
+   "id": "bytedance-seed/seed-2-1-turbo",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Seed",
+   "tag": "seed",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "seed-2.0-code": {
+   "cuantizacion": "no_aplica",
+   "id": "bytedance-seed/seed-2.0-code",
+   "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "provider_name": "Seed",
+   "tag": "seed",
+   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  }
+ },
+ "cerrados_sin_proveedor_historico": {
+  "ling-3.0-flash-vl": "5-nov-2026: su histórico es Novita y hoy solo lo sirve DeepInfra; fuera de 6.8, conserva su histórico",
+  "mimo-v2.5-pro-or": "5-nov-2026: su histórico es Novita/Xiaomi y ninguno lo sirve hoy (vivo solo DigitalOcean); fuera de 6.8, conserva su histórico"
+ },
  "criterio": "apto (status 0, contexto ≥ 128.000, tools, max_tokens, reasoning si hay interruptor, sin variante de servicio) → salida ≥ SALIDA_MIN si existe → sin cuantizar → autor → cuantización más alta → más runs nuestros → más barato",
  "fuente": "https://openrouter.ai/api/v1/models/{id}/endpoints",
  "modelos": {
@@ -111,17 +237,6 @@
    "precio_out_por_M": 0.15,
    "provider_name": "CoreWeave",
    "tag": "coreweave/bf16",
-   "techo_salida": 117964
-  },
-  "hermes-4-405b": {
-   "contexto": 131072,
-   "cuantizacion": "fp8",
-   "id": "nousresearch/hermes-4-405b",
-   "motivo": "cuantización más alta",
-   "precio_in_por_M": 1.0,
-   "precio_out_por_M": 3.0,
-   "provider_name": "Nebius",
-   "tag": "nebius/fp8",
    "techo_salida": 117964
   },
   "inkling-small": {
@@ -503,6 +618,7 @@
   }
  },
  "sin_endpoint_apto": {
+  "hermes-4-405b": "5-nov-2026: su único endpoint (nebius/fp8) caído desde el 4-nov (status -5); sale de la ventana por decisión de Cristian",
   "or-llama-4-scout": "4-nov-2026: google-vertex es BYOK (sin uptime; 404 en cada request); deepinfra/fp8 no declara tools; /priority y /flex son variantes de servicio",
   "qwen3-coder": "ningún endpoint declara ['max_tokens', 'tools'] con status 0"
  },

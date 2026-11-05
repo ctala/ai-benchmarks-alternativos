@@ -5,6 +5,12 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Los cerrados de peldaño 1-2 se fijan en el proveedor de su histórico (5-nov-2026, decisión de Cristian).** Sección
+  `cerrados` en `proveedores_declarados.json` (15 modelos, cada uno verificado con un ping a su proveedor), que
+  `--declarar` conserva. Sus runs del lote sin fijar (103) pasan a `results/_experimentos/`; MiMo V2.5 Pro (OR) y
+  Ling 3.0 Flash VL salen de 6.8 porque su proveedor histórico ya no los sirve. Nemotron Super se repite entero en
+  `crusoe/fp8`, Hermes 4 405B sale de la ventana y el runner gana `--pausa SEG` para GPT-OSS 20B en DeepInfra.
+  Dos pruebas nuevas con su sabotaje.
 - **Proveedor fijo: contexto y salida suficientes, y el pedido recortado al techo del declarado (4-nov-2026, a mitad
   del lote de v5).** `proveedor_fijo` exige contexto ≥ 128.000 (`CONTEXTO_MIN`) y prefiere salida ≥ 32.768
   (`SALIDA_MIN`); la declaración guarda `techo_salida` y el adapter no pide más que eso (el run lo registra). Qwen 3.8

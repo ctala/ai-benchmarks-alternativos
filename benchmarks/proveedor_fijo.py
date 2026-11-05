@@ -84,11 +84,22 @@ def cargar() -> dict:
 
 
 def declarado(model_id: str) -> dict | None:
-    """La declaración para este id de OpenRouter, o None si el modelo no tiene proveedor fijo."""
-    for d in cargar().get("modelos", {}).values():
+    """La declaración para este id de OpenRouter, o None si el modelo no tiene proveedor fijo.
+
+    `modelos` son los abiertos (los genera `--declarar`); `cerrados` son los de peldaño 1-2,
+    fijados a mano en el proveedor de su histórico al default (DECISIONES, 5-nov-2026), para
+    que el delta de thinking apagado contra default no mezcle el efecto del proveedor.
+    """
+    c = cargar()
+    for d in list(c.get("modelos", {}).values()) + list(c.get("cerrados", {}).values()):
         if d.get("id") == model_id:
             return d
     return None
+
+
+def fusionar(nuevo: dict, viejo: dict) -> dict:
+    """`--declarar` rehace los abiertos y conserva lo que no genera: los cerrados."""
+    return {**nuevo, "cerrados": viejo.get("cerrados", {})}
 
 
 def techo_salida(model_id: str) -> int | None:
@@ -278,7 +289,7 @@ def main() -> int:
                     help="escribe el yaml de mini-swe-agent y muestra el --ak para Harbor")
     a = ap.parse_args()
     if a.declarar:
-        d = declarar()
+        d = fusionar(declarar(), cargar())
         tmp = DECLARADOS.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(d, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
                        encoding="utf-8")
