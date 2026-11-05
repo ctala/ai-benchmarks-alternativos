@@ -678,6 +678,20 @@ def test_proveedor_fijo_prefiere_salida_suficiente():
     assert pf.elegir("meta-llama/x", [tier], Counter(), {"tools", "max_tokens"})[0] is None
 
 
+def test_proveedor_fijo_exige_tool_choice_a_quien_usa_tools():
+    # El adapter manda tool_choice con las tools; un endpoint que no lo declara cae por
+    # require_parameters (Nemotron Super en dekallm/fp8, 4-nov-2026).
+    from benchmarks import proveedor_fijo as pf
+    from collections import Counter
+    nec = pf.necesita_de({"id": "ibm-granite/granite-4.2-8b"})
+    assert {"tools", "tool_choice", "max_tokens"} <= nec
+    assert "tool_choice" not in pf.necesita_de({"id": "x/y", "prompt_tools": True})
+    sin = _ep("dekallm/fp8", "DekaLLM", "fp8", params=("tools", "max_tokens", "reasoning"))
+    con = _ep("crusoe/fp8", "Crusoe", "fp8", params=("tools", "tool_choice", "max_tokens", "reasoning"))
+    e, _ = pf.elegir("ibm-granite/granite-4.2-8b", [sin, con], Counter({"DekaLLM": 99}), nec)
+    assert e["tag"] == "crusoe/fp8"
+
+
 def test_proveedor_fijo_recorta_el_pedido_al_techo_del_declarado(monkeypatch):
     # Sin el recorte, `max_tokens` 49.152 contra un techo de 32.768 da 404 sin generar nada.
     from benchmarks import proveedor_fijo as pf

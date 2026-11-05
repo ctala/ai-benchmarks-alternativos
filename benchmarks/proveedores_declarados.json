@@ -106,10 +106,11 @@
    "cuantizacion": "bf16",
    "id": "ibm-granite/granite-4.2-8b",
    "motivo": "sin cuantizar",
+   "nota": "4-nov-2026, a mitad del lote: el declarado anterior (deepinfra/bf16) no declara `tool_choice` y daba 404 en los tests con herramientas.",
    "precio_in_por_M": 0.06,
-   "precio_out_por_M": 0.25,
-   "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16",
+   "precio_out_por_M": 0.15,
+   "provider_name": "CoreWeave",
+   "tag": "coreweave/bf16",
    "techo_salida": 117964
   },
   "hermes-4-405b": {
@@ -257,16 +258,16 @@
    "techo_salida": 235929
   },
   "nemotron-super": {
-   "contexto": 262144,
+   "contexto": 1048576,
    "cuantizacion": "fp8",
    "id": "nvidia/nemotron-3-super-120b-a12b",
    "motivo": "cuantización más alta",
-   "nota": "4-nov-2026, a mitad del lote: el declarado anterior (deepinfra/bf16) aceptaba 16384 de salida, bajo SALIDA_MIN=32768; respondía 404 a todo el examen.",
-   "precio_in_por_M": 0.08,
-   "precio_out_por_M": 0.45,
-   "provider_name": "DekaLLM",
-   "tag": "dekallm/fp8",
-   "techo_salida": 235929
+   "nota": "4-nov-2026, a mitad del lote: el declarado anterior (dekallm/fp8) no declara `tool_choice` y daba 404 en los tests con herramientas.",
+   "precio_in_por_M": 0.3,
+   "precio_out_por_M": 2.4,
+   "provider_name": "Crusoe",
+   "tag": "crusoe/fp8",
+   "techo_salida": 262144
   },
   "openrouter-nemotron-3-ultra-550b": {
    "contexto": 256000,

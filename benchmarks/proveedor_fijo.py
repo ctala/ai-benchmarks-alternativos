@@ -229,6 +229,20 @@ def _bajar(mid: str) -> list[dict]:
         return json.load(r)["data"]["endpoints"]
 
 
+def necesita_de(cfg: dict) -> set[str]:
+    """Qué parámetros tiene que declarar el endpoint para rendir el examen de este modelo."""
+    from benchmarks import effort
+    # Quien no recibe `tools` nativas (las mide por prompt, o se puntúa sin ellas) no
+    # necesita un endpoint que las declare. `tool_choice`: el adapter manda
+    # `tool_choice: "auto"` con las tools y `require_parameters` saca al endpoint que no lo
+    # declara (4-nov-2026: Nemotron Super en `dekallm/fp8`, 404 en todo test con herramientas).
+    sin_nativas = cfg.get("sin_tools") or cfg.get("prompt_tools")
+    necesita = {"max_tokens"} if sin_nativas else {"tools", "tool_choice", "max_tokens"}
+    if effort.clase(cfg["id"]) == "interruptor":
+        necesita.add("reasoning")
+    return necesita
+
+
 def declarar() -> dict:
     sys.path.insert(0, str(ROOT))
     from benchmarks import effort
@@ -238,12 +252,7 @@ def declarar() -> dict:
         eps = dict(zip([k for k, _ in abiertos], ex.map(lambda kc: _bajar(kc[1]["id"]), abiertos)))
     modelos, sin = {}, {}
     for k, c in abiertos:
-        # Quien no recibe `tools` nativas (las mide por prompt, o se puntúa sin ellas) no
-        # necesita un endpoint que las declare.
-        sin_nativas = c.get("sin_tools") or c.get("prompt_tools")
-        necesita = {"max_tokens"} if sin_nativas else {"tools", "max_tokens"}
-        if effort.clase(c["id"]) == "interruptor":
-            necesita.add("reasoning")
+        necesita = necesita_de(c)
         e, motivo = elegir(c["id"], eps[k], runs.get((c["id"], c["name"]), Counter()), necesita)
         if e is None:
             sin[k] = motivo
