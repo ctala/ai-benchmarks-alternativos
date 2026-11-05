@@ -692,6 +692,36 @@ def test_proveedor_fijo_exige_tool_choice_a_quien_usa_tools():
     assert e["tag"] == "crusoe/fp8"
 
 
+def test_multi_turno_guarda_la_procedencia_en_el_run():
+    # 5-nov-2026: el camino de agent_long_horizon retornaba antes de copiar la procedencia
+    # y ningún run de esa suite guardó proveedor, effort ni cuantización. Y un turno
+    # servido por otro proveedor tiene que verse en el run.
+    from benchmarks import runner
+    from providers.adapters import BenchmarkResult
+
+    class _Falso:
+        def __init__(self, provs):
+            self.provs = list(provs)
+
+        def chat(self, **kw):
+            p = self.provs.pop(0)
+            return BenchmarkResult(provider="openrouter", model="m", test_name="t", prompt="",
+                                   response="ok", success=True, output_tokens=5,
+                                   metadata={"upstream_provider": p, "reasoning_effort": "default:high",
+                                             "proveedor_declarado": "crusoe/fp8",
+                                             "cuantizacion": "fp8", "reasoning_tokens": 7})
+    test = {"name": "t", "type": "multi_turn_script", "system_prompt": "s",
+            "script": [{"user": "a"}, {"user": "b"}], "rubric": {"checks": []}}
+    cfg = {"id": "x/m", "name": "M", "cost_input": 0.1, "cost_output": 0.1}
+    r = runner.run_multi_turn_script(_Falso(["Crusoe", "Crusoe"]), "x/m", test)
+    s = runner.evaluate_result(r, test, cfg, suite_name="agent_long_horizon")
+    assert (s["upstream_provider"], s["proveedor_declarado"], s["cuantizacion"]) == ("Crusoe", "crusoe/fp8", "fp8")
+    assert s["reasoning_effort"] == "default:high" and s["reasoning_tokens"] == 14
+    r = runner.run_multi_turn_script(_Falso(["Crusoe", "DekaLLM"]), "x/m", test)
+    s = runner.evaluate_result(r, test, cfg, suite_name="agent_long_horizon")
+    assert s["upstream_provider"] == "Crusoe|DekaLLM"
+
+
 def test_proveedor_fijo_recorta_el_pedido_al_techo_del_declarado(monkeypatch):
     # Sin el recorte, `max_tokens` 49.152 contra un techo de 32.768 da 404 sin generar nada.
     from benchmarks import proveedor_fijo as pf

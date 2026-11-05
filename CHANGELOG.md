@@ -18,6 +18,9 @@
 - **Proveedor fijo: el endpoint tiene que declarar `tool_choice` (4-nov-2026).** `necesita_de()` lo exige a quien
   recibe tools. Nemotron Super pasa a `crusoe/fp8` (en `dekallm/fp8` sus 13 tests con herramientas dieron 404) y
   Granite 4.2 8B a `coreweave/bf16`.
+- **Los runs multi-turno guardan proveedor, effort y cuantización (5-nov-2026).** El camino de `agent_long_horizon`
+  retornaba antes de copiarlos y ninguno de sus runs los tuvo nunca. Ahora junta el proveedor de cada turno y suma el
+  razonamiento; los del lote de v5 se rellenan con el declarado, marcados `inferida_ruteo_fijo`.
 
 - **Examen de v5, código listo para la ventana: thinking por peldaño y proveedor fijo (4-nov-2026, corte-v5 3.1.a y
   6.1-6.5).** Cada suite del índice declara su peldaño (`suites.PELDANO`, S7 en `check_suites`). En peldaño 1 y 2 el

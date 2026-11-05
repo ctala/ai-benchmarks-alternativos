@@ -388,6 +388,8 @@ def run_multi_turn_script(
     total_input = 0
     total_output = 0
     total_latency = 0.0
+    proveedores_turnos: list[str] = []   # quién sirvió cada turno (procedencia, 5-nov)
+    razonamiento_total = 0
 
     empty_persistent = False
     for turn in test["script"]:
@@ -429,6 +431,10 @@ def run_multi_turn_script(
         total_input += last_result.input_tokens or 0
         total_output += last_result.output_tokens or 0
         total_latency += last_result.latency_total or 0.0
+        _md_turno = last_result.metadata or {}
+        if _md_turno.get("upstream_provider"):
+            proveedores_turnos.append(str(_md_turno["upstream_provider"]))
+        razonamiento_total += int(float(_md_turno.get("reasoning_tokens") or 0))
 
     # Construir resultado compuesto: response = última respuesta del modelo
     last_result.test_name = test["name"]
@@ -441,6 +447,12 @@ def run_multi_turn_script(
     last_result.metadata["trajectory"] = trajectory
     last_result.metadata["turns_executed"] = len(trajectory)
     last_result.metadata["turns_total"] = len(test["script"])
+    # Un turno servido por otro proveedor deja huella: «A|B» no coincide con ningún
+    # declarado y `check_mezcla` lo cuenta como mezcla.
+    if proveedores_turnos:
+        last_result.metadata["upstream_provider"] = "|".join(sorted(set(proveedores_turnos)))
+    if razonamiento_total:
+        last_result.metadata["reasoning_tokens"] = razonamiento_total
     if empty_persistent:
         last_result.metadata["empty_persistent"] = True
     return last_result
@@ -497,6 +509,25 @@ def _score_long_horizon(result: BenchmarkResult, test: dict) -> float:
 
 
 
+# Las claves de procedencia que viajan de `result.metadata` al run. Una sola lista para
+# los dos caminos de `evaluate_result`: el multi-turno (agent_long_horizon) retornaba antes
+# del bucle y NINGÚN run de esa suite guardó jamás proveedor, effort ni cuantización
+# (descubierto el 5-nov-2026, a mitad del lote de v5; `check_mezcla` los habría contado
+# como «sin proveedor» en los 46 abiertos).
+CLAVES_PROCEDENCIA = (
+    "upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
+    "reasoning_tokens", "reasoning_effort", "techo_omitido",
+    # corte-v5 6.3/6.4: en qué endpoint se pidió rendir y con qué cuantización
+    # lo sirvió. Sin esto el proveedor fijo no deja huella en el dato.
+    "proveedor_declarado", "cuantizacion", "techo_salida")
+
+
+def _copiar_procedencia(scores: dict, md: dict | None) -> None:
+    for _k in CLAVES_PROCEDENCIA:
+        if (md or {}).get(_k) is not None:
+            scores[_k] = md[_k]
+
+
 def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
                     judge: LLMJudge = None, suite_name: str = "") -> dict:
     """Evalua un resultado y calcula scores.
@@ -544,6 +575,7 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
         # $0 tarifa plana) y NO vía API. Lo setea ClaudeCodeProvider.
         if (result.metadata or {}).get("subscription_measured"):
             scores["subscription_measured"] = True
+        _copiar_procedencia(scores, result.metadata)
         return scores
 
     expected_answer = test.get("expected_answer", {})
@@ -781,13 +813,7 @@ def evaluate_result(result: BenchmarkResult, test: dict, model_config: dict,
     # ENTRADA del run y no quedaba en ninguna parte — sólo se podía adivinar por la fecha
     # del lote. Guarda la etiqueta de `effort.resolver` («default:max», «sin_niveles»…).
     # `techo_omitido` (14-sep): el request salió SIN max_tokens porque el modelo no lo declara.
-    for _k in ("upstream_provider", "finish_reason", "native_finish_reason", "api_refusal",
-               "reasoning_tokens", "reasoning_effort", "techo_omitido",
-               # corte-v5 6.3/6.4: en qué endpoint se pidió rendir y con qué cuantización
-               # lo sirvió. Sin esto el proveedor fijo no deja huella en el dato.
-               "proveedor_declarado", "cuantizacion", "techo_salida"):
-        if _md.get(_k) is not None:
-            scores[_k] = _md[_k]
+    _copiar_procedencia(scores, _md)
 
     # Guardar datos del juez si disponible
     if judge_result and judge_quality >= 0:
