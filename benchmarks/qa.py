@@ -37,6 +37,7 @@ QA en algo que se saltea, y un QA que se saltea no existe.
 """
 
 import argparse
+import os
 import subprocess
 import sys
 import time
@@ -145,8 +146,15 @@ CHEQUEOS = [
     # nadie supo durante 40 días.
     ("version", "el Action de artefactos no lleva semanas en rojo",
      [PY, "benchmarks/check_ci.py"], False, False),
+    # Bloqueante desde el 6-nov-2026: era informativo y, sin `--duro`, salía con 0 y se veía
+    # ✅ mientras listaba a los tres Claude 5.5 sin Harbor. El estado «sin dato agéntico ·
+    # formato del endpoint» es explícito y no lo pone rojo; un hueco, sí.
     ("datos", "ningún rankeado se publicó sin su tarea agéntica",
-     [PY, "benchmarks/check_agentico_publicado.py"], False, True),
+     [PY, "benchmarks/check_agentico_publicado.py"], True, True),
+    # 6-nov-2026: «DeepSeek V3» medía deepseek-v3.2. Bloqueante desde que nace, con sus
+    # excepciones escritas y con motivo.
+    ("datos", "el nombre visible trae la versión de su id",
+     [PY, "benchmarks/check_version_en_nombre.py"], True, True),
     ("paginas", "ninguna página corona a un ganador que su tabla no sostiene",
      [PY, "benchmarks/check_ganadores.py"], True, True),
     # Informativo: si no hay release de este mes no hay nada que verificar, y eso no es
@@ -246,6 +254,11 @@ def main() -> int:
            and (not a.rapido or c[4])
            and (not a.pre_merge or c[3])]
 
+    if os.environ.get("BENCH_BLOG"):
+        # Los chequeos del blog miran otro checkout (8-nov-2026). Un verde así dice que ESE
+        # checkout está bien, no el blog publicado: se avisa arriba para que no se confunda.
+        print(f"  ⚠️  BENCH_BLOG={os.environ['BENCH_BLOG']}: los chequeos del blog miran ese "
+              "checkout, no el principal\n")
     rama = a.rama or rama_actual()
     tolerados, deselects = tolerancias(rama)
 

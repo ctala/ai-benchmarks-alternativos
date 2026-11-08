@@ -18,12 +18,14 @@ es exactamente lo que pasó el 15-sep. Se corre a mano, y el hook de pre-push de
 `--check` para que el post no pueda quedar desfasado sin que nadie se entere.
 
 Uso:
-    python benchmarks/generate_blog_tablas.py             # escribe las tablas en el post
+    python benchmarks/generate_blog_tablas.py             # verifica (no escribe, 8-nov-2026)
+    python benchmarks/generate_blog_tablas.py --write     # escribe las tablas en el post
     python benchmarks/generate_blog_tablas.py --check     # exit 1 si el post no coincide
     python benchmarks/generate_blog_tablas.py --blog /ruta/al/blog
 """
 
 import argparse
+import os
 import json
 import re
 import sys
@@ -32,7 +34,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
-DEFAULT_BLOG = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+# `BENCH_BLOG` apunta los chequeos a otro checkout (un worktree que espera aprobación) sin
+# tocar el principal; qa.py avisa cuando está puesta (8-nov-2026).
+DEFAULT_BLOG = Path(os.environ.get("BENCH_BLOG")
+                    or Path.home() / "Playground" / "sitios" / "cristiantala-blog")
 POST = ("src/content/blog/"
         "benchmark-de-modelos-de-ia-2026-probe-25-modelos-con-125-tests-reales.md")
 
@@ -40,12 +45,10 @@ BLOQUES = {
     "TOP10": {
         "cabecera": "| # | Modelo | Calidad | $/1k llamadas | Open source |",
         "columnas": "| --- | --- | --- | --- | --- |",
-        "negritas": 3,   # el podio va en negrita, como se publicó siempre
     },
     "OPENSOURCE": {
         "cabecera": "| # | Modelo | Calidad | $/1k llamadas | Licencia |",
         "columnas": "| --- | --- | --- | --- | --- |",
-        "negritas": 2,
     },
 }
 
@@ -63,12 +66,16 @@ def rankeados(data: dict) -> list[dict]:
                   key=lambda m: -(m.get("quality_avg") or 0))
 
 
-def _fila(i: int, m: dict, ultima_col: str, negrita: bool) -> str:
+# 8-nov-2026 (Cristian): no se corona dentro del ruido. Las filas del grupo de cabeza
+# llevan «≈» en vez de un puesto —el mismo criterio que el README— y ninguna fila va en
+# negrita: un podio en negrita afirma una diferencia que la medición no sostiene.
+EMPATE = "≈"
+
+
+def _fila(pos: str, m: dict, ultima_col: str) -> str:
     celdas = [m["name"], f"{m['quality_avg']:.2f}", usd(m.get("cost_per_1k_calls_usd")),
               ultima_col]
-    if negrita:
-        celdas = [f"**{c}**" for c in celdas]
-    return "| " + " | ".join([str(i)] + celdas) + " |"
+    return "| " + " | ".join([pos] + celdas) + " |"
 
 
 def tabla(nombre: str, data: dict) -> str:
@@ -80,7 +87,11 @@ def tabla(nombre: str, data: dict) -> str:
     else:
         ms = ms[:10]
         ultima = ["Sí" if m.get("open_source") else "No" for m in ms]
-    filas = [_fila(i, m, u, i <= cfg["negritas"])
+    if "grupo_cabeza" not in data:
+        raise SystemExit("ERROR: models.json no trae `grupo_cabeza`: sin él no se sabe qué "
+                         "filas empatan y la tabla coronaría dentro del ruido.")
+    cab = set(data["grupo_cabeza"].get("claves") or [])
+    filas = [_fila(EMPATE if m["key"] in cab else str(i), m, u)
              for i, (m, u) in enumerate(zip(ms, ultima), 1)]
     return "\n".join([f"<!-- AUTO-{nombre}-START -->", cfg["cabecera"], cfg["columnas"],
                       *filas, f"<!-- AUTO-{nombre}-END -->"])
@@ -106,9 +117,15 @@ def aplicar(texto: str, data: dict) -> tuple[str, list[str]]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--blog", default=str(DEFAULT_BLOG))
-    ap.add_argument("--check", action="store_true",
-                    help="no escribe: exit 1 si el post no refleja los datos de hoy")
+    # Por defecto NO escribe (8-nov-2026): escribir en el blog es publicar, y olvidar un
+    # `--check` no puede alcanzar para hacerlo. Ver generate_blog_datos.py.
+    modo = ap.add_mutually_exclusive_group()
+    modo.add_argument("--check", action="store_true",
+                      help="no escribe: exit 1 si el post no refleja los datos de hoy "
+                           "(es el comportamiento por defecto)")
+    modo.add_argument("--write", action="store_true", help="regenera las tablas en el post")
     args = ap.parse_args()
+    args.check = not args.write
 
     post = Path(args.blog) / POST
     if not post.exists():
@@ -129,7 +146,7 @@ def main() -> int:
         return 0
     if args.check:
         print(f"  ❌ el pilar no refleja los datos de hoy: {', '.join(cambiados)}")
-        print("     Corré `python benchmarks/generate_blog_tablas.py` y revisá el diff "
+        print("     Corré `python benchmarks/generate_blog_tablas.py --write` y revisá el diff "
               "(la prosa alrededor puede citar cifras que también hay que mover).")
         return 1
     post.write_text(nuevo)

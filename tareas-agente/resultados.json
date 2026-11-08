@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-04T10:57:56",
+  "generado": "2026-11-07T17:21:17",
   "harness": "harbor",
   "nota": "Reward de tareas agénticas. NO entra al índice de calidad: es una dimensión aparte, como tool calling y seguridad. Ver DECISIONES.md.",
   "tareas": {
@@ -17,7 +17,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.8009,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-fable-5.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.9646,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-haiku-4.5": {
           "media": 1.0,
@@ -31,7 +51,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1331,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-haiku-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0084,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-6": {
           "media": 1.0,
@@ -45,7 +85,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.396,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-7": {
           "media": 1.0,
@@ -59,7 +102,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3752,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4.8": {
           "media": 1.0,
@@ -73,7 +119,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4943,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-5": {
           "media": 1.0,
@@ -87,7 +136,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.7158,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
         },
         "anthropic/claude-opus-5-fast": {
           "media": 1.0,
@@ -101,7 +153,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.6917,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-opus-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2042,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-4-6": {
           "media": 1.0,
@@ -115,7 +187,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1871,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-5": {
           "media": 1.0,
@@ -129,7 +204,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.2251,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-sonnet-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0895,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "bytedance-seed/seed-2-1-turbo": {
           "media": 1.0,
@@ -143,21 +238,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.058,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "bytedance-seed/seed-2.0-code": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 4,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0744,
-          "costo_intentos": 3
+          "costo_usd": 0.1101,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "deepseek/deepseek-chat": {
           "media": 0.8148,
@@ -171,7 +272,11 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0195,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra",
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-r1": {
           "media": 1.0,
@@ -185,21 +290,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1414,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ]
         },
         "deepseek/deepseek-v3.2": {
-          "media": 0.9259,
+          "media": 0.963,
           "piso": 0.8889,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             0.8889,
-            0.8889
+            1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0796,
-          "costo_intentos": 3
+          "costo_usd": 0.0789,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "deepseek/deepseek-v4-flash": {
           "media": 1.0,
@@ -212,22 +323,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0087,
-          "costo_intentos": 3
+          "costo_usd": 0.0104,
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-v4-flash-0731": {
-          "media": 0.963,
-          "piso": 0.8889,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.8889,
+            1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0059,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.0103,
+          "costo_intentos": 3,
+          "proveedores": [
+            "BaseTen"
+          ]
         },
         "deepseek/deepseek-v4-pro": {
           "media": 1.0,
@@ -240,8 +357,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2392,
-          "costo_intentos": 3
+          "costo_usd": 0.1112,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "deepseek/deepseek-v4-pro-0813": {
           "media": 1.0,
@@ -254,8 +374,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2534,
-          "costo_intentos": 3
+          "costo_usd": 0.1567,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "deepseek/deepseek-v4.1-flash": {
           "media": 1.0,
@@ -268,8 +391,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0568,
-          "costo_intentos": 3
+          "costo_usd": 0.4533,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
         },
         "google/gemini-2.5-flash": {
           "media": 0.9259,
@@ -283,7 +409,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0207,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-2.5-flash-lite": {
           "media": 0.9259,
@@ -297,7 +426,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0089,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-2.5-pro": {
           "media": 0.8519,
@@ -311,7 +443,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0999,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.1-flash-lite-preview": {
           "media": 0.9259,
@@ -325,7 +460,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0152,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google AI Studio"
+          ]
         },
         "google/gemini-3.1-pro-preview": {
           "media": 1.0,
@@ -338,8 +476,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.7677,
-          "costo_intentos": 3
+          "costo_usd": 0.828,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.5-flash": {
           "media": 1.0,
@@ -353,7 +494,11 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.4311,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google",
+            "Google AI Studio"
+          ]
         },
         "google/gemini-3.5-flash-lite": {
           "media": 1.0,
@@ -366,8 +511,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0831,
-          "costo_intentos": 3
+          "costo_usd": 0.0672,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.7-flash": {
           "media": 1.0,
@@ -381,7 +529,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0936,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.8-flash": {
           "media": 1.0,
@@ -394,10 +545,13 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.8591,
-          "costo_intentos": 3
+          "costo_usd": 0.4115,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
-        "google/gemma-4-26b-a4b-it": {
+        "google/gemini-4-argon": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -408,37 +562,62 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0132,
-          "costo_intentos": 3
+          "costo_usd": 0.142,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
-        "google/gemma-4-31b-it": {
-          "media": 1.0,
-          "piso": 1.0,
-          "techo": 1.0,
-          "intentos": 4,
-          "rewards": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0131,
-          "costo_intentos": 4
-        },
-        "ibm-granite/granite-4.2-8b": {
-          "media": 0.8889,
+        "google/gemma-4-26b-a4b-it": {
+          "media": 0.9259,
           "piso": 0.7778,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             0.7778,
-            0.8889,
+            1.0,
             1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0817,
-          "costo_intentos": 3
+          "costo_usd": 0.0106,
+          "costo_intentos": 3,
+          "proveedores": [
+            "NextBit"
+          ]
+        },
+        "google/gemma-4-31b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.004,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
+        },
+        "ibm-granite/granite-4.2-8b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0634,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ]
         },
         "inception/mercury-2.5": {
           "media": 0.9259,
@@ -451,8 +630,28 @@
             1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0033,
-          "costo_intentos": 3
+          "costo_usd": 0.0029,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
+        },
+        "inception/mercury-3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0155,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
         },
         "inclusionai/ling-3.0-flash": {
           "media": 1.0,
@@ -465,8 +664,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.002,
-          "costo_intentos": 3
+          "costo_usd": 0.0035,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "kwaipilot/kat-coder-air-v2.5": {
           "media": 1.0,
@@ -480,7 +682,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0095,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
@@ -494,7 +699,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0745,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "meta-llama/llama-3.1-8b-instruct": {
           "media": 0.0,
@@ -509,21 +717,30 @@
           "estado": "rompe_bucle",
           "costo_usd": 0.0007,
           "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "meta-llama/llama-3.3-70b-instruct": {
-          "media": 0.963,
-          "piso": 0.8889,
-          "techo": 1.0,
+          "media": 0.2963,
+          "piso": 0.0,
+          "techo": 0.8889,
           "intentos": 3,
           "rewards": [
             0.8889,
-            1.0,
-            1.0
+            0.0,
+            0.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0076,
-          "costo_intentos": 3
+          "estado": "inestable",
+          "costo_usd": 0.0056,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "causas_de_los_ceros": [
+            "hizo_mal_la_tarea"
+          ]
         },
         "meta-llama/llama-4-maverick": {
           "media": 0.0,
@@ -538,6 +755,9 @@
           "estado": "rompe_bucle",
           "costo_usd": 0.0025,
           "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "meta-llama/llama-4-scout": {
@@ -552,7 +772,11 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0064,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google",
+            "Groq"
+          ]
         },
         "meta/muse-glimmer-30b": {
           "media": 1.0,
@@ -565,8 +789,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0874,
-          "costo_intentos": 3
+          "costo_usd": 0.0845,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "meta/muse-spark-1.2": {
           "media": 1.0,
@@ -580,7 +807,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.119,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
         "meta/muse-spark-1.3": {
           "media": 1.0,
@@ -593,22 +823,45 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.089,
-          "costo_intentos": 3
+          "costo_usd": 0.0772,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
-        "minimax/minimax-m2.5": {
-          "media": 0.963,
-          "piso": 0.8889,
+        "meta/muse-wonder": {
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.8889,
+            1.0,
             1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0282,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.283,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
+        },
+        "minimax/minimax-m2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0326,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "minimax/minimax-m2.7": {
           "media": 1.0,
@@ -622,7 +875,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.027,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "minimax/minimax-m3": {
           "media": 1.0,
@@ -635,22 +891,45 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0336,
-          "costo_intentos": 3
+          "costo_usd": 0.1394,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
+        },
+        "minimax/minimax-m3.1-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0669,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "mistralai/ministral-14b-2512": {
           "media": 0.7778,
-          "piso": 0.6667,
-          "techo": 0.8889,
+          "piso": 0.7778,
+          "techo": 0.7778,
           "intentos": 3,
           "rewards": [
-            0.8889,
             0.7778,
-            0.6667
+            0.7778,
+            0.7778
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0249,
-          "costo_intentos": 3
+          "costo_usd": 0.0115,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large": {
           "media": 0.963,
@@ -664,9 +943,29 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.1547,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large-2512": {
+          "media": 0.963,
+          "piso": 0.8889,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.8889,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0934,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-large-4-0": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
@@ -677,22 +976,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0366,
-          "costo_intentos": 3
+          "costo_usd": 0.1029,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-small-2603": {
-          "media": 0.7778,
-          "piso": 0.6667,
+          "media": 0.8519,
+          "piso": 0.7778,
           "techo": 0.8889,
           "intentos": 3,
           "rewards": [
             0.8889,
             0.7778,
-            0.6667
+            0.8889
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0278,
-          "costo_intentos": 3
+          "costo_usd": 0.0279,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "moonshotai/kimi-k2": {
           "media": 1.0,
@@ -705,24 +1010,27 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0608,
-          "costo_intentos": 3
+          "costo_usd": 0.0443,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ]
         },
         "moonshotai/kimi-k2.5": {
-          "media": 0.2593,
-          "piso": 0.0,
-          "techo": 0.7778,
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.0,
-            0.0,
-            0.7778
+            1.0,
+            1.0,
+            1.0
           ],
-          "estado": "inestable",
-          "costo_usd": 0.0193,
+          "estado": "ok_siempre",
+          "costo_usd": 0.085,
           "costo_intentos": 3,
-          "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
+          "proveedores": [
+            "SiliconFlow"
           ]
         },
         "moonshotai/kimi-k2.6": {
@@ -736,8 +1044,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0899,
-          "costo_intentos": 3
+          "costo_usd": 0.1354,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "moonshotai/kimi-k2.7-code": {
           "media": 1.0,
@@ -750,8 +1061,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1021,
-          "costo_intentos": 3
+          "costo_usd": 0.0665,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "moonshotai/kimi-k3": {
           "media": 1.0,
@@ -764,8 +1078,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.4441,
-          "costo_intentos": 3
+          "costo_usd": 0.3808,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "moonshotai/kimi-k3.1-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2633,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "nex-agi/nex-n2-mini": {
           "media": 1.0,
@@ -779,7 +1113,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0031,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nex AGI"
+          ]
         },
         "nousresearch/hermes-4-405b": {
           "media": 0.0,
@@ -794,6 +1131,7 @@
           "estado": "sin_herramientas",
           "costo_usd": null,
           "costo_intentos": 0,
+          "proveedores": [],
           "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
         },
         "nousresearch/hermes-4-70b": {
@@ -809,21 +1147,25 @@
           "estado": "sin_herramientas",
           "costo_usd": null,
           "costo_intentos": 0,
+          "proveedores": [],
           "motivo": "no existe endpoint con tool use — el modelo nunca llegó a correr"
         },
         "nvidia/nemotron-3-nano-30b-a3b": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.963,
+          "piso": 0.8889,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
+            0.8889,
             1.0,
             1.0
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0084,
-          "costo_intentos": 3
+          "estado": "ok_parcial",
+          "costo_usd": 0.0137,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nebius"
+          ]
         },
         "nvidia/nemotron-3-super-120b-a12b": {
           "media": 1.0,
@@ -836,8 +1178,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0133,
-          "costo_intentos": 3
+          "costo_usd": 0.0091,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "nvidia/nemotron-3-ultra-550b-a55b": {
           "media": 1.0,
@@ -850,8 +1195,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0569,
-          "costo_intentos": 3
+          "costo_usd": 0.0595,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Venice"
+          ]
         },
         "nvidia/nemotron-3.5-lightning": {
           "media": 1.0,
@@ -864,8 +1212,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0109,
-          "costo_intentos": 3
+          "costo_usd": 0.011,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "openai/gpt-4.1": {
           "media": 0.6296,
@@ -880,6 +1231,9 @@
           "estado": "inestable",
           "costo_usd": 0.0625,
           "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call",
           "causas_de_los_ceros": [
             "rompe_bucle"
@@ -897,7 +1251,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0372,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4": {
           "media": 1.0,
@@ -911,7 +1268,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4-mini": {
           "media": 1.0,
@@ -925,7 +1285,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.5": {
           "media": 1.0,
@@ -939,7 +1302,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
@@ -955,7 +1321,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0133,
-          "costo_intentos": 5
+          "costo_intentos": 5,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-sol": {
           "media": 1.0,
@@ -968,8 +1337,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1375,
-          "costo_intentos": 3
+          "costo_usd": 0.109,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-terra": {
           "media": 1.0,
@@ -982,8 +1354,96 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.101,
-          "costo_intentos": 3
+          "costo_usd": 0.0928,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-astra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.3948,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.004,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0125,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0736,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-terra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0315,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-oss-120b": {
           "media": 1.0,
@@ -996,24 +1456,27 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0037,
-          "costo_intentos": 3
+          "costo_usd": 0.0046,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "openai/gpt-oss-20b": {
-          "media": 0.5556,
-          "piso": 0.0,
+          "media": 0.8519,
+          "piso": 0.7778,
           "techo": 0.8889,
           "intentos": 3,
           "rewards": [
-            0.8889,
             0.7778,
-            0.0
+            0.8889,
+            0.8889
           ],
-          "estado": "inestable",
-          "costo_usd": 0.004,
+          "estado": "ok_parcial",
+          "costo_usd": 0.0095,
           "costo_intentos": 3,
-          "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
+          "proveedores": [
+            "DeepInfra"
           ]
         },
         "poolside/laguna-s-2.1": {
@@ -1030,7 +1493,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0151,
-          "costo_intentos": 5
+          "costo_intentos": 5,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "poolside/laguna-xs-2.1": {
           "media": 0.8889,
@@ -1044,7 +1510,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0148,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "qwen/qwen3-coder": {
           "media": 0.8334,
@@ -1059,35 +1528,44 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0527,
-          "costo_intentos": 4
+          "costo_intentos": 4,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "qwen/qwen3-coder-next": {
-          "media": 0.9259,
+          "media": 0.963,
           "piso": 0.8889,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.8889,
+            1.0,
             0.8889,
             1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 1.3064,
-          "costo_intentos": 3
+          "costo_usd": 0.0319,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3-next-80b-a3b-instruct": {
-          "media": 0.8148,
-          "piso": 0.6667,
+          "media": 0.8889,
+          "piso": 0.8889,
           "techo": 0.8889,
           "intentos": 3,
           "rewards": [
-            0.6667,
+            0.8889,
             0.8889,
             0.8889
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0107,
-          "costo_intentos": 3
+          "costo_usd": 0.0114,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3-next-80b-a3b-thinking": {
           "media": 0.0,
@@ -1102,21 +1580,27 @@
           "estado": "rompe_bucle",
           "costo_usd": 0.0582,
           "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "qwen/qwen3.5-35b-a3b": {
-          "media": 0.8889,
+          "media": 0.963,
           "piso": 0.8889,
-          "techo": 0.8889,
+          "techo": 1.0,
           "intentos": 3,
           "rewards": [
             0.8889,
-            0.8889,
-            0.8889
+            1.0,
+            1.0
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0376,
-          "costo_intentos": 3
+          "costo_usd": 0.0312,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.5-397b-a17b": {
           "media": 1.0,
@@ -1129,8 +1613,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0488,
-          "costo_intentos": 3
+          "costo_usd": 0.0497,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-27b": {
           "media": 1.0,
@@ -1143,22 +1630,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0308,
-          "costo_intentos": 3
+          "costo_usd": 0.0298,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-35b-a3b": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.963,
+          "piso": 0.8889,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            1.0,
+            0.8889,
             1.0
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0157,
-          "costo_intentos": 3
+          "estado": "ok_parcial",
+          "costo_usd": 0.0169,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AkashML"
+          ]
         },
         "qwen/qwen3.6-max-preview": {
           "media": 1.0,
@@ -1172,7 +1665,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1404,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-plus": {
           "media": 1.0,
@@ -1185,8 +1681,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0617,
-          "costo_intentos": 3
+          "costo_usd": 0.0405,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-flash": {
           "media": 0.963,
@@ -1200,7 +1699,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0026,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-max": {
           "media": 1.0,
@@ -1214,7 +1716,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1905,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-2.4t-a95b": {
           "media": 1.0,
@@ -1228,27 +1733,26 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4421,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "qwen/qwen3.8-27b": {
-          "media": 0.8333,
-          "piso": 0.0,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
-          "intentos": 7,
+          "intentos": 3,
           "rewards": [
-            0.0,
-            1.0,
-            1.0,
             1.0,
             1.0,
             1.0
           ],
-          "estado": "inestable",
-          "costo_usd": 0.1675,
-          "costo_intentos": 5,
-          "motivo": "falta la credencial del proveedor — no es un fallo del modelo",
-          "causas_de_los_ceros": [
-            "sin_credencial"
+          "estado": "ok_siempre",
+          "costo_usd": 0.0975,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
           ]
         },
         "qwen/qwen3.8-flash": {
@@ -1262,8 +1766,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0498,
-          "costo_intentos": 3
+          "costo_usd": 0.0927,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max": {
           "media": 1.0,
@@ -1277,7 +1784,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3982,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max-0902": {
           "media": 1.0,
@@ -1290,8 +1800,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.7404,
-          "costo_intentos": 3
+          "costo_usd": 1.2041,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "sakana/fugu-max": {
           "media": 1.0,
@@ -1304,39 +1817,62 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.9701,
-          "costo_intentos": 3
+          "costo_usd": 0.1895,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Sakana AI"
+          ]
         },
         "stepfun/step-3.5-flash": {
-          "media": 0.9259,
+          "media": 0.8519,
           "piso": 0.7778,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
             0.7778,
-            1.0
+            1.0,
+            0.7778
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0154,
-          "costo_intentos": 3
+          "costo_usd": 0.0177,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
         },
         "tencent/hy3": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
-            1.0,
-            1.0,
-            1.0,
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.042,
-          "costo_intentos": 6
+          "costo_usd": 0.0189,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
+        },
+        "tencent/hy4": {
+          "media": 0.963,
+          "piso": 0.8889,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.8889,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.2879,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "tencent/hy4-preview": {
           "media": 1.0,
@@ -1350,36 +1886,44 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3936,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "thinkingmachines/inkling-small": {
-          "media": 0.963,
-          "piso": 0.8889,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.8889,
+            1.0,
             1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0513,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.0299,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "upstage/solar-pro4": {
-          "media": 0.9722,
-          "piso": 0.8889,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
-          "intentos": 4,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            1.0,
-            0.8889
+            1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0085,
-          "costo_intentos": 4
+          "estado": "ok_siempre",
+          "costo_usd": 0.0064,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Upstage"
+          ]
         },
         "x-ai/grok-4.20": {
           "media": 0.8519,
@@ -1393,7 +1937,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.083,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.3": {
           "media": 1.0,
@@ -1407,7 +1954,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0373,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.5": {
           "media": 1.0,
@@ -1421,7 +1971,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0647,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.6": {
           "media": 1.0,
@@ -1434,8 +1987,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1606,
-          "costo_intentos": 3
+          "costo_usd": 0.0999,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
+        },
+        "x-ai/grok-4.7": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1617,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "xiaomi/mimo-v2.5": {
           "media": 1.0,
@@ -1449,7 +2022,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0094,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "xiaomi/mimo-v2.5-pro": {
           "media": 1.0,
@@ -1463,7 +2039,44 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0299,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0216,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0499,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "z-ai/glm-5": {
           "media": 1.0,
@@ -1476,8 +2089,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0472,
-          "costo_intentos": 3
+          "costo_usd": 0.0673,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.1": {
           "media": 1.0,
@@ -1490,8 +2106,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.078,
-          "costo_intentos": 3
+          "costo_usd": 0.1138,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.2": {
           "media": 1.0,
@@ -1504,8 +2123,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0447,
-          "costo_intentos": 3
+          "costo_usd": 0.0615,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3": {
           "media": 1.0,
@@ -1518,8 +2140,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2628,
-          "costo_intentos": 3
+          "costo_usd": 0.9032,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3-flash": {
           "media": 1.0,
@@ -1532,24 +2157,197 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0233,
-          "costo_intentos": 3
+          "costo_usd": 0.0194,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         }
       },
       "task_checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 107,
-        "corridas": 336,
-        "perfectos": 73,
+        "modelos": 126,
+        "corridas": 383,
+        "perfectos": 94,
         "ceros": 5,
-        "media_global": 0.9146,
-        "costo_usd": 17.45,
+        "media_global": 0.9337,
+        "costo_usd": 19.48,
         "descartadas_por_checksum": 2
       }
     },
     "harbor-facturacion": {
       "modelos": {
+        "anthropic/claude-fable-5.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 1.1959,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-haiku-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0142,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-opus-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.336,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-sonnet-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1148,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "bytedance-seed/seed-2.0-code": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0861,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
+        },
+        "deepseek/deepseek-v3.2": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0885,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
+        },
+        "deepseek/deepseek-v4-flash": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0084,
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
+        },
+        "deepseek/deepseek-v4-flash-0731": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0157,
+          "costo_intentos": 3,
+          "proveedores": [
+            "BaseTen"
+          ]
+        },
+        "deepseek/deepseek-v4-pro": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1135,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "deepseek/deepseek-v4-pro-0813": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1094,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
         "deepseek/deepseek-v4.1-flash": {
           "media": 1.0,
           "piso": 1.0,
@@ -1561,10 +2359,81 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0392,
-          "costo_intentos": 3
+          "costo_usd": 0.0467,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
+        },
+        "google/gemini-3.1-pro-preview": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.3374,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
+        },
+        "google/gemini-3.5-flash-lite": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.231,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.8-flash": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.6065,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
+        },
+        "google/gemini-4-argon": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2854,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
+        },
+        "google/gemma-4-26b-a4b-it": {
           "media": 0.625,
           "piso": 0.625,
           "techo": 0.625,
@@ -1575,22 +2444,45 @@
             0.625
           ],
           "estado": "ok_parcial",
-          "costo_usd": 1.0422,
-          "costo_intentos": 3
+          "costo_usd": 0.0088,
+          "costo_intentos": 3,
+          "proveedores": [
+            "NextBit"
+          ]
+        },
+        "google/gemma-4-31b-it": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0075,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "ibm-granite/granite-4.2-8b": {
-          "media": 0.625,
+          "media": 0.7083,
           "piso": 0.625,
-          "techo": 0.625,
+          "techo": 0.75,
           "intentos": 3,
           "rewards": [
             0.625,
-            0.625,
-            0.625
+            0.75,
+            0.75
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.067,
-          "costo_intentos": 3
+          "costo_usd": 0.0581,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ]
         },
         "inception/mercury-2.5": {
           "media": 0.6667,
@@ -1599,12 +2491,123 @@
           "intentos": 3,
           "rewards": [
             0.625,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0092,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
+        },
+        "inception/mercury-3": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
             0.625,
             0.75
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0099,
-          "costo_intentos": 3
+          "costo_usd": 0.014,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
+        },
+        "inclusionai/ling-3.0-flash": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0022,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
+        },
+        "meta-llama/llama-3.1-8b-instruct": {
+          "media": 0.1667,
+          "piso": 0.0,
+          "techo": 0.25,
+          "intentos": 3,
+          "rewards": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0007,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0037,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+        },
+        "meta-llama/llama-4-maverick": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0025,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+        },
+        "meta/muse-glimmer-30b": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0814,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "meta/muse-spark-1.3": {
           "media": 1.0,
@@ -1617,20 +2620,474 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1084,
-          "costo_intentos": 3
+          "costo_usd": 0.1432,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
+        },
+        "meta/muse-wonder": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.4675,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
+        },
+        "minimax/minimax-m2.5": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0271,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
+        },
+        "minimax/minimax-m3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.4094,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
+        },
+        "minimax/minimax-m3.1-flash": {
+          "media": 0.8333,
+          "piso": 0.75,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1356,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "mistralai/ministral-14b-2512": {
           "media": 0.625,
           "piso": 0.625,
           "techo": 0.625,
-          "intentos": 1,
+          "intentos": 3,
           "rewards": [
+            0.625,
+            0.625,
             0.625
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0069,
-          "costo_intentos": 1
+          "costo_usd": 0.0212,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-large-2512": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0504,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-large-4-0": {
+          "media": 0.8333,
+          "piso": 0.75,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1517,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-small-2603": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.017,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "moonshotai/kimi-k2": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0673,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ]
+        },
+        "moonshotai/kimi-k2.5": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.048,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.177,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
+        },
+        "moonshotai/kimi-k2.7-code": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0612,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "moonshotai/kimi-k3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.448,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "moonshotai/kimi-k3.1-pro": {
+          "media": 0.8333,
+          "piso": 0.625,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.875,
+            0.625,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.3746,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "nvidia/nemotron-3-nano-30b-a3b": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0131,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nebius"
+          ]
+        },
+        "nvidia/nemotron-3-super-120b-a12b": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.625,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0089,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0679,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Venice"
+          ]
+        },
+        "nvidia/nemotron-3.5-lightning": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0092,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
+        },
+        "openai/gpt-5.6-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2281,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-5.6-terra": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.111,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-astra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.5708,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0043,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna-pro": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0118,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1081,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-terra": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0558,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-oss-120b": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0036,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
+        },
+        "openai/gpt-oss-20b": {
+          "media": 0.375,
+          "piso": 0.0,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.5,
+            0.625,
+            0.0
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0071,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
         },
         "qwen/qwen3-coder": {
           "media": 0.625,
@@ -1642,7 +3099,163 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.012,
-          "costo_intentos": 1
+          "costo_intentos": 1,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "qwen/qwen3-coder-next": {
+          "media": 0.625,
+          "piso": 0.625,
+          "techo": 0.625,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0324,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
+        },
+        "qwen/qwen3-next-80b-a3b-instruct": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0144,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
+        },
+        "qwen/qwen3.5-35b-a3b": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0339,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "qwen/qwen3.5-397b-a17b": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0604,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "qwen/qwen3.6-27b": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.625,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0457,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "qwen/qwen3.6-35b-a3b": {
+          "media": 0.6667,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.625,
+            0.75,
+            0.625
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0193,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AkashML"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "media": 0.7083,
+          "piso": 0.625,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.625,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0514,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "qwen/qwen3.8-27b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1051,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
+        },
+        "qwen/qwen3.8-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1742,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max-0902": {
           "media": 1.0,
@@ -1655,22 +3268,79 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 1.4632,
-          "costo_intentos": 3
+          "costo_usd": 1.8031,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "sakana/fugu-max": {
-          "media": 0.625,
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.3629,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Sakana AI"
+          ]
+        },
+        "stepfun/step-3.5-flash": {
+          "media": 0.7083,
           "piso": 0.625,
-          "techo": 0.625,
+          "techo": 0.75,
           "intentos": 3,
           "rewards": [
             0.625,
-            0.625,
-            0.625
+            0.75,
+            0.75
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.1468,
-          "costo_intentos": 3
+          "costo_usd": 0.0157,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
+        },
+        "tencent/hy3": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0198,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
+        },
+        "tencent/hy4": {
+          "media": 0.9167,
+          "piso": 0.75,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.9667,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "tencent/hy4-preview": {
           "media": 0.9167,
@@ -1684,30 +3354,208 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.6808,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
+        },
+        "thinkingmachines/inkling-small": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0207,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
+        },
+        "upstage/solar-pro4": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0053,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Upstage"
+          ]
+        },
+        "x-ai/grok-4.6": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1802,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
+        },
+        "x-ai/grok-4.7": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1107,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
+        },
+        "xiaomi/mimo-v2.6-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0298,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0512,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "z-ai/glm-5": {
           "media": 0.75,
           "piso": 0.75,
           "techo": 0.75,
-          "intentos": 1,
+          "intentos": 3,
           "rewards": [
+            0.75,
+            0.75,
             0.75
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0227,
-          "costo_intentos": 1
+          "costo_usd": 0.0702,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.101,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
+        },
+        "z-ai/glm-5.2": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0418,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
+        },
+        "z-ai/glm-5.3": {
+          "media": 0.75,
+          "piso": 0.75,
+          "techo": 0.75,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 1.5118,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
+        },
+        "z-ai/glm-5.3-flash": {
+          "media": 0.8333,
+          "piso": 0.75,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0585,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         }
       },
       "task_checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 11,
-        "corridas": 27,
-        "perfectos": 3,
-        "ceros": 0,
-        "media_global": 0.7689,
-        "costo_usd": 3.6,
+        "modelos": 80,
+        "corridas": 238,
+        "perfectos": 19,
+        "ceros": 2,
+        "media_global": 0.7573,
+        "costo_usd": 14.16,
         "descartadas_por_checksum": 0
       }
     },
@@ -1725,7 +3573,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.1078,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-fable-5.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.9824,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-haiku-4.5": {
           "media": 1.0,
@@ -1739,7 +3607,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1811,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-haiku-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.017,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-6": {
           "media": 1.0,
@@ -1753,7 +3641,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.5087,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-7": {
           "media": 1.0,
@@ -1767,7 +3658,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4872,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4.8": {
           "media": 1.0,
@@ -1781,7 +3675,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.5625,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-5": {
           "media": 1.0,
@@ -1795,7 +3692,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.5356,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
         },
         "anthropic/claude-opus-5-fast": {
           "media": 1.0,
@@ -1809,7 +3709,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 3.6621,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-opus-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.3871,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-4-6": {
           "media": 1.0,
@@ -1823,7 +3743,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3233,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-5": {
           "media": 1.0,
@@ -1837,7 +3760,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.2786,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-sonnet-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1185,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "bytedance-seed/seed-2-1-turbo": {
           "media": 1.0,
@@ -1851,7 +3794,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0628,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "bytedance-seed/seed-2.0-code": {
           "media": 1.0,
@@ -1864,8 +3810,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1413,
-          "costo_intentos": 3
+          "costo_usd": 0.1071,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "deepseek/deepseek-chat": {
           "media": 0.9744,
@@ -1879,7 +3828,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0341,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-r1": {
           "media": 0.3333,
@@ -1894,6 +3846,9 @@
           "estado": "inestable",
           "costo_usd": 0.1221,
           "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ],
           "causas_de_los_ceros": [
             "hizo_mal_la_tarea"
           ]
@@ -1909,8 +3864,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0639,
-          "costo_intentos": 3
+          "costo_usd": 0.0542,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "deepseek/deepseek-v4-flash": {
           "media": 1.0,
@@ -1923,53 +3881,62 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0107,
-          "costo_intentos": 3
+          "costo_usd": 0.0096,
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-v4-flash-0731": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            0.9231
+            1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0083,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.0085,
+          "costo_intentos": 3,
+          "proveedores": [
+            "BaseTen"
+          ]
         },
         "deepseek/deepseek-v4-pro": {
-          "media": 0.9872,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 9,
-          "rewards": [
-            1.0,
-            1.0,
-            1.0,
-            1.0,
-            0.9231,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.7148,
-          "costo_intentos": 6
-        },
-        "deepseek/deepseek-v4-pro-0813": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.9231,
+            1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.2126,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.1434,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
+        },
+        "deepseek/deepseek-v4-pro-0813": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2476,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "deepseek/deepseek-v4.1-flash": {
           "media": 1.0,
@@ -1982,8 +3949,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0239,
-          "costo_intentos": 3
+          "costo_usd": 0.0161,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
         },
         "google/gemini-2.5-flash": {
           "media": 1.0,
@@ -1997,7 +3967,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0961,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-2.5-flash-lite": {
           "media": 0.7308,
@@ -2013,6 +3986,9 @@
           "estado": "inestable",
           "costo_usd": 0.0124,
           "costo_intentos": 4,
+          "proveedores": [
+            "Google"
+          ],
           "causas_de_los_ceros": [
             "hizo_mal_la_tarea"
           ]
@@ -2029,7 +4005,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.199,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.1-flash-lite-preview": {
           "media": 1.0,
@@ -2043,21 +4022,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0214,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google AI Studio"
+          ]
         },
         "google/gemini-3.1-pro-preview": {
-          "media": 0.9744,
-          "piso": 0.9231,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.9231,
+            1.0,
             1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.5018,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.5013,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.5-flash": {
           "media": 1.0,
@@ -2071,7 +4056,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.016,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.5-flash-lite": {
           "media": 1.0,
@@ -2084,8 +4072,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0577,
-          "costo_intentos": 3
+          "costo_usd": 0.0635,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.6-flash": {
           "media": 1.0,
@@ -2099,7 +4090,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3226,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.7-flash": {
           "media": 1.0,
@@ -2113,7 +4107,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1817,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.8-flash": {
           "media": 1.0,
@@ -2126,22 +4123,45 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.4305,
-          "costo_intentos": 3
+          "costo_usd": 0.4341,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
-        "google/gemma-4-26b-a4b-it": {
-          "media": 0.9744,
-          "piso": 0.9231,
+        "google/gemini-4-argon": {
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.9231,
+            1.0,
             1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0114,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.2022,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
+        },
+        "google/gemma-4-26b-a4b-it": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0117,
+          "costo_intentos": 3,
+          "proveedores": [
+            "NextBit"
+          ]
         },
         "google/gemma-4-31b-it": {
           "media": 1.0,
@@ -2154,8 +4174,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0121,
-          "costo_intentos": 3
+          "costo_usd": 0.0085,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "ibm-granite/granite-4.2-8b": {
           "media": 1.0,
@@ -2168,8 +4191,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0145,
-          "costo_intentos": 3
+          "costo_usd": 0.0258,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ]
         },
         "inception/mercury-2.5": {
           "media": 1.0,
@@ -2182,8 +4208,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0047,
-          "costo_intentos": 3
+          "costo_usd": 0.0045,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
+        },
+        "inception/mercury-3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0142,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
         },
         "inclusionai/ling-3.0-flash": {
           "media": 1.0,
@@ -2196,8 +4242,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0043,
-          "costo_intentos": 3
+          "costo_usd": 0.0025,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "kwaipilot/kat-coder-air-v2.5": {
           "media": 1.0,
@@ -2211,7 +4260,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0143,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
@@ -2225,21 +4277,64 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0621,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
-        "meta-llama/llama-3.3-70b-instruct": {
-          "media": 0.9487,
-          "piso": 0.8462,
-          "techo": 1.0,
+        "meta-llama/llama-3.1-8b-instruct": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
           "intentos": 3,
           "rewards": [
-            1.0,
-            0.8462,
-            1.0
+            0.0,
+            0.0,
+            0.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0129,
-          "costo_intentos": 3
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0012,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0048,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+        },
+        "meta-llama/llama-4-maverick": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0025,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "meta-llama/llama-4-scout": {
           "media": 0.4872,
@@ -2254,23 +4349,30 @@
           "estado": "inestable",
           "costo_usd": 0.0146,
           "costo_intentos": 3,
+          "proveedores": [
+            "Google",
+            "Groq"
+          ],
           "causas_de_los_ceros": [
             "hizo_mal_la_tarea"
           ]
         },
         "meta/muse-glimmer-30b": {
-          "media": 0.9487,
+          "media": 0.9231,
           "piso": 0.9231,
-          "techo": 1.0,
+          "techo": 0.9231,
           "intentos": 3,
           "rewards": [
             0.9231,
-            1.0,
+            0.9231,
             0.9231
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.0979,
-          "costo_intentos": 3
+          "costo_usd": 0.074,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "meta/muse-spark-1.2": {
           "media": 1.0,
@@ -2284,7 +4386,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1992,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
         "meta/muse-spark-1.3": {
           "media": 1.0,
@@ -2297,8 +4402,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1444,
-          "costo_intentos": 3
+          "costo_usd": 0.0842,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
+        },
+        "meta/muse-wonder": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.3297,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
         "minimax/minimax-m2.5": {
           "media": 1.0,
@@ -2311,8 +4436,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0321,
-          "costo_intentos": 3
+          "costo_usd": 0.035,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "minimax/minimax-m2.7": {
           "media": 1.0,
@@ -2326,7 +4454,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0318,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "minimax/minimax-m3": {
           "media": 1.0,
@@ -2339,8 +4470,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0821,
-          "costo_intentos": 3
+          "costo_usd": 0.0956,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
+        },
+        "minimax/minimax-m3.1-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0259,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "mistralai/ministral-14b-2512": {
           "media": 1.0,
@@ -2353,8 +4504,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0123,
-          "costo_intentos": 3
+          "costo_usd": 0.0183,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large": {
           "media": 1.0,
@@ -2368,7 +4522,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1652,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large-2512": {
           "media": 1.0,
@@ -2381,8 +4538,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.052,
-          "costo_intentos": 3
+          "costo_usd": 0.0412,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-large-4-0": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0478,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-small-2603": {
           "media": 1.0,
@@ -2395,8 +4572,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0149,
-          "costo_intentos": 3
+          "costo_usd": 0.0169,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "moonshotai/kimi-k2": {
           "media": 1.0,
@@ -2409,8 +4589,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.062,
-          "costo_intentos": 3
+          "costo_usd": 0.0649,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ]
         },
         "moonshotai/kimi-k2.5": {
           "media": 1.0,
@@ -2423,22 +4606,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0829,
-          "costo_intentos": 3
+          "costo_usd": 0.123,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
         },
         "moonshotai/kimi-k2.6": {
-          "media": 0.9487,
+          "media": 0.9744,
           "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.9231,
+            1.0,
             0.9231
           ],
           "estado": "ok_parcial",
-          "costo_usd": 0.2209,
-          "costo_intentos": 3
+          "costo_usd": 0.1804,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "moonshotai/kimi-k2.7-code": {
           "media": 1.0,
@@ -2451,8 +4640,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0816,
-          "costo_intentos": 3
+          "costo_usd": 0.1024,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "moonshotai/kimi-k3": {
           "media": 1.0,
@@ -2465,8 +4657,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.5599,
-          "costo_intentos": 3
+          "costo_usd": 0.5334,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "moonshotai/kimi-k3.1-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2942,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "nex-agi/nex-n2-mini": {
           "media": 1.0,
@@ -2480,23 +4692,26 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0033,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nex AGI"
+          ]
         },
         "nvidia/nemotron-3-nano-30b-a3b": {
-          "media": 0.641,
-          "piso": 0.0,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.9231,
             1.0,
-            0.0
+            1.0,
+            1.0
           ],
-          "estado": "inestable",
-          "costo_usd": 0.0086,
+          "estado": "ok_siempre",
+          "costo_usd": 0.0048,
           "costo_intentos": 3,
-          "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
+          "proveedores": [
+            "Nebius"
           ]
         },
         "nvidia/nemotron-3-super-120b-a12b": {
@@ -2510,8 +4725,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0264,
-          "costo_intentos": 3
+          "costo_usd": 0.0121,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "nvidia/nemotron-3-ultra-550b-a55b": {
           "media": 1.0,
@@ -2524,8 +4742,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0809,
-          "costo_intentos": 3
+          "costo_usd": 0.0947,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Venice"
+          ]
         },
         "nvidia/nemotron-3.5-lightning": {
           "media": 1.0,
@@ -2538,8 +4759,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0177,
-          "costo_intentos": 3
+          "costo_usd": 0.0153,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "openai/gpt-4.1": {
           "media": 0.6667,
@@ -2554,6 +4778,9 @@
           "estado": "inestable",
           "costo_usd": 0.0748,
           "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call",
           "causas_de_los_ceros": [
             "rompe_bucle"
@@ -2571,7 +4798,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0486,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4": {
           "media": 1.0,
@@ -2585,7 +4815,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4-mini": {
           "media": 1.0,
@@ -2599,7 +4832,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.5": {
           "media": 0.9744,
@@ -2613,7 +4849,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
@@ -2627,63 +4866,163 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0126,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-sol": {
-          "media": 0.9487,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            0.9231,
-            1.0,
-            0.9231
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.1613,
-          "costo_intentos": 3
-        },
-        "openai/gpt-5.6-terra": {
-          "media": 0.9487,
-          "piso": 0.9231,
-          "techo": 1.0,
-          "intentos": 3,
-          "rewards": [
-            0.9231,
-            0.9231,
-            1.0
-          ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.1605,
-          "costo_intentos": 3
-        },
-        "openai/gpt-oss-120b": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0072,
-          "costo_intentos": 3
+          "costo_usd": 0.164,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-5.6-terra": {
+          "media": 0.9744,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            0.9231
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.1252,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-astra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.4852,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0049,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna-pro": {
+          "media": 0.9744,
+          "piso": 0.9231,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9231,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0156,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0915,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-terra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0491,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-oss-120b": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0063,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "openai/gpt-oss-20b": {
           "media": 0.641,
           "piso": 0.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
-            0.9231,
+            1.0,
             0.0,
-            1.0
+            0.9231
           ],
           "estado": "inestable",
-          "costo_usd": 0.0026,
+          "costo_usd": 0.0032,
           "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call",
           "causas_de_los_ceros": [
             "rompe_bucle"
@@ -2701,7 +5040,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0162,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "poolside/laguna-xs-2.1": {
           "media": 1.0,
@@ -2715,7 +5057,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0107,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "qwen/qwen3-coder": {
           "media": 1.0,
@@ -2729,7 +5074,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0306,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Venice"
+          ]
         },
         "qwen/qwen3-coder-next": {
           "media": 1.0,
@@ -2742,8 +5090,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0167,
-          "costo_intentos": 3
+          "costo_usd": 0.0245,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3-next-80b-a3b-instruct": {
           "media": 1.0,
@@ -2756,23 +5107,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0214,
-          "costo_intentos": 3
+          "costo_usd": 0.0265,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3.5-35b-a3b": {
-          "media": 0.0,
-          "piso": 0.0,
-          "techo": 0.0,
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            0.0,
-            0.0,
-            0.0
+            1.0,
+            1.0,
+            1.0
           ],
-          "estado": "rompe_bucle",
-          "costo_usd": 0.0155,
+          "estado": "ok_siempre",
+          "costo_usd": 0.0502,
           "costo_intentos": 3,
-          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.5-397b-a17b": {
           "media": 1.0,
@@ -2785,8 +5141,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0567,
-          "costo_intentos": 3
+          "costo_usd": 0.0608,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-27b": {
           "media": 1.0,
@@ -2799,22 +5158,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0694,
-          "costo_intentos": 3
+          "costo_usd": 0.0347,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-35b-a3b": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.9744,
+          "piso": 0.9231,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
-            1.0,
+            0.9231,
             1.0,
             1.0
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0151,
-          "costo_intentos": 3
+          "estado": "ok_parcial",
+          "costo_usd": 0.0163,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AkashML"
+          ]
         },
         "qwen/qwen3.6-max-preview": {
           "media": 1.0,
@@ -2828,7 +5193,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1845,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-plus": {
           "media": 1.0,
@@ -2841,8 +5209,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0355,
-          "costo_intentos": 3
+          "costo_usd": 0.0347,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-flash": {
           "media": 1.0,
@@ -2856,7 +5227,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0046,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-max": {
           "media": 1.0,
@@ -2870,7 +5244,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1552,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-2.4t-a95b": {
           "media": 1.0,
@@ -2884,7 +5261,12 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4894,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra",
+            "Modal",
+            "SiliconFlow"
+          ]
         },
         "qwen/qwen3.8-27b": {
           "media": 1.0,
@@ -2897,8 +5279,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1203,
-          "costo_intentos": 3
+          "costo_usd": 0.0796,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "qwen/qwen3.8-flash": {
           "media": 1.0,
@@ -2911,8 +5296,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0799,
-          "costo_intentos": 3
+          "costo_usd": 0.1618,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max": {
           "media": 1.0,
@@ -2926,7 +5314,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.5484,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max-0902": {
           "media": 1.0,
@@ -2939,8 +5330,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.8882,
-          "costo_intentos": 3
+          "costo_usd": 0.6211,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "sakana/fugu-max": {
           "media": 1.0,
@@ -2953,8 +5347,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2558,
-          "costo_intentos": 3
+          "costo_usd": 0.2051,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Sakana AI"
+          ]
         },
         "stepfun/step-3.5-flash": {
           "media": 1.0,
@@ -2967,8 +5364,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0125,
-          "costo_intentos": 3
+          "costo_usd": 0.0215,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
         },
         "tencent/hy3": {
           "media": 1.0,
@@ -2981,8 +5381,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.018,
-          "costo_intentos": 3
+          "costo_usd": 0.0234,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
+        },
+        "tencent/hy4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.183,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "tencent/hy4-preview": {
           "media": 1.0,
@@ -2996,7 +5416,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.15,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "thinkingmachines/inkling-small": {
           "media": 1.0,
@@ -3009,8 +5432,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0345,
-          "costo_intentos": 3
+          "costo_usd": 0.0356,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "upstage/solar-pro4": {
           "media": 1.0,
@@ -3023,8 +5449,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0092,
-          "costo_intentos": 3
+          "costo_usd": 0.0082,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Upstage"
+          ]
         },
         "x-ai/grok-4.20": {
           "media": 1.0,
@@ -3038,7 +5467,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.098,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.3": {
           "media": 1.0,
@@ -3052,7 +5484,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0542,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.5": {
           "media": 1.0,
@@ -3066,7 +5501,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1049,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.6": {
           "media": 1.0,
@@ -3079,8 +5517,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1331,
-          "costo_intentos": 3
+          "costo_usd": 0.1474,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
+        },
+        "x-ai/grok-4.7": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0974,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "xiaomi/mimo-v2.5": {
           "media": 1.0,
@@ -3094,7 +5552,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.015,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "xiaomi/mimo-v2.5-pro": {
           "media": 1.0,
@@ -3108,7 +5569,45 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0438,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud",
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0188,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.074,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "z-ai/glm-5": {
           "media": 1.0,
@@ -3121,8 +5620,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0658,
-          "costo_intentos": 3
+          "costo_usd": 0.071,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.1": {
           "media": 1.0,
@@ -3135,8 +5637,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0905,
-          "costo_intentos": 3
+          "costo_usd": 0.1016,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.2": {
           "media": 1.0,
@@ -3149,8 +5654,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0873,
-          "costo_intentos": 3
+          "costo_usd": 0.0678,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3": {
           "media": 1.0,
@@ -3163,8 +5671,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2909,
-          "costo_intentos": 3
+          "costo_usd": 0.3954,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3-flash": {
           "media": 1.0,
@@ -3177,19 +5688,22 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0248,
-          "costo_intentos": 3
+          "costo_usd": 0.0334,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         }
       },
       "task_checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 103,
-        "corridas": 328,
-        "perfectos": 83,
-        "ceros": 1,
-        "media_global": 0.9617,
-        "costo_usd": 18.72,
+        "modelos": 124,
+        "corridas": 379,
+        "perfectos": 108,
+        "ceros": 3,
+        "media_global": 0.9565,
+        "costo_usd": 21.35,
         "descartadas_por_checksum": 216
       }
     },
@@ -3207,7 +5721,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.6764,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-fable-5.1": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 1.3448,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-haiku-4.5": {
           "media": 1.0,
@@ -3221,7 +5755,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.6075,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-haiku-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0196,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-6": {
           "media": 1.0,
@@ -3235,7 +5789,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.8863,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4-7": {
           "media": 1.0,
@@ -3249,7 +5806,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.4137,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-4.8": {
           "media": 1.0,
@@ -3263,7 +5823,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.9637,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-opus-5": {
           "media": 1.0,
@@ -3277,7 +5840,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 1.2068,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
         },
         "anthropic/claude-opus-5-fast": {
           "media": 1.0,
@@ -3291,7 +5857,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 2.6767,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
+        },
+        "anthropic/claude-opus-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.6159,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-4-6": {
           "media": 1.0,
@@ -3304,7 +5890,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.6879,
-          "costo_intentos": 2
+          "costo_intentos": 2,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "anthropic/claude-sonnet-5": {
           "media": 1.0,
@@ -3318,7 +5907,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.5219,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Amazon Bedrock"
+          ]
+        },
+        "anthropic/claude-sonnet-5.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2699,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Anthropic"
+          ]
         },
         "bytedance-seed/seed-2-1-turbo": {
           "media": 1.0,
@@ -3332,7 +5941,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1886,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "bytedance-seed/seed-2.0-code": {
           "media": 1.0,
@@ -3345,8 +5957,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.3135,
-          "costo_intentos": 3
+          "costo_usd": 0.2923,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Seed"
+          ]
         },
         "deepseek/deepseek-chat": {
           "media": 0.9667,
@@ -3360,7 +5975,12 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0283,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra",
+            "Novita",
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-r1": {
           "media": 0.6667,
@@ -3375,6 +5995,9 @@
           "estado": "inestable",
           "costo_usd": 0.3068,
           "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ],
           "motivo": "tiene herramientas pero no sostiene el formato de tool call",
           "causas_de_los_ceros": [
             "rompe_bucle"
@@ -3391,8 +6014,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2053,
-          "costo_intentos": 3
+          "costo_usd": 0.1761,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "deepseek/deepseek-v4-flash": {
           "media": 1.0,
@@ -3405,8 +6031,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.02,
-          "costo_intentos": 3
+          "costo_usd": 0.022,
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "deepseek/deepseek-v4-flash-0731": {
           "media": 1.0,
@@ -3419,8 +6048,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0122,
-          "costo_intentos": 3
+          "costo_usd": 0.0183,
+          "costo_intentos": 3,
+          "proveedores": [
+            "BaseTen"
+          ]
         },
         "deepseek/deepseek-v4-pro": {
           "media": 1.0,
@@ -3433,8 +6065,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2296,
-          "costo_intentos": 3
+          "costo_usd": 0.3111,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "deepseek/deepseek-v4-pro-0813": {
           "media": 1.0,
@@ -3447,8 +6082,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2073,
-          "costo_intentos": 3
+          "costo_usd": 0.2037,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "deepseek/deepseek-v4.1-flash": {
           "media": 1.0,
@@ -3461,8 +6099,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0373,
-          "costo_intentos": 3
+          "costo_usd": 0.0269,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
         },
         "google/gemini-2.5-flash": {
           "media": 1.0,
@@ -3476,7 +6117,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1472,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-2.5-flash-lite": {
           "media": 0.9,
@@ -3490,7 +6134,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0204,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-2.5-pro": {
           "media": 1.0,
@@ -3504,7 +6151,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3396,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.1-flash-lite-preview": {
           "media": 1.0,
@@ -3518,7 +6168,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.034,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google AI Studio"
+          ]
         },
         "google/gemini-3.1-pro-preview": {
           "media": 1.0,
@@ -3531,8 +6184,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.3978,
-          "costo_intentos": 3
+          "costo_usd": 0.4315,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.5-flash": {
           "media": 1.0,
@@ -3546,7 +6202,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.8285,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.5-flash-lite": {
           "media": 1.0,
@@ -3559,8 +6218,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1535,
-          "costo_intentos": 3
+          "costo_usd": 0.1726,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.7-flash": {
           "media": 1.0,
@@ -3574,7 +6236,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1646,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemini-3.8-flash": {
           "media": 1.0,
@@ -3587,8 +6252,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.515,
-          "costo_intentos": 3
+          "costo_usd": 0.3903,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
+        },
+        "google/gemini-4-argon": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2841,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google"
+          ]
         },
         "google/gemma-4-26b-a4b-it": {
           "media": 1.0,
@@ -3601,8 +6286,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0183,
-          "costo_intentos": 3
+          "costo_usd": 0.0225,
+          "costo_intentos": 3,
+          "proveedores": [
+            "NextBit"
+          ]
         },
         "google/gemma-4-31b-it": {
           "media": 1.0,
@@ -3615,8 +6303,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0163,
-          "costo_intentos": 3
+          "costo_usd": 0.0216,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "ibm-granite/granite-4.2-8b": {
           "media": 1.0,
@@ -3629,8 +6320,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0958,
-          "costo_intentos": 3
+          "costo_usd": 0.1007,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ]
         },
         "inception/mercury-2.5": {
           "media": 1.0,
@@ -3643,8 +6337,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0133,
-          "costo_intentos": 3
+          "costo_usd": 0.0123,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
+        },
+        "inception/mercury-3": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0401,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Inception"
+          ]
         },
         "inclusionai/ling-3.0-flash": {
           "media": 1.0,
@@ -3657,8 +6371,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.004,
-          "costo_intentos": 3
+          "costo_usd": 0.0061,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "kwaipilot/kat-coder-air-v2.5": {
           "media": 1.0,
@@ -3672,7 +6389,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0483,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
         "kwaipilot/kat-coder-pro-v2.5": {
           "media": 1.0,
@@ -3686,21 +6406,67 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1488,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "StreamLake"
+          ]
         },
-        "meta-llama/llama-3.3-70b-instruct": {
-          "media": 0.8667,
-          "piso": 0.7,
-          "techo": 1.0,
+        "meta-llama/llama-3.1-8b-instruct": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
           "intentos": 3,
           "rewards": [
-            0.7,
-            1.0,
-            0.9
+            0.0,
+            0.0,
+            0.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0174,
-          "costo_intentos": 3
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0006,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+        },
+        "meta-llama/llama-3.3-70b-instruct": {
+          "media": 0.5333,
+          "piso": 0.0,
+          "techo": 0.8,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.8,
+            0.8
+          ],
+          "estado": "inestable",
+          "costo_usd": 0.0126,
+          "costo_intentos": 3,
+          "proveedores": [
+            "CoreWeave"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call",
+          "causas_de_los_ceros": [
+            "rompe_bucle"
+          ]
+        },
+        "meta-llama/llama-4-maverick": {
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
+          "intentos": 3,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0026,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "meta-llama/llama-4-scout": {
           "media": 0.7,
@@ -3714,7 +6480,11 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0192,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Google",
+            "Groq"
+          ]
         },
         "meta/muse-glimmer-30b": {
           "media": 1.0,
@@ -3727,8 +6497,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1636,
-          "costo_intentos": 3
+          "costo_usd": 0.1503,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "meta/muse-spark-1.2": {
           "media": 1.0,
@@ -3742,7 +6515,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4023,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
         "meta/muse-spark-1.3": {
           "media": 1.0,
@@ -3755,22 +6531,45 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2107,
-          "costo_intentos": 3
+          "costo_usd": 0.166,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
         },
-        "minimax/minimax-m2.5": {
-          "media": 0.9667,
-          "piso": 0.9,
+        "meta/muse-wonder": {
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            0.9
+            1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.093,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.6075,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Meta"
+          ]
+        },
+        "minimax/minimax-m2.5": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0815,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AtlasCloud"
+          ]
         },
         "minimax/minimax-m2.7": {
           "media": 1.0,
@@ -3784,33 +6583,61 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0987,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
         "minimax/minimax-m3": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2228,
-          "costo_intentos": 3
+          "costo_usd": 0.1062,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
         },
-        "mistralai/ministral-14b-2512": {
+        "minimax/minimax-m3.1-flash": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
+            1.0,
+            1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0207,
-          "costo_intentos": 1
+          "costo_usd": 0.0299,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Minimax"
+          ]
+        },
+        "mistralai/ministral-14b-2512": {
+          "media": 0.9333,
+          "piso": 0.9,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            0.9,
+            1.0,
+            0.9
+          ],
+          "estado": "ok_parcial",
+          "costo_usd": 0.0504,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large": {
           "media": 1.0,
@@ -3824,7 +6651,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4422,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-large-2512": {
           "media": 1.0,
@@ -3837,8 +6667,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1108,
-          "costo_intentos": 3
+          "costo_usd": 0.0567,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
+        },
+        "mistralai/mistral-large-4-0": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1091,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "mistralai/mistral-small-2603": {
           "media": 1.0,
@@ -3851,8 +6701,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0659,
-          "costo_intentos": 3
+          "costo_usd": 0.0687,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Mistral"
+          ]
         },
         "moonshotai/kimi-k2": {
           "media": 1.0,
@@ -3865,8 +6718,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.168,
-          "costo_intentos": 3
+          "costo_usd": 0.1562,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Novita"
+          ]
         },
         "moonshotai/kimi-k2.5": {
           "media": 1.0,
@@ -3879,8 +6735,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1828,
-          "costo_intentos": 3
+          "costo_usd": 0.1619,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
         },
         "moonshotai/kimi-k2.6": {
           "media": 1.0,
@@ -3893,8 +6752,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.4303,
-          "costo_intentos": 3
+          "costo_usd": 0.3276,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "moonshotai/kimi-k2.7-code": {
           "media": 1.0,
@@ -3907,8 +6769,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2416,
-          "costo_intentos": 3
+          "costo_usd": 0.1641,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "moonshotai/kimi-k3": {
           "media": 1.0,
@@ -3921,8 +6786,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.5767,
-          "costo_intentos": 3
+          "costo_usd": 0.7269,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
+        },
+        "moonshotai/kimi-k3.1-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.5124,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Moonshot AI"
+          ]
         },
         "nex-agi/nex-n2-mini": {
           "media": 0.9333,
@@ -3936,7 +6821,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0084,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nex AGI"
+          ]
         },
         "nvidia/nemotron-3-nano-30b-a3b": {
           "media": 1.0,
@@ -3949,8 +6837,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0366,
-          "costo_intentos": 3
+          "costo_usd": 0.0269,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Nebius"
+          ]
         },
         "nvidia/nemotron-3-super-120b-a12b": {
           "media": 1.0,
@@ -3963,38 +6854,44 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0447,
-          "costo_intentos": 3
+          "costo_usd": 0.0198,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Crusoe"
+          ]
         },
         "nvidia/nemotron-3-ultra-550b-a55b": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.9667,
+          "piso": 0.9,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            1.0
+            0.9
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.2349,
-          "costo_intentos": 3
+          "estado": "ok_parcial",
+          "costo_usd": 0.2508,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Venice"
+          ]
         },
         "nvidia/nemotron-3.5-lightning": {
-          "media": 0.6667,
-          "piso": 0.0,
+          "media": 0.9333,
+          "piso": 0.9,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.0,
-            1.0
+            0.9,
+            0.9
           ],
-          "estado": "inestable",
-          "costo_usd": 0.0225,
+          "estado": "ok_parcial",
+          "costo_usd": 0.0355,
           "costo_intentos": 3,
-          "causas_de_los_ceros": [
-            "hizo_mal_la_tarea"
+          "proveedores": [
+            "DeepInfra"
           ]
         },
         "openai/gpt-4.1": {
@@ -4009,7 +6906,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3213,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-4.1-mini": {
           "media": 1.0,
@@ -4023,7 +6923,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0611,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4": {
           "media": 1.0,
@@ -4037,7 +6940,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.4-mini": {
           "media": 1.0,
@@ -4051,7 +6957,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.5": {
           "media": 1.0,
@@ -4065,7 +6974,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": null,
-          "costo_intentos": 0
+          "costo_intentos": 0,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-luna": {
           "media": 1.0,
@@ -4079,7 +6991,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.012,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-sol": {
           "media": 1.0,
@@ -4092,8 +7007,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1496,
-          "costo_intentos": 3
+          "costo_usd": 0.1447,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-5.6-terra": {
           "media": 1.0,
@@ -4106,36 +7024,132 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0947,
-          "costo_intentos": 3
+          "costo_usd": 0.099,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-astra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.8523,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0067,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6-luna-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0192,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-sol": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1538,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
+        },
+        "openai/gpt-6.1-terra": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0805,
+          "costo_intentos": 3,
+          "proveedores": [
+            "OpenAI"
+          ]
         },
         "openai/gpt-oss-120b": {
-          "media": 1.0,
-          "piso": 1.0,
-          "techo": 1.0,
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
           "intentos": 3,
           "rewards": [
-            1.0,
-            1.0,
-            1.0
+            0.0,
+            0.0,
+            0.0
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0158,
-          "costo_intentos": 3
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0032,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "openai/gpt-oss-20b": {
-          "media": 1.0,
-          "piso": 1.0,
-          "techo": 1.0,
+          "media": 0.0,
+          "piso": 0.0,
+          "techo": 0.0,
           "intentos": 3,
           "rewards": [
-            1.0,
-            1.0,
-            1.0
+            0.0,
+            0.0,
+            0.0
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.0175,
-          "costo_intentos": 3
+          "estado": "rompe_bucle",
+          "costo_usd": 0.0058,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ],
+          "motivo": "tiene herramientas pero no sostiene el formato de tool call"
         },
         "poolside/laguna-s-2.1": {
           "media": 1.0,
@@ -4149,7 +7163,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0407,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "poolside/laguna-xs-2.1": {
           "media": 1.0,
@@ -4163,7 +7180,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0283,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Poolside"
+          ]
         },
         "qwen/qwen3-coder": {
           "media": 1.0,
@@ -4177,7 +7197,11 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0828,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba",
+            "DeepInfra"
+          ]
         },
         "qwen/qwen3-coder-next": {
           "media": 1.0,
@@ -4190,8 +7214,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1447,
-          "costo_intentos": 3
+          "costo_usd": 0.064,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3-next-80b-a3b-instruct": {
           "media": 1.0,
@@ -4204,8 +7231,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0373,
-          "costo_intentos": 3
+          "costo_usd": 0.0327,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Parasail"
+          ]
         },
         "qwen/qwen3.5-35b-a3b": {
           "media": 1.0,
@@ -4218,8 +7248,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1308,
-          "costo_intentos": 3
+          "costo_usd": 0.1538,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.5-397b-a17b": {
           "media": 1.0,
@@ -4232,36 +7265,45 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1619,
-          "costo_intentos": 3
+          "costo_usd": 0.1839,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-27b": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1325,
-          "costo_intentos": 3
+          "costo_usd": 0.1171,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-35b-a3b": {
           "media": 1.0,
           "piso": 1.0,
           "techo": 1.0,
-          "intentos": 6,
+          "intentos": 3,
           "rewards": [
             1.0,
             1.0,
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0481,
-          "costo_intentos": 3
+          "costo_usd": 0.0357,
+          "costo_intentos": 3,
+          "proveedores": [
+            "AkashML"
+          ]
         },
         "qwen/qwen3.6-max-preview": {
           "media": 1.0,
@@ -4275,7 +7317,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.4386,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.6-plus": {
           "media": 1.0,
@@ -4288,8 +7333,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1305,
-          "costo_intentos": 3
+          "costo_usd": 0.1066,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-flash": {
           "media": 1.0,
@@ -4303,7 +7351,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0145,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.7-max": {
           "media": 1.0,
@@ -4317,7 +7368,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.624,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-2.4t-a95b": {
           "media": 1.0,
@@ -4331,7 +7385,11 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.6046,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra",
+            "Modal"
+          ]
         },
         "qwen/qwen3.8-27b": {
           "media": 1.0,
@@ -4344,8 +7402,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1118,
-          "costo_intentos": 3
+          "costo_usd": 0.0928,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "qwen/qwen3.8-flash": {
           "media": 1.0,
@@ -4358,8 +7419,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.07,
-          "costo_intentos": 3
+          "costo_usd": 0.0527,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max": {
           "media": 1.0,
@@ -4373,7 +7437,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.7372,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "qwen/qwen3.8-max-0902": {
           "media": 1.0,
@@ -4386,8 +7453,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.8929,
-          "costo_intentos": 3
+          "costo_usd": 0.9526,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Alibaba"
+          ]
         },
         "sakana/fugu-max": {
           "media": 1.0,
@@ -4400,22 +7470,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.4253,
-          "costo_intentos": 3
+          "costo_usd": 0.4003,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Sakana AI"
+          ]
         },
         "stepfun/step-3.5-flash": {
-          "media": 0.9333,
-          "piso": 0.8,
+          "media": 1.0,
+          "piso": 1.0,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
-            0.8,
+            1.0,
             1.0
           ],
-          "estado": "ok_parcial",
-          "costo_usd": 0.0402,
-          "costo_intentos": 3
+          "estado": "ok_siempre",
+          "costo_usd": 0.0328,
+          "costo_intentos": 3,
+          "proveedores": [
+            "SiliconFlow"
+          ]
         },
         "tencent/hy3": {
           "media": 1.0,
@@ -4428,8 +7504,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0315,
-          "costo_intentos": 3
+          "costo_usd": 0.0356,
+          "costo_intentos": 3,
+          "proveedores": [
+            "GMICloud"
+          ]
+        },
+        "tencent/hy4": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.124,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "tencent/hy4-preview": {
           "media": 1.0,
@@ -4443,21 +7539,27 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.3615,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Tencent"
+          ]
         },
         "thinkingmachines/inkling-small": {
-          "media": 1.0,
-          "piso": 1.0,
+          "media": 0.9667,
+          "piso": 0.9,
           "techo": 1.0,
           "intentos": 3,
           "rewards": [
             1.0,
             1.0,
-            1.0
+            0.9
           ],
-          "estado": "ok_siempre",
-          "costo_usd": 0.1206,
-          "costo_intentos": 3
+          "estado": "ok_parcial",
+          "costo_usd": 0.1265,
+          "costo_intentos": 3,
+          "proveedores": [
+            "DeepInfra"
+          ]
         },
         "upstage/solar-pro4": {
           "media": 1.0,
@@ -4470,8 +7572,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0302,
-          "costo_intentos": 3
+          "costo_usd": 0.0217,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Upstage"
+          ]
         },
         "x-ai/grok-4.20": {
           "media": 1.0,
@@ -4485,7 +7590,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.2436,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.3": {
           "media": 0.9667,
@@ -4499,7 +7607,10 @@
           ],
           "estado": "ok_parcial",
           "costo_usd": 0.0968,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.5": {
           "media": 1.0,
@@ -4513,7 +7624,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.1779,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "x-ai/grok-4.6": {
           "media": 1.0,
@@ -4526,8 +7640,28 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.2071,
-          "costo_intentos": 3
+          "costo_usd": 0.2002,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
+        },
+        "x-ai/grok-4.7": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.2487,
+          "costo_intentos": 3,
+          "proveedores": [
+            "xAI"
+          ]
         },
         "xiaomi/mimo-v2.5": {
           "media": 1.0,
@@ -4541,7 +7675,10 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.0397,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "xiaomi/mimo-v2.5-pro": {
           "media": 1.0,
@@ -4555,7 +7692,44 @@
           ],
           "estado": "ok_siempre",
           "costo_usd": 0.149,
-          "costo_intentos": 3
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-flash": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.0432,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
+        },
+        "xiaomi/mimo-v2.6-pro": {
+          "media": 1.0,
+          "piso": 1.0,
+          "techo": 1.0,
+          "intentos": 3,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "estado": "ok_siempre",
+          "costo_usd": 0.1051,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Xiaomi"
+          ]
         },
         "z-ai/glm-5": {
           "media": 1.0,
@@ -4568,8 +7742,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.1881,
-          "costo_intentos": 3
+          "costo_usd": 0.1037,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.1": {
           "media": 1.0,
@@ -4582,8 +7759,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.313,
-          "costo_intentos": 3
+          "costo_usd": 0.2714,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.2": {
           "media": 1.0,
@@ -4596,8 +7776,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0791,
-          "costo_intentos": 3
+          "costo_usd": 0.0867,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3": {
           "media": 1.0,
@@ -4610,8 +7793,11 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.4797,
-          "costo_intentos": 3
+          "costo_usd": 0.5402,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         },
         "z-ai/glm-5.3-flash": {
           "media": 1.0,
@@ -4624,19 +7810,22 @@
             1.0
           ],
           "estado": "ok_siempre",
-          "costo_usd": 0.0642,
-          "costo_intentos": 3
+          "costo_usd": 0.0652,
+          "costo_intentos": 3,
+          "proveedores": [
+            "Z.AI"
+          ]
         }
       },
       "task_checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
       "agente": "mini-swe-agent",
       "resumen": {
-        "modelos": 102,
-        "corridas": 330,
-        "perfectos": 92,
-        "ceros": 0,
-        "media_global": 0.9859,
-        "costo_usd": 28.1,
+        "modelos": 123,
+        "corridas": 384,
+        "perfectos": 108,
+        "ceros": 4,
+        "media_global": 0.955,
+        "costo_usd": 33.07,
         "descartadas_por_checksum": 16
       }
     }

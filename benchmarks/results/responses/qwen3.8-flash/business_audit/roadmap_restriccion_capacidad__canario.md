@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.62 | quality: 10.0
-- latency_total: 133.645s | tokens_per_second: 57.3
-- input_tokens: 293 | output_tokens: 7659
+- success: True  | final: 8.6 | quality: 10.0
+- latency_total: 155.108s | tokens_per_second: 56.2
+- input_tokens: 293 | output_tokens: 8720
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,249 +27,294 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-## Respuesta corta
+## Veredicto rápido
 
-**Este trimestre, en orden real de ejecución:**
+Este trimestre:
 
-1. **B) Arreglar el flujo de alta** → sí, primero y ya.  
-2. **D) Grabar 10 videos** → sí, después de B.  
-3. **A) Reescribir la plataforma** → **no como proyecto completo**; solo como *spike* de 1 semana para decidir si entra en el próximo trimestre.  
-4. **C) Panel de métricas** → **no entra este trimestre**, porque depende de A.
+1. **Haces B primero**: arreglar el flujo de alta.  
+2. **Luego haces D**: grabar los 10 videos.  
+3. **No haces A** como reescritura completa.  
+4. **No haces C** porque depende de A.  
+5. Dejas **buffer real** para soporte, imprevistos, optimización y cierre de trimestre.
 
-**Tu compromiso del trimestre debería ser: B + D, con una decisión fundamentada sobre A, y C fuera.**
+Traducción ejecutiva: **no te metas en un rewrite que no cabe en 8 semanas**. Primero arreglas una fuga de conversión que ya está perdiendo gente hoy, luego produces contenido que puede aprovechar el funnel mejorado, y guardas el resto para tomar una decisión técnica con más información.
 
 ---
 
-## Por qué, con números reales
+## Cálculo con tu capacidad real
+
+Supongo una semana laboral de 5 días.
 
 Tienes:
 
-- 6h/día de trabajo enfocado
-- 2h/día en soporte/operación no delegable
-- 4h/día reales para construir
+- 6h/día totales.
+- 2h/día en soporte/operación no delegable.
+- **4h/día reales para construir.**
 
-Asumiendo 5 días/semana:
+Capacidad del trimestre:
 
-- **20h/semana de construcción**
-- **8 semanas = ~160h**
+- 8 semanas × 5 días × 4h = **160 horas de trabajo enfocado**.
 
-Ahora las iniciativas:
+Ahora, si tus estimaciones son “a tiempo completo”, es decir, alrededor de 8h/día:
 
-| Iniciativa | Esfuerzo | ¿Cabe en 8 semanas? | Decisión |
-|---|---:|---|---|
-| **A) Reescribir plataforma** | ~3 meses a tiempo completo | **No** | No lanzar completo |
-| **B) Arreglar alta** | ~1 semana | Sí | Prioridad 1 |
-| **C) Panel de métricas** | ~3 semanas | Sí en horas, pero **depende de A** | No entra |
-| **D) 10 videos** | ~2 semanas | Sí | Prioridad 2 |
+| Iniciativa | Esfuerzo estimado a tiempo completo | Equivalente con 4h/día | ¿Cabe en 8 semanas? |
+|---|---:|---:|---|
+| A) Reescribir plataforma | ~3 meses | ~24 semanas | No |
+| B) Arreglar alta | ~1 semana | ~2 semanas | Sí |
+| C) Panel de métricas | ~3 semanas | ~6 semanas | Sí en esfuerzo, pero depende de A |
+| D) 10 videos | ~2 semanas | ~4 semanas | Sí |
 
-### A no es realista este trimestre
-Aunque “tiempo completo” significara solo tus 4h/día de construcción:
+Con esa conversión:
 
-- 3 meses ≈ 13 semanas
-- 13 semanas × 20h/semana = **260h**
-- Tienes **160h**
+- **B** ≈ 2 semanas.
+- **D** ≈ 4 semanas.
+- **B + D** ≈ 6 semanas.
+- Te quedan ≈ 2 semanas de colchón para soporte, ajustes, distribución, quick wins y cierre.
 
-Es decir, **te faltaría casi un 40% del esfuerzo**.  
-Y si “tiempo completo” significa 6h o 8h/día, la brecha es aún peor.
-
-**Conclusión:** si empiezas A en serio, terminarás el trimestre con:
-
-- plataforma a medias
-- migración incompleta
-- soporte más pesado
-- cero valor entregado al cliente
-
-Eso es exactamente lo que no quieres como empresa de una sola persona.
+Si tus “semanas” ya están estimadas en tu ritmo real de 4h/día, el plan es todavía más holgado: B en 1 semana, D en 2 semanas, y te sobran 5 semanas. Pero la conclusión no cambia: **A no se termina este trimestre** y **C sigue bloqueado**.
 
 ---
 
-# Orden recomendado para el trimestre
+## Priorización por decisión de producto
 
-## 1) B — Arreglar el flujo de alta
-### Semana 1
+### 1. B — Arreglar el flujo de alta
 
-**Por qué va primero:**
-- Pierdes el **60% de la gente en el paso 2**
-- Impacto alto
-- Esfuerzo bajo
-- Mejora inmediata de conversión, ingresos y aprendizaje de producto
-- No depende de nada
+**Hacerlo primero.**
 
-**Qué hacer:**
-- Define métrica base: % de gente que abandona el paso 2
-- Identifica causa probable: fricción, confianza, campos innecesarios, error, explicación pobre, precio, expectativas
-- Rediseña el paso 2
-- Lanza rápido
-- Mide antes/después
+Razones:
 
-**Objetivo del trimestre:**
-- Bajar el abandono del paso 2 de **60%** a **30% o menos**  
-  o al menos demostrar mejora medible
+- Impacto alto.
+- Esfuerzo bajo.
+- No depende de ninguna otra iniciativa.
+- Está perdiendo 60% de la gente en un paso concreto.
+- Es dinero/crecimiento inmediato.
+- Mejora el ROI de cualquier contenido o tráfico que generes después.
 
-**Regla práctica:**
-Si B no mejora, **no pases a D**.  
-No tiene sentido meter más gente arriba del embudo si sigue escapándose por el mismo agujero.
+Si arreglas el alta, los videos, el tráfico, las recomendaciones y el esfuerzo futuro valen más.  
+Si no lo arreglas, estás mandando gente a un embudo roto.
+
+**Objetivo del trimestre:** reducir drásticamente el drop-off del paso 2.  
+No hace falta que sea perfecto; hace falta que funcione y se mida.
 
 ---
 
-## 2) D — Grabar 10 videos de contenido
-### Semanas 2 y 3
+### 2. D — Grabar 10 videos de contenido
 
-**Por qué va segundo:**
-- Una vez arreglado el flujo de alta, sí tiene sentido atraer más gente
-- Esfuerzo acotado
-- Impacto medio, pero útil para generación de demanda
-- Puedes hacerlo en modo “batch”
+**Hacerlo segundo.**
 
-**Cómo hacerlo en 2 semanas:**
-- Semana 2: 5 videos
-- Semana 3: 5 videos
+Razones:
 
-**Clave:**
-No grabes videos genéricos. Graba videos que:
-- expliquen el problema que resuelves
-- lleven tráfico al nuevo flujo de alta
-- reduzcan objeciones comunes del paso 2
-- sean reutilizables en web, email, redes, soporte
+- Impacto medio.
+- Esfuerzo razonable.
+- No depende de A.
+- Puede ayudar a adquisición, educación de clientes, SEO, confianza y soporte.
+- Funciona mejor después de arreglar B, porque el contenido puede enviar tráfico a un funnel más limpio.
 
-**Objetivo:**
-Que los videos alimenten el flujo arreglado, no que compitan con él.
+Pero ojo: **10 videos en 2 semanas “a tiempo completo”** pueden ser optimistas. Con 4h/día reales, planifícalo como 3-4 semanas.
+
+**Objetivo del trimestre:** publicar 10 videos útiles, no producir una obra maestra.  
+Mejor 10 publicados que 3 perfectos sin terminar.
 
 ---
 
-## 3) A — Reescribir plataforma
-### Semana 4, solo como *spike*
+### 3. A — Reescribir la plataforma en otro framework
 
-**No hagas la reescritura completa este trimestre.**
+**No este trimestre como proyecto de entrega.**
 
-Pero si A es tan importante como dices, **no la ignores**.  
-Haz una semana de *spike*:
+Razones:
 
-**Objetivo del spike:**
-- Validar el framework candidato
-- Probar la parte más riesgosa del sistema
-- Estimar mejor el esfuerzo real de migración
-- Decidir si A entra en el próximo trimestre
+- Impacto alto en teoría, pero no en este trimestre.
+- Esfuerzo ~3 meses a tiempo completo.
+- Con tu capacidad real, son aproximadamente 6 meses calendario.
+- Si lo empiezas, es muy probable que termines el trimestre con:
+  - plataforma incompleta,
+  - deuda técnica nueva,
+  - soporte más pesado,
+  - y B o D sin cerrar.
+- Un rewrite no es solo “reescribir código”; es migrar, probar, estabilizar, documentar y no romper lo que hoy funciona.
 
-**Entregable del spike:**
-- decisión escrita: hacer / no hacer
-- plan de migración por fases
-- riesgos principales
-- costo real estimado en semanas de construcción
+**Excepción:** solo lo tocarías si el framework actual está bloqueando seriamente B, la seguridad, la estabilidad o la operación. Pero no para “velocidad futura” mientras haya una fuga de conversión de 60% hoy.
 
-**Importante:**
-No empieces a migrar en producción.  
-Eso convierte el trimestre en un pozo sin fondo.
+Este trimestre, si acaso, puedes hacer un **spike técnico opcional**, no una reescritura.
 
 ---
 
-## 4) C — Panel de métricas para clientes
-### No entra este trimestre
+### 4. C — Panel de métricas para clientes
 
-**Por qué:**
-- Depende de A
-- A no termina este trimestre
-- Por tanto C no puede entregarse de forma limpia
+**No entra este trimestre.**
 
-**Conclusión directa:**
-**No lo pongas en el roadmap de cierre de trimestre.**  
-Si alguien te dice “pero el impacto es medio”, no importa: **dependencia + capacidad real = no entra**.
+Razones:
 
----
+- Impacto medio.
+- Esfuerzo ~3 semanas.
+- Depende de A.
+- A no se termina este trimestre.
+- Por tanto, C no puede planificarse con honestidad.
 
-# Plan semanal sugerido
+Si necesitas métricas para clientes, usa una solución temporal:
 
-## Semana 1
-- **B**: arreglar flujo de alta
-- lanzar cambio
-- medir
+- exportaciones,
+- dashboard interno,
+- Looker Studio,
+- Metabase,
+- reportes manuales,
+- métricas simples en la app actual.
 
-## Semana 2
-- Si B mejoró: **D**: videos 1–5  
-- Si B no mejoró: iterar B
-
-## Semana 3
-- **D**: videos 6–10  
-- publicar y distribuir
-
-## Semana 4
-- **A**: spike de 1 semana
-- decisión sobre reescritura
-
-## Semanas 5–8
-Aquí es donde la mayoría se equivoca:  
-no llenes el hueco con A completa ni con C bloqueada.
-
-Usa esas 5 semanas para una de estas opciones, en este orden de prioridad:
-
-### Opción recomendada
-1. **Iterar B otra vez si aún queda fricción**
-2. **Distribuir D y convertir tráfico en usuarios**
-3. **Reducir soporte operativo**
-4. **Preparar A para el próximo trimestre**
-
-### Si quieres algo más agresivo
-- Semanas 5–6: ventas / onboarding manual de usuarios nuevos
-- Semana 7: A spike / decisión
-- Semana 8: cierre, métricas, plan del próximo trimestre
+Pero no construyas el panel definitivo sobre una base que no vas a migrar ahora.
 
 ---
 
-# Ranking final de las 4 iniciativas para este trimestre
+# Orden concreto del trimestre
 
-## 1. B — Arreglar alta
-**Alto impacto / bajo esfuerzo / sin dependencia**  
-→ **Hazlo ya**
+## Plan base: asumo que B y D son estimaciones “a tiempo completo”
 
-## 2. D — 10 videos
-**Impacto medio / esfuerzo acotado / amplifica B**  
-→ **Hazlo después de B**
+### Semanas 1-2: B — Arreglar el flujo de alta
 
-## 3. A — Reescribir plataforma
-**Alto impacto futuro / no cabe en el trimestre**  
-→ **Solo spike, no proyecto completo**
+Foco:
 
-## 4. C — Panel de métricas
-**Impacto medio / depende de A**  
-→ **No entra**
+- Entender por qué el 60% se pierde en el paso 2.
+- Revisar fricción, errores, campos, expectativas, copy, validaciones, tiempos de carga.
+- Definir la versión mínima que arregla el problema.
+- Implementar.
+- Medir antes/después.
 
----
+Entregables:
 
-# Mi recomendación como jefe de producto de una empresa de una sola persona
+- Diagnóstico del paso 2.
+- Nueva versión del alta publicada.
+- Métricas de conversión antes/después.
+- Lista de próximos ajustes, pero sin abrir un proyecto enorme.
 
-**No priorices por impacto ideal. Prioriza por capacidad real y salida de valor.**
+Criterio de éxito:
 
-En tu situación:
-
-- **B** destruye un problema de conversión urgente.
-- **D** genera demanda después de arreglar la fuga.
-- **A** es una apuesta estratégica, pero **no es un entregable de este trimestre**.
-- **C** está bloqueado y, por tanto, no es ejecutable.
-
-Por tanto, tu trimestre debería quedar así:
-
-## Trimestre comprometido
-- **B** entregado y medido
-- **D** entregado
-- **A** evaluado con spike
-- **C** aplazado
+- Bajar el drop-off del paso 2 significativamente.
+- Ejemplo: de 60% a menos de 30-35%.
+- Si no puedes medir aún, al menos publicar una mejora concreta y observable.
 
 ---
 
-# Frase operativa para no equivocarte
+### Semanas 3-6: D — 10 videos
 
-**“Si no puedo terminarlo en 8 semanas con 4h/día, no lo lanzo como proyecto; lo convierto en experimento o lo defiero.”**
+Foco:
 
-Con esa regla, la respuesta es clara:
+- Grabar, editar y publicar 10 videos.
+- No perfeccionar cada uno.
+- Crear un sistema simple: guion corto, grabación por lotes, edición ligera, publicación semanal.
 
-- **B: sí**
-- **D: sí**
-- **A: no completo, solo spike**
-- **C: no**
+Plan sugerido:
+
+- Semana 3: guiones + grabar 3-4 videos.
+- Semana 4: editar/publicar 3-4 videos.
+- Semana 5: grabar/publicar 2-3 videos.
+- Semana 6: cerrar los últimos 2-3 videos y reutilizar clips.
+
+Entregables:
+
+- 10 videos publicados.
+- Clips cortos para redes, landing page, email o soporte.
+- Un pequeño sistema de distribución, no solo archivos en un disco.
+
+Criterio de éxito:
+
+- Los 10 videos están fuera.
+- No necesitas viralidad; necesitas tener activo de contenido.
 
 ---
 
-Si quieres, en el siguiente mensaje puedo ayudarte con una de estas dos cosas:
+### Semana 7: Buffer + optimización
 
-1. **un plan semana a semana con horas exactas**, o  
-2. **una lista de qué medir en B y qué videos concretos grabar en D** para que el trimestre cierre con resultados visibles.
+Esta semana no la llenas con nuevas iniciativas.
+
+Usa el tiempo para:
+
+- Revisar datos del alta.
+- Corregir fugas que aparezcan después de B.
+- Ajustar landing pages o emails relacionados con los videos.
+- Responder comentarios, soporte y oportunidades de venta.
+- Empaquetar los videos como recursos.
+- Preparar el cierre del trimestre.
+
+Si algo se retrasó, esta semana salva el trimestre.
+
+---
+
+### Semana 8: Cierre + decisión para el próximo trimestre
+
+Foco:
+
+- Medir resultados:
+  - conversión del alta,
+  - leads/registros,
+  - impacto de videos,
+  - soporte,
+  - ingresos si aplica.
+- Decidir qué haces en el próximo trimestre.
+- Si quieres, hacer un **spike pequeño de A**, pero solo para evaluar.
+
+Ejemplo de spike válido:
+
+- Documentar qué problema real resolvería el rewrite.
+- Estimar riesgo de migración.
+- Hacer una prueba de 2-3 días con el nuevo framework.
+- Decidir si el próximo trimestre sí se justifica.
+
+Lo que **no** haces en semana 8:
+
+- Empezar a reescribir toda la plataforma.
+- Prometer el panel de métricas para clientes.
+- Abrir otra iniciativa nueva.
+
+---
+
+## Versión alternativa: si tus estimaciones ya son a 4h/día
+
+Si “1 semana” ya significa 1 semana de tu capacidad real, entonces el plan sería:
+
+| Semanas | Foco |
+|---|---|
+| 1 | B: arreglar alta |
+| 2-3 | D: 10 videos |
+| 4-5 | Optimización, distribución, quick wins, soporte |
+| 6 | Spike opcional de A, solo evaluación |
+| 7-8 | Cierre, métricas, decisión Q+1 |
+
+Pero la regla sigue siendo la misma: **no conviertes A en un proyecto de entrega este trimestre**.
+
+---
+
+# Ranking final
+
+### 1. B — Arreglar flujo de alta  
+**Hoy. Alto impacto, bajo esfuerzo, directo a conversión.**
+
+### 2. D — 10 videos  
+**Después de B. Medio impacto, independiente, ayuda a crecimiento.**
+
+### 3. Buffer / optimización / quick wins  
+**Necesario. No planifiques al 100%.**
+
+### 4. A — Reescritura  
+**No como proyecto trimestral. Solo spike opcional si sobra tiempo y hay decisión técnica clara.**
+
+### 5. C — Panel de métricas para clientes  
+**Bloqueado. No entra hasta que A exista o se elimine la dependencia.**
+
+---
+
+## Qué haría yo si fueras yo
+
+No priorizo el rewrite solo porque “impresiona” o porque “mejora el futuro”.
+
+Con 4h/día reales y 8 semanas por delante, mi compromiso sería:
+
+- **No reescribir la plataforma este trimestre.**
+- **No construir el panel de métricas que depende del rewrite.**
+- **Arreglar el alta primero.**
+- **Grabar los videos después.**
+- **Dejar 2 semanas de colchón.**
+- **Cerrar el trimestre con datos reales de conversión y contenido publicado.**
+- **Decidir A en el próximo trimestre con evidencia, no con idealismo técnico.**
+
+Tu plan del trimestre debería sonar así:
+
+> “Este trimestre arreglo la conversión del alta, publico 10 videos y dejo el sistema técnico listo para decidir si el próximo trimestre hacemos el rewrite. No me meto en una migración que no puedo cerrar.”

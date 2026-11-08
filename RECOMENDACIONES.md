@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-11-04 · 107 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-11-08 · 70 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -19,34 +19,33 @@ Todos los costos asumen **3,000 llamadas/mes** (≈100 por día). Para tu volume
 
 _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
-- **Usá:** **DeepSeek V3.2** — ≈$5/mes (calidad en Agentes 8.87/10)
-- _1 modelos empatan en calidad en este pilar._
+- **Usá:** **Qwen 3.5 35B** — ≈$6/mes (calidad en Agentes 8.31/10)
+- **Lo que te ahorrás:** Qwen 3.5 397B cuesta ≈$16/mes (**2.7× más**) por apenas +0.29 de calidad — dentro del margen de error.
+- _5 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 
 _Texto largo en español neutro. El costo manda: es alto volumen._
 
-- **Usá:** **MiMo V2.6 Flash** — ≈$1/mes (calidad en Contenido 8.96/10)
-- **Lo que te ahorrás:** Claude Opus 5 Fast cuesta ≈$234/mes (**168.3× más**) por apenas +0.18 de calidad — dentro del margen de error.
-- _16 modelos empatan en calidad en este pilar._
+- **Usá:** **Gemma 4 31B** — ≈$2/mes (calidad en Contenido 8.88/10)
+- **Lo que te ahorrás:** Claude Fable 5.1 cuesta ≈$234/mes (**144.4× más**) por apenas +0.07 de calidad — dentro del margen de error.
+- _22 modelos empatan en calidad en este pilar._
 
 ### Código y debugging
 
 _Generación y corrección de código._
 
-- **Usá:** **Ling 3.0 Flash VL** — ≈$0/mes (calidad en Coding 9.69/10)
-- **Lo que te ahorrás:** Grok 4.6 cuesta ≈$29/mes (**96.0× más**) por apenas -0.03 de calidad — dentro del margen de error.
-- **Mejor open-source:** **MiMo V2.6 Flash** — ≈$1/mes (calidad en Coding 9.80/10)
-- _19 modelos empatan en calidad en este pilar._
+- **Usá:** **DeepSeek V4 Flash 0731** — ≈$1/mes (calidad en Coding 9.52/10)
+- **Lo que te ahorrás:** GPT-6 Astra cuesta ≈$234/mes (**396.6× más**) por apenas -0.01 de calidad — dentro del margen de error.
+- _47 modelos empatan en calidad en este pilar._
 
 ### Razonamiento y estrategia
 
 _Análisis, decisiones, problemas con varios pasos._
 
-- **Usá:** **Ling 3.0 Flash VL** — ≈$0/mes (calidad en Razonamiento 8.38/10)
-- **Lo que te ahorrás:** Claude Opus 4.7 cuesta ≈$117/mes (**390.0× más**) por apenas -0.05 de calidad — dentro del margen de error.
-- **Mejor open-source:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.33/10)
-- _19 modelos empatan en calidad en este pilar._
+- **Usá:** **Ling 3.0 Flash** — ≈$0/mes (calidad en Razonamiento 8.53/10)
+- **Lo que te ahorrás:** Claude Fable 5.1 cuesta ≈$234/mes (**780.0× más**) por apenas -0.10 de calidad — dentro del margen de error.
+- _18 modelos empatan en calidad en este pilar._
 
 ---
 
@@ -56,19 +55,19 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
-| Hasta $30/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
-| Hasta $100/mes | **Qwen 3.8 Flash** | 8.53 | ≈$2/mes |
+| Menos de $10/mes | **Qwen 3.6 27B base (OpenRouter FP8)** | 8.66 | ≈$9/mes |
+| Hasta $30/mes | **Qwen 3.6 27B base (OpenRouter FP8)** | 8.66 | ≈$9/mes |
+| Hasta $100/mes | **Qwen 3.6 27B base (OpenRouter FP8)** | 8.66 | ≈$9/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**50 modelos empatan en calidad** en la cima del ranking global.
+**31 modelos empatan en calidad** en la cima del ranking global.
 
-El más barato de ese grupo — **Ling 3.0 Flash VL** — sale **≈$0/mes**.
-El más caro — **Claude Opus 5 Fast** — sale **≈$234/mes**.
+El más barato de ese grupo — **Ling 3.0 Flash** — sale **≈$0/mes**.
+El más caro — **Claude Fable 5.1** — sale **≈$234/mes**.
 
-Eso es **780.0× más caro** por una diferencia de calidad de **-0.10 puntos**, que está dentro del margen de error.
+Eso es **780.0× más caro** por una diferencia de calidad de **+0.05 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

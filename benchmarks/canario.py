@@ -68,7 +68,9 @@ def correr(model_key: str, extra: list[str]) -> list[dict]:
         # (anaconda, sin `openai`) y el runner moría al importar → «CERO runs» (4-nov-2026).
         cmd = [sys.executable, str(ROOT / "benchmarks/runner.py"),
                "--quick", "--models", model_key, "--tests", *SUITES_CANARIO,
-               "--resume", str(tmp.relative_to(ROOT))] + extra
+               "--resume", str(tmp.relative_to(ROOT)),
+               # El canario es un subconjunto a propósito (18 pruebas), no el examen.
+               "--fuera-del-examen"] + extra
         # 18-ago-2026: el timeout era 1800 s y EXPIRABA, por efecto del propio fix de
         # truncamiento. Al declarar thinking a media docena de familias, sus respuestas
         # pasaron de 2.048 tokens a 8.192: el canario de Qwen 3.8 27B se pasó de los 30

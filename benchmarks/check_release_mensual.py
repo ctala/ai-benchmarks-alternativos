@@ -62,7 +62,7 @@ def cifras_del_modelo(m) -> set[str]:
     """Todas las cifras publicables DE ESE modelo, en formato de dos decimales."""
     out = set()
     for k in ("quality_avg", "tool_calling_score_avg", "cost_score_avg",
-              "speed_score_avg", "latency_score_avg", "agentic_score", "security_score"):
+              "speed_score_avg", "latency_score_avg", "multiturno_score", "security_score"):
         v = m.get(k)
         if isinstance(v, (int, float)):
             out.add(f"{v:.2f}")

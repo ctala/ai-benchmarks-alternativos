@@ -191,8 +191,29 @@ def _apagar(model_id: str, rz: dict, cls: str) -> tuple[dict | None, str]:
     return None, "sin_razonamiento" if cls == "sin_razonamiento" else cls
 
 
+_BUSCAR = object()
+
+
+def sin_apagado_en_endpoint(model_id: str, declaracion=_BUSCAR) -> bool:
+    """¿El endpoint fijado para este modelo rechaza apagar el razonamiento?
+
+    La foto de OpenRouter declara los niveles del MODELO; el endpoint puede aceptar menos.
+    Pasó el 7-nov-2026 con Mistral Large 4.0: la foto dice `["high", "none"]` y el endpoint
+    `mistral/zdr` rechaza `none` y `enabled: false` (acepta low/medium/high). Se mandó el
+    apagado y 57 tests volvieron 400. Endpoint ≠ modelo, también para el effort. La marca
+    vive en `proveedores_declarados.json` (`sin_apagado`, con la evidencia del ping).
+    """
+    if declaracion is _BUSCAR:
+        try:
+            from benchmarks.proveedor_fijo import declarado
+        except ImportError:  # corriendo desde benchmarks/ como script
+            from proveedor_fijo import declarado
+        declaracion = declarado(model_id)
+    return bool((declaracion or {}).get("sin_apagado"))
+
+
 def resolver(model_id: str, pedido: str | None = None,
-             foto: dict | None = None) -> tuple[str | dict | None, str]:
+             foto: dict | None = None, declaracion=_BUSCAR) -> tuple[str | dict | None, str]:
     """(effort a mandar —None: no se manda nada—, etiqueta que queda en el run).
 
     Con `pedido == APAGADO` devuelve el bloque `reasoning` entero (un dict), porque
@@ -203,7 +224,11 @@ def resolver(model_id: str, pedido: str | None = None,
         return None, "sin_foto"
     rz = modelos[model_id] or {}
     if (pedido or "").strip().lower() == APAGADO:
-        return _apagar(model_id, rz, clase(model_id, foto))
+        cls = clase(model_id, foto)
+        if cls == "interruptor" and sin_apagado_en_endpoint(model_id, declaracion):
+            # En su endpoint no se apaga: se mide como uno que siempre piensa, y lo dice.
+            cls = "siempre_piensa"
+        return _apagar(model_id, rz, cls)
     niveles = rz.get("supported_efforts") or []
     if not niveles:
         return None, "sin_niveles" if rz else "sin_metadata"

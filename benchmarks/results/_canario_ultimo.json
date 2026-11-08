@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-11-04T12:26:36",
+  "cuando": "2026-11-07T07:57:08",
   "modelos": [
-    "glm-5.2"
+    "gpt-6.1-sol"
   ],
   "suites": [
     "tool_calling",

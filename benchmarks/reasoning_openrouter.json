@@ -286,6 +286,15 @@
     "low"
    ]
   },
+  "google/gemini-4-argon": {
+   "default_effort": "medium",
+   "mandatory": true,
+   "supported_efforts": [
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "google/gemma-4-26b-a4b-it": {
    "default_enabled": false,
    "mandatory": false
@@ -305,6 +314,17 @@
    ]
   },
   "inception/mercury-2.5": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
+  },
+  "inception/mercury-3": {
    "default_effort": "medium",
    "default_enabled": true,
    "mandatory": false,
@@ -365,6 +385,18 @@
     "minimal"
    ]
   },
+  "meta/muse-wonder": {
+   "default_effort": "medium",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "minimal"
+   ]
+  },
   "minimax/minimax-m2.5": {
    "mandatory": true
   },
@@ -374,10 +406,30 @@
   "minimax/minimax-m3": {
    "mandatory": false
   },
+  "minimax/minimax-m3.1-flash": {
+   "default_effort": "max",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "mistralai/devstral-2512": null,
   "mistralai/ministral-14b-2512": null,
   "mistralai/mistral-large": null,
   "mistralai/mistral-large-2512": null,
+  "mistralai/mistral-large-4-0": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "none"
+   ]
+  },
   "mistralai/mistral-nemo": null,
   "mistralai/mistral-small-2603": {
    "default_effort": "high",
@@ -406,6 +458,17 @@
    "mandatory": true
   },
   "moonshotai/kimi-k3": {
+   "default_effort": "max",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "high",
+    "low",
+    "none"
+   ]
+  },
+  "moonshotai/kimi-k3.1-pro": {
    "default_effort": "max",
    "default_enabled": true,
    "mandatory": false,
@@ -518,6 +581,18 @@
     "none"
    ]
   },
+  "openai/gpt-6-astra": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "openai/gpt-6-luna": {
    "default_effort": "medium",
    "default_enabled": true,
@@ -532,6 +607,31 @@
    ]
   },
   "openai/gpt-6-luna-pro": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "none"
+   ]
+  },
+  "openai/gpt-6.1-sol": {
+   "default_effort": "medium",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
+  "openai/gpt-6.1-terra": {
    "default_effort": "medium",
    "default_enabled": true,
    "mandatory": false,
@@ -680,6 +780,16 @@
     "none"
    ]
   },
+  "tencent/hy4": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "low",
+    "none"
+   ]
+  },
   "tencent/hy4-preview": {
    "default_effort": "high",
    "default_enabled": true,
@@ -764,6 +874,17 @@
     "low"
    ]
   },
+  "x-ai/grok-4.7": {
+   "default_effort": "high",
+   "default_enabled": true,
+   "mandatory": true,
+   "supported_efforts": [
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "xiaomi/mimo-v2.5": {
    "mandatory": false
   },
@@ -771,6 +892,9 @@
    "mandatory": false
   },
   "xiaomi/mimo-v2.6-flash": {
+   "mandatory": false
+  },
+  "xiaomi/mimo-v2.6-pro": {
    "mandatory": false
   },
   "z-ai/glm-5": {
@@ -1248,6 +1372,20 @@
    "tools",
    "top_p"
   ],
+  "google/gemini-4-argon": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_p"
+  ],
   "google/gemma-4-26b-a4b-it": [
    "frequency_penalty",
    "include_reasoning",
@@ -1315,6 +1453,18 @@
    "top_p"
   ],
   "inception/mercury-2.5": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools"
+  ],
+  "inception/mercury-3": [
    "include_reasoning",
    "max_tokens",
    "reasoning",
@@ -1503,6 +1653,20 @@
    "top_k",
    "top_p"
   ],
+  "meta/muse-wonder": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "repetition_penalty",
+   "response_format",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_p"
+  ],
   "minimax/minimax-m2.5": [
    "frequency_penalty",
    "include_reasoning",
@@ -1551,6 +1715,28 @@
    "min_p",
    "presence_penalty",
    "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "minimax/minimax-m3.1-flash": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "logprobs",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "reasoning_effort",
    "repetition_penalty",
    "response_format",
    "seed",
@@ -1613,6 +1799,24 @@
    "temperature",
    "tool_choice",
    "tools",
+   "top_p"
+  ],
+  "mistralai/mistral-large-4-0": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "presence_penalty",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_logprobs",
    "top_p"
   ],
   "mistralai/mistral-nemo": [
@@ -1769,22 +1973,29 @@
    "top_logprobs",
    "top_p"
   ],
-  "nousresearch/hermes-4-405b": [
+  "moonshotai/kimi-k3.1-pro": [
    "frequency_penalty",
    "include_reasoning",
+   "logit_bias",
    "logprobs",
    "max_tokens",
+   "min_p",
    "presence_penalty",
    "reasoning",
+   "reasoning_effort",
    "repetition_penalty",
    "response_format",
+   "seed",
+   "stop",
    "structured_outputs",
    "temperature",
+   "tool_choice",
+   "tools",
    "top_k",
    "top_logprobs",
    "top_p"
   ],
-  "nvidia/nemotron-3-nano-30b-a3b": [
+  "nousresearch/hermes-4-405b": [
    "frequency_penalty",
    "include_reasoning",
    "logit_bias",
@@ -1798,10 +2009,26 @@
    "stop",
    "structured_outputs",
    "temperature",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "nvidia/nemotron-3-nano-30b-a3b": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "max_tokens",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
    "tool_choice",
    "tools",
    "top_k",
-   "top_logprobs",
    "top_p"
   ],
   "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": [
@@ -1961,6 +2188,19 @@
    "tools",
    "verbosity"
   ],
+  "openai/gpt-6-astra": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
   "openai/gpt-6-luna": [
    "include_reasoning",
    "max_completion_tokens",
@@ -1975,6 +2215,32 @@
    "verbosity"
   ],
   "openai/gpt-6-luna-pro": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "openai/gpt-6.1-sol": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "openai/gpt-6.1-terra": [
    "include_reasoning",
    "max_completion_tokens",
    "max_tokens",
@@ -2260,10 +2526,8 @@
   "qwen/qwen3.8-2.4t-a95b": [
    "frequency_penalty",
    "include_reasoning",
-   "logit_bias",
    "logprobs",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -2420,6 +2684,19 @@
    "top_k",
    "top_p"
   ],
+  "tencent/hy4": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools"
+  ],
   "tencent/hy4-preview": [
    "frequency_penalty",
    "include_reasoning",
@@ -2551,6 +2828,23 @@
    "top_logprobs",
    "top_p"
   ],
+  "x-ai/grok-4.7": [
+   "include_reasoning",
+   "logprobs",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
   "xiaomi/mimo-v2.5": [
    "frequency_penalty",
    "include_reasoning",
@@ -2558,7 +2852,6 @@
    "presence_penalty",
    "reasoning",
    "response_format",
-   "seed",
    "stop",
    "structured_outputs",
    "temperature",
@@ -2589,6 +2882,27 @@
    "max_tokens",
    "min_p",
    "parallel_tool_calls",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
+   "top_p"
+  ],
+  "xiaomi/mimo-v2.6-pro": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logit_bias",
+   "logprobs",
+   "max_tokens",
+   "min_p",
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
@@ -2713,5 +3027,5 @@
    "top_p"
   ]
  },
- "tomada": "2026-11-03"
+ "tomada": "2026-11-07"
 }

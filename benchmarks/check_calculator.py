@@ -32,6 +32,9 @@ C4. Los filtros por capacidad discriminan de verdad: si un filtro deja pasar al 
 C5. **La dirección inversa**: ¿la data ganó un eje que la calculadora ignora? C1-C4
     preguntan si la calculadora se ROMPIÓ; C5 pregunta si quedó INCOMPLETA, que es más
     silencioso — no hay error, hay una columna que nadie ve porque nunca se agregó.
+C6. La tabla «histórico» de la home dice lo que el export dice: las mismas filas que
+    `historico`, cada una con su `reemplazado_por` y su `era`, y ningún texto que diga
+    «antes del examen v5» de quien lo rindió entero o casi entero (7-nov-2026).
 
 Uso:
     python benchmarks/check_calculator.py          # exit 1 si algo derivó
@@ -66,6 +69,59 @@ def fallo(codigo: str, msg: str) -> None:
 
 def aviso(codigo: str, msg: str) -> None:
     avisos.append(f"{codigo} · {msg}")
+
+
+def c6_tabla_historico(html: str, models: list[dict]) -> list[str]:
+    """La tabla histórico (estática, de `generate_historico.py`) contra el export. Pura.
+
+    POR QUÉ (7-nov-2026). La tabla la armaba el JS con el título «medidos antes del examen
+    v5», y 7 filas eran reemplazados que lo rindieron entero; además no decía quién los
+    reemplazó. Nadie lo veía porque ningún chequeo leía lo que arma el JS.
+    """
+    malos = []
+    ini, fin = "<!-- AUTO-HISTORICO-START -->", "<!-- AUTO-HISTORICO-END -->"
+    if ini not in html or fin not in html:
+        return ["faltan los marcadores AUTO-HISTORICO en docs/index.html: la tabla no se genera"]
+    bloque = html[html.index(ini):html.index(fin)]
+    hist = {m["key"]: m for m in models if m.get("historico")}
+    por_key = {m["key"]: m for m in models}
+    filas = {}
+    for fila in re.finditer(r'<tr data-modelo="([^"]+)" data-motivo="([^"]*)" '
+                            r'data-reemplazado-por="([^"]*)" data-era="([^"]*)">(.*?)</tr>',
+                            bloque, flags=re.DOTALL):
+        filas[fila.group(1)] = fila.groups()[1:]
+    if hist and not filas:
+        return ["la tabla histórico no tiene filas legibles y el export tiene "
+                f"{len(hist)}: el chequeo quedaría ciego"]
+    for k in sorted(set(hist) - set(filas)):
+        malos.append(f"{k} es histórico en el export y no está en la tabla")
+    for k in sorted(set(filas) - set(hist)):
+        malos.append(f"{k} está en la tabla histórico y el export no lo marca histórico")
+    entero = False
+    for k, (motivo, rem, era, celdas) in sorted(filas.items()):
+        m = hist.get(k)
+        if not m:
+            continue
+        esperado = m.get("reemplazado_por") or ""
+        era_m = (m.get("era") or {}).get("era") or "?"
+        if rem != esperado:
+            malos.append(f"{k}: la tabla dice reemplazado por «{rem}» y el export «{esperado}»")
+        if era != era_m:
+            malos.append(f"{k}: la tabla dice era {era} y el export {era_m}")
+        if esperado or era_m == "v5":
+            entero = True             # lo rindió en la ventana: el título no puede decir «antes»
+        if esperado:
+            suc = (por_key.get(esperado) or {}).get("name") or esperado
+            if "Lo reemplazó" not in celdas or suc not in celdas:
+                malos.append(f"{k}: el export dice que lo reemplazó {suc} y la fila no lo dice")
+        if (esperado or era_m == "v5") and "antes del examen v5" in celdas:
+            malos.append(f"{k}: la fila dice «antes del examen v5» y lo rindió en la ventana v5")
+        if not esperado and "Lo reemplazó" in celdas:
+            malos.append(f"{k}: la fila dice que lo reemplazaron y el export no tiene sucesor")
+    titulo = re.search(r'<h2 id="historico-h">(.*?)</h2>', bloque, flags=re.DOTALL)
+    if titulo and entero and "antes del examen v5" in titulo.group(1):
+        malos.append("el título dice «antes del examen v5» y hay filas que lo rindieron entero")
+    return malos
 
 
 def main() -> int:
@@ -154,7 +210,7 @@ def main() -> int:
     # JS hacia JSON. Ninguno preguntaba lo contrario.
     #
     # Y eso fue exactamente lo que pasó: se midieron ejes nuevos (`agent_long_horizon`,
-    # `tool_calling_adversarial`, `agentic_quality`), el JSON los trajo, la calculadora
+    # `tool_calling_adversarial`, `multiturno_quality`), el JSON los trajo, la calculadora
     # los ignoró, y los cuatro chequeos dieron verde. No se rompió nada: quedó incompleta,
     # que es un fallo distinto y más silencioso — no hay error, hay una columna que nadie
     # ve porque nunca se agregó.
@@ -171,7 +227,7 @@ def main() -> int:
     # `security_score`, `niah_es` como `effective_context`.
     RESPALDAN_DIMENSION = {"prompt_injection_es": "security_score",
                            "niah_es": "effective_context",
-                           "agent_long_horizon": "agentic_quality"}
+                           "agent_long_horizon": "multiturno_quality"}
     for suite, veces in sorted(cob.items()):
         if veces < n * 0.5:
             continue                      # cobertura baja: todavía no corresponde exigirla
@@ -184,7 +240,7 @@ def main() -> int:
 
     # 5b · dimensiones de primer nivel que deciden una elección
     DIMENSIONES = {
-        "agentic_quality": "calidad en tareas multi-paso",
+        "multiturno_quality": "calidad en tareas multi-paso",
         "security_score": "resistencia a fuga de datos",
         "effective_context": "contexto que de verdad usa",
         "sirve_para_agentes": "si corre dentro de un agente",
@@ -195,6 +251,10 @@ def main() -> int:
         if con >= n * 0.5 and campo not in js:
             fallo("C5", f"`{campo}` ({para_que}) está en {con}/{n} rankeados y la "
                         f"calculadora no lo usa en ninguna parte")
+
+    # ── C6 · la tabla histórico dice lo que el export dice ───────────────────
+    for msg in c6_tabla_historico(html, data.get("models", [])):
+        fallo("C6", msg)
 
     print()
     for a in avisos:

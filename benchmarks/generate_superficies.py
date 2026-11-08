@@ -119,6 +119,28 @@ CLASES = [
         "como": "un instrumento que se puede esquivar escribiendo un script nuevo, se "
                 "esquiva. Costó cinco pozos ya tapados, re-pisados en una tarde.",
     },
+    {
+        "clase": "Ranking v5 e histórico",
+        "que_sincroniza": "quién rankea, quién va al histórico y con qué era, en models.json, "
+                          "la tabla histórico de la calculadora y las fichas por modelo; y la "
+                          "nota pública que una declaración de proveedor pide en su ficha",
+        "fuente": "`examen_v5`, `historico` y `era` de `docs/data/models.json`; "
+                  "`nota_publica` de `proveedores_declarados.json`",
+        "guardrail": "benchmarks/validate.py",
+        "como": "B4 exige que un rankeado tenga el examen v5 entero y que el histórico no "
+                "rankee y diga su era; C4 exige que cada ficha publicada del histórico lo "
+                "diga y que cada nota pública aparezca en su ficha (DECISIONES, 5-nov-2026).",
+    },
+    {
+        "clase": "Tabla histórico de la home",
+        "que_sincroniza": "las filas de la tabla histórico de docs/index.html, con quién "
+                          "reemplazó a cada modelo y su era, contra el export",
+        "fuente": "`historico`, `reemplazado_por` y `era` de `docs/data/models.json` "
+                  "(la escribe `generate_historico.py`)",
+        "guardrail": "benchmarks/check_calculator.py",
+        "como": "C6 compara cada fila con el export y falla si una fila o el título dicen "
+                "«antes del examen v5» de quien lo rindió en la ventana (DECISIONES, 7-nov-2026).",
+    },
 ]
 
 CABECERA = """<!-- doc: generado -->

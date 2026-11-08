@@ -584,10 +584,10 @@ def render(models: dict, runs: list) -> str:
             los <strong>premium rehúsan</strong> (Opus 4.8 ~8.8), varios <strong>baratos filtran</strong> (~2). Si tu agente procesa
             documentos de terceros, la seguridad pesa más que ganar 0.2 de calidad — y ahí el orden del ranking cambia.</p>
 
-            <h3>🤖 El agéntico ahora es un eje propio ({ver})</h3>
-            <p style="font-size:9pt;">Las tareas agénticas (multi-turno, orquestación, horizonte largo) son donde los premium se
-            diferencian de verdad. En {ver} el <strong>agéntico cuenta en la calidad titular Y se expone como eje aparte</strong>
-            (<code>agentic_score</code>), para rankear por "qué tan buen agente es" sin que lo tape el promedio.</p>
+            <h3>🤖 Lo agéntico se mide haciendo el trabajo ({ver})</h3>
+            <p style="font-size:9pt;">La cifra agéntica sale de tareas de negocio ejecutadas dentro de un agente y verificadas
+            por tests (Harbor): <strong>N de 4 tareas superadas en todos sus intentos</strong>. La suite de horizonte largo
+            (<code>multiturno_score</code>) mide sostener un hilo <strong>sin herramientas</strong>, y se publica con ese nombre.</p>
         </div>
     </div>
 
@@ -673,7 +673,7 @@ def render(models: dict, runs: list) -> str:
         <div>
             <h3>Agente cabecera (N8N / Hermes)</h3>
             <table>
-                <thead><tr><th>Recomendación</th><th>Score agéntico</th><th>Costo</th></tr></thead>
+                <thead><tr><th>Recomendación</th><th>Multi-turno sin herramientas</th><th>Costo</th></tr></thead>
                 <tbody>
 """
     # 1-sep-2026 · esta tabla estaba ESCRITA A MANO dentro de un generador data-driven.

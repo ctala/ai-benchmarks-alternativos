@@ -45,3 +45,4 @@ jobs/
 
 # Permisos locales de Claude Code: son de cada máquina, no del repo (3-nov-2026)
 .claude/settings.local.json
+jobs_descartados_v5/

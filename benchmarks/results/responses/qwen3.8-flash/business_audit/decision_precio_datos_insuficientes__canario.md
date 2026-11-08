@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 3.33 | quality: 2.0
-- latency_total: 24.455s | tokens_per_second: 64.8
-- input_tokens: 149 | output_tokens: 1585
+- success: True  | final: 3.28 | quality: 2.0
+- latency_total: 35.366s | tokens_per_second: 57.8
+- input_tokens: 149 | output_tokens: 2044
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,4 +20,4 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-No
+¿Evidencia?

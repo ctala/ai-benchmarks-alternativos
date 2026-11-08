@@ -32,9 +32,11 @@ for i in range(1,11):
               open(f'benchmarks/results/benchmark_20260716_c{i:02d}.json','w'))"
 
 # 3. lanzar los N en paralelo (un solo background task que hace fork interno)
+#    Desde el 6-nov-2026 el runner imprime «Plan: N pruebas» y se niega si --tests no son
+#    exactamente las suites de suites.del_examen(); una suite suelta va con --fuera-del-examen.
 for i in $(seq -w 1 10); do
   .venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or \
-    --models $(cat /tmp/chunk_${i}.txt) --allow-anthropic-api --tests <SUITE> \
+    --models $(cat /tmp/chunk_${i}.txt) --allow-anthropic-api --tests <SUITES DEL ÍNDICE> \
     --resume benchmarks/results/benchmark_20260716_c${i}.json > /tmp/log_${i}.txt 2>&1 &
 done
 wait
@@ -96,6 +98,26 @@ quedaron incompletos y hubo que re-correrlos.
 ⚠️ **El tope suele ser de la KEY, no del saldo de la cuenta** (`limit_reset: monthly`).
 Recargar créditos no lo cambia: se sube en `openrouter.ai/settings/keys`. Esa confusión
 costó una hora más al día siguiente.
+
+### Regla 0.4b — el tope del lote se vigila con el gasto REAL, BYOK incluido (6-nov-2026)
+
+Anthropic por OpenRouter va con la API key propia de Cristian (**BYOK**): el costo se cobra
+en la cuenta de Anthropic y el saldo de OpenRouter solo baja la comisión. La remedición de
+los Claude 5.5 costó **$13,79** a precio de lista y el saldo bajó **$0,34**: el vigilante,
+que leía el delta del saldo, no vio el gasto.
+
+El gasto de un lote es el delta del saldo **más** las rutas de `RUTAS_BYOK`
+(`check_presupuesto.py`) contadas por tokens × precio de lista, en runs y en Harbor:
+
+```bash
+BASE=$(.venv/bin/python -c "import sys;sys.path.insert(0,'.');from benchmarks import check_presupuesto as c;print(c.estado()[1]['total_usage'])")
+# en el loop del vigilante, cada 2 min; exit 3 = tope superado → matar los runners
+.venv/bin/python benchmarks/check_presupuesto.py --gasto-lote "$BASE" \
+    --runs 'benchmarks/results/benchmark_<LOTE>*.json' --harbor 'jobs/<PREFIJO_DEL_LOTE>*' --tope 15
+```
+
+`--necesito` sigue mirando solo el saldo de OpenRouter, que es lo único que se puede
+consultar: la parte BYOK no sale de ahí. Una ruta BYOK nueva se agrega a `RUTAS_BYOK`.
 
 ## Regla 0.5 — costo: estimar POR SUITE, nunca con un $/run promedio
 

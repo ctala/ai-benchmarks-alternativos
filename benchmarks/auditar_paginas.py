@@ -92,6 +92,12 @@ def _num_col(html, col=2):
         # quedaba invisible para el chequeo que verifica si alguna columna ordena.
         celdas = [re.sub(r"<[^>]+>", " ", c) for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
         if len(celdas) > col:
+            # 8-nov-2026: la cifra agéntica es «N de M» tareas de Harbor, y la vista
+            # Agentes ordena por N. Sin leerla, la columna que ordena era invisible acá.
+            h = re.fullmatch(r"\s*(\d+) de \d+\s*", celdas[col])
+            if h:
+                out.append(float(h.group(1)))
+                continue
             m = re.search(r"-?\d+[.,]\d+", celdas[col])
             out.append(float(m.group(0).replace(",", ".")) if m else None)
     return out

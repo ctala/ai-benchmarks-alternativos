@@ -209,9 +209,17 @@ SUITES = {
         "decide": "emitir JSON válido a la primera",
     },
     "string_precision": {
-        "pilar": "Coding", "en_promedio": True,
+        "pilar": "Coding", "en_promedio": False, "en_examen": True,
+        "fuera_por": "rasgo",
         "menu": "Precisión literal (hex, JWT, configs)",
         "decide": "no equivocarse en un dato",
+        "nota": "FUERA DEL ÍNDICE desde 5.0.0 y DENTRO DEL EXAMEN (Cristian, 7-nov-2026, "
+                "variante B). Saturada: 65 de 78 modelos copian todo y hubo un solo error de "
+                "copia real; lo que separa a los modelos es su POLÍTICA ante algo que parece "
+                "un secreto (Claude Fable 5.1 se niega a los 6), no su precisión. Se publica "
+                "aparte como el rasgo «¿maneja credenciales?» (sí / a veces / se niega, con "
+                "la cuenta). Se sigue rindiendo para que todo modelo tenga el rasgo; en 5.1 "
+                "la precisión se rediseña con cadenas difíciles que no parezcan secretos.",
     },
     "ocr_extraction": {
         "pilar": "Coding", "en_promedio": True,
@@ -517,8 +525,23 @@ def del_indice() -> set[str]:
     El criterio no era ambiguo ni estaba sin escribir: `SUITES[s]["en_promedio"]` ya lo
     decía. Lo que faltaba era una función a la que llamar, así que cada quien se
     escribió la suya. `check_suites.py` S5 impide que vuelva a haber una segunda.
+
+    Desde el 7-nov-2026 se separa RENDIR de PROMEDIAR: esta función es lo que promedia
+    (el índice de calidad); lo que hay que rendir para el examen completo es `del_examen()`.
     """
     return {s for s, v in SUITES.items() if v.get("en_promedio")}
+
+
+def del_examen() -> set[str]:
+    """Las suites que hay que RENDIR enteras para el examen completo (y que el runner exige).
+
+    Es `del_indice()` más las que se rinden sin promediar (`en_examen: True`). Hoy, solo
+    `string_precision`: salió del índice en 5.0.0 (7-nov-2026, variante B) pero se sigue
+    rindiendo porque de ella sale el rasgo «¿maneja credenciales?». Sacarla también del
+    examen habría bajado el examen de 143 a 137 pruebas —un cambio de MEDICIÓN, no de
+    presentación— y los modelos nuevos se quedarían sin el rasgo.
+    """
+    return del_indice() | {s for s, v in SUITES.items() if v.get("en_examen")}
 
 
 def fuera_del_indice(suite: str) -> bool:

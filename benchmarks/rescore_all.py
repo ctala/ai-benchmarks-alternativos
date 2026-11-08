@@ -83,6 +83,39 @@ def leer_respuesta(stamp: str, model_key: str, suite: str, test: str) -> str | N
     return t.split(MARCADOR, 1)[1].strip() if MARCADOR in t else None
 
 
+class RespuestaRedactada(Exception):
+    """El `.md` perdió el fixture del test por la redacción: repuntuarlo pondría una nota falsa."""
+
+
+def verificar_no_redactada(resp: str, test: dict, donde: str = "") -> None:
+    """Se niega (con error) a repuntuar un test con fixtures si su `.md` dice REDACTED-SECRET.
+
+    5-nov-2026 · el runner redactaba el fixture `sk-proj-…` de `copy_api_key` y
+    `write_config_file`; este script repuntuó desde ese `.md` y puso 1,0 a 139 respuestas
+    correctas. El runner ya conserva los fixtures, pero los `.md` anteriores (incluidos los
+    119 de la ventana de v5) siguen redactados: la respuesta original no existe en disco.
+    """
+    from benchmarks.runner import fixtures_redactables
+    if "REDACTED-SECRET" in (resp or "") and fixtures_redactables(test):
+        raise RespuestaRedactada(
+            f"{donde or test.get('name')}: el .md dice REDACTED-SECRET y el test tiene un fixture "
+            "con forma de secreto; la respuesta original se perdió y repuntuarla daría una nota falsa")
+
+
+def nota_tras_rescore(r: dict, t: dict, resp: str, answer: float) -> float:
+    """La nota de un run repuntuado: `answer`, salvo que sea una negativa que vale 10.
+
+    7-nov-2026 · este script ponía `quality = answer` y nunca aplicaba `refusal_ok`: así
+    quedaron sin su 10 negativas medidas antes del 17-jul o repuntuadas acá, y correrlo de
+    nuevo deshacía las 117 correcciones del export. Usa el MISMO detector (`negativas.py`)
+    sobre la nota recién calculada, así que un rescore nunca baja una negativa corregida.
+    """
+    from benchmarks.negativas import nota_corregida
+    nuevo = dict(r, quality=answer, answer_score=answer)
+    corregida = nota_corregida(nuevo, t, resp)
+    return corregida if corregida is not None else answer
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -151,6 +184,7 @@ def main():
 
     ARCHIVE.mkdir(exist_ok=True)
     hechos = fallidos = 0
+    rechazados = []
 
     for f, data, stamp, pend in trabajo:
         def uno(item):
@@ -158,6 +192,10 @@ def main():
             resp = leer_respuesta(stamp, mk, r["suite"], r["test_name"])
             if not resp:
                 return None
+            try:
+                verificar_no_redactada(resp, t, f"{f.name} · {mk} · {r['suite']}/{r['test_name']}")
+            except RespuestaRedactada as e:
+                return ("rechazado", str(e))
             try:
                 answer = score_expected_answer(resp, t["expected_answer"])
             except RuntimeError:
@@ -174,7 +212,7 @@ def main():
             #
             # Donde hay verdad verificable, la nota ES si la cazó. El formato no salva a
             # quien publicó un número falso con viñetas impecables.
-            quality = answer
+            quality = nota_tras_rescore(r, t, resp, answer)
             sc = compute_final_score(quality, float(r.get("speed") or 0),
                                      float(r.get("latency") or 0),
                                      float(r.get("tool_calling") or 0),
@@ -185,6 +223,10 @@ def main():
             for out in ex.map(uno, pend):
                 if out is None:
                     fallidos += 1
+                    continue
+                if out[0] == "rechazado":
+                    rechazados.append(out[1])
+                    print(f"  ❌ NO se repuntúa: {out[1]}", file=sys.stderr, flush=True)
                     continue
                 r, content, answer, sc = out
                 # Guardamos los COMPONENTES, no solo el compuesto. Si mañana queremos
@@ -220,6 +262,10 @@ def main():
     print(f"\n  ♻️  {hechos} runs re-puntuados"
           f"{f' · {fallidos} sin respuesta guardada' if fallidos else ''}")
     print(f"  Originales archivados en {ARCHIVE.relative_to(ROOT)}/ (auditoría)")
+    if rechazados:
+        print(f"\n  ❌ {len(rechazados)} runs NO se repuntuaron: su .md perdió el fixture por la "
+              "redacción (quedan con su nota original). Ver los errores de arriba.", file=sys.stderr)
+        return 2
     print("  Ahora: python benchmarks/export_for_pages.py")
     return 0
 

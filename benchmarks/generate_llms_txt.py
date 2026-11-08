@@ -68,7 +68,7 @@ def main():
            f"> Benchmark abierto de {total_models} modelos de IA (LLMs) catalogados, {tested_count} "
            f"testeados y {runs_k}+ runs reales, pensado para emprendedores hispanohablantes. "
            "Mide calidad, costo, velocidad, tool calling y capacidad agéntica en español, con "
-           f"LLM-as-Judge local (Phi-4, Microsoft). El score global {data.get('scoring_version', 'v4.0')} es ponderado (calidad {q}% + "
+           f"LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter). El score global {data.get('scoring_version', 'v4.0')} es ponderado (calidad {q}% + "
            f"costo {co}% + velocidad {sp}% + latencia {la}%); tool calling es insignia aparte "
            f"({tc_text}): mide valor para producción, no capacidad bruta. Datos abiertos, en español neutro.",
            "",

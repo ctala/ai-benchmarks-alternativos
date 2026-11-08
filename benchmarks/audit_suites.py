@@ -134,16 +134,16 @@ def main() -> int:
         for r in runs.get(s, []):
             if r.get("tool_calling") is not None:
                 tc_real[r["model"]].append(r["tool_calling"])
-    filas = [(mean(v), m["agentic_score"]) for m in exp["models"]
-             if m.get("ranked") and m.get("agentic_score") is not None
+    filas = [(mean(v), m["multiturno_score"]) for m in exp["models"]
+             if m.get("ranked") and m.get("multiturno_score") is not None
              for v in [tc_real.get(m["name"], [])] if len(v) >= 10]
     if filas:
         c = _corr([f[0] for f in filas], [f[1] for f in filas])
         estado = "🔴 DESALINEADO" if (c is None or c < 0.3) else "ok"
-        print(f"\n  `agentic_score` (se publica como «Agentes»)")
+        print(f"\n  `multiturno_score` (antes `agentic_score`, se publicaba como «Agentes»)")
         print(f"     correlación con el tool calling REAL: {c:+.2f}  sobre {len(filas)} modelos  {estado}")
         if estado.startswith("🔴"):
-            problemas.append(("agentic_score", f"correlación {c:+.2f} con tool calling"))
+            problemas.append(("multiturno_score", f"correlación {c:+.2f} con tool calling"))
             print(f"     └ sale solo de `agent_long_horizon` (multi-turno, sin herramientas):")
             print(f"       mide coherencia conversacional, no capacidad agéntica.")
 

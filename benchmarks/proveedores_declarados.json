@@ -1,129 +1,379 @@
 {
  "cerrados": {
+  "claude-fable-5.1": {
+   "cuantizacion": "unknown",
+   "id": "anthropic/claude-fable-5.1",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Anthropic",
+   "tag": "anthropic",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
   "claude-haiku-5.5": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "anthropic/claude-haiku-5.5",
-   "motivo": "proveedor histórico al default (peldaño 1-2)",
-   "provider_name": "Claude Platform on AWS",
-   "tag": "claude-on-aws",
-   "verificado": "2026-11-05: ping con el slug responde este proveedor"
+   "motivo": "API de su creador (DECISIONES, 6-nov-2026: los cerrados se miden en la API de su creador cuando existe)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
+   "provider_name": "Anthropic",
+   "tag": "anthropic",
+   "tag_anterior": "claude-on-aws (Claude Platform on AWS), hasta el 6-nov-2026",
+   "verificado": "2026-11-06: ping con tools, tool_choice auto, require_parameters y allow_fallbacks false responde Anthropic con tool_calls"
   },
   "claude-opus-5": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "anthropic/claude-opus-5",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Amazon Bedrock",
    "tag": "amazon-bedrock",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "claude-opus-5.5": {
+   "cuantizacion": "unknown",
+   "id": "anthropic/claude-opus-5.5",
+   "motivo": "API de su creador (DECISIONES, 6-nov-2026: los cerrados se miden en la API de su creador cuando existe)",
+   "provider_name": "Anthropic",
+   "tag": "anthropic",
+   "tag_anterior": "claude-on-aws (Claude Platform on AWS), hasta el 6-nov-2026",
+   "verificado": "2026-11-06: ping con tools, tool_choice auto, require_parameters y allow_fallbacks false responde Anthropic con tool_calls"
   },
   "claude-sonnet-5": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "anthropic/claude-sonnet-5",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Amazon Bedrock",
    "tag": "amazon-bedrock",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "claude-sonnet-5.5": {
+   "cuantizacion": "unknown",
+   "id": "anthropic/claude-sonnet-5.5",
+   "motivo": "API de su creador (DECISIONES, 6-nov-2026: los cerrados se miden en la API de su creador cuando existe)",
+   "provider_name": "Anthropic",
+   "tag": "anthropic",
+   "tag_anterior": "claude-on-aws (Claude Platform on AWS), hasta el 6-nov-2026",
+   "verificado": "2026-11-06: ping con tools, tool_choice auto, require_parameters y allow_fallbacks false responde Anthropic con tool_calls"
+  },
   "deepseek-v4-pro-0813": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "deepseek/deepseek-v4-pro-0813",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Alibaba",
    "tag": "alibaba",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "fugu-max": {
+   "cuantizacion": "unknown",
+   "id": "sakana/fugu-max",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "nota_publica": "Sin tope de salida propio; usa el del proveedor.",
+   "provider_name": "Sakana AI",
+   "sin_max_tokens": "el endpoint no declara max_tokens: el adapter lo omite (excepción del 14-sep-2026) y no tiene tope de salida propio; usa el del proveedor. Aprobado por Cristian el 5-nov-2026",
+   "tag": "sakana",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false (sin max_tokens) responde este proveedor"
+  },
+  "gemini-3.1-pro": {
+   "cuantizacion": "unknown",
+   "id": "google/gemini-3.1-pro-preview",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Google",
+   "tag": "google-vertex/global",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "gemini-3.5-flash-lite": {
+   "cuantizacion": "unknown",
+   "id": "google/gemini-3.5-flash-lite",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Google",
+   "tag": "google-vertex/global",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "gemini-3.8-flash": {
+   "cuantizacion": "unknown",
+   "id": "google/gemini-3.8-flash",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Google",
+   "tag": "google-vertex/global",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "gemini-4-argon": {
+   "contexto": 1048576,
+   "cuantizacion": "unknown",
+   "id": "google/gemini-4-argon",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador (el de su predecesor Gemini 3.1 Pro); endpoint marcado degradado el 7-nov: si no completa, no entra y no se reintenta en otro",
+   "provider_name": "Google",
+   "tag": "google-vertex/global",
+   "techo_salida": 943718,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "gpt-5.6-sol": {
+   "cuantizacion": "unknown",
+   "id": "openai/gpt-5.6-sol",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "gpt-5.6-terra": {
+   "cuantizacion": "unknown",
+   "id": "openai/gpt-5.6-terra",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "gpt-6-astra": {
+   "contexto": 1050000,
+   "cuantizacion": "unknown",
+   "id": "openai/gpt-6-astra",
+   "motivo": "candidato nuevo del lote 7-nov: proveedor del creador",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "techo_salida": 128000,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
   "gpt-6-luna": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "openai/gpt-6-luna",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "OpenAI",
    "tag": "openai",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
   "gpt-6-luna-pro": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "openai/gpt-6-luna-pro",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "OpenAI",
    "tag": "openai",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "gpt-6.1-sol": {
+   "contexto": 1050000,
+   "cuantizacion": "unknown",
+   "id": "openai/gpt-6.1-sol",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "techo_salida": 128000,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "gpt-6.1-terra": {
+   "contexto": 1050000,
+   "cuantizacion": "unknown",
+   "id": "openai/gpt-6.1-terra",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador",
+   "provider_name": "OpenAI",
+   "tag": "openai",
+   "techo_salida": 128000,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
   "grok-4.3": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "x-ai/grok-4.3",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "xAI",
    "tag": "xai",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "grok-4.6": {
+   "cuantizacion": "unknown",
+   "id": "x-ai/grok-4.6",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "xAI",
+   "tag": "xai",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "grok-4.7": {
+   "contexto": 500000,
+   "cuantizacion": "unknown",
+   "id": "x-ai/grok-4.7",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador",
+   "provider_name": "xAI",
+   "tag": "xai",
+   "techo_salida": 450000,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "hy4": {
+   "cuantizacion": "fp4",
+   "id": "tencent/hy4",
+   "motivo": "versión estable de Hy4 preview (4-nov-2026), examen v5 completo; único endpoint en OpenRouter",
+   "provider_name": "Tencent",
+   "tag": "tencent/fp4",
+   "verificado": "2026-11-06: ping con tools, tool_choice, reasoning none y allow_fallbacks false responde este proveedor"
+  },
   "hy4-preview": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "fp8",
    "id": "tencent/hy4-preview",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el único endpoint de Tencent es `tencent/fp8`. El tag `tencent` dejó de resolver el 6-nov (12 runs con «No endpoints found» en v5c15) al publicarse Hy4 estable. El preview sale del ranking v5 al histórico; no recibe más runs.",
    "provider_name": "Tencent",
-   "tag": "tencent",
+   "tag": "tencent/fp8",
+   "tag_anterior": "tencent",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "kimi-k3.1-pro": {
+   "contexto": 1048576,
+   "cuantizacion": "mxfp4",
+   "id": "moonshotai/kimi-k3.1-pro",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador. Fijado a mano: elegir() preferiría deepinfra/bf16, un upcast de los mismos pesos; MXFP4 es el formato nativo (QAT) en que Moonshot publica el modelo",
+   "nota_publica": "Medido en el endpoint de Moonshot, en MXFP4: el formato nativo en que Moonshot publica los pesos (entrenamiento con cuantización).",
+   "provider_name": "Moonshot AI",
+   "tag": "moonshotai/mxfp4",
+   "techo_salida": 943718,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
   "mercury-2.5": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "inception/mercury-2.5",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Inception",
    "tag": "inception",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "mercury-3": {
+   "contexto": 1000000,
+   "cuantizacion": "unknown",
+   "id": "inception/mercury-3",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador",
+   "provider_name": "Inception",
+   "tag": "inception",
+   "techo_salida": 131072,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "mimo-v2.6-pro": {
+   "contexto": 1048576,
+   "cuantizacion": "fp8",
+   "id": "xiaomi/mimo-v2.6-pro",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador. Sin open_source confirmado: no se le aplica elegir() (preferiría gmicloud/bf16), y en su creador no depende de qué checkpoint (-RL o -MOPD) sirva un tercero",
+   "provider_name": "Xiaomi",
+   "tag": "xiaomi/fp8",
+   "techo_salida": 131072,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
   "minimax-m3": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "minimax/minimax-m3",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Minimax",
    "tag": "minimax",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "minimax-m3.1-flash": {
+   "contexto": 1048576,
+   "cuantizacion": "unknown",
+   "id": "minimax/minimax-m3.1-flash",
+   "motivo": "candidato nuevo del lote 7-nov: proveedor del creador. Fijado a mano: elegir() preferiría novita/fp16; va donde va MiniMax M3 (minimax) para comparar la familia en el mismo serving",
+   "provider_name": "Minimax",
+   "tag": "minimax",
+   "techo_salida": 524288,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "mistral-large-4": {
+   "contexto": 1048576,
+   "cuantizacion": "unknown",
+   "id": "mistralai/mistral-large-4-0",
+   "motivo": "sucesor del lote 7-nov: proveedor del creador (el de su predecesor Mistral Large 3 675B; también lo elige elegir())",
+   "nota_publica": "Medido en el endpoint de Mistral con retención cero de datos (zdr). En ese endpoint el razonamiento no se puede apagar, así que se midió a su nivel por defecto (high) en todas las suites.",
+   "provider_name": "Mistral",
+   "sin_apagado": "2026-11-07: ping con require_parameters y allow_fallbacks false a mistral/zdr: reasoning {effort: none} y {enabled: false} vuelven 400 «reasoning_effort none is not supported… supported values: high, low, medium»; low/minimal/sin bloque responden y razonan (51-72 reasoning tokens). La foto de OpenRouter declara [high, none] para el modelo.",
+   "tag": "mistral/zdr",
+   "techo_salida": 262144,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "muse-spark-1.3": {
+   "cuantizacion": "unknown",
+   "id": "meta/muse-spark-1.3",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Meta",
+   "tag": "meta",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
+  "muse-wonder": {
+   "contexto": 1048576,
+   "cuantizacion": "unknown",
+   "id": "meta/muse-wonder",
+   "motivo": "candidato nuevo del lote 7-nov: proveedor del creador",
+   "provider_name": "Meta",
+   "tag": "meta",
+   "techo_salida": 943718,
+   "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
   "qwen-3.6-plus": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "qwen/qwen3.6-plus",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Alibaba",
    "tag": "alibaba",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
   "qwen-3.7-max": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "qwen/qwen3.7-max",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Alibaba",
    "tag": "alibaba",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
+  "qwen-3.8-max-0902": {
+   "cuantizacion": "unknown",
+   "id": "qwen/qwen3.8-max-0902",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "nota_region": "alibaba/us-east-1 es el mismo proveedor (Alibaba) en otra región: el endpoint sin región estaba caído (status -2) el día de la declaración, 5-nov-2026",
+   "provider_name": "Alibaba",
+   "tag": "alibaba/us-east-1",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
+  },
   "qwen3.8-flash": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "unknown",
    "id": "qwen/qwen3.8-flash",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`; el proveedor no publica cuantización en OpenRouter, así que es `unknown`.",
    "provider_name": "Alibaba",
    "tag": "alibaba",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
   "seed-2-1-turbo": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "fp8",
    "id": "bytedance-seed/seed-2-1-turbo",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`, que no es una cuantización; el único endpoint del proveedor es `seed/fp8` (fp8). El tag cambió de nombre en OpenRouter; `seed` era el mismo endpoint.",
    "provider_name": "Seed",
-   "tag": "seed",
+   "tag": "seed/fp8",
+   "tag_anterior": "seed",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
   },
   "seed-2.0-code": {
-   "cuantizacion": "no_aplica",
+   "cuantizacion": "fp8",
    "id": "bytedance-seed/seed-2.0-code",
    "motivo": "proveedor histórico al default (peldaño 1-2)",
+   "nota_cuantizacion": "6-nov-2026: decía `no_aplica`, que no es una cuantización; el único endpoint del proveedor es `seed/fp8` (fp8). El tag cambió de nombre en OpenRouter; `seed` era el mismo endpoint.",
    "provider_name": "Seed",
-   "tag": "seed",
+   "tag": "seed/fp8",
+   "tag_anterior": "seed",
    "verificado": "2026-11-05: ping con el slug responde este proveedor"
+  },
+  "solar-pro4": {
+   "cuantizacion": "unknown",
+   "id": "upstage/solar-pro4",
+   "motivo": "proveedor histórico, examen v5 completo (ranking v5)",
+   "provider_name": "Upstage",
+   "tag": "upstage",
+   "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
   }
  },
  "cerrados_sin_proveedor_historico": {
   "ling-3.0-flash-vl": "5-nov-2026: su histórico es Novita y hoy solo lo sirve DeepInfra; fuera de 6.8, conserva su histórico",
-  "mimo-v2.5-pro-or": "5-nov-2026: su histórico es Novita/Xiaomi y ninguno lo sirve hoy (vivo solo DigitalOcean); fuera de 6.8, conserva su histórico"
+  "mimo-v2.5-pro-or": "5-nov-2026: su histórico es Novita/Xiaomi y ninguno lo sirve hoy (vivo solo DigitalOcean); fuera de 6.8, conserva su histórico",
+  "qwen-3.8-2.4t": "5-nov-2026: su histórico es DigitalOcean y hoy ya no lo sirve (quedan Novita, Alibaba, SiliconFlow); fuera del ranking v5, va al histórico"
  },
  "criterio": "apto (status 0, contexto ≥ 128.000, tools, max_tokens, reasoning si hay interruptor, sin variante de servicio) → salida ≥ SALIDA_MIN si existe → sin cuantizar → autor → cuantización más alta → más runs nuestros → más barato",
  "fuente": "https://openrouter.ai/api/v1/models/{id}/endpoints",
@@ -231,8 +481,10 @@
    "contexto": 131072,
    "cuantizacion": "bf16",
    "id": "ibm-granite/granite-4.2-8b",
+   "max_tokens_harbor": 32768,
    "motivo": "sin cuantizar",
    "nota": "4-nov-2026, a mitad del lote: el declarado anterior (deepinfra/bf16) no declara `tool_choice` y daba 404 en los tests con herramientas.",
+   "nota_harbor": "5-nov-2026: CoreWeave rechaza entrada+salida > 131.072 y litellm pedía 114.795 de salida; en Harbor se acota a 32.768.",
    "precio_in_por_M": 0.06,
    "precio_out_por_M": 0.15,
    "provider_name": "CoreWeave",

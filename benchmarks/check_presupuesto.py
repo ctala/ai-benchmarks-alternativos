@@ -33,12 +33,25 @@ cargados, 1.933 usados): el primer lote de más de $17 habría muerto a mitad ig
 17-ago, con este chequeo en verde. Son dos topes y manda el MENOR, así que ahora se
 consultan los dos (`/api/v1/key` y `/api/v1/credits`) y se dice cuál bloquea.
 
+Y LO QUE EL SALDO NO VE: LAS RUTAS BYOK (6-nov-2026)
+---------------------------------------------------
+Anthropic por OpenRouter va con la API key propia de Cristian (BYOK): el costo se cobra en
+la cuenta de Anthropic y el saldo de OpenRouter solo baja la comisión. La remedición de los
+Claude 5.5 costó $13,79 a precio de lista y el saldo bajó $0,34; el vigilante del tope, que
+leía el delta del saldo, no vio el gasto. Ahora el gasto de un lote es el delta del saldo
+(lo que paga OpenRouter, juez incluido) MÁS lo de las rutas de `RUTAS_BYOK` contado por
+tokens × precio de lista, en los runs del runner y en los intentos de Harbor.
+
 Uso:
     python benchmarks/check_presupuesto.py                 # cuánto queda
-    python benchmarks/check_presupuesto.py --necesito 30   # exit 1 si no alcanza
+    python benchmarks/check_presupuesto.py --necesito 30   # exit 1 si no alcanza (OpenRouter)
+    python benchmarks/check_presupuesto.py --gasto-lote <usado_base> \
+        --runs 'benchmarks/results/benchmark_X_*.json' --harbor 'jobs/v5__*' --tope 15
+                                                           # exit 3 si el lote pasó el tope
 """
 
 import argparse
+import glob
 import json
 import os
 import sys
@@ -86,11 +99,119 @@ def disponible(key: dict, cuenta: dict) -> tuple[float | None, str | None]:
     return min(topes) if topes else (None, None)
 
 
+# proveedor (como lo registra OpenRouter, sin mayúsculas) → por qué no pasa por el saldo.
+RUTAS_BYOK = {
+    "anthropic": "API key propia de Anthropic en OpenRouter: se cobra en la cuenta de "
+                 "Anthropic, no en el saldo de OpenRouter (6-nov-2026)",
+}
+
+
+def es_byok(proveedor: str | None) -> bool:
+    return bool(proveedor) and str(proveedor).strip().casefold() in RUTAS_BYOK
+
+
+def _precios() -> dict[str, tuple[float, float]]:
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from models import MODELS, OLLAMA_MODELS
+    return {c["id"]: (c["cost_input"], c.get("cost_output") or 0)
+            for c in {**OLLAMA_MODELS, **MODELS}.values()
+            if c.get("id") and c.get("cost_input") is not None}
+
+
+def gasto_byok_runs(runs: list[dict], precios: dict) -> float:
+    """USD de los runs servidos por una ruta BYOK: tokens × precio de lista. Pura.
+
+    Un proveedor multi-turno se registra `A|B`: cuenta si alguno de los tramos es BYOK
+    (para un tope, contar de más es seguro; contar de menos es lo que falló)."""
+    total = 0.0
+    for r in runs:
+        provs = str(r.get("upstream_provider") or "").split("|")
+        if not any(es_byok(p) for p in provs):
+            continue
+        pi, po = precios.get(r.get("model_id"), (0.0, 0.0))
+        total += (r.get("input_tokens") or 0) / 1e6 * pi + (r.get("output_tokens") or 0) / 1e6 * po
+    return total
+
+
+def gasto_byok_harbor(intentos: list[tuple[str, str]]) -> float:
+    """USD de los intentos de Harbor servidos por una ruta BYOK. `intentos` son pares
+    (texto de la trayectoria, id del modelo). Usa el mismo costeo que `export_harbor`
+    (tokens × precio del catálogo) y el proveedor que la trayectoria registra."""
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from benchmarks import export_harbor as eh
+    total = 0.0
+    for tray, modelo in intentos:
+        if any(es_byok(p) for p in eh._proveedores(tray)):
+            total += eh._costo(tray, modelo)[0] or 0.0
+    return total
+
+
+def _intentos_harbor(patrones: list[str]) -> list[tuple[str, str]]:
+    out = []
+    for pat in patrones:
+        for job in sorted(Path(x) for x in glob.glob(str(ROOT / pat))):
+            for trial in sorted(job.glob("*__*")):
+                tp = trial / "agent" / "mini-swe-agent.trajectory.json"
+                cp = trial / "config.json"
+                if not (tp.exists() and cp.exists()):
+                    continue
+                try:
+                    modelo = (json.loads(cp.read_text()).get("agent") or {}).get("model_name") or ""
+                except Exception:
+                    continue
+                out.append((tp.read_text(errors="replace"), modelo.replace("openrouter/", "")))
+    return out
+
+
+def gasto_lote(usado_base: float, usado_ahora: float, runs_globs: list[str],
+               harbor_globs: list[str]) -> dict:
+    """{'openrouter', 'byok_runs', 'byok_harbor', 'total'} en USD."""
+    runs = []
+    for pat in runs_globs:
+        for f in sorted(Path(x) for x in glob.glob(str(ROOT / pat))):
+            try:
+                runs += json.loads(f.read_text()).get("results") or []
+            except Exception:
+                continue
+    br = gasto_byok_runs(runs, _precios())
+    bh = gasto_byok_harbor(_intentos_harbor(harbor_globs))
+    orr = max(0.0, usado_ahora - usado_base)
+    return {"openrouter": orr, "byok_runs": br, "byok_harbor": bh, "total": orr + br + bh}
+
+
+def main_gasto_lote(a) -> int:
+    if a.usado_ahora is not None:
+        ahora = a.usado_ahora
+    else:
+        e = estado()
+        if e is None or "_error" in e[1] or e[1].get("total_usage") is None:
+            print("  🔴 no se pudo leer el uso de OpenRouter: el tope no se puede vigilar")
+            return 2
+        ahora = float(e[1]["total_usage"])
+    g = gasto_lote(a.gasto_lote, ahora, a.runs or [], a.harbor or [])
+    print(f"gasto_lote total=${g['total']:.2f} · openrouter=${g['openrouter']:.2f} · "
+          f"byok_runs=${g['byok_runs']:.2f} · byok_harbor=${g['byok_harbor']:.2f}")
+    if a.tope is not None and g["total"] > a.tope:
+        print(f"  🔴 TOPE_SUPERADO: ${g['total']:.2f} > ${a.tope:.2f}")
+        return 3
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--necesito", type=float, default=None,
                     help="USD que va a costar el lote; exit 1 si no alcanza")
+    ap.add_argument("--gasto-lote", type=float, default=None, metavar="USADO_BASE",
+                    help="gasto del lote desde este `total_usage` de OpenRouter, más las rutas "
+                         "BYOK contadas por tokens × precio de lista")
+    ap.add_argument("--runs", nargs="*", help="globs de archivos del runner del lote")
+    ap.add_argument("--harbor", nargs="*", help="globs de trabajos de Harbor del lote (jobs/...)")
+    ap.add_argument("--tope", type=float, default=None, help="exit 3 si el gasto del lote lo pasa")
+    ap.add_argument("--usado-ahora", type=float, default=None, help=argparse.SUPPRESS)
     a = ap.parse_args()
+    if a.gasto_lote is not None:
+        return main_gasto_lote(a)
 
     e = estado()
     if e is None:
@@ -140,6 +261,8 @@ def main() -> int:
         return 1
     if a.necesito is not None:
         print(f"\n  ✅ el lote (~${a.necesito:.2f}) entra en lo disponible.")
+        print(f"     Ojo: lo de las rutas BYOK ({', '.join(RUTAS_BYOK)}) no sale de este saldo;")
+        print(f"     el tope del lote lo vigila `--gasto-lote`, que sí lo cuenta.")
     else:
         print("\n  ✅ hay presupuesto.")
     return 0

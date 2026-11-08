@@ -22,6 +22,9 @@ Para cada post del blog que cite el benchmark:
   · posiciones  ("es el #1", "queda #62 de 89")
   · scores      ("8.28 sobre 10", "score 6.99")
   · conteos     ("89 modelos", "145 modelos")
+  · ejecuciones ("más de 80.000 ejecuciones", contra `conteos.ejecuciones`)
+  · posts congelados: con `benchmarkEra` Y nota visible se audita solo lo que muestra Google;
+    con una sola de las dos marcas, rojo
 Los contrasta contra docs/data/models.json y falla si algo ya no coincide.
 
 Revisa el FRONTMATTER (title, seoTitle, description) con prioridad, porque es lo que
@@ -33,14 +36,20 @@ Uso:
     python benchmarks/check_blog_consistency.py --blog /ruta/al/blog
 """
 import argparse
+import os
 import json
 import re
 import sys
 from pathlib import Path
 
 BENCH = Path(__file__).parent.parent
+sys.path.insert(0, str(Path(__file__).parent))
+import conteos  # noqa: E402
 MODELS_JSON = BENCH / "docs" / "data" / "models.json"
-DEFAULT_BLOG = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+# `BENCH_BLOG` apunta los chequeos a otro checkout (un worktree que espera aprobación) sin
+# tocar el principal; qa.py avisa cuando está puesta (8-nov-2026).
+DEFAULT_BLOG = Path(os.environ.get("BENCH_BLOG")
+                    or Path.home() / "Playground" / "sitios" / "cristiantala-blog")
 
 # Campos del frontmatter que Google muestra. El seoTitle PISA al title en este blog
 # ([...slug].astro) — corregir solo el title o el description no sirve de nada.
@@ -107,6 +116,71 @@ _NOT_A_COUNT = ("empatan", "empatados", "que empat", "de esos", "del grupo", "en
 MARCA_HISTORICA = "<!-- cifra-historica -->"
 
 
+# ── Post CONGELADO (8-nov-2026) ─────────────────────────────────────────────────────
+# Un post cuyo análisis se midió con el examen anterior no recibe cifras v5: mezclaría dos
+# exámenes en el mismo texto. Se congela en su fecha, y para que eso no sea una excusa para
+# no actualizar, exige DOS marcas: la era en el frontmatter (`benchmarkEra: "v4"`) y una nota
+# VISIBLE arriba del cuerpo, antes del primer `## `, con el enlace al ranking vigente. Con una
+# sola de las dos, rojo: una era sin nota engaña al lector, y una nota sin era no la lee nadie.
+# Lo usan este chequeo y `generate_blog_datos.py` (una sola definición).
+ERA_CONGELADA = re.compile(r'^benchmarkEra:\s*["\']?(v\d+)["\']?\s*$', re.M)
+NOTA_CONGELADA = re.compile(
+    r"Medido con el examen anterior\.\*{0,2}\s+El ranking vigente está "
+    r"\[acá\]\((https://benchmarks\.cristiantala\.com/[^)\s]*)\)")
+
+
+def congelado(raw: str) -> tuple[bool, str | None]:
+    """(congelado, error). Congelado solo con era Y nota visible; con una sola, error."""
+    parts = raw.split("---", 2)
+    fm = parts[1] if len(parts) > 2 else ""
+    body = parts[2] if len(parts) > 2 else raw
+    era = ERA_CONGELADA.search(fm)
+    cabeza = body.split("\n## ", 1)[0]
+    # La nota tiene que verse: fuera de un comentario HTML.
+    cabeza_visible = re.sub(r"<!--.*?-->", "", cabeza, flags=re.S)
+    nota = NOTA_CONGELADA.search(cabeza_visible)
+    if era and nota:
+        return True, None
+    if era:
+        return False, (f"declara benchmarkEra: {era.group(1)} pero no tiene la nota visible "
+                       "«Medido con el examen anterior. El ranking vigente está [acá](…)» "
+                       "arriba del primer ##")
+    if NOTA_CONGELADA.search(body):
+        return False, ("tiene la nota de post congelado pero no declara `benchmarkEra` en el "
+                       "frontmatter" if nota else
+                       "tiene la nota de post congelado, pero no arriba del primer ## (o dentro "
+                       "de un comentario) y sin `benchmarkEra`")
+    return False, None
+
+
+def _serp(fm: str) -> str:
+    """Solo las líneas de title/seoTitle/description: lo que Google muestra."""
+    return "\n".join(l for l in fm.splitlines()
+                     if any(l.startswith(f + ":") for f in SERP_FIELDS))
+
+
+# «más de 80.000 ejecuciones», «68.000+ ejecuciones»: el total medido, que sale de
+# models.json (vía `conteos.ejecuciones`, la definición única). Vale si está entre el total redondeado hacia abajo
+# a la decena de mil y el total: «más de 80.000» con 82.267 sí; «más de 68.000», no.
+EJECUCIONES = re.compile(r"(\d{1,3}(?:\.\d{3})+)\s*\+?\s*(?:ejecuciones|runs)\b")
+
+
+# Una cifra de ejecuciones es del benchmark solo si su frase habla del benchmark o de
+# modelos. «8.000 ejecuciones al mes» de 20 workflows de n8n no lo es (falso positivo del
+# primer corte, 8-nov-2026).
+_EJEC_DEL_BENCH = ("benchmark", "modelo")
+_EJEC_AJENA = ("al mes", "por mes", "/mes", "mensual", "workflow", "n8n")
+
+
+def ejecuciones_del_benchmark(texto: str, ini: int, fin: int) -> bool:
+    ctx = texto[max(0, ini - 120): fin + 40].lower()
+    return any(w in ctx for w in _EJEC_DEL_BENCH) and not any(w in ctx for w in _EJEC_AJENA)
+
+
+def ejecuciones_validas(n: int, total: int) -> bool:
+    return (total // 10_000) * 10_000 <= n <= total
+
+
 def check_post(path, d, ranked, pos):
     findings = []
     raw = path.read_text()
@@ -118,10 +192,19 @@ def check_post(path, d, ranked, pos):
     fm = parts[1] if len(parts) > 2 else ""
     body = parts[2] if len(parts) > 2 else raw
 
-    # El cuerpo de un snapshot es historia legítima: solo se audita el frontmatter.
-    zones = [("SERP (frontmatter)", fm)]
-    if not is_snapshot(raw):
-        zones.append(("cuerpo", body))
+    frio, error = congelado(raw)
+    if error:
+        findings.append(f"post congelado a medias: {error}")
+    if frio:
+        # Congelado: su cuerpo y su FAQ son del examen anterior, a propósito. Lo que Google
+        # muestra hoy (title, seoTitle, description) se sigue auditando.
+        zones = [("SERP (frontmatter)", _serp(fm))]
+    else:
+        # El cuerpo de un snapshot es historia legítima: solo se audita el frontmatter.
+        zones = [("SERP (frontmatter)", fm)]
+        if not is_snapshot(raw):
+            zones.append(("cuerpo", body))
+    total_runs = conteos.ejecuciones(d)
 
     for zone, text in zones:
         low = text.lower()
@@ -143,6 +226,21 @@ def check_post(path, d, ranked, pos):
                     f"{zone}: dice «{n} modelos» — hoy son {n_ranked} rankeados "
                     f"({total} catalogados)"
                 )
+
+        # 1b) total de ejecuciones: también sale de models.json, no de la memoria
+        for mm in EJECUCIONES.finditer(low):
+            ini = low.rfind("\n", 0, mm.start()) + 1
+            fin = low.find("\n", mm.end())
+            if MARCA_HISTORICA in low[ini: fin if fin != -1 else len(low)]:
+                continue
+            if not ejecuciones_del_benchmark(low, mm.start(), mm.end()):
+                continue
+            n = int(mm.group(1).replace(".", ""))
+            if total_runs and not ejecuciones_validas(n, total_runs):
+                piso = (total_runs // 10_000) * 10_000
+                findings.append(
+                    f"{zone}: dice «{mm.group(1)} ejecuciones» — hoy son {total_runs:,} "
+                    f"medidas (escribe «más de {piso:,}»)".replace(",", "."))
 
         # 2) posiciones y scores atribuidos a un modelo
         for base, m in find_model(low, ranked):

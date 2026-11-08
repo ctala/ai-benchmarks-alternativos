@@ -89,3 +89,9 @@ Proveedor, cuantización y nivel del default **no se construyen**: se consumen d
 - [ ] 6.7 Medición en la ventana: runner con juez canónico y canario, Harbor ×3 con el mismo agente. Verificar: `check_effort`, `check_truncamiento` y el guardrail de 6.5 sobre los 64.
 - [ ] 6.8 Hallazgo 1 — tabla y post: delta de calidad (apagado − default) por suite de peldaño 1 y 2 en los 34 modelos re-medidos, con tokens de razonamiento y tiempo al lado (de 3.6). Solo tests comunes entre los dos modos (la lección de `check_dispersion_proveedor`: medias de exámenes distintos no se comparan). Verificar: la cifra de un modelo se recalcula a mano desde sus runs y coincide; el post pasa por el flujo del blog con OK.
 - [ ] 6.9 Hallazgo 2 — tabla y post: delta de calidad por proveedor en los 40 abiertos, nota con runs mezclados contra nota en proveedor fijo, sobre tests comunes. Verificar: igual que 6.8.
+  - **Entra como hallazgo de proveedor (6-nov-2026, decisión de Cristian): GPT-OSS 120B y 20B en DeepInfra devuelven la llamada a la herramienta dentro del canal de razonamiento y no como `tool_calls`.** De 66 respuestas vacías de Harbor, 65 son eso; toda `harbor-ruteo` se pierde. Se publica como «sin dato agéntico · formato del endpoint» (`agentico_sin_dato` en `models.py`) y ninguna página muestra su 0. Extracto de la respuesta cruda:
+    ```
+    content: None
+    reasoning_content: Open files.{"command":"sed -n '1,200p' /app/catalogo.json"}
+    ```
+    Contraste con Llama 3.3 70B, cuyo cero es real y entra: escribe bloques bash sin llamar a la herramienta (24 de 31 errores de formato) y termina en `RepeatedFormatError`.

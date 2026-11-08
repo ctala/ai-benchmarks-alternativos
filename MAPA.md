@@ -22,8 +22,8 @@ el próximo que lo busque.
 |---|---|---|---|---|
 | El dataset que sirve el sitio y consume todo lo demás | `docs/data/models.json` | 1 archivo | `benchmarks/export_for_pages.py` | `benchmarks/check_consistency.py` |
 | La referencia congelada del score (mean/std por dimensión) | `scoring_reference.json` | 1 archivo | `benchmarks/export_for_pages.py --recalibrate` | `benchmarks/check_version.py` |
-| Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 661 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
-| La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 40485 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
+| Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 691 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
+| La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 52200 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
 | Tareas agénticas ejecutadas (Harbor), por tarea y modelo | `tareas-agente/resultados.json` | 1 archivo | `benchmarks/export_harbor.py` | `benchmarks/check_agentico_publicado.py` |
 | Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización | `docs/data/censo_proveedores.json` | 1 archivo | `benchmarks/generate_censo_proveedores.py` | `benchmarks/generate_censo_proveedores.py` |
 
@@ -31,7 +31,7 @@ el próximo que lo busque.
 
 | Qué es | Dónde vive | Hoy | Quién lo escribe | Quién lo vigila |
 |---|---|---|---|---|
-| FICHA POR MODELO — una por cada rankeado | `docs/modelo/*/index.html` | 116 archivos | `benchmarks/generate_model_cards.py` | `benchmarks/check_fichas_alcanzables.py` |
+| FICHA POR MODELO — una por cada rankeado | `docs/modelo/*/index.html` | 128 archivos | `benchmarks/generate_model_cards.py` | `benchmarks/check_fichas_alcanzables.py` |
 | La calculadora (home) y su lógica | `docs/index.html` | 1 archivo | `benchmarks/generate_home_explore.py` | `benchmarks/qa_calculadora.mjs` |
 | Rankings por dimensión y comparaciones (pSEO) | `docs/*/index.html` | 71 archivos | `benchmarks/generate_rankings.py · benchmarks/generate_comparison.py` | `benchmarks/auditar_paginas.py` |
 | Sitemap y llms.txt | `docs/sitemap.xml` | 1 archivo | `benchmarks/generate_sitemap.py` | `benchmarks/check_docs.py` |
@@ -43,7 +43,7 @@ el próximo que lo busque.
 | Ranking del README (bloque AUTO-RANKING) | `README.md` | 1 archivo | `benchmarks/generate_readme_ranking.py` | `benchmarks/check_consistency.py` |
 | Catálogo de modelos con su estado | `MODELOS.md` | 1 archivo | `benchmarks/generate_modelos_md_table.py` | `benchmarks/check_consistency.py` |
 | Recomendaciones por caso de uso | `RECOMENDACIONES.md` | 1 archivo | `benchmarks/generate_recomendaciones.py` | `benchmarks/check_consistency.py` |
-| MD navegable por modelo, con enlace a sus respuestas | `benchmarks/results/per-model/*.md` | 188 archivos | `benchmarks/generate_per_model_md.py` | `benchmarks/check_docs.py` |
+| MD navegable por modelo, con enlace a sus respuestas | `benchmarks/results/per-model/*.md` | 200 archivos | `benchmarks/generate_per_model_md.py` | `benchmarks/check_docs.py` |
 | Qué dato tiene que coincidir con qué, y quién lo hace cumplir | `SUPERFICIES.md` | 1 archivo | `benchmarks/generate_superficies.py` | `benchmarks/check_version.py` |
 | ESTE MAPA | `MAPA.md` | se genera acá | `benchmarks/generate_mapa.py` | `benchmarks/generate_mapa.py --check` |
 

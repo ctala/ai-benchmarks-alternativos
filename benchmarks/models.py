@@ -111,7 +111,8 @@ MODELS = {
         # reporta 17.7 % de error en tool calls: la dimensión agéntica es la que importa.
         # El endpoint gratis defiende con 429 -> correr con 1 runner (RUNBOOK).
         "id": "recursive/flint-v1.0:free",
-        "name": "Flint 40B-A2.5B (free)",
+        "name": "Flint v1.0 40B-A2.5B (free)",
+        "nombres_anteriores": ["Flint 40B-A2.5B (free)"],  # 6-nov-2026: el nombre no traía la versión del id
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "free",
@@ -142,7 +143,13 @@ MODELS = {
     # --- ECONOMICOS ($0.10 - $1.00/M) ---
     "deepseek-v3": {
         "id": "deepseek/deepseek-chat",
-        "name": "DeepSeek V3.2",
+        # 6-nov-2026: `deepseek-chat` es un ALIAS que DeepSeek mueve a su modelo vigente; la
+        # versión pudo cambiar entre runs (V3 → V3.1 → V3.2). El nombre ya no promete una.
+        "name": "DeepSeek (alias deepseek-chat)",
+        "nombres_anteriores": ["DeepSeek V3.2"],
+        "notes": "Alias deepseek-chat: DeepSeek lo apunta a su modelo vigente, así que la versión pudo cambiar entre runs.",
+        # 6-nov-2026: pesos públicos del mismo modelo en deepseek-ai/DeepSeek-V3, el que OpenRouter asocia a deepseek/deepseek-chat.
+        "open_source": True, "license": "DeepSeek Model License (código MIT)",
         "cost_input": 0.2574,
         "cost_output": 1.0287,
         "tier": "cheap",
@@ -150,6 +157,8 @@ MODELS = {
     "minimax-m2.7": {
         "id": "minimax/minimax-m2.7",
         "name": "MiniMax M2.7",
+        # 6-nov-2026: pesos públicos del mismo modelo en MiniMaxAI/MiniMax-M2.7.
+        "open_source": True, "license": "Licencia propia de MiniMax",
         "cost_input": 0.30,
         "cost_output": 1.20,
         "tier": "cheap",
@@ -157,6 +166,8 @@ MODELS = {
     "minimax-m3": {
         "id": "minimax/minimax-m3",
         "name": "MiniMax M3",
+        # 6-nov-2026: pesos públicos del mismo modelo en MiniMaxAI/MiniMax-M3.
+        "open_source": True, "license": "MiniMax Community License (propia de MiniMax, no MIT)",
         "cost_input": 0.30,
         "cost_output": 1.20,
         "tier": "cheap",
@@ -325,10 +336,12 @@ MODELS = {
     "qwen-3.8-2.4t": {
         "id": "qwen/qwen3.8-2.4t-a95b",
         "name": "Qwen 3.8 2.4T (A95B)",
+        # 6-nov-2026: pesos públicos del mismo modelo en Qwen/Qwen3.8-2.4T-A95B.
+        "open_source": True, "license": "Licencia Qwen 3.8 Max (propia de Alibaba)",
         "cost_input": 2.00, "cost_output": 6.00,
         "tier": "medium", "context_window": 1048576,
         "publisher": "Alibaba (Qwen)",
-        "notes": "MoE 2,4T totales / 95B activos. Licencia sin verificar: NO marcado open_source.",
+        "notes": "MoE 2,4T totales / 95B activos. Pesos en Qwen/Qwen3.8-2.4T-A95B (verificado el 6-nov-2026).",
     },
     "kat-coder-air-2.5": {
         "retired": True,
@@ -377,6 +390,8 @@ MODELS = {
         "cost_input": 0.9834, "cost_output": 2.9502,
         "tier": "cheap", "context_window": 1048576,
         "publisher": "DeepSeek",
+        # 6-nov-2026: faltaba la marca. Pesos públicos en deepseek-ai/DeepSeek-V4-Pro-0813 (MIT).
+        "open_source": True, "license": "MIT",
         "notes": ("Snapshot del 13-ago-2026. Se mide APARTE del V4 Pro que ya está: un "
                   "snapshot con fecha es otro modelo, y comparar el nuevo contra el viejo "
                   "es justamente una pregunta con dueño."),
@@ -611,6 +626,8 @@ MODELS = {
         # THINKING_MODELS: sin eso agotaría el presupuesto pensando y devolvería vacío.
         "id": "tencent/hy4-preview",
         "name": "Tencent Hy4 preview",
+        # 6-nov-2026: pesos públicos del mismo modelo en tencent/Hy4-preview.
+        "open_source": True, "license": "Apache 2.0",
         "cost_input": 0.83,
         "cost_output": 2.50,
         "tier": "cheap",
@@ -619,6 +636,23 @@ MODELS = {
             "Sucesor de Hy3, que está #6 en nuestro ranking de calidad y #5 en uso "
             "mundial. Es «preview»: el proveedor puede cambiarlo sin aviso, así que "
             "conviene re-verificar la procedencia de sus runs antes de citarlo."
+        ),
+    },
+    "hy4": {
+        # 6-nov-2026 · la versión estable de Hy4, publicada en OpenRouter el 4-nov a mitad del
+        # lote v5. Distinto id = distinto modelo: se mide entero (143 tests) y el preview queda
+        # en el histórico. Decisión de Cristian, 6-nov-2026 (DECISIONES). Un solo endpoint
+        # (Tencent fp4) a la mitad del precio del preview. `tencent/hy4` ya está en
+        # THINKING_MODELS.
+        "id": "tencent/hy4",
+        "name": "Tencent Hy4",
+        "cost_input": 0.417,
+        "cost_output": 1.2505,
+        "tier": "cheap",
+        "context_window": 1048576,
+        "notes": (
+            "Versión estable de Hy4 preview (OpenRouter, 4-nov-2026). Servido solo por "
+            "Tencent en fp4."
         ),
     },
     "qwen3.8-flash": {
@@ -723,6 +757,8 @@ MODELS = {
     "ling-3.0-flash-vl": {
         "id": "inclusionai/ling-3.0-flash-vl",
         "name": "Ling 3.0 Flash VL",
+        # 6-nov-2026: pesos públicos del mismo modelo en inclusionAI/Ling-3.0-flash-VL.
+        "open_source": True, "license": "MIT",
         "cost_input": 0.021,
         "cost_output": 0.062,
         "tier": "ultra_cheap",
@@ -2329,6 +2365,8 @@ MODELS = {
     "mimo-v2.5-or": {
         "id": "xiaomi/mimo-v2.5",
         "name": "MiMo-V2.5 (omnimodal)",
+        # 6-nov-2026: pesos públicos del mismo modelo en XiaomiMiMo/MiMo-V2.5.
+        "open_source": True, "license": "MIT",
         "cost_input": 0.14, "cost_output": 0.28,
         "tier": "cheap",
         "notes": "Omnimodal Pro-level a mitad de costo del Pro. 1.05M context.",
@@ -2336,6 +2374,8 @@ MODELS = {
     "mimo-v2.5-pro-or": {
         "id": "xiaomi/mimo-v2.5-pro",
         "name": "MiMo-V2.5 Pro",
+        # 6-nov-2026: pesos públicos del mismo modelo en XiaomiMiMo/MiMo-V2.5-Pro.
+        "open_source": True, "license": "MIT",
         "cost_input": 0.435, "cost_output": 0.87,
         "tier": "medium",
         "notes": "Flagship Xiaomi 2026, agentic capabilities. 1.05M context.",
@@ -2537,6 +2577,9 @@ MODELS = {
     },
     "or-gpt-oss-20b": {
         "id": "openai/gpt-oss-20b",
+        # 6-nov-2026: sin dato agéntico a nivel de modelo. Ninguna página muestra su 0.
+        "agentico_sin_dato": {"estado": "formato_endpoint",
+                              "motivo": "DeepInfra, su proveedor fijo, devuelve la llamada a la herramienta dentro del canal de razonamiento (reasoning_content) y no como tool_calls: el agente no la ve. 65 de 66 respuestas vacías de Harbor son eso. Es el formato del endpoint, no el modelo (DECISIONES, 6-nov-2026)."},
         "name": "GPT-OSS 20B",
         "cost_input": 0.029, "cost_output": 0.14,
         "tier": "ultra_cheap", "provider": "openrouter",
@@ -2544,6 +2587,9 @@ MODELS = {
     },
     "or-gpt-oss-120b": {
         "id": "openai/gpt-oss-120b",
+        # 6-nov-2026: sin dato agéntico a nivel de modelo. Ninguna página muestra su 0.
+        "agentico_sin_dato": {"estado": "formato_endpoint",
+                              "motivo": "DeepInfra, su proveedor fijo, devuelve la llamada a la herramienta dentro del canal de razonamiento (reasoning_content) y no como tool_calls: el agente no la ve. 65 de 66 respuestas vacías de Harbor son eso. Es el formato del endpoint, no el modelo (DECISIONES, 6-nov-2026)."},
         "name": "GPT-OSS 120B",
         "cost_input": 0.036, "cost_output": 0.18,
         "tier": "cloud_ollama", "provider": "openrouter",
@@ -2719,7 +2765,9 @@ MODELS = {
     },
     "or-deepseek-v3": {
         "id": "deepseek/deepseek-v3.2",
-        "name": "DeepSeek V3",
+        # 6-nov-2026: mide deepseek-v3.2 y se llamaba «DeepSeek V3». La key no cambia (URL pública).
+        "name": "DeepSeek V3.2",
+        "nombres_anteriores": ["DeepSeek V3"],
         "cost_input": 0.269, "cost_output": 0.4,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
@@ -2883,6 +2931,10 @@ MODELS = {
         "notes": "Pesos publicados el 7-ago-2026; en OpenRouter desde el 31-ago. Denso de 8B que razona por defecto. Existen 3B y 30B, pero sólo el 8B está en OpenRouter y no se miden en hardware local (decisión del 14-sep-2026).",
     },
     "mercury-2.5": {
+        "retired": True,
+        "retired_at": "2026-11-08",
+        "retired_reason": "OpenRouter: 0 endpoints y fuera del catálogo; salió la familia Inception entera",
+        "retired_kind": "provider",
         "id": "inception/mercury-2.5",
         "name": "Mercury 2.5",
         "cost_input": 0.04,
@@ -2893,6 +2945,136 @@ MODELS = {
         "open_source": False,
         "license": "Proprietary",
         "notes": "Publicado 8-sep-2026. Modelo de difusión (dLLM): genera y refina varios tokens en paralelo. Razona por defecto aunque su campo `reasoning` venga vacío — el `usage` lo delata (ver THINKING_MODELS).",
+    },
+
+    # ── 7-nov-2026 · lote de sucesores (DECISIONES, 7-nov-2026) ─────────────────────
+    # `reemplaza`: la key del predecesor. Pasa al histórico SOLO cuando este sucesor está
+    # medido (examen v5 completo y su Harbor); lo decide `export_for_pages.aplicar_reemplazos`.
+    # La selección de vigentes de v5 se hizo contra este archivo y no contra el catálogo de
+    # OpenRouter: se escaparon versiones más nuevas de familias que rankeamos. Cada sucesor
+    # reemplaza a su predecesor SOLO si rinde el examen v5 completo y su Harbor; si no, no
+    # entra y el predecesor sigue vigente. Proveedor fijo: el de su creador
+    # (`proveedores_declarados.json` → `cerrados`, con su ping del 7-nov).
+    "gpt-6.1-sol": {
+        "id": "openai/gpt-6.1-sol",
+        "name": "GPT-6.1 Sol",
+        "cost_input": 2, "cost_output": 10,
+        "tier": "premium",
+        "context_window": 1050000,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 29-sep-2026. Sucesor de GPT-5.6 Sol (nivel alto de la serie GPT-6.1, debajo de GPT-6 Astra).",
+        "reemplaza": "gpt-5.6-sol",
+    },
+    "gpt-6.1-terra": {
+        "id": "openai/gpt-6.1-terra",
+        "name": "GPT-6.1 Terra",
+        "cost_input": 1, "cost_output": 5,
+        "tier": "medium",
+        "context_window": 1050000,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 26-oct-2026. Sucesor de GPT-5.6 Terra (nivel medio de la serie GPT-6.1).",
+        "reemplaza": "gpt-5.6-terra",
+    },
+    "grok-4.7": {
+        "id": "x-ai/grok-4.7",
+        "name": "Grok 4.7",
+        "cost_input": 2, "cost_output": 6,
+        "tier": "medium",
+        "context_window": 500000,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 21-sep-2026. Sucesor de Grok 4.6. Razona por defecto y responde dentro del presupuesto, como Grok 4.6.",
+        "reemplaza": "grok-4.6",
+    },
+    "gemini-4-argon": {
+        "id": "google/gemini-4-argon",
+        "name": "Gemini 4 Argon",
+        "cost_input": 2, "cost_output": 10,
+        "tier": "medium",
+        "context_window": 1048576,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 13-oct-2026. Modelo de razonamiento insignia de Google (nivel Pro): sucesor de Gemini 3.1 Pro. Endpoints estándar marcados degradados en OpenRouter el 7-nov; si no completa el examen y su Harbor, no entra (Cristian, 7-nov-2026).",
+        "reemplaza": "gemini-3.1-pro",
+    },
+    "kimi-k3.1-pro": {
+        "id": "moonshotai/kimi-k3.1-pro",
+        "name": "Kimi K3.1 Pro",
+        "cost_input": 2, "cost_output": 10,
+        "tier": "premium",
+        "context_window": 1048576,
+        "thinking": True,
+        "open_source": True, "license": "Kimi K3.1 Pro License (propia de Moonshot)",
+        "weights_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "notes": "Publicado 23-oct-2026. Sucesor de Kimi K3 (post-entrenado desde K3). Pesos abiertos en MXFP4 nativo (quantization-aware training): el endpoint de Moonshot sirve el modelo tal como se publicó.",
+        "reemplaza": "kimi-k3",
+    },
+    "mercury-3": {
+        "retired": True,
+        "retired_at": "2026-11-08",
+        "retired_reason": "OpenRouter: 0 endpoints y fuera del catálogo; salió la familia Inception entera",
+        "retired_kind": "provider",
+        "id": "inception/mercury-3",
+        "name": "Mercury 3",
+        "cost_input": 0.1, "cost_output": 0.35,
+        "tier": "ultra_cheap",
+        "context_window": 1000000,
+        "publisher": "Inception",
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 16-oct-2026. Sucesor de Mercury 2.5 (modelo de difusión).",
+        "reemplaza": "mercury-2.5",
+    },
+    "mistral-large-4": {
+        "id": "mistralai/mistral-large-4-0",
+        "name": "Mistral Large 4.0",
+        "cost_input": 0.7, "cost_output": 2.1,
+        "tier": "cheap",
+        "context_window": 1048576,
+        "open_source": True, "license": "Mistral Ecosystem Open-Weight License",
+        "weights_url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+        "notes": "Publicado 6-oct-2026. Sucesor de Mistral Large 3 675B. MoE 1T/52B activos, pesos abiertos y el mismo modelo que sirve la API de Mistral. Razona por defecto (ver THINKING_MODELS).",
+        "reemplaza": "or-mistral-large-3",
+    },
+    "mimo-v2.6-pro": {
+        "id": "xiaomi/mimo-v2.6-pro",
+        "name": "MiMo V2.6 Pro",
+        "cost_input": 0.435, "cost_output": 0.87,
+        "tier": "cheap",
+        "context_window": 1048576,
+        # SIN `open_source` hasta confirmar QUÉ pesos sirve la API (Cristian, 7-nov-2026): Xiaomi
+        # publica dos checkpoints del Pro, `-RL` (21-sep) y `-MOPD` (27-sep, corrige la repetición
+        # de tool calls), y ninguna fuente dice cuál está detrás de `xiaomi/mimo-v2.6-pro`.
+        "open_source": False, "license": "MIT (pesos -RL y -MOPD; sin confirmar cuál sirve la API)",
+        "notes": "Publicado 21-sep-2026. Nivel Pro de la serie V2.6; su Pro anterior (V2.5 Pro) ya está en el histórico y V2.6 Flash sigue vigente.",
+    },
+    "gpt-6-astra": {
+        "id": "openai/gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "cost_input": 10, "cost_output": 50,
+        "tier": "premium",
+        "context_window": 1050000,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 4-sep-2026. Insignia de la serie GPT-6. Candidato nuevo: no reemplaza a nadie.",
+    },
+    "muse-wonder": {
+        "id": "meta/muse-wonder",
+        "name": "Muse Wonder",
+        "cost_input": 4, "cost_output": 20,
+        "tier": "premium",
+        "context_window": 1048576,
+        "multimodal": True,
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 12-oct-2026. Modelo de razonamiento frontier de Meta. Candidato nuevo: no reemplaza a nadie (Muse Spark 1.3 sigue vigente).",
+    },
+    "minimax-m3.1-flash": {
+        "id": "minimax/minimax-m3.1-flash",
+        "name": "MiniMax M3.1 Flash",
+        "cost_input": 0.075, "cost_output": 0.3,
+        "tier": "ultra_cheap",
+        "context_window": 1048576,
+        "thinking": True,
+        "multimodal": True,
+        "open_source": True, "license": "MiniMax Community License (propia de MiniMax, no MIT)",
+        "weights_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "notes": "Publicado 19-oct-2026. Candidato nuevo: MiniMax M3 sigue vigente (la API directa de MiniMax no tiene un M3.1 sin «Flash», verificado el 7-nov-2026).",
     },
 
 }
@@ -3413,3 +3595,30 @@ for _k in ("devstral", "groq-llama-4-scout", "groq-llama-3.3-70b", "mistral-smal
         # cap 256K, pero nunca por encima del contexto real (Haiku=200K → cap a 128K
         # para que el test de 256K se salte limpio en vez de dar "Prompt too long")
         _m["niah_max_context"] = min(262144, _m.get("context_window") or 262144)
+
+
+# ── Renombres sin reescribir el histórico (6-nov-2026) ──────────────────────────────────
+# Los runs guardan el NOMBRE con que se midieron (`model`) y el export los asigna por
+# (model_id, nombre). Renombrar un modelo dejaba sus runs huérfanos. `nombres_anteriores`
+# declara con qué nombres se midió antes; quien agrupe por (id, nombre) pasa el nombre
+# del run por `nombre_vigente` y el histórico queda como está. Tarea de 5.1: asignar por
+# key y que esto deje de hacer falta (DECISIONES, 6-nov-2026).
+def renombres(catalogo: dict | None = None) -> dict[tuple[str, str], str]:
+    """{(id, nombre_anterior): nombre_vigente}. Un nombre anterior que choca con el
+    vigente de otra config del mismo id es un error: los runs irían a dos lugares."""
+    cat = catalogo if catalogo is not None else {**OLLAMA_MODELS, **MODELS}
+    vigentes = {(c["id"], c.get("name", k)) for k, c in cat.items()}
+    out: dict[tuple[str, str], str] = {}
+    for k, c in cat.items():
+        for viejo in c.get("nombres_anteriores", []):
+            par = (c["id"], viejo)
+            if par in vigentes or par in out:
+                raise ValueError(f"{k}: el nombre anterior «{viejo}» ya es de otra config de {c['id']}")
+            out[par] = c.get("name", k)
+    return out
+
+
+def nombre_vigente(model_id: str, nombre: str, _tabla: dict | None = None) -> str:
+    """El nombre con que hoy se publica el run medido como (model_id, nombre)."""
+    t = _tabla if _tabla is not None else renombres()
+    return t.get((model_id, nombre), nombre)

@@ -36,6 +36,19 @@ sys.path.insert(0, str(ROOT / "benchmarks"))
 DESCONOCIDAS = {None, "", "unknown", "?"}
 
 
+def normalizar_proveedor(p: str | None) -> str | None:
+    """El mismo proveedor escrito de dos formas es UN proveedor.
+
+    6-nov-2026: GPT-5.5 salía mezclado con «openai ×57, OpenAI ×20». Es OpenAI en los
+    dos casos: la API directa registra el slug en minúscula y OpenRouter el nombre
+    visible. Se compara sin mayúsculas ni espacios en los bordes; los nombres de verdad
+    distintos («Google» y «Google AI Studio») siguen siendo distintos.
+    """
+    if not p or not str(p).strip():
+        return None
+    return str(p).strip().casefold()
+
+
 def veredicto(runs: list[dict], abierto: bool, cuant_de=lambda r: r.get("cuantizacion"),
               harbor: list[str] | None = None) -> tuple[str, list[str]]:
     """('limpio' | 'mezclado' | 'no_registrado', motivos). Función pura.
@@ -44,7 +57,7 @@ def veredicto(runs: list[dict], abierto: bool, cuant_de=lambda r: r.get("cuantiz
     cuantización de un run (la del run si la trae; si no, la del censo).
     """
     motivos = []
-    provs = Counter(r.get("upstream_provider") or None for r in runs)
+    provs = Counter(normalizar_proveedor(r.get("upstream_provider")) for r in runs)
     sin = provs.pop(None, 0)
     if len(provs) > 1:
         motivos.append("proveedores: " + ", ".join(f"{p} ×{n}" for p, n in provs.most_common()))
@@ -100,7 +113,7 @@ def main() -> int:
         return 1
     _, por_id_nombre = load_all_results()
     harbor = _harbor_por_id()
-    idx = suites.del_indice()
+    idx = suites.del_examen()  # todo lo que se rinde (7-nov-2026)
 
     leidos, estados = 0, {}
     for m in rank:

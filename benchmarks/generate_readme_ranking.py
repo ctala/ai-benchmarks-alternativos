@@ -76,13 +76,44 @@ def build_block(ranked: list[dict], data: dict) -> str:
         "| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |",
         "|---|---|---:|---:|---:|---|---:|",
     ]
+    # 7-nov-2026 (Cristian): dentro del grupo de cabeza el puesto no es una diferencia real,
+    # así que esas filas no llevan número. Las cifras salen del export, nunca a mano.
+    cab = data.get("grupo_cabeza") or {}
+    en_cab = set(cab.get("claves") or [])
     for i, m in enumerate(ranked[:TOP_N], 1):
         lat = m.get("latency_avg_s")
+        pos = "≈" if m.get("key") in en_cab else str(i)
         lines.append(
-            f"| {i} | **{m['name']}** | **{(m.get('score_calidad') or 0):.2f}** | "
+            f"| {pos} | **{m['name']}** | **{(m.get('score_calidad') or 0):.2f}** | "
             f"{fmt_cost(m)} | {f'{lat:.0f}s' if lat is not None else '—'} | "
             f"{m.get('provider', '?')} | {m.get('runs', 0)} |"
         )
+
+    rg = data.get("rasgo_credenciales") or {}
+    if cab.get("n"):
+        lines += [
+            "",
+            f"> **El grupo de cabeza: {cab['n']} de {cab['de']} modelos rankeados "
+            f"({cab['porcentaje']} %).** Son los que el benchmark no separa del mejor: su "
+            f"diferencia de calidad cabe en el margen de error de la medición. Por eso llevan "
+            f"«≈» en vez de un puesto, y el orden entre ellos no es una diferencia real. Que el "
+            f"grupo sea tan grande dice que, en calidad, la mayoría de estos modelos ya rinde "
+            f"parecido: dentro de él conviene elegir por precio, velocidad o por la tarea "
+            f"concreta.",
+        ]
+    if rg.get("de"):
+        lines += [
+            "",
+            f"> **La precisión literal (string_precision) no entra al índice 5.0.0.** Casi "
+            f"todos los modelos copian bien una API key, un JWT o un hash, así que la suite ya "
+            f"no separa por precisión: lo que separa es si el modelo se niega ante algo que "
+            f"parece un secreto. Eso es una política, no una falla, y se publica aparte como el "
+            f"rasgo **«¿maneja credenciales?»**, siempre con su cuenta: de {rg['de']} modelos "
+            f"rankeados, {rg['si']} copian las seis cadenas (sí), {rg['a_veces']} se niegan en "
+            f"alguna (a veces) y {rg['se_niega']} se niega en todas. La suite se sigue rindiendo "
+            f"para que cada modelo tenga su rasgo, y en 5.1 la precisión se mide con cadenas "
+            f"difíciles que no parezcan secretos.",
+        ]
 
     # Calidad por dólar. Va ANTES de la frontera a propósito: para un emprendedor con el
     # presupuesto como límite duro, "cuánto rinde cada peso" es la pregunta que de verdad

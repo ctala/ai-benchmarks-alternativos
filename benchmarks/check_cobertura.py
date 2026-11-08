@@ -340,6 +340,36 @@ def r8_ningun_guardrail_se_debilita():
     return faltan
 
 
+# ── R9 · ningún chequeo de qa.py depende de un --duro que no recibe ────────────
+# script → por qué puede correr sin `--duro` y seguir siendo un control de verdad.
+EXENTOS_R9 = {
+    "check_secretos.py": "sin el flag igual sale con 1 ante un valor real del .env; --duro "
+                         "solo suma las sospechas de forma, que en el QA cubre gitleaks",
+}
+
+
+def r9_duro_que_no_llega(fuente_qa: str | None = None) -> list[str]:
+    """Un script con `--duro` sale con 0 sin el flag. Si `qa.py` no se lo pasa, el QA lo
+    pinta ✅ aunque el script imprima ❌. R8 caza el flag QUITADO desde el tag; esto caza el
+    que NUNCA se pasó. Pasó con `check_agentico_publicado` (6-nov-2026): tres Claude 5.5
+    rankeados sin Harbor y el QA en verde."""
+    chequeos = _chequeos_de(fuente_qa if fuente_qa is not None
+                            else _texto_actual("benchmarks/qa.py"))
+    faltan = []
+    for script, (args, _) in sorted(chequeos.items()):
+        f = ROOT / "benchmarks" / script
+        if not f.exists() or "--duro" in args:
+            continue
+        if re.search(r"""add_argument\(\s*["']--duro["']""", f.read_text()):
+            if not str(EXENTOS_R9.get(script) or "").strip():
+                faltan.append(f"{script} define --duro y qa.py lo corre sin él: sale con 0 y "
+                              f"el QA lo muestra ✅ aunque falle")
+    for script in EXENTOS_R9:
+        if script not in chequeos:
+            faltan.append(f"EXENTOS_R9 nombra a {script}, que ya no corre en qa.py")
+    return faltan
+
+
 REGLAS = [
     ("R1", "el filtro de no-aptos está en TODA superficie agéntica", r1_filtro_agentico),
     ("R2", "cada tarea del wizard tiene quien verifique su promesa", r2_promesas_del_wizard),
@@ -349,6 +379,7 @@ REGLAS = [
     ("R6", "la segunda tabla se decide midiendo, no con un flag", r6_segunda_tabla),
     ("R7", "toda página publicada declara lo que publica", r7_contrato_de_pagina),
     ("R8", "ningún guardrail se debilita desde el último tag", r8_ningun_guardrail_se_debilita),
+    ("R9", "ningún chequeo del QA depende de un --duro que no recibe", r9_duro_que_no_llega),
 ]
 
 

@@ -261,7 +261,7 @@ def methodology_block(c):
   <p>Contamos con <strong><!-- AUTO:total_models -->{c['total_models']}<!-- /AUTO --> modelos catalogados</strong>,
   <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> testeados</strong> y
   <strong><!-- AUTO:tests_marketing -->{c['tests_marketing']}<!-- /AUTO --> tests reales</strong> evaluados por un
-  <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
     <li><strong>Contenido</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
@@ -352,7 +352,7 @@ def gen_alternativas_chatgpt(data):
     <p class="lead">
       Si pagas $20/mes de ChatGPT Plus o usas GPT-4/GPT-5 vía API, estas son las alternativas reales —
       probadas con <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong>
-      y LLM-as-Judge Phi-4 local. Sin opiniones, sin marketing: sólo datos.
+      y LLM-as-Judge Phi-4 vía OpenRouter. Sin opiniones, sin marketing: sólo datos.
     </p>
     <p class="lead" style="margin-top: 1rem;">
       ⚠️ <strong>Importante</strong>: no existe una "alternativa a ChatGPT" universal. Depende de tu
@@ -446,7 +446,7 @@ def gen_alternativas_chatgpt(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_claude(data):
     models = _recomendables(data)
-    lider_raz = _lider_pilar(data, "Razonamiento")
+    n_raz, lider_raz = _cabeza_pilar(data, "Razonamiento")
     rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
@@ -465,7 +465,7 @@ def gen_alternativas_claude(data):
     <p class="lead">
       Si usas Claude para coding, agentes N8N o Hermes, o generación de contenido, estas son las
       alternativas reales — no opiniones, datos: <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong>,
-      evaluados con LLM-as-Judge Phi-4 local.
+      evaluados con LLM-as-Judge Phi-4 vía OpenRouter.
     </p>
     <p class="lead" style="margin-top: 1rem;">
       ⚠️ <strong>Importante</strong>: no existe un "mejor modelo" universal. "Coding" significa cosas
@@ -526,7 +526,7 @@ def gen_alternativas_claude(data):
     <p>
       Para razonamiento de élite (matemáticas, lógica formal, deep planning), Claude Opus 4.8 sigue arriba —
       pero por margen menor al que el marketing sugiere. La alternativa real es <strong>{lider_raz}</strong>,
-      que lidera el pilar Razonamiento del benchmark.
+      que {_frase_cabeza(n_raz, "Razonamiento")}.
     </p>
   </section>
 """
@@ -559,9 +559,9 @@ def gen_alternativas_claude(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_gemini(data):
     models = _recomendables(data)
-    lider_raz = _lider_pilar(data, "Razonamiento")
+    n_raz, lider_raz = _cabeza_pilar(data, "Razonamiento")
     rapido, rapido_tps = _mas_rapido(data)
-    lider_cont = _lider_pilar(data, "Contenido")
+    n_cont, lider_cont = _cabeza_pilar(data, "Contenido")
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
     alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
@@ -579,7 +579,7 @@ def gen_alternativas_gemini(data):
     <p class="lead">
       Si usas Gemini 2.5 Flash, 3.1 Flash Lite o Gemini Pro para agentes, contenido o coding,
       estas son las alternativas reales — probadas con <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong> y
-      LLM-as-Judge Phi-4 local. Datos, no opiniones.
+      LLM-as-Judge Phi-4 vía OpenRouter. Datos, no opiniones.
     </p>
     <p class="lead" style="margin-top: 1rem;">
       ⚠️ <strong>Importante</strong>: no existe un "mejor reemplazo de Gemini" universal. La elección
@@ -615,7 +615,7 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini Pro para razonamiento</h3>
     <p>
-      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark y cubre bien
+      <strong>{lider_raz}</strong> {_frase_cabeza(n_raz, "Razonamiento")}, y cubre bien
       razonamiento multi-step. Para razonamiento de élite (matemáticas formales, planning complejo)
       <strong>Claude Opus 4.8</strong> o <strong>GPT-5.5</strong> son superiores pero a costo premium.
     </p>
@@ -629,7 +629,7 @@ def gen_alternativas_gemini(data):
 
     <h3>Si usas Gemini para contenido en español</h3>
     <p>
-      <strong>{lider_cont}</strong> es el que lidera el pilar Contenido del benchmark.
+      <strong>{lider_cont}</strong> {_frase_cabeza(n_cont, "Contenido")}.
       <strong>Mistral Small 4</strong> y <strong>Llama 3.3 70B</strong> también dan resultados sólidos en blog técnico y newsletters.
     </p>
 
@@ -681,16 +681,17 @@ def row_n8n(rank, m):
     speed_str = f"{round(speed)} ⚡" if speed >= 200 else (f"{round(speed)}" if speed else "—")
     # La columna que ORDENA, no el compuesto: la tabla mostraba `score_global` y ordenaba
     # por otra cosa, así que se leía desordenada respecto de lo único que publicaba.
-    from generate_rankings import score_agentico
-    ag = score_agentico(m)
+    # 8-nov-2026: ordena por `score_agentico`, pero muestra la cifra de Harbor («N de M»):
+    # el número ordenador mezcla tool calling y no se publica con la etiqueta agéntica.
+    from generate_rankings import harbor_texto
     return (f"<tr><td>{rank}</td><td>{name}</td>"
-            f"<td><strong>{ag:.2f}</strong></td>"
+            f"<td data-agentico=\"harbor\"><strong>{harbor_texto(m)}</strong></td>"
             f"<td>{fmt_cost(m)}</td><td>{speed_str}</td><td>{esc(fmt_license(m))}</td></tr>")
 
 
 def gen_modelos_n8n(data):
     models = _recomendables(data)
-    lider_raz = _lider_pilar(data, "Razonamiento")
+    n_raz, lider_raz = _cabeza_pilar(data, "Razonamiento")
     rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     # Un agente n8n LLAMA HERRAMIENTAS. Ordenar por el pilar «Agentes» ponía arriba a
@@ -703,10 +704,13 @@ def gen_modelos_n8n(data):
     # /mejor-llm-para-agentes/ y la calculadora), y los que no corren en un agente quedan
     # fuera: en n8n eso no es un matiz, es que el flujo no arranca.
     from generate_rankings import score_agentico
+    # 6-nov-2026: `tested` dejaba entrar al histórico (Sonnet 4.6, Opus 4.8, Seed 2.1 Turbo
+    # en el top 3, medidos con otro examen). La tabla recomienda: solo rankeados.
     n8n = [m for m in models
-           if m.get("tested") and m.get("sirve_para_agentes") is not False
+           if m.get("ranked") and m.get("sirve_para_agentes") is not False
            and score_agentico(m) is not None]
-    n8n = sorted(n8n, key=lambda m: -score_agentico(m))[:10]
+    from generate_rankings import harbor_superadas
+    n8n = sorted(n8n, key=lambda m: (-harbor_superadas(m), -score_agentico(m)))[:10]
 
     title = "Mejores modelos IA para agentes N8N: comparativa con benchmark real (2026)"
     desc = ("Qué modelo IA usar en tu agente N8N: 10 modelos comparados con tests reales de tool calling, "
@@ -719,7 +723,7 @@ def gen_modelos_n8n(data):
     rows = "\n        ".join(row_n8n(i + 1, m) for i, m in enumerate(n8n))
     table = f"""<div class="table-scroll"><table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Tarea real en agente</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Trabajo agéntico (tareas superadas)</th><th scope="col">$ in/out per M</th><th scope="col">Tok/s</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
         {rows}
@@ -747,7 +751,7 @@ def gen_modelos_n8n(data):
   <section class="results">
     <div class="results-header">
       <h2>Top 10 modelos para N8N (priorizando tool calling + velocidad)</h2>
-      <p class="meta">Ordenados por score en el pilar Agentes. Tool calling es badge de capacidad, no entra en el score global {c['scoring_version']}.</p>
+      <p class="meta">Ordenados por la tarea real ejecutada dentro de un agente. Tool calling es badge de capacidad, no entra en el score global {c['scoring_version']}.</p>
     </div>
 
     {table}
@@ -762,14 +766,8 @@ def gen_modelos_n8n(data):
 
     <h3>Si tu agente hace 100-500 calls/día con tool calling crítico</h3>
     <p>
-      <strong>Qwen 3.7 Flash</strong> es la mejor combinación medida: <strong>8,18 en tool calling</strong>
-      —el más alto del corte barato— con calidad 8,46 y $0,20 por cada 1.000 llamadas. El JSON output
-      es robusto, testeado en <code>code_generation/n8n_workflow_json</code>.
-    </p>
-    <p>
-      Si lo que te duele es la <em>espera</em> y no el costo, <strong>Llama 4 Scout 17B</strong> responde
-      en 7,6 s contra los 28 s de Qwen, y paga por eso medio punto de tool calling (7,62) y $0,48.
-      En un workflow de 5-10 llamadas encadenadas, esa diferencia son minutos por corrida.
+      El ranking vigente para este caso, con sus cifras al día, está en
+      <a href="/mejor-llm-para-n8n/">el mejor LLM para n8n</a>.
     </p>
     <p class="nota">
       Hasta el 16 de agosto de 2026 acá recomendábamos <strong>Llama 3.1 8B Instant en Groq</strong>,
@@ -789,7 +787,7 @@ def gen_modelos_n8n(data):
 
     <h3>Si tu agente requiere razonamiento (no solo tool calling)</h3>
     <p>
-      <strong>{lider_raz}</strong> lidera el pilar Razonamiento del benchmark.
+      <strong>{lider_raz}</strong> {_frase_cabeza(n_raz, "Razonamiento")}.
     </p>
 
     <h3>Si quieres open-source para correr local + N8N self-hosted</h3>
@@ -1150,7 +1148,8 @@ def gen_modelos_open_source_local(data):
 # ---------------------------------------------------------------------------
 def gen_alternativas_deepseek(data):
     models = _recomendables(data)
-    lider_raz = _lider_pilar(data, "Razonamiento")
+    n_raz, lider_raz = _cabeza_pilar(data, "Razonamiento")
+    n_glob, _ = _cabeza_pilar(data, None)
     rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
     alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
@@ -1167,9 +1166,9 @@ def gen_alternativas_deepseek(data):
     body = f"""  <section class="hero">
     <h1>Alternativas a DeepSeek: 10 modelos comparados con benchmark real ({MES_DATA})</h1>
     <p class="lead">
-      DeepSeek lidera el ranking global, pero no es la única opción. Si necesitas diversificar proveedores,
+      DeepSeek es de los proveedores más citados, pero no es la única opción. Si necesitas diversificar proveedores,
       mejorar latencia o encontrar un modelo con licencia más permisiva, estas son las alternativas reales —
-      <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong> con LLM-as-Judge Phi-4 local.
+      <strong><!-- AUTO:tested_count -->{c['tested_count']}<!-- /AUTO --> modelos testeados</strong> con LLM-as-Judge Phi-4 vía OpenRouter.
     </p>
     <p class="meta">
       Última actualización: {TODAY} ·
@@ -1208,7 +1207,7 @@ def gen_alternativas_deepseek(data):
     <h3>Si usas DeepSeek para razonamiento</h3>
     <p>
       <strong>Claude Opus 4.8</strong> cubre reasoning profundo. <strong>{lider_raz}</strong>
-      lidera el pilar Razonamiento del benchmark.
+      {_frase_cabeza(n_raz, "Razonamiento")}.
     </p>
 
     <h3>Si quieres alternativa open-source con mejor soporte comercial</h3>
@@ -1222,9 +1221,9 @@ def gen_alternativas_deepseek(data):
         ("¿Cuál es la mejor alternativa a DeepSeek V4 Flash?",
          f"Para velocidad: {rapido}. Para calidad de coding: Qwen3-Coder-Next. Para calidad general sin preocuparte por costo: Claude Opus 4.8."),
         ("¿DeepSeek tiene buena alternativa en razonamiento?",
-         f"Sí: Claude Opus 4.8 y {lider_raz}, que lidera el pilar Razonamiento del benchmark."),
+         f"Sí: Claude Opus 4.8 y {lider_raz}, que {_frase_cabeza(n_raz, 'Razonamiento')}."),
         ("¿Las alternativas a DeepSeek son más caras?",
-         "Algunas sí, pero no necesariamente mejores. DeepSeek V4 Flash es #1 global porque combina calidad 8.28 con costo $0.10/$0.20. Alternativas con score similar suelen costar más, salvo Llama 4 Scout."),
+         f"Algunas sí, pero no necesariamente mejores: en el índice de calidad el benchmark no separa a los primeros {n_glob}, y dentro de ese grupo hay modelos más baratos y más caros. Dentro del grupo, elige por precio."),
     ]
     body += faq_html(faqs)
     body += cta_block([
@@ -1242,19 +1241,26 @@ def gen_fable_5_review(data):
     c = counts(data)
     # Por NOMBRE canónico, no por id de la fila sub (bug: "claude-fable-5" era el id
     # del camino suscripción, que no es recomendable → fable quedaba None).
-    fable = next((m for m in models if m.get("name") == "Claude Fable 5"), None)
+    # 6-nov-2026: por KEY y sobre todo el dataset. Fable 5 pasó al histórico en v5 y dejó de
+    # estar entre los recomendables: la review (fechada) quedaba con 2 filas y sin su modelo.
+    _por_key = {m["key"]: m for m in data["models"]}
+    fable = _por_key.get("or-claude-fable-5")
     _f_score = f"{fable.get('score_global'):.2f}" if fable and fable.get('score_global') is not None else "—"
     _f_runs = fable.get("runs", 0) if fable else 0
     _f_q = f"{fable.get('quality_avg'):.2f}" if fable and fable.get('quality_avg') is not None else "—"
-    compare_ids = ["claude-opus-4-8", "claude-sonnet-4-6", "MiniMax-M3", "deepseek/deepseek-r1"]
+    # Por KEY (6-nov-2026): los ids `claude-opus-4-8`/`claude-sonnet-4-6`/`MiniMax-M3` son
+    # los caminos de suscripción, que no son recomendables; la tabla quedaba en 2 filas.
+    compare_keys = ["claude-opus-4.8", "claude-sonnet-4.6", "minimax-m3", "deepseek-r1"]
     # Review fechada (FECHADAS): la tabla es la foto de la medición y conserva a los que se
     # retiraron después, con el mismo filtro que `_recomendables` salvo `retired`.
     compare = sorted(
-        [m for m in data["models"] if m.get("id") in compare_ids
-         and not m.get("provider_variant") and not m.get("self_hosted")],
+        [_por_key[k] for k in compare_keys if k in _por_key],
         key=lambda m: -m.get("score_global", 0),
     )
-    table_models = ([fable] + compare) if fable else compare
+    # Todas por la columna que la tabla muestra (Score): Fable fijo arriba era un orden que
+    # ninguna columna explicaba (auditar_paginas P2, 6-nov-2026).
+    table_models = sorted(([fable] + compare) if fable else compare,
+                          key=lambda m: -(m.get("score_global") or 0))
 
     title = "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)"
     desc = (f"Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score {_f_score}, "
@@ -1266,10 +1272,10 @@ def gen_fable_5_review(data):
 
 
     # Valores comparativos seguros (buscan por id, no por orden)
-    sonnet_coding = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Coding")
+    sonnet_coding = fmt_pillar(_por_key.get("claude-sonnet-4.6", {}), "Coding")
     fable_contenido = fmt_pillar(fable, "Contenido")
-    sonnet_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-sonnet-4-6"), {}), "Contenido")
-    opus_contenido = fmt_pillar(next((m for m in compare if m.get("id") == "claude-opus-4-8"), {}), "Contenido")
+    sonnet_contenido = fmt_pillar(_por_key.get("claude-sonnet-4.6", {}), "Contenido")
+    opus_contenido = fmt_pillar(_por_key.get("claude-opus-4.8", {}), "Contenido")
     # La frase dice «DeepSeek R1 lidera este grupo»: la cifra tiene que ser la de R1. Antes
     # salía del mejor de la tabla, y tras retirar R1 (4-nov-2026) la tabla ya no lo trae y le
     # habría atribuido a R1 la nota de otro modelo. R1 sigue en los datos con sus runs.
@@ -1779,6 +1785,31 @@ def _lider_pilar(data, pilar: str, puesto: int = 1) -> str:
     queda mintiendo en cuanto otro modelo lo supera (pasó con «Ministral 14B lidera el pilar
     Razonamiento (8.39)», falso al 4-nov-2026)."""
     return _lider_pilar_modelo(data, pilar, puesto)["name"]
+
+
+def _cabeza_pilar(data, pilar: str | None):
+    """(tamaño del grupo de cabeza, el más barato del grupo) en un pilar, o en el índice
+    global con `pilar=None` (DECISIONES, 6-nov-2026: no se corona a nadie dentro del ruido).
+
+    El grupo es la banda 1 de `bands.py` sobre el conjunto base; dentro del grupo manda el
+    precio, así que la prosa nombra al más barato y dice cuántos no se separan."""
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from bands import grupo_cabeza, is_local
+    grupo = grupo_cabeza(_conjunto_base(data), pilar)
+    if not grupo:
+        raise SystemExit(f"_cabeza_pilar: sin grupo de cabeza en {pilar!r}")
+    api = [m for m in grupo if not is_local(m)] or grupo
+    barato = min(api, key=lambda m: (m.get("cost_per_1k_calls_usd") is None,
+                                     m.get("cost_per_1k_calls_usd") or 0, m["key"]))
+    return len(grupo), barato["name"]
+
+
+def _frase_cabeza(n: int, pilar: str) -> str:
+    if n <= 1:
+        return f"queda solo arriba en el pilar {pilar} del benchmark"
+    return (f"es el más barato del grupo de cabeza del pilar {pilar}: el benchmark no separa "
+            f"a los primeros {n}")
 
 
 def _lider_pilar_modelo(data, pilar: str, puesto: int = 1):

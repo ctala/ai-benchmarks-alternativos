@@ -27,7 +27,7 @@ RESULTS = Path(__file__).parent / "results"
 ARCHIVE = RESULTS / "_archive-polluted-20260716"
 # 20-ago-2026: era una tupla de prefijos que cubría 2 de las 6 suites fuera
 # del índice. La respuesta única vive en suites.del_indice().
-from benchmarks.suites import del_indice as _del_indice
+from benchmarks.suites import del_examen as _del_indice  # lo que se rinde (7-nov-2026)
 
 
 def _empty(r):

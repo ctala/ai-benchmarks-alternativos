@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/atribucion_correlacion_temporal
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.62 | quality: 10.0
-- latency_total: 94.191s | tokens_per_second: 84.1
-- input_tokens: 283 | output_tokens: 7923
+- success: True  | final: 8.49 | quality: 10.0
+- latency_total: 153.064s | tokens_per_second: 45.3
+- input_tokens: 283 | output_tokens: 6930
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,372 +28,390 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-No se puede saber con estos datos.
+## Conclusión corta
 
-Lo que tienes es una mejora temporal, no una prueba de causalidad. La pregunta real es: **¿habrías tenido menos MRR y menos altas si no hubieras lanzado la secuencia de emails?** Para responder eso necesitas un contrafactual, y aquí no lo tienes.
+**No se puede saber, con estos datos, que la secuencia de emails funcionó.**
 
-## Conclusión responsable
+Lo que sí muestran los números es que **marzo tuvo más MRR y más altas que febrero**. Pero eso no demuestra que el email fue la causa. Hay al menos dos intervenciones simultáneas que pueden explicar parte o todo el crecimiento:
 
-**No se puede afirmar que la secuencia de emails funcionó.**
+1. Publicidad pagada desde el 3 de marzo.
+2. Mención de un creador con audiencia grande el 12 de marzo.
 
-Tampoco se puede afirmar que no funcionó. Lo correcto es decir:
+Además, no tienes un grupo de control ni atribución clara. La conclusión responsable sería:
 
-> “En marzo aumentaron las altas y el MRR, pero hubo al menos tres intervenciones simultáneas: secuencia de emails, publicidad pagada y mención de un creador. Con los datos agregados actuales no es posible atribuir el crecimiento a la secuencia de emails.”
-
-Si necesitas un veredicto para un informe o decisión interna: **inconclusivo**.
-
----
-
-## Qué dicen los números, y qué no dicen
-
-Tienes:
-
-- MRR 28 feb: **$4.100**
-- MRR 31 mar: **$5.300**
-- Aumento: **+$1.200 / +29%**
-- Altas pagadas feb: **9**
-- Altas pagadas mar: **14**
-- Aumento: **+5 / +55,6%**
-
-Eso solo demuestra que:
-
-1. Marzo tuvo más MRR que febrero.
-2. Marzo tuvo más altas que febrero.
-3. La secuencia de emails coincidió con ese crecimiento.
-
-Pero no demuestra que la secuencia causó ese crecimiento.
-
-### Por qué no se puede atribuir
-
-#### 1. Hubo otras intervenciones al mismo tiempo
-
-El 1 de marzo lanzaste emails.
-
-El 3 de marzo empezaste a pagar publicidad.
-
-El 12 de marzo un creador con audiencia grande mencionó la comunidad.
-
-Cualquiera de esas tres cosas, o una combinación, puede explicar las 5 altas adicionales.
-
-Incluso si la secuencia ayudó, no sabes si fue la causa principal, una causa menor o si simplemente coincidió con un mes mejor.
-
-#### 2. No tienes segmentación por fuente
-
-No sabes cuántas de las 14 altas de marzo vinieron de:
-
-- usuarios gratuitos que hicieron clic en los emails;
-- tráfico de publicidad pagada;
-- seguidores del creador;
-- tráfico orgánico;
-- referidos;
-- campañas anteriores;
-- conversiones tardías de febrero.
-
-Sin eso, no puedes separar el efecto de los emails del efecto de la publicidad o del creador.
-
-#### 3. El MRR no es una métrica limpia para esto
-
-El MRR puede subir por:
-
-- nuevas altas;
-- planes anuales pagados por adelantado;
-- upgrades;
-- menos churn;
-- cambios de precio;
-- descuentos;
-- reactivaciones;
-- usuarios que entraron antes y pagaron después.
-
-Además, si la secuencia iba dirigida a usuarios del plan gratuito, la métrica más relevante no sería MRR total, sino **conversión de gratuito a pago** entre los usuarios que recibieron la secuencia.
-
-#### 4. La muestra es pequeña
-
-9 vs 14 altas mensuales es una diferencia pequeña.
-
-Puede ser una mejora real, pero también puede ser ruido natural. Por ejemplo, si normalmente tienes entre 8 y 12 altas al mes, 14 no es una señal contundente.
-
-Y aunque 14 fuera estadísticamente inusual, seguiría sin demostrar que fue por los emails, porque hubo otros cambios simultáneos.
-
-#### 5. La publicidad y el creador pueden haber aumentado la base gratuita
-
-Si la publicidad o el creador trajeron más usuarios al plan gratuito, entonces podrías tener más usuarios recibiendo la secuencia de emails.
-
-En ese caso, aunque los emails convirtieran, el crecimiento podría deberse principalmente a que entraron más leads, no a que la secuencia fuera más efectiva.
-
-Necesitarías saber:
-
-- usuarios gratuitos al 1 de marzo;
-- usuarios gratuitos nuevos durante marzo;
-- cuántos entraron por ads;
-- cuántos entraron por el creador;
-- cuántos convirtieron a pago;
-- tasa de conversión gratuita → pago por fuente.
-
-#### 6. No sabes el timing real de las conversiones
-
-Los emails pueden tener efecto inmediato o diferido.
-
-Si la secuencia es de 5 emails, algunas conversiones pueden ocurrir en marzo, otras en abril, y otras nunca.
-
-También puede pasar que el creador o la publicidad generen conversiones más rápidas, mientras los emails generan efecto más lento.
-
-Sin fechas exactas de conversión y fuente, no puedes separar los efectos.
+> **“La secuencia podría haber ayudado, pero los datos actuales no permiten afirmar que funcionó.”**
 
 ---
 
-## Qué sí se puede decir con prudencia
+## Por qué no se puede sostener que funcionó
 
-Puedes decir cosas como:
+### 1. Hay demasiados factores mezclados
 
-- “Hubo un aumento de MRR en marzo.”
-- “Hubo más altas en marzo que en febrero.”
-- “La secuencia de emails no puede descartarse como factor.”
-- “Pero el crecimiento está contaminado por otras acciones simultáneas.”
-- “Hasta no segmentar por fuente y cohortes, no podemos atribuir el resultado a los emails.”
+En marzo pasaron varias cosas:
 
-No deberías decir:
+- 1 de marzo: secuencia de emails.
+- 3 de marzo: inicio de publicidad pagada.
+- 12 de marzo: mención de un creador con audiencia grande.
+- Posibles cambios en la base de usuarios gratuitos.
+- Posibles cambios en churn, renovación, precio o mix de planes.
 
-- “La secuencia de emails funcionó.”
-- “Los emails generaron los $1.200 extra de MRR.”
-- “Los emails causaron las 5 altas adicionales.”
-- “La secuencia aumentó el MRR un 29%.”
+Si el MRR subió de $4.100 a $5.300, eso es +$1.200.  
+Si las altas subieron de 9 a 14, eso es +5 altas.
 
-Esas afirmaciones van más allá de lo que los datos sostienen.
+Pero **no sabes de dónde vinieron esas 5 altas adicionales**.
+
+Podrían haber venido de:
+
+- Emails.
+- Publicidad.
+- Mención del creador.
+- Tráfico orgánico normal.
+- Estacionalidad.
+- Crecimiento previo de la base gratuita.
+- Alguna promoción o cambio de producto.
+- Variación aleatoria por pocos casos.
+
+Con 9 vs 14 altas, la muestra es muy pequeña. Una diferencia de 5 altas puede ser ruido, suerte, o un solo pico por una mención.
 
 ---
 
-## Qué haría falta para estar razonablemente seguros
+### 2. El MRR no es lo mismo que “altas nuevas”
 
-### Escenario ideal: prueba controlada
+El MRR al 31 de marzo incluye:
 
-Para saber si la secuencia funcionó, lo ideal sería repetir o continuar el experimento con un grupo de control.
+- Altas nuevas.
+- Renovaciones.
+- Cancelaciones.
+- Cambios de plan.
+- Posibles ajustes de precio.
+- Efectos de churn de usuarios que entraron antes.
+
+Tú dices:
+
+- Altas en febrero: 9.
+- Altas en marzo: 14.
+
+Pero no sabemos:
+
+- ¿Cuántas cancelaciones hubo en febrero?
+- ¿Cuántas en marzo?
+- ¿Cuántas altas fueron netas?
+- ¿Cuánto vale cada plan?
+- ¿El MRR subió por más usuarios o por plan más caro?
+- ¿Hubo usuarios que entraron en febrero y pagaron en marzo?
+
+Por eso, el salto de MRR no se puede atribuir directamente a las altas de marzo.
+
+---
+
+### 3. No hay contrafactual
+
+Para saber si el email “funcionó”, necesitas responder a esta pregunta:
+
+> ¿Qué habría pasado con esas altas y ese MRR si no se hubiera lanzado la secuencia de emails?
+
+Sin esa comparación, no hay evidencia causal.
+
+El hecho de que marzo haya sido mejor que febrero no prueba que el email causó la mejora. Solo muestra que el resultado coincidió en el tiempo.
+
+---
+
+### 4. La publicidad y la mención pueden explicar el crecimiento
 
 Por ejemplo:
 
-- usuarios gratuitos elegibles;
-- 70% o 80% reciben la secuencia de emails;
-- 20% o 30% no reciben la secuencia, o la reciben más tarde;
-- ambos grupos están expuestos a las mismas condiciones: misma publicidad, mismas menciones, misma oferta, mismo periodo.
+- Si gastaste $400 en publicidad, y cada alta te costó $80, eso podría explicar 5 altas.
+- Si cada alta costó $40, podría explicar 10 altas.
+- Si la mención del creador generó tráfico, podría haber convertido mucho más que el email.
+- Si la audiencia del creador llegó justo después del 12 de marzo, cualquier aumento posterior a esa fecha es sospechoso de no ser por email.
 
-Métrica principal:
-
-> tasa de conversión de gratuito a pago dentro de los próximos 30, 60 o 90 días.
-
-Métricas secundarias:
-
-- MRR incremental;
-- CAC;
-- tasa de apertura;
-- clics;
-- bajas;
-- spam;
-- tiempo hasta conversión;
-- calidad de los usuarios convertidos.
-
-Si el grupo que recibió emails convierte mejor que el grupo control, ahí sí tendrías evidencia decente.
+Con el dato agregado mensual, no puedes separar email, ads y mención.
 
 ---
 
-### Si no puedes hacer un experimento controlado, al menos analiza datos observacionales
+## Qué diría yo internamente
 
-Necesitarías reconstruir marzo con más detalle.
+No diría:
 
-#### 1. Desglose de altas por fuente
+> “La secuencia de emails funcionó porque el MRR subió 29% y las altas subieron de 9 a 14.”
 
-Para cada alta de marzo, saber:
+Diría:
 
-- fecha;
-- usuario;
-- cuándo entró al plan gratuito;
-- fuente de adquisición;
-- si hizo clic en algún email;
-- si vino de ads;
-- si vino del creador;
-- si fue orgánico;
-- si fue referido;
-- si ya era usuario gratuito antes del 1 de marzo.
+> “Marzo creció, pero no podemos atribuir ese crecimiento a la secuencia de emails porque hubo publicidad y una mención externa simultáneas, y no tenemos control ni atribución por fuente.”
 
-Idealmente, una tabla así:
+Eso protege al equipo de tomar decisiones basadas en una historia cómoda pero no probada.
 
-| Fecha alta | Usuario | Fuente original | Recibió secuencia | Clic en email | Hora alta | Fuente atribuida |
-|---|---|---|---|---|---|---|
-| 10 mar | user123 | orgánico | sí | sí | 20:15 | email |
-| 14 mar | user456 | ads | sí | no | 11:03 | ads |
-| 18 mar | user789 | creador | sí | sí | 19:40 | mixto |
+---
 
-Sin eso, no puedes atribuir.
+## Qué haría falta para estar seguros
 
-#### 2. Cohortes de usuarios gratuitos
+### 1. Atribución por fuente
 
-Necesitarías comparar cohorts:
+Necesitarías saber, para cada alta de pago:
 
-- usuarios gratuitos que ya existían al 28 de febrero;
-- usuarios gratuitos nuevos entrados en marzo;
-- usuarios gratuitos entrados por ads;
-- usuarios gratuitos entrados por el creador;
-- usuarios gratuitos que abrieron/clickearon emails;
-- usuarios gratuitos que no abrieron/clickearon emails.
+- ¿De dónde vino?
+- ¿UTM?
+- ¿Email?
+- ¿Publicidad?
+- ¿Referral?
+- ¿Mención del creador?
+- ¿Orgánico directo?
+- ¿Promo code?
+- ¿Landing page?
 
-Pero cuidado: comparar “los que clickearon” vs “los que no clickearon” no prueba causalidad. Los que clickean suelen tener más intención de compra. Eso es sesgo de autoselección.
+Ejemplo mínimo:
 
-Aun así, ayuda a entender si los emails generaron actividad.
+| Fecha | Alta | Fuente | Plan | MRR |
+|---|---:|---|---|---:|
+| 2026-03-05 | Usuario A | Email | Pro | $99 |
+| 2026-03-08 | Usuario B | Ads | Básico | $49 |
+| 2026-03-13 | Usuario C | Creator mention | Pro | $99 |
+| 2026-03-14 | Usuario D | Orgánico | Pro | $99 |
 
-#### 3. Tasa histórica de conversión gratuito → pago
+Sin esto, el análisis es especulativo.
 
-Necesitarías saber, por ejemplo:
+---
 
-- enero: cuántos usuarios gratuitos, cuántos convirtieron, tasa;
-- febrero: cuántos usuarios gratuitos, cuántos convirtieron, tasa;
-- marzo: cuántos usuarios gratuitos, cuántos convirtieron, tasa.
+### 2. Tracking de la secuencia de emails
 
-Si en marzo la base gratuita creció mucho por ads o por el creador, es normal que suban las altas aunque la tasa de conversión sea igual o peor.
+Para los usuarios gratuitos que recibieron los emails, necesitarías:
+
+- ¿Recibieron el email?
+- ¿Lo abrieron?
+- ¿Hicieron clic?
+- ¿Entraron a la página de pago?
+- ¿Se convirtieron?
+- ¿En qué fecha?
+- ¿Qué email causó la conversión?
 
 Ejemplo:
 
-- Febrero: 500 usuarios gratuitos → 9 altas → 1,8%
-- Marzo: 900 usuarios gratuitos → 14 altas → 1,55%
+| Usuario | Email 1 abierto | Email 2 abierto | Email 3 clic | Fecha de alta | Fuente |
+|---|---|---|---|---|---|
+| Usuario A | Sí | Sí | Sí | 4 de marzo | Email |
+| Usuario B | No | No | No | 13 de marzo | Creator mention |
+| Usuario C | Sí | Sí | Sí | 15 de marzo | Ads |
 
-En ese caso, las altas suben porque hay más gente, pero la conversión mejora no aparece. Y si además hubo ads y creador, el efecto de los emails sigue siendo dudoso.
-
-#### 4. Analizar el timing
-
-Mirar las fechas exactas de las altas.
-
-Preguntas útiles:
-
-- ¿Las altas se concentraron después del 3 de marzo? Posible ads.
-- ¿Se concentraron después del 12 de marzo? Posible creador.
-- ¿Se distribuyeron a lo largo de los 5 emails? Posible secuencia.
-- ¿Hubo un pico el día 1, 2, 3, 4 o 5 de la secuencia?
-- ¿Hubo altas de usuarios que clickearon emails, o de usuarios que no?
-
-Un gráfico de altas diarias con líneas verticales en:
-
-- 1 mar: secuencia;
-- 3 mar: ads;
-- 12 mar: creador.
-
-ayudaría mucho.
-
-#### 5. Medir el embudo de emails
-
-Para la secuencia necesitas:
-
-- cuántos emails fueron enviados;
-- entregabilidad;
-- aperturas;
-- clics;
-- bajas;
-- reportes de spam;
-- conversiones desde clic;
-- conversiones asistidas por email.
-
-Si los emails no generaron clics o conversiones observables, es difícil sostener que fueron la causa.
-
-#### 6. MRR waterfall
-
-Necesitarías desglosar el cambio de MRR:
-
-```text
-MRR inicial
-+ nuevo MRR de altas
-+ expansiones
-- contracciones
-- churn
-+ reactivaciones
-± ajustes/descuentos
-= MRR final
-```
-
-Sin esto, no sabes si los $1.200 extra vinieron de las 14 altas, de menos churn, de upgrades o de planes anuales.
+Si muchos usuarios que convirtieron hicieron clic en los emails antes de la mención del creador o antes del efecto fuerte de ads, eso sería evidencia más fuerte. Pero no sería prueba definitiva.
 
 ---
 
-## Qué datos concretos pediría para poder opinar mejor
+### 3. Un grupo de control, idealmente aleatorio
 
-Si fueras mi cliente, te pediría:
+La forma más limpia de saber si funcionó es una prueba A/B o holdout:
 
-1. **Usuarios gratuitos al 28 de febrero.**
-2. **Altas al plan gratuito en marzo.**
-3. **Altas al plan gratuito por fuente:** orgánico, ads, creador, referido, email, otros.
-4. **Altas al plan pago en marzo por fecha y fuente.**
-5. **Si cada usuario pago ya era gratuito antes del 1 de marzo o entró después.**
-6. **Emails enviados, entregados, abiertos y clickeados.**
-7. **Conversiones atribuidas a clics en emails.**
-8. **Gasto y resultados de ads:** impresiones, clics, leads, conversiones, CAC.
-9. **Tráfico generado por el creador:** visitas, registros gratuitos, altas pagadas.
-10. **Historial de altas pagadas por mes:** al menos noviembre, diciembre, enero, febrero.
-11. **Historial de MRR por mes.**
-12. **Churn de febrero y marzo.**
-13. **Precio promedio de los planes nuevos.**
-14. **Si hubo cambios de precio, descuentos, ofertas o cambios en el producto.**
+- Tomas usuarios gratuitos elegibles.
+- Divides aleatoriamente:
+  - 80% reciben la secuencia de emails.
+  - 20% no reciben nada, o reciben una versión neutra.
+- Mides después de 30 días:
+  - Conversión a pago.
+  - MRR incremental.
+  - Churn.
+  - Costo por alta.
+  - Ingreso por email recibido.
 
-Con eso ya podríamos hacer una atribución mucho más seria.
+Ejemplo:
 
----
+| Grupo | Usuarios gratuitos | Altas pago | Tasa de conversión | MRR incremental |
+|---|---:|---:|---:|---:|
+| Con email | 2.000 | 30 | 1,5% | $2.100 |
+| Sin email | 500 | 4 | 0,8% | $280 |
 
-## Qué análisis haría yo con esos datos
-
-Intentaría estimar cuántas altas “esperadas” habría tenido en marzo sin la secuencia, y luego ver si las observadas superan esa expectativa.
-
-Una versión simple sería:
-
-```text
-Altas esperadas = usuarios gratuitos elegibles × tasa histórica de conversión gratuito → pago
-Altas incrementales = altas observadas - altas esperadas
-```
-
-Pero eso aún sería imperfecto si ads y creador cambiaron la calidad de los usuarios.
-
-Lo robusto sería comparar grupos:
-
-```text
-Tasa de conversión grupo con secuencia vs tasa de conversión grupo sin secuencia
-```
-
-o:
-
-```text
-Tasa de conversión usuarios expuestos a email vs usuarios no expuestos, controlando por fuente y cohortes
-```
-
-Si no puedes controlar por fuente, no puedes separar emails de ads/creador.
+Si la diferencia es estadísticamente relevante y no está contaminada por ads o menciones, entonces sí puedes decir que el email generó un efecto incremental.
 
 ---
 
-## Mi recomendación práctica para el equipo
+### 4. Datos diarios, no mensuales
 
-### Para este resultado
+Los números mensuales ocultan el timing. Necesitarías series diarias:
 
-No digas:
+- Altas por día.
+- MRR por día.
+- Gasto publicitario por día.
+- Tráfico por fuente por día.
+- Aperturas/clics de email por día.
+- Visitas desde la mención del creador por día.
 
-> “La secuencia de emails funcionó.”
+Preguntas clave:
 
-Di:
+- ¿Las altas subieron después del 1 de marzo, antes del 3?
+- ¿Subieron después del 3 por ads?
+- ¿Hubo un salto el 12 o 13 por el creador?
+- ¿Las conversiones por email ocurrieron antes del 12?
+- ¿Después del 12, el email sigue convirtiendo o el pico es atribuible a la mención?
 
-> “La secuencia de emails es una hipótesis posible, pero el resultado de marzo no permite atribuir el crecimiento a los emails porque coincidieron publicidad pagada y una mención de un creador. Necesitamos segmentación por fuente y un test con grupo control.”
-
-### Para la próxima decisión
-
-Si quieres saber si la secuencia realmente funciona, haz esto:
-
-1. Mantén publicidad y creador, si quieres seguir creciendo.
-2. Pero para medir emails, usa un grupo control.
-3. A los usuarios gratuitos elegibles, asigna aleatoriamente:
-   - grupo A: recibe la secuencia;
-   - grupo B: no recibe la secuencia.
-4. Mide conversión gratuita → pago a 30/60/90 días.
-5. Añade UTM links y atribución por fuente.
-6. No uses solo MRR total como métrica de éxito.
+Con datos diarios, podrías hacer un análisis tipo “interrupción de serie temporal”, aunque sigue siendo menos robusto que un A/B.
 
 ---
 
-## Resumen corto
+### 5. Medir alturas netas, no solo altas brutas
 
-**¿La secuencia de emails funcionó?**
+Necesitarías:
 
-No se puede saber con los datos que tienes.
+- Altas nuevas.
+- Bajas/cancelaciones.
+- Altas netas.
+- MRR neto.
+- MRR por cohorte.
+- ARPU.
+- Mezcla de planes.
 
-Lo que sí se puede decir es que hubo más MRR y más altas en marzo, pero el resultado está contaminado por al menos dos intervenciones adicionales: publicidad pagada y mención de un creador.
+Porque si en marzo tuviste 14 altas pero también 10 cancelaciones, el efecto real es distinto que si tuviste 14 altas y 2 cancelaciones.
 
-Para estar seguros, necesitarías una prueba controlada o, como mínimo, datos segmentados por cohortes, fuentes, fechas, clics de email, tráfico de ads, tráfico del creador, conversión gratuito → pago y desglose de MRR.
+---
+
+### 6. Controlar la base de usuarios gratuitos
+
+La secuencia se lanzó para usuarios del plan gratuito. Pero si la base gratuita creció por ads o por la mención del creador, podrías tener más altas aunque la tasa de conversión por email no haya mejorado.
+
+Ejemplo:
+
+| Mes | Usuarios gratuitos | Altas pago | Tasa de conversión |
+|---|---:|---:|---:|
+| Febrero | 1.000 | 9 | 0,9% |
+| Marzo | 1.800 | 14 | 0,8% |
+
+Aquí las altas absolutas suben, pero la conversión baja. En ese caso, el email no necesariamente “funcionó”; quizá solo había más gente arriba del embudo.
+
+---
+
+## Qué haría yo ahora, en la práctica
+
+### Paso 1: No escalar la secuencia como “ganadora”
+
+No diría que funcionó hasta tener atribución. Si el email cuesta poco, puede seguir corriendo, pero no como decisión basada en este resultado.
+
+---
+
+### Paso 2: Pedir desglose diario por fuente
+
+Lo mínimo que pediría:
+
+1. Altas de febrero y marzo por día.
+2. MRR por día.
+3. Fuente de cada alta:
+   - Email.
+   - Ads.
+   - Directo.
+   - Referral/creator.
+   - Orgánico.
+   - Desconocido.
+4. Cancelaciones por día.
+5. Datos de email:
+   - Entregados.
+   - Abiertos.
+   - Clics.
+   - Conversiones.
+6. Datos de ads:
+   - Inversión diaria.
+   - Clics.
+   - Leads.
+   - Altas.
+   - CPA.
+7. Datos de la mención del creador:
+   - Fecha.
+   - Tráfico estimado.
+   - Referidores.
+   - Altas posteriores.
+
+---
+
+### Paso 3: Hacer un análisis de escenarios
+
+Con lo que tienes, puedes hacer hipótesis, no conclusiones.
+
+Ejemplo:
+
+| Escenario | Qué tendría que verse |
+|---|---|
+| Email funcionó | Muchas altas con UTM de email, clics previos, conversión antes del 12, y control sin email muestra menor conversión. |
+| Ads explicaron el crecimiento | Alta proporción de conversiones desde campañas, CPA razonable, picos alineados con gasto publicitario. |
+| Mención del creador explicó el crecimiento | Pico fuerte después del 12, tráfico desde plataforma del creador, muchas altas sin relación con email. |
+| Nada claro | Sin atribución, sin control, datos agregados mensuales. |
+
+---
+
+### Paso 4: Diseñar una prueba limpia para la próxima cohorte
+
+Si quieres saber si el email funciona, la próxima vez:
+
+- Elige una cohorte de usuarios gratuitos.
+- Divide aleatoriamente.
+- A un grupo le mandas la secuencia.
+- A otro no.
+- Evitas cambiar ads, precios, landing pages o lanzamientos durante la prueba.
+- Mides conversión a pago a 14, 30 y 60 días.
+- Calculas MRR incremental y costo por conversión.
+
+Ejemplo de diseño mínimo:
+
+| Cohorte | Tamaño | Recibe email | No recibe email | Métrica principal |
+|---|---:|---|---|---|
+| Nuevos usuarios gratuitos de abril | 2.000 | 1.600 | 400 | Conversión a pago a 30 días |
+
+Métricas:
+
+- Tasa de conversión.
+- MRR incremental.
+- Churn a 30 días.
+- Costo por alta.
+- ROI del email.
+
+---
+
+## Qué evidencia sería suficientemente fuerte
+
+Para decir con confianza: “sí funcionó”, necesitaría algo como esto:
+
+1. **Atribución directa**  
+   Un porcentaje claro de las altas de marzo vino de clics en los emails.
+
+2. **Timing razonable**  
+   Las conversiones por email ocurrieron después de aperturas/clics, no solo después de la mención del creador.
+
+3. **Control o comparación**  
+   Usuarios similares que no recibieron el email convirtieron menos.
+
+4. **Efecto incremental**  
+   Las altas extra no se explican solo por ads o por más usuarios gratuitos.
+
+5. **Rentabilidad**  
+   El MRR incremental justifica el costo del email, ads y tiempo del equipo.
+
+---
+
+## Qué evidencia sería débil o insuficiente
+
+Con tu caso actual, la evidencia es débil porque:
+
+- Solo tienes totales mensuales.
+- No tienes control.
+- No tienes atribución por fuente.
+- No tienes datos de email.
+- No tienes datos diarios.
+- No sabes churn.
+- No sabes plan mix.
+- No sabes tamaño de la base gratuita.
+- Hubo ads y una mención externa en el mismo periodo.
+
+---
+
+## Mi respuesta final
+
+**No puedo concluir que la secuencia de emails funcionó.**
+
+Los datos muestran crecimiento en marzo, pero no prueban causalidad. La secuencia puede haber tenido un efecto positivo, pero también puede haberlo tenido la publicidad, la mención del creador, el crecimiento de la base gratuita o simple variación mensual.
+
+Para estar seguros, haría falta:
+
+1. **Atribución por fuente de cada alta.**
+2. **Datos diarios de altas, MRR, churn y tráfico.**
+3. **Tracking de emails: aperturas, clics y conversiones.**
+4. **Un grupo de control, idealmente aleatorio.**
+5. **Control del efecto de ads y de la mención del creador.**
+6. **Medición de MRR incremental, no solo MRR total.**
+
+Hasta tener eso, la conclusión honesta es:
+
+> **“No se puede saber. Hay una correlación temporal, pero no evidencia suficiente para atribuir el crecimiento a la secuencia de emails.”**

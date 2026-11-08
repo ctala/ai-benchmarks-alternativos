@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — structured_output/json_simple_extraction
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 9.1 | quality: 10.0
-- latency_total: 7.427s | tokens_per_second: 34.5
-- input_tokens: 156 | output_tokens: 256
+- success: True  | final: 9.4 | quality: 10.0
+- latency_total: 1.56s | tokens_per_second: 32.1
+- input_tokens: 120 | output_tokens: 50
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -22,11 +22,4 @@ Formato: {"name": "", "age": 0, "role": "", "company": "", "email": "", "salary"
 
 ## Respuesta completa
 
-{
-  "name": "Maria Garcia",
-  "age": 28,
-  "role": "ingeniera de software",
-  "company": "Google Chile",
-  "email": "maria@google.com",
-  "salary": 95000
-}
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}

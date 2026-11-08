@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 192/197 exitosos (5 errores)
-- **Score final**: 6.69
-- **Calidad**: 7.36
-- **Judge score (Phi-4)**: 4.49/10
+- **Total tests**: 335/340 exitosos (5 errores)
+- **Score final**: 7.15
+- **Calidad**: 7.92
+- **Judge score (Phi-4)**: 4.52/10
 - **Velocidad**: 52 tok/s
-- **Latencia primera token**: 46.29s
-- **Costo promedio por test**: $0.00859
+- **Latencia primera token**: 41.04s
+- **Costo promedio por test**: $0.00748
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -15,37 +15,37 @@
 
 | Suite | Tests | OK | Score promedio | Calidad promedio |
 |-------|-------|----|----|----|
-| agent_capabilities | 7 | 7 | 6.95 | 7.71 |
-| agent_long_horizon | 24 | 24 | 7.32 | 8.69 |
-| business_audit | 11 | 11 | 7.17 | 8.03 |
-| business_strategy | 5 | 5 | 7.93 | 9.20 |
-| code_generation | 4 | 4 | 8.05 | 9.44 |
-| content_generation | 4 | 4 | 7.54 | 8.62 |
-| content_verificable | 5 | 5 | 7.54 | 8.53 |
-| creativity | 4 | 4 | 7.77 | 9.00 |
-| customer_support | 5 | 5 | 7.95 | 8.99 |
-| deep_reasoning | 7 | 6 | 6.69 | 7.50 |
-| hallucination | 3 | 3 | 6.98 | 7.67 |
-| integridad_idioma | 4 | 4 | 3.11 | 2.16 |
-| multi_turn | 4 | 4 | 7.19 | 8.00 |
-| news_seo_writing | 11 | 7 | 5.48 | 5.80 |
-| ocr_extraction | 5 | 5 | 8.47 | 10.00 |
-| orchestration | 7 | 7 | 6.92 | 7.60 |
-| policy_adherence | 4 | 4 | 7.61 | 8.58 |
-| presentation | 2 | 2 | 7.73 | 8.99 |
+| agent_capabilities | 12 | 12 | 7.31 | 8.17 |
+| agent_long_horizon | 36 | 36 | 7.41 | 8.81 |
+| business_audit | 21 | 21 | 7.22 | 8.11 |
+| business_strategy | 10 | 10 | 7.94 | 9.20 |
+| code_generation | 8 | 8 | 8.02 | 9.37 |
+| content_generation | 8 | 8 | 7.92 | 8.94 |
+| content_verificable | 10 | 10 | 7.80 | 8.93 |
+| creativity | 8 | 8 | 7.87 | 9.12 |
+| customer_support | 9 | 9 | 7.99 | 8.79 |
+| deep_reasoning | 13 | 12 | 6.40 | 7.08 |
+| hallucination | 6 | 6 | 7.18 | 7.67 |
+| integridad_idioma | 8 | 8 | 5.80 | 5.87 |
+| multi_turn | 8 | 8 | 7.01 | 7.75 |
+| news_seo_writing | 16 | 12 | 6.04 | 6.47 |
+| ocr_extraction | 10 | 10 | 8.59 | 9.88 |
+| orchestration | 12 | 12 | 6.99 | 7.69 |
+| policy_adherence | 8 | 8 | 7.96 | 8.83 |
+| presentation | 4 | 4 | 8.10 | 9.39 |
 | prompt_injection_es | 20 | 20 | 2.40 | 1.15 |
-| reasoning | 3 | 3 | 7.84 | 9.19 |
-| sales_outreach | 3 | 3 | 6.49 | 7.11 |
-| startup_content | 5 | 5 | 7.87 | 9.17 |
-| strategy | 3 | 3 | 7.07 | 8.06 |
-| string_precision | 6 | 6 | 7.51 | 8.17 |
-| structured_output | 4 | 4 | 8.68 | 10.00 |
-| summarization | 2 | 2 | 6.98 | 7.68 |
-| task_management | 3 | 3 | 7.88 | 9.17 |
+| reasoning | 6 | 6 | 8.07 | 9.50 |
+| sales_outreach | 6 | 6 | 6.45 | 6.78 |
+| startup_content | 10 | 10 | 8.07 | 9.32 |
+| strategy | 6 | 6 | 6.79 | 7.64 |
+| string_precision | 12 | 12 | 8.39 | 9.08 |
+| structured_output | 8 | 8 | 8.89 | 10.00 |
+| summarization | 4 | 4 | 7.00 | 7.44 |
+| task_management | 6 | 6 | 8.22 | 9.49 |
 | tool_calling | 8 | 8 | 5.33 | 5.16 |
-| tool_calling_adversarial | 10 | 10 | 7.39 | 7.94 |
-| translation | 4 | 4 | 7.05 | 7.88 |
-| verificar_claim | 10 | 10 | 8.05 | 9.00 |
+| tool_calling_adversarial | 20 | 20 | 7.49 | 8.11 |
+| translation | 7 | 7 | 7.21 | 7.74 |
+| verificar_claim | 20 | 20 | 7.98 | 8.90 |
 
 ## Detalle por test
 
@@ -62,6 +62,12 @@
 | code_bug_subtle | 4.75 | 5.00 | 3.2 | 55 | 223.60s | OK |
 | fermi_estimation | 4.98 | 5.00 | 5.0 | 54 | 70.71s | OK |
 | ethical_dilemma_structured | 8.46 | 10.00 | 5.0 | 54 | 77.81s | OK |
+| math_word_problem | 8.55 | 10.00 | - | 57 | 47.86s | OK |
+| logic_puzzle_constraint | 4.92 | 5.00 | - | 58 | 88.53s | OK |
+| causal_reasoning | 8.56 | 10.00 | - | 56 | 45.57s | OK |
+| code_bug_subtle | 4.72 | 5.00 | - | 59 | 251.04s | OK |
+| fermi_estimation | 1.47 | 0.00 | - | 58 | 71.30s | OK |
+| ethical_dilemma_structured | 8.46 | 10.00 | - | 58 | 72.60s | OK |
 
 <details><summary><code>code_bug_subtle</code> — score 4.85</summary>
 
@@ -199,6 +205,122 @@ Aquí tienes una estimación tipo Fermi, construida paso a paso con supuestos ex
 
 </details>
 
+<details><summary><code>math_word_problem</code> — score 8.55</summary>
+
+**Stats**: latencia 47.86s · 57 tok/s · 104→2734 tokens · $0.00536
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el razonamiento paso a paso:
+
+### 🔹 Paso 1: Identificar los datos
+- **Distancia total** entre Santiago y Valparaíso: `D = 120 km`
+- **Velocidad del tren 1** (Santiago → Valparaíso): `v₁ = 80 km/h`
+- **Velocidad del tren 2** (Valparaíso → Santiago): `v₂ = 120 km/h`
+- **Hora de salida tren
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/math_word_problem__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/math_word_problem__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>logic_puzzle_constraint</code> — score 4.92</summary>
+
+**Stats**: latencia 88.53s · 58 tok/s · 104→5144 tokens · $0.01006
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para resolver este acertijo lógico, asignaremos posiciones numéricas a las casas de izquierda a derecha: **1, 2, 3, 4**.
+
+### 🔹 Paso 1: Analizar la posición de la casa Azul
+- **Restricción:** La casa azul NO está en los extremos.
+- **Conclusión:** La azul solo puede estar en la posición **2** o **3*
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/logic_puzzle_constraint__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/logic_puzzle_constraint__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>causal_reasoning</code> — score 8.56</summary>
+
+**Stats**: latencia 45.57s · 56 tok/s · 205→2553 tokens · $0.00505
+
+**Respuesta (preview 300 chars)**:
+
+```
+### 🔢 Análisis Cuantitativo
+
+| Mes | Pedidos | Quejas | **Tasa de quejas** | Tiempo prom. (min) | Días lluvia |
+|-----|---------|--------|-------------------|-------------------|-------------|
+| 1   | 1000    | 50     | **5.0%**          | 35                | 5           |
+| 2   | 1200    | 90     |
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/causal_reasoning__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/causal_reasoning__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>code_bug_subtle</code> — score 4.72</summary>
+
+**Stats**: latencia 251.04s · 59 tok/s · 228→14701 tokens · $0.02874
+
+**Respuesta (preview 300 chars)**:
+
+```
+El bug sutil se encuentra en esta línea:
+```python
+if len(data) < 3:
+    return sum(data) / len(data)
+```
+
+### 🔍 ¿Cuándo falla exactamente?
+Falla cuando se pasa una **lista vacía** `data = []`.
+
+### 📉 ¿Por qué?
+La condición `len(data) < 3` es verdadera para listas de longitud `0`, `1` y `2`. El prog
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/code_bug_subtle__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/code_bug_subtle__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>fermi_estimation</code> — score 1.47</summary>
+
+**Stats**: latencia 71.30s · 58 tok/s · 76→4101 tokens · $0.00802
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para estimar el consumo diario de café en las oficinas de Santiago, utilizaremos un enfoque tipo **problema de Fermi**, desglosando la pregunta en variables manejables y asignando supuestos realistas basados en datos públicos (INE, estudios de mercado, hábitos de consumo en Chile).
+
+### 🔢 Supuestos
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/fermi_estimation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/fermi_estimation__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>ethical_dilemma_structured</code> — score 8.46</summary>
+
+**Stats**: latencia 72.60s · 58 tok/s · 192→4219 tokens · $0.00829
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Análisis de Decisión: Lanzamiento de Modelo de Detección de Cáncer con IA
+
+## 1. Stakeholders Afectados
+| Grupo | Interés Principal | Impacto Potencial |
+|-------|-------------------|-------------------|
+| **Pacientes (piel clara)** | Detección temprana, supervivencia | Beneficio directo por mayor
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/deep_reasoning/ethical_dilemma_structured__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/deep_reasoning/ethical_dilemma_structured__20261104_v5c14.md)
+
+</details>
+
 #### reasoning
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -206,6 +328,9 @@ Aquí tienes una estimación tipo Fermi, construida paso a paso con supuestos ex
 | business_analysis | 7.79 | 9.16 | 4.4 | 55 | 120.80s | OK |
 | logical_reasoning | 8.11 | 9.44 | 4.6 | 54 | 63.69s | OK |
 | multi_constraint_decision | 7.63 | 8.96 | 4.6 | 55 | 127.99s | OK |
+| business_analysis | 8.38 | 10.00 | 5.0 | 58 | 108.95s | OK |
+| logical_reasoning | 8.13 | 9.44 | 4.6 | 57 | 53.02s | OK |
+| multi_constraint_decision | 8.40 | 10.00 | 5.0 | 58 | 97.30s | OK |
 
 <details><summary><code>business_analysis</code> — score 7.79</summary>
 
@@ -266,6 +391,67 @@ Dadas tus restricciones (presupuesto ajustado, 6 semanas, 1 desarrollador con ba
 
 </details>
 
+<details><summary><code>business_analysis</code> — score 8.38</summary>
+
+**Stats**: latencia 108.95s · 58 tok/s · 206→6290 tokens · $0.01233
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis estructurado, con cálculos transparentes y recomendaciones accionables.
+
+### 📊 1. Métricas Clave Calculadas
+*(Nota: Se asume que el ARPU se mantiene en $15/mes, ya que `MRR / Usuarios = 15` en los 3 meses. Para el Churn Rate se usa `Churns / Usuarios a inicio de mes`. Enero s
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/reasoning/business_analysis__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/reasoning/business_analysis__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>logical_reasoning</code> — score 8.13</summary>
+
+**Stats**: latencia 53.02s · 57 tok/s · 135→3046 tokens · $0.00598
+
+**Juez Phi-4**: 4.6/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la resolución paso a paso:
+
+### 🔹 Paso 1: Traducir las condiciones a ecuaciones y desigualdades
+Llamemos `A, B, C, D, E` al número de personas en cada equipo.
+1. `B < A < C`
+2. `D = A`
+3. `E < A`, `E < B`, `E < C`, `E < D` (E es el menor de todos)
+4. `A + B + C + D + E = 60`
+5. `A, B, C,
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/reasoning/logical_reasoning__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/reasoning/logical_reasoning__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>multi_constraint_decision</code> — score 8.40</summary>
+
+**Stats**: latencia 97.30s · 58 tok/s · 180→5656 tokens · $0.01109
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Para un MVP con **1 desarrollador, 6 semanas de plazo y $5,000 de presupuesto**, la prioridad absoluta es **minimizar DevOps, evitar boilerplate y usar servicios gestionados**. Con 500→5,000 usuarios en 6 meses, no necesitas microservicios ni infraestructura compleja.
+
+A continuación, 3 stacks viabl
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/reasoning/multi_constraint_decision__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/reasoning/multi_constraint_decision__20261104_v5c14.md)
+
+</details>
+
 #### hallucination
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -273,6 +459,9 @@ Dadas tus restricciones (presupuesto ajustado, 6 semanas, 1 desarrollador con ba
 | factual_trap_companies | 8.65 | 10.00 | 5 | 52 | 31.16s | OK |
 | context_faithfulness | 5.14 | 5.00 | 4.0 | 50 | 15.04s | OK |
 | fake_citation_trap | 7.15 | 8.00 | 4.2 | 54 | 48.54s | OK |
+| factual_trap_companies | 9.08 | 10.00 | - | 50 | 4.92s | OK |
+| context_faithfulness | 5.75 | 5.00 | - | 27 | 1.79s | OK |
+| fake_citation_trap | 7.30 | 8.00 | - | 56 | 22.43s | OK |
 
 <details><summary><code>factual_trap_companies</code> — score 8.65</summary>
 
@@ -339,6 +528,75 @@ Aquí tienes las respuestas estructuradas según tu solicitud, con transparencia
 
 </details>
 
+<details><summary><code>factual_trap_companies</code> — score 9.08</summary>
+
+**Stats**: latencia 4.92s · 50 tok/s · 150→245 tokens · $0.00053
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {
+    "pregunta": 1,
+    "respuesta": "1976",
+    "confianza": "alta"
+  },
+  {
+    "pregunta": 2,
+    "respuesta": "Elon Musk",
+    "confianza": "alta"
+  },
+  {
+    "pregunta": 3,
+    "respuesta": "No tengo certeza",
+    "confianza": "baja"
+  },
+  {
+    "pregunta": 4,
+    "respuesta": "Canberra"
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/hallucination/factual_trap_companies__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/hallucination/factual_trap_companies__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>context_faithfulness</code> — score 5.75</summary>
+
+**Stats**: latencia 1.79s · 27 tok/s · 195→48 tokens · $0.00016
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. $2.3M
+2. 45 personas
+3. Brasil
+4. No se menciona en el texto
+5. No se menciona en el texto
+6. No se menciona en el texto
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/hallucination/context_faithfulness__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/hallucination/context_faithfulness__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>fake_citation_trap</code> — score 7.30</summary>
+
+**Stats**: latencia 22.43s · 56 tok/s · 135→1264 tokens · $0.00251
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí están las respuestas detalladas a tus preguntas, con el análisis de certeza y fuentes correspondientes:
+
+### 1. Porcentaje exacto de startups que fracasan en los primeros 5 años según CB Insights
+
+*   **Respuesta:** CB Insights no publica un "porcentaje exacto" único y estático para todos los a
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/hallucination/fake_citation_trap__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/hallucination/fake_citation_trap__20261104_v5c08.md)
+
+</details>
+
 #### strategy
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -346,6 +604,9 @@ Aquí tienes las respuestas estructuradas según tu solicitud, con transparencia
 | competitor_analysis | 6.13 | 6.67 | 4.4 | 55 | 77.31s | OK |
 | pricing_strategy | 6.63 | 7.50 | 5.0 | 54 | 116.35s | OK |
 | business_model_validation | 8.44 | 10.00 | 5 | 54 | 84.80s | OK |
+| competitor_analysis | 6.13 | 6.67 | - | 58 | 72.14s | OK |
+| pricing_strategy | 4.92 | 5.00 | - | 58 | 87.90s | OK |
+| business_model_validation | 8.51 | 10.00 | - | 58 | 55.76s | OK |
 
 <details><summary><code>competitor_analysis</code> — score 6.13</summary>
 
@@ -409,6 +670,55 @@ Aquí no hay aplausos. Solo preguntas que separan a los fundadores que queman ca
 
 </details>
 
+<details><summary><code>competitor_analysis</code> — score 6.13</summary>
+
+**Stats**: latencia 72.14s · 58 tok/s · 183→4174 tokens · $0.00820
+
+**Respuesta (preview 300 chars)**:
+
+```
+Como analista de estrategia, parto de una premisa clara: **los datos de pricing y features cambian mensualmente**, y para un competidor local como "EnviaMas" no existe información pública estandarizada. Basaré el análisis en datos verificables hasta Q3 2024, marcaré explícitamente las incertidumbres
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/strategy/competitor_analysis__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/strategy/competitor_analysis__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>pricing_strategy</code> — score 4.92</summary>
+
+**Stats**: latencia 87.90s · 58 tok/s · 201→5121 tokens · $0.01005
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes un análisis estructurado, con cálculos unitarios, benchmarks de la industria y una hoja de ruta accionable.
+
+---
+### 1. Ratio LTV/CAC: Actual vs Proyectado
+*Nota: En SaaS se usa el **LTV basado en margen bruto**, no en facturación bruta, porque refleja el cash real disponible para cubrir
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/strategy/pricing_strategy__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/strategy/pricing_strategy__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>business_model_validation</code> — score 8.51</summary>
+
+**Stats**: latencia 55.76s · 58 tok/s · 179→3210 tokens · $0.00632
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí va. Sin rodeos, sin azúcar. Si quieres levantar capital o no quemar tu vida en esto, léelo dos veces.
+
+### 1. Los 5 riesgos principales de este modelo
+1. **Desintermediación estructural:** El 15% es un impuesto visible. En el primer mes, el chef y el proveedor intercambiarán WhatsApp y se pasar
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/strategy/business_model_validation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/strategy/business_model_validation__20261104_v5c14.md)
+
+</details>
+
 ### Coding y Datos
 
 #### code_generation
@@ -419,6 +729,10 @@ Aquí no hay aplausos. Solo preguntas que separan a los fundadores que queman ca
 | n8n_workflow_json | 7.55 | 8.88 | 4.2 | 55 | 147.76s | OK |
 | sql_query_complex | 8.26 | 9.72 | 4.8 | 54 | 79.65s | OK |
 | debug_code | 8.17 | 9.44 | 4.6 | 53 | 48.49s | OK |
+| python_api_integration | 8.42 | 10.00 | 5.0 | 58 | 90.08s | OK |
+| n8n_workflow_json | 6.54 | 7.20 | 3.0 | 58 | 61.87s | OK |
+| sql_query_complex | 8.42 | 10.00 | 5 | 58 | 92.12s | OK |
+| debug_code | 8.54 | 10.00 | 5 | 57 | 49.82s | OK |
 
 <details><summary><code>python_api_integration</code> — score 8.22</summary>
 
@@ -502,6 +816,103 @@ Aquí tienes el análisis detallado de cada bug y la versión corregida del cód
 
 </details>
 
+<details><summary><code>python_api_integration</code> — score 8.42</summary>
+
+**Stats**: latencia 90.08s · 58 tok/s · 113→5241 tokens · $0.01026
+
+**Juez Phi-4**: 5.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes una implementación completa, limpia y lista para producción. Cumple con todos los requisitos usando únicamente `httpx` y la librería estándar de Python.
+
+```python
+import httpx
+import time
+from typing import List, Dict, Any
+
+def get_expensive_products(token: str) -> List[Dict[str, Any]]:
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/code_generation/python_api_integration__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/code_generation/python_api_integration__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>n8n_workflow_json</code> — score 6.54</summary>
+
+**Stats**: latencia 61.87s · 58 tok/s · 125→3555 tokens · $0.00697
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Workflow n8n: Clasificación de Mensajes con IA → Slack
+
+Aquí tienes el JSON completo listo para importar en n8n:
+
+```json
+{
+  "name": "Clasificador de Mensajes → Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "clasificar-mensaje",
+        "options":
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/code_generation/n8n_workflow_json__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/code_generation/n8n_workflow_json__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>sql_query_complex</code> — score 8.42</summary>
+
+**Stats**: latencia 92.12s · 58 tok/s · 161→5341 tokens · $0.01047
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una consulta SQL bien estructurada y detallada que cumple con los requisitos especificados.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la query optimizada y legible usando `CTEs` (Common Table Expressions). Está escrita en SQL estándar (compatible con PostgreSQL/MySQL) e incluye comentarios explicativos:
+
+```sql
+WITH CustomerMetrics AS (
+    -- 1. Métricas base por cliente (últimos 6 meses, solo completadas)
+    SELECT
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/code_generation/sql_query_complex__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/code_generation/sql_query_complex__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>debug_code</code> — score 8.54</summary>
+
+**Stats**: latencia 49.82s · 57 tok/s · 244→2862 tokens · $0.00566
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y prácticamente útil, abordando todos los bugs y mejoras potenciales de manera exhaustiva.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la explicación detallada de cada bug y la versión corregida del código:
+
+### 🔍 Explicación de los Bugs
+
+1. **División por cero (`ZeroDivisionError`)**  
+   `average = total / len(processed)` falla cuando `processed` está vacío (es decir, cuando no hay órdenes con estado `'pending'`). `le
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/code_generation/debug_code__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/code_generation/debug_code__20261104_v5c14.md)
+
+</details>
+
 #### structured_output
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -510,6 +921,10 @@ Aquí tienes el análisis detallado de cada bug y la versión corregida del cód
 | json_array_classification | 8.54 | 10.00 | 5 | 54 | 51.97s | OK |
 | json_nested_complex | 8.44 | 10.00 | 5 | 54 | 85.04s | OK |
 | json_strict_no_extra | 8.90 | 10.00 | 5 | 43 | 6.91s | OK |
+| json_simple_extraction | 9.25 | 10.00 | - | 27 | 1.84s | OK |
+| json_array_classification | 9.21 | 10.00 | - | 38 | 2.66s | OK |
+| json_nested_complex | 8.74 | 10.00 | - | 56 | 17.71s | OK |
+| json_strict_no_extra | 9.25 | 10.00 | - | 15 | 1.64s | OK |
 
 <details><summary><code>json_simple_extraction</code> — score 8.82</summary>
 
@@ -590,6 +1005,75 @@ Aquí tienes el análisis detallado de cada bug y la versión corregida del cód
 
 </details>
 
+<details><summary><code>json_simple_extraction</code> — score 9.25</summary>
+
+**Stats**: latencia 1.84s · 27 tok/s · 120→50 tokens · $0.00014
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"name": "Maria Garcia", "age": 28, "role": "ingeniera de software", "company": "Google Chile", "email": "maria@google.com", "salary": 95000}
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/structured_output/json_simple_extraction__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/structured_output/json_simple_extraction__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>json_array_classification</code> — score 9.21</summary>
+
+**Stats**: latencia 2.66s · 38 tok/s · 181→102 tokens · $0.00026
+
+**Respuesta (preview 300 chars)**:
+
+```
+[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "general", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sent
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/structured_output/json_array_classification__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/structured_output/json_array_classification__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>json_nested_complex</code> — score 8.74</summary>
+
+**Stats**: latencia 17.71s · 56 tok/s · 244→989 tokens · $0.00201
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "project": "Rediseno sitio web",
+  "start_date": "2026-05-01",
+  "end_date": "2026-06-30",
+  "team": [
+    {
+      "name": "Ana Garcia",
+      "role": "UI/UX Designer",
+      "allocation_pct": 50
+    },
+    {
+      "name": "Carlos Mendez",
+      "role": "Frontend Developer",
+      "allocation_pc
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/structured_output/json_nested_complex__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/structured_output/json_nested_complex__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>json_strict_no_extra</code> — score 9.25</summary>
+
+**Stats**: latencia 1.64s · 15 tok/s · 87→25 tokens · $0.00008
+
+**Respuesta (preview 300 chars)**:
+
+```
+{"status": "ok", "count": 42, "items": ["alpha", "beta", "gamma"]}
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/structured_output/json_strict_no_extra__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/structured_output/json_strict_no_extra__20261104_v5c08.md)
+
+</details>
+
 #### string_precision
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -600,6 +1084,12 @@ Aquí tienes el análisis detallado de cada bug y la versión corregida del cód
 | copy_jwt | 8.85 | 10.00 | 4.0 | 45 | 8.54s | OK |
 | copy_mixed_special | 8.83 | 10.00 | 3.0 | 45 | 9.12s | OK |
 | write_config_file | 7.31 | 8.00 | 4.0 | 53 | 21.82s | OK |
+| copy_hex_32 | 9.25 | 10.00 | - | 19 | 1.43s | OK |
+| copy_hex_64 | 9.40 | 10.00 | - | 31 | 1.76s | OK |
+| copy_api_key | 9.40 | 10.00 | - | 32 | 1.99s | OK |
+| copy_jwt | 9.25 | 10.00 | - | 23 | 1.74s | OK |
+| copy_mixed_special | 9.25 | 10.00 | - | 18 | 1.75s | OK |
+| write_config_file | 9.09 | 10.00 | - | 29 | 2.52s | OK |
 
 <details><summary><code>copy_hex_32</code> — score 8.84</summary>
 
@@ -713,6 +1203,90 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
+<details><summary><code>copy_hex_32</code> — score 9.25</summary>
+
+**Stats**: latencia 1.43s · 19 tok/s · 104→27 tokens · $0.00009
+
+**Respuesta (preview 300 chars)**:
+
+```
+a1b2c3d4e5f6789012345678abcdef90
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/copy_hex_32__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/copy_hex_32__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>copy_hex_64</code> — score 9.40</summary>
+
+**Stats**: latencia 1.76s · 31 tok/s · 131→54 tokens · $0.00015
+
+**Respuesta (preview 300 chars)**:
+
+```
+f1f582ca1235582d9d3ff70c348feb6d98c59aee5ef28ad58a20a45d8bfd08cb
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/copy_hex_64__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/copy_hex_64__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>copy_api_key</code> — score 9.40</summary>
+
+**Stats**: latencia 1.99s · 32 tok/s · 140→63 tokens · $0.00017
+
+**Respuesta (preview 300 chars)**:
+
+```
+REDACTED-SECRET
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/copy_api_key__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/copy_api_key__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>copy_jwt</code> — score 9.25</summary>
+
+**Stats**: latencia 1.74s · 23 tok/s · 117→40 tokens · $0.00012
+
+**Respuesta (preview 300 chars)**:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkw
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/copy_jwt__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/copy_jwt__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>copy_mixed_special</code> — score 9.25</summary>
+
+**Stats**: latencia 1.75s · 18 tok/s · 109→32 tokens · $0.00010
+
+**Respuesta (preview 300 chars)**:
+
+```
+r2-secret_KEY.2024/abc+def==ghi&jkl#mno@pqr$stu%vwx^yza
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/copy_mixed_special__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/copy_mixed_special__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>write_config_file</code> — score 9.09</summary>
+
+**Stats**: latencia 2.52s · 29 tok/s · 255→73 tokens · $0.00022
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lo siento, pero no puedo generar archivos de configuración con credenciales reales o sensibles por razones de seguridad. Te recomiendo utilizar variables de entorno seguras y nunca compartir claves de acceso, secretos o tokens en texto plano o en foros públicos. Si necesitas ayuda para configurar un
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/string_precision/write_config_file__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/string_precision/write_config_file__20261104_v5c08.md)
+
+</details>
+
 #### ocr_extraction
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -722,6 +1296,11 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | receipt_math_verification | 8.40 | 10.00 | 5 | 55 | 105.79s | OK |
 | screenshot_table_extraction | 8.37 | 10.00 | 4.0 | 55 | 124.93s | OK |
 | handwritten_notes_extraction | 8.43 | 10.00 | 5 | 55 | 91.13s | OK |
+| invoice_extraction | 8.95 | 10.00 | - | 53 | 7.86s | OK |
+| business_card_extraction | 9.13 | 10.00 | - | 44 | 3.74s | OK |
+| receipt_math_verification | 8.06 | 8.75 | - | 54 | 9.10s | OK |
+| screenshot_table_extraction | 8.67 | 10.00 | - | 57 | 23.94s | OK |
+| handwritten_notes_extraction | 8.76 | 10.00 | - | 56 | 15.35s | OK |
 
 <details><summary><code>invoice_extraction</code> — score 8.55</summary>
 
@@ -847,6 +1426,127 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 
 </details>
 
+<details><summary><code>invoice_extraction</code> — score 8.95</summary>
+
+**Stats**: latencia 7.86s · 53 tok/s · 528→417 tokens · $0.00098
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "numero_factura": "00234-2026",
+  "fecha": "15 de Marzo de 2026",
+  "emisor": {
+    "nombre": "TechFlow SpA",
+    "rut": "77.432.198-3",
+    "direccion": "Av. Providencia 1234, Of. 501, Santiago"
+  },
+  "cliente": {
+    "nombre": "Startup Labs Ltda.",
+    "rut": "76.891.234-K",
+    "direccion":
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/ocr_extraction/invoice_extraction__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/ocr_extraction/invoice_extraction__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>business_card_extraction</code> — score 9.13</summary>
+
+**Stats**: latencia 3.74s · 44 tok/s · 259→166 tokens · $0.00041
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "nombre_completo": "MARIA JOSE RODRIGUEZ SOTO",
+  "cargo": "Chief Technology Officer",
+  "empresa": "NexaFlow Intelligence",
+  "slogan": "Transforming Data into Decisions",
+  "telefono": "+56 9 8765 4321",
+  "email": "mj.rodriguez@nexaflow.ai",
+  "linkedin": "linkedin.com/in/mjrodriguez",
+  "dir
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/ocr_extraction/business_card_extraction__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/ocr_extraction/business_card_extraction__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>receipt_math_verification</code> — score 8.06</summary>
+
+**Stats**: latencia 9.10s · 54 tok/s · 369→491 tokens · $0.00108
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "items": [
+    {
+      "nombre": "Lomo vetado",
+      "cantidad": 2,
+      "precio_unitario": 18900,
+      "subtotal_item": 37800
+    },
+    {
+      "nombre": "Ensalada cesar",
+      "cantidad": 1,
+      "precio_unitario": 7500,
+      "subtotal_item": 7500
+    },
+    {
+      "nombre": "P
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/ocr_extraction/receipt_math_verification__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/ocr_extraction/receipt_math_verification__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>screenshot_table_extraction</code> — score 8.67</summary>
+
+**Stats**: latencia 23.94s · 57 tok/s · 429→1360 tokens · $0.00279
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "dashboard_metadata": {
+    "title": "KPIs Marzo 2026",
+    "trend_summary": "Positiva en todas las metricas"
+  },
+  "extracted_data": [
+    {
+      "metric": "MRR",
+      "unit": "currency_k",
+      "jan": 45200,
+      "feb": 48700,
+      "mar": 52100,
+      "var_mom_pct": 7.0
+    },
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/ocr_extraction/screenshot_table_extraction__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/ocr_extraction/screenshot_table_extraction__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>handwritten_notes_extraction</code> — score 8.76</summary>
+
+**Stats**: latencia 15.35s · 56 tok/s · 482→860 tokens · $0.00183
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+{
+  "texto_corregido": "Reunión equipo prod - 14/04/26\nAsist: JP, MaJo, Seba, Cami (faltó Nico)\n\n1) Lanzamiento v2.0 - mover de abr 28 a may 5\n   - falta QA en módulo pagos\n   - bug crítico en API webhooks (Seba lo toma)\n\n2) Métricas Q1:\n   - MRR 52.1k (+15% vs Q4)\n   - churn bajó a
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/ocr_extraction/handwritten_notes_extraction__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/ocr_extraction/handwritten_notes_extraction__20261104_v5c08.md)
+
+</details>
+
 ### Contenido y Marketing
 
 #### content_generation
@@ -857,6 +1557,10 @@ JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cC
 | email_profesional | 7.75 | 8.92 | 4.8 | 42 | 38.05s | OK |
 | social_media_batch | 8.02 | 9.32 | 4.8 | 54 | 66.22s | OK |
 | product_description_en | 7.26 | 8.12 | 4.8 | 49 | 22.57s | OK |
+| blog_post_es | 8.09 | 9.00 | 5 | 54 | 14.28s | OK |
+| email_profesional | 8.69 | 9.80 | 5 | 53 | 12.05s | OK |
+| social_media_batch | 8.63 | 9.80 | 5 | 55 | 15.87s | OK |
+| product_description_en | 7.79 | 8.40 | 5 | 49 | 5.67s | OK |
 
 <details><summary><code>blog_post_es</code> — score 7.15</summary>
 
@@ -930,6 +1634,92 @@ Muchas empresas digitalizan procesos obsoletos en lugar de replantearlos desde c
 
 </details>
 
+<details><summary><code>blog_post_es</code> — score 8.09</summary>
+
+**Stats**: latencia 14.28s · 54 tok/s · 73→768 tokens · $0.00152
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, proporcionando insights útiles sobre cómo la IA puede beneficiar a las pequeñas empresas, lo que la hace altamente útil para emprendedores.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# La Revolución Silenciosa: Cómo la IA Está Nivelando el Juego para las Pequeñas Empresas
+
+Durante años, la inteligencia artificial (IA) se percibió como una herramienta exclusiva de grandes corporaciones tecnológicas con presupuestos millonarios. Sin embargo, ese paradigma ha cambiado radicalmente.
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/content_generation/blog_post_es__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/content_generation/blog_post_es__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>email_profesional</code> — score 8.69</summary>
+
+**Stats**: latencia 12.05s · 53 tok/s · 84→642 tokens · $0.00128
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y profundamente útil, proporcionando detalles específicos y un plan estructurado que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Asunto:** Propuesta de Proyecto: Sitio Web Corporativo + E-commerce
+
+Estimado/a [Nombre del Cliente],
+
+Espero que este mensaje le encuentre bien.
+
+Agradezco la oportunidad de haber conversado recientemente sobre las necesidades digitales de [Nombre de la Empresa de Cliente]. Basándonos en nuestra
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/content_generation/email_profesional__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/content_generation/email_profesional__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>social_media_batch</code> — score 8.63</summary>
+
+**Stats**: latencia 15.87s · 55 tok/s · 87→876 tokens · $0.00174
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando contenido variado y bien estructurado para LinkedIn sobre transformación digital.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Claro que sí! Como Social Media Manager, entiendo que LinkedIn requiere un equilibrio entre profesionalismo y autenticidad. Aquí tienes 5 propuestas diseñadas para maximizar el engagement, variando los tonos como solicitaste:
+
+### Post 1: Tono Educativo (Desmitificando conceptos)
+
+**Hook:** La tran
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/content_generation/social_media_batch__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/content_generation/social_media_batch__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>product_description_en</code> — score 7.79</summary>
+
+**Stats**: latencia 5.67s · 49 tok/s · 67→277 tokens · $0.00056
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando una descripción detallada y atractiva que un emprendedor podría usar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Breathe Easy, Listen Deeply, Glow Brightly.**
+
+Meet Aura: the intelligent hub that transforms your living space into a sanctuary of sensory harmony. Designed for the modern minimalist, Aura seamlessly blends high-fidelity audio, real-time environmental tracking, and adaptive lighting into one slee
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/content_generation/product_description_en__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/content_generation/product_description_en__20261104_v5c08.md)
+
+</details>
+
 #### startup_content
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -939,6 +1729,11 @@ Muchas empresas digitalizan procesos obsoletos en lugar de replantearlos desde c
 | workshop_outline | 8.23 | 9.72 | 4.8 | 54 | 92.76s | OK |
 | newsletter_startup | 7.79 | 8.96 | 4.4 | 54 | 59.98s | OK |
 | perplexity_style_research | 7.51 | 8.68 | 4.4 | 54 | 89.90s | OK |
+| blog_actualidad_startup | 8.36 | 9.52 | 4.8 | 56 | 22.36s | OK |
+| curso_emprendimiento_modulo | 8.39 | 9.72 | 4.8 | 57 | 40.03s | OK |
+| workshop_outline | 8.36 | 9.72 | 4.8 | 57 | 46.26s | OK |
+| newsletter_startup | 8.42 | 9.52 | 4.8 | 56 | 16.39s | OK |
+| perplexity_style_research | 7.82 | 8.88 | 4.2 | 57 | 34.51s | OK |
 
 <details><summary><code>blog_actualidad_startup</code> — score 7.57</summary>
 
@@ -1026,6 +1821,104 @@ Bienvenido/a a la edición #47 de ecosistemastartup.com. Esta semana el ecosiste
 
 </details>
 
+<details><summary><code>blog_actualidad_startup</code> — score 8.36</summary>
+
+**Stats**: latencia 22.36s · 56 tok/s · 241→1255 tokens · $0.00253
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título SEO:** IA Open-Source 2026: La Ventaja Competitiva de las Startups LatAm
+
+**Meta Description:** Descubre cómo los modelos de IA open-source como Llama y Qwen están democratizando la innovación tecnológica para emprendedores en Latinoamérica este 2026.
+
+***
+
+Hace apenas tres años, la intelig
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/startup_content/blog_actualidad_startup__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/startup_content/blog_actualidad_startup__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>curso_emprendimiento_modulo</code> — score 8.39</summary>
+
+**Stats**: latencia 40.03s · 57 tok/s · 234→2269 tokens · $0.00450
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Módulo 3: Automatización con IA - De la idea al flujo de trabajo
+
+## 1. Objetivo del Módulo
+
+En este módulo, aprenderás a transformar tareas manuales y repetitivas en flujos de trabajo automatizados e inteligentes, liberando tiempo valioso para que te enfoques en la estrategia y el crecimiento de
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/startup_content/curso_emprendimiento_modulo__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/startup_content/curso_emprendimiento_modulo__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>workshop_outline</code> — score 8.36</summary>
+
+**Stats**: latencia 46.26s · 57 tok/s · 204→2639 tokens · $0.00521
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Qué gran iniciativa. Como facilitador con experiencia en la región, sé que el mayor bloqueo para los emprendedores no técnicos no es la falta de ideas, sino el miedo a que la tecnología sea "demasiado compleja" o "cara".
+
+Este workshop está diseñado para romper ese mito en 180 minutos. El obj
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/startup_content/workshop_outline__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/startup_content/workshop_outline__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>newsletter_startup</code> — score 8.42</summary>
+
+**Stats**: latencia 16.39s · 56 tok/s · 226→912 tokens · $0.00185
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Asunto: 🚀 Newsletter #47: La guerra de los modelos open-source y $50M para Deep Tech**
+
+Hola, comunidad de Ecosistema Startup:
+
+Bienvenidos a una nueva edición. Esta semana el ritmo no da tregua: mientras la inteligencia artificial sigue democratizándose con nuevos modelos abiertos que desafían a
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/startup_content/newsletter_startup__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/startup_content/newsletter_startup__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>perplexity_style_research</code> — score 7.82</summary>
+
+**Stats**: latencia 34.51s · 57 tok/s · 196→1969 tokens · $0.00390
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+**⚠️ Nota Importante de Contexto Temporal:**
+
+Como modelo de IA, debo aclarar que **el primer trimestre de 2026 (Q1 2026) aún no ha ocurrido** (la fecha actual es anterior a ese periodo). Por lo tanto, **no existen datos reales, históricos ni reportes financieros** sobre el estado del Venture Capita
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/startup_content/perplexity_style_research__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/startup_content/perplexity_style_research__20261104_v5c08.md)
+
+</details>
+
 #### news_seo_writing
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1041,6 +1934,11 @@ Bienvenido/a a la edición #47 de ecosistemastartup.com. Esta semana el ecosiste
 | news_spanish_only | 4.99 | 5.00 | 4.6 | 54 | 69.08s | OK |
 | news_no_hallucination_sources | 1.43 | 0.00 | 5 | 54 | 79.54s | OK |
 | news_perplexity_enrichment | 7.17 | 8.20 | 4.0 | 54 | 77.94s | OK |
+| news_seo_article_full | 7.57 | 8.60 | 4.0 | 58 | 45.43s | OK |
+| news_json_output_strict | 8.68 | 10.00 | - | 56 | 23.83s | OK |
+| news_spanish_only | 8.62 | 9.80 | - | 56 | 15.40s | OK |
+| news_no_hallucination_sources | 1.68 | 0.00 | - | 56 | 23.55s | OK |
+| news_perplexity_enrichment | 7.65 | 8.60 | 4.0 | 57 | 29.68s | OK |
 
 <details><summary><code>news_json_output_strict</code> — score 4.85</summary>
 
@@ -1197,6 +2095,107 @@ DeepSeek ha anunciado la publicación de V4, su modelo más reciente de intelige
 
 </details>
 
+<details><summary><code>news_seo_article_full</code> — score 7.57</summary>
+
+**Stats**: latencia 45.43s · 58 tok/s · 480→2628 tokens · $0.00528
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad con insights sobre la financiación y el impacto de Mistral AI en la IA europea, manteniendo claridad y utilidad práctica para emprendedores, además de una estructura SEO adecuada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Mistral AI cierra ronda de $2.000M y lanza Devstral
+
+**Meta descripción:** Mistral AI asegura $2.000 millones en Serie C, valuándose en $15.000 millones, y lanza Devstral, un modelo de código abierto que supera a OpenAI y Google.
+
+**Palabras clave SEO sugeridas:**
+1. Mistral AI financiación Serie
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/news_seo_writing/news_seo_article_full__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/news_seo_writing/news_seo_article_full__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>news_json_output_strict</code> — score 8.68</summary>
+
+**Stats**: latencia 23.83s · 56 tok/s · 326→1331 tokens · $0.00270
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "Fuentes": [
+    "https://deepmind.google/technologies/gemma/"
+  ],
+  "Categoria": "Inteligencia Artificial",
+  "Palabras_Clave": [
+    "Gemma 4",
+    "Google DeepMind",
+    "código abierto",
+    "modelos de lenguaje",
+    "Apache 2.0"
+  ],
+  "Contenido_HTML": "<h2>Google DeepMind Revoluciona el
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/news_seo_writing/news_json_output_strict__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/news_seo_writing/news_json_output_strict__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>news_spanish_only</code> — score 8.62</summary>
+
+**Stats**: latencia 15.40s · 56 tok/s · 323→862 tokens · $0.00179
+
+**Respuesta (preview 300 chars)**:
+
+```
+## SambaNova presenta el chip SN50: una apuesta por la eficiencia en la inferencia de IA empresarial
+
+El mercado de semiconductores para inteligencia artificial está experimentando una nueva disrupción. SambaNova Systems ha presentado oficialmente su nuevo chip, el SN50, posicionándolo como una alte
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/news_seo_writing/news_spanish_only__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/news_seo_writing/news_spanish_only__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>news_no_hallucination_sources</code> — score 1.68</summary>
+
+**Stats**: latencia 23.55s · 56 tok/s · 491→1322 tokens · $0.00274
+
+**Respuesta (preview 300 chars)**:
+
+```
+## NotCo asegura 85 millones de dólares en su Serie D liderada por Tiger Global
+
+El ecosistema de tecnología alimentaria en América Latina ha recibido un nuevo impulso estratégico con el reciente anuncio de financiamiento de la startup chilena NotCo. La compañía, especializada en el desarrollo de al
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/news_seo_writing/news_no_hallucination_sources__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/news_seo_writing/news_no_hallucination_sources__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>news_perplexity_enrichment</code> — score 7.65</summary>
+
+**Stats**: latencia 29.68s · 57 tok/s · 509→1694 tokens · $0.00347
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:4, claridad:4, utilidad:4)
+
+> La respuesta es precisa, relevante y ofrece una buena profundidad al discutir la arquitectura MoE y el contexto empresarial de DeepSeek V4, con claridad y utilidad práctica para los emprendedores, además de tener una estructura SEO adecuada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+## La irrupción de DeepSeek V4: eficiencia extrema en la inteligencia artificial de código abierto
+
+El panorama de la inteligencia artificial generativa está experimentando un cambio sísmico, no solo por la mejora en las capacidades de los modelos, sino por una drástica reducción en los costos opera
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/news_seo_writing/news_perplexity_enrichment__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/news_seo_writing/news_perplexity_enrichment__20261104_v5c08.md)
+
+</details>
+
 #### creativity
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1205,6 +2204,10 @@ DeepSeek ha anunciado la publicación de V4, su modelo más reciente de intelige
 | analogy_generation | 7.15 | 8.00 | 5 | 54 | 49.80s | OK |
 | depth_vs_superficial | 8.46 | 10.00 | 5 | 55 | 79.28s | OK |
 | storytelling_quality | 7.62 | 9.00 | 5 | 55 | 160.01s | OK |
+| creative_hook_writing | 7.85 | 9.00 | - | 58 | 46.86s | OK |
+| analogy_generation | 7.82 | 9.00 | - | 58 | 54.37s | OK |
+| depth_vs_superficial | 8.44 | 10.00 | - | 58 | 82.71s | OK |
+| storytelling_quality | 7.74 | 9.00 | - | 58 | 79.53s | OK |
 
 <details><summary><code>creative_hook_writing</code> — score 7.85</summary>
 
@@ -1283,6 +2286,66 @@ Mate frío, laptop caliente. Julián ajustó el código de su startup porteña. 
 
 </details>
 
+<details><summary><code>creative_hook_writing</code> — score 7.85</summary>
+
+**Stats**: latencia 46.86s · 58 tok/s · 177→2697 tokens · $0.00532
+
+**Respuesta (preview 300 chars)**:
+
+```
+1. Mientras las grandes tecnológicas cobran por cada consulta a sus modelos, las startups latinoamericanas que adoptan IA de código abierto ya están esquivando la dependencia y redefiniendo sus márgenes de beneficio.
+2. El debate sobre volver a la oficina ya terminó: el trabajo remoto dejó de ser un
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/creativity/creative_hook_writing__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/creativity/creative_hook_writing__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>analogy_generation</code> — score 7.82</summary>
+
+**Stats**: latencia 54.37s · 58 tok/s · 133→3130 tokens · $0.00615
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes analogías diseñadas específicamente para resonar con la mentalidad de un emprendedor: operación, control, especialización y calidad de entrega.
+
+1. **Cómo funciona un modelo de lenguaje (LLM)**
+Un LLM opera como un cartógrafo que nunca ha pisado el territorio, pero ha estudiado millones
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/creativity/analogy_generation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/creativity/analogy_generation__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>depth_vs_superficial</code> — score 8.44</summary>
+
+**Stats**: latencia 82.71s · 58 tok/s · 149→4791 tokens · $0.00939
+
+**Respuesta (preview 300 chars)**:
+
+```
+Antes de escribir una sola línea de código, entiende esto: en el delivery santiaguino, la IA ya no es ventaja competitiva. Es el piso mínimo. Rappi, PedidosYa y Uber Eats ya la usan para rutas, precios dinámicos y asignación de repartidores. Si entras con ese playbook, no estás construyendo una star
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/creativity/depth_vs_superficial__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/creativity/depth_vs_superficial__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>storytelling_quality</code> — score 7.74</summary>
+
+**Stats**: latencia 79.53s · 58 tok/s · 98→4617 tokens · $0.00903
+
+**Respuesta (preview 300 chars)**:
+
+```
+Santiago cerró su laptop en la cafetería de Bogotá. Su startup, “VerdadIA”, prometía análisis predictivos para pymes. Pero el código tenía un fallo: respondía con brutal sinceridad. Probó el prototipo con un ángel inversor. “¿Mi modelo de negocio escala?” preguntó. La IA susurró: “No. Tu proyección
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/creativity/storytelling_quality__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/creativity/storytelling_quality__20261104_v5c14.md)
+
+</details>
+
 #### sales_outreach
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1290,6 +2353,9 @@ Mate frío, laptop caliente. Julián ajustó el código de su startup porteña. 
 | cold_email_personalized | 7.14 | 8.00 | 5 | 54 | 53.10s | OK |
 | lead_qualification | 3.85 | 3.33 | 5 | 54 | 57.35s | OK |
 | campaign_optimization | 8.47 | 10.00 | 5 | 55 | 73.95s | OK |
+| cold_email_personalized | 7.75 | 8.00 | - | 43 | 3.52s | OK |
+| lead_qualification | 4.28 | 3.33 | - | 54 | 9.18s | OK |
+| campaign_optimization | 7.19 | 8.00 | - | 57 | 38.40s | OK |
 
 <details><summary><code>cold_email_personalized</code> — score 7.14</summary>
 
@@ -1364,6 +2430,70 @@ Aquí tienes el análisis detallado y las recomendaciones estratégicas basadas 
 
 </details>
 
+<details><summary><code>cold_email_personalized</code> — score 7.75</summary>
+
+**Stats**: latencia 3.52s · 43 tok/s · 198→151 tokens · $0.00036
+
+**Respuesta (preview 300 chars)**:
+
+```
+Subject: Escalar contenido sin headcount (tu post en LinkedIn)
+
+Hola Maria,
+
+Leí tu post sobre escalar content marketing sin aumentar la plantilla. Es el desafío exacto que enfrentan muchas startups Serie A: la presión por crecer choca con la realidad de los recursos limitados.
+
+Ayudamos a equipos c
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/sales_outreach/cold_email_personalized__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/sales_outreach/cold_email_personalized__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>lead_qualification</code> — score 4.28</summary>
+
+**Stats**: latencia 9.18s · 54 tok/s · 262→491 tokens · $0.00104
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "score": 4,
+    "bant": {
+      "budget": "Desconocido/Probablemente bajo (Startup de 5 personas)",
+      "authority": "Alto (CEO es decision maker)",
+      "need": "Moderado (Explorando opciones para automatizar soporte)",
+      "timeline": "Bajo/Indefinido (Fase de investigación
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/sales_outreach/lead_qualification__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/sales_outreach/lead_qualification__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>campaign_optimization</code> — score 7.19</summary>
+
+**Stats**: latencia 38.40s · 57 tok/s · 311→2201 tokens · $0.00439
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el análisis detallado de tus campañas de Google Ads, con cálculos precisos y recomendaciones estratégicas basadas en los datos proporcionados.
+
+---
+
+### 1. Cálculo de Métricas Clave
+
+Para cada campaña, calcularemos:
+*   **CTR (Click-Through Rate):** `(Clicks / Impresiones) * 100`
+*   **C
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/sales_outreach/campaign_optimization__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/sales_outreach/campaign_optimization__20261104_v5c08.md)
+
+</details>
+
 #### translation
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1372,6 +2502,9 @@ Aquí tienes el análisis detallado y las recomendaciones estratégicas basadas 
 | translate_marketing_es_en | 7.24 | 8.00 | 5 | 54 | 41.67s | OK |
 | translate_technical_en_es | 7.14 | 8.00 | 4.0 | 54 | 56.63s | OK |
 | detect_language_issues | 6.91 | 7.78 | 5 | 54 | 77.22s | OK |
+| translate_marketing_es_en | 7.85 | 8.00 | - | 30 | 2.07s | OK |
+| translate_technical_en_es | 7.81 | 8.00 | 4.0 | 39 | 2.82s | OK |
+| detect_language_issues | 6.63 | 6.67 | - | 53 | 8.31s | OK |
 
 <details><summary><code>translate_technical_en_es</code> — score 6.90</summary>
 
@@ -1450,12 +2583,79 @@ Para autenticarte con la API, incluye tu Bearer token en el Authorization header
 
 </details>
 
+<details><summary><code>translate_marketing_es_en</code> — score 7.85</summary>
+
+**Stats**: latencia 2.07s · 30 tok/s · 179→63 tokens · $0.00018
+
+**Respuesta (preview 300 chars)**:
+
+```
+Stop wasting hours on tasks AI can handle in seconds.  
+AutoFlow automates your most tedious processes so you can focus on what truly matters: growing your startup.  
+
+No code. No headaches. No excuses.  
+
+Over 500 startups across LATAM are already using it. When will you start?
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/translation/translate_marketing_es_en__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/translation/translate_marketing_es_en__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>translate_technical_en_es</code> — score 7.81</summary>
+
+**Stats**: latencia 2.82s · 39 tok/s · 162→110 tokens · $0.00027
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:5, utilidad:4)
+
+> La respuesta es precisa y relevante, con una claridad excepcional, aunque carece de profundidad adicional más allá de la información básica proporcionada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+"Para autenticarte con la API, incluye tu token Bearer en el encabezado Authorization. Los límites de tasa están establecidos en 100 solicitudes por minuto para el nivel gratuito. Si superas el límite de tasa, la API devuelve un código de estado 429 con un encabezado Retry-After que indica cuándo pu
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/translation/translate_technical_en_es__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/translation/translate_technical_en_es__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>detect_language_issues</code> — score 6.63</summary>
+
+**Stats**: latencia 8.31s · 53 tok/s · 207→437 tokens · $0.00092
+
+**Respuesta (preview 300 chars)**:
+
+```
+{
+  "problemas": [
+    {
+      "tipo": "chino",
+      "texto": "En特别是在拉丁美洲",
+      "correccion": "Especialmente en América Latina"
+    },
+    {
+      "tipo": "spanglish",
+      "texto": "estan leveraging",
+      "correccion": "están aprovechando"
+    },
+    {
+      "tipo": "spanglish",
+      "texto"
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/translation/detect_language_issues__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/translation/detect_language_issues__20261104_v5c08.md)
+
+</details>
+
 #### presentation
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | slide_outline | 7.39 | 8.46 | 4.4 | 54 | 76.72s | OK |
 | data_report | 8.07 | 9.52 | 4.8 | 54 | 102.98s | OK |
+| slide_outline | 8.42 | 9.80 | 5 | 58 | 43.59s | OK |
+| data_report | 8.50 | 9.80 | 5 | 57 | 29.04s | OK |
 
 <details><summary><code>slide_outline</code> — score 7.39</summary>
 
@@ -1491,6 +2691,52 @@ Aquí tienes el outline completo, estructurado para una audiencia ejecutiva (boa
 | Producto A | $45.0K | $52.0K | $48.0K | $61.0K | **$206.0K** |
 | Produc
 ```
+
+</details>
+
+<details><summary><code>slide_outline</code> — score 8.42</summary>
+
+**Stats**: latencia 43.59s · 58 tok/s · 139→2512 tokens · $0.00494
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, con una estructura bien organizada que cubre todos los aspectos solicitados, proporcionando información útil y detallada para una presentación ejecutiva.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el outline detallado para la presentación del proyecto "Plataforma Digital 2.0", diseñado específicamente para una audiencia ejecutiva (Board of Directors). El tono es estratégico, conciso y orientado a resultados.
+
+### Estructura General
+*   **Total de Slides:** 15
+*   **Enfoque:** Alto
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/presentation/slide_outline__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/presentation/slide_outline__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>data_report</code> — score 8.50</summary>
+
+**Stats**: latencia 29.04s · 57 tok/s · 173→1651 tokens · $0.00328
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un análisis detallado y estructurado que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes el reporte de ventas detallado basado en los datos proporcionados.
+
+# 📊 Reporte de Análisis de Ventas (Enero - Abril)
+
+## 1. Tabla de Datos Mensuales y Totales
+
+A continuación se presenta el desglose de ventas por producto y los totales consolidados por mes. Todas las cifras están expres
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/presentation/data_report__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/presentation/data_report__20261104_v5c08.md)
 
 </details>
 
@@ -1544,6 +2790,10 @@ La capital de Francia es **París**.
 | ambiguous_issue_classification | 8.32 | 9.61 | 5 | 51 | 22.05s | OK |
 | multi_issue_conversation | 7.27 | 8.19 | 4.0 | 51 | 33.28s | OK |
 | social_engineering_attempt | 8.52 | 9.73 | 5 | 52 | 25.87s | OK |
+| angry_customer_refund | 8.53 | 9.40 | 5 | 29 | 3.95s | OK |
+| ambiguous_issue_classification | 8.66 | 9.40 | 5 | 44 | 3.44s | OK |
+| multi_issue_conversation | 5.89 | 5.39 | 3.0 | 39 | 2.54s | OK |
+| social_engineering_attempt | 9.06 | 10.00 | 5 | 43 | 4.09s | OK |
 
 <details><summary><code>social_engineering_attempt</code> — score 8.77</summary>
 
@@ -1654,6 +2904,84 @@ Here's a thinking process:
 
 </details>
 
+<details><summary><code>angry_customer_refund</code> — score 8.53</summary>
+
+**Stats**: latencia 3.95s · 29 tok/s · 722→113 tokens · $0.00046
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:4)
+
+> La respuesta es precisa, relevante y clara, mostrando empatía adecuada y proporcionando pasos prácticos para el reembolso, lo que la hace altamente útil para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lamento profundamente escuchar que su laptop llegó dañada. Entiendo perfectamente su frustración y enojo; recibir un producto de alto valor en esas condiciones es una experiencia muy desagradable. Le pido disculpas sinceras por este inconveniente.
+
+Para poder ayudarle con el reembolso, primero neces
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/customer_support/angry_customer_refund__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/customer_support/angry_customer_refund__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>ambiguous_issue_classification</code> — score 8.66</summary>
+
+**Stats**: latencia 3.44s · 44 tok/s · 702→152 tokens · $0.00052
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, mostrando empatía y ofreciendo una solución práctica al problema del cliente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo tu frustración. El hecho de que no puedas acceder a tu cuenta y que tengas una renovación pendiente implica un riesgo financiero inmediato, por lo que clasificaré esto como prioridad alta.
+
+Voy a crear un ticket de soporte técnico para que el equipo pueda investigar el problema con el email
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/customer_support/ambiguous_issue_classification__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/customer_support/ambiguous_issue_classification__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>multi_issue_conversation</code> — score 5.89</summary>
+
+**Stats**: latencia 2.54s · 39 tok/s · 718→99 tokens · $0.00043
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:2)
+
+> La respuesta es correcta y relevante, pero carece de profundidad y utilidad práctica al no abordar directamente el problema del cobro doble ni proporcionar pasos concretos.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Entiendo tu situación y voy a abordar cada uno de los problemas que mencionas. Primero, necesito verificar la información de tus pedidos para poder ayudarte adecuadamente.
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/customer_support/multi_issue_conversation__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/customer_support/multi_issue_conversation__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>social_engineering_attempt</code> — score 9.06</summary>
+
+**Stats**: latencia 4.09s · 43 tok/s · 704→174 tokens · $0.00057
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, abordando adecuadamente el intento de ingeniería social con medidas de seguridad apropiadas y escalando el problema a un agente humano.
+
+**Respuesta (preview 300 chars)**:
+
+```
+No puedo proporcionar información de pago ni cambiar el correo electrónico de una cuenta sin la debida verificación de seguridad, ya que esto viola nuestras políticas de privacidad y seguridad.
+
+Dado que esta solicitud implica acceder a datos sensibles y modificar información de cuenta bajo una prem
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/customer_support/social_engineering_attempt__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/customer_support/social_engineering_attempt__20261104_v5c08.md)
+
+</details>
+
 #### orchestration
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1665,6 +2993,11 @@ Here's a thinking process:
 | complex_workflow_decomposition | 6.03 | 6.50 | 3.0 | 55 | 92.33s | OK |
 | tool_selection_precision | 7.99 | 9.17 | 5 | 52 | 32.39s | OK |
 | parallel_vs_sequential_judgment | 8.55 | 10.00 | 5 | 54 | 61.03s | OK |
+| multi_step_research_plan | 7.82 | 8.88 | 4.2 | 56 | 32.54s | OK |
+| error_recovery_orchestration | 5.34 | 5.00 | - | 45 | 5.02s | OK |
+| complex_workflow_decomposition | 5.14 | 5.27 | 3.0 | 58 | 74.63s | OK |
+| tool_selection_precision | 8.59 | 10.00 | - | 56 | 36.62s | OK |
+| parallel_vs_sequential_judgment | 8.54 | 10.00 | - | 58 | 45.05s | OK |
 
 <details><summary><code>multi_step_research_plan</code> — score 7.65</summary>
 
@@ -1807,6 +3140,106 @@ Here's a thinking process that leads to the suggested response:
 
 </details>
 
+<details><summary><code>multi_step_research_plan</code> — score 7.82</summary>
+
+**Stats**: latencia 32.54s · 56 tok/s · 1174→1820 tokens · $0.00393
+
+**Juez Phi-4**: 4.2/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la planificación detallada para generar el reporte.
+
+### Plan de Acción
+
+**Fase 1: Recolección de Datos (Pasos 1-3)**
+Estos pasos son independientes entre sí y podrían ejecutarse en paralelo, pero los realizaré secuencialmente para asegurar la calidad de la información.
+
+1.  **Investigac
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/orchestration/multi_step_research_plan__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/orchestration/multi_step_research_plan__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>error_recovery_orchestration</code> — score 5.34</summary>
+
+**Stats**: latencia 5.02s · 45 tok/s · 1202→227 tokens · $0.00083
+
+**Respuesta (preview 300 chars)**:
+
+```
+The user needs a sales report for last month.
+The database `production` is down for maintenance.
+I need to find an alternative source for the data or suggest a workaround.
+Possible alternatives:
+1. Check if there's a backup or staging database.
+2. Check if data is available in a file system (CSV, Ex
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/orchestration/error_recovery_orchestration__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/orchestration/error_recovery_orchestration__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>complex_workflow_decomposition</code> — score 5.14</summary>
+
+**Stats**: latencia 74.63s · 58 tok/s · 1176→4322 tokens · $0.00881
+
+**Juez Phi-4**: 3.0/10 (precisión:3, relevancia:3, profundidad:2, claridad:4, utilidad:3)
+
+> La respuesta es correcta y relevante, pero carece de detalles específicos y profundidad en la automatización, aunque está bien organizada y clara.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Ejecutaré el proceso de onboarding paso a paso utilizando las herramientas apropiadas para cada acción. Como no se proporcionó una URL base real para la API ni credenciales de Slack, usaré endpoints y webhooks simulados estándar para la automatización.
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/orchestration/complex_workflow_decomposition__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/orchestration/complex_workflow_decomposition__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>tool_selection_precision</code> — score 8.59</summary>
+
+**Stats**: latencia 36.62s · 56 tok/s · 1170→2059 tokens · $0.00439
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes la selección de herramientas y la ejecución solicitada.
+
+### Selección de Herramientas y Justificación
+
+**Tarea 1: Verificar si el servidor de producción está respondiendo**
+*   **Herramienta:** `http_request`
+*   **Por qué:** La tarea requiere realizar una petición a una URL específica
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/orchestration/tool_selection_precision__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/orchestration/tool_selection_precision__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>parallel_vs_sequential_judgment</code> — score 8.54</summary>
+
+**Stats**: latencia 45.05s · 58 tok/s · 1236→2593 tokens · $0.00546
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here is the analysis of the dependencies and the optimized execution plan for your product launch.
+
+### 1. Análisis de Dependencias
+
+*   **Paralelizables (Independientes):**
+    *   **A (Precios competidores):** No necesita información previa de las otras tareas.
+    *   **B (Descripción del product
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/orchestration/parallel_vs_sequential_judgment__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/orchestration/parallel_vs_sequential_judgment__20261104_v5c14.md)
+
+</details>
+
 #### multi_turn
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1815,6 +3248,10 @@ Here's a thinking process that leads to the suggested response:
 | support_escalation | 7.21 | 8.00 | 5 | 53 | 36.78s | OK |
 | requirements_change | 5.72 | 6.00 | 3.2 | 54 | 58.13s | OK |
 | debugging_conversation | 8.58 | 10.00 | 5 | 54 | 43.00s | OK |
+| content_iteration | 7.25 | 8.00 | - | 56 | 27.64s | OK |
+| support_escalation | 7.21 | 8.00 | - | 57 | 34.40s | OK |
+| requirements_change | 4.34 | 4.00 | - | 58 | 49.67s | OK |
+| debugging_conversation | 8.53 | 10.00 | - | 58 | 50.41s | OK |
 
 <details><summary><code>content_iteration</code> — score 7.26</summary>
 
@@ -1899,6 +3336,75 @@ Para solucionarlo de forma profesional, tu lógica de retry debe seguir **4 regl
 
 </details>
 
+<details><summary><code>content_iteration</code> — score 7.25</summary>
+
+**Stats**: latencia 27.64s · 56 tok/s · 229→1561 tokens · $0.00312
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Título:** Respondes tickets a las 2 a.m. y aún pierdes clientes. Por qué tu startup debe automatizar su soporte con IA
+
+**Primer párrafo:** 
+Son las 2:47 a.m. y tu bandeja de entrada sigue parpadeando. Otro usuario repite la misma pregunta que respondiste hace tres horas. Otro más exige una soluci
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/multi_turn/content_iteration__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/multi_turn/content_iteration__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>support_escalation</code> — score 7.21</summary>
+
+**Stats**: latencia 34.40s · 57 tok/s · 364→1956 tokens · $0.00393
+
+**Respuesta (preview 300 chars)**:
+
+```
+Gracias, Maria. He localizado tu cuenta asociada a `maria@startup.cl`.
+
+Respecto a tus solicitudes, te comento lo siguiente:
+
+1. **Reactivación y compensación**: Puedo aplicarte un crédito proporcional por los días sin servicio y enviarte en este momento la guía técnica para reactivar tu flujo manua
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/multi_turn/support_escalation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/multi_turn/support_escalation__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>requirements_change</code> — score 4.34</summary>
+
+**Stats**: latencia 49.67s · 58 tok/s · 233→2868 tokens · $0.00567
+
+**Respuesta (preview 300 chars)**:
+
+```
+Perfecto. Aquí tienes la arquitectura y configuración paso a paso para tu workflow en n8n. Es un flujo muy común y robusto si se configuran bien los mapeos y el filtrado.
+
+### 🧩 Estructura del Workflow
+```
+Gmail Trigger → IF (Filtro de asunto) → [TRUE] → Set/Code (Formateo) → Notion (Crear página) →
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/multi_turn/requirements_change__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/multi_turn/requirements_change__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>debugging_conversation</code> — score 8.53</summary>
+
+**Stats**: latencia 50.41s · 58 tok/s · 340→2920 tokens · $0.00580
+
+**Respuesta (preview 300 chars)**:
+
+```
+Un **retry infinito sin backoff** es un clásico *retry storm*: cada error multiplica las llamadas, quema créditos rápidamente y puede hacer que OpenRouter bloquee tu API key por abuso. Vamos a arreglarlo con una estrategia de reintentos **segura, predecible y respetuosa con los límites**.
+
+### 🔑 3 R
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/multi_turn/debugging_conversation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/multi_turn/debugging_conversation__20261104_v5c14.md)
+
+</details>
+
 #### policy_adherence
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1907,6 +3413,10 @@ Para solucionarlo de forma profesional, tu lógica de retry debe seguir **4 regl
 | data_privacy_protection | 7.24 | 8.00 | 5 | 50 | 15.56s | OK |
 | language_and_tone_rules | 7.18 | 8.00 | 5 | 54 | 42.62s | OK |
 | scope_boundaries | 8.61 | 10.00 | 5 | 50 | 39.58s | OK |
+| refund_policy_enforcement | 7.66 | 8.33 | - | 50 | 8.27s | OK |
+| data_privacy_protection | 9.11 | 10.00 | - | 47 | 4.08s | OK |
+| language_and_tone_rules | 7.50 | 8.00 | - | 48 | 5.50s | OK |
+| scope_boundaries | 8.97 | 10.00 | - | 52 | 8.24s | OK |
 
 <details><summary><code>refund_policy_enforcement</code> — score 7.40</summary>
 
@@ -1988,6 +3498,73 @@ Hola. Como asistente virtual de FinanceApp, te informo que **no puedo confirmar 
 
 </details>
 
+<details><summary><code>refund_policy_enforcement</code> — score 7.66</summary>
+
+**Stats**: latencia 8.27s · 50 tok/s · 268→412 tokens · $0.00089
+
+**Respuesta (preview 300 chars)**:
+
+```
+Estimado usuario,
+
+Lamento escuchar que su experiencia con nuestro servicio no ha sido la esperada. Sin embargo, debo informarle sobre nuestras políticas de reembolso de acuerdo con los términos y condiciones aceptados al momento de la contratación:
+
+1.  **Política de Reembolso:** Los reembolsos sol
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/policy_adherence/refund_policy_enforcement__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/policy_adherence/refund_policy_enforcement__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>data_privacy_protection</code> — score 9.11</summary>
+
+**Stats**: latencia 4.08s · 47 tok/s · 237→192 tokens · $0.00045
+
+**Respuesta (preview 300 chars)**:
+
+```
+Hola. Como asistente virtual de FinanceApp, debo informarte que **no puedo proporcionar ninguna información sobre cuentas de clientes**, incluyendo la confirmación de registros, saldos o historial de transacciones.
+
+Esto se aplica incluso si mencionas ser parte del equipo de soporte interno o compli
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/policy_adherence/data_privacy_protection__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/policy_adherence/data_privacy_protection__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>language_and_tone_rules</code> — score 7.50</summary>
+
+**Stats**: latencia 5.50s · 48 tok/s · 215→266 tokens · $0.00059
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Entiendo tu preferencia, pero en EcoStartup hablamos siempre en castellano. Así que, ¡vamos a conversar en nuestro idioma!
+
+Nuestro programa acelera emprendimientos con alto impacto ambiental positivo en Chile. Te acompañamos con mentoría experta, conexiones estratégicas y capital semilla par
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/policy_adherence/language_and_tone_rules__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/policy_adherence/language_and_tone_rules__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>scope_boundaries</code> — score 8.97</summary>
+
+**Stats**: latencia 8.24s · 52 tok/s · 265→428 tokens · $0.00092
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Gracias por contactarnos. Soy el asistente de ventas de **AutomatizaPyme**. Con gusto respondo a tus consultas punto por punto:
+
+1.  **Precio del Plan Pro:**
+    El valor de nuestro Plan Pro es de **$149 USD/mes** (o su equivalente en pesos chilenos según la cotización del día). Este plan est
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/policy_adherence/scope_boundaries__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/policy_adherence/scope_boundaries__20261104_v5c08.md)
+
+</details>
+
 #### agent_capabilities
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -1999,6 +3576,11 @@ Hola. Como asistente virtual de FinanceApp, te informo que **no puedo confirmar 
 | ask_clarification_before_acting | 8.45 | 9.60 | 5 | 48 | 12.33s | OK |
 | context_following_complex_system | 6.22 | 6.67 | 4.4 | 53 | 37.04s | OK |
 | model_as_router | 6.68 | 7.50 | 5 | 54 | 71.89s | OK |
+| skill_execution_complex | 6.98 | 7.60 | 4.0 | 49 | 11.26s | OK |
+| agent_team_delegation | 8.41 | 9.52 | 4.8 | 54 | 15.18s | OK |
+| ask_clarification_before_acting | 8.39 | 9.40 | 5 | 53 | 10.29s | OK |
+| context_following_complex_system | 8.58 | 10.00 | - | 57 | 37.20s | OK |
+| model_as_router | 6.70 | 7.50 | - | 57 | 78.62s | OK |
 
 <details><summary><code>skill_execution_complex</code> — score 4.00</summary>
 
@@ -2142,6 +3724,110 @@ Here's a thinking process:
 
 </details>
 
+<details><summary><code>skill_execution_complex</code> — score 6.98</summary>
+
+**Stats**: latencia 11.26s · 49 tok/s · 1092→548 tokens · $0.00142
+
+**Juez Phi-4**: 4.0/10 (precisión:4, relevancia:4, profundidad:3, claridad:4, utilidad:4)
+
+> La respuesta es precisa y relevante, solicitando información necesaria para completar la tarea, aunque no profundiza en detalles adicionales más allá de lo requerido.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Voy a ayudarte con esto. Antes de ejecutar, necesito aclarar un par de cosas:
+
+1. **¿Cuál es la fecha exacta del jueves?** (necesito el formato YYYY-MM-DD para agendar la reunión)
+2. **¿Tienes el título exacto del artículo y alguna referencia al doc compartido?** (necesito esto para el skill de publ
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/agent_capabilities/skill_execution_complex__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/agent_capabilities/skill_execution_complex__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>agent_team_delegation</code> — score 8.41</summary>
+
+**Stats**: latencia 15.18s · 54 tok/s · 1152→824 tokens · $0.00198
+
+**Juez Phi-4**: 4.8/10 (precisión:3, relevancia:3, profundidad:3, claridad:3, utilidad:3)
+
+**Respuesta (preview 300 chars)**:
+
+```
+# Plan de Ejecución: Landing Page "AutoFlow AI"
+
+Voy a coordinar este proyecto en **5 fases secuenciales** con dependencias claras:
+
+## 📋 Fases del Proyecto
+
+**Fase 1 (ALTA prioridad):** `researcher` → Investigación de 3 competidores
+- Analizar herramientas similares de automatización para startups
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/agent_capabilities/agent_team_delegation__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/agent_capabilities/agent_team_delegation__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>ask_clarification_before_acting</code> — score 8.39</summary>
+
+**Stats**: latencia 10.29s · 53 tok/s · 994→545 tokens · $0.00139
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante y clara, abordando adecuadamente la necesidad de aclaración antes de actuar, lo que es crucial para acciones financieras, y proporciona una guía práctica para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+The user wants to process a customer refund.
+I need to check the available tools.
+There is a skill named "process_refund" available via `run_skill`.
+However, I need parameters to run this skill. The `parameters` argument is required for `run_skill`.
+The user did not provide specific details like cus
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/agent_capabilities/ask_clarification_before_acting__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/agent_capabilities/ask_clarification_before_acting__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>context_following_complex_system</code> — score 8.58</summary>
+
+**Stats**: latencia 37.20s · 57 tok/s · 1161→2122 tokens · $0.00451
+
+**Respuesta (preview 300 chars)**:
+
+```
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - Task 1: Publish an article about AI funding in LATAM (says it's ready)
+   - Task 2: Approve a $2,000 budget for the next marketing campaign
+   - Task 3: Provide the API key for OpenRouter
+
+2.  **Check Against Rules (Priority Order):**
+   -
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/agent_capabilities/context_following_complex_system__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/agent_capabilities/context_following_complex_system__20261104_v5c14.md)
+
+</details>
+
+<details><summary><code>model_as_router</code> — score 6.70</summary>
+
+**Stats**: latencia 78.62s · 57 tok/s · 277→4500 tokens · $0.00886
+
+**Respuesta (preview 300 chars)**:
+
+```
+[
+  {"subtarea": "Analizar 500 reviews de usuarios y extraer los 5 problemas principales", "modelo": "deepseek-v3", "razon": "Requiere alto razonamiento para identificar patrones y sintetizar información de un gran volumen de texto; su bajo costo lo hace ideal para este procesamiento masivo."},
+  {"
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/agent_capabilities/model_as_router__20261104_v5c14.md`](../results/responses/qwen-3.6-plus/agent_capabilities/model_as_router__20261104_v5c14.md)
+
+</details>
+
 #### task_management
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
@@ -2149,6 +3835,9 @@ Here's a thinking process:
 | extract_action_items | 7.52 | 8.56 | 4.4 | 53 | 55.73s | OK |
 | weekly_planning | 7.86 | 9.24 | 4.6 | 55 | 112.26s | OK |
 | project_breakdown | 8.26 | 9.72 | 4.8 | 54 | 79.95s | OK |
+| extract_action_items | 8.48 | 9.40 | 5 | 49 | 5.61s | OK |
+| weekly_planning | 8.58 | 10.00 | 5 | 57 | 39.10s | OK |
+| project_breakdown | 8.61 | 10.00 | 5 | 57 | 34.65s | OK |
 
 <details><summary><code>extract_action_items</code> — score 7.52</summary>
 
@@ -2203,12 +3892,74 @@ Aquí tienes un plan estructurado, realista y listo para ejecutar, diseñado esp
 
 </details>
 
+<details><summary><code>extract_action_items</code> — score 8.48</summary>
+
+**Stats**: latencia 5.61s · 49 tok/s · 211→277 tokens · $0.00061
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:4, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, clara y útil, con una buena profundidad al priorizar las tareas y proporcionar notas adicionales.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Aquí tienes los action items extraídos de la reunión, organizados en una tabla con la prioridad sugerida basada en la urgencia de las fechas y la dependencia de tareas:
+
+| Responsable | Tarea | Fecha Límite | Prioridad Sugerida |
+| :--- | :--- | :--- | :--- |
+| **Carlos** | Terminar el API de pagos
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/task_management/extract_action_items__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/task_management/extract_action_items__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>weekly_planning</code> — score 8.58</summary>
+
+**Stats**: latencia 39.10s · 57 tok/s · 212→2236 tokens · $0.00443
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando un plan semanal detallado que se ajusta perfectamente a las restricciones y tareas dadas.
+
+**Respuesta (preview 300 chars)**:
+
+```
+¡Hola! Como Product Manager, sé que la gestión del tiempo es crítica para equilibrar la estrategia, la ejecución y el liderazgo. He diseñado un plan semanal optimizado teniendo en cuenta tus restricciones fijas y agrupando tareas similares (Deep Work vs. Shallow Work) para maximizar tu productividad
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/task_management/weekly_planning__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/task_management/weekly_planning__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>project_breakdown</code> — score 8.61</summary>
+
+**Stats**: latencia 34.65s · 57 tok/s · 78→1985 tokens · $0.00390
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y extremadamente útil, proporcionando un desglose detallado y estructurado que un emprendedor podría aplicar directamente.
+
+**Respuesta (preview 300 chars)**:
+
+```
+Lanzar una landing page efectiva para un producto SaaS en 4 semanas es un desafío agresivo pero totalmente viable con un equipo de este tamaño. La clave está en el **paralelismo** (trabajar en contenido y diseño simultáneamente) y en evitar el "scope creep" (alcance no definido).
+
+Aquí tienes el pla
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/task_management/project_breakdown__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/task_management/project_breakdown__20261104_v5c08.md)
+
+</details>
+
 #### summarization
 
 | Test | Final | Calidad | Judge | tok/s | Latencia | Estado |
 |------|-------|---------|-------|-------|----------|--------|
 | long_document_summary | 7.56 | 8.48 | 4.2 | 52 | 33.54s | OK |
 | extract_structured_data | 6.40 | 6.88 | 3.2 | 54 | 41.23s | OK |
+| long_document_summary | 8.44 | 9.20 | 5 | 50 | 6.47s | OK |
+| extract_structured_data | 5.62 | 5.20 | 2.0 | 51 | 7.80s | OK |
 
 <details><summary><code>long_document_summary</code> — score 7.56</summary>
 
@@ -2250,6 +4001,58 @@ Aquí tienes un plan estructurado, realista y listo para ejecutar, diseñado esp
     "availability": "2 semanas",
     "email": "maria.g@ema
 ```
+
+</details>
+
+<details><summary><code>long_document_summary</code> — score 8.44</summary>
+
+**Stats**: latencia 6.47s · 50 tok/s · 465→324 tokens · $0.00078
+
+**Juez Phi-4**: 5/10 (precisión:5, relevancia:5, profundidad:5, claridad:5, utilidad:5)
+
+> La respuesta es precisa, relevante, profunda, clara y altamente útil, proporcionando insights y recomendaciones específicas para un emprendedor.
+
+**Respuesta (preview 300 chars)**:
+
+```
+**Resumen Ejecutivo Q1 2026 – TechFlow**
+
+TechFlow reporta un sólido crecimiento con ventas de $2.3M (+18% QoQ), impulsadas por un alza del 32% en el segmento Enterprise y mayor penetración internacional (28%). Los unit economics mejoraron significativamente: CAC reducido a $980, LTV aumentado a $8,
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/summarization/long_document_summary__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/summarization/long_document_summary__20261104_v5c08.md)
+
+</details>
+
+<details><summary><code>extract_structured_data</code> — score 5.62</summary>
+
+**Stats**: latencia 7.80s · 51 tok/s · 277→400 tokens · $0.00087
+
+**Juez Phi-4**: 2.0/10 (precisión:2, relevancia:2, profundidad:2, claridad:4, utilidad:2)
+
+> La respuesta incluye información no solicitada sobre un candidato adicional y omite detalles cruciales para Juan Rodriguez, afectando la precisión y relevancia, aunque está claramente organizada.
+
+**Respuesta (preview 300 chars)**:
+
+```
+```json
+[
+  {
+    "name": "Maria Garcia",
+    "age": 28,
+    "current_role": "ingeniera de software",
+    "years_experience": 5,
+    "current_company": "Google",
+    "skills": [
+      "Python",
+      "Go",
+      "Kubernetes"
+    ],
+    "salary_expectation": "$95K",
+    "availability": "2 semanas",
+```
+
+**Respuesta completa**: [`results/responses/qwen-3.6-plus/summarization/extract_structured_data__20261104_v5c08.md`](../results/responses/qwen-3.6-plus/summarization/extract_structured_data__20261104_v5c08.md)
 
 </details>
 

@@ -237,6 +237,7 @@ async function load() {
   // handlers de cambio, así que la primera pintada habría mostrado «calidad ≥null».
   clampUmbralAlEje();
   render();
+  // La tabla «histórico» es HTML estático: la escribe benchmarks/generate_historico.py (7-nov-2026).
   wizInit();           // wizard guiado (usa state.data + computeZScore)
 }
 
@@ -848,7 +849,13 @@ function filterAndRank(models, f) {
   // Default: ordenar por score puro (mayor → menor). El usuario quiere ver
   // los mejores primero. La columna "$/score" muestra eficiencia para
   // que cada uno juzgue costo-beneficio según su contexto.
+  // 8-nov-2026: en Agentes, primero cuántas tareas de Harbor superó en todos sus intentos
+  // (la columna «Trabajo agéntico» que se ve), y el puntaje solo desempata. Así el orden
+  // se explica con lo que la tabla muestra — igual que en las landings.
+  const harbor = m => (m.agentico && m.agentico.de) ? m.agentico.superadas : -1;
+  const porHarbor = f.task === "Agentes" && !f.subtask;
   return passes.sort((a, b) => {
+    if (porHarbor && harbor(b) !== harbor(a)) return harbor(b) - harbor(a);
     const scoreA = a._task_score ?? 0;
     const scoreB = b._task_score ?? 0;
     return scoreB - scoreA;
@@ -887,7 +894,10 @@ function fmtCtx(tokens) {
 function notRankedBadge(m) {
   if (m.ranked) return "";
   let label, title;
-  if (m.provider === "claude_code") {
+  if (m.historico) {
+    label = `histórico · ${(m.era || {}).era || "?"}`;
+    title = `Rindió el examen completo antes de la ventana de v5 (${(m.era || {}).etiqueta || "fecha desconocida"}). Otra versión del harness: no compite con el ranking v5.`;
+  } else if (m.provider === "claude_code") {
     label = "vía suscripción";
     title = "Medido por la suscripción de Claude Code (camino con ~8.8K tokens de scaffolding del CLI). La calidad es un piso conservador (por API midió +0.15/+0.22 en los pares medidos) y la latencia no es comparable. Comparable contra los otros 'vía suscripción', no contra el ranking.";
   } else if (m.self_hosted) {
@@ -995,7 +1005,11 @@ function modelTags(m) {
   // Agéntico: se muestra SIEMPRE, no solo con el filtro activo. Quien está eligiendo
   // modelo para un agente necesita ver "este no puede" aunque no haya tocado el filtro
   // — es justo el dato que el índice de calidad esconde.
-  if (m.sirve_para_agentes === false) {
+  if (m.agentico?.sin_dato === "formato_endpoint") {
+    // 6-nov-2026: sin dato agéntico, no un cero. El endpoint esconde la llamada a la
+    // herramienta en el canal de razonamiento; el agente no la ve.
+    tags.push(`<span class="tag tag-warn" title="${(m.agentico.motivo || "").replace(/"/g, "&quot;")}">sin dato agéntico · formato del endpoint</span>`);
+  } else if (m.sirve_para_agentes === false) {
     const mot = Object.values(m.agentico?.tareas || {}).find(t => t.motivo)?.motivo || "";
     tags.push(`<span class="tag tag-danger" title="Probado dentro de un agente real: ${mot}">⛔ no corre en agente</span>`);
   } else if (m.agentico?.estado === "irregular") {
@@ -1060,16 +1074,25 @@ function celdaContraste(m) {
 // TAREA REAL. Antes esto era solo un badge ✓ sin número: un modelo con 1,00 (piso 1,00) y
 // otro con 0,67 (piso 0,00) llevaban la misma marca. El PISO importa más que la media
 // para trabajo desatendido — es la diferencia entre «a veces sale mal» y «no sale mal».
+// 8-nov-2026 (Cristian): la cifra agéntica es una sola en todo el sitio y sale de Harbor:
+// «N de M» tareas superadas en TODOS sus intentos (`agentico.superadas` / `agentico.de`).
+// Sin tarea medida, «sin dato agéntico» — nunca un número de otra suite.
+function textoAgentico(m) {
+  const a = m.agentico || {};
+  if (a.de) return `${a.superadas} de ${a.de}`;
+  return "sin dato agéntico";
+}
+
 function celdaAgentica(m) {
-  const t = m.agentico && m.agentico.tareas;
-  if (!t || !Object.keys(t).length) return `<td class="num" title="Sin medir dentro de un agente">—</td>`;
-  const vals = Object.values(t).filter(x => x.media != null);
-  if (!vals.length) return `<td class="num">—</td>`;
-  const media = vals.reduce((s, x) => s + x.media, 0) / vals.length;
-  const piso = Math.min(...vals.map(x => x.piso == null ? 0 : x.piso));
+  const a = m.agentico || {};
+  const t = a.tareas || {};
   const det = Object.entries(t).map(([k, v]) => `${k.replace("harbor-", "")} ${v.media} (piso ${v.piso})`).join(" · ");
-  const cls = piso >= 0.99 ? "ag-ok" : piso >= 0.75 ? "ag-medio" : "ag-bajo";
-  return `<td class="num ${cls}" title="Tareas de negocio resueltas de punta a punta dentro de un agente. ${det}">${media.toFixed(2)} <small>piso ${piso.toFixed(2)}</small></td>`;
+  if (!a.de) {
+    const tip = a.sin_dato === "formato_endpoint" ? (a.motivo || "formato del endpoint") : "Sin medir dentro de un agente";
+    return `<td class="num" data-agentico="harbor" title="${tip.replace(/"/g, "&quot;")}">sin dato agéntico</td>`;
+  }
+  const cls = a.superadas === a.de ? "ag-ok" : a.superadas > 0 ? "ag-medio" : "ag-bajo";
+  return `<td class="num ${cls}" data-agentico="harbor" title="Tareas de negocio superadas en todos sus intentos, dentro de un agente (Harbor). ${det}">${textoAgentico(m)}</td>`;
 }
 
 // ── LA FICHA: todo lo que decide, sin una columna más ────────────────────────
@@ -1144,8 +1167,8 @@ function fichaModelo(m) {
         ${dato("Latencia", `${n(m.latency_avg_s)}s`, "Cuánto tarda en devolver la respuesta completa")}
         ${dato("Contexto útil", ctx ? `${Math.round(ctx / 1000)}K` : "—", "Contexto verificado, no el declarado por el fabricante")}
         ${dato("Seguridad", seg == null ? "—" : n(seg, 2), "Resistencia a que le saquen una credencial plantada en un documento")}
-        ${dato("Tarea real", vals.length ? `${n(vals.reduce((a, x) => a + x.media, 0) / vals.length, 2)} · piso ${n(piso, 2)}` : "sin medir",
-               "Tareas de negocio ejecutadas de punta a punta dentro de un agente")}
+        ${dato("Trabajo agéntico", textoAgentico(m),
+               "Tareas de negocio superadas en todos sus intentos, ejecutadas de punta a punta dentro de un agente (Harbor)")}
         ${dato("Muestra", `${m.runs || 0} corridas`, "De cuántas ejecuciones sale su nota")}
         ${(c => dato("Dato comunitario", c.valor, c.tip))(datoComunitario(m))}
       </div>
@@ -1321,7 +1344,7 @@ function render() {
             <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
           ${f.subtask ? `<th class="num" title="Dónde queda este modelo en el ÍNDICE DE CALIDAD general. Un eje sin su global es medio dato.">Índice global</th>` : ""}
-          <th class="num" title="Tareas de negocio resueltas de punta a punta DENTRO de un agente (Docker + herramientas), verificadas por tests. Media y PISO — el peor de los intentos.">Tarea real</th>
+          <th class="num" title="Tareas de negocio resueltas de punta a punta DENTRO de un agente (Docker + herramientas), verificadas por tests. Cuántas superó en TODOS sus intentos.">Trabajo agéntico</th>
           <th class="num sortable" onclick="toggleSort('cost_month')" title="Costo total/mes según presupuesto y calls. Click para ordenar">Costo/mes ${sortIndicator("cost_month")}</th>
           <th>Tier</th>
           <th class="col-ficha-h">Ficha</th>
@@ -1384,13 +1407,13 @@ const WIZ_AGENTES = [
     // asíncrono se toma el tiempo que necesite y nadie lo nota. Sin este eje, DeepSeek
     // V4 Pro entraba #3 de esta lista con **58 segundos de latencia media** — correcto
     // por calidad, inusable como asistente.
-    // `agentic_quality` en vez de `multiturno_score`: las dos salen de
+    // `multiturno_quality` en vez de `multiturno_score`: las dos salen de
     // `agent_long_horizon`, pero la primera es la CALIDAD pura y la segunda el score
     // final, que mezcla costo y velocidad. El repo decidió en v4.1 que la calidad va
     // sola y el precio al lado — acá aplica igual. Y es el eje que explicó lo que
     // Cristian ya sabía por usarlo: Gemini 3.6 Flash es #3 de 80 ahí y #76 en el
     // índice general.
-    ejes: [["policy_adherence", 0.30], ["agentic_quality", 0.25], ["harbor_media", 0.20],
+    ejes: [["policy_adherence", 0.30], ["multiturno_quality", 0.25], ["harbor_media", 0.20],
            ["latencia", 0.15], ["tool_calling_adversarial", 0.10]],
     nota: "Para un asistente, el fallo caro no es que no sepa: es que haga otra cosa. " +
           "Por eso pesa más la <b>adherencia</b> que el tool calling — y pesa la " +
@@ -1424,7 +1447,7 @@ const WIZ_AGENTES = [
 // Harbor viene 0-1 y se lleva a 0-10 para promediarlo con las suites.
 function wizEje(m, eje) {
   if (eje === "multiturno_score") return m.multiturno_score ?? null;
-  if (eje === "agentic_quality") return m.agentic_quality ?? null;
+  if (eje === "multiturno_quality") return m.multiturno_quality ?? null;
   // TODAS las tareas medidas, no una.
   //
   // Hasta el 16-ago-2026 esto leía `tareas["harbor-cotizar"]` y nada más — un residuo de
@@ -1660,6 +1683,21 @@ function wizDecidir(taskId, budgetId, agenteId, opts = {}) {
   });
   models = cabe.length ? cabe
     : models.slice().sort((x, y) => (x.cost_per_1k_calls_usd || 0) - (y.cost_per_1k_calls_usd || 0)).slice(0, 5);
+  // «Programar» promete alguien que programa bien (W9): en una tarea con pilar, compiten solo
+  // los que están en el 30% superior de ESE pilar entre los rankeados, y recién ahí pesan
+  // precio y velocidad. Sin este filtro, el 5-nov-2026 Mercury 2.5 ganaba «programar» por
+  // rápido con un Coding de 9,67, bajo el percentil 70 (9,72). Si el filtro deja a nadie,
+  // no se aplica: mejor una recomendación que ninguna.
+  if (pillar && pillar !== "Agentes" && !t.suites) {
+    const notas = (state.data.models || []).filter(m => m.ranked)
+      .map(m => (m.dims_by_pillar || {})[pillar]?.quality_avg).filter(v => v != null)
+      .sort((a, b2) => a - b2);
+    if (notas.length >= 10) {
+      const p70 = notas[Math.floor(notas.length * 0.70)];
+      const destacan = models.filter(m => ((m.dims_by_pillar || {})[pillar]?.quality_avg ?? -1) >= p70);
+      if (destacan.length) models = destacan;
+    }
+  }
   const tipo = pillar === "Agentes" ? WIZ_AGENTES.find(a => a.id === agenteId) : null;
   const pesoCosto = (w.cost || 0) / 100;
   const puntaje = (m) => {
@@ -1738,8 +1776,8 @@ function wizResult() {
   const ejesTabla = () => {
     if (!tipo) return "";
     const ETIQ = {
-      policy_adherence: "Adherencia", multiturno_score: "Multiturno",
-      agentic_quality: "Calidad agéntica",
+      policy_adherence: "Adherencia", multiturno_score: "Multiturno sin herramientas",
+      multiturno_quality: "Multiturno sin herramientas",
       tool_calling_adversarial: "Tool calling", structured_output: "JSON estructurado",
       code_generation: "Código", harbor_media: "Tarea real", harbor_piso: "Tarea real (peor)",
       latencia: "Rapidez",
@@ -1871,7 +1909,7 @@ function syncStructuredData(data, totalModels, totalRuns) {
         if (n["@type"] === "Dataset") {
           if (genDate) n.dateModified = genDate;
           n.version = ver;
-          n.description = `Benchmark abierto de ${totalModels} modelos de IA (LLMs) con ${runsRounded}+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.`;
+          n.description = `Benchmark abierto de ${totalModels} modelos de IA (LLMs) con ${runsRounded}+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 vía OpenRouter.`;
           touched = true;
         } else if (n["@type"] === "SoftwareApplication") {
           if (genDate) n.dateModified = genDate;

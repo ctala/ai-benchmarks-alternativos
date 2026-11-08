@@ -33,8 +33,18 @@ Uso:
 from __future__ import annotations
 
 
+SUITE = "suite:"
+
+
 def _q(m: dict, pillar: str | None):
-    """(calidad, margen_error) del modelo — global o dentro de un pilar."""
+    """(calidad, margen_error) del modelo — global, dentro de un pilar o de una suite.
+
+    Una suite se pide como `suite:<nombre>` (6-nov-2026): las páginas que ordenan por
+    una sola suite agrupan su cabeza con el mismo mecanismo que el global."""
+    if pillar and pillar.startswith(SUITE):
+        s = pillar[len(SUITE):]
+        return ((m.get("quality_by_suite") or {}).get(s),
+                (m.get("quality_ci95_by_suite") or {}).get(s))
     if pillar:
         d = (m.get("dims_by_pillar") or {}).get(pillar) or {}
         return d.get("quality_avg"), d.get("quality_ci95")
@@ -60,7 +70,10 @@ def _indistinguishable(a: dict, b: dict, pillar: str | None) -> bool:
     # Guardia absoluta: por mucho que el test estadistico "no distinga", una
     # diferencia grande de calidad no se declara empate. Evita que un lider mal
     # medido arrastre a medio catalogo a su banda.
-    if delta > MAX_BAND_DELTA:
+    # En una SUITE no aplica (6-nov-2026): con ~5 tests por suite el margen de error es
+    # de ±1 a ±2 puntos, y el tope de 0,30 coronaba a Sonnet 5.5 en resúmenes por 0,5
+    # sobre 9,0 ± 1,39 — ruido con decimales, justo lo que este módulo vino a evitar.
+    if delta > MAX_BAND_DELTA and not (pillar or "").startswith(SUITE):
         return False
     sea = (cia or 0.0) / 1.96
     seb = (cib or 0.0) / 1.96
@@ -115,6 +128,16 @@ MAX_BAND_SHARE = 0.20
 # Sin esto, un lider mal medido (IC ancho por ruido) se "empata" con medio mundo:
 # cuanto PEOR medido el lider, mas gente empata con el. Perverso.
 MAX_BAND_DELTA = 0.30
+
+
+def grupo_cabeza(models: list[dict], pillar: str | None = None) -> list[dict]:
+    """Los modelos que el benchmark NO separa del mejor en esa dimensión (la banda 1),
+    ordenados por calidad. Es lo que se publica en vez de un #1 (DECISIONES, 6-nov-2026:
+    «el benchmark no separa a los primeros N; dentro del grupo, elige por precio»)."""
+    bands = quality_bands(models, pillar)
+    if not bands:
+        return []
+    return sorted(bands[0], key=lambda m: -(_q(m, pillar)[0] or 0))
 
 
 def price_note(m: dict) -> str | None:

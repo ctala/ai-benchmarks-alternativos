@@ -27,7 +27,12 @@ from generate_comparison import (
 
 # --- Helpers para rankings por suite específica --------------------------------
 def suite(m, name: str) -> float:
-    return (m.get("score_by_suite") or {}).get(name) or 0
+    # 6-nov-2026: leía `score_by_suite`, que es el COMPUESTO (calidad + precio +
+    # velocidad), mientras la página decía «Ordenado por calidad en esta suite, sin
+    # ponderar costo ni velocidad». En 5 de las 8 páginas por suite el #1 era otro. Y el
+    # grupo de cabeza por suite (bands.py sobre `quality_by_suite` y su ci95) no podía
+    # coincidir con una tabla ordenada por otra cosa.
+    return (m.get("quality_by_suite") or {}).get(name) or 0
 
 
 # --- Rankings a generar -------------------------------------------------------
@@ -55,7 +60,7 @@ RANKINGS = [
         "case": "agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / Hermes)",
         "what": "agentes y operaciones",
         "lead": "Para agentes en N8N o Hermes lo que importa no es solo \"inteligencia\": es tool calling fiable, "
-                "multi-turno y costo por call. Ranking por capacidad agéntica medida en multi-turno real.",
+                "multi-turno y costo por call. Ranking por tareas agénticas reales ejecutadas dentro de un agente, con el tool calling para desempatar.",
         "use_cases": ["workflows de N8N", "agentes Hermes", "chatbots de soporte", "orquestación multi-paso", "extracción de datos con herramientas"],
         "why": "Un agente que falla en el tercer turno o llama mal una función genera más trabajo manual que hacer la tarea a mano. Acá medimos estabilidad multi-turno y adherencia a schemas.",
         "related": ["mejor-llm-para-tool-calling", "modelos-n8n", "mejor-llm-para-agentes"],
@@ -351,6 +356,10 @@ def rank_models(models, cfg):
         # veía desordenada respecto de su propia columna —el #4 con más nota que el #3—
         # y el criterio real era invisible. Pasaba en 16 páginas.
         base = [m for m in base if score_for(m, cfg) is not None and score_for(m, cfg) > 0]
+        if es_agentes(cfg):
+            # 8-nov-2026: primero las tareas de Harbor superadas (la cifra que la tabla
+            # muestra), y `score_agentico` solo desempata. Mismo orden que la calculadora.
+            return sorted(base, key=lambda m: (-harbor_superadas(m), -score_for(m, cfg)))
         return sorted(base, key=lambda m: -score_for(m, cfg))
     if crit == "suite":
         sname = cfg["suite"]
@@ -418,6 +427,36 @@ def score_agentico(m):
     return PESO_TAREA_REAL * real + (1 - PESO_TAREA_REAL) * tools
 
 
+_ATTR_HARBOR = ' data-agentico="harbor"'
+
+
+def es_agentes(cfg) -> bool:
+    return cfg.get("criterion") == "pillar" and cfg.get("pillar") == "Agentes"
+
+
+def harbor_texto(m, largo: bool = False) -> str:
+    """La ÚNICA cifra agéntica que publica una página (8-nov-2026, Cristian): «N de M»
+    tareas de Harbor superadas en todos sus intentos, o «sin dato agéntico». El orden de
+    la página sigue usando `score_agentico` (Harbor + tool calling para desempatar), pero
+    ese número mezcla dos cosas y no se muestra con la etiqueta agéntica."""
+    a = m.get("agentico") or {}
+    if a.get("de"):
+        return f"{a['superadas']} de {a['de']}" + (" tareas agénticas" if largo else "")
+    return "sin dato agéntico"
+
+
+def harbor_superadas(m) -> int:
+    a = m.get("agentico") or {}
+    return a["superadas"] if a.get("de") else -1
+
+
+def fmt_eje(m, cfg, unidad: str = "/10", largo: bool = True) -> str:
+    """El valor que una página muestra para el eje que ordena."""
+    if es_agentes(cfg):
+        return harbor_texto(m, largo)
+    return f"{score_for(m, cfg):.1f}{unidad}"
+
+
 def score_for(m, cfg):
     if cfg["criterion"] == "pillar":
         # ── AGENTES: el pilar solo no alcanza ───────────────────────────────
@@ -481,7 +520,7 @@ def score_label(cfg):
         # cosas distintas. Nombrar bien no es cosmética: acá era la diferencia entre
         # una tabla que se entiende y una que parece rota.
         if cfg["pillar"] == "Agentes":
-            return "Tarea real ejecutada"
+            return "Trabajo agéntico"
         return f"Calidad en {cfg['pillar']}"   # capacidad pura, sin costo ni velocidad
     if cfg["criterion"] == "suite":
         return cfg["suite"].replace("_", " ").title()
@@ -567,7 +606,8 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
     # pilares como contexto. La columna que ordena tiene que estar: sin ella el lector ve
     # un puesto que no puede verificar contra nada de lo que la tabla le muestra.
     if cfg["criterion"] == "pillar":
-        global_col = f"<td><strong>{relevant:.1f}</strong></td>"
+        attr = ' data-agentico="harbor"' if es_agentes(cfg) else ""
+        global_col = f"<td{attr}><strong>{fmt_eje(m, cfg, '', largo=False)}</strong></td>"
     elif cfg["criterion"] == "cost":
         global_col = (f"<td><strong>{fmt_usd(cost_for_calls(m))}</strong></td>"
                       f"<td>{m.get('score_global',0):.2f}</td>")
@@ -603,17 +643,111 @@ def fmt_usd(n):
     return f"${n:.2f}"
 
 
-def reading_guide(cfg, ranked):
+# ── GRUPO DE CABEZA (DECISIONES, 6-nov-2026) ─────────────────────────────────────
+#
+# El top 20 del índice v5 cabe en 0,19 puntos y la dispersión dentro de cada modelo es
+# varias veces eso. Coronar al #1 es publicar ruido con decimales. Toda página habla del
+# GRUPO que el benchmark no separa del mejor (`bands.grupo_cabeza`, prueba de diferencia
+# de medias sobre `quality_ci95` global, por pilar o por suite) y, dentro del grupo,
+# manda el precio. El grupo sale de los RANKEADOS y en la misma dimensión que ordena la
+# tabla; en Agentes, con el mismo score inyectado que usa el veredicto.
+
+def _pool_banda(cfg, pool):
+    """El pool con la calidad de la dimensión de la página lista para `bands`."""
+    if cfg.get("criterion") == "pillar" and cfg.get("pillar") == "Agentes":
+        inyectado = []
+        for m in pool:
+            # 8-nov-2026: el grupo de cabeza de Agentes son los que superan MÁS tareas de
+            # Harbor, contadas exactas (sin margen: un conteo no tiene error de medición).
+            # Antes salía de `score_agentico` (60 % Harbor + 40 % tool calling) con ±0,035,
+            # y el veredicto decía «no separa a 2 modelos, calidad 9,20» cuando 17 superaban
+            # las 4 tareas: una cifra agéntica que no era Harbor, sin rótulo que A3 viera.
+            if harbor_superadas(m) < 0:
+                continue
+            c = dict(m)
+            c["dims_by_pillar"] = dict(c.get("dims_by_pillar") or {})
+            c["dims_by_pillar"]["Agentes"] = {"quality_avg": float(harbor_superadas(m)),
+                                              "quality_ci95": 0.0}
+            inyectado.append(c)
+        return inyectado
+    return list(pool)
+
+
+def _dim_banda(cfg):
+    crit = cfg.get("criterion")
+    if crit == "pillar":
+        return cfg["pillar"]
+    if crit == "suite":
+        from bands import SUITE
+        return SUITE + cfg["suite"]
+    return None
+
+
+def cabeza(cfg, all_ranked):
+    """Los modelos del grupo de cabeza de la página, en el orden de su tabla.
+
+    Vacío en la página de precio: ahí el orden es un número exacto, no una medición."""
+    if cfg.get("criterion") == "cost" or not all_ranked:
+        return []
+    from bands import grupo_cabeza
+    pool = _pool_banda(cfg, [m for m in all_ranked if m.get("ranked")])
+    claves = {m.get("key") for m in grupo_cabeza(pool, _dim_banda(cfg))}
+    return [m for m in all_ranked if m.get("key") in claves]
+
+
+def _nombres(ms, n=None):
+    xs = [esc(m.get("name")) for m in (ms if n is None else ms[:n])]
+    return ", ".join(xs[:-1]) + " y " + xs[-1] if len(xs) > 1 else (xs[0] if xs else "")
+
+
+def por_que_empatan(cfg) -> str:
+    """Por qué el grupo de cabeza no se ordena por puesto. En Agentes no es ruido de
+    medición: superan exactamente las mismas tareas de Harbor."""
+    if es_agentes(cfg):
+        return ("superan las mismas tareas agénticas en todos sus intentos, así que la "
+                "medición no tiene con qué separarlos")
+    return "la diferencia entre ellos es menor que el margen de error de la medición"
+
+
+def por_que_separa(cfg) -> str:
+    if es_agentes(cfg):
+        return "supera más tareas agénticas que el siguiente"
+    return "su diferencia con el siguiente es mayor que el margen de error"
+
+
+def frase_grupo(grupo, all_ranked):
+    """«El benchmark no separa a los primeros N…» — o a N de la cima, si no son contiguos."""
+    n = len(grupo)
+    primeros = [m.get("key") for m in all_ranked[:n]] == [m.get("key") for m in grupo]
+    quienes = f"a los primeros {n}" if primeros else f"a estos {n} modelos de la cima"
+    return (f"el benchmark no separa {quienes}; dentro del grupo, elige por precio")
+
+
+def mas_barato(grupo):
+    api = [m for m in grupo if not _es_local(m)] or grupo
+    return min(api, key=lambda m: (cost_for_calls(m) if cost_for_calls(m) is not None else 9e9))
+
+
+def _es_local(m):
+    from bands import is_local
+    return is_local(m)
+
+
+def reading_guide(cfg, ranked, grupo=None):
     top1 = ranked[0]
-    second = ranked[1] if len(ranked) > 1 else None
-    diff = score_for(top1, cfg) - score_for(second, cfg) if second else 0
     s1 = score_for(top1, cfg)
-    if diff >= 0.5:
-        gap_text = f"<strong>{esc(top1.get('name'))}</strong> lidera con una ventaja clara ({s1:.1f}/10 vs {score_for(second, cfg):.1f}/10)"
-    elif diff >= 0.2:
-        gap_text = f"<strong>{esc(top1.get('name'))}</strong> lidera, pero la diferencia con el segundo es pequeña ({s1:.1f}/10 vs {score_for(second, cfg):.1f}/10)"
+    grupo = grupo or []
+    if len(grupo) > 1:
+        gap_text = (f"{frase_grupo(grupo, ranked)}. Los {len(grupo)} "
+                    + (f"superan {fmt_eje(top1, cfg)} en todos sus intentos, así que la medición no "
+                       f"tiene con qué separarlos" if es_agentes(cfg) else
+                       f"rondan los {s1:.1f}/10 y {por_que_empatan(cfg)}"))
+    elif grupo:
+        second = ranked[1] if len(ranked) > 1 else None
+        gap_text = (f"<strong>{esc(top1.get('name'))}</strong> queda solo arriba: {por_que_separa(cfg)}"
+                    f"{f' ({fmt_eje(second, cfg)})' if second else ''}")
     else:
-        gap_text = f"hay empate técnico en la cima (todos rondan los {s1:.1f}/10): el mejor depende de tu prioridad"
+        gap_text = f"el orden lo decide el precio, que es un dato exacto"
     cases = ", ".join(cfg["use_cases"])
     return f"""<section>
   <h2>Cómo interpretar este ranking de {esc(cfg['what'])}</h2>
@@ -628,7 +762,25 @@ def reading_guide(cfg, ranked):
 </section>"""
 
 
-def top3_explained(cfg, ranked):
+def top3_explained(cfg, ranked, grupo=None):
+    grupo = grupo or []
+    if len(grupo) > 1:
+        # Con grupo, el «top 3» por puesto es ruido: se muestran los tres más baratos del
+        # grupo, que es la decisión que el grupo deja abierta.
+        baratos = sorted(grupo, key=lambda m: cost_for_calls(m))[:3]
+        parts = []
+        for m in baratos:
+            score = score_for(m, cfg)
+            oss = "open source" if m.get("open_source") else "propietario"
+            parts.append(f"""  <h3>{esc(m.get('name'))} — {fmt_eje(m, cfg)}</h3>
+  <p>{esc(m.get('name'))} ({esc(m.get('provider', ''))}, {oss}) cuesta {fmt_cost(m)} por millón de tokens y rinde a
+  {round(m.get('tokens_per_second') or 0)} tok/s. Está en el grupo de cabeza: {'supera las mismas tareas que el resto del grupo' if es_agentes(cfg) else 'su nota no se distingue de la del resto del grupo'}.</p>""")
+        return f"""<section>
+  <h2>El grupo de cabeza: {len(grupo)} modelos que el benchmark no separa</h2>
+  <p>{esc(por_que_empatan(cfg)).capitalize()}: la decisión es de precio.
+  Estos son los tres más baratos del grupo:</p>
+{chr(10).join(parts)}
+</section>"""
     parts = []
     for i, m in enumerate(ranked[:3], 1):
         score = score_for(m, cfg)
@@ -641,9 +793,9 @@ def top3_explained(cfg, ranked):
         else:
             angle = "Es una tercera opción competitiva, especialmente si valoras otro factor además de la calidad pura"
         closing = ". Tiene pesos abiertos, así que puedes correrlo en varios providers o local." if m.get('open_source') else ". Es propietario, pero puede valer la pena si ya integraste su ecosistema."
-        parts.append(f"""  <h3>{i}. {esc(m.get('name'))} — {score:.1f}/10</h3>
+        parts.append(f"""  <h3>{i}. {esc(m.get('name'))} — {fmt_eje(m, cfg)}</h3>
   <p>{esc(m.get('name'))} ({provider}, {oss}) cuesta {fmt_cost(m)} por millón de tokens y rinde a
-  {round(m.get('tokens_per_second') or 0)} tok/s. Su score en {esc(score_label(cfg))} es {score:.1f}/10.
+  {round(m.get('tokens_per_second') or 0)} tok/s. Su score en {esc(score_label(cfg))} es {fmt_eje(m, cfg)}.
   {angle}{closing}</p>""")
     return f"""<section>
   <h2>Top 3 explicado: por qué están arriba</h2>
@@ -701,7 +853,7 @@ def frontier_in_dimension(cfg, models):
             place = '<span class="frontier-pos">sin cobertura</span>'
         items.append(
             f'<li><strong>{esc(label)}</strong>{place}'
-            f'<span class="frontier-score">{score:.1f}/10</span>'
+            f'<span class="frontier-score">{fmt_eje(m, cfg)}</span>'
             f'<span class="frontier-cost">{fmt_cost(m)} por millón</span></li>'
         )
     return f"""<section>
@@ -754,11 +906,23 @@ def related_pages(cfg):
 </section>"""
 
 
-def analysis(cfg, ranked):
+def analysis(cfg, ranked, grupo=None):
+    grupo = grupo or []
+    if len(grupo) > 1:
+        b = mas_barato(grupo)
+        nombres = _nombres(grupo, 8) + (f" y {len(grupo) - 8} más" if len(grupo) > 8 else "")
+        return f"""<section>
+  <h2>Quiénes encabezan</h2>
+  <p>Para {esc(cfg['case'])}, {frase_grupo(grupo, ranked)}: {nombres}. {esc(por_que_empatan(cfg)).capitalize()}, y
+  ordenarlos por puesto sería inventar una diferencia que la medición no tiene.</p>
+  <p>Dentro del grupo, el más barato es <strong>{esc(b.get('name'))}</strong>, a {fmt_cost(b)} por millón de tokens.
+  Antes de pagar más por otro del grupo, pruébalos con tus propios prompts.</p>
+  <p class="meta">Ajusta los pesos de calidad, costo y velocidad en la <a href="/">calculadora</a> para tu caso.</p>
+</section>"""
     top1 = ranked[0]
     s1 = score_for(top1, cfg)
     why = (f"<strong>{esc(top1.get('name'))}</strong> encabeza el ranking para {cfg['case']} "
-           f"con {s1:.1f}/10, a {fmt_cost(top1)} por millón de tokens "
+           f"con {fmt_eje(top1, cfg)}, a {fmt_cost(top1)} por millón de tokens "
            f"({round(top1.get('tokens_per_second') or 0)} tok/s, {esc(top1.get('provider',''))}).")
     w = get_meta().get("default_weights", {})
     q = fmt_pct(w.get("quality", 0.7))
@@ -780,19 +944,29 @@ def analysis(cfg, ranked):
 </section>"""
 
 
-def faq(cfg, ranked):
+def faq(cfg, ranked, grupo=None):
     top1 = ranked[0]
+    grupo = grupo or []
     tests_k = fmt_k(get_counts()["total_runs"])
     label = cfg['case'].split('(')[0].strip()
+    if len(grupo) > 1:
+        b = mas_barato(grupo)
+        txt = (f"En {cfg['what']}, {frase_grupo(grupo, ranked)}. El más barato del grupo es "
+               f"{b.get('name')}. No hay un único 'mejor': {por_que_empatan(cfg)}.")
+        q1 = (f"¿Cuál es el mejor LLM para {label} hoy?", txt,
+              esc(txt).replace(esc(b.get('name')), f"<strong>{esc(b.get('name'))}</strong>", 1))
+    elif grupo:
+        q1 = (f"¿Cuál es el mejor LLM para {label} hoy?",
+              f"Según nuestro benchmark, {top1.get('name')} queda solo arriba en {cfg['what']} con "
+              f"{fmt_eje(top1, cfg)}: {por_que_separa(cfg)}.",
+              f"Según nuestro benchmark, <strong>{esc(top1.get('name'))}</strong> queda solo arriba en "
+              f"{esc(cfg['what'])} con {fmt_eje(top1, cfg)}: {por_que_separa(cfg)}.")
+    else:
+        q1 = (f"¿Cuál es el LLM más barato para {label} hoy?",
+              f"{top1.get('name')}, entre los modelos que pasan el piso de calidad de esta página.",
+              f"<strong>{esc(top1.get('name'))}</strong>, entre los modelos que pasan el piso de calidad de esta página.")
     qas = [
-        (
-            f"¿Cuál es el mejor LLM para {label} hoy?",
-            f"Según nuestro benchmark, {top1.get('name')} lidera en {cfg['what']} con {score_for(top1, cfg):.1f}/10, "
-            "pero el ranking completo te deja elegir según tu presupuesto y prioridad. No hay un único 'mejor' universal.",
-            f"Según nuestro benchmark, <strong>{esc(top1.get('name'))}</strong> lidera en {esc(cfg['what'])} "
-            f"con {score_for(top1, cfg):.1f}/10, pero el ranking completo te deja elegir según tu presupuesto y prioridad. "
-            "No hay un único 'mejor' universal.",
-        ),
+        q1,
         (
             f"¿Por qué un modelo barato gana en {cfg['what']} a modelos frontier?",
             "Porque el score global pondera calidad, costo, velocidad y latencia. Un modelo más barato y rápido puede tener "
@@ -801,7 +975,7 @@ def faq(cfg, ranked):
             "mejor valor de producción que uno caro y lento, aunque el frontier tenga más capacidad bruta en algunas tareas.",
         ),
         (
-            f"¿Para qué casos NO sirve el #1 de este ranking?",
+            f"¿Para qué casos NO sirve este ranking?",
             f"Si tu caso es muy distinto a {cfg['what']} —por ejemplo, necesitas razonamiento profundo, tool calling crítico o privacidad extrema— "
             "probablemente haya mejores opciones. Usa la calculadora para ajustar pesos por caso.",
             f"Si tu caso es muy distinto a {esc(cfg['what'])} —por ejemplo, necesitas razonamiento profundo, tool calling crítico o privacidad extrema— "
@@ -809,9 +983,9 @@ def faq(cfg, ranked):
         ),
         (
             "¿De dónde salen estos datos?",
-            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés). "
             "Código y resultados en GitHub.",
-            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge local (Phi-4, Microsoft, sin conflicto de interés). "
+            f"De un benchmark abierto con {tests_k} runs reales y LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés). "
             "Código y resultados en <a href=\"https://github.com/ctala/ai-benchmarks-alternativos\" target=\"_blank\" rel=\"noopener\">GitHub</a>.",
         ),
         (
@@ -901,7 +1075,6 @@ def _verdict_data(cfg, models):
     figurar ahi. Donde no puedo sostener el veredicto, no lo invento: lo omito.
     """
     from bands import verdict as _verdict
-    from benchmarks import elegibilidad as eleg
 
     crit = cfg.get("criterion")
     if crit not in ("pillar", "open_source"):
@@ -917,60 +1090,77 @@ def _verdict_data(cfg, models):
     # `ranking = False` por `self_hosted`. La regla estaba en el dato y este generador
     # no la leía — el mismo filtro a mano que esta semana ya dejó entrar a los GPT-5.6
     # Pro y a Qwen 2.5. Por eso ahora se usa `elegibilidad.filtrar`, que es LA función.
-    pool = [m for m in eleg.filtrar(models, "catalogo") if (m.get("runs") or 0) >= 50]
-    if crit == "open_source":
-        pool = [m for m in pool if m.get("open_source")]
-    pil = cfg.get("pillar") if crit == "pillar" else None
-
-    # ── 19-ago-2026 · EL VEREDICTO Y SU TABLA MEDÍAN COSAS DISTINTAS ──────────
-    #
-    # `/mejor-llm-para-agentes/` publicaba: «DeepSeek V3.2 encabeza la tabla en calidad»
-    # — y la tabla lo ponía **#73 con 7,4**, contra 9,4 del primero. Lo vio Cristian:
-    # *"no entiendo, ¿por qué gana DeepSeek si no tiene el mejor puesto?"*. No era que
-    # no se entendiera: la página se contradecía a sí misma.
-    #
-    # La causa: el 16-ago la TABLA pasó a ordenarse por la tarea real ejecutada
-    # (`score_for` → Harbor + tool calling) porque el pilar «Agentes» mide escribir
-    # SOBRE agentes y **correlaciona −0,20 con el desempeño real**. El veredicto se
-    # quedó calculando por el pilar. O sea que no solo discrepaban: el veredicto
-    # recomendaba por la métrica que va casi al revés de lo que la página promete, y
-    # encima afirmaba que ese modelo encabezaba una tabla que él no encabeza.
-    #
-    # Ahora el veredicto se calcula con EL MISMO score que ordena la tabla. Se inyecta
-    # como calidad del pilar sobre una copia —no se muta el modelo original— para
-    # reutilizar la maquinaria de bandas. Sin `ci95`, dos modelos solo empatan si su
-    # score es idéntico, que es justo lo que hay que decir cuando la tarea satura.
-    if crit == "pillar" and pil == "Agentes":
-        inyectado = []
-        for m in pool:
-            sc = score_for(m, cfg)
-            if sc is None:
-                continue          # sin tarea real medida no entra al veredicto
-            c = dict(m)
-            c["dims_by_pillar"] = dict(c.get("dims_by_pillar") or {})
-            # El margen: la RESOLUCIÓN DE LO QUE PUBLICAMOS es el piso del empate.
-            #
-            # Sin esto, Sonnet 4.6 (9,4040) y Gemma 4 31B (9,3560) quedaban en bandas
-            # distintas por **0,048** — una diferencia que la tabla ni siquiera puede
-            # mostrar: ahí salen «9.4» y «9.4». El texto habría dicho «nadie empata con
-            # él» encima de dos números idénticos a la vista, que es la misma clase de
-            # contradicción que este bloque vino a arreglar.
-            #
-            # `_indistinguishable` declara empate si delta ≤ √2 · ci95; para cubrir el
-            # redondeo a un decimal (0,05) hace falta ci95 = 0,05/√2 ≈ 0,035. No es un
-            # intervalo de confianza real —la tarea Harbor no da uno—: es la promesa de
-            # no coronar a nadie por una diferencia que no mostramos.
-            #
-            # Y cambia la recomendación, que era el punto: con el empate declarado, el
-            # más barato de la banda es **Gemma 4 31B a $0,10/$0,34 contra $3/$15**.
-            # Cristian venía diciendo «me llama la atención que Sonnet 4.6 le gane a los
-            # nuevos en agentes». No les gana: empata, y cuesta 30 veces más.
-            c["dims_by_pillar"]["Agentes"] = {"quality_avg": sc, "quality_ci95": 0.035}
-            inyectado.append(c)
-        pool = inyectado
+    # 6-nov-2026: el pool era `elegibilidad.filtrar(models, "catalogo")`, que incluye al
+    # HISTÓRICO. Por eso dos landings coronaban a Claude Fable 5 —sin puesto en v5— como
+    # «la mejor calidad medida» encima de una tabla que no lo tenía. Ahora el veredicto
+    # sale de los RANKEADOS de la MISMA tabla (`rank_models`), con la calidad de la
+    # dimensión que la ordena (`_pool_banda`; en Agentes, el score inyectado).
+    pool = _pool_banda(cfg, [m for m in rank_models(models, cfg) if m.get("ranked")])
+    pil = _dim_banda(cfg) if crit == "pillar" else None
 
     v = _verdict(pool, pil, calls_per_month=3000)
     return v if (v and "best" in v) else None
+
+
+def _usd_mes(x):
+    """«$0/mes» para un modelo que cuesta centavos es falso: se muestran los centavos."""
+    if x is None:
+        return "—"
+    return f"${x:,.2f}" if x < 10 else f"${x:,.0f}"
+
+
+def _verdict_agentes(v, models):
+    """El veredicto de Agentes habla en tareas de Harbor (8-nov-2026), no en `calidad X/10`.
+
+    El grupo es exacto —los que superan más tareas en todos sus intentos— así que no se
+    declara «dentro del margen de error» ni «no concluyente»: que 17 modelos superen las 4
+    tareas es un examen saturado, y lo que decide entre ellos es el precio."""
+    por_nombre = {m.get("name"): m for m in models}
+    b = v["best"]
+    tareas = harbor_texto(por_nombre.get(b["name"], {}), largo=True)
+    n = v["band_size"] or 0
+    if n <= 1:
+        lead = (f"<strong>{esc(b['name'])}</strong> es el único que supera {tareas} en todos "
+                f"sus intentos.")
+    else:
+        lead = (f"<strong>{n} modelos superan {tareas}</strong> en todos sus intentos, así que la "
+                f"medición no tiene con qué separarlos. <strong>Entre ellos, elige por precio</strong>.")
+    cards = [f"""<div class="verdict-card verdict-best">
+        <span class="verdict-tag">{'El único del grupo' if n <= 1 else 'La mejor compra del grupo'}</span>
+        <strong>{esc(b['name'])}</strong>
+        <span class="verdict-cost">≈{_usd_mes(b['cost_month'])}/mes</span>
+        <span class="verdict-note" data-agentico="harbor">{tareas}{'' if n <= 1 else f' · el más barato de los {n}'}</span>
+        {f'<span class="verdict-sub">También: {esc(b["sub"])}</span>' if b.get("sub") else ''}
+      </div>"""]
+    if "priciest" in v and v["priciest"]["name"] != b["name"]:
+        p = v["priciest"]
+        cards.append(f"""<div class="verdict-card verdict-costly">
+        <span class="verdict-tag">Lo que te ahorras</span>
+        <strong>{esc(p['name'])}</strong>
+        <span class="verdict-cost">≈{_usd_mes(p['cost_month'])}/mes</span>
+        <span class="verdict-note">{f"{p['times']}× más caro" if p.get('times') else 'más caro'} por las mismas tareas superadas</span>
+        {f'<span class="verdict-sub">También: {esc(p["sub"])}</span>' if p.get("sub") else ''}
+      </div>""")
+    if "local" in v:
+        l = v["local"]
+        cards.append(f"""<div class="verdict-card">
+        <span class="verdict-tag">Si tienes hardware propio</span>
+        <strong>{esc(l['name'])}</strong>
+        <span class="verdict-cost">≈{_usd_mes(l['cost_month'])}/mes</span>
+        <span class="verdict-note" data-agentico="harbor">{harbor_texto(por_nombre.get(l['name'], {}), largo=True)} · corre local, sin API</span>
+      </div>""")
+    return f"""  <section class="verdict">
+    <h2>La respuesta corta</h2>
+    <p class="verdict-lead">{lead}</p>
+    <div class="verdict-grid">
+      {''.join(cards)}
+    </div>
+    <p class="verdict-foot">Cálculo sobre <strong>3.000 llamadas/mes</strong> (≈100 por día: una respuesta
+    de agente por llamada). ¿Otro volumen, o te importa más la velocidad?
+    Ajusta los pesos en la <a href="/?preset=agentes&amp;calls=3000">calculadora</a>.
+    Los modelos citados están en la tabla de abajo, marcados.</p>
+  </section>
+"""
 
 
 def verdict_block(cfg, models):
@@ -986,6 +1176,8 @@ def verdict_block(cfg, models):
     v = _verdict_data(cfg, models)
     if not v:
         return ""
+    if es_agentes(cfg):
+        return _verdict_agentes(v, models)
 
     pil = cfg.get("pillar") if cfg.get("criterion") == "pillar" else None
     leader, b = v["leader"], v["best"]
@@ -1000,29 +1192,29 @@ def verdict_block(cfg, models):
     {v['band_size']} de {v['pool_size']} ({pct}% del catálogo) quedan dentro del margen de error
     en esta tarea. Cuando la medición no distingue, <strong>lo honesto es decirlo</strong>, no
     inventar un ganador.</p>
-    <p class="verdict-lead">Con esa salvedad: el de mayor calidad medida es
-    <strong>{esc(leader['name'])}</strong> ({leader['quality']:.2f}/10). Si el presupuesto manda,
-    <strong>{esc(b['name'])}</strong> queda dentro del mismo grupo por
-    <strong>≈${b['cost_month']:,.0f}/mes</strong>. Pero acá, más que nunca:
-    <strong>prueba los dos con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
+    <p class="verdict-lead">Con esa salvedad, dentro del grupo elige por precio: el más barato es
+    <strong>{esc(b['name'])}</strong>, por <strong>≈{_usd_mes(b['cost_month'])}/mes</strong>. Ninguno del
+    grupo le saca una diferencia demostrable. Pero acá, más que nunca:
+    <strong>prueba con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
   </section>
 """
 
+    solo = (v["band_size"] or 0) <= 1
     cards = [
         f"""<div class="verdict-card verdict-best">
-        <span class="verdict-tag">{'El mejor, y además el más barato' if same else 'La mejor compra'}</span>
+        <span class="verdict-tag">{'El mejor, y además el más barato' if same and solo else 'La mejor compra del grupo'}</span>
         <strong>{esc(b['name'])}</strong>
-        <span class="verdict-cost">≈${b['cost_month']:,.0f}/mes</span>
-        <span class="verdict-note">calidad {b['quality']:.2f}/10{'' if same else f" · empata con {esc(leader['name'])}, que encabeza la tabla, y cuesta menos"}</span>
+        <span class="verdict-cost">≈{_usd_mes(b['cost_month'])}/mes</span>
+        <span class="verdict-note">calidad {b['quality']:.2f}/10{'' if solo else " · el más barato del grupo de cabeza"}</span>
         {f'<span class="verdict-sub">También: {esc(b["sub"])}</span>' if b.get("sub") else ''}
       </div>"""
     ]
-    if not same:
+    if not same and not solo:
         cards.append(f"""<div class="verdict-card">
-        <span class="verdict-tag">La mejor calidad medida</span>
+        <span class="verdict-tag">Del mismo grupo, el de nota más alta</span>
         <strong>{esc(leader['name'])}</strong>
-        <span class="verdict-cost">≈${leader['cost_month']:,.0f}/mes</span>
-        <span class="verdict-note">calidad {leader['quality']:.2f}/10 · es el #1 de la tabla. La diferencia con el de arriba está dentro del margen de error</span>
+        <span class="verdict-cost">≈{_usd_mes(leader['cost_month'])}/mes</span>
+        <span class="verdict-note">calidad {leader['quality']:.2f}/10 · su diferencia con la mejor compra está dentro del margen de error</span>
         {f'<span class="verdict-sub">También: {esc(leader["sub"])}</span>' if leader.get("sub") else ''}
       </div>""")
     if "priciest" in v and v["priciest"]["name"] not in (b["name"], leader["name"]):
@@ -1030,8 +1222,8 @@ def verdict_block(cfg, models):
         cards.append(f"""<div class="verdict-card verdict-costly">
         <span class="verdict-tag">Lo que te ahorras</span>
         <strong>{esc(p['name'])}</strong>
-        <span class="verdict-cost">≈${p['cost_month']:,.0f}/mes</span>
-        <span class="verdict-note">{p['times']}× más caro por {p['quality_gap']:+.2f} de calidad — dentro del margen de error</span>
+        <span class="verdict-cost">≈{_usd_mes(p['cost_month'])}/mes</span>
+        <span class="verdict-note">{f"{p['times']}× más caro" if p.get('times') else 'más caro'} por {p['quality_gap']:+.2f} de calidad — dentro del margen de error</span>
         {f'<span class="verdict-sub">También: {esc(p["sub"])}</span>' if p.get("sub") else ''}
       </div>""")
     if "local" in v:
@@ -1039,7 +1231,7 @@ def verdict_block(cfg, models):
         cards.append(f"""<div class="verdict-card">
         <span class="verdict-tag">Si tienes hardware propio</span>
         <strong>{esc(l['name'])}</strong>
-        <span class="verdict-cost">≈${l['cost_month']:,.0f}/mes</span>
+        <span class="verdict-cost">≈{_usd_mes(l['cost_month'])}/mes</span>
         <span class="verdict-note">calidad {l['quality']:.2f}/10 · corre local, sin API</span>
       </div>""")
 
@@ -1051,19 +1243,14 @@ def verdict_block(cfg, models):
     # salía «es el más barato de los 1 que empatan con él» —o sea, empata consigo mismo—
     # y en el otro camino «1 modelos empatan». Un modelo solo en su banda es el caso
     # más limpio que existe y se estaba contando como el más raro.
-    solo = (v["band_size"] or 0) <= 1
     if solo:
         lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla y "
                 f"<strong>nadie empata con él</strong>: la diferencia con el siguiente es "
                 f"mayor que el margen de error de la medición.")
     else:
-        lead = (f"<strong>{v['band_size']} modelos empatan</strong> en calidad para esta tarea: "
-                f"la diferencia entre ellos es más chica que el margen de error de la medición. "
-                f"Cuando la calidad empata, <strong>la decisión es de precio</strong>.")
-        if same:
-            lead = (f"<strong>{esc(leader['name'])}</strong> encabeza la tabla en calidad "
-                    f"<em>y</em> es el más barato de los {v['band_size']} que empatan con él. "
-                    f"Caso fácil: no hay que elegir entre calidad y precio.")
+        lead = (f"<strong>El benchmark no separa a {v['band_size']} modelos de la cima</strong> "
+                f"en esta tarea: la diferencia entre ellos es más chica que el margen de error de la "
+                f"medición. <strong>Dentro del grupo, elige por precio</strong>.")
 
     return f"""  <section class="verdict">
     <h2>La respuesta corta</h2>
@@ -1126,6 +1313,45 @@ def _lleva_segunda_tabla(cfg, models):
     return bool(den) and (num / den) < UMBRAL_SEGUNDA_TABLA
 
 
+def _tabla_valor_agentes(models):
+    """La segunda tabla de Agentes, sin compuesto (8-nov-2026).
+
+    Antes era «Calidad×precio» = 70 % `score_agentico` + 30 % precio: una cifra con
+    decimales, en la página agéntica, que mezclaba tool calling con Harbor. Ahora ordena
+    por tareas superadas y, a igualdad, por precio — las dos cosas se ven en su columna."""
+    con = [m for m in models if harbor_superadas(m) >= 0 and cost_for_calls(m) is not None]
+    con.sort(key=lambda m: (-harbor_superadas(m), cost_for_calls(m)))
+    if not con:
+        return ""
+    tope = harbor_superadas(con[0])
+    n_tope = sum(1 for m in con if harbor_superadas(m) == tope)
+    filas = []
+    for i, m in enumerate(con[:8], 1):
+        filas.append(
+            f"<tr><td>{i}</td><td>{enlace_ficha(m, bold=(i == 1))}</td>"
+            f"<td{_ATTR_HARBOR}>{harbor_texto(m)}</td><td>{fmt_usd(cost_for_calls(m))}</td>"
+            f"<td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
+    return f"""<section class="results">
+    <div class="results-header">
+      <h2>La misma capacidad, por lo que cuesta</h2>
+      <p class="meta">La tabla de arriba responde «¿quién lo hace mejor?». Ésta responde la de
+      producción: <strong>de los que superan más tareas, cuál cuesta menos</strong>. Ordena por
+      tareas agénticas superadas y, a igualdad, por precio.</p>
+      <p class="meta">Vale la pena mirarla porque <strong>este eje satura</strong>: {n_tope} de
+      {len(con)} modelos superan {harbor_texto(con[0], largo=True)} en todos sus intentos. Entre
+      ellos, lo que decide es el precio.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">#</th><th scope="col">Modelo</th>
+      <th scope="col">Trabajo agéntico</th>
+      <th scope="col">$/1.000 llamadas</th><th scope="col">Velocidad</th></tr></thead>
+      <tbody>
+        {chr(10) + "        ".join(filas)}
+      </tbody>
+    </table></div>
+  </section>"""
+
+
 def tabla_valor(cfg, models):
     """SEGUNDA TABLA: calidad por lo que cuesta. Solo donde el eje satura.
 
@@ -1143,6 +1369,8 @@ def tabla_valor(cfg, models):
     La curva de costo es `cost_score_log`, la MISMA que ya usa el resto del repo. Inventar
     otra fórmula acá sería tener dos definiciones de «barato».
     """
+    if es_agentes(cfg):
+        return _tabla_valor_agentes(models)
     from scoring import cost_score_log
     vals = []
     for m in models:
@@ -1157,7 +1385,7 @@ def tabla_valor(cfg, models):
         nm = enlace_ficha(m, bold=(i == 1))
         filas.append(
             f"<tr><td>{i}</td><td>{nm}</td><td><strong>{v:.2f}</strong></td>"
-            f"<td>{q:.1f}</td><td>{fmt_usd(cost_for_calls(m))}</td>"
+            f"<td{_ATTR_HARBOR if es_agentes(cfg) else ''}>{fmt_eje(m, cfg, '', largo=False)}</td><td>{fmt_usd(cost_for_calls(m))}</td>"
             f"<td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
     return f"""<section class="results">
     <div class="results-header">
@@ -1208,12 +1436,28 @@ def render_ranking(cfg, models):
 
     url = f"{SITE}/{cfg['slug']}/"
     tests_k = fmt_k(get_counts()["total_runs"])
+    grupo = cabeza(cfg, all_ranked)
+    if len(grupo) > 1:
+        cierre = (f"{len(grupo)} modelos superan {harbor_texto(grupo[0], largo=True)}: elige por precio."
+                  if es_agentes(cfg) else
+                  f"El benchmark no separa a {len(grupo)} modelos de la cima: elige por precio.")
+    elif grupo:
+        cierre = f"Queda solo arriba: {ranked[0].get('name')}."
+    else:
+        cierre = f"El más barato: {ranked[0].get('name')}."
     desc = (f"{cfg['h1']} con {tests_k} runs reales: ranking por {cfg['case']}. "
-            f"Incluye costos para volumen, análisis del top 3 y posición de modelos frontier. #1: {ranked[0].get('name')}.")
+            f"Incluye costos para volumen y posición de modelos frontier. {cierre}")
+    # El grupo se marca en la tabla: es lo que el texto cita, y check_ganadores lo cuenta.
+    for m in ranked:
+        if any(g.get("key") == m.get("key") for g in grupo) and len(grupo) > 1:
+            badges.setdefault(m.get("name"), "grupo de cabeza")
     today = date.today().isoformat()
     # El numero de fila es la posicion REAL en el ranking completo, no el indice
     # de la tabla: si insertamos a alguien del puesto 24, tiene que decir 24.
     pos_of = {m.get("name"): i + 1 for i, m in enumerate(all_ranked)}
+    # Las filas insertadas (la mejor compra, el caro) van en su puesto: la tabla se lee de
+    # arriba abajo y una fila #50 encima de una #37 deja el orden sin columna que lo explique.
+    ranked.sort(key=lambda m: pos_of.get(m.get("name"), 10**6))
     rows = "\n        ".join(
         row_ranking(pos_of.get(m.get("name"), i + 1), m, cfg, top=(i == 0), badges=badges)
         for i, m in enumerate(ranked)
@@ -1226,7 +1470,7 @@ def render_ranking(cfg, models):
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
   </section>
 {verdict_block(cfg, models)}
-  <section class="results">
+  <section class="results" data-grupo-cabeza="{esc(','.join(m.get('key') for m in grupo))}">
     <div class="results-header">
       <h2>Ranking: {esc(cfg['h1'])}</h2>
       <p class="meta">{(cfg.get('pillar') == 'Agentes' and 'Ordenado por <strong>lo que el modelo logró HACIENDO el trabajo</strong>: tareas reales de negocio ejecutadas dentro de un agente, con herramientas, en Docker. Cuenta el PEOR de los intentos, no el promedio — para algo que corre solo, «a veces falla» y «no falla» no son lo mismo. La columna «Agentes» de más a la derecha es otra cosa: mide escribir <em>sobre</em> agentes, y por eso puede ir al revés.' or {'pillar':'Ordenado por <strong>capacidad pura en esta tarea</strong>: solo calidad, sin ponderar costo ni velocidad. Quien busca el mejor para esta tarea pregunta quién la hace mejor — el precio se muestra aparte, para decidir después.','suite':'Ordenado por calidad en esta suite, sin ponderar costo ni velocidad.','cost':'Ordenado por costo total (input + output) con score global ≥ 6,8.','open_source':'Ordenado por score global, filtrando solo modelos open source.'}[cfg['criterion']])}</p>
@@ -1239,9 +1483,9 @@ def render_ranking(cfg, models):
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
   {tabla_valor(cfg, all_ranked) if _lleva_segunda_tabla(cfg, all_ranked) else ""}
-  {reading_guide(cfg, ranked)}
-  {top3_explained(cfg, ranked)}
-  {analysis(cfg, ranked)}
+  {reading_guide(cfg, all_ranked, grupo)}
+  {top3_explained(cfg, all_ranked, grupo)}
+  {analysis(cfg, all_ranked, grupo)}
   {cost_comparison(cfg, ranked)}
   {frontier_in_dimension(cfg, models)}
   {funnel_block()}
@@ -1250,7 +1494,7 @@ def render_ranking(cfg, models):
   <script type="application/ld+json">
 {dataset_ld}
   </script>
-  {faq(cfg, ranked)}
+  {faq(cfg, all_ranked, grupo)}
   <section class="cta-block">
     <h2>Prueba la calculadora con tu caso real</h2>
     <p>Ajusta presupuesto, calidad mínima y tipo de tarea sobre 100+ modelos. En 30 segundos tienes tu ranking personalizado.</p>

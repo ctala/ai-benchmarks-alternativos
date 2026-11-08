@@ -25,13 +25,22 @@ NO lo corre `regenerate_all.py`: el blog es otro repo y otras sesiones empujan s
 Escribir ahí en silencio es publicar sin revisión. Se corre a mano, y el hook de pre-push del
 blog usa `--check`.
 
+POR DEFECTO NO ESCRIBE (8-nov-2026). Escribir exige `--write`. Antes bastaba olvidar `--check`
+para reescribir 54 cifras en 8 posts: pasó en una sesión que solo quería listar el drift, y
+escribió en el worktree del blog que esperaba aprobación. Sin flags, verifica.
+
+Los posts CONGELADOS (`benchmarkEra` + nota visible, ver `check_blog_consistency.congelado`)
+no se tocan: son del examen anterior y una cifra v5 mezclaría dos exámenes. Un post congelado
+a medias (una marca sin la otra) es error, con o sin `--write`.
+
 Uso:
-    python benchmarks/generate_blog_datos.py            # rellena los marcadores
-    python benchmarks/generate_blog_datos.py --check    # exit 1 si algún valor quedó viejo
+    python benchmarks/generate_blog_datos.py                  # verifica: exit 1 si algo quedó viejo
+    python benchmarks/generate_blog_datos.py --write          # rellena los marcadores
     python benchmarks/generate_blog_datos.py --blog /ruta/al/blog
 """
 
 import argparse
+import os
 import json
 import re
 import sys
@@ -40,10 +49,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
-DEFAULT_BLOG = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+# `BENCH_BLOG` apunta los chequeos a otro checkout (un worktree que espera aprobación) sin
+# tocar el principal; qa.py avisa cuando está puesta (8-nov-2026).
+DEFAULT_BLOG = Path(os.environ.get("BENCH_BLOG")
+                    or Path.home() / "Playground" / "sitios" / "cristiantala-blog")
 
 MARCA_DATO = re.compile(r"<!-- D:([\w.\-+]+):([\w:]+) -->(.*?)<!-- /D -->", re.S)
 MARCA_EJE = re.compile(r"<!-- V:([\w:]+) -->(.*?)<!-- /V -->", re.S)
+# Un dato de TODO el ranking, no de un modelo (8-nov-2026): la mediana de seguridad y la
+# correlación precio-calidad estaban escritas a mano en el pilar y en la guía.
+MARCA_GLOBAL = re.compile(r"<!-- G:([\w]+) -->(.*?)<!-- /G -->", re.S)
 
 
 def _num(x) -> str:
@@ -98,10 +113,15 @@ def dato(m: dict, campo: str, orden: list[dict]) -> str:
         return f"{m['latency_avg_s']:.1f} s".replace(".", ",")
     if campo == "contexto":
         return f"{int(m['effective_context']) // 1000}K" if m.get("effective_context") else "—"
+    if campo == "harbor":
+        ok, n = _harbor(m)
+        if not n:
+            raise SystemExit(f"ERROR: «{m['name']}» no tiene tareas agénticas de Harbor medidas.")
+        return f"{ok} de {n}"
     if campo == "seguridad":
         return _num(m["security_score"]) if m.get("security_score") is not None else "—"
     raise SystemExit(f"ERROR: campo desconocido «{campo}» (calidad, precio1k, posicion, "
-                     f"puesto_compuesto, compuesto, velocidad, contexto, seguridad)")
+                     f"puesto_compuesto, compuesto, velocidad, contexto, seguridad, harbor)")
 
 
 # Cada eje es una pregunta que un post le hace al ranking: «¿quién manda hoy en esto?».
@@ -116,9 +136,28 @@ EJES = {
                                 key=lambda m: m["quality_by_suite"]["code_generation"]),
     "seguridad": lambda ms: max([m for m in ms if m.get("security_score") is not None],
                                 key=lambda m: m["security_score"]),
-    "agentico":  lambda ms: max([m for m in ms if m.get("agentic_score") is not None],
-                                key=lambda m: m["agentic_score"]),
+    # El más barato de los que superan TODAS las tareas agénticas de Harbor en todos sus
+    # intentos. Es «barato entre los que no fallan», no «el mejor»: en Harbor los perfectos
+    # empatan, así que la decisión entre ellos es de precio.
+    "harbor_barato": lambda ms: min([m for m in ms if _harbor(m)[0] and _harbor(m)[0] == _harbor(m)[1]],
+                                    key=lambda m: m["cost_per_1k_calls_usd"]),
 }
+
+# 8-nov-2026: el eje `agentico` leía `agentic_score`, que NO es trabajo agéntico: es el
+# compuesto (calidad + costo + velocidad) de `agent_long_horizon`, una suite multi-turno
+# sin herramientas (ver export_for_pages, «SE LLAMABA agentic_score Y ERA UNA ETIQUETA
+# FALSA»). El pilar lo publicaba como «tareas agénticas reales en Docker». Un marcador
+# viejo con ese eje falla en vez de seguir publicando la etiqueta falsa.
+EJES_RETIRADOS = {
+    "agentico": "lee agentic_score, que es el compuesto multi-turno sin herramientas, no "
+                "trabajo agéntico. Usa `harbor_barato` o el dato `D:<key>:harbor`.",
+}
+
+
+def _harbor(m: dict) -> tuple[int, int]:
+    """(tareas superadas en todos sus intentos, tareas medidas) en Harbor."""
+    tareas = ((m.get("agentico") or {}).get("tareas") or {}).values()
+    return sum(1 for x in tareas if x.get("estado") == "ok_siempre"), len(tareas)
 
 
 def _landings():
@@ -163,6 +202,8 @@ def vigente_compuesto(eje: str, data: dict) -> str:
 
 
 def vigente(eje: str, ms: list[dict]) -> str:
+    if eje in EJES_RETIRADOS:
+        raise SystemExit(f"ERROR: el eje «{eje}» está retirado: {EJES_RETIRADOS[eje]}")
     if eje not in EJES:
         raise SystemExit(f"ERROR: eje desconocido «{eje}» ({', '.join(EJES)})")
     m = EJES[eje](ms)
@@ -172,9 +213,35 @@ def vigente(eje: str, ms: list[dict]) -> str:
         return f"{m['name']} ({_num(m['quality_by_suite']['code_generation'])})"
     if eje == "seguridad":
         return f"{m['name']} ({_num(m['security_score'])})"
-    if eje == "agentico":
-        return f"{m['name']} ({_num(m['agentic_score'])})"
+    if eje == "harbor_barato":
+        return f"{m['name']} ({_usd(m['cost_per_1k_calls_usd'])})"
     return f"{m['name']} ({_num(m['quality_avg'])})"
+
+
+def global_(campo: str, data: dict) -> str:
+    """`G:seguridad_mediana` → «2,50» · `G:correlacion_precio` → «+0,16» ·
+    `G:precio_explica_pct` → «3» (el % de la diferencia de calidad que explica el precio)."""
+    if campo == "seguridad_mediana":
+        v = (data.get("seguridad_mediana") or {}).get("mediana")
+        if v is None:
+            raise SystemExit("ERROR: models.json no trae `seguridad_mediana`.")
+        return _num(v)
+    if campo == "seguridad_medidos":
+        v = (data.get("seguridad_mediana") or {}).get("de")
+        if not v:
+            raise SystemExit("ERROR: models.json no trae `seguridad_mediana`.")
+        return str(v)
+    pc = data.get("precio_calidad") or {}
+    if campo == "correlacion_precio":
+        if pc.get("pearson") is None:
+            raise SystemExit("ERROR: models.json no trae `precio_calidad`.")
+        return ("+" if pc["pearson"] >= 0 else "−") + _num(abs(pc["pearson"]))
+    if campo == "precio_explica_pct":
+        if pc.get("r2_pct") is None:
+            raise SystemExit("ERROR: models.json no trae `precio_calidad`.")
+        return str(pc["r2_pct"])
+    raise SystemExit(f"ERROR: dato global desconocido «{campo}» "
+                     "(seguridad_mediana, seguridad_medidos, correlacion_precio, precio_explica_pct)")
 
 
 def aplicar(texto: str, data: dict, archivo: str) -> tuple[str, list[str]]:
@@ -203,17 +270,30 @@ def aplicar(texto: str, data: dict, archivo: str) -> tuple[str, list[str]]:
             cambios.append(f"{archivo}: vigente[{eje}] «{viejo}» → «{nuevo}»")
         return f"<!-- V:{eje} -->{nuevo}<!-- /V -->"
 
+    def _global(mm):
+        campo, viejo = mm.group(1), mm.group(2)
+        nuevo = global_(campo, data)
+        if nuevo != viejo:
+            cambios.append(f"{archivo}: global[{campo}] «{viejo}» → «{nuevo}»")
+        return f"<!-- G:{campo} -->{nuevo}<!-- /G -->"
+
     texto = MARCA_DATO.sub(_dato, texto)
     texto = MARCA_EJE.sub(_eje, texto)
+    texto = MARCA_GLOBAL.sub(_global, texto)
     return texto, cambios
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--blog", default=str(DEFAULT_BLOG))
-    ap.add_argument("--check", action="store_true",
-                    help="no escribe: exit 1 si algún marcador quedó con un valor viejo")
+    modo = ap.add_mutually_exclusive_group()
+    modo.add_argument("--check", action="store_true",
+                      help="no escribe: exit 1 si algún marcador quedó con un valor viejo "
+                           "(es el comportamiento por defecto)")
+    modo.add_argument("--write", action="store_true",
+                      help="escribe los valores nuevos en los posts")
     args = ap.parse_args()
+    args.check = not args.write
 
     posts = Path(args.blog) / "src" / "content" / "blog"
     if not posts.is_dir():
@@ -223,11 +303,21 @@ def main() -> int:
     if not MODELS_JSON.exists():
         sys.exit("Falta docs/data/models.json — corré export_for_pages.py primero")
 
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from check_blog_consistency import congelado
+
     data = json.loads(MODELS_JSON.read_text())
-    cambios, tocados, con_marcas = [], 0, 0
+    cambios, tocados, con_marcas, congelados, a_medias = [], 0, 0, 0, []
     for p in sorted(posts.glob("*.md")):
         texto = p.read_text()
-        if "<!-- D:" not in texto and "<!-- V:" not in texto:
+        frio, error = congelado(texto)
+        if error:
+            a_medias.append(f"{p.name}: post congelado a medias — {error}")
+            continue
+        if frio:
+            congelados += 1
+            continue
+        if "<!-- D:" not in texto and "<!-- V:" not in texto and "<!-- G:" not in texto:
             continue
         con_marcas += 1
         nuevo, cs = aplicar(texto, data, p.name)
@@ -237,18 +327,26 @@ def main() -> int:
                 p.write_text(nuevo)
                 tocados += 1
 
+    for e in a_medias:
+        print(f"  ❌ {e}")
+    if a_medias:
+        print("\n  Un post congelado necesita las dos marcas: `benchmarkEra` en el frontmatter y la "
+              "nota visible arriba del primer ##. No se escribió nada en esos posts.")
     if not cambios:
-        print(f"  ✅ los datos marcados en {con_marcas} post(s) coinciden con models.json")
+        if a_medias:
+            return 1
+        print(f"  ✅ los datos marcados en {con_marcas} post(s) coinciden con models.json "
+              f"({congelados} congelado(s) en su era, sin tocar)")
         return 0
     for c in cambios:
         print(f"  {'❌' if args.check else '✓'} {c}")
     if args.check:
         print(f"\n  {len(cambios)} dato(s) viejos. Corré "
-              f"`python benchmarks/generate_blog_datos.py` y revisá la prosa alrededor: "
+              f"`python benchmarks/generate_blog_datos.py --write` y revisá la prosa alrededor: "
               f"el marcador cambia el número, no la frase que lo explica.")
         return 1
     print(f"\n  {len(cambios)} dato(s) actualizados en {tocados} post(s).")
-    return 0
+    return 1 if a_medias else 0
 
 
 if __name__ == "__main__":

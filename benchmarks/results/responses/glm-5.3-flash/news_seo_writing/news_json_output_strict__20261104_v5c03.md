@@ -1,0 +1,34 @@
+# GLM 5.3 Flash — news_seo_writing/news_json_output_strict
+
+- model_id: `z-ai/glm-5.3-flash`
+- success: True  | final: 8.78 | quality: 10.0
+- latency_total: 68.972s | tokens_per_second: 101.7
+- input_tokens: 314 | output_tokens: 7013
+
+## Entrada exacta (lo que recibió el modelo)
+
+**system:**
+
+Eres un sistema de procesamiento de noticias. Responde UNICAMENTE con JSON valido. Sin markdown, sin explicaciones, sin code blocks.
+
+**user:**
+
+Genera un JSON con EXACTAMENTE estas 7 claves en este orden, basado en el extracto:
+
+EXTRACTO: "Google DeepMind released Gemma 4, an open-source AI model family under Apache 2.0 license. The 31B dense model ranks #3 on the Arena leaderboard. Available in four sizes: E2B, E4B, 26B MoE, and 31B dense."
+
+Claves requeridas (en este orden exacto):
+1. "Fuentes": array de URLs de fuentes ["https://..."]
+2. "Categoria": string, una de: "Inteligencia Artificial", "Startups", "Fintech", "Emprendimiento"
+3. "Palabras_Clave": array de 5 strings
+4. "Contenido_HTML": string con HTML del articulo (usa <h2>, NO uses <h1>, minimo 500 palabras)
+5. "Meta_Titulo": string, maximo 60 caracteres
+6. "Meta_Descripcion": string, maximo 155 caracteres
+7. "Slug": string en formato kebab-case
+
+IMPORTANTE: El Contenido_HTML debe empezar con <h2>, NUNCA con <h1>. El Meta_Titulo debe tener maximo 60 caracteres.
+
+
+## Respuesta completa
+
+{"Fuentes":["https://deepmind.google/models/gemma/","https://ai.google.dev/gemma","https://blog.google/technology/google-deepmind/"],"Categoria":"Inteligencia Artificial","Palabras_Clave":["Gemma 4","Google DeepMind","IA open source","Apache 2.0","Arena leaderboard"],"Contenido_HTML":"<h2>Google DeepMind lanza Gemma 4, su nueva familia de modelos de IA open source</h2><p>Google DeepMind ha anunciado el lanzamiento de Gemma 4, la cuarta generación de su familia de modelos de inteligencia artificial open source, que se distribuye bajo la licencia Apache 2.0. Este lanzamiento representa un paso significativo en la estrategia de la compañía para democratizar el acceso a la tecnología de IA de alto rendimiento, permitiendo que desarrolladores, empresas e investigadores de todo el mundo puedan utilizar, modificar y distribuir estos modelos con total libertad.</p><h2>El modelo 31B se posiciona en el top 3 del Arena leaderboard</h2><p>Una de las noticias más destacadas del lanzamiento es el rendimiento del modelo de 31B parámetros de arquitectura densa, que ha alcanzado el puesto número 3 en el prestigioso Arena leaderboard, una de las clasificaciones más influyentes del sector para evaluar modelos de lenguaje. Este resultado demuestra que Gemma 4 compite de tú a tú con los modelos propietarios más avanzados del mercado, consolidando a la familia Gemma como una alternativa seria y accesible frente a las soluciones cerradas de otros gigantes tecnológicos.</p><h2>Cuatro tamaños para cubrir todas las necesidades</h2><p>Gemma 4 llega en cuatro variantes diferentes, diseñadas para adaptarse a distintos casos de uso y capacidades de hardware:</p><ul><li><strong>E2B</strong>: la versión más ligera, ideal para dispositivos móviles y entornos con recursos limitados.</li><li><strong>E4B</strong>: un punto intermedio que ofrece un equilibrio entre rendimiento y consumo energético.</li><li><strong>26B MoE</strong>: un modelo con arquitectura de mezcla de expertos (Mixture of Experts) que optimiza la eficiencia computacional activando solo los parámetros necesarios en cada consulta.</li><li><strong>31B dense</strong>: el modelo más potente de la familia, responsable de la destacada posición en el Arena leaderboard.</li></ul><p>Esta variedad de tamaños permite que las organizaciones escojan el modelo que mejor se ajuste a sus necesidades, desde aplicaciones en el borde (edge) hasta despliegues en servidores de alto rendimiento.</p><h2>Licencia Apache 2.0: máxima flexibilidad para desarrolladores</h2><p>La elección de la licencia Apache 2.0 es una de las decisiones más relevantes de este lanzamiento. Se trata de una de las licencias open source más permisivas que existen, ya que permite el uso comercial, la modificación, la distribución y la creación de productos derivados sin apenas restricciones. Esto contrasta con otras licencias de modelos que imponen limitaciones de uso, restricciones de volumen de usuarios o condiciones específicas para entornos empresariales.</p><p>Para las startups y las empresas que quieren integrar inteligencia artificial en sus productos, esta licencia reduce significativamente las barreras de entrada y los riesgos legales, facilitando la adopción de Gemma 4 en entornos de producción reales.</p><h2>¿Qué significa para los desarrolladores?</h2><p>Para quienes quieran empezar a trabajar con Gemma 4, la familia de modelos ofrece un punto de entrada muy accesible. Los desarrolladores pueden descargar los pesos del modelo, realizar fine-tuning con sus propios datos y desplegar los modelos tanto en la nube como en infraestructura local. La variante E2B, en particular, está pensada para funcionar en dispositivos con memoria limitada, lo que abre la puerta a casos de uso de IA en el dispositivo, como asistentes personales, traducción en tiempo real y procesamiento de documentos sin conexión a internet.</p><h2>Un hito para el ecosistema de IA abierta</h2><p>El lanzamiento de Gemma 4 refuerza la tendencia hacia la apertura en la industria de la inteligencia artificial. Mientras algunas compañías apuestan por modelos cerrados accesibles únicamente mediante API de pago, Google DeepMind continúa defendiendo un ecosistema abierto donde la comunidad puede auditar, mejorar y personalizar los modelos. Esta estrategia beneficia especialmente a la comunidad investigadora y a los desarrolladores independientes, que ahora disponen de un modelo de primer nivel que pueden ejecutar en su propia infraestructura sin depender de terceros.</p><h2>Conclusión</h2><p>Con Gemma 4, Google DeepMind consolida su compromiso con la IA open source y ofrece a la comunidad global una familia de modelos versátil, potente y con una licencia verdaderamente permisiva. El puesto número 3 del modelo 31B en el Arena leaderboard confirma que los modelos abiertos ya no son una alternativa de segunda clase, sino una opción competitiva de pleno derecho. La disponibilidad de cuatro tamaños, desde el ligero E2B hasta el robusto 31B dense, abre la puerta a infinitas posibilidades de implementación para empresas, investigadores y creadores de todo el mundo.</p>","Meta_Titulo":"Google DeepMind lanza Gemma 4: IA open source","Meta_Descripcion":"Google DeepMind lanza Gemma 4, familia de modelos IA open source bajo Apache 2.0. Su versión 31B densa alcanza el puesto #3 del Arena leaderboard.","Slug":"google-deepmind-lanza-gemma-4-ia-open-source"}

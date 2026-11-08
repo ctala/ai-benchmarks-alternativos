@@ -1,0 +1,7799 @@
+{
+ "por_que": "Intentos anteriores a la ventana de v5 en pares re-medidos con proveedor fijo (DECISIONES, 5-nov-2026). No entran al índice; son el antes de 6.9.",
+ "pares": {
+  "harbor-cotizar::tencent/hy3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009219,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005135,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004329,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01051,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004524,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008254,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::upstage/solar-pro4": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001444,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002055,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002537,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002426,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::z-ai/glm-5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015114,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017459,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01462,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::mistralai/ministral-14b-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015178,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004919,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.6667,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004837,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.5-397b-a17b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015985,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015333,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017439,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::meta-llama/llama-4-maverick": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000838,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000832,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000836,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::thinkingmachines/inkling-small": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012459,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017345,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021458,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::google/gemma-4-26b-a4b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006609,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002391,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004175,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::z-ai/glm-5.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014169,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018599,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011886,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v3.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.042423,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.013045,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024143,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::openai/gpt-5.6-terra": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.037548,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027474,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.035936,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::moonshotai/kimi-k2.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.032356,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes",
+      "Decart"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.025091,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.032446,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.6-plus": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031943,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01142,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018377,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::minimax/minimax-m3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010372,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015238,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007956,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::meta/muse-glimmer-30b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.026242,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.029084,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.032039,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::minimax/minimax-m2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009939,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00679,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011504,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v4-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002212,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003071,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003439,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "GMICloud"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::moonshotai/kimi-k2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.022045,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023576,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015165,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::z-ai/glm-5.1": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031718,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.0249,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021333,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::openai/gpt-5.6-sol": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043008,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.044074,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050386,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::openai/gpt-oss-120b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000797,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001201,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001751,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::mistralai/mistral-large-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012691,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012809,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011104,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::moonshotai/kimi-k3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.138944,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.145643,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.159492,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v4-flash-0731": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000998,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DigitalOcean"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001961,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Decart",
+      "DigitalOcean"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00291,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Decart",
+      "DigitalOcean"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v4-pro": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050808,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepSeek"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.140982,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepSeek"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.047411,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepSeek"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::z-ai/glm-5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.75,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.022731,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::mistralai/mistral-small-2603": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007109,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012213,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.6667,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008461,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::mistralai/ministral-14b-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006934,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3-next-80b-a3b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.6667,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003708,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003506,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00346,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::nvidia/nemotron-3-ultra-550b-a55b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021305,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017048,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018559,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::meta-llama/llama-3.3-70b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001711,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00182,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004072,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::moonshotai/kimi-k2.7-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.034066,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043043,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.025028,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::inclusionai/ling-3.0-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000784,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000619,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000587,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.5-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.016163,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014048,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007431,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.6-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004427,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006202,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005114,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::openai/gpt-oss-20b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001366,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001717,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000926,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.6-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008928,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010042,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011807,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::nvidia/nemotron-3-nano-30b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003602,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003116,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001713,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::meta-llama/llama-3.1-8b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000362,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave",
+      "Groq"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000233,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Groq"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000109,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Groq"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::google/gemini-3.1-pro-preview": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.382566,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.229564,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.15553,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3-next-80b-a3b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006521,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009393,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005445,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.5-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.010721,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.003291,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.001498,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::minimax/minimax-m2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008952,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011628,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011552,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.5-397b-a17b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018449,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.020311,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017907,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.6-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01725,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.03614,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.016006,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::minimax/minimax-m3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024281,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014391,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043475,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::mistralai/ministral-14b-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003931,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004057,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004305,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.6-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005354,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00529,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004496,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::mistralai/mistral-large-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.016997,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018281,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.016719,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::mistralai/mistral-small-2603": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005795,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004631,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004492,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.6-plus": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.013642,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011788,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010094,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::moonshotai/kimi-k2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023734,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018225,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.020066,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::moonshotai/kimi-k2.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.064687,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.09431,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.061871,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::tencent/hy3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006335,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006759,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004866,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::thinkingmachines/inkling-small": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011482,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010882,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012133,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::moonshotai/kimi-k2.7-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021534,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023743,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.03631,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::upstage/solar-pro4": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002378,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003836,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003003,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::moonshotai/kimi-k3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.267481,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.149895,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.142497,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v3.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017345,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.029525,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017017,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Venice"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::nvidia/nemotron-3-nano-30b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003015,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003207,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002388,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Crusoe"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v4-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004042,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002998,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003638,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::z-ai/glm-5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.020544,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.025882,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.019389,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::nvidia/nemotron-3-ultra-550b-a55b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.022888,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031037,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.026965,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::z-ai/glm-5.1": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.035661,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024931,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.02986,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v4-flash-0731": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003048,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001725,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003522,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::openai/gpt-5.6-sol": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.060676,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050338,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050336,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::z-ai/glm-5.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.022651,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.0382,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Phala"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.026487,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Phala"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v4-pro": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.14124,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.080382,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.147707,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": null,
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.112432,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.134109,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.098941,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::openai/gpt-5.6-terra": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.085562,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.038338,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.036598,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::openai/gpt-oss-120b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002711,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML",
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002133,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002342,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::openai/gpt-oss-20b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": null,
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00115,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "rompe_bucle",
+     "detalle": "tiene herramientas pero no sostiene el formato de tool call",
+     "costo_usd": 0.000429,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001055,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::google/gemma-4-26b-a4b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003558,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google",
+      "NextBit"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004066,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003813,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::google/gemini-3.1-pro-preview": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.34782,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.074838,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.079176,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::inclusionai/ling-3.0-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00145,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000921,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001964,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::meta-llama/llama-3.3-70b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002442,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8462,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003163,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007264,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::meta/muse-glimmer-30b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.033746,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.022972,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041221,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Together"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::meta-llama/llama-3.3-70b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.7,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004156,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML",
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007913,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005322,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3-next-80b-a3b-instruct": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007898,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.019082,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010329,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::meta/muse-glimmer-30b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.048164,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.055413,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.06,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.5-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.047244,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043817,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039747,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AtlasCloud"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.5-397b-a17b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050368,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.064437,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.047087,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::minimax/minimax-m2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.030001,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031849,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031115,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.6-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039342,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.040338,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.052807,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Morph",
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::minimax/minimax-m3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.096656,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.081309,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.044817,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Minimax"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.6-35b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.015243,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014572,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018256,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::mistralai/ministral-14b-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.020665,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.6-plus": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043228,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041059,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.046239,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::mistralai/mistral-large-2512": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.036997,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.035556,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.038266,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::mistralai/mistral-small-2603": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017393,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.030674,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017871,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::moonshotai/kimi-k2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.060886,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.049685,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.057422,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::tencent/hy3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008377,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01107,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012084,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Tencent"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::moonshotai/kimi-k2.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.130321,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.165507,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Decart"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.134441,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Decart"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::thinkingmachines/inkling-small": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039519,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039203,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041874,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::upstage/solar-pro4": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009805,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011152,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009203,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Upstage"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::moonshotai/kimi-k2.7-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.085725,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043938,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inceptron"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.11195,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave",
+      "Inceptron"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::moonshotai/kimi-k3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.193052,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.238439,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.14524,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Morph"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v3.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.06418,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.054196,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.086887,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::nvidia/nemotron-3-nano-30b-a3b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01084,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01556,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010222,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::z-ai/glm-5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.045737,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.100563,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.04185,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v4-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005098,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005052,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00985,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v4-flash-0731": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003696,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004419,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004066,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::z-ai/glm-5.1": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.105522,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.113413,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.094045,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "StreamLake"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::nvidia/nemotron-3-ultra-550b-a55b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.078287,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.07038,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.086201,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "BaseTen"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v4-pro": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.079678,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.077038,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.072901,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Baidu"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::z-ai/glm-5.2": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.033825,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023131,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.02219,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::openai/gpt-5.6-sol": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.04144,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.06306,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.045068,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::openai/gpt-5.6-terra": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031836,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031312,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.03156,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "OpenAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::openai/gpt-oss-120b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006443,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005047,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004265,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave",
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::openai/gpt-oss-20b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006139,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave",
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003645,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave",
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007762,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::google/gemini-3.1-pro-preview": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.073526,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.091944,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.232308,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::google/gemma-4-26b-a4b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00479,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009571,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003939,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Cloudflare"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::inclusionai/ling-3.0-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001592,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001217,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001222,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "Novita"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.8-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": "sin_credencial",
+     "detalle": "falta la credencial del proveedor — no es un fallo del modelo",
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031994,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041752,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.025885,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.040207,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027624,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Chutes"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::google/gemma-4-31b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001369,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002514,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave",
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001211,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007979,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "CoreWeave",
+      "Crusoe",
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::bytedance-seed/seed-2.0-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": null,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": null,
+     "costo_fuente": null,
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021147,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.036874,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01639,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::x-ai/grok-4.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.035134,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.074624,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.050824,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::google/gemini-3.5-flash-lite": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.026727,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.034961,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021402,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3-coder-next": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003876,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 1.300153,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba",
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002381,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::nvidia/nemotron-3.5-lightning": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00313,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002892,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004854,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::google/gemma-4-31b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006668,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave",
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002981,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002405,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Crusoe",
+      "OpenInference"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.8-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039144,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.04143,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039714,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::bytedance-seed/seed-2.0-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.03487,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.043719,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.062731,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::x-ai/grok-4.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.039442,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.05336,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.040296,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::google/gemini-3.5-flash-lite": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023503,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.019574,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01465,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3-coder-next": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004409,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007819,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004439,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::nvidia/nemotron-3.5-lightning": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007921,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00498,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004754,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::google/gemma-4-31b-it": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004402,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave",
+      "Venice"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005583,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "SiliconFlow",
+      "Venice"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006278,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "CoreWeave"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.8-27b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031703,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML",
+      "Chutes"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.045144,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML",
+      "Reka"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.034916,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "AkashML"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::bytedance-seed/seed-2.0-code": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.085227,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.142643,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.085675,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Seed"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::x-ai/grok-4.6": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.060838,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.087086,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.059202,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "xAI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::google/gemini-3.5-flash-lite": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041925,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041904,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.069705,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3-coder-next": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.019151,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.097607,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Parasail",
+      "StreamLake"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027956,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::nvidia/nemotron-3.5-lightning": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010182,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002652,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009645,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::z-ai/glm-5.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.103571,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.081203,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.078069,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v4-pro-0813": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.029612,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.16214,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.061679,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::stepfun/step-3.5-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005053,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007636,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.002689,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::moonshotai/kimi-k2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001533,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00334,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014387,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::nvidia/nemotron-3-super-120b-a12b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005379,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004029,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003869,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::z-ai/glm-5.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.102614,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.101861,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.086434,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v4-pro-0813": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.072559,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.9231,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.080419,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.059667,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::stepfun/step-3.5-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003512,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003812,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005186,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::moonshotai/kimi-k2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.033571,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023096,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.026276,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::nvidia/nemotron-3-super-120b-a12b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006845,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012617,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006929,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::z-ai/glm-5.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.162001,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.136245,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.181489,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v4-pro-0813": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.094045,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.041033,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.072244,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::stepfun/step-3.5-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017508,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011247,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011457,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "SiliconFlow"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::moonshotai/kimi-k2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.063518,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024467,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.094815,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::nvidia/nemotron-3-super-120b-a12b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012217,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012815,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "DigitalOcean"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.019619,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra",
+      "DigitalOcean"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.02006,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024851,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00489,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::z-ai/glm-5.3-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006745,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007034,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009473,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "GMICloud"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027362,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.020819,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.03173,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::z-ai/glm-5.3-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004866,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Parasail"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.01262,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007319,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027015,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.028336,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014647,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::z-ai/glm-5.3-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009686,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.02418,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.030382,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Z.AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::ibm-granite/granite-4.2-8b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.028081,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.018239,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.035338,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::inception/mercury-2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.7778,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001345,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000908,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001076,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::inception/mercury-2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004559,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.003572,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.75,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001811,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::deepseek/deepseek-v4.1-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017513,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba",
+      "Wafer"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.021369,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba",
+      "Modal",
+      "Relace",
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.017954,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba",
+      "Modal",
+      "Together"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::google/gemini-3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.194089,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.079504,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.585478,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Google",
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::meta/muse-spark-1.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.030489,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.028764,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.029726,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::sakana/fugu-max": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.118724,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.642398,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.20895,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-cotizar::qwen/qwen3.8-max-0902": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.344568,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.201494,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.1943,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::deepseek/deepseek-v4.1-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.023681,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Alibaba",
+      "Parasail",
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006664,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Alibaba",
+      "Parasail",
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.008901,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Relace",
+      "Together"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::ibm-granite/granite-4.2-8b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.030567,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.011961,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.024425,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::google/gemini-3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.230204,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.061439,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.750528,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Google",
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::meta/muse-spark-1.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.037447,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.025233,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.045692,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::sakana/fugu-max": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.076234,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.033028,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.625,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.037554,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-facturacion::qwen/qwen3.8-max-0902": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.628868,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.376526,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.45782,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::inception/mercury-2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001612,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001428,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001633,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::deepseek/deepseek-v4.1-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.010097,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Parasail",
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.006004,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba",
+      "Parasail",
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.007811,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba",
+      "Relace",
+      "Together"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::ibm-granite/granite-4.2-8b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004161,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005139,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005151,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::google/gemini-3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.055017,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.31622,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.05922,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::meta/muse-spark-1.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.053498,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.040942,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.049911,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::sakana/fugu-max": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.090434,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.096176,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.069234,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-reunion::qwen/qwen3.8-max-0902": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.383372,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.334024,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.17083,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::inception/mercury-2.5": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004383,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004454,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004471,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Inception"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::deepseek/deepseek-v4.1-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.014976,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Together"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.009848,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.012453,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::ibm-granite/granite-4.2-8b": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.031476,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.037285,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.027029,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "DeepInfra"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::google/gemini-3.8-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.193807,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.17683,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.144365,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Google AI Studio"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::meta/muse-spark-1.3": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.062416,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.062297,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.085989,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Meta"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::sakana/fugu-max": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.146892,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.14278,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.135634,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Sakana AI"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.8-max-0902": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.328266,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.299834,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.264754,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  }
+ }
+}

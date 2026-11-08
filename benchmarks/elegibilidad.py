@@ -63,6 +63,8 @@ MOTIVOS = {
     "free": "medido en un endpoint `:free`, que falla 6× más y puede servirse con otra cuantización",
     "sin_muestra": "no llega al mínimo de corridas para que su promedio sea comparable",
     "examen_incompleto": "rindió algunas suites a medias: su promedio no compara con uno completo",
+    "historico": ("rindió el examen completo antes de la ventana de v5: se publica en el "
+                  "histórico, con su era y sin puesto"),
     "sin_herramientas": "no existe endpoint que le dé herramientas: no puede ejecutar nada en un agente",
     "sin_evidencia_agentica": "nunca se lo probó dentro de un agente; recomendarlo sería adivinar",
     "esfuerzo": "es la misma base razonando más, al mismo precio: no es otro producto",
@@ -151,6 +153,10 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
         # que se saca es la recomendación, no la evidencia — para eso está la
         # auditoría. El camino de vuelta es medir lo que falta, no bajar el listón.
         no("catalogo", "examen_incompleto")
+    # 5-nov-2026: el ranking v5 es solo de exámenes rendidos en la ventana. El histórico
+    # sigue en el catálogo (sus mediciones son reales), pero no compite por un puesto.
+    if m.get("historico"):
+        no("ranking", "historico")
     if m.get("notes") and "no rankea por política" in (m.get("notes") or "").lower():
         no("ranking", "esfuerzo")
 

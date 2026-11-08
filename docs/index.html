@@ -34,7 +34,7 @@
       "@type": "Dataset",
       "@id": "https://benchmarks.cristiantala.com/#dataset",
       "name": "Benchmark de Modelos AI Alternativos",
-      "description": "Benchmark abierto de 191 modelos de IA (LLMs) con 29.000+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 local.",
+      "description": "Benchmark abierto de 191 modelos de IA (LLMs) con 29.000+ tests reales organizados en 4 pilares (Razonamiento, Coding, Contenido, Agentes) + long-context y seguridad como dimensiones separadas. Evaluación con LLM-as-Judge Phi-4 vía OpenRouter.",
       "url": "https://benchmarks.cristiantala.com/",
       "sameAs": "https://github.com/ctala/ai-benchmarks-alternativos",
       "version": "v4.17.1",
@@ -266,7 +266,7 @@
 
   <!-- CORTES POR EJE. Separados de los rankings por tarea a propósito: aquéllos ordenan
        por un PROMEDIO (pilar), éstos por UN eje medido. La diferencia no es cosmética —
-       Gemini 3.6 Flash es #3 de 80 en calidad agéntica y #76 de 80 en el índice general,
+       Gemini 3.6 Flash es #3 de 80 en multi-turno sin herramientas y #76 de 80 en el índice general,
        y el pilar Agentes tampoco lo mostraba (#65) porque también promedia. -->
   <nav class="landing-nav" aria-label="Cortes por eje">
     <strong>Por eje, sin promediar:</strong>
@@ -359,7 +359,7 @@
 
       <div class="filter">
         <label for="quality">Calidad mínima: <output id="quality-out">8.0</output></label>
-        <input type="range" id="quality" min="7" max="8.7" step="0.05" value="7">
+        <input type="range" id="quality" min="6.9" max="8.75" step="0.05" value="6.9">
         <small>Nota media del examen, escala absoluta 0-10 (10 = perfecto en todo).
         Los <strong id="rk-n2">96</strong> rankeados caen entre
         <strong id="rk-rango2">7,26 y 8,52</strong>: están más cerca entre sí
@@ -618,6 +618,72 @@
     <p class="meta" id="empty-state" aria-live="polite" hidden>
       Ningún modelo cumple todos tus criterios. Prueba relajando alguno (ej. bajar calidad o subir presupuesto).
     </p>
+  </section>
+
+  <section class="results historico" id="historico" aria-labelledby="historico-h">
+    <!-- AUTO-HISTORICO-START -->
+    <div class="results-header">
+      <h2 id="historico-h">Histórico: fuera del ranking v5</h2>
+      <p class="meta">
+        41 rindieron el examen completo, pero no en las condiciones de v5 (proveedor fijo, razonamiento según la tarea y el harness actual): sus notas se midieron con otra versión y llevan la era de la mayoría de sus pruebas. 6 rindieron el examen v5 entero y salieron del ranking porque los reemplazó su versión nueva, medida con el mismo examen. Ninguno compite por un puesto, así que van en orden alfabético.
+      </p>
+    </div>
+    <div id="historico-wrap">
+    <table class="results-table historico-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Por qué está acá</th><th scope="col">Era</th>
+        <th scope="col">Calidad (su era)</th><th scope="col">Pruebas por era</th></tr></thead>
+      <tbody>
+      <tr data-modelo="or-claude-fable-5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/or-claude-fable-5/">Claude Fable 5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,45</td><td class="meta">E0 185 · E1 28</td></tr>
+      <tr data-modelo="claude-haiku-4.5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/claude-haiku-4.5/">Claude Haiku 4.5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,21</td><td class="meta">E0 119 · E1 38</td></tr>
+      <tr data-modelo="claude-opus-4.6" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/claude-opus-4.6/">Claude Opus 4.6</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,56</td><td class="meta">E0 185 · E1 28</td></tr>
+      <tr data-modelo="claude-opus-4.7" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/claude-opus-4.7/">Claude Opus 4.7</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,42</td><td class="meta">E0 172 · E1 38</td></tr>
+      <tr data-modelo="claude-opus-4.8" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/claude-opus-4.8/">Claude Opus 4.8</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,51</td><td class="meta">E0 127 · E1 38</td></tr>
+      <tr data-modelo="claude-opus-5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/claude-opus-5/">Claude Opus 5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,21</td><td class="meta">E1 286 · v5 57</td></tr>
+      <tr data-modelo="claude-opus-5-fast" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/claude-opus-5-fast/">Claude Opus 5 Fast</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,28</td><td class="meta">E1 451</td></tr>
+      <tr data-modelo="claude-sonnet-4.6" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/claude-sonnet-4.6/">Claude Sonnet 4.6</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,19</td><td class="meta">E0 133 · E1 38</td></tr>
+      <tr data-modelo="claude-sonnet-5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/claude-sonnet-5/">Claude Sonnet 5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,32</td><td class="meta">E1 182 · v5 57</td></tr>
+      <tr data-modelo="deepseek-v3" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/deepseek-v3/">DeepSeek (alias deepseek-chat)</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,12</td><td class="meta">E0 246 · E1 24</td></tr>
+      <tr data-modelo="gemini-flash" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gemini-flash/">Gemini 2.5 Flash</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,08</td><td class="meta">E0 138 · E1 24</td></tr>
+      <tr data-modelo="gemini-flash-lite" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gemini-flash-lite/">Gemini 2.5 Flash Lite</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,85</td><td class="meta">E0 129 · E1 24</td></tr>
+      <tr data-modelo="gemini-pro" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gemini-pro/">Gemini 2.5 Pro</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,66</td><td class="meta">E0 155 · E1 24</td></tr>
+      <tr data-modelo="gemini-3.1-flash-lite" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gemini-3.1-flash-lite/">Gemini 3.1 Flash Lite</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,08</td><td class="meta">E0 139 · E1 24</td></tr>
+      <tr data-modelo="gemini-3.1-pro" data-motivo="reemplazo" data-reemplazado-por="gemini-4-argon" data-era="v5"><td><a href="/modelo/gemini-3.1-pro/">Gemini 3.1 Pro</a></td><td>Lo reemplazó <a href="/modelo/gemini-4-argon/">Gemini 4 Argon</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,43</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="gemini-3.5-flash" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gemini-3.5-flash/">Gemini 3.5 Flash</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,50</td><td class="meta">E0 142 · E1 24</td></tr>
+      <tr data-modelo="gemini-3.6-flash" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/gemini-3.6-flash/">Gemini 3.6 Flash</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,24</td><td class="meta">E1 234</td></tr>
+      <tr data-modelo="gemini-3.7-flash" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/gemini-3.7-flash/">Gemini 3.7 Flash</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,26</td><td class="meta">E1 506</td></tr>
+      <tr data-modelo="gpt-4.1" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-4.1/">GPT-4.1</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,16</td><td class="meta">E0 139 · E1 24</td></tr>
+      <tr data-modelo="gpt-4.1-mini" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-4.1-mini/">GPT-4.1 Mini</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,91</td><td class="meta">E0 138 · E1 24</td></tr>
+      <tr data-modelo="gpt-5.4" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-5.4/">GPT-5.4</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,41</td><td class="meta">E0 124 · E1 24</td></tr>
+      <tr data-modelo="gpt-5.4-mini" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-5.4-mini/">GPT-5.4 Mini</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,19</td><td class="meta">E0 130 · E1 24</td></tr>
+      <tr data-modelo="gpt-5.5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-5.5/">GPT-5.5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,27</td><td class="meta">E0 352 · E1 40 · v5 57</td></tr>
+      <tr data-modelo="gpt-5.6-luna" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/gpt-5.6-luna/">GPT-5.6 Luna</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,61</td><td class="meta">E0 138 · E1 24</td></tr>
+      <tr data-modelo="gpt-5.6-sol" data-motivo="reemplazo" data-reemplazado-por="gpt-6.1-sol" data-era="v5"><td><a href="/modelo/gpt-5.6-sol/">GPT-5.6 Sol</a></td><td>Lo reemplazó <a href="/modelo/gpt-6.1-sol/">GPT-6.1 Sol</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,48</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="gpt-5.6-terra" data-motivo="reemplazo" data-reemplazado-por="gpt-6.1-terra" data-era="v5"><td><a href="/modelo/gpt-5.6-terra/">GPT-5.6 Terra</a></td><td>Lo reemplazó <a href="/modelo/gpt-6.1-terra/">GPT-6.1 Terra</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,38</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="grok-4.20" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/grok-4.20/">Grok 4.20</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,73</td><td class="meta">E0 122 · E1 24</td></tr>
+      <tr data-modelo="grok-4.3" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/grok-4.3/">Grok 4.3</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,87</td><td class="meta">E0 76 · E1 20 · v5 57</td></tr>
+      <tr data-modelo="grok-4.5" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/grok-4.5/">Grok 4.5</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,07</td><td class="meta">E0 133 · E1 24</td></tr>
+      <tr data-modelo="grok-4.6" data-motivo="reemplazo" data-reemplazado-por="grok-4.7" data-era="v5"><td><a href="/modelo/grok-4.6/">Grok 4.6</a></td><td>Lo reemplazó <a href="/modelo/grok-4.7/">Grok 4.7</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,36</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="hermes-4-405b" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/hermes-4-405b/">Hermes 4 405B</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,26</td><td class="meta">E0 414 · E1 64</td></tr>
+      <tr data-modelo="kimi-k3" data-motivo="reemplazo" data-reemplazado-por="kimi-k3.1-pro" data-era="v5"><td><a href="/modelo/kimi-k3/">Kimi K3</a></td><td>Lo reemplazó <a href="/modelo/kimi-k3.1-pro/">Kimi K3.1 Pro</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,49</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="ling-3.0-flash-vl" data-motivo="antes_v5" data-reemplazado-por="" data-era="E2"><td><a href="/modelo/ling-3.0-flash-vl/">Ling 3.0 Flash VL</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="2-sep a 3-nov-2026">E2</span> 2-sep a 3-nov-2026</td><td>8,26</td><td class="meta">E2 143</td></tr>
+      <tr data-modelo="or-llama-4-scout" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/or-llama-4-scout/">Llama 4 Scout 17B</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,94</td><td class="meta">E0 110 · E1 38</td></tr>
+      <tr data-modelo="mimo-v2.5-or" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/mimo-v2.5-or/">MiMo-V2.5 (omnimodal)</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,11</td><td class="meta">E0 139 · E1 24</td></tr>
+      <tr data-modelo="mimo-v2.5-pro-or" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/mimo-v2.5-pro-or/">MiMo-V2.5 Pro</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,22</td><td class="meta">E0 119 · E1 38</td></tr>
+      <tr data-modelo="minimax-m2.7" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/minimax-m2.7/">MiniMax M2.7</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,85</td><td class="meta">E0 193 · E1 24</td></tr>
+      <tr data-modelo="mistral-large" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/mistral-large/">Mistral Large</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,99</td><td class="meta">E0 141 · E1 24</td></tr>
+      <tr data-modelo="or-mistral-large-3" data-motivo="reemplazo" data-reemplazado-por="mistral-large-4" data-era="v5"><td><a href="/modelo/or-mistral-large-3/">Mistral Large 3 675B</a></td><td>Lo reemplazó <a href="/modelo/mistral-large-4/">Mistral Large 4.0</a>, su versión nueva. Rindió el examen v5 entero</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,14</td><td class="meta">v5 143</td></tr>
+      <tr data-modelo="muse-spark-1.2" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/muse-spark-1.2/">Muse Spark 1.2</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,21</td><td class="meta">E1 143</td></tr>
+      <tr data-modelo="qwen3.7-flash" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/qwen3.7-flash/">Qwen 3.7 Flash</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,43</td><td class="meta">E1 163</td></tr>
+      <tr data-modelo="qwen-3.7-max" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/qwen-3.7-max/">Qwen 3.7 Max</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>8,36</td><td class="meta">E0 78 · E1 20 · v5 57</td></tr>
+      <tr data-modelo="qwen-3.8-2.4t" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/qwen-3.8-2.4t/">Qwen 3.8 2.4T (A95B)</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,34</td><td class="meta">E1 291 · E2 4</td></tr>
+      <tr data-modelo="qwen-3.8-max" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/qwen-3.8-max/">Qwen 3.8 Max</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,36</td><td class="meta">E1 291 · E2 4</td></tr>
+      <tr data-modelo="qwen3-coder" data-motivo="antes_v5" data-reemplazado-por="" data-era="E0"><td><a href="/modelo/qwen3-coder/">Qwen3 Coder</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="antes del 12-ago-2026">E0</span> antes del 12-ago-2026</td><td>7,76</td><td class="meta">E0 138 · E1 24</td></tr>
+      <tr data-modelo="seed-2-1-turbo" data-motivo="antes_v5" data-reemplazado-por="" data-era="E1"><td><a href="/modelo/seed-2-1-turbo/">Seed 2.1 Turbo</a></td><td>Medido antes del examen v5</td><td><span class="ctx-badge ctx-nd" title="12-ago a 1-sep-2026">E1</span> 12-ago a 1-sep-2026</td><td>8,25</td><td class="meta">E1 444 · v5 72</td></tr>
+      <tr data-modelo="hy4-preview" data-motivo="parcial_v5" data-reemplazado-por="" data-era="v5"><td><a href="/modelo/hy4-preview/">Tencent Hy4 preview</a></td><td>Rindió el examen completo, pero 12 de sus pruebas son de antes de la ventana v5</td><td><span class="ctx-badge ctx-nd" title="ventana v5 (4-nov-2026)">v5</span> ventana v5 (4-nov-2026)</td><td>8,24</td><td class="meta">E2 12 · v5 131</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <!-- AUTO-HISTORICO-END -->
   </section>
 
   <section class="cta-block">
@@ -893,6 +959,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=b5433d15"></script>
+<script src="app.js?v=d5c57d3a"></script>
 </body>
 </html>

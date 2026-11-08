@@ -263,6 +263,34 @@ def b2_rankeable(models, verbose):
         print("  ✅ B2 · el ranking solo tiene modelos vivos, con muestra y en el plano común")
 
 
+def b4_ranking_v5(models, verbose):
+    """El ranking v5 y el histórico no se pisan, y el histórico dice su era.
+
+    DECISIONES, 5-nov-2026: el ranking v5 solo incluye modelos con el examen v5 completo
+    (los 143 tests rendidos en la ventana); lo demás va a la tabla «histórico», marcado
+    con su era y sin puesto. Rankeado ⟹ `examen_v5`; histórico ⟹ examen completo, no
+    rankeado y con era. Un modelo en los dos lados, o rankeado con runs de antes, es el
+    ranking mezclado que la decisión existe para evitar.
+    """
+    malos = []
+    for m in models:
+        if m.get("ranked") and m.get("examen_v5") is not True:
+            malos.append(f"{m['name']} rankeado sin el examen v5 completo")
+        if m.get("historico"):
+            if m.get("ranked"):
+                malos.append(f"{m['name']} rankeado Y en el histórico")
+            if m.get("examen_completo") is not True:
+                malos.append(f"{m['name']} en el histórico sin examen completo")
+            if not (m.get("era") or {}).get("era"):
+                malos.append(f"{m['name']} en el histórico sin era")
+    if not any(m.get("ranked") for m in models):
+        malos.append("ningún rankeado: el ranking v5 quedó vacío")
+    if malos:
+        fallo("B4 · ranking v5", f"{len(malos)} problema(s): {malos[:3]}")
+    elif verbose:
+        print("  ✅ B4 · el ranking v5 solo tiene exámenes de la ventana y el histórico dice su era")
+
+
 def b3_examen_completo_implica_rankeado(models, verbose):
     """Examen completo ⟹ rankeado, salvo un motivo ESTRUCTURAL declarado.
 
@@ -283,7 +311,10 @@ def b3_examen_completo_implica_rankeado(models, verbose):
     # existe y está bien puesto; lo que faltaba era mirarlo donde vive.
     from benchmarks.models import MODELS as _CFG
     motivos = ("retired", "provider_variant", "effort_variant", "self_hosted",
-               "medido_en_free", "unavailable", "no_medir", "legacy")
+               "medido_en_free", "unavailable", "no_medir", "legacy",
+               # 5-nov-2026: examen completo pero no en la ventana de v5 → tabla histórico.
+               # B4 verifica que ese motivo sea verdad.
+               "historico")
     malos = []
     for m in models:
         if not m.get("examen_completo") or m.get("ranked"):
@@ -378,6 +409,38 @@ def c2_docs_cuadran(verbose):
         print("  ✅ C2 · los docs citan lo que dice la fuente")
 
 
+def c4_fichas_del_ranking_v5(models, verbose):
+    """La ficha publicada dice lo que el dato dice: histórico y nota pública.
+
+    5-nov-2026. Una ficha de un modelo que sale del ranking v5 quedaba publicada como
+    estaba, con su puesto y su titular recomendándolo (el bucle solo regenera rankeados;
+    ya había pasado con los retirados). Y una excepción de proveedor que Cristian pidió
+    mostrar (Fugu Max: «sin tope de salida propio») solo vive si la ficha la imprime.
+    """
+    from benchmarks.generate_model_cards import slug
+    malos = []
+    leidas = 0
+    for m in models:
+        f = ROOT / "docs" / "modelo" / slug(m) / "index.html"
+        if not f.exists():
+            continue
+        html = f.read_text(encoding="utf-8")
+        leidas += 1
+        if m.get("historico") and 'class="meta fechada historico"' not in html:
+            malos.append(f"{m['name']}: en el histórico y su ficha no lo dice")
+        if m.get("ranked") and 'class="meta fechada historico"' in html:
+            malos.append(f"{m['name']}: rankeado y su ficha dice histórico")
+        nota = m.get("nota_publica")
+        if nota and nota not in html:
+            malos.append(f"{m['name']}: su ficha no muestra la nota «{nota}»")
+    if leidas == 0:
+        malos.append("no se leyó ninguna ficha: el chequeo está ciego")
+    if malos:
+        fallo("C4 · fichas del ranking v5", f"{len(malos)} ficha(s): {malos[:3]}")
+    elif verbose:
+        print(f"  ✅ C4 · {leidas} fichas dicen lo mismo que el dato (histórico y notas públicas)")
+
+
 def c3_superficies_coinciden(models, verbose):
     """El #1 y el conteo son LOS MISMOS en models.json, README y MODELOS.md.
 
@@ -440,9 +503,11 @@ def main():
     b1_examen_completo(models, args.verbose)
     b2_rankeable(models, args.verbose)
     b3_examen_completo_implica_rankeado(models, args.verbose)
+    b4_ranking_v5(models, args.verbose)
     c1_nada_muerto_recomendado(models, args.verbose)
     c2_docs_cuadran(args.verbose)
     c3_superficies_coinciden(models, args.verbose)
+    c4_fichas_del_ranking_v5(models, args.verbose)
 
     if AVISOS:
         print("\n  AVISOS (no bloquean):")

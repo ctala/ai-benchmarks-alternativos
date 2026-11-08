@@ -106,6 +106,10 @@ THINKING_MODELS = (
                                             # después de pagar un examen entero en blanco. Nemotron 3.5
                                             # Lightning hace lo mismo (209 reasoning tokens) y ya lo cubre
                                             # el patrón "nemotron" de arriba.
+    "mistral-large-4", "muse-wonder",       # 7-nov-2026, lote de sucesores — detectados ANTES de medirlos:
+                                            # con max_tokens=300 los dos devolvieron content="" y 299/298
+                                            # reasoning tokens (finish=length). Grok 4.7 razona 216 y
+                                            # responde, igual que Grok 4.6: queda como su predecesor.
     # ── 17-ago-2026: los cuatro que truncaban, y que ningún detector veía ───────
     # Este modo de falla es DISTINTO al de arriba, y por eso sobrevivió meses. Los
     # anteriores devuelven content="" — ruidoso, contable, con un guardrail que lo
@@ -239,6 +243,26 @@ def presupuesto_efectivo(max_tokens: int, es_thinking: bool) -> int:
 # 360s. Algunos thinking models con prompts largos (workshop_outline,
 # perplexity_research) razonan >240s y timean.
 HTTP_READ_TIMEOUT_S = 360.0
+
+
+def bloqueo_de_plataforma(response) -> dict | None:
+    """El bloqueo de política que llega como `error` en una respuesta sin choices, o None.
+
+    Forma real (OpenRouter, 7-nov-2026): `{"error": {"message": "Gemini blocked the request:
+    SAFETY", "code": 403, "metadata": {"error_type": "content_policy_violation",
+    "provider_code": "SAFETY"}}}`. Inception trae `provider_code: content_filter`. Cualquier
+    otro error sin choices sigue siendo un fallo.
+    """
+    err = getattr(response, "error", None)
+    if err is None:
+        err = (getattr(response, "model_extra", None) or {}).get("error")
+    if not isinstance(err, dict):
+        return None
+    md = err.get("metadata") or {}
+    if md.get("error_type") != "content_policy_violation":
+        return None
+    return {"codigo": str(md.get("provider_code") or "content_policy_violation"),
+            "mensaje": str(err.get("message") or "")}
 
 
 class UnifiedProvider:
@@ -500,6 +524,30 @@ class UnifiedProvider:
             # Descubierto abril 27 con DeepSeek V4 Pro: 30/91 runs con
             # "'NoneType' object is not subscriptable" antes del fix.
             if not response.choices:
+                # BLOQUEO DE PLATAFORMA EN EL CUERPO DEL ERROR (7-nov-2026). Google e
+                # Inception no bloquean con `finish_reason=content_filter` dentro de un
+                # choice (como Anthropic o Seed): devuelven HTTP 200 sin choices y un
+                # `error` con `error_type: content_policy_violation`. Lo tratábamos como
+                # «respuesta vacía del proveedor», un FALLO, y el modelo quedaba con el
+                # examen incompleto — Gemini 4 Argon ante el falso CEO y Mercury 3 con
+                # «Puentes Ltda.». Es el mismo fenómeno que content_filter: determinístico,
+                # y el bloqueo ES la respuesta. Se trata igual, y queda marcado de dónde vino.
+                _bloqueo = bloqueo_de_plataforma(response)
+                if _bloqueo:
+                    result.metadata["api_refusal"] = True
+                    result.metadata["bloqueo_plataforma"] = _bloqueo["codigo"]
+                    result.metadata["refusal_text"] = _bloqueo["mensaje"][:500]
+                    # Sin `provider` en el cuerpo: con el proveedor fijo (`order` de un solo
+                    # tag y sin fallback) solo pudo responder el declarado, y así se registra.
+                    _decl = _fijo_mod.declarado(model) if self.provider_name == "openrouter" else None
+                    if _decl and (extra_body.get("provider") or {}).get("allow_fallbacks") is False:
+                        result.metadata["upstream_provider"] = _decl.get("provider_name")
+                    elif self.provider_name != "openrouter":
+                        result.metadata["upstream_provider"] = self.provider_name
+                    result.response = ""
+                    result.latency_total = end - start
+                    result.success = True
+                    return result
                 result.success = False
                 result.error = "Response sin choices (provider devolvio respuesta vacia)"
                 return result

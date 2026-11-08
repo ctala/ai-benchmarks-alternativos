@@ -91,15 +91,23 @@ def declarado(model_id: str) -> dict | None:
     que el delta de thinking apagado contra default no mezcle el efecto del proveedor.
     """
     c = cargar()
-    for d in list(c.get("modelos", {}).values()) + list(c.get("cerrados", {}).values()):
+    # Lo fijado a mano gana (7-nov-2026): un abierto se fija en `cerrados` cuando el criterio
+    # automático elegiría otra cosa por una razón que la API no ve (Kimi K3.1 Pro publica sus
+    # pesos en MXFP4 nativo; el «bf16» de un tercero es un upcast de los mismos pesos).
+    for d in list(c.get("cerrados", {}).values()) + list(c.get("modelos", {}).values()):
         if d.get("id") == model_id:
             return d
     return None
 
 
 def fusionar(nuevo: dict, viejo: dict) -> dict:
-    """`--declarar` rehace los abiertos y conserva lo que no genera: los cerrados."""
-    return {**nuevo, "cerrados": viejo.get("cerrados", {})}
+    """`--declarar` rehace los abiertos y conserva lo que no genera: los fijados a mano
+    (`cerrados`). Un id fijado a mano sale de `modelos`, para que no haya dos declaraciones
+    del mismo modelo y la automática no lo pise en silencio al rankear."""
+    cerrados = viejo.get("cerrados", {})
+    fijos = {d.get("id") for d in cerrados.values()}
+    modelos = {k: d for k, d in nuevo.get("modelos", {}).items() if d.get("id") not in fijos}
+    return {**nuevo, "modelos": modelos, "cerrados": cerrados}
 
 
 def techo_salida(model_id: str) -> int | None:
@@ -129,7 +137,12 @@ def yaml_harbor(model_id: str, carpeta: Path | None = None) -> Path | None:
     carpeta = carpeta or (ROOT / "jobs" / "_proveedor_fijo")
     carpeta.mkdir(parents=True, exist_ok=True)
     ruta = carpeta / (model_id.replace("/", "__") + ".yaml")
-    ruta.write_text("model:\n  model_kwargs:\n    extra_body:\n      provider:\n"
+    # 5-nov-2026: un endpoint que valida entrada + salida contra el contexto (CoreWeave) rechaza
+    # el pedido de litellm cuando éste no conoce el modelo y pide casi todo el contexto como
+    # salida (Granite 4.2 8B: 114.795 de 131.072). La declaración puede acotarlo.
+    tope = (declarado(model_id) or {}).get("max_tokens_harbor")
+    extra = f"    max_tokens: {int(tope)}\n" if tope else ""
+    ruta.write_text("model:\n  model_kwargs:\n" + extra + "    extra_body:\n      provider:\n"
                     f"        order: [\"{r['order'][0]}\"]\n        allow_fallbacks: false\n",
                     encoding="utf-8")
     return ruta

@@ -248,8 +248,23 @@ def _t_calc_c5():
     with Sabotaje(app):
         # C1-C4 preguntan si la calculadora se ROMPIÓ; C5 si quedó INCOMPLETA. Sin este
         # test, el día que alguien saque un eje del JS todo sigue en verde.
-        app.write_text(app.read_text(encoding="utf-8").replace("agentic_quality", "_x_"),
+        app.write_text(app.read_text(encoding="utf-8").replace("multiturno_quality", "_x_"),
                        encoding="utf-8")
+        return _correr("check_calculator.py") != 0
+
+
+@prueba("check_calculator C6", "la tabla histórico vuelve a decir «antes del examen v5» de un reemplazado")
+def _t_calc_c6():
+    idx = ROOT / "docs" / "index.html"
+    with Sabotaje(idx):
+        # 7-nov-2026: el fallo real. Los 7 reemplazados rindieron el examen v5 entero y la
+        # tabla decía que se midieron antes y no nombraba a su sucesor.
+        html = idx.read_text(encoding="utf-8")
+        i = html.index('data-motivo="reemplazo"')
+        j = html.index("</tr>", i)
+        fila = re.sub(r"<td>Lo reemplazó .*?</td>", "<td>Medido antes del examen v5</td>",
+                      html[i:j], count=1, flags=re.DOTALL)
+        idx.write_text(html[:i] + fila + html[j:], encoding="utf-8")
         return _correr("check_calculator.py") != 0
 
 
@@ -333,12 +348,67 @@ def _t_ganadores():
     # Los DOS casos reales del 19-ago: el veredicto que nombraba a un #73 como líder,
     # y el «Gana X» sobre tres celdas idénticas. Distinta causa, mismo efecto para
     # el lector — la tabla dice una cosa y el texto otra.
-    pg = ROOT / "docs" / "grok-4-1-vs-4-5" / "index.html"
-    if not pg.exists():
-        return False
+    # 6-nov-2026: la página era grok-4-1-vs-4-5, que pasó al histórico y ya no tiene
+    # escalera. Se busca cualquier página con un empate en la cima: si no hay, la prueba no
+    # tiene qué romper y lo dice, en vez de dar verde sin sabotear nada.
+    import re as _re
+    pg = next((p for p in sorted((ROOT / "docs").glob("*/index.html"))
+               if "Empatan arriba" in p.read_text(encoding="utf-8", errors="ignore")), None)
+    if pg is None:
+        raise AssertionError("ninguna página tiene una fila «Empatan arriba»: el sabotaje no tocaría nada")
     with Sabotaje(pg):
-        pg.write_text(pg.read_text(encoding="utf-8").replace(
-            "Empatan arriba 3 de 4", "Gana 4.20", 1), encoding="utf-8")
+        html = pg.read_text(encoding="utf-8")
+        roto = _re.sub(r"Empatan arriba \d+ de \d+", "Gana X", html, count=1)
+        pg.write_text(roto, encoding="utf-8")
+        return roto != html and _correr("check_ganadores.py") != 0
+
+
+@prueba("check_ganadores", "un grupo de cabeza viejo, una página que corona dentro del grupo o un veredicto con un modelo no rankeado")
+def _t_ganadores_grupo():
+    # 6-nov-2026: dos landings coronaban a Claude Fable 5 (histórico) como «la mejor
+    # calidad medida» de v5, y los textos nombraban a un #1 con el top 20 en 0,19 puntos.
+    import re as _re
+    if _correr("check_ganadores.py") != 0:
+        raise AssertionError("check_ganadores ya está en rojo: el sabotaje no probaría nada")
+    grupo = ROOT / "docs" / "mejor-llm-para-razonamiento" / "index.html"
+    veredicto = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
+    h = grupo.read_text(encoding="utf-8")
+    m = _re.search(r'data-grupo-cabeza="([^"]*)"', h)
+    if not m or len(m.group(1).split(",")) < 2:
+        raise AssertionError("razonamiento ya no tiene un grupo de más de uno: el sabotaje no tocaría nada")
+    with Sabotaje(grupo):
+        # G3: el grupo publicado no es el de models.json (se le quita uno)
+        corto = ",".join(m.group(1).split(",")[:-1])
+        grupo.write_text(h.replace(m.group(0), f'data-grupo-cabeza="{corto}"', 1), encoding="utf-8")
+        if _correr("check_ganadores.py") == 0:
+            return False
+        # G3: con grupo, el texto corona a uno
+        grupo.write_text(h.replace("<h2>Quiénes encabezan</h2>",
+                                   "<h2>Por qué Inkling Small lidera</h2>", 1), encoding="utf-8")
+        if "lidera" not in grupo.read_text(encoding="utf-8") or _correr("check_ganadores.py") == 0:
+            return False
+        # G3: la página no publica su grupo
+        grupo.write_text(h.replace(m.group(0), "", 1), encoding="utf-8")
+        if _correr("check_ganadores.py") == 0:
+            return False
+    hv = veredicto.read_text(encoding="utf-8")
+    card = _re.search(r'(<span class="verdict-tag">[^<]*</span>\s*<strong>)([^<]*)(</strong>)', hv)
+    if not card:
+        raise AssertionError("agentes ya no tiene veredicto con tarjetas: el sabotaje no tocaría nada")
+    with Sabotaje(veredicto):
+        # G4: el veredicto nombra a un modelo del histórico (el caso real), en una tarjeta
+        # que no recomienda —«Lo que te ahorras»— para que solo G4 lo pueda cazar.
+        veredicto.write_text(hv.replace(
+            card.group(0), '<span class="verdict-tag">Lo que te ahorras</span>\n        <strong>Claude Fable 5</strong>', 1),
+            encoding="utf-8")
+        if _correr("check_ganadores.py") == 0:
+            return False
+        # G1: recomienda a un rankeado que no está en el grupo
+        d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+        g = _re.search(r'data-grupo-cabeza="([^"]*)"', hv).group(1).split(",")
+        fuera = next(x["name"] for x in d["models"] if x.get("ranked") and x["key"] not in g)
+        veredicto.write_text(hv.replace(card.group(0), card.group(1) + fuera + card.group(3), 1),
+                             encoding="utf-8")
         return _correr("check_ganadores.py") != 0
 
 
@@ -490,7 +560,14 @@ def _t_mezcla():
         return False  # control sucio
     mezcla = limpio + [{"upstream_provider": "DeepInfra", "cuantizacion": "fp4"}]
     sin_reg = limpio + [{"upstream_provider": None}]
-    return (veredicto(mezcla, abierto=True)[0] == "mezclado"
+    # El mismo proveedor escrito distinto (API directa «openai», OpenRouter «OpenAI») NO
+    # es una mezcla; dos proveedores de verdad distintos sí (6-nov-2026).
+    mismo = [{"upstream_provider": "openai"}] * 3 + [{"upstream_provider": "OpenAI "}] * 2
+    if veredicto(mismo, abierto=False)[0] != "limpio":
+        return False
+    otro = [{"upstream_provider": "Google"}] * 3 + [{"upstream_provider": "Google AI Studio"}]
+    return (veredicto(otro, abierto=False)[0] == "mezclado"
+            and veredicto(mezcla, abierto=True)[0] == "mezclado"
             and veredicto(sin_reg, abierto=True)[0] == "mezclado"
             and veredicto(sin_reg, abierto=False)[0] == "no_registrado"
             and veredicto(limpio, abierto=True, harbor=["Z.AI", "Novita"])[0] == "mezclado")
@@ -610,6 +687,56 @@ def _t_solo_fechas():
         return dato_fecha == 1 and dato_real == 1
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+@prueba("validate B4", "un rankeado con runs de antes de v5, o un histórico rankeado o sin era")
+def _t_b4_ranking_v5():
+    # 5-nov-2026. Control verde con el models.json real; después tres mundos rotos: un
+    # rankeado que pierde `examen_v5`, un histórico que además rankea, y uno sin era.
+    if _correr("validate.py") != 0:
+        return False  # control verde
+    mj = ROOT / "docs" / "data" / "models.json"
+    resultados = []
+    for romper in ("sin_v5", "en_los_dos", "sin_era"):
+        with Sabotaje(mj):
+            d = json.loads(mj.read_text(encoding="utf-8"))
+            rk = next(m for m in d["models"] if m.get("ranked"))
+            hi = next((m for m in d["models"] if m.get("historico")), None)
+            if romper == "sin_v5":
+                rk["examen_v5"] = False
+            else:
+                if hi is None:
+                    raise AssertionError("el sabotaje necesita un modelo en el histórico")
+                if romper == "en_los_dos":
+                    hi["ranked"] = True
+                else:
+                    hi["era"] = None
+            mj.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+            resultados.append(_correr("validate.py") != 0)
+    return all(resultados)
+
+
+@prueba("validate C4", "la ficha de un histórico que no lo dice, o una nota pública que no se imprime")
+def _t_c4_fichas_v5():
+    if _correr("validate.py") != 0:
+        return False  # control verde
+    from benchmarks.generate_model_cards import slug
+    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    hi = next(m for m in d["models"] if m.get("historico")
+              and (ROOT / "docs" / "modelo" / slug(m) / "index.html").exists())
+    nt = next(m for m in d["models"] if m.get("nota_publica"))
+    resultados = []
+    for m, quitar in ((hi, r'<p class="meta fechada historico"[^>]*>.*?</p>'),
+                      (nt, r'<p class="meta nota-publica">.*?</p>')):
+        f = ROOT / "docs" / "modelo" / slug(m) / "index.html"
+        with Sabotaje(f):
+            html = f.read_text(encoding="utf-8")
+            roto = re.sub(quitar, "", html, count=1, flags=re.S)
+            if roto == html:
+                raise AssertionError(f"el sabotaje no encontró qué quitar en {f}")
+            f.write_text(roto, encoding="utf-8")
+            resultados.append(_correr("validate.py") != 0)
+    return all(resultados)
 
 
 @prueba("validate C1", "una página que nombra a un retirado sin declararlo en su línea fechada")
@@ -880,13 +1007,134 @@ def _t_blog_datos():
         shutil.rmtree(blog, ignore_errors=True)
 
 
+def _blog_desechable():
+    blog = Path(tempfile.mkdtemp())
+    posts = blog / "src" / "content" / "blog"
+    posts.mkdir(parents=True)
+    return blog, posts
+
+
+_NOTA_CONGELADA = ("> **Medido con el examen anterior.** El ranking vigente está "
+                   "[acá](https://benchmarks.cristiantala.com/).\n\n")
+
+
+@prueba("check_blog_consistency + generate_blog_datos (congelado)",
+        "un post congelado con una sola de sus dos marcas (la era o la nota visible)")
+def _t_blog_congelado():
+    # 8-nov-2026. Un post del examen anterior se congela: no recibe cifras v5. Para que
+    # congelar no sea la forma de esconder un post caducado, exige era Y nota visible. El
+    # control es el post congelado bien hecho, con cifras viejas en el cuerpo y un marcador
+    # viejo: los dos chequeos en verde. Cada saboteo quita una marca y los dos deben caerse.
+    blog, posts = _blog_desechable()
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    key = next(m["key"] for m in datos["models"] if m.get("ranked"))
+    viejo = datos["ranked_count"] + 36          # un conteo que hoy es falso
+    cuerpo = (f"Mi benchmark tiene {viejo} modelos rankeados.\n\n"
+              f"Calidad: <!-- D:{key}:calidad -->0,00<!-- /D -->\n\n## Sección\n\ntexto\n")
+    bien = ("---\ntitle: prueba\ndescription: prueba\npubDate: 2026-06-01\n"
+            'benchmarkEra: "v4"\n---\n\n' + _NOTA_CONGELADA + cuerpo)
+    post = posts / "_prueba_congelado.md"
+
+    def rojos() -> tuple[bool, bool]:
+        return (_correr("check_blog_consistency.py", "--blog", str(blog)) != 0,
+                _correr("generate_blog_datos.py", "--check", "--blog", str(blog)) != 0)
+    try:
+        post.write_text(bien, encoding="utf-8")
+        if rojos() != (False, False):
+            raise AssertionError("el post congelado bien hecho ya da rojo: el saboteo no probaría nada")
+        saboteos = [
+            bien.replace('benchmarkEra: "v4"\n', ""),                      # sin era
+            bien.replace(_NOTA_CONGELADA, ""),                             # sin nota
+            bien.replace(_NOTA_CONGELADA, "<!-- " + _NOTA_CONGELADA.strip() + " -->\n\n"),  # nota invisible
+            bien.replace(_NOTA_CONGELADA, "").replace("## Sección\n", "## Sección\n\n" + _NOTA_CONGELADA),  # nota abajo
+        ]
+        for roto in saboteos:
+            post.write_text(roto, encoding="utf-8")
+            if rojos() != (True, True):
+                return False
+        # Sin --write nada se escribe, ni siquiera en un post congelado a medias.
+        return post.read_text(encoding="utf-8") == saboteos[-1]
+    finally:
+        shutil.rmtree(blog, ignore_errors=True)
+
+
+@prueba("generate_blog_datos / generate_blog_tablas sin --write",
+        "un generador que escribe en el blog sin que se lo pidan")
+def _t_blog_no_escribe_sin_write():
+    # 8-nov-2026: una corrida sin `--check` reescribió 54 cifras en 8 posts del worktree que
+    # esperaba aprobación. Desde entonces escribir exige `--write`. Se prueba en los dos
+    # sentidos: sin flags el archivo queda igual (y el exit dice que hay drift); con --write
+    # cambia. Sin el segundo, un generador roto que nunca escribe también pasaría.
+    blog, posts = _blog_desechable()
+    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    key = next(m["key"] for m in datos["models"] if m.get("ranked"))
+    post = posts / "_prueba_no_escribe.md"
+    texto = ("---\ntitle: prueba\ndescription: prueba\npubDate: 2026-11-08\n---\n\n"
+             f"Calidad: <!-- D:{key}:calidad -->0,00<!-- /D -->\n")
+    try:
+        post.write_text(texto, encoding="utf-8")
+        if _correr("generate_blog_datos.py", "--blog", str(blog)) == 0:
+            return False                      # sin flags tiene que avisar el drift
+        if post.read_text(encoding="utf-8") != texto:
+            return False                      # …y no escribir
+        _correr("generate_blog_datos.py", "--write", "--blog", str(blog))
+        if post.read_text(encoding="utf-8") == texto:
+            return False                      # con --write sí escribe
+        # Lo mismo en generate_blog_tablas, sobre una copia del pilar con una tabla rota.
+        sys.path.insert(0, str(ROOT / "benchmarks"))
+        from generate_blog_tablas import POST
+        real = Path.home() / "Playground" / "sitios" / "cristiantala-blog" / POST
+        if not real.exists():
+            return True
+        import re as _re
+        copia = blog / POST
+        copia.parent.mkdir(parents=True, exist_ok=True)
+        roto = _re.sub(r"(<!-- AUTO-[\w-]+-START -->).*?(<!-- AUTO-[\w-]+-END -->)",
+                       r"\1\n| tabla vieja |\n\2", real.read_text(encoding="utf-8"),
+                       count=1, flags=_re.S)
+        copia.write_text(roto, encoding="utf-8")
+        if _correr("generate_blog_tablas.py", "--blog", str(blog)) == 0:
+            return False
+        if copia.read_text(encoding="utf-8") != roto:
+            return False
+        _correr("generate_blog_tablas.py", "--write", "--blog", str(blog))
+        return copia.read_text(encoding="utf-8") != roto
+    finally:
+        shutil.rmtree(blog, ignore_errors=True)
+
+
+@prueba("check_blog_consistency (ejecuciones)", "un post con un total de ejecuciones escrito a mano y viejo")
+def _t_blog_ejecuciones():
+    # 8-nov-2026: los pies «Comparé N modelos con más de 68.000 ejecuciones» quedaron con un
+    # total viejo. El total sale de `total_runs_measured`; el control usa el piso a la decena
+    # de mil, que es lo que un post escribe («más de 80.000»).
+    blog, posts = _blog_desechable()
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import conteos
+    total = conteos.ejecuciones(json.loads((ROOT / "docs" / "data" / "models.json").read_text()))
+    piso = (total // 10_000) * 10_000
+    fmt = lambda n: f"{n:,}".replace(",", ".")
+    post = posts / "_prueba_ejecuciones.md"
+    base = "---\ntitle: prueba\ndescription: prueba\npubDate: 2026-11-08\n---\n\n"
+    try:
+        post.write_text(base + f"Mi benchmark corrió más de {fmt(piso)} ejecuciones.\n", encoding="utf-8")
+        if _correr("check_blog_consistency.py", "--blog", str(blog)) != 0:
+            raise AssertionError("el total correcto ya da rojo: el saboteo no probaría nada")
+        post.write_text(base + f"Mi benchmark corrió más de {fmt(piso - 12_000)} ejecuciones.\n",
+                        encoding="utf-8")
+        return _correr("check_blog_consistency.py", "--blog", str(blog)) != 0
+    finally:
+        shutil.rmtree(blog, ignore_errors=True)
+
+
 @prueba("generate_blog_datos", "un líder de pilar/suite retirado y un puesto del compuesto viejo")
 def _t_blog_datos_lideres():
     # 4-nov-2026: el pilar del blog recomendaba a DeepSeek R1 en tool calling («7,45») y a
     # Poolside Laguna XS como agente; los dos ya no tenían endpoint. Los marcadores
     # `V:pilar:…`, `V:suite:…` y `D:<key>:puesto_compuesto` existen para eso: cada saboteo
     # escribe lo que un post diría si alguien lo copiara a mano, y el --check debe caerse.
-    blog = Path.home() / "Playground" / "sitios" / "cristiantala-blog"
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from generate_blog_datos import DEFAULT_BLOG as blog
     posts = blog / "src" / "content" / "blog"
     if not posts.is_dir():
         return True
@@ -998,7 +1246,10 @@ def _t_veto():
     # que RECHACE — y que lo diga, no que lo descarte en silencio.
     r = subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"),
                         "--models", "gpt-5.6-luna-pro", "--tests", "reasoning",
-                        "--sin-canario"],
+                        # 7-nov-2026: desde el freno de arranque del 6-nov, un plan que no es
+                        # el examen se corta ANTES del veto y esta prueba miraba el freno, no
+                        # el veto. Con el flag llega al veto (que corre antes de medir nada).
+                        "--sin-canario", "--fuera-del-examen"],
                        capture_output=True, text=True, cwd=ROOT)
     salida = (r.stdout or "") + (r.stderr or "")
     return "RECHAZADOS" in salida and "gpt-5.6-luna-pro" in salida
@@ -1108,16 +1359,29 @@ def _t_effort_e8_peldano():
 
 @prueba("check_effort · E9", "un rankeado fuera de OpenRouter sin su default declarado")
 def _t_effort_e9():
+    # 6-nov-2026: el sabotaje borraba a gpt-5.5 de la foto directa, pero con el ranking v5
+    # gpt-5.5 pasó al histórico y hoy ningún rankeado se mide por API directa: el borrado
+    # no tocaba a un rankeado y la prueba quedaba roja sin poder sabotear. Ahora el mundo
+    # roto se arma entero: gpt-5.5 figura rankeado en models.json Y falta en la foto
+    # directa. Borrar un rankeado de la foto de OpenRouter no sirve: E1 también lo caza,
+    # y la prueba no distinguiría a E9 apagado.
     import json as _j
     fd = ROOT / "benchmarks" / "reasoning_directo.json"
+    mj = ROOT / "docs" / "data" / "models.json"
     if _correr("check_effort.py") != 0:
         return False
-    with Sabotaje(fd):
+    with Sabotaje(fd), Sabotaje(mj):
         d = _j.loads(fd.read_text(encoding="utf-8"))
         if "gpt-5.5" not in d["modelos"]:
             raise AssertionError("el sabotaje no cambió nada: gpt-5.5 ya no está en la foto directa")
         del d["modelos"]["gpt-5.5"]
         fd.write_text(_j.dumps(d), encoding="utf-8")
+        m = _j.loads(mj.read_text(encoding="utf-8"))
+        g = next((x for x in m["models"] if x["key"] == "gpt-5.5"), None)
+        if g is None:
+            raise AssertionError("el sabotaje no encontró a gpt-5.5 en models.json")
+        g["ranked"] = True
+        mj.write_text(_j.dumps(m), encoding="utf-8")
         return _correr("check_effort.py") != 0
 
 
@@ -1337,11 +1601,11 @@ def _t_cobertura_nucleo():
     return corrida(60) != 0
 
 
-@prueba("check_agentico_publicado", "un rankeado por OpenRouter publicado sin su tarea agéntica")
+@prueba("check_agentico_publicado", "un rankeado por OpenRouter publicado sin su tarea agéntica, o un estado «sin dato» que no se sostiene")
 def _t_agentico():
-    # Hoy el chequeo está en rojo informativo (8 sin tarea), así que sobre el dato real no
-    # hay control posible. Se fabrica el mundo limpio —todo rankeado con tarea— y se le quita
-    # la tarea a UNO servido por OpenRouter, que es el único caso que el chequeo reclama.
+    # Se fabrica el mundo limpio —todo rankeado con tarea— y se rompe de a una cosa. SIN
+    # `--duro`: así lo corre qa.py. Hasta el 6-nov la prueba pasaba el flag y probaba el
+    # detector, no el cableado; el QA mostraba ✅ con tres Claude 5.5 sin Harbor.
     mj = ROOT / "docs" / "data" / "models.json"
     sys.path.insert(0, str(ROOT / "benchmarks"))
     from models import MODELS
@@ -1349,15 +1613,125 @@ def _t_agentico():
         d = json.loads(mj.read_text(encoding="utf-8"))
         for m in d["models"]:
             if m.get("ranked"):
-                m["agentico"] = {**(m.get("agentico") or {}), "tareas": {"prueba": {"media": 1.0}}}
-        mj.write_text(json.dumps(d), encoding="utf-8")
-        if _correr("check_agentico_publicado.py", "--duro") != 0:
+                # El `estado` de lo medido (apto/irregular) se conserva: el control tiene que
+                # parecerse al export real. La v1 lo borraba y no vio que el chequeo lo leía.
+                m["agentico"] = {"estado": "apto", **(m.get("agentico") or {}),
+                                 "tareas": {"prueba": {"media": 1.0}}}
+                m["agentico"].pop("sin_dato", None)
+
+        def corre() -> int:
+            mj.write_text(json.dumps(d), encoding="utf-8")
+            return _correr("check_agentico_publicado.py")
+
+        if corre() != 0:
             return False  # control: todos con tarea
         victima = next(m for m in d["models"] if m.get("ranked")
                        and MODELS.get(m.get("key") or "", {}).get("provider", "openrouter") == "openrouter")
         victima["agentico"].pop("tareas")
-        mj.write_text(json.dumps(d), encoding="utf-8")
-        return _correr("check_agentico_publicado.py", "--duro") != 0
+        if corre() == 0:
+            return False  # sabotaje: un hueco
+        victima["agentico"].update(sin_dato="formato_endpoint",
+                                   motivo="la llamada llega en reasoning_content")
+        if corre() != 0:
+            return False  # control: el estado explícito con motivo es permitido
+        victima["agentico"]["motivo"] = ""
+        if corre() == 0:
+            return False  # sabotaje: estado sin motivo
+        victima["agentico"].update(motivo="x", tareas={"prueba": {"media": 0.0}})
+        if corre() == 0:
+            return False  # sabotaje: dice «sin dato» y publica un 0
+        victima["agentico"].pop("tareas")
+        victima["agentico"]["sin_dato"] = "otro_estado_inventado"
+        return corre() != 0  # sabotaje: un estado que no existe
+
+
+@prueba("check_agentico_publicado A3", "una página pública que rotula como agéntico un número que no sale de Harbor")
+def _t_agentico_a3():
+    # 8-nov-2026: `agentic_score` (multi-turno sin herramientas) se publicó como «trabajo
+    # agéntico», y las landings mostraban como «tarea real» Harbor mezclado con tool calling.
+    # Control sobre las páginas reales; después siete sabotajes, uno por cada forma (a–f).
+    pag = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
+    app = ROOT / "docs" / "app.js"
+    celda = '<td data-agentico="harbor"><strong>4 de 4</strong></td>'
+    rotulo = 'multiturno_quality: "Multiturno sin herramientas"'
+    if _correr("check_agentico_publicado.py") != 0:
+        return False  # control: lo publicado hoy está en verde
+    original = pag.read_text(encoding="utf-8")
+    if celda not in original:
+        raise AssertionError("la landing ya no tiene una celda «4 de 4» marcada: el sabotaje no tocaría nada")
+    if rotulo not in app.read_text(encoding="utf-8"):
+        raise AssertionError("app.js ya no rotula multiturno_quality así: el sabotaje d no tocaría nada")
+    with Sabotaje(pag), Sabotaje(app):
+        for roto in (original.replace(celda, '<td data-agentico="harbor"><strong>9.20</strong></td>', 1),  # b: un decimal
+                     original.replace(celda, '<td><strong>4 de 4</strong></td>', 1),                       # a: sin marca
+                     original.replace(celda, '<td data-agentico="harbor"><strong>1 de 4</strong></td>', 1),  # b: no es lo de Harbor
+                     original.replace("</main>", "<p>Su calidad agéntica es 8,38.</p></main>", 1),             # c: prosa
+                     # e: la segunda tabla de antes del 8-nov, un compuesto al lado de Harbor
+                     original.replace("</main>", '<table><thead><tr><th>Modelo</th><th>Calidad×precio</th>'
+                                      '<th>Trabajo agéntico</th></tr></thead><tbody><tr><td>X</td>'
+                                      '<td><strong>8.86</strong></td><td data-agentico="harbor">4 de 4</td>'
+                                      '</tr></tbody></table></main>', 1),
+                     # f: el veredicto de antes del 8-nov, `score_agentico` como nota de la página
+                     original.replace("</main>", '<p class="verdict-note">calidad 9.20/10</p></main>', 1)):
+            if roto == original:
+                raise AssertionError("un sabotaje de A3 no cambió la página")
+            pag.write_text(roto, encoding="utf-8")
+            if _correr("check_agentico_publicado.py") == 0:
+                return False
+        pag.write_text(original, encoding="utf-8")
+        app.write_text(app.read_text(encoding="utf-8").replace(
+            rotulo, 'multiturno_quality: "Calidad agéntica"', 1), encoding="utf-8")       # d: la calculadora
+        return _correr("check_agentico_publicado.py") != 0
+
+
+@prueba("check_cobertura R9", "un script con --duro que qa.py corre sin el flag, o una exención huérfana")
+def _t_cobertura_r9():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_sab_r9", ROOT / "benchmarks" / "check_cobertura.py")
+    cc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cc)
+    qa = cc._texto_actual("benchmarks/qa.py")
+    if cc.r9_duro_que_no_llega(qa):
+        return False  # control verde sobre el qa.py real
+    duro = ('"benchmarks/auditar_paginas.py", "--duro"]', '"benchmarks/auditar_paginas.py"]')
+    if duro[0] not in qa:
+        raise AssertionError("qa.py ya no corre auditar_paginas con --duro: el sabotaje no tocaría nada")
+    if not any("auditar_paginas.py" in x for x in cc.r9_duro_que_no_llega(qa.replace(*duro, 1))):
+        return False  # sabotaje: un --duro que no llega
+    real = dict(cc.EXENTOS_R9)
+    try:
+        cc.EXENTOS_R9["check_secretos.py"] = ""
+        if not any("check_secretos.py" in x for x in cc.r9_duro_que_no_llega(qa)):
+            return False  # sabotaje: exención sin motivo
+        cc.EXENTOS_R9.clear(); cc.EXENTOS_R9.update(real, **{"no_existe.py": "motivo"})
+        return any("no_existe.py" in x for x in cc.r9_duro_que_no_llega(qa))
+    finally:
+        cc.EXENTOS_R9.clear(); cc.EXENTOS_R9.update(real)
+
+
+@prueba("check_version_en_nombre", "un nombre visible con otra versión que su id, una excepción sin motivo o huérfana")
+def _t_version_en_nombre():
+    # 6-nov-2026: «DeepSeek V3» medía deepseek-v3.2. Se sabotea con ESE caso.
+    import contextlib, io
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_sab_ver", ROOT / "benchmarks" / "check_version_en_nombre.py")
+    cv = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cv)
+    from benchmarks.models import MODELS, OLLAMA_MODELS
+    cat = {**OLLAMA_MODELS, **MODELS}
+    def callar(f, *a):
+        with contextlib.redirect_stdout(io.StringIO()):
+            return f(*a)
+    if callar(cv.main, cat, cv.EXCEPCIONES) != 0:
+        raise AssertionError("el catálogo real ya está en rojo: el sabotaje no probaría nada")
+    roto = {**cat, "or-deepseek-v3": {**cat["or-deepseek-v3"], "name": "DeepSeek V3"}}
+    if callar(cv.main, roto, cv.EXCEPCIONES) == 0:
+        return False  # V1: la versión equivocada en el nombre
+    if callar(cv.main, cat, {**cv.EXCEPCIONES, "or-deepseek-v3": ""}) == 0:
+        return False  # V2/V3: excepción sin motivo (y además sobra)
+    if callar(cv.main, cat, {**cv.EXCEPCIONES, "no-existe-xyz": "motivo"}) == 0:
+        return False  # V3: excepción de una key que no existe
+    return callar(cv.main, {}, {}) != 0  # V0: ciego
 
 
 @prueba("auditar_paginas", "una página de ranking que no publica ninguna fila")
@@ -1417,6 +1791,74 @@ def _t_blog_tablas():
         return _correr("generate_blog_tablas.py", "--check", "--blog", str(tmp)) != 0
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+@prueba("generate_blog_tablas (no corona)", "una tabla del pilar que numera y pone en negrita el grupo de cabeza")
+def _t_blog_tablas_sin_podio():
+    # 8-nov-2026: el pilar numeraba 1-10 y ponía en negrita a los 3 primeros, aunque el
+    # benchmark no los separa. Control: la tabla regenerada lleva «≈» y ninguna negrita.
+    # Sabotaje: se le devuelve el podio (puesto + negrita) a la primera fila «≈».
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from generate_blog_tablas import DEFAULT_BLOG, POST
+    import re as _re
+    real = DEFAULT_BLOG / POST
+    if not real.exists():
+        return Omitida("sin el repo del blog no hay post pilar que copiar")
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        copia = tmp / POST
+        copia.parent.mkdir(parents=True)
+        shutil.copy2(real, copia)
+        _correr("generate_blog_tablas.py", "--write", "--blog", str(tmp))
+        t = copia.read_text(encoding="utf-8")
+        bloque = _re.search(r"<!-- AUTO-TOP10-START -->.*?<!-- AUTO-TOP10-END -->", t, _re.S).group()
+        if "| ≈ |" not in bloque or "**" in bloque:
+            raise AssertionError("control: la tabla regenerada corona (sin «≈» o con negritas)")
+        if _correr("generate_blog_tablas.py", "--check", "--blog", str(tmp)) != 0:
+            raise AssertionError("control: recién regenerada y el --check da rojo")
+        fila = _re.search(r"^\| ≈ \| ([^|]+) \|", bloque, _re.M)
+        podio = bloque.replace(fila.group(0), f"| 1 | **{fila.group(1).strip()}** |", 1)
+        copia.write_text(t.replace(bloque, podio), encoding="utf-8")
+        return _correr("generate_blog_tablas.py", "--check", "--blog", str(tmp)) != 0
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+@prueba("check_ganadores G6", "una comparación con versión que corona a un modelo que su título no nombra")
+def _t_ganadores_g6():
+    # 8-nov-2026: /fable-5-vs-opus-4-8/ coronaba a Fable 5.1 porque el lado se elegía por
+    # familia (`match: ["fable"]`). Saboteo 1: se regenera esa página con el lado por
+    # familia, como era. Saboteo 2: a una foto histórica se le agrega un ganador de pilar.
+    # Control en verde primero, y las páginas se restauran pase lo que pase.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import generate_comparison as gc
+    slug, foto = "fable-5-vs-opus-4-8", "gpt-5.6-terra-vs-sol"
+    pagina, pagina_foto = ROOT / "docs" / slug / "index.html", ROOT / "docs" / foto / "index.html"
+    original, original_foto = pagina.read_text(encoding="utf-8"), pagina_foto.read_text(encoding="utf-8")
+    try:
+        if _correr("check_ganadores.py") != 0:
+            raise AssertionError("check_ganadores ya está en rojo: el saboteo no probaría nada")
+        cfg = dict(next(c for c in gc.COMPARISONS if c["slug"] == slug))
+        cfg["a"] = {"name": cfg["a"]["name"], "match": ["fable"]}      # como era antes
+        ms = gc.load_models()
+        A, B = gc.family(ms, cfg["a"]), gc.family(ms, cfg["b"])
+        if not any(m["name"] == "Claude Fable 5.1" for m in A):
+            raise AssertionError("el lado por familia ya no trae a Fable 5.1: el saboteo no reproduce el bug")
+        pagina.write_text(gc.render(cfg, A, B), encoding="utf-8")
+        if _correr("check_ganadores.py") == 0:
+            return False
+        pagina.write_text(original, encoding="utf-8")
+        roto = original_foto.replace(
+            "<h2>Preguntas frecuentes</h2>",
+            "<p>En calidad pura de este pilar gana <strong>GPT-5.6 Sol</strong> claramente.</p>"
+            "\n  <h2>Preguntas frecuentes</h2>", 1)
+        if roto == original_foto:
+            raise AssertionError("la foto ya no tiene FAQ: el saboteo no tocaría nada")
+        pagina_foto.write_text(roto, encoding="utf-8")
+        return _correr("check_ganadores.py") != 0
+    finally:
+        pagina.write_text(original, encoding="utf-8")
+        pagina_foto.write_text(original_foto, encoding="utf-8")
 
 
 @prueba("check_cobertura R5", "algo que corre en qa.py sin prueba ni exención, o una exención sin motivo")

@@ -164,7 +164,14 @@ def e8_examen_v5(foto: dict) -> list[str]:
         vistas.add(cls)
         ef, et = effort.resolver(mid, effort.APAGADO, foto=foto)
         niveles = (rz or {}).get("supported_efforts") or []
-        if cls == "interruptor":
+        if cls == "interruptor" and effort.sin_apagado_en_endpoint(mid):
+            # 7-nov-2026 · el endpoint declarado no acepta apagar (Mistral Large 4.0 en
+            # mistral/zdr, `sin_apagado` en proveedores_declarados.json): se mide como
+            # siempre_piensa, al default, y la etiqueta tiene que decirlo.
+            if ef is not None or not et.startswith("siempre_piensa:default:"):
+                out.append(f"E8 {mid} (interruptor, endpoint sin apagado): manda {ef!r} con "
+                           f"etiqueta {et!r}; se esperaba None y `siempre_piensa:default:…`")
+        elif cls == "interruptor":
             esperado = {"effort": "none"} if "none" in niveles else {"enabled": False}
             if ef != esperado or not et.startswith("apagado:"):
                 out.append(f"E8 {mid} (interruptor): apagar manda {ef!r} con etiqueta "

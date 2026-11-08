@@ -4,7 +4,7 @@
 > **Relación con `AGENTS.md`**: `AGENTS.md` es la guía canónica de **recomendación de modelos** —filosofía, schema de `docs/data/models.json`, reglas por caso de uso y anti-patrones. `CLAUDE.md` es la guía técnica del **proyecto y pipeline**. Antes de recomendar un modelo, leer `AGENTS.md`; antes de modificar código, tests o docs, leer esta guía.
 
 ## Que es este proyecto
-Benchmark de modelos AI alternativos para uso con agentes (N8N, Hermes). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge local (Phi-4) y documentación comparativa.
+Benchmark de modelos AI alternativos para uso con agentes (N8N, Hermes). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge (Phi-4 vía OpenRouter) y documentación comparativa.
 
 ## Setup inicial
 
@@ -35,26 +35,26 @@ cp .env.example .env
 
 ```bash
 source .venv/bin/activate
-# Todos los modelos, modo rapido
-.venv/bin/python benchmarks/runner.py --quick
-# Con el juez CANÓNICO: Phi-4 vía OpenRouter. El runner rechaza otro (DECISIONES, 14-sep-2026)
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or
+# El runner imprime «Plan: N pruebas…» y SE NIEGA a arrancar si el plan no es el examen v5
+# (las suites de suites.del_examen(), completas), salvo --fuera-del-examen (6-nov-2026).
+# del_examen = lo que se rinde; del_indice = lo que promedia (7-nov-2026: string_precision
+# se rinde y no promedia).
+EXAMEN=$(.venv/bin/python -c "import sys;sys.path.insert(0,'.');from benchmarks import suites;print(' '.join(sorted(suites.del_examen())))")
+# El examen v5, con el juez CANÓNICO: Phi-4 vía OpenRouter. El runner rechaza otro (DECISIONES, 14-sep-2026)
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models devstral-small --tests ${=EXAMEN}
 # Otro juez — SOLO experimentos, nunca un lote que va al ranking
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --juez-no-canonico   # Phi-4 Q4 en Ollama local
+.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4 --juez-no-canonico --tests ${=EXAMEN}   # Phi-4 Q4 en Ollama local
 .venv/bin/python benchmarks/runner.py --list-judges
-# Modelos especificos (keys de benchmarks/models.py)
-.venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models devstral-small deepseek-v4-flash
-# Un solo test suite
-.venv/bin/python benchmarks/runner.py --quick --tests startup_content
-# Solo un tier
-.venv/bin/python benchmarks/runner.py --tier cheap --quick
+# Un solo test suite (control, experimento): fuera del examen, a propósito
+.venv/bin/python benchmarks/runner.py --quick --fuera-del-examen --tests startup_content
 # Listar
 .venv/bin/python benchmarks/runner.py --list-models
 .venv/bin/python benchmarks/runner.py --list-tests
 # Resumir benchmark parcial (si se cortó)
 .venv/bin/python benchmarks/runner.py --quick --judge --judge-model phi4-or --models <modelos> \
-    --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
+    --tests ${=EXAMEN} --resume benchmarks/results/benchmark_YYYYMMDD_HHMMSS.json
 ```
+(`${=EXAMEN}` parte la variable en zsh; en bash es `$EXAMEN`.)
 
 El runner **guarda incrementalmente** tras cada test y puede continuar desde cualquier punto. También guarda la respuesta completa por test en `benchmarks/results/responses/<modelo>/<suite>/<test>__<timestamp>.md` (auditable desde GitHub).
 
@@ -339,7 +339,7 @@ auditar ni revertir.**
   6 — así mandó a medir tres modelos por una suite que no cuenta. Peor: el MISMO archivo
   publicaba `examen_completo: true` y `ranked: false` para Nemotron, porque adentro
   convivían dos definiciones del mismo concepto. **Antes de escribir un criterio, buscar
-  si ya hay una función que lo responda** — hoy es `suites.del_indice()`, y `check_suites`
+  si ya hay una función que lo responda** — hoy es `suites.del_indice()` (lo que promedia) o `suites.del_examen()` (lo que se rinde), y `check_suites`
   S5 falla si alguien vuelve a escribir la tupla a mano.
 - **Un canal que se pierde en el ruido es un canal que no existe.** El Action que regenera
   los artefactos —el seguro del repo— estuvo **40 días en rojo** (último verde el 13-jul,

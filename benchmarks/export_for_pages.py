@@ -21,14 +21,15 @@ import json
 import os
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks import elegibilidad
+from benchmarks import proveedor_fijo as _pf
 from benchmarks import suites as suites_reg
 from benchmarks.config import MODELS as _CLOUD_MODELS
-from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS
+from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS, renombres as _renombres
 from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
 # La lista de thinking models vive en el adapter (es donde se aplica). Se importa en vez
 # de copiarla: una copia se desincroniza el día que alguien agregue un modelo allá.
@@ -53,6 +54,62 @@ MIN_COST_PER_CALL = 0.001
 # aplicaban 50; ahora el umbral vive aca y todos consumen el mismo.
 MIN_RUNS_TESTED = 20
 MIN_RUNS_RANKED = 50
+
+
+# --- Ventanas de medición (DECISIONES, 5-nov-2026) ---
+# En un modelo re-medido en una ventana, el índice usa SOLO los runs de la ventana para cada
+# test que la ventana midió; los anteriores no se borran (el historial queda como está) pero
+# no se promedian: se midieron en otras condiciones (proveedor sin fijar, otro effort) y
+# quedan para las tablas de antes/después (corte-v5 6.8 y 6.9). Se reconoce por el archivo.
+VENTANAS_DE_MEDICION = ("benchmark_20261104_v5c",)
+
+
+def es_de_ventana(nombre_archivo: str) -> bool:
+    return nombre_archivo.startswith(VENTANAS_DE_MEDICION)
+
+
+def solo_ventana(runs: list[dict]) -> list[dict]:
+    """Por (suite, test): si hay runs de una ventana, quedan solo ésos. Función pura."""
+    medidos = {(r.get("suite"), r.get("test_name")) for r in runs if r.get("_ventana")}
+    return [r for r in runs if r.get("_ventana") or (r.get("suite"), r.get("test_name")) not in medidos]
+
+
+# Eras del harness (DECISIONES, 5-nov-2026: «el ranking v5 solo incluye modelos con el examen
+# v5 completo»). Un modelo que no lo completó sale del ranking a la tabla «histórico», marcado
+# con la era de la mayoría de sus runs del índice. Las fronteras son los cambios del harness
+# que movieron la nota: `require_parameters` (12-ago), el presupuesto de salida (2-sep) y la
+# ventana de v5 (4-nov). Se lee la fecha del RUN, no la del archivo: `cierre_*` y
+# `completar_*` juntan runs de meses distintos.
+ERAS = (
+    ("E0", "antes del 12-ago-2026", "00000000"),
+    ("E1", "12-ago a 1-sep-2026", "20260812"),
+    ("E2", "2-sep a 3-nov-2026", "20260902"),
+    ("v5", "ventana v5 (4-nov-2026)", "20261104"),
+)
+
+
+def era_de_run(r: dict) -> str:
+    """La era de un run por su fecha (`timestamp` YYYYMMDD…). Los de ventana son v5."""
+    if r.get("_ventana"):
+        return "v5"
+    f = str(r.get("timestamp") or "")[:8]
+    if not f.isdigit():
+        return "?"
+    era = "?"
+    for clave, _, desde in ERAS:
+        if f >= desde:
+            era = clave
+    return era
+
+
+def era_dominante(runs: list[dict]) -> dict | None:
+    """{era, etiqueta, reparto}: la era con más runs y el reparto completo. Función pura."""
+    c = Counter(era_de_run(r) for r in runs)
+    if not c:
+        return None
+    era, _ = c.most_common(1)[0]
+    etiqueta = next((e for k, e, _ in ERAS if k == era), "fecha desconocida")
+    return {"era": era, "etiqueta": etiqueta, "reparto": dict(sorted(c.items()))}
 
 
 def sample_tier(runs: int) -> str:
@@ -105,6 +162,192 @@ def _recalc_final(r: dict) -> float:
 SUITE_TO_PILLAR = suites_reg.SUITE_TO_PILLAR
 
 
+# Proveedores que son la API DEL CREADOR del modelo. Sólo estos heredan un resultado
+# agéntico medido en OpenRouter: la petición termina en el mismo sitio. Ver el bloque
+# agéntico de `main` para el porqué de quién está y quién no.
+_FIRST_PARTY = {"openai_direct", "openai_responses", "minimax_direct",
+                "moonshot", "xiaomi_direct"}
+
+
+def _cargar_agentico() -> dict:
+    """{id de modelo: {tarea: fila}} desde `tareas-agente/resultados.json` (lo escribe export_harbor)."""
+    out = {}
+    p = Path(__file__).resolve().parent.parent / "tareas-agente" / "resultados.json"
+    if p.exists():
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            for tarea, dt in d.get("tareas", {}).items():
+                for mid, fila in dt.get("modelos", {}).items():
+                    out.setdefault(mid, {})[tarea] = fila
+        except Exception as e:
+            print(f"  ⚠️  no se pudo leer resultados agénticos: {e}")
+    return out
+
+
+def _harbor_de(m: dict, agentico: dict) -> dict | None:
+    """Las tareas de Harbor de un modelo exportado: por id en OpenRouter, por sufijo si es first-party."""
+    prov = m.get("provider", "openrouter")
+    if prov == "openrouter":
+        return agentico.get(m["id"])
+    if prov in _FIRST_PARTY:
+        suf = "/" + str(m["id"])
+        cand = [v for k, v in agentico.items() if k.endswith(suf)]
+        return cand[0] if len(cand) == 1 else None   # ambiguo ⇒ no se adivina
+    return None
+
+
+HARBOR_INTENTOS = 3  # pass^k con k=3: el mismo estándar del lote (reference-estandar-del-examen)
+
+
+def sucesor_medido(suc: dict | None, harbor_suc: dict | None, harbor_pred: dict | None) -> bool:
+    """El sucesor rindió el examen v5 entero (rankea) y su Harbor: ≥3 intentos en cada tarea.
+
+    Las tareas exigidas son las que tiene publicadas el predecesor (no puede perder una
+    dimensión al reemplazarlo); si el predecesor no tiene ninguna, las del sucesor, y sin
+    ninguna de los dos no está medido.
+    """
+    if not suc or suc.get("ranked") is not True:
+        return False
+    exigidas = set(harbor_pred or {}) or set(harbor_suc or {})
+    return bool(exigidas) and all(
+        int(((harbor_suc or {}).get(t) or {}).get("intentos") or 0) >= HARBOR_INTENTOS
+        for t in exigidas)
+
+
+def aplicar_reemplazos(models_export: list, agentico: dict, catalogo: dict | None = None) -> list:
+    """Pasa al histórico a cada predecesor cuyo sucesor (`reemplaza` en models.py) está medido.
+
+    Cristian, 7-nov-2026: «los reemplazados pasan al histórico cuando su sucesor esté
+    medido, no antes». Un sucesor trabado no entra con datos parciales y su predecesor
+    sigue vigente: eso sale solo, porque sin examen completo el sucesor no rankea.
+    El predecesor conserva sus runs y su ficha; deja de rankear y queda `historico` con
+    `reemplazado_por`. Devuelve [(predecesor, sucesor)] de los que se movieron.
+    """
+    catalogo = MODELS if catalogo is None else catalogo
+    por_key = {m.get("key"): m for m in models_export}
+    movidos = []
+    for k_suc, cfg in catalogo.items():
+        k_pred = cfg.get("reemplaza")
+        if not k_pred:
+            continue
+        suc, pred = por_key.get(k_suc), por_key.get(k_pred)
+        if not pred or not pred.get("ranked"):
+            continue
+        if not sucesor_medido(suc, _harbor_de(suc, agentico), _harbor_de(pred, agentico)):
+            continue
+        pred["ranked"] = False
+        pred["historico"] = True
+        pred["reemplazado_por"] = k_suc
+        movidos.append((k_pred, k_suc))
+    return movidos
+
+
+def _rasgo_credenciales(runs: list) -> dict | None:
+    """El rasgo «¿maneja credenciales?» del modelo, desde sus runs de string_precision."""
+    from benchmarks.negativas import SUITE_RASGO, rasgo_credenciales
+    from benchmarks.runner import ALL_TEST_SUITES
+    return rasgo_credenciales(runs or [], _texto_de_respuesta, len(ALL_TEST_SUITES[SUITE_RASGO]))
+
+
+def _resumen_cabeza(models_export: list) -> dict:
+    """Cuántos rankeados no se separan del mejor en el índice (`bands.grupo_cabeza`)."""
+    from benchmarks.bands import grupo_cabeza
+    ranked = [m for m in models_export if m.get("ranked")]
+    cab = grupo_cabeza(ranked) if ranked else []
+    return {"n": len(cab), "de": len(ranked),
+            "porcentaje": round(100 * len(cab) / len(ranked)) if ranked else None,
+            "claves": [m.get("key") for m in cab]}
+
+
+def _seguridad_mediana(models_export: list) -> dict:
+    """Mediana de `security_score` sobre los rankeados que lo tienen (8-nov-2026: el blog
+    la citaba a mano)."""
+    from statistics import median
+    xs = [m["security_score"] for m in models_export
+          if m.get("ranked") and m.get("security_score") is not None]
+    return {"mediana": round(median(xs), 2) if xs else None, "de": len(xs)}
+
+
+def _precio_calidad(models_export: list) -> dict:
+    """Correlación de Pearson entre el precio por mil llamadas y la calidad, sobre los
+    rankeados. `r2_pct` es la parte de la diferencia de calidad que explica el precio."""
+    ps = [(m["cost_per_1k_calls_usd"], m["quality_avg"]) for m in models_export
+          if m.get("ranked") and m.get("cost_per_1k_calls_usd") is not None
+          and m.get("quality_avg") is not None]
+    if len(ps) < 3:
+        return {"pearson": None, "r2_pct": None, "de": len(ps)}
+    n = len(ps)
+    mx = sum(x for x, _ in ps) / n
+    my = sum(y for _, y in ps) / n
+    sxy = sum((x - mx) * (y - my) for x, y in ps)
+    sx = sum((x - mx) ** 2 for x, _ in ps) ** 0.5
+    sy = sum((y - my) ** 2 for _, y in ps) ** 0.5
+    r = sxy / (sx * sy) if sx and sy else None
+    return {"pearson": round(r, 2) if r is not None else None,
+            "r2_pct": round(100 * r * r) if r is not None else None, "de": n}
+
+
+def _resumen_rasgo(models_export: list) -> dict:
+    """Conteo del rasgo «¿maneja credenciales?» sobre los rankeados que lo tienen."""
+    from collections import Counter as _C
+    rs = [m["maneja_credenciales"] for m in models_export
+          if m.get("ranked") and m.get("maneja_credenciales")]
+    c = _C(r["rasgo"] for r in rs)
+    return {"de": len(rs), "si": c.get("sí", 0), "a_veces": c.get("a veces", 0),
+            "se_niega": c.get("se niega", 0)}
+
+
+_TESTS_NEGATIVA = None
+
+
+def _tests_con_negativa() -> dict:
+    """(suite, test) → definición, solo de los tests donde una negativa cambia la nota."""
+    global _TESTS_NEGATIVA
+    if _TESTS_NEGATIVA is None:
+        from benchmarks.runner import ALL_TEST_SUITES
+        _TESTS_NEGATIVA = {
+            (s, t["name"]): t for s, ts in ALL_TEST_SUITES.items() for t in ts
+            if t.get("refusal_ok")
+            or (t.get("expected_answer") or {}).get("type") == "credential_leak_check"}
+    return _TESTS_NEGATIVA
+
+
+def _texto_de_respuesta(r: dict) -> str | None:
+    """La respuesta completa del `.md` (o el preview si falta). None si no hay ninguna."""
+    f = r.get("response_file")
+    if f:
+        p = Path(__file__).parent / f
+        if p.exists():
+            t = p.read_text(encoding="utf-8")
+            marca = "## Respuesta completa"
+            return t.split(marca, 1)[1].strip() if marca in t else t
+    return r.get("response_preview")
+
+
+def corregir_negativa(r: dict) -> bool:
+    """Sube a 10 la nota de una negativa que el detector viejo no vio. Al LEER, sin reescribir results/.
+
+    7-nov-2026: el detector de negativas no normalizaba apóstrofos ni conocía frases como
+    «no tengo permitido» o «I'm not going to», y no contaba un `content_filter` con texto
+    parcial. El histórico no se reescribe, así que el export aplica `negativas.nota_corregida`
+    (el mismo detector que usa hoy el runner) y deja la nota original en
+    `negativa_corregida` para auditarla. La copia exacta se juzga por `answer_score`, nunca
+    por el `.md`, que puede estar saneado.
+    """
+    if r.get("negativa_corregida") is not None:
+        return False
+    t = _tests_con_negativa().get((r.get("suite"), r.get("test_name")))
+    if not t or r.get("quality") is None or r["quality"] >= 10.0:
+        return False
+    from benchmarks.negativas import nota_corregida
+    nueva = nota_corregida(r, t, _texto_de_respuesta(r))
+    if nueva is None:
+        return False
+    r["negativa_corregida"] = {"antes": r["quality"], "detector": "negativas.py (7-nov-2026)"}
+    r["quality"] = nueva
+    return True
+
+
 def load_all_results():
     """Carga y consolida todos los runs exitosos de benchmark JSONs.
 
@@ -115,6 +358,9 @@ def load_all_results():
     results_dir = Path(__file__).parent / "results"
     by_id = defaultdict(list)        # match por id (compat)
     by_id_and_name = defaultdict(list)  # match por (id, name) para thinking variants
+    # Un run medido con un nombre que después cambió se asigna al nombre vigente
+    # (`nombres_anteriores` en models.py, 6-nov-2026): el histórico no se reescribe.
+    renombre = _renombres()
 
     for fn in sorted(os.listdir(results_dir)):
         if not (fn.startswith("benchmark_") and fn.endswith(".json")):
@@ -133,10 +379,17 @@ def load_all_results():
             # reporta; esto impide que llegue a lo publicado mientras tanto.
             if str(r.get("reasoning_effort") or "").startswith("pedido:"):
                 continue
+            if es_de_ventana(fn):
+                r["_ventana"] = True
+            corregir_negativa(r)
             mid = r.get("model_id") or "?"
             mname = r.get("model") or ""
+            mname = renombre.get((mid, mname), mname)
             by_id[mid].append(r)
             by_id_and_name[(mid, mname)].append(r)
+    for d in (by_id, by_id_and_name):
+        for k in d:
+            d[k] = solo_ventana(d[k])
     return by_id, by_id_and_name
 
 
@@ -457,6 +710,8 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # Un promedio sobre un examen incompleto no es una nota baja: es una nota que no
     # existe. Ahora se marca (`suites_incompletas`) y no se publica como comparable.
     tests_por_suite = defaultdict(set)
+    tests_v5_por_suite = defaultdict(set)   # los que rindió en la ventana de v5
+    runs_indice = []                        # para la era del histórico
 
     for r in runs:
         suite = r.get("suite", "")
@@ -464,6 +719,9 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
             continue
         if r.get("test_name"):
             tests_por_suite[suite].add(r["test_name"])
+            if r.get("_ventana"):
+                tests_v5_por_suite[suite].add(r["test_name"])
+        runs_indice.append(r)
         by_suite[suite].append(r["_final_recalc"])
         pillar = SUITE_TO_PILLAR.get(suite)
         if pillar:
@@ -536,6 +794,14 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         s: round(sum(sum(v) / len(v) for v in tests.values()) / len(tests), 2)
         for s, tests in calidad_por_suite.items() if tests
     }
+    # Margen de error de la calidad DENTRO de cada suite (6-nov-2026). Las páginas que
+    # ordenan por una suite agrupan el empate de cabeza con el mismo mecanismo que el
+    # global y los pilares (`bands.py`); sin esto coronaban al #1 de una suite por una
+    # diferencia que no podían distinguir. Misma fórmula que `quality_ci95`: sobre los runs.
+    quality_ci95_by_suite = {
+        s: _ci95([q for v in tests.values() for q in v])
+        for s, tests in calidad_por_suite.items() if tests
+    }
 
     # Suites que el modelo NO terminó. Su promedio sale de un examen más corto que el de
     # los demás: se reporta, pero marcado — no se puede comparar contra quien rindió todo.
@@ -552,7 +818,10 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     # no. Una suite que el modelo nunca tocó cuenta como `rindio: 0`, que es la verdad.
     from benchmarks.runner import ALL_TEST_SUITES as _TS
     from benchmarks.suites import SUITES as _REGISTRO
-    _indice = [s for s, v in _REGISTRO.items() if v.get("en_promedio") and s in _TS]
+    # Lo que hay que RENDIR (`del_examen`), no lo que promedia: string_precision salió del
+    # índice en 5.0.0 pero sigue en el examen (7-nov-2026).
+    from benchmarks.suites import del_examen as _del_examen  # noqa: PLC0415
+    _indice = [s for s in _REGISTRO if s in _del_examen() and s in _TS]
     # Se compara por NOMBRE, no por cantidad. Un modelo puede tener MÁS runs que
     # tests esperados si la suite se editó y él rindió las dos versiones: GPT-5.6 Luna
     # y MiniMax M3 tienen 7 tests en `content_verificable` donde hoy hay 5, porque
@@ -636,6 +905,14 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
     examen_completo = bool(_indice) and all(
         _esperados[s] <= tests_por_suite[s] for s in _indice
     )
+    # Examen v5: los 143 tests del índice, TODOS rendidos en la ventana (proveedor fijo,
+    # thinking por peldaño, harness actual). Es lo que pide el ranking v5; el que tiene el
+    # examen completo pero con runs de antes va a la tabla histórico con su era.
+    examen_v5 = examen_completo and all(
+        _esperados[s] <= tests_v5_por_suite[s] for s in _indice
+    )
+    _en_indice = set(_indice)
+    era = era_dominante([r for r in runs_indice if r.get("suite") in _en_indice])
 
     scores = finals_recalc  # mantener naming downstream
 
@@ -690,11 +967,14 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # usá `quality_by_suite`. Ver el comentario en aggregate_metrics.
         "score_by_suite": suites,
         "quality_by_suite": quality_by_suite,
+        "quality_ci95_by_suite": quality_ci95_by_suite,
         # {suite: {rindio, total}} — las suites que este modelo NO terminó. Su promedio
         # sale de un examen más corto: NO es comparable con el de quien rindió todo.
         # Quien consuma score_by_suite tiene que mirar esto antes de comparar.
         "suites_incompletas": incompletas,
         "examen_completo": examen_completo,
+        "examen_v5": examen_v5,
+        "era": era,
         # Componentes raw promedio (permite mostrar columnas separadas + recalcular pesos en calculadora)
         "quality_avg": round(sum(qualities) / len(qualities), 2) if qualities else None,
         # Incertidumbre de esa media. Sin esto, el ranking finge una precision que
@@ -725,12 +1005,13 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         # --- Eje agéntico (agent_long_horizon: tareas multi-paso) ---
         # SÍ cuenta en quality_avg (es donde los premium se diferencian); esto lo expone
         # ADEMÁS como eje propio para que la calculadora filtre por casos de uso agénticos.
-        "agentic_runs": len(agentic),
-        "agentic_quality": round(sum(agentic_q) / len(agentic_q), 2) if agentic_q else None,
+        # 8-nov-2026 (Cristian): se llaman por lo que son. `agent_long_horizon` es
+        # multi-turno SIN herramientas; lo agéntico sale de Harbor (`agentico`). El alias
+        # `agentic_score` se quitó: el pilar del blog lo publicaba como «tareas agénticas
+        # reales» y la calculadora rotulaba `agentic_quality` como «Calidad agéntica».
+        "multiturno_runs": len(agentic),
+        "multiturno_quality": round(sum(agentic_q) / len(agentic_q), 2) if agentic_q else None,
         "multiturno_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
-        # Alias temporal: la calculadora y las páginas pSEO todavía leen el nombre viejo.
-        # Se quita cuando se migren. Mantenerlo evita romper superficies publicadas.
-        "agentic_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
         # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
         "security_runs": len(security),
         "security_score": round(
@@ -1202,6 +1483,9 @@ def build_export(recalibrate=False, scoring_version=None):
                 # exactamente el fallo que el repo persigue, leer ausencia de datos
                 # como datos en orden.
                 metrics.get("examen_completo") is True
+                # Ranking v5 (DECISIONES, 5-nov-2026): solo exámenes rendidos enteros en
+                # la ventana. El resto va a `historico`, sin puesto.
+                and metrics.get("examen_v5") is True
                 and ":free" not in str(model_id)
                 and not cfg.get("retired")
                 and not cfg.get("provider_variant")
@@ -1211,10 +1495,36 @@ def build_export(recalibrate=False, scoring_version=None):
                 and not cfg.get("self_hosted")
                 and not _incompletas_que_puntuan
             ),
+            # Tabla «histórico» (DECISIONES, 5-nov-2026): rindió el examen completo y
+            # rankearía por todo lo demás, pero no en la ventana de v5. Se publica con su
+            # era y sin puesto. Mismo criterio que `ranked` salvo `examen_v5`, para que
+            # nadie quede en los dos lados ni en ninguno por una tercera definición.
+            "historico": (
+                metrics.get("examen_completo") is True
+                and metrics.get("examen_v5") is not True
+                and ":free" not in str(model_id)
+                and not cfg.get("retired")
+                and not cfg.get("provider_variant")
+                and not cfg.get("effort_variant")
+                and not cfg.get("self_hosted")
+                and not _incompletas_que_puntuan
+            ),
+            # Nota pública que la declaración del proveedor pide mostrar en la ficha (p. ej.
+            # Fugu Max: «sin tope de salida propio; usa el del proveedor», DECISIONES 5-nov).
+            # Se lee de la declaración, que es donde vive la excepción, no se copia a mano.
+            "nota_publica": ((_pf.declarado(model_id) or {}).get("nota_publica")),
             "sample_tier": sample_tier(metrics["runs"]),   # solid | partial | preliminary
+            # Rasgo «¿maneja credenciales?» (7-nov-2026): fuera del índice, con la cuenta.
+            "maneja_credenciales": _rasgo_credenciales(runs),
             **capabilities,  # tool_calling, thinking, multimodal
             **metrics,
         })
+
+    # ── REEMPLAZADOS → HISTÓRICO (Cristian, 7-nov-2026) ──
+    # Antes del z-score, el Pareto y todo lo que lee `ranked`: un predecesor cuyo sucesor
+    # ya está medido no compite, y no puede mover la frontera de nadie.
+    for _pred, _suc in aplicar_reemplazos(models_export, _cargar_agentico()):
+        print(f"  ↪︎  {_pred} pasa al histórico: lo reemplaza {_suc}, medido")
 
     # --- v2.9: score_global Z-SCOREADO ---
     # Recomputa score_global estandarizando cada dimensión (z-score) sobre los
@@ -1417,18 +1727,9 @@ def build_export(recalibrate=False, scoring_version=None):
     # pesos de terceros con su propia cuantización y config —Qwen 3.5 397B da 8,42 en NIM
     # y 7,97 en Ollama Cloud, medido—. `claude_code` tampoco: es una ruta por suscripción
     # (el CLI), que el repo ya trata aparte del plano común.
-    _FIRST_PARTY = {"openai_direct", "openai_responses", "minimax_direct",
-                    "moonshot", "xiaomi_direct"}
-    _agentico = {}
-    _p_ag = Path(__file__).resolve().parent.parent / "tareas-agente" / "resultados.json"
-    if _p_ag.exists():
-        try:
-            _d_ag = json.loads(_p_ag.read_text(encoding="utf-8"))
-            for _tarea, _dt in _d_ag.get("tareas", {}).items():
-                for _mid, _fila in _dt.get("modelos", {}).items():
-                    _agentico.setdefault(_mid, {})[_tarea] = _fila
-        except Exception as e:
-            print(f"  ⚠️  no se pudo leer resultados agénticos: {e}")
+    # (la lista vive en `_FIRST_PARTY`, a nivel de módulo, para que `aplicar_reemplazos`
+    # lea el Harbor de un modelo con la MISMA regla.)
+    _agentico = _cargar_agentico()
 
     # Un modelo NO SIRVE en un agente si en alguna tarea quedó sin poder ejecutarla por
     # razones del modelo o de su disponibilidad. Es un filtro duro, no un puntaje: para
@@ -1458,15 +1759,15 @@ def build_export(recalibrate=False, scoring_version=None):
         # El id no coincide entre rutas —el catálogo guarda `gpt-5.4` y Harbor midió
         # `openai/gpt-5.4`— así que se busca por sufijo `/{id}`, y sólo si el proveedor
         # es la API del creador.
-        _prov = m.get("provider", "openrouter")
-        if _prov == "openrouter":
-            _r = _agentico.get(m["id"])
-        elif _prov in _FIRST_PARTY:
-            _suf = "/" + str(m["id"])
-            _cand = [v for k, v in _agentico.items() if k.endswith(_suf)]
-            _r = _cand[0] if len(_cand) == 1 else None   # ambiguo ⇒ no se adivina
-        else:
-            _r = None
+        # 6-nov-2026: un modelo declarado SIN DATO agéntico (hoy, GPT-OSS: el endpoint
+        # devuelve la llamada en el canal de razonamiento y el agente no la ve) publica el
+        # estado con su motivo y NINGUNA tarea: ninguna página muestra un 0 que no es suyo.
+        _sd = (MODELS.get(m.get("key") or "", {}) or {}).get("agentico_sin_dato")
+        if _sd:
+            m["agentico"] = {"sin_dato": _sd["estado"], "motivo": _sd["motivo"]}
+            m["sirve_para_agentes"] = None
+            continue
+        _r = _harbor_de(m, _agentico)
         if not _r:
             m["agentico"] = None
             m["sirve_para_agentes"] = None
@@ -1497,6 +1798,10 @@ def build_export(recalibrate=False, scoring_version=None):
         # Irregular en alguna tarea NO es exclusión dura: completó al menos una. Se marca
         # y se deja decidir a quien lee.
         m["sirve_para_agentes"] = bool(_ok)
+        # «N de M»: tareas superadas en TODOS sus intentos. Es la única cifra que una
+        # página pública puede rotular como agéntica (`check_agentico_publicado` A3).
+        m["agentico"]["superadas"] = sum(1 for e in _estados.values() if e == "ok_siempre")
+        m["agentico"]["de"] = len(_estados)
         if _mal and _ok:
             m["agentico"]["falla_en"] = sorted(_mal)
 
@@ -1540,6 +1845,12 @@ def build_export(recalibrate=False, scoring_version=None):
         "total_models": len(models_export),
         "tested_count": sum(1 for m in models_export if m["tested"]),
         "ranked_count": sum(1 for m in models_export if m["ranked"]),
+        # El grupo de cabeza del índice y el rasgo de credenciales, sobre los RANKEADOS. Los
+        # textos públicos leen estas cifras; nunca se escriben a mano (Cristian, 7-nov-2026).
+        "grupo_cabeza": _resumen_cabeza(models_export),
+        "rasgo_credenciales": _resumen_rasgo(models_export),
+        "seguridad_mediana": _seguridad_mediana(models_export),
+        "precio_calidad": _precio_calidad(models_export),
         # Esfuerzo total de medición (para el hero): TODOS los runs ejecutados,
         # incluidos los descartados en la limpieza. Ver count_runs_measured().
         "total_runs_measured": _runs_active + _runs_discarded,

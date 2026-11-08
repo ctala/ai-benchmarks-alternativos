@@ -24,7 +24,8 @@ sobre un campo inexistente **no falla: devuelve vacío**, y vacío parece un hal
 | `score_global` | 68/68 | compuesto z-scoreado: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5% |
 | `quality_avg` | 68/68 | calidad titular (suites que puntúan; sin niah ni seguridad) |
 | `quality_ci95` | 68/68 | intervalo de confianza 95% |
-| `agentic_score` | 68/68 | ⚠️ **SOLO** de `agent_long_horizon` (multi-turno, **sin herramientas**) |
+| `multiturno_score` / `multiturno_quality` | 68/68 | ⚠️ **SOLO** de `agent_long_horizon` (multi-turno, **sin herramientas**). Hasta el 8-nov-2026 se llamaban `agentic_score` / `agentic_quality` |
+| `agentico.superadas` / `agentico.de` | — | tareas de Harbor superadas en todos sus intentos: la **única** cifra que una página rotula como agéntica (`check_agentico_publicado` A3) |
 | `tool_calling_score_avg` | 68/68 | ⚠️ **DILUIDO** — ver §3 |
 | `long_context_score` | 29/68 | eje niah. Parcial **por diseño**: solo quien rindió niah |
 | `security_score` | 27/68 | eje `prompt_injection_es` |
@@ -47,7 +48,7 @@ sobre un campo inexistente **no falla: devuelve vacío**, y vacío parece un hal
 - `tool_calling_score` → es **`tool_calling_score_avg`**
 - `tool_calls_made` en el JSON **antes del 12-ago** → no se persistía. Una query dio "0 tool
   calls en los 68 modelos" y **casi se publica como hallazgo**. Era el campo, no los modelos.
-- `agentic_quality_avg` → es `agentic_quality`
+- `agentic_quality_avg` → era `agentic_quality`, hoy `multiturno_quality` (8-nov-2026)
 
 **Regla: antes de escribir una query sobre un campo, enumerá las claves reales.** Cuesta
 diez segundos y es la diferencia entre un hallazgo y una vergüenza.
@@ -59,7 +60,7 @@ diez segundos y es la diferencia entre un hallazgo y una vergüenza.
 | Métrica | Sale de | NO incluye |
 |---|---|---|
 | `quality_avg` | todas las suites que puntúan | niah, prompt_injection |
-| `agentic_score` | **solo `agent_long_horizon`** | herramientas, tool calling |
+| `multiturno_score` (antes `agentic_score`) | **solo `agent_long_horizon`** | herramientas, tool calling |
 | pilar **"Agentes"** (ordena `/mejor-llm-para-agentes/` y `/mejor-llm-para-n8n/`) | quality de `tool_calling`, `task_management`, `customer_support`, `orchestration`, `multi_turn`, `policy_adherence`, `agent_capabilities` | — |
 | `long_context_score` | suites `niah_*` | — |
 | `security_score` | `prompt_injection_es` | — |

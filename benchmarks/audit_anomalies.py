@@ -20,6 +20,12 @@ RESULTS = Path(__file__).parent / "results"
 
 
 def load_runs():
+    # El nombre del run se lleva al vigente (`nombres_anteriores`, 6-nov-2026): el
+    # conjunto de rankeados sale de models.json, que ya publica el nombre nuevo.
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from models import renombres
+    ren = renombres()
     runs = []
     for f in sorted(RESULTS.glob("benchmark_*.json")):
         try:
@@ -29,6 +35,7 @@ def load_runs():
         for r in (d if isinstance(d, list) else d.get("results", [])):
             if isinstance(r, dict):
                 r["_file"] = f.name
+                r["model"] = ren.get((r.get("model_id") or "", r.get("model") or ""), r.get("model"))
                 runs.append(r)
     return runs
 

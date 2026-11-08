@@ -116,7 +116,9 @@ def main() -> int:
             fallos.append(f"`{suite}`: la config declara el corte y la página no existe "
                           f"({path.relative_to(ROOT)})")
             continue
-        vals = [(m["name"], (m.get("score_by_suite") or {}).get(suite)) for m in ranked]
+        # 6-nov-2026: la página ordena por CALIDAD en la suite (`quality_by_suite`), que es
+        # lo que siempre dijo su texto; antes ordenaba por el compuesto `score_by_suite`.
+        vals = [(m["name"], (m.get("quality_by_suite") or {}).get(suite)) for m in ranked]
         vals = [(n, v) for n, v in vals if v is not None]
         if not vals:
             continue

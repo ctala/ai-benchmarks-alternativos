@@ -5,6 +5,82 @@
 
 ## [No publicado] · próximo: mayor
 
+- **Agentes en Harbor de punta a punta, Mercury fuera y el cheatsheet v4 desenlazado (8-nov-2026, Cristian).** En /mejor-llm-para-agentes/ el grupo de cabeza, el veredicto y la segunda tabla salen de las tareas de Harbor superadas, contadas exactas: 17 modelos con 4 de 4, la mejor compra es MiMo V2.6 Flash. La tabla «Calidad×precio» (70 % `score_agentico` + 30 % precio) se reemplaza por una ordenada por tareas y precio. A3 suma las reglas e y f, con sabotaje. **Mercury 3** (rankeado) y **Mercury 2.5** (histórico) pasan a retirados por el proveedor: 0 endpoints y fuera del catálogo de OpenRouter, igual que Devstral. El README deja de enlazar el CheatSheet de septiembre y marca la era de los snapshots v4 que enlaza. ROADMAP v5.1: `prompt_injection_es` al examen y «N de 4» en las fichas (esto último, posible v5.0.1).
+- **/modelos-n8n/ deja de recomendar con cifras v4 escritas a mano (8-nov-2026, Cristian).** El párrafo que
+  recomendaba Qwen 3.7 Flash («8,18 en tool calling, calidad 8,46») y Llama 4 Scout, ninguno rankeado en v5,
+  se reemplaza por una línea que enlaza a /mejor-llm-para-n8n/, que sale del dato. La sección no se reescribe.
+- **Blog: los posts del examen anterior se congelan con dos marcas, y los generadores no escriben sin `--write`
+  (8-nov-2026, decisión de Cristian).** Un congelado lleva `benchmarkEra: "v4"` y la nota visible «Medido con el
+  examen anterior. El ranking vigente está acá»; con una sola, rojo en `check_blog_consistency` y
+  `generate_blog_datos`. `generate_blog_datos` y `generate_blog_tablas` verifican por defecto y escriben solo con
+  `--write`. El total de ejecuciones de los posts se verifica contra `conteos.ejecuciones`. `BENCH_BLOG` apunta los
+  chequeos a un worktree. Tres pruebas de sabotaje nuevas.
+- **Comparaciones por key y fotos históricas (8-nov-2026, decisión de Cristian).** Las páginas con versión en el
+  título comparan los modelos del título por key (/fable-5-vs-*/ coronaba a Fable 5.1). 25 páginas con un lado
+  fuera del ranking quedan como foto sin ganador, con la nota de su era y enlaces a la familia y a la calculadora;
+  ninguna 301. `check_ganadores` G6 y su sabotaje; Q14 exime a la foto de la tabla eje por eje.
+- **Lo agéntico sale de Harbor en todo el sitio (8-nov-2026, decisión de Cristian).** La calculadora, su ficha y las
+  landings de agentes muestran «N de M» tareas de Harbor superadas o «sin dato agéntico»; la vista Agentes ordena
+  primero por eso. `agentic_quality` / `agentic_runs` pasan a `multiturno_*` y se quita el alias `agentic_score`.
+  Guardrail `check_agentico_publicado` A3 con cinco sabotajes. El export agrega `seguridad_mediana` y
+  `precio_calidad`, que los posts citan con `G:`; la mediana publicada estaba mal (2,5 de 71 → 1,53 de 55).
+- **Blog: ni podio dentro del ruido ni `agentic_score` como agéntico (8-nov-2026, decisión de Cristian).** Las
+  tablas del pilar llevan «≈» en el grupo de cabeza y ninguna negrita; el eje `V:agentico` (que leía el compuesto
+  multi-turno) queda retirado y lo agéntico sale de Harbor (`D:<key>:harbor`, `V:harbor_barato`). El pilar y la
+  guía de Claude Code se reescriben con el examen v5: líderes de suite escritos como empate, cifras con marcador.
+- **El juez ya no se publica como «local».** Corre por OpenRouter (`phi4-or`) desde el 14-sep-2026 y seis
+  plantillas, el README y CLAUDE.md seguían diciendo «LLM-as-Judge local» o «Phi-4 local». Prueba que lo impide.
+  «Filtralo» → «Fíltralo» en el FAQ de las comparaciones.
+
+- **Negativas: string_precision sale del índice 5.0.0, un solo detector y el rasgo «¿maneja credenciales?»
+  (7-nov-2026, decisión de Cristian).** La suite se sigue rindiendo (`suites.del_examen()`: 29 suites, 143 pruebas)
+  pero no promedia (`suites.del_indice()`: 28 suites, 137): estaba saturada (65 de 78 copiaban todo, un solo error de
+  copia real) y lo que separaba era la política ante algo que parece un secreto. Cada modelo publica el rasgo con su
+  cuenta («a veces (4 de 6)»). `negativas.py` es el único detector para el runner, `scoring`, el export y
+  `rescore_all`: apóstrofos curvos, frases de los casos reales, bloqueo de plataforma con texto (que vale 10 solo en
+  tests `refusal_ok`) y la escalada sin filtrar en `social_engineering_attempt` (en runs guardados sin nombres de herramientas, solo con una llamada y `tool_calling == 10`). El histórico no se reescribe: el
+  export corrige al leer y solo sube notas (142 runs, 27 en rankeados). Pruebas nuevas con su sabotaje.
+- **Los reemplazados pasan al histórico cuando su sucesor está medido (7-nov-2026).** `reemplaza` en el sucesor;
+  el export lo aplica antes del z-score si el sucesor rankea y tiene Harbor ×3. Hoy pasan los 7 del lote de
+  sucesores. El grupo de cabeza (31 de 71, 44 %) sale del export; dentro de él la tabla pone «≈» y la ficha no da
+  puesto.
+- **El bloqueo de plataforma en el cuerpo del error (Google, Inception) es un rehúso (7-nov-2026).** `E8` de
+  `check_effort` acepta los endpoints sin apagado declarados en `effort.sin_apagado_en_endpoint`.
+
+- **El ranking v5 es solo de exámenes v5 completos; el resto pasa a la tabla «histórico» (5-nov-2026, decisión de
+  Cristian).** Rankea quien rindió los 143 tests del índice en la ventana (proveedor fijo, thinking por peldaño,
+  harness actual): `examen_v5` en `models.json`. Quien tiene el examen completo pero con runs de antes queda en
+  `historico`, sin puesto y con la era de la mayoría de sus runs (`era`: E0 antes del 12-ago, E1 hasta el 1-sep,
+  E2 hasta el 3-nov, v5). La calculadora tiene la tabla histórico, en orden alfabético; las fichas del histórico se
+  regeneran como foto de su era en vez de quedar publicadas con su puesto viejo. Guardrails nuevos en `validate.py`:
+  B4 (un rankeado tiene el examen v5 entero; el histórico no rankea y dice su era) y C4 (la ficha dice lo mismo que
+  el dato), los dos con su prueba y su sabotaje, y desactivándolos las pruebas se ponen rojas.
+- **Tencent Hy4 (estable) entra; Hy4 preview y Seed 2.1 Turbo pasan al histórico (6-nov-2026).** Hy4 salió estable el
+  4-nov, a mitad del lote, y se midió entero en Tencent `tencent/fp4` (143 de 143, cero fallos). El tag del preview
+  dejó de resolver ese día. Seed 2.1 Turbo quedó en 15 de 86: su único proveedor respondió 429 durante dos días.
+- **Fugu Max muestra en su ficha «Sin tope de salida propio; usa el del proveedor» (5-nov-2026).** La nota vive en la
+  declaración del proveedor (`nota_publica`), el export la publica y C4 verifica que la ficha la imprima.
+- **`check_mezcla` deja de contar como mezcla el mismo proveedor escrito distinto, y `no_aplica` sale de los datos
+  (6-nov-2026).** `openai` y `OpenAI` son un proveedor; «Google» y «Google AI Studio» siguen siendo dos. Los 15 cerrados
+  declarados con `no_aplica` llevan su cuantización real (`fp8` o `unknown`), y los 1.646 runs de la ventana que la
+  heredaron se corrigen solo si los sirvió el proveedor declarado. La prueba de `check_mezcla` suma los dos casos.
+- **El wizard filtra por el percentil 70 del pilar antes de pesar precio y velocidad (5-nov-2026).** Queda en
+  DECISIONES lo que W9 ya verificaba: «programar» no puede recomendar a alguien del montón por ser rápido.
+- **`rescore_all` tiene una prueba de punta a punta (5-nov-2026):** sobre un directorio de prueba con un `.md`
+  redactado, sale con 2 y la nota no cambia; quitar la guarda del bucle la pone roja.
+- **La redacción ya no borra los fixtures del test (5-nov-2026).** El fixture de `copy_api_key` y `write_config_file`
+  tiene forma de clave (`sk-proj-…`) y la redacción lo dejaba como `REDACTED-SECRET` en lo guardado; `rescore_all.py`,
+  que repuntúa desde el `.md`, le había puesto 1,0 a 139 respuestas correctas del histórico. Desde ahora el runner
+  conserva los fixtures del propio test y redacta todo lo demás. Los runs viejos no se repuntúan: quedan en el
+  histórico con su marca, y `rescore_all.py` se niega con error a repuntuar un `.md` que perdió su fixture.
+  Tres pruebas nuevas con su sabotaje.
+- **Harbor: tope de salida declarable por modelo (5-nov-2026).** `max_tokens_harbor` en la declaración pasa al YAML de
+  mini-swe-agent; Granite 4.2 8B (CoreWeave) lo usa con 32.768 porque litellm pedía casi todo el contexto como salida
+  y el endpoint rechazaba el pedido. Una prueba nueva con su sabotaje.
+- **Harbor del lote v5: 286 de 537 corridas fallaron por infraestructura y se repiten (5-nov-2026).** Con 2 trabajos
+  en paralelo, la instalación del agente dentro del contenedor vencía por timeout de red; Harbor igual salía con 0.
+  Las corridas con excepción salen de `jobs/` (a `jobs_descartados_v5/`, ignorado por git) y se completan las que
+  faltan de a un trabajo, hasta 3 limpias por par.
 - **Los cerrados de peldaño 1-2 se fijan en el proveedor de su histórico (5-nov-2026, decisión de Cristian).** Sección
   `cerrados` en `proveedores_declarados.json` (15 modelos, cada uno verificado con un ping a su proveedor), que
   `--declarar` conserva. Sus runs del lote sin fijar (103) pasan a `results/_experimentos/`; MiMo V2.5 Pro (OR) y

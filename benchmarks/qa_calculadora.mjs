@@ -208,7 +208,17 @@ chequeo("Q6 · el ranking sale ordenado de mayor a menor", () => {
   for (const pilar of ["score_calidad", ...Object.keys(app.SUITES_BY_PILLAR)]) {
     const f = { ...baseFiltros(), task: pilar, subtask: "", quality: 0 };
     const r = app.filterAndRank(MODELOS, f);
+    // 8-nov-2026: en Agentes manda primero lo que muestra la columna «Trabajo agéntico»
+    // (tareas de Harbor superadas en todos sus intentos) y el puntaje solo desempata.
+    const h = m => (m.agentico && m.agentico.de) ? m.agentico.superadas : -1;
     for (let i = 1; i < r.length; i++) {
+      if (pilar === "Agentes" && h(r[i]) !== h(r[i - 1])) {
+        if (h(r[i]) > h(r[i - 1])) {
+          malas.push(`Agentes: puesto ${i + 1} (${r[i].name}, ${h(r[i])} tareas) supera al ${i} (${r[i - 1].name}, ${h(r[i - 1])})`);
+          break;
+        }
+        continue;
+      }
       const a = app.getScore(r[i - 1], pilar, ""), b = app.getScore(r[i], pilar, "");
       if (a != null && b != null && b > a + 1e-9) {
         malas.push(`${pilar}: puesto ${i} (${r[i].name} ${b.toFixed(2)}) supera al ${i} (${r[i - 1].name} ${a.toFixed(2)})`);
@@ -391,6 +401,14 @@ chequeo("Q14 · ninguna comparación corona a un no-rankeado sin la salvedad esc
     const p = join(ROOT, "docs", slug, "index.html");
     if (!existsSync(p)) continue;
     const html = readFileSync(p, "utf8");
+    // 8-nov-2026: una FOTO HISTÓRICA (un lado sin rankeados) no elige ganador, así que no
+    // lleva la tabla eje por eje con su columna «Gana». Queda exenta SOLO con la marca y su
+    // nota; que no corone a nadie lo verifica check_ganadores G6.
+    if (html.includes('data-foto-historica="1"')) {
+      if (html.includes("<h2>Eje por eje:")) malas.push(`${slug}: es foto histórica y publica la tabla eje por eje`);
+      if (!/class="cobertura /.test(html)) malas.push(`${slug}: foto histórica sin su nota`);
+      continue;
+    }
     const h2 = html.match(/<h2>Eje por eje: (.+?) vs (.+?)<\/h2>/);
     if (!h2) { malas.push(`${slug}: no publica la tabla eje por eje`); continue; }
     for (const nm of [h2[1], h2[2]]) {

@@ -197,6 +197,8 @@ def main() -> int:
         # modelo eligio la mitad de la decision, y nadie le cuenta la otra mitad.
         run_script("generate_providers_page.py", [], dry_run=args.dry_run)
         run_script("generate_home_explore.py", [], dry_run=args.dry_run)
+        # La tabla histórico de la home, estática y desde el export (7-nov-2026).
+        run_script("generate_historico.py", [], dry_run=args.dry_run)
 
     # 6. Sitemap y llms.txt
     if not args.skip_sitemap:

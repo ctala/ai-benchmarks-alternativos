@@ -125,6 +125,9 @@ def armar_resume(model_id: str, destino: Path, model_name: str) -> int:
     ya tenía escrito para el export —«un (id, name) = UNA config»— aplicado al lugar
     donde nadie lo había mirado.
     """
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from models import nombre_vigente, renombres
+    _renombres = renombres()
     runs = []
     for f in glob.glob(str(RESULTS / "*.json")):
         try:
@@ -138,7 +141,9 @@ def armar_resume(model_id: str, destino: Path, model_name: str) -> int:
             if r.get("model_id") != model_id and r.get("model") != model_id:
                 continue
             # El id NO alcanza: las variantes de proveedor lo comparten.
-            if model_name and r.get("model") != model_name:
+            # El nombre del run pasa por `nombre_vigente`: un renombre no lo deja fuera.
+            if model_name and nombre_vigente(r.get("model_id") or "", r.get("model") or "",
+                                             _renombres) != model_name:
                 continue
             # SOLO los EXITOSOS. Consolidar también los fallidos hacía que este script no
             # pudiera hacer su único trabajo, y lo hacía en silencio.
@@ -287,7 +292,9 @@ def main() -> int:
         # jueves". El juicio es el mismo modelo; cambia dónde corre. (~$0,07 por modelo.)
         cmd = [PY, str(ROOT / "benchmarks" / "runner.py"), "--judge", "--judge-model",
                a.judge_model,
-               "--models", x["key"], "--tests", *suites, "--resume", str(rf), "--sin-canario"]
+               "--models", x["key"], "--tests", *suites, "--resume", str(rf), "--sin-canario",
+               # completa suites sueltas sobre un examen ya empezado: a propósito, no el examen entero
+               "--fuera-del-examen"]
         subprocess.run(cmd, cwd=ROOT)
     # VERIFICAR QUE ALGO CORRIÓ. La v1 imprimía «✅ exámenes completados» sin mirar nada,
     # y el 16-ago-2026 lo dijo después de no correr un solo test: los tres modelos

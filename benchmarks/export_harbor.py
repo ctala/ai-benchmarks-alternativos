@@ -50,6 +50,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 JOBS = ROOT / "jobs"
 SALIDA = ROOT / "tareas-agente" / "resultados.json"
+ARCHIVO = ROOT / "tareas-agente" / "archivo_condiciones_mezcladas.json"
 
 # Firmas en la traza del agente → causa del cero. En orden de precedencia: la primera
 # que aparece manda, porque "no hay endpoint" ocurre ANTES de cualquier intento.
@@ -175,6 +176,28 @@ def _proveedores(trayectoria: str) -> list[str]:
     return sorted(set(_PROVEEDOR.findall(trayectoria)))
 
 
+def es_de_ventana(agente_cfg: dict) -> bool:
+    """¿El intento corrió en la ventana de v5, con proveedor fijo? (DECISIONES, 5-nov-2026)
+
+    El config de mini-swe-agent con el proveedor fijo vive en `jobs/_proveedor_fijo/`."""
+    return "_proveedor_fijo" in json.dumps(agente_cfg.get("kwargs") or {})
+
+
+def solo_ventana(por_modelo: dict) -> tuple[dict, dict]:
+    """En un par (tarea, modelo) con intentos de la ventana, quedan solo ésos; los demás van
+    al archivo con su marca de condiciones mezcladas, como el «antes» de corte-v5 6.9.
+    Función pura: devuelve (por_modelo filtrado, archivo)."""
+    filtrado, archivo = {}, {}
+    for par, intentos in por_modelo.items():
+        nuevos = [i for i in intentos if i.get("ventana")]
+        if nuevos and len(nuevos) < len(intentos):
+            archivo[f"{par[0]}::{par[1]}"] = {
+                "marca": "condiciones_mezcladas",
+                "intentos": [i for i in intentos if not i.get("ventana")]}
+        filtrado[par] = nuevos or intentos
+    return filtrado, archivo
+
+
 def recolectar() -> dict:
     por_modelo: dict[tuple[str, str], list[dict]] = defaultdict(list)
     meta_tarea: dict[str, dict] = {}
@@ -242,9 +265,13 @@ def recolectar() -> dict:
         por_modelo[(tarea, modelo)].append(
             {"reward": reward, "causa": causa, "detalle": detalle,
              "costo_usd": costo, "costo_fuente": fuente, "checksum": checksum,
-             "proveedores": _proveedores(tray)})
+             "proveedores": _proveedores(tray),
+             "ventana": es_de_ventana(agente_cfg)})
 
-    return _resumir(por_modelo, meta_tarea, descartadas)
+    por_modelo, archivo = solo_ventana(por_modelo)
+    datos = _resumir(por_modelo, meta_tarea, descartadas)
+    datos["_archivo_condiciones_mezcladas"] = archivo
+    return datos
 
 
 def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
@@ -335,13 +362,23 @@ def main() -> int:
               f"{r['perfectos']} perfectos · {r['ceros']} ceros · ${r['costo_usd']}"
               + (f"  ⚠️  {desc} descartadas (versión vieja de la tarea)" if desc else ""))
 
+    arch = datos.get("_archivo_condiciones_mezcladas", {})
+    print(f"\n  archivo de condiciones mezcladas: {len(arch)} pares, "
+          f"{sum(len(v['intentos']) for v in arch.values())} intentos")
     if a.dry_run:
         print("\n(dry-run: no se escribió nada)")
         return 0
 
+    archivo = datos.pop("_archivo_condiciones_mezcladas", {})
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(json.dumps(datos, indent=2, ensure_ascii=False) + "\n",
                       encoding="utf-8")
+    ARCHIVO.write_text(json.dumps({
+        "por_que": "Intentos anteriores a la ventana de v5 en pares re-medidos con proveedor "
+                   "fijo (DECISIONES, 5-nov-2026). No entran al índice; son el antes de 6.9.",
+        "pares": archivo}, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"  ✅ {ARCHIVO.relative_to(ROOT)} · {len(archivo)} pares, "
+          f"{sum(len(v['intentos']) for v in archivo.values())} intentos archivados")
     print(f"\n  ✅ {SALIDA.relative_to(ROOT)}")
     return 0
 

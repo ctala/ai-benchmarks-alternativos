@@ -1,9 +1,9 @@
 # Qwen 3.8 Flash — business_audit/escalar_con_ltv_mal_calculado
 
 - model_id: `qwen/qwen3.8-flash`
-- success: True  | final: 8.46 | quality: 10.0
-- latency_total: 269.132s | tokens_per_second: 66.5
-- input_tokens: 255 | output_tokens: 17909
+- success: True  | final: 8.47 | quality: 10.0
+- latency_total: 238.685s | tokens_per_second: 69.6
+- input_tokens: 255 | output_tokens: 16608
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,302 +27,199 @@ Mi cálculo: como un cliente se queda unos 2 años, el LTV es 35 × 24 = $840. C
 
 ## Respuesta completa
 
-**No, no le doy a los $10.000 con estos números.**  
-Tu plan no pasa la aritmética: estás calculando LTV sobre **ingresos**, no sobre **margen bruto**, y estás usando una vida promedio incorrecta.
-
-Asumiendo que:
-
-- Precio: **$35/mes**
-- Churn mensual: **8%**
-- Margen bruto: **70%**
-- CAC: **$290**
-- CAC es incremental y fully loaded
-- No hay expansión/upsell significativo
+No. **No le doy al plan de $10.000 en publicidad con estos números como plan de escalamiento fuerte.**  
+Tu aritmética actual no muestra un negocio listo para escalar; muestra un negocio **apenas rentable por cliente**, con riesgo alto de volverse negativo si CAC, churn, soporte, reembolsos o impuestos se desvían un poco.
 
 ---
 
 ## 1. Tu cálculo tiene dos errores grandes
 
-### Error 1: LTV no es sobre ingresos, es sobre margen bruto
+Tú calculaste:
 
-Un cliente paga $35/mes, pero solo el **70%** queda como margen bruto:
+> LTV = $35 × 24 meses = $840  
+> LTV/CAC = $840 / $290 = 2,9
 
-\[
-\text{Margen bruto mensual} = 35 \times 0.70 = 24.50
-\]
+Problema 1: **$840 es LTV de ingresos, no LTV bruto.**  
+Para comparar contra CAC, necesitas usar margen bruto, no facturación bruta.
 
-No $35.
+Problema 2: **con 8% de churn mensual, un cliente promedio no dura 24 meses.**  
+Dura alrededor de:
 
----
+> Vida esperada = 1 / churn mensual = 1 / 0,08 = **12,5 meses**
 
-### Error 2: con 8% de churn mensual, la vida promedio no es 24 meses
+Para que un cliente promedio dure 24 meses, el churn mensual debería ser aproximadamente:
 
-Con churn mensual constante:
+> 1 / 24 = **4,2% mensual**
 
-\[
-\text{Vida promedio} = \frac{1}{\text{churn mensual}} = \frac{1}{0.08} = 12.5 \text{ meses}
-\]
+Además, con 8% de churn mensual, solo quedan:
 
-No 24 meses.
-
-De hecho, con 8% mensual:
-
-- La probabilidad de que un cliente siga activo después de 12 meses es:
-
-\[
-0.92^{12} \approx 36.8\%
-\]
-
-- Después de 24 meses:
-
-\[
-0.92^{24} \approx 13.3\%
-\]
-
-Solo alrededor del **13%** de los clientes sobrevive 2 años.  
-La mediana de vida sería aproximadamente **8 meses**, no 24.
+- Mes 12: 0,92¹² ≈ **36,8%** de clientes
+- Mes 24: 0,92²⁴ ≈ **13,5%** de clientes
 
 ---
 
-## 2. Recalculando el LTV/CAC
+## 2. Recálculo correcto
 
-### LTV bruto correcto
+### Margen bruto mensual por cliente
 
-\[
-\text{LTV bruto} = \frac{\text{Margen bruto mensual}}{\text{Churn mensual}}
-\]
+> $35 × 70% = **$24,50 de margen bruto mensual**
 
-\[
-\text{LTV bruto} = \frac{24.50}{0.08} = 306.25
-\]
+### LTV bruto con churn 8% mensual
 
-### Ratio correcto
+> LTV bruto = $24,50 / 0,08 = **$306,25**
 
-\[
-\frac{\text{LTV bruto}}{\text{CAC}} = \frac{306.25}{290} \approx 1.06
-\]
+### LTV/CAC correcto
 
-No 2.9.
+> LTV/CAC = $306,25 / $290 = **1,06**
 
----
+No es 2,9. Es **1,06**.
 
-## 3. Incluso si asumieras 24 meses, el ratio seguiría bajo
+Y 1,06 está muy lejos del benchmark saludable de **3× o más** para escalar con publicidad pagada.
 
-Si por un momento aceptáramos tu hipótesis de 24 meses, pero corrigiendo margen bruto:
+### Aporte neto por cliente
 
-\[
-\text{LTV bruto} = 24.50 \times 24 = 588
-\]
+> $306,25 - $290 = **$16,25 por cliente**
 
-\[
-\frac{588}{290} \approx 2.03
-\]
+Eso significa que, después de pagar el CAC, cada cliente promedio te deja **apenas $16,25 de margen bruto lifetime**.
 
-Sigue estando por debajo de 3.
+Con ese margen tan fino, cualquier desvío te mata:
 
-Y con la vida promedio correcta:
-
-\[
-\frac{306.25}{290} \approx 1.06
-\]
-
-Eso significa que, en expectativa, un cliente apenas cubre su CAC.
+- CAC sube 10% → pierdes dinero.
+- Churn sube a 9% → pierdes dinero.
+- Soporte, reembolsos, ventas, herramientas, impuestos o fallas de pago entran en la cuenta → pierdes dinero.
 
 ---
 
-## 4. Payback: aquí está el problema de caja
-
-### Payback simple, ignorando churn
-
-\[
-\frac{290}{24.50} \approx 11.8 \text{ meses}
-\]
-
-Pero eso asume que el cliente se queda y paga 11.8 meses sin churn, lo cual no es consistente con 8% mensual.
-
-### Payback ajustado por churn
-
-El LTV bruto esperado es $306.25. Para recuperar $290 de CAC, necesitas casi todo el valor esperado del cliente.
-
-Aproximadamente:
-
-\[
-306.25 \times (1 - 0.92^n) = 290
-\]
-
-\[
-n \approx 35 \text{ meses}
-\]
-
-Es decir: **en expectativa, tardas casi 3 años en recuperar el CAC**, porque el churn te come el valor antes.
-
-Si el cobro no es por adelantado, el payback puede ser incluso peor.
-
----
-
-## 5. ¿Qué pasa si metes $10.000 en publicidad?
+## 3. Qué pasa si metes $10.000 este mes
 
 Con CAC de $290:
 
-\[
-\frac{10.000}{290} \approx 34.5 \text{ clientes}
-\]
+> Clientes esperados = $10.000 / $290 ≈ **34,5 clientes**
 
-Esos clientes generan:
+### Ingresos del nuevo cohort en el primer mes
 
-\[
-34.5 \times 35 = 1.208 \text{ ingresos mensuales}
-\]
+> 34,5 × $35 = **$1.207,50 de ingreso mensual**
 
-Margen bruto mensual:
+### Margen bruto del nuevo cohort en el primer mes
 
-\[
-1.208 \times 0.70 \approx 845
-\]
+> 34,5 × $24,50 = **$845,25 de margen bruto mensual**
 
-Pero con 8% de churn mensual, para mantener esa base necesitas reponer clientes constantemente.
+Es decir: gastas $10.000 hoy y ese cohort te devuelve **$845 de margen bruto en el primer mes**.
 
-Costo mensual de reponer churn:
+### Lifetime bruto esperado del cohort
 
-\[
-34.5 \times 0.08 \times 290 = 800
-\]
+> 34,5 × $306,25 ≈ **$10.560 de margen bruto lifetime**
 
-Margen bruto mensual menos costo de reponer churn:
+Neto lifetime:
 
-\[
-845 - 800 = 45
-\]
+> $10.560 - $10.000 = **+$560**
 
-Eso es antes de otros costos: equipo, soporte, herramientas, operaciones, impuestos, etc.
+ROI lifetime sobre ad spend:
 
-Otra forma de verlo por cliente:
+> $560 / $10.000 = **5,6%**
 
-\[
-\text{Margen mensual} = 24.50
-\]
+Eso es casi break-even. No es un motor de crecimiento.
 
-\[
-\text{Costo mensual de reponer churn} = 0.08 \times 290 = 23.20
-\]
+### Si miras solo 24 meses
 
-\[
-\text{Contribución neta mensual por cliente} = 1.30
-\]
+Con churn 8%, el margen bruto lifetime a 24 meses no es $306,25 por cliente, sino:
 
-Con CAC de $290 y churn de 8%, cada cliente mantenido con publicidad deja **$1.30/mes de margen bruto después de reponer churn**. Eso es extremadamente fino.
+> $24,50 × (1 - 0,92²⁴) / 0,08 ≈ **$264,84 por cliente**
+
+Para el cohort de $10.000:
+
+> 34,5 × $264,84 ≈ **$9.130 de margen bruto a 24 meses**
+
+Neto a 24 meses:
+
+> $9.130 - $10.000 = **-$870**
+
+Si tu horizonte de evaluación es 24 meses, **el plan es negativo**.
 
 ---
 
-## 6. ¿Qué ratio debería ver para aprobar?
+## 4. Payback: parece bueno, pero no es tan bueno
 
-Regla práctica, pero útil:
+Si ignoras churn:
 
-### Para LTV/CAC >= 3 sobre margen bruto
+> Payback = CAC / margen bruto mensual = $290 / $24,50 = **11,8 meses**
 
-\[
-\text{CAC máximo} = \frac{306.25}{3} \approx 102
-\]
+Parece razonable.
 
-Con tus números actuales, tu CAC debería estar cerca de **$100**, no $290.
+Pero con churn 8%, la vida esperada del cliente es **12,5 meses**. Es decir:
 
----
+> El payback consume casi toda la vida esperada del cliente.
 
-### Para mantener CAC de $290 y llegar a 3x
+Además, un cliente que cancela antes de 12 meses no recupera el CAC:
 
-Necesitas un LTV bruto de al menos:
+- 11 meses × $24,50 = $269,50 → no cubre $290
+- 12 meses × $24,50 = $294,00 → apenas cubre $290
 
-\[
-290 \times 3 = 870
-\]
-
-Con margen mensual de $24.50:
-
-\[
-\text{Churn mensual máximo} = \frac{24.50}{870} \approx 2.8\%
-\]
-
-Es decir, tendrías que bajar el churn de **8% mensual a menos de 2.8% mensual**.
+Con churn 8% mensual, solo alrededor del **37% de los clientes llega a 12 meses**.
 
 ---
 
-### Para payback razonable
+## 5. Sensibilidad: el plan es frágil
 
-Si quieres recuperar el CAC en menos de 6 meses, con churn actual, tu CAC probablemente debería estar cerca de:
+Con tus números actuales:
 
-\[
-\text{CAC máximo} \approx 120
-\]
-
-Si quieres 12 meses, con churn del 8%, el CAC máximo sería aún más bajo si el cobro no es inmediato.
-
----
-
-## 7. Sensibilidad rápida
-
-| Escenario | LTV bruto | Ratio LTV/CAC | Veredicto |
+| Escenario | LTV bruto | LTV/CAC | Lectura |
 |---|---:|---:|---|
-| Actual: CAC $290, churn 8% | $306 | 1.06 | No escalar |
-| CAC $250, churn 8% | $306 | 1.22 | No |
-| CAC $200, churn 8% | $306 | 1.53 | No |
-| CAC $150, churn 8% | $306 | 2.04 | No |
-| CAC $100, churn 8% | $306 | 3.06 | Podría funcionar |
-| CAC $290, churn 4% | $612 | 2.11 | No |
-| CAC $290, churn 3% | $817 | 2.82 | Casi |
-| CAC $290, churn 2.8% | $875 | 3.02 | Podría funcionar |
+| Actual: CAC $290, churn 8%, precio $35, margen 70% | $306,25 | **1,06** | No escalable |
+| CAC sube a $320 | $306,25 | **0,96** | Pierdes dinero |
+| Churn sube a 9% | $272,22 | **0,94** | Pierdes dinero |
+| CAC baja a $200 | $306,25 | **1,53** | Débil |
+| CAC baja a $150 | $306,25 | **2,04** | Aceptable, pero no fuerte |
+| CAC baja a $100 | $306,25 | **3,06** | Escalable |
+| Churn baja a 5% | $490,00 | **1,69** | Débil |
+| Churn baja a 3% | $816,67 | **2,82** | Casi saludable |
+| Churn baja a 2% | $1.225,00 | **4,22** | Muy bueno |
+| Precio sube a $75 | $656,25 | **2,26** | Aceptable |
+| Precio sube a $100 | $875,00 | **3,02** | Escalable |
 
 ---
 
-## 8. Mi recomendación
+## 6. Qué necesitas para decir “sí”
 
-### No apruebo $10.000 para escalar fuerte ahora mismo.
+Para que el plan sea fuerte, necesitas uno de estos ajustes, o una combinación:
 
-Lo que haría:
+### Si mantienes churn 8% y margen 70%
 
-1. **No escalar con paid ads todavía.**
-2. **Confirmar que el churn de 8% es real y mensual.**  
-   Si 8% es anual, todo cambia. Pero si es mensual, es un churn altísimo.
-3. **Confirmar que el CAC de $290 es fully loaded e incremental.**  
-   Incluye media, creative, landing, pruebas, descuentos, soporte, ventas, onboarding, etc.
-4. **Correr un test pequeño, no $10.000.**  
-   Por ejemplo $500 o $1.000, y medir cohortes reales.
-5. **Arreglar churn antes que escalar.**  
-   Con 8% mensual, la publicidad paga se convierte en un balde roto.
-6. **Bajar CAC o subir LTV antes de escalar.**  
-   Objetivo mínimo:
-   - LTV bruto / CAC >= 3
-   - Payback <= 6 meses, idealmente
-   - CAC estable cuando aumentas presupuesto
-   - Retención M1/M3/M6 validada con cohortes
+| Objetivo | CAC necesario | Churn necesario | Precio necesario |
+|---|---:|---:|---:|
+| LTV/CAC = 2× | ≤ $153 | ≤ 4,2% | ≥ $66 |
+| LTV/CAC = 3× | ≤ $102 | ≤ 2,8% | ≥ $99 |
+
+Es decir: con tus números actuales, para llegar a un LTV/CAC de 3× necesitas:
+
+- Bajar CAC de $290 a alrededor de **$100**, o
+- Bajar churn de 8% a alrededor de **2,8%**, o
+- Subir precio de $35 a alrededor de **$99** con el mismo margen.
 
 ---
 
-## Veredicto final
+## 7. Veredicto
 
-**No le des.**
+**No le doy al plan de $10.000 como crecimiento fuerte.**
 
-Tu plan no tiene un problema de “más o menos 3”.  
-Tiene un problema de **unit economics rotas**:
+Tu LTV/CAC real, con margen bruto y churn, es:
 
-\[
-\text{LTV bruto} \approx 306
-\]
+> **1,06**
 
-\[
-\text{CAC} = 290
-\]
+Eso no es un negocio escalable con paid ads. Es un negocio que apenas sobrevive a la adquisición pagada.
 
-\[
-\text{LTV/CAC} \approx 1.06
-\]
+Sí podrías darle luz verde a un **test controlado**, por ejemplo $1.000–$2.000, para validar cohortes reales, CAC estable, churn por mes, reembolsos, soporte y conversión. Pero no como plan de escalamiento.
 
-Eso significa que cada cliente pagado apenas cubre su costo de adquisición, con un payback larguísimo y casi ningún margen para costos fijos, errores de ejecución o variabilidad del CAC.
+Para escalar fuerte, primero necesitas:
 
-Antes de meter $10.000, necesitas llegar a algo como:
+1. **Bajar CAC real**, incluyendo marketing, ventas, onboarding, soporte, reembolsos y fallas de pago.
+2. **Bajar churn** o vender planes anuales/compromisos más largos.
+3. **Subir precio**, margen o añadir expansión de ingresos.
+4. **Confirmar que el LTV bruto / CAC sea ≥ 2,5–3×** con datos de cohortes, no con promedio simple.
+5. **Payback ≤ 12 meses**, idealmente menor, con margen de error.
 
-- **CAC <= $100–$120**, o
-- **Churn <= 2.5–3% mensual**, o
-- **LTV bruto >= $870**, o
-- Una combinación validada con cohortes reales.
+Con los números actuales, el plan no muere por falta de ambición. Muere por esta línea:
 
-Con los números actuales, escalar fuerte con publicidad pagada sería convertir un negocio rentable en un negocio que quema caja.
+> **$306,25 de LTV bruto contra $290 de CAC = $16,25 de margen por cliente.**
+
+Eso no es crecimiento. Es una apuesta frágil.

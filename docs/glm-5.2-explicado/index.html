@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026</title>
-<meta name="description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#25 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<meta name="description" content="GLM 5.2 tiene score compuesto 8.34 pero calidad 8.60 (#4 de 70 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="keywords" content="glm 5.2, zhipu glm 5.2, glm 5.2 benchmark, glm 5.2 score bajo, glm 5.2 vs opus 4.8, glm 5.2 seguridad, modelo chino ia 2026">
 <meta name="author" content="Cristian Tala">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026">
-<meta property="og:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#25 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<meta property="og:description" content="GLM 5.2 tiene score compuesto 8.34 pero calidad 8.60 (#4 de 70 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta property="og:url" content="https://benchmarks.cristiantala.com/glm-5.2-explicado/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_CL">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="GLM 5.2: score compuesto vs calidad pura en el benchmark">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026">
-<meta name="twitter:description" content="GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#25 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
+<meta name="twitter:description" content="GLM 5.2 tiene score compuesto 8.34 pero calidad 8.60 (#4 de 70 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,14 +32,14 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "GLM 5.2: por qué su score no refleja su calidad real | Benchmark Noviembre 2026",
-  "description": "GLM 5.2 tiene score compuesto 6.60 pero calidad 8.36 (#25 de 107 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.",
+  "description": "GLM 5.2 tiene score compuesto 8.34 pero calidad 8.60 (#4 de 70 por calidad pura). Explicamos el gap, su debilidad en seguridad (1.45/10) y cuándo conviene usarlo.",
   "author": {
     "@type": "Person",
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-06-29",
-  "dateModified": "2026-11-04",
+  "dateModified": "2026-11-08",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/glm-5.2-explicado/",
@@ -60,7 +60,7 @@
       "name": "¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#25 de 107 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola."
+        "text": "Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.60 —#4 de 70 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 8.34. Desde v4.1 el titular del benchmark es la calidad sola."
       }
     },
     {
@@ -68,7 +68,7 @@
       "name": "¿En qué destaca GLM 5.2?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En contexto largo (9.92), generación de código (9.18), razonamiento (9.15) y tareas largas multi-turno (8.83)."
+        "text": "En contexto largo (9.92), generación de código (9.47), razonamiento (9.68) y tareas largas multi-turno (9.08)."
       }
     },
     {
@@ -76,7 +76,7 @@
       "name": "¿GLM 5.2 o Claude Opus 4.8?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En calidad pura están cerca (8.36 contra 8.48). La diferencia está en seguridad (1.45 contra 8.65) y en precio. GLM 5.2 es viable si el modelo no queda expuesto a usuarios maliciosos."
+        "text": "En calidad pura están cerca (8.60 contra 8.51). La diferencia está en seguridad (1.45 contra 8.65) y en precio. GLM 5.2 es viable si el modelo no queda expuesto a usuarios maliciosos."
       }
     },
     {
@@ -144,12 +144,12 @@
     <h1>GLM 5.2: por qué su score global no le hace justicia</h1>
     <p class="meta fechada" data-medido="2026-06-29" data-retirados="">Review con datos medidos el 29 de junio de 2026; sus cifras son de esa fecha. Ningún modelo citado se retiró después.</p>
     <p class="lead">
-      El benchmark le da a <strong>GLM 5.2</strong> un score compuesto de <strong>6.60</strong>,
-      pero su <strong>calidad pura es 8.36</strong> — <strong>#25 de 107</strong> del ranking por calidad.
+      El benchmark le da a <strong>GLM 5.2</strong> un score compuesto de <strong>8.34</strong>,
+      pero su <strong>calidad pura es 8.60</strong> — <strong>#4 de 70</strong> del ranking por calidad.
       Acá explicamos por qué existe ese gap, dónde brilla el modelo y cuándo conviene usarlo.
     </p>
     <p class="meta">
-      Última actualización: 2026-11-04 ·
+      Última actualización: 2026-11-08 ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
     </p>
   </section>
@@ -159,10 +159,10 @@
   <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
   Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
   costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong><!-- AUTO:total_models -->228<!-- /AUTO --> modelos catalogados</strong>,
-  <strong><!-- AUTO:tested_count -->177<!-- /AUTO --> testeados</strong> y
-  <strong><!-- AUTO:tests_marketing -->70,000+<!-- /AUTO --> tests reales</strong> evaluados por un
-  <strong>LLM-as-Judge local (Phi-4, de Microsoft — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <p>Contamos con <strong><!-- AUTO:total_models -->240<!-- /AUTO --> modelos catalogados</strong>,
+  <strong><!-- AUTO:tested_count -->189<!-- /AUTO --> testeados</strong> y
+  <strong><!-- AUTO:tests_marketing -->82,000+<!-- /AUTO --> tests reales</strong> evaluados por un
+  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
   <ul>
     <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
     <li><strong>Contenido</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
@@ -181,15 +181,15 @@
         <tr><th scope="col">Métrica</th><th scope="col">GLM 5.2</th><th scope="col">Qué mide</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>quality_avg</strong></td><td><strong>8.36</strong></td><td>Calidad pura: es el titular del benchmark desde v4.1.</td></tr>
-        <tr><td><strong>score_global</strong></td><td><strong>6.60</strong></td><td>Compuesto: calidad + costo + velocidad + latencia.</td></tr>
+        <tr><td><strong>quality_avg</strong></td><td><strong>8.60</strong></td><td>Calidad pura: es el titular del benchmark desde v4.1.</td></tr>
+        <tr><td><strong>score_global</strong></td><td><strong>8.34</strong></td><td>Compuesto: calidad + costo + velocidad + latencia.</td></tr>
         <tr><td>long_context_quality</td><td><strong>9.92</strong></td><td>Recuperar un dato dentro de un contexto enorme (NIAH).</td></tr>
         <tr><td>security_score</td><td><strong>1.45</strong></td><td>Resistencia a prompt injection en español.</td></tr>
-        <tr><td>latency_score_avg</td><td><strong>1.51</strong></td><td>Penalización por latencia total.</td></tr>
-        <tr><td>tokens_per_second</td><td><strong>52.7</strong></td><td>Velocidad de generación.</td></tr>
+        <tr><td>latency_score_avg</td><td><strong>2.18</strong></td><td>Penalización por latencia total.</td></tr>
+        <tr><td>tokens_per_second</td><td><strong>75.7</strong></td><td>Velocidad de generación.</td></tr>
       </tbody>
     </table></div>
-    <p>La calidad de <strong>8.36</strong> es lo que explica el "wow" de la gente: GLM 5.2 genera
+    <p>La calidad de <strong>8.60</strong> es lo que explica el "wow" de la gente: GLM 5.2 genera
     respuestas muy buenas. El compuesto lo castiga por otras dimensiones, sobre todo seguridad.</p>
   </section>
 
@@ -211,14 +211,14 @@
       </thead>
       <tbody>
         <tr><td>Contexto largo (NIAH)</td><td>9.92</td><td>Encuentra el dato aunque el contexto sea enorme.</td></tr>
-        <tr><td>code_generation</td><td>9.18</td><td>Generar código que funciona.</td></tr>
-        <tr><td>reasoning</td><td>9.15</td><td>Razonar con varias piezas a la vez.</td></tr>
-        <tr><td>agent_long_horizon</td><td>8.83</td><td>Sostener una tarea larga sin perder el hilo.</td></tr>
-        <tr><td>content_generation</td><td>8.87</td><td>Escribir un texto correcto en español.</td></tr>
+        <tr><td>code_generation</td><td>9.47</td><td>Generar código que funciona.</td></tr>
+        <tr><td>reasoning</td><td>9.68</td><td>Razonar con varias piezas a la vez.</td></tr>
+        <tr><td>agent_long_horizon</td><td>9.08</td><td>Sostener una tarea larga sin perder el hilo.</td></tr>
+        <tr><td>content_generation</td><td>9.30</td><td>Escribir un texto correcto en español.</td></tr>
       </tbody>
     </table></div>
-    <p>Por pilar: Coding 8.03, Contenido 7.57,
-    Agentes 7.04, Razonamiento 7.43.</p>
+    <p>Por pilar: Coding 8.71, Contenido 8.01,
+    Agentes 7.52, Razonamiento 7.45.</p>
   </section>
 
   <section class="results">
@@ -231,10 +231,10 @@
         <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><a class="a-ficha" href="/modelo/glm-5.3-flash/"><strong>GLM 5.3 Flash</strong></a></td><td>7.49</td><td>$0.15 / $0.50</td><td>MIT</td><td>openrouter (40 tok/s)</td></tr>
-        <tr><td>2</td><td><a class="a-ficha" href="/modelo/glm-5.3/">GLM 5.3</a></td><td>7.21</td><td>$1.40 / $4.40</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
-        <tr><td>3</td><td><a class="a-ficha" href="/modelo/or-glm5/">GLM 5</a></td><td>6.87</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (46 tok/s)</td></tr>
-        <tr><td>4</td><td><a class="a-ficha" href="/modelo/glm-5.2/">GLM 5.2</a></td><td>6.60</td><td>$0.68 / $2.15</td><td>MIT</td><td>openrouter (53 tok/s)</td></tr>
+        <tr><td>1</td><td><a class="a-ficha" href="/modelo/glm-5.2/"><strong>GLM 5.2</strong></a></td><td>8.34</td><td>$0.68 / $2.15</td><td>MIT</td><td>openrouter (76 tok/s)</td></tr>
+        <tr><td>2</td><td><a class="a-ficha" href="/modelo/glm-5.3/">GLM 5.3</a></td><td>7.99</td><td>$1.40 / $4.40</td><td>MIT</td><td>openrouter (70 tok/s)</td></tr>
+        <tr><td>3</td><td><a class="a-ficha" href="/modelo/glm-5.3-flash/">GLM 5.3 Flash</a></td><td>7.73</td><td>$0.15 / $0.50</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
+        <tr><td>4</td><td><a class="a-ficha" href="/modelo/or-glm5/">GLM 5</a></td><td>7.54</td><td>$0.60 / $1.92</td><td>MIT</td><td>openrouter (52 tok/s)</td></tr>
       </tbody>
     </table></div>
     <p class="meta">La familia se movió: hay versiones más nuevas que GLM 5.2 midiendo mejor.
@@ -248,12 +248,12 @@
         <tr><th scope="col">Métrica</th><th scope="col">GLM 5.2</th><th scope="col">Claude Opus 4.8</th></tr>
       </thead>
       <tbody>
-        <tr><td>Calidad (el titular)</td><td>8.36</td><td>8.48</td></tr>
-        <tr><td>Score compuesto</td><td>6.60</td><td>6.96</td></tr>
-        <tr><td>Coding</td><td>8.03</td><td>7.91</td></tr>
-        <tr><td>Contenido</td><td>7.57</td><td>7.60</td></tr>
-        <tr><td>Agentes</td><td>7.04</td><td>6.71</td></tr>
-        <tr><td>Razonamiento</td><td>7.43</td><td>7.10</td></tr>
+        <tr><td>Calidad (el titular)</td><td>8.60</td><td>8.51</td></tr>
+        <tr><td>Score compuesto</td><td>8.34</td><td>7.10</td></tr>
+        <tr><td>Coding</td><td>8.71</td><td>8.14</td></tr>
+        <tr><td>Contenido</td><td>8.01</td><td>7.60</td></tr>
+        <tr><td>Agentes</td><td>7.52</td><td>6.74</td></tr>
+        <tr><td>Razonamiento</td><td>7.45</td><td>7.10</td></tr>
         <tr><td><strong>Seguridad</strong></td><td>1.45</td><td><strong>8.65</strong></td></tr>
         <tr><td>Costo in/out por millón</td><td><strong>$0.68 / $2.15</strong></td><td>$5.00 / $25.00</td></tr>
       </tbody>
@@ -271,8 +271,8 @@
       </thead>
       <tbody>
         <tr><td>Procesamiento de documentos largos</td><td><strong>Sí</strong></td><td>9.92 en contexto largo.</td></tr>
-        <tr><td>Coding interno</td><td><strong>Sí</strong></td><td>9.18 en generación de código.</td></tr>
-        <tr><td>Agentes multi-turno privados</td><td><strong>Sí</strong></td><td>8.83 sosteniendo tareas largas.</td></tr>
+        <tr><td>Coding interno</td><td><strong>Sí</strong></td><td>9.47 en generación de código.</td></tr>
+        <tr><td>Agentes multi-turno privados</td><td><strong>Sí</strong></td><td>9.08 sosteniendo tareas largas.</td></tr>
         <tr><td>Chatbot expuesto a usuarios externos</td><td><strong>No</strong></td><td>Seguridad 1.45: riesgo real de fuga.</td></tr>
         <tr><td>Producción con datos sensibles</td><td><strong>No</strong></td><td>Prompt injection es su debilidad medida.</td></tr>
       </tbody>
@@ -289,9 +289,9 @@
   </section>
 <section class="faq">
   <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?</strong></summary><p>Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.36 —#25 de 107 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 6.60. Desde v4.1 el titular del benchmark es la calidad sola.</p></details>
-    <details><summary><strong>¿En qué destaca GLM 5.2?</strong></summary><p>En contexto largo (9.92), generación de código (9.18), razonamiento (9.15) y tareas largas multi-turno (8.83).</p></details>
-    <details><summary><strong>¿GLM 5.2 o Claude Opus 4.8?</strong></summary><p>En calidad pura están cerca (8.36 contra 8.48). La diferencia está en seguridad (1.45 contra 8.65) y en precio. GLM 5.2 es viable si el modelo no queda expuesto a usuarios maliciosos.</p></details>
+  <details><summary><strong>¿Por qué GLM 5.2 tiene un score bajo si todos dicen que es bueno?</strong></summary><p>Porque el score compuesto mezcla calidad con costo, velocidad y latencia. GLM 5.2 tiene calidad 8.60 —#4 de 70 del ranking— pero un security_score de 1.45 en prompt injection, y eso arrastra el compuesto a 8.34. Desde v4.1 el titular del benchmark es la calidad sola.</p></details>
+    <details><summary><strong>¿En qué destaca GLM 5.2?</strong></summary><p>En contexto largo (9.92), generación de código (9.47), razonamiento (9.68) y tareas largas multi-turno (9.08).</p></details>
+    <details><summary><strong>¿GLM 5.2 o Claude Opus 4.8?</strong></summary><p>En calidad pura están cerca (8.60 contra 8.51). La diferencia está en seguridad (1.45 contra 8.65) y en precio. GLM 5.2 es viable si el modelo no queda expuesto a usuarios maliciosos.</p></details>
     <details><summary><strong>¿Sigue siendo la mejor opción de su familia?</strong></summary><p>No necesariamente: la familia GLM avanzó y hay versiones posteriores midiendo mejor. La tabla de esta página se regenera con cada lote, así que muestra el orden vigente.</p></details>
 </section><section class="cta-block">
   <h2>Prueba la calculadora con tu caso real</h2>

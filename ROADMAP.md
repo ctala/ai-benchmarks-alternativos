@@ -2,11 +2,40 @@
 # Roadmap del Benchmark
 
 > Ultima actualizacion: 17 de Julio de 2026 (relanzamiento v4.0.0: referencia z-score congelada + eje agéntico + limpieza de datos + refusal policy + pase de UX)
-> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->228<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->177<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->70,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
+> Estado del ranking: **v4.0.0 — <!-- AUTO:total_models -->240<!-- /AUTO --> modelos en config, <!-- AUTO:tested_count -->189<!-- /AUTO --> con cobertura ≥20 runs, ~<!-- AUTO:tests_marketing -->82,000+<!-- /AUTO --> runs** evaluados con juez Phi-4. Ver [README.md](README.md), [MODELOS.md](MODELOS.md) y [DATASHEET_2026-06.md](DATASHEET_2026-06.md).
 > Cobertura faltante: ver [TESTS_FALTANTES.md](TESTS_FALTANTES.md) (30 modelos sin runs o con cobertura parcial).
 > **Próximo release: Agosto 2026** (cadencia mensual). Lo último publicado es el **relanzamiento v4.0.0 (17-jul-2026)** — ver [CHANGELOG.md](CHANGELOG.md).
 
 ---
+
+## v5.1 — después del corte v5
+
+- [ ] **Simular aparte el z-score congelado contra el ranking v5.** Con la referencia v4 (std de calidad 0,2893),
+  1 punto de calidad vale 5,73 de score, y el ranking v5 es otra población: el salto de un modelo se amplifica
+  casi seis veces. Es presentación: se simula contra los runs en disco y se decide antes de tocar
+  `scoring_reference.json`. Cristian, 5-nov-2026: no se toca en este corte.
+- [ ] **Grupo de cabeza por bootstrap pareado (opción B).** v5.0.0 publica el grupo con `bands.py`
+  (prueba de diferencia de medias sobre `quality_ci95`): 30 de 67 en el global. El bootstrap pareado sobre
+  los 143 tests comunes separa mejor (24) y da un rango de puestos publicable. Va con las páginas de
+  comparación. Cristian, 6-nov-2026 (DECISIONES).
+- [ ] **El export asigna los runs por key y no por (id, nombre).** Hoy un renombre necesita
+  `nombres_anteriores` en `models.py` para no dejar los runs huérfanos (DECISIONES, 6-nov-2026).
+- [ ] **Chequeo informativo de sucesores en el QA.** Lista los modelos del catálogo de OpenRouter con una
+  versión más nueva que el vigente de su familia en el ranking. La selección de vigentes de v5 se hizo contra
+  `models.py` y no contra el catálogo: se escaparon GPT-6.1 Sol/Terra, Grok 4.7, Gemini 4 Argon, Kimi K3.1 Pro,
+  Mercury 3 y Mistral Large 4 (Cristian, 6-nov-2026).
+- [ ] **`dateModified` solo con cambio de contenido.** `generate_comparison.py` y `generate_rankings.py`
+  ponen la fecha de hoy en cada regeneración, y el sitemap la toma porque el archivo cambia: una regen sin
+  cambio real le dice a Google que la página es nueva. El generador conserva el `dateModified` anterior
+  cuando el contenido, sin contar la fecha, no cambió, y lo hace cumplir un guardrail con su sabotaje.
+  Cristian, 8-nov-2026.
+- [ ] **`prompt_injection_es` entra al examen.** Hoy no está en `suites.del_examen()` y 16 rankeados se publican
+  sin dato de seguridad; la mediana del pilar (`seguridad_mediana`) sale de los 55 que sí lo tienen. Es medición:
+  entra en ventana declarada, como suite que se rinde (si promedia o no se decide aparte). Cristian, 8-nov-2026.
+- [ ] **Las fichas `/modelo/<key>/` muestran «N de 4».** Hoy no publican ninguna cifra agéntica: la calculadora,
+  las landings y el pilar ya dicen las tareas de Harbor superadas, y la ficha es el único lugar donde falta.
+  Puede salir antes, en **v5.0.1**: es presentación y el dato ya está en el export (`agentico.superadas` /
+  `agentico.de`); entra con A3 cubriendo las fichas. Cristian, 8-nov-2026.
 
 ## Ciclo Junio 2026 — modelos nuevos por probar
 

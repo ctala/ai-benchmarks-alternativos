@@ -306,10 +306,64 @@ def ladder_block(vs, cfg):
             "modelos — compara exámenes.</p>")
 
     return lede + tabla + nota
+def _badge_historico(m):
+    """«histórico · era», como en la calculadora: el tier se midió con otro examen y su
+    nota no compite con la de los rankeados (DECISIONES, 6-nov-2026)."""
+    era = (m.get("era") or {})
+    return (f' <span class="row-badge no-rankea historico" title="{esc(era.get("etiqueta") or "")}">'
+            f'histórico · {esc(era.get("era") or "?")}</span>')
+
+
+def _render_historico(cfg, todos, vigentes):
+    """Una familia cuyos tiers ya no rinden juntos el examen v5: se muestra como foto del
+    histórico, sin veredicto ni «empieza por este». Antes el generador la saltaba y quedaba
+    publicada la versión vieja, que coronaba a tiers sin puesto (6-nov-2026)."""
+    today = date.today().isoformat()
+    url = f"{SITE}/{cfg['slug']}/"
+    desc = (f"{cfg['family']}: sus tiers quedaron en el histórico del benchmark. Lo que se midió "
+            f"de cada uno, y qué modelo de la familia sigue en el ranking v5.")
+    rows = "".join(
+        f'<tr><td>{enlace_ficha(m, texto=short(m, cfg), bold=bool(m.get("ranked")))}'
+        f'{"" if m.get("ranked") else _badge_historico(m)}</td>'
+        f'<td>{(m.get("quality_avg") or 0):.2f}</td>'
+        f'<td>{pillar(m,"Coding"):.1f}</td><td>{pillar(m,"Contenido"):.1f}</td>'
+        f'<td>{pillar(m,"Razonamiento"):.1f}</td><td>{pillar(m,"Agentes"):.1f}</td>'
+        f'<td>≈${month(m):,.0f}/mes</td></tr>'
+        for m in vigentes + [m for m in todos if not m.get("ranked")])
+    vig = (f'El que sigue en el ranking v5 es {enlace_ficha(vigentes[0], bold=True)}.'
+           if vigentes else "Ninguno de la familia está en el ranking v5.")
+    body = f"""  <section class="hero">
+    <h1>{esc(cfg['h1'])}</h1>
+    <p class="lead">Estos tiers quedaron en el <strong>histórico</strong>: se midieron con otro examen y
+    su nota no compite con la del ranking v5, así que esta página no elige entre ellos. {vig}</p>
+    <p class="meta">Última actualización: {today}</p>
+  </section>
+  <section class="results">
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Tier</th><th scope="col">Calidad</th><th scope="col">Coding</th>
+      <th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th>
+      <th scope="col">Costo/mes</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table></div>
+  </section>
+{methodology()}
+"""
+    from contrato_pagina import emitir as _contrato
+    return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body,
+                      contrato=_contrato(tipo="variantes", generador="generate_variants",
+                                         recomienda=[m.get("name") for m in vigentes],
+                                         nota="familia en el histórico: no elige entre tiers"))
+
+
 def render(cfg, models):
-    vs = variants_of(models, cfg)
+    todos = variants_of(models, cfg)
+    # 6-nov-2026: el veredicto y el orden salen SOLO de los rankeados. Un tier del histórico
+    # se midió con otro examen: su calidad no se compara con la de v5. Se muestra al final,
+    # con su badge, y no se corona.
+    vs = [m for m in todos if m.get("ranked")]
+    historicos = [m for m in todos if not m.get("ranked")]
     if len(vs) < 2:
-        return None
+        return _render_historico(cfg, todos, vs) if len(todos) >= 2 else None
 
     cheapest, priciest = vs[0], vs[-1]
     best_q = max(vs, key=lambda m: m.get("quality_avg") or 0)
@@ -319,11 +373,12 @@ def render(cfg, models):
     desc = (f"{cfg['family']}: comparamos sus {len(vs)} tiers con {tests_k} runs reales. "
             f"Cuál conviene, cuánto cuesta cada uno al mes y en qué caso vale pagar el caro.")
 
-    # Tabla principal: todos los tiers, precio ascendente.
+    # Tabla principal: los rankeados por precio ascendente; después, el histórico.
     rows = []
-    for m in vs:
+    for m in vs + historicos:
         is_cheap = m is cheapest
-        badge = ' <span class="row-badge">← el más barato</span>' if is_cheap else ""
+        badge = (' <span class="row-badge">← el más barato</span>' if is_cheap else
+                 _badge_historico(m) if not m.get("ranked") else "")
         tr_cls = ' class="win"' if is_cheap else ""
         rows.append(
             f'<tr{tr_cls}><td>{enlace_ficha(m, texto=short(m, cfg), bold=True)}{badge}</td>'
@@ -372,9 +427,10 @@ def render(cfg, models):
 {verdict}
   <section class="results">
     <div class="results-header">
-      <h2>Los {len(vs)} tiers, uno al lado del otro</h2>
+      <h2>Los {len(vs)} tiers del ranking v5, uno al lado del otro</h2>
       <p class="meta">Ordenados <strong>por precio</strong>, del más barato al más caro — para que veas
-      si la calidad sube con él. Los pilares son <strong>calidad pura</strong> en esa tarea, sin mezclar costo.</p>
+      si la calidad sube con él. Los pilares son <strong>calidad pura</strong> en esa tarea, sin mezclar costo.
+      {f'Al final, {len(historicos)} del <strong>histórico</strong>: se midieron con otro examen y su nota no compite con la del ranking v5.' if historicos else ''}</p>
     </div>
     <div class="table-scroll"><table class="results-table">
       <thead><tr>
@@ -407,7 +463,7 @@ def render(cfg, models):
     return page_shell(cfg["title"], desc, cfg["intent_kw"], url, body,
                       contrato=_contrato(
                           tipo="variantes", generador="generate_variants",
-                          recomienda=[m.get("name") for m in vs],
+                          recomienda=[m.get("name") for m in vs],   # solo rankeados
                           nota="compara versiones de una misma familia"))
 
 

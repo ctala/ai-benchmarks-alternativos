@@ -47,7 +47,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from benchmarks.suites import SUITES, PELDANO, del_indice  # noqa: E402
+from benchmarks.suites import SUITES, PELDANO, del_examen, del_indice  # noqa: E402
 
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
 APP_JS = ROOT / "docs" / "app.js"
@@ -140,7 +140,7 @@ def s6_lo_declarado_es_lo_que_promedia(verbose=False) -> list[str]:
 
 def s7_peldanos(verbose=False) -> list[str]:
     fallos = []
-    idx = del_indice()
+    idx = del_examen()  # el peldaño aplica a todo lo que se RINDE (7-nov-2026)
     for s in sorted(idx - set(PELDANO)):
         fallos.append(f"S7 · `{s}` está en el índice y no tiene peldaño en suites.PELDANO — "
                       f"se mediría al default sin que nada lo diga")

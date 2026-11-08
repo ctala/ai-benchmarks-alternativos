@@ -25,8 +25,26 @@ decimales, dos valores a menos de 0,005 se ven iguales y no se pueden separar; s
 ranking se lee por posición, el que el texto nombre primero tiene que ser el #1.
 
 Este chequeo cubre las dos formas:
-  G1  el veredicto de una página de ranking corona al #1 de su tabla
+  G1  el veredicto de una página de ranking recomienda a alguien del grupo de cabeza
   G2  ninguna fila con «Gana X» tiene un empate visible en la cima
+
+EL GRUPO DE CABEZA (6-nov-2026, DECISIONES)
+-------------------------------------------
+El top 20 del índice v5 cabe en 0,19 puntos: coronar al #1 es publicar ruido. Las
+páginas de ranking publican el GRUPO que el benchmark no separa del mejor
+(`data-grupo-cabeza`, calculado con `bands.py`) y, dentro del grupo, el precio manda.
+  G3  cada página de ranking publica su grupo, y es el que sale de models.json HOY
+      (`generate_rankings.cabeza` sobre los rankeados); con más de uno en el grupo, el
+      texto no corona a nadie («lidera», «encabeza la tabla», «la opción a vencer»)
+  G4  cada modelo que nombra un veredicto está RANKEADO. Dos landings coronaban a
+      Claude Fable 5, del histórico, como «la mejor calidad medida» de v5
+  G5  en las comparaciones «X vs Y», el ganador de cada pilar, los empates y el cuadro
+      «Resumen: quién gana» nombran solo a rankeados. El 7-nov-2026 /claude-vs-chatgpt/
+      coronaba en sus cuatro pilares a modelos del histórico, medidos con otro examen
+  G6  en una comparación con versión en el título («Fable 5 vs Opus 4.8»), todo modelo de
+      la tabla o coronado está nombrado en el título, y una foto histórica no corona a
+      nadie. El 8-nov-2026 las páginas de Fable 5 coronaban a Fable 5.1, porque el
+      generador elegía por familia («fable») y no por key
 
 Uso:
     python benchmarks/check_ganadores.py
@@ -40,6 +58,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
+sys.path.insert(0, str(ROOT / "benchmarks"))
+sys.path.insert(0, str(ROOT))
+
+GRUPO = re.compile(r'data-grupo-cabeza="([^"]*)"')
+# Lo que corona a uno solo. Con un grupo de más de uno, ninguna de estas puede aparecer.
+CORONAS = ("lidera", "encabeza la tabla", "la opción a vencer", "#1:")
 
 # La resolución con la que se publican los números de tabla. Es el piso del empate:
 # por debajo de esto, dos modelos se ven iguales y declarar un ganador es inventarlo.
@@ -52,30 +76,134 @@ CELDA = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
 _limpio = lambda x: re.sub(r"<[^>]+>", "", x).strip()
 
 
+_GANA = re.compile(r"gana <strong>([^<]+)</strong>")
+_EMPATE = re.compile(r"Empate técnico en calidad: <strong>([^<]+)</strong> y <strong>([^<]+)</strong>")
+_RESUMEN = re.compile(r"Resumen: quién gana según tu caso</h2>.*?</table>", re.S)
+
+
+def g5_coronados(h: str, permitidos: set, catalogo: set) -> tuple[list, int]:
+    """(nombres coronados que no están permitidos, cuántos coronados se leyeron) en una
+    página de comparación. Función pura. `permitidos` son los rankeados más los modelos de
+    un lado SIN ningún rankeado (ahí la página corona al mejor medido y lo dice con
+    `_nota_campeon`). Un nombre que no está en el catálogo no se juzga."""
+    import html as _html
+    nombres = [n for n in _GANA.findall(h)]
+    for a, b in _EMPATE.findall(h):
+        nombres += [a, b]
+    res = _RESUMEN.search(h)
+    if res:
+        for celda in re.findall(r"<td><strong>([^<]+)</strong>", res.group(0)):
+            celda = re.sub(r"\s*\((?:por calidad|\$[^)]*|\d+ tok/s)\)\s*$", "", celda.strip())
+            celda = celda.removeprefix("Empate — ")
+            # el empate pone «A o B»: se parte solo si ambos lados son modelos del catálogo
+            partes = celda.split(" o ")
+            if len(partes) == 2 and all(_html.unescape(x.strip()) in catalogo for x in partes):
+                nombres += partes
+            else:
+                nombres.append(celda)
+    nombres = [_html.unescape(n.strip()) for n in nombres]
+    malos = sorted({n for n in nombres if n in catalogo and n not in permitidos})
+    return malos, len(nombres)
+
+
+
+_TITLE = re.compile(r"<title>([^<]*)</title>")
+_TABLA_PRINCIPAL = re.compile(r'<section class="results">.*?<tbody>(.*?)</tbody>', re.S)
+_FILA_MODELO = re.compile(r"<tr><td>\d+</td><td>(.*?)</td>", re.S)
+
+
+def g6_fuera_del_titulo(h: str, catalogo: set) -> tuple[list, int]:
+    """(problemas, nombres leídos) de UNA comparación. Función pura.
+
+    Lee el título que publica la página, no la config: si el generador vuelve a elegir por
+    familia, lo que se caza es la página que lo muestra."""
+    import html as _html
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from generate_comparison import (etiquetas_titulo, nombrado_en_titulo,
+                                     titulo_con_version, MARCA_FOTO)
+    t = _TITLE.search(h)
+    if not t:
+        return ["la página no tiene <title>: G6 no puede leer qué compara"], 0
+    titulo = _html.unescape(t.group(1))
+    if not titulo_con_version(titulo):
+        return [], 0                       # página de familia: compara familias a propósito
+    etiquetas = etiquetas_titulo(titulo)
+    nombres = []
+    tabla = _TABLA_PRINCIPAL.search(h)
+    if tabla:
+        for celda in _FILA_MODELO.findall(tabla.group(1)):
+            celda = re.sub(r'<span class="row-badge[^"]*"[^>]*>.*?</span>', "", celda)
+            nombres.append(_html.unescape(re.sub(r"<[^>]+>", "", celda)).strip())
+    coronados_fuera, n_cor = g5_coronados(h, set(), catalogo)  # todos los coronados del catálogo
+    problemas = [f"compara a «{n}», que no está en el título «{titulo}»"
+                 for n in dict.fromkeys(nombres) if not nombrado_en_titulo(n, etiquetas)]
+    problemas += [f"corona a «{n}», que no está en el título «{titulo}»"
+                  for n in coronados_fuera if not nombrado_en_titulo(n, etiquetas)]
+    if MARCA_FOTO in h and n_cor:
+        problemas.append(f"es una foto histórica y corona a {n_cor} nombre(s): una foto no elige ganador")
+    return problemas, len(nombres)
+
+
 def main() -> int:
     argparse.ArgumentParser().parse_args()
     fallos = []
     g1 = g2 = 0
 
-    # ── G1 · el veredicto corona al #1 de su tabla ───────────────────────────
-    for f in sorted(DOCS.glob("*/index.html")):
+    import json as _json
+    import html as _html
+    from generate_rankings import RANKINGS, rank_models, cabeza
+    modelos = _json.loads((DOCS / "data" / "models.json").read_text())["models"]
+    por_nombre = {m["name"]: m for m in modelos}
+    rankeados = {m["name"] for m in modelos if m.get("ranked")}
+    if not rankeados:
+        print("❌ G0 models.json no trae rankeados: el chequeo está ciego")
+        return 1
+    g3 = g4 = 0
+
+    # ── G3 · el grupo publicado es el de hoy, y con grupo no se corona a nadie ──
+    grupos = {}
+    for cfg in RANKINGS:
+        f = DOCS / cfg["slug"] / "index.html"
+        if not f.exists():
+            continue
         h = f.read_text(errors="ignore")
-        if "verdict-tag" not in h:
+        g = GRUPO.search(h)
+        if not g:
+            fallos.append(f"{cfg['slug']}: no publica su grupo de cabeza (`data-grupo-cabeza`)")
             continue
-        m1 = FILA_1.search(h)
-        if not m1:
+        g3 += 1
+        publicado = [k for k in _html.unescape(g.group(1)).split(",") if k]
+        esperado = [m["key"] for m in cabeza(cfg, rank_models(modelos, cfg))]
+        grupos[cfg["slug"]] = set(publicado)
+        if set(publicado) != set(esperado):
+            fallos.append(f"{cfg['slug']}: publica un grupo de cabeza de {len(publicado)} y "
+                          f"models.json da {len(esperado)} — la página quedó vieja o se escribió a mano")
+        if len(publicado) > 1:
+            texto = re.sub(r"<script.*?</script>", "", h, flags=re.S)
+            texto = re.sub(r"<table.*?</table>", "", texto, flags=re.S)
+            texto = texto + " ".join(re.findall(r'<meta name="description" content="([^"]*)"', h))
+            for c in CORONAS:
+                if c in texto:
+                    fallos.append(f"{cfg['slug']}: el benchmark no separa a {len(publicado)} de la "
+                                  f"cima y el texto dice «{c}»")
+
+    # ── G1 + G4 · el veredicto recomienda a alguien del grupo, y solo rankeados ──
+    for cfg in RANKINGS:
+        f = DOCS / cfg["slug"] / "index.html"
+        if not f.exists() or cfg["slug"] not in grupos:
             continue
-        lider = None
+        h = f.read_text(errors="ignore")
         for lab, nom in CARD.findall(h):
-            if "calidad" in lab.lower() or "el mejor" in lab.lower():
-                lider = _limpio(nom)
-        if not lider:
-            continue          # veredictos que no coronan (p. ej. «no logra separar»)
-        g1 += 1
-        primero = m1.group(1).strip()
-        if primero not in lider and lider not in primero:
-            fallos.append(f"{f.parent.name}: el veredicto corona a «{lider}» y el #1 de "
-                          f"la tabla es «{primero}» — dos criterios en una página")
+            nom = _html.unescape(_limpio(nom))
+            g4 += 1
+            if nom not in rankeados:
+                fallos.append(f"{cfg['slug']}: el veredicto nombra a «{nom}», que no está rankeado")
+                continue
+            if any(x in lab.lower() for x in ("mejor", "grupo", "calidad")):
+                g1 += 1
+                if por_nombre[nom]["key"] not in grupos[cfg["slug"]]:
+                    fallos.append(f"{cfg['slug']}: el veredicto recomienda a «{nom}» y no está "
+                                  f"en el grupo de cabeza que publica la página")
 
     # ── G2 · «Gana X» sobre un empate visible ────────────────────────────────
     for f in sorted(DOCS.glob("*/index.html")):
@@ -95,9 +223,49 @@ def main() -> int:
                     f"{f.parent.name}: «{gana[0]}» sobre {[f'{v:.2f}' for v in nums]} — "
                     f"hay más de uno en el máximo y la tabla los muestra iguales")
 
+    # ── G5 · las comparaciones coronan solo a rankeados ──────────────────────
+    from generate_comparison import COMPARISONS, family
+    catalogo = {m["name"] for m in modelos}
+    g5 = 0
+    for cfg in COMPARISONS:
+        f = DOCS / cfg["slug"] / "index.html"
+        if not f.exists():
+            continue
+        permitidos = set(rankeados)
+        for lado in ("a", "b"):
+            fam = family(modelos, cfg[lado])
+            if not any(m.get("ranked") for m in fam):
+                permitidos |= {m["name"] for m in fam}
+        malos, n = g5_coronados(f.read_text(errors="ignore"), permitidos, catalogo)
+        g5 += n
+        for nom in malos:
+            fallos.append(f"{cfg['slug']}: corona a «{nom}», que no está rankeado")
+    if g5 == 0:
+        fallos.append("G5 no leyó ningún coronado en las comparaciones: el chequeo está ciego")
+
+    # ── G6 · la comparación muestra a los modelos de SU título ───────────────
+    g6 = g6_paginas = 0
+    for cfg in COMPARISONS:
+        f = DOCS / cfg["slug"] / "index.html"
+        if not f.exists():
+            continue
+        problemas, n = g6_fuera_del_titulo(f.read_text(errors="ignore"), catalogo)
+        if n:
+            g6_paginas += 1
+        g6 += n
+        fallos += [f"{cfg['slug']}: {x}" for x in problemas]
+    if g6 == 0:
+        fallos.append("G6 no leyó ningún modelo en las comparaciones con versión: el chequeo está ciego")
+
     print("GANADORES — ¿la página sostiene a quien corona?\n")
-    print(f"  G1 · veredictos que nombran un líder: {g1}")
+    print(f"  G1 · recomendaciones de veredicto contra su grupo: {g1}")
     print(f"  G2 · filas con «Gana X»: {g2}")
+    print(f"  G3 · páginas de ranking con su grupo de cabeza: {g3}")
+    print(f"  G4 · modelos nombrados en veredictos: {g4}")
+    print(f"  G5 · coronados en comparaciones: {g5}")
+    print(f"  G6 · modelos de comparaciones con versión, contra su título: {g6} en {g6_paginas} página(s)")
+    if g3 == 0:
+        fallos.append("G3 no leyó ninguna página de ranking: el chequeo está ciego")
     if not fallos:
         print(f"\n  ✅ los {g1 + g2} coinciden con lo que muestra su propia tabla.")
         return 0

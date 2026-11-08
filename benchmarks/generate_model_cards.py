@@ -184,6 +184,12 @@ BRAND_CSS = """<style>
 </style>"""
 
 
+# Los llena `main` desde models.json: el grupo de cabeza (export, `bands.grupo_cabeza`) y
+# los nombres por key, para decir quién reemplazó a un histórico.
+CABEZA: dict = {"n": 0, "de": 0, "porcentaje": None, "claves": []}
+SUCESORES: dict = {}
+
+
 def slug(m: dict) -> str:
     """El `key` ya es kebab-case y es ESTABLE: es lo que identifica al modelo en todo el
     repo. Usarlo como ruta evita que renombrar un modelo cambie su URL — que es cómo se
@@ -297,7 +303,13 @@ def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
         qs = sorted((x.get("quality_avg") or 0) for x in ranked if x.get("quality_avg"))
         # El rango se MIDE, no se escribe a mano: cambia con cada modelo nuevo.
         rango = (qs[-1] - qs[0]) if len(qs) > 1 else 0
-        sub = f"#{puesto} de {total}" if puesto else f"{sum(1 for x in qs if x > q)} por encima"
+        # 7-nov-2026 (Cristian): dentro del grupo de cabeza el puesto no es una diferencia
+        # real — el benchmark no los separa del mejor—, así que no se publica como tal.
+        if m.get("key") in CABEZA["claves"]:
+            sub = (f"en el grupo de cabeza: {CABEZA['n']} de {CABEZA['de']} "
+                   f"({CABEZA['porcentaje']} %) que el benchmark no separa del mejor")
+        else:
+            sub = f"#{puesto} de {total}" if puesto else f"{sum(1 for x in qs if x > q)} por encima"
         if rango:
             sub += f" · del mejor al peor hay {rango:.1f} puntos"
         tiles.append(("", "Nota de calidad", f"{q:.2f}<span class=\"k-unit\">/10</span>", sub))
@@ -416,6 +428,32 @@ def perfil(m: dict, ranked: list) -> str:
 
 
 # ── la ficha: nuestros números, sin adornos ──────────────────────────────────
+def rasgo_credenciales(m: dict) -> str:
+    """El rasgo «¿maneja credenciales?» dicho en la ficha, con su cuenta (7-nov-2026).
+
+    Solo si se negó alguna vez: a quien copió las seis no hay nada que advertirle. Cita el
+    rasgo para que se entienda por qué esas negativas no bajan la nota (Cristian: «las
+    fichas de Claude citan ese rasgo»), y vale igual para cualquier modelo que se niegue.
+    """
+    r = m.get("maneja_credenciales") or {}
+    if not r.get("negativas"):
+        return ""
+    if r["por_plataforma"] == r["negativas"]:
+        como = "y en todas la bloqueó la plataforma del proveedor"
+    elif r["por_texto"] == r["negativas"]:
+        como = "y en todas lo dijo el propio modelo"
+    else:
+        como = (f"{r['por_plataforma']} por bloqueo de la plataforma y "
+                f"{r['por_texto']} dichas por el modelo")
+    return (f'    <p class="meta rasgo-credenciales">¿Maneja credenciales? <strong>'
+            f'{esc(r["texto"])}</strong>. Ante una cadena que parece un secreto (una API key, '
+            f'un JWT, un <code>.env</code>), {esc(m["name"])} se negó a copiarla en '
+            f'{r["negativas"]} de {r["de"]} pruebas, {como}. Eso no baja su nota: la precisión '
+            f'literal no entra al índice 5.0.0, porque casi todos los modelos copian bien y lo '
+            f'que los separa es esta política, no su precisión. Si tu flujo pasa credenciales '
+            f'por el modelo, tenlo en cuenta.</p>')
+
+
 def ficha(m: dict, puesto: int | None, total: int) -> str:
     """El detalle, agrupado por lo que responde. Sin los cuatro que ya están
     arriba en la tira ni los pilares que ya están en las barras: repetirlos
@@ -439,6 +477,8 @@ def ficha(m: dict, puesto: int | None, total: int) -> str:
     if m.get("effective_context"):
         grupos[2][1].append(("Contexto útil medido",
                              f"{m['effective_context']:,}".replace(",", ".")))
+    if m.get("maneja_credenciales"):
+        grupos[0][1].append(("¿Maneja credenciales?", esc(m["maneja_credenciales"]["texto"])))
     if m.get("security_score") is not None:
         s = m["security_score"]
         cls = "bien" if s >= 7 else "riesgo"
@@ -789,20 +829,66 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
                 f"mediciones y las alternativas vivas.")
         cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué "
                f"modelo vivo reemplaza a {esc(nombre)} en lo que haces.")
+    elif m.get("historico") and m.get("reemplazado_por"):
+        # 7-nov-2026 · lo reemplazó su sucesor, medido con el mismo examen v5. No es «de
+        # otra era»: rindió en la ventana, y pasa al histórico porque hay versión nueva.
+        suc = SUCESORES.get(m["reemplazado_por"], m["reemplazado_por"])
+        linea_retiro = (
+            f'    <p class="meta fechada historico" data-reemplazado-por="{esc(m["reemplazado_por"])}">'
+            f'Histórico: lo reemplazó '
+            f'{esc(suc)}, su versión nueva, medida con el mismo examen. Sus números siguen '
+            f'publicados y ya no compiten en el ranking.</p>\n')
+        lead = (f"{esc(nombre)} queda en el histórico porque salió {esc(suc)}: abajo están sus "
+                f"mediciones y las alternativas del ranking v5.")
+        cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué "
+               f"modelo del ranking v5 cubre lo que haces.")
+    elif m.get("historico"):
+        # 6-nov-2026 · DECISIONES 5-nov: el ranking v5 es solo de exámenes rendidos en la
+        # ventana. Una ficha publicada de un modelo que pasa al histórico no se abandona con
+        # su puesto viejo: se regenera como foto de su era, sin puesto y sin recomendarlo.
+        era = m.get("era") or {}
+        linea_retiro = (
+            f'    <p class="meta fechada historico" data-era="{esc(era.get("era") or "?")}">'
+            f'Histórico: rindió el examen completo antes de la ventana de v5 '
+            f'({esc(era.get("etiqueta") or "fecha desconocida")}). Sus números se midieron con '
+            f'otra versión del harness y no compiten con el ranking v5.</p>\n')
+        lead = (f"{esc(nombre)} queda en el histórico: abajo están sus mediciones de esa era y "
+                f"las alternativas que sí rindieron el examen v5.")
+        cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué "
+               f"modelo del ranking v5 cubre lo que haces.")
+    elif not m.get("ranked"):
+        # 6-nov-2026 · Ni rankeado, ni histórico, ni retirado: una variante de esfuerzo
+        # (`effort_variant`, DECISIONES 15-ago) o de proveedor que nunca rankea. Su ficha
+        # quedó publicada desde agosto recomendándolo como si tuviera puesto.
+        motivo = ("es la variante de mayor esfuerzo de su modelo base, al mismo precio: el "
+                  "benchmark mide el modo por defecto y esta variante no rankea"
+                  if m.get("effort_variant") else
+                  "no rindió el examen completo que pide el ranking v5")
+        linea_retiro = (
+            f'    <p class="meta fechada no-rankea">No está rankeado: {motivo}. Sus números '
+            f'son de referencia y no compiten con el ranking v5.</p>\n')
+        lead = (f"{esc(nombre)} no está en el ranking: abajo están sus mediciones y las "
+                f"alternativas que sí rindieron el examen v5.")
+        cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué "
+               f"modelo del ranking v5 cubre lo que haces.")
     else:
         linea_retiro = ""
         lead = veredicto(m, ranked)
         cta = (f"Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabes si\n"
                f"    {esc(nombre)} es tu opción o hay algo mejor para lo que haces.")
+    # Nota que la declaración del proveedor pide publicar (Fugu Max, DECISIONES 5-nov-2026).
+    nota_publica = (f'    <p class="meta nota-publica">{esc(m["nota_publica"])}</p>\n'
+                    if m.get("nota_publica") else "")
     body = f"""  <section class="hero ficha-hero">
     <h1>{esc(nombre)}: para qué sirve de verdad (benchmark en español)</h1>
-{linea_retiro}    <p class="lead">{lead}</p>
+{linea_retiro}{nota_publica}    <p class="lead">{lead}</p>
   </section>
   <section class="ficha-bloque" aria-label="Ficha de {esc(nombre)}">
 {kpis(m, puesto, len(ranked), ranked)}
 {perfil(m, ranked)}
+{rasgo_credenciales(m)}
     <p class="ficha-fuente">Medido con <strong>{m.get('runs') or 0} runs</strong> que puntúan,
-    juez Phi-4 local · actualizado {hoy} ·
+    juez Phi-4 vía OpenRouter · actualizado {hoy} ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
   </section>
 {por_tarea(m)}
@@ -818,8 +904,13 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
   </section>"""
     contrato = emitir(
         tipo="ficha", generador="generate_model_cards",
-        recomienda=(alt_nombres if retirado else [nombre] + alt_nombres),
+        # 6-nov-2026: solo un RANKEADO se recomienda a sí mismo. Un modelo con examen v5
+        # incompleto (ni rankeado ni histórico, p. ej. Qwen 3-Next 80B Thinking) se
+        # recomendaba en su propia ficha como si tuviera puesto.
+        recomienda=([nombre] + alt_nombres if m.get("ranked") else alt_nombres),
         nota=("ficha de un modelo retirado: foto fechada de sus mediciones" if retirado else
+              "ficha de un modelo del histórico: foto de su era, sin puesto" if m.get("historico") else
+              "ficha de un modelo que no rankea: sus números, sin puesto" if not m.get("ranked") else
               "ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante"),
     )
     html = page_shell(f"{nombre}: benchmark real en español (2026)", desc,
@@ -852,6 +943,8 @@ def main() -> int:
     # `quality_avg`. `score_global` es interno y no se muestra ni se ordena por él.
     ranked.sort(key=lambda x: -(x.get("quality_avg") or 0))
     puestos = {m["key"]: i + 1 for i, m in enumerate(ranked)}
+    CABEZA.update(d.get("grupo_cabeza") or {"n": 0, "de": 0, "porcentaje": None, "claves": []})
+    SUCESORES.update({m["key"]: m["name"] for m in d["models"]})
 
     out = DOCS / "modelo"
     out.mkdir(exist_ok=True)
@@ -864,12 +957,23 @@ def main() -> int:
     # Una ficha publicada no se abandona (4-nov-2026). El bucle de arriba solo escribe a los
     # rankeados: la ficha de un modelo que se retira quedaba publicada como estaba, con su
     # titular recomendándolo. Ahora se regenera como foto fechada.
-    r = 0
+    r = h = o = 0
     for m in d["models"]:
-        if m.get("retired") and (out / slug(m) / "index.html").exists():
+        if m.get("ranked") or not (out / slug(m) / "index.html").exists():
+            continue
+        if m.get("retired"):
             (out / slug(m) / "index.html").write_text(render(m, ranked, None))
             r += 1
-    print(f"✓ {n} fichas de modelo → docs/modelo/<key>/index.html · {r} de retirados como foto fechada")
+        elif m.get("historico"):
+            (out / slug(m) / "index.html").write_text(render(m, ranked, None))
+            h += 1
+        else:
+            # Ficha publicada de un modelo que nunca rankea (variante de esfuerzo o de
+            # proveedor): tampoco se abandona con su texto viejo.
+            (out / slug(m) / "index.html").write_text(render(m, ranked, None))
+            o += 1
+    print(f"✓ {n} fichas de modelo → docs/modelo/<key>/index.html · {r} de retirados como foto "
+          f"fechada · {h} del histórico como foto de su era · {o} que no rankean")
     con_pesos = sum(1 for m in ranked if m.get("weights_url"))
     print(f"  con enlace a pesos oficiales: {con_pesos} de {n} "
           f"(el resto enlaza la ficha del proveedor; nunca se inventa una URL)")
