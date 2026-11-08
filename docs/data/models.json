@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T17:21:04",
+  "generated_at": "2026-11-08T18:09:17",
   "total_models": 240,
   "tested_count": 189,
   "ranked_count": 70,
@@ -75,7 +75,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v4.17.1",
+  "scoring_version": "v5.0.0",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
@@ -194,8 +194,8 @@
       "std": 0.3446
     },
     "content_verificable": {
-      "mean": 7.6324,
-      "std": 0.7906
+      "mean": 7.632,
+      "std": 0.79
     },
     "creativity": {
       "mean": 7.8346,
@@ -34535,22 +34535,22 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
-      "runs": 139,
-      "total_runs": 302,
-      "score_global": 3.76,
+      "runs": 137,
+      "total_runs": 300,
+      "score_global": 3.59,
       "score_by_pillar": {
-        "Contenido": 7.18,
+        "Contenido": 7.11,
         "Agentes": 6.86,
         "Coding": 8.6,
         "Razonamiento": 7.25
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 7.667,
-          "speed_score_avg": 7.429,
-          "latency_score_avg": 2.49,
-          "cost_score_avg": 7.154,
-          "quality_ci95": 0.829
+          "quality_avg": 7.568,
+          "speed_score_avg": 7.319,
+          "latency_score_avg": 2.553,
+          "cost_score_avg": 7.178,
+          "quality_ci95": 0.853
         },
         "Agentes": {
           "quality_avg": 7.2,
@@ -34577,7 +34577,6 @@
       "score_by_suite": {
         "niah_es": 8.21,
         "prompt_injection_es": 3.42,
-        "content_verificable": 8.74,
         "tool_calling": 5.0,
         "summarization": 7.06,
         "startup_content": 6.95,
@@ -34596,6 +34595,7 @@
         "integridad_idioma": 3.59,
         "business_audit": 7.31,
         "business_strategy": 7.29,
+        "content_verificable": 8.71,
         "code_generation": 8.08,
         "reasoning": 7.77,
         "deep_reasoning": 6.14,
@@ -34613,7 +34613,6 @@
       "quality_by_suite": {
         "niah_es": 10.0,
         "prompt_injection_es": 2.8,
-        "content_verificable": 10.0,
         "tool_calling": 4.3,
         "summarization": 7.3,
         "startup_content": 7.74,
@@ -34632,6 +34631,7 @@
         "integridad_idioma": 2.46,
         "business_audit": 8.25,
         "business_strategy": 8.4,
+        "content_verificable": 10.0,
         "code_generation": 9.25,
         "reasoning": 9.08,
         "deep_reasoning": 6.67,
@@ -34649,7 +34649,6 @@
       "quality_ci95_by_suite": {
         "niah_es": 0.0,
         "prompt_injection_es": 1.116,
-        "content_verificable": 0.0,
         "tool_calling": 1.68,
         "summarization": 0.97,
         "startup_content": 1.474,
@@ -34668,6 +34667,7 @@
         "integridad_idioma": 4.184,
         "business_audit": 1.588,
         "business_strategy": 1.312,
+        "content_verificable": 0.0,
         "code_generation": 0.561,
         "reasoning": 0.353,
         "deep_reasoning": 2.749,
@@ -34689,24 +34689,23 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "E0": 2,
           "v5": 143
         }
       },
-      "quality_avg": 7.8,
-      "quality_ci95": 0.444,
+      "quality_avg": 7.77,
+      "quality_ci95": 0.448,
       "cost_score_avg": 6.66,
-      "speed_score_avg": 7.76,
-      "latency_score_avg": 2.36,
+      "speed_score_avg": 7.72,
+      "latency_score_avg": 2.38,
       "tool_calling_score_avg": 5.68,
-      "judge_score_avg": 3.96,
-      "tokens_per_second": 76.9,
-      "latency_avg_s": 67.33,
-      "total_input_tokens": 272709,
-      "total_output_tokens": 750592,
+      "judge_score_avg": 3.92,
+      "tokens_per_second": 76.1,
+      "latency_avg_s": 68.05,
+      "total_input_tokens": 272100,
+      "total_output_tokens": 745770,
       "presupuesto_salida": {
-        "p50": 383,
-        "p90": 8420,
+        "p50": 376,
+        "p90": 9147,
         "max": 44965,
         "sugerido": 56206,
         "piso": true,
@@ -34967,8 +34966,8 @@
       "security_runs": 40,
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
-      "score_global_linear": 7.22,
-      "score_calidad": 7.8,
+      "score_global_linear": 7.2,
+      "score_calidad": 7.77,
       "pareto": false,
       "agentico": {
         "tareas": {
@@ -36267,22 +36266,22 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
-      "runs": 156,
-      "total_runs": 288,
-      "score_global": 8.8,
+      "runs": 154,
+      "total_runs": 286,
+      "score_global": 8.68,
       "score_by_pillar": {
-        "Contenido": 8.24,
+        "Contenido": 8.21,
         "Agentes": 7.59,
         "Coding": 8.79,
         "Razonamiento": 7.9
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 8.899,
-          "speed_score_avg": 8.621,
-          "latency_score_avg": 2.938,
-          "cost_score_avg": 7.602,
-          "quality_ci95": 0.447
+          "quality_avg": 8.86,
+          "speed_score_avg": 8.643,
+          "latency_score_avg": 2.936,
+          "cost_score_avg": 7.588,
+          "quality_ci95": 0.46
         },
         "Agentes": {
           "quality_avg": 8.116,
@@ -36334,7 +36333,7 @@
         "prompt_injection_es": 7.38,
         "business_strategy": 8.19,
         "business_audit": 7.9,
-        "content_verificable": 8.78,
+        "content_verificable": 8.68,
         "agent_long_horizon": 8.6,
         "tool_calling_adversarial": 6.45,
         "integridad_idioma": 8.78,
@@ -36368,7 +36367,7 @@
         "prompt_injection_es": 7.75,
         "business_strategy": 9.0,
         "business_audit": 8.4,
-        "content_verificable": 9.63,
+        "content_verificable": 9.48,
         "agent_long_horizon": 9.75,
         "tool_calling_adversarial": 6.54,
         "integridad_idioma": 9.71,
@@ -36402,7 +36401,7 @@
         "prompt_injection_es": 1.708,
         "business_strategy": 0.62,
         "business_audit": 1.548,
-        "content_verificable": 0.744,
+        "content_verificable": 0.864,
         "agent_long_horizon": 0.337,
         "tool_calling_adversarial": 0.885,
         "integridad_idioma": 0.117,
@@ -36415,23 +36414,23 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 138,
+          "E0": 136,
           "E1": 24
         }
       },
-      "quality_avg": 8.61,
-      "quality_ci95": 0.326,
-      "cost_score_avg": 7.41,
-      "speed_score_avg": 8.59,
+      "quality_avg": 8.59,
+      "quality_ci95": 0.33,
+      "cost_score_avg": 7.4,
+      "speed_score_avg": 8.6,
       "latency_score_avg": 2.9,
       "tool_calling_score_avg": 6.36,
       "judge_score_avg": 4.5,
-      "tokens_per_second": 104.4,
-      "latency_avg_s": 10.91,
-      "total_input_tokens": 154548,
-      "total_output_tokens": 212070,
+      "tokens_per_second": 104.7,
+      "latency_avg_s": 11.0,
+      "total_input_tokens": 154250,
+      "total_output_tokens": 211391,
       "presupuesto_salida": {
-        "p50": 92,
+        "p50": 85,
         "p90": 2347,
         "max": 9973,
         "sugerido": 12466,
@@ -36480,7 +36479,7 @@
             "piso": false
           },
           "content_verificable": {
-            "p50": 403,
+            "p50": 523,
             "p90": 696,
             "max": 738,
             "sugerido": 922,
@@ -36679,8 +36678,8 @@
       "security_runs": 20,
       "security_score": 7.75,
       "policy_refusal_rate": 0.0,
-      "score_global_linear": 8.0,
-      "score_calidad": 8.61,
+      "score_global_linear": 7.98,
+      "score_calidad": 8.59,
       "pareto": false,
       "agentico": {
         "tareas": {
@@ -89913,22 +89912,22 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
-      "runs": 504,
-      "total_runs": 534,
-      "score_global": 0.22,
+      "runs": 498,
+      "total_runs": 528,
+      "score_global": 0.0,
       "score_by_pillar": {
-        "Contenido": 6.98,
+        "Contenido": 6.9,
         "Agentes": 6.89,
         "Coding": 7.61,
         "Razonamiento": 5.89
       },
       "dims_by_pillar": {
         "Contenido": {
-          "quality_avg": 7.181,
-          "speed_score_avg": 4.187,
-          "latency_score_avg": 1.732,
+          "quality_avg": 7.052,
+          "speed_score_avg": 4.15,
+          "latency_score_avg": 1.697,
           "cost_score_avg": 8.0,
-          "quality_ci95": 0.495
+          "quality_ci95": 0.507
         },
         "Agentes": {
           "quality_avg": 7.072,
@@ -89978,7 +89977,7 @@
         "translation": 6.63,
         "business_audit": 5.47,
         "business_strategy": 6.27,
-        "content_verificable": 7.07,
+        "content_verificable": 6.4,
         "agent_long_horizon": 7.35,
         "verificar_claim": 7.64,
         "tool_calling_adversarial": 6.97
@@ -90009,7 +90008,7 @@
         "translation": 7.18,
         "business_audit": 5.37,
         "business_strategy": 6.42,
-        "content_verificable": 7.62,
+        "content_verificable": 6.67,
         "agent_long_horizon": 8.03,
         "verificar_claim": 8.22,
         "tool_calling_adversarial": 7.1
@@ -90040,7 +90039,7 @@
         "translation": 0.381,
         "business_audit": 0.612,
         "business_strategy": 0.84,
-        "content_verificable": 1.766,
+        "content_verificable": 2.04,
         "agent_long_horizon": 1.135,
         "verificar_claim": 0.912,
         "tool_calling_adversarial": null
@@ -90073,21 +90072,21 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 498,
+          "E0": 492,
           "E1": 24
         }
       },
-      "quality_avg": 7.21,
-      "quality_ci95": 0.447,
+      "quality_avg": 7.17,
+      "quality_ci95": 0.45,
       "cost_score_avg": 8.0,
-      "speed_score_avg": 4.72,
-      "latency_score_avg": 1.95,
+      "speed_score_avg": 4.71,
+      "latency_score_avg": 1.94,
       "tool_calling_score_avg": 3.3,
-      "judge_score_avg": 4.1,
-      "tokens_per_second": 31.5,
-      "latency_avg_s": 18.72,
-      "total_input_tokens": 219096,
-      "total_output_tokens": 220123,
+      "judge_score_avg": 4.09,
+      "tokens_per_second": 31.3,
+      "latency_avg_s": 18.77,
+      "total_input_tokens": 218154,
+      "total_output_tokens": 218245,
       "presupuesto_salida": {
         "p50": 367,
         "p90": 764,
@@ -90311,8 +90310,8 @@
       "security_runs": 0,
       "security_score": null,
       "policy_refusal_rate": 0.0,
-      "score_global_linear": 6.75,
-      "score_calidad": 7.21,
+      "score_global_linear": 6.72,
+      "score_calidad": 7.17,
       "pareto": false,
       "agentico": null,
       "sirve_para_agentes": null,

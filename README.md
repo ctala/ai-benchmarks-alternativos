@@ -1,7 +1,7 @@
 <!-- doc: generado -->
 # Benchmark de Modelos AI Alternativos: comparación abierta de LLMs en español para N8N, Hermes y emprendedores
 
-**Versión v4.17.1** | Última actualización: 11 de octubre de 2026 | [📊 Datasheet septiembre (examen anterior, v4)](DATASHEET_2026-09.md) · [📈 Uso real vs calidad (septiembre, examen anterior)](USO_VS_CALIDAD.md)
+**Versión v5.0.0** | Última actualización: 8 de noviembre de 2026 | [📊 Datasheet septiembre (examen anterior, v4)](DATASHEET_2026-09.md) · [📈 Uso real vs calidad (septiembre, examen anterior)](USO_VS_CALIDAD.md)
 
 > **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->82,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 

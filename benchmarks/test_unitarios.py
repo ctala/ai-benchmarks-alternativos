@@ -2101,6 +2101,18 @@ def test_indice_usa_solo_los_runs_de_la_ventana_en_los_tests_remedidos():
     assert es_de_ventana("benchmark_20261104_v5c07.json") and not es_de_ventana("benchmark_20260930_x.json")
 
 
+def test_indice_no_promedia_runs_de_un_test_renombrado():
+    # 8-nov-2026: MiniMax M3 promediaba en v5 dos runs de julio de tests de
+    # content_verificable que se renombraron; solo_ventana no los veía (otro nombre).
+    from benchmarks.export_for_pages import solo_tests_vigentes
+    vig = {"s": {"a", "b"}}
+    vigente = {"suite": "s", "test_name": "a"}
+    renombrado = {"suite": "s", "test_name": "a_viejo"}
+    otra_suite = {"suite": "jubilada", "test_name": "x"}
+    r = solo_tests_vigentes([vigente, renombrado, otra_suite], vig)
+    assert vigente in r and otra_suite in r and renombrado not in r
+
+
 def test_harbor_usa_solo_los_intentos_de_la_ventana_y_archiva_los_viejos():
     # 5-nov-2026 (Cristian): en los pares re-medidos, el export usa solo las corridas del lote;
     # las viejas se archivan con su marca de condiciones mezcladas.

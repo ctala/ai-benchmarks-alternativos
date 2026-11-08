@@ -29,6 +29,7 @@ Uso:
     python benchmarks/test_guardrails.py -v
 """
 
+import contextlib
 import json
 import os
 import re
@@ -547,9 +548,13 @@ def _t_suites_peldano():
 
 @prueba("check_mezcla", "un modelo abierto con su examen repartido entre dos proveedores")
 def _t_mezcla():
-    """Informativo: el exit code no cambia, así que se prueba la función que decide."""
+    """Bloqueante desde 5.2.a: la función que decide y el exit code que sale de ella."""
     sys.path.insert(0, str(ROOT / "benchmarks"))
-    from benchmarks.check_mezcla import veredicto
+    from collections import Counter as _C
+    from benchmarks.check_mezcla import veredicto, codigo_salida
+    # Un mezclado sale con 1; un cerrado sin proveedor registrado, no (M2).
+    if codigo_salida(_C(limpio=69, mezclado=1)) != 1 or codigo_salida(_C(limpio=69, no_registrado=1)) != 0:
+        return False
     # Y el script de verdad lee runs: un informativo ciego también da 0.
     salida = subprocess.run([PY, str(ROOT / "benchmarks" / "check_mezcla.py")],
                             capture_output=True, text=True, cwd=ROOT).stdout
@@ -1172,8 +1177,10 @@ def _t_changelog():
         import re as _re
         roto = _re.sub(r"(^##\s*\[No publicado\][^\n]*$).*?(?=^##\s*\[)",
                        r"\1\n\n", txt, count=1, flags=_re.S | _re.M)
-        if roto == txt:
+        if not _re.search(r"^##\s*\[No publicado\]", txt, _re.M):
             return False  # sin la sección no se puede probar; mejor fallar que fingir
+        # Recién cortado un release la sección ya está vacía (roto == txt): el sabotaje ya
+        # está aplicado y se sigue al cambio fabricado (8-nov-2026, primer QA de v5.0.0).
         ch.write_text(roto, encoding="utf-8")
         # Puede no haber cambios desde el tag (repo recién taggeado): se fabrica uno.
         tmp = ROOT / "benchmarks" / "_prueba_changelog.py"
@@ -1560,27 +1567,47 @@ def _t_changelog_proximo():
 @prueba("check_gitleaks", "un hex de 64 con contexto de clave, un JSON generado nuevo con keys, o sin gitleaks")
 def _t_gitleaks():
     # corte-v5 1.7. Tres mundos rotos, cada uno en un archivo nuevo del árbol (no ignorado,
-    # así que entra a lo que versionaría git) y borrado siempre.
-    import secrets
-    if _correr("check_gitleaks.py") != 0:
-        return False  # control verde
-    plantado = ROOT / "_prueba_gitleaks.md"
-    try:
-        plantado.write_text(f"config\n\nR2_SECRET_ACCESS_KEY={secrets.token_hex(32)}\n")
-        if _correr("check_gitleaks.py") == 0:
-            return False
-    finally:
-        plantado.unlink(missing_ok=True)
-    # Un JSON generado NUEVO con keys de modelos no está en las exclusiones: tiene que verse.
-    copia = ROOT / "docs" / "data" / "_prueba_gitleaks_models.json"
-    try:
-        shutil.copy2(ROOT / "docs" / "data" / "models.json", copia)
-        if _correr("check_gitleaks.py") == 0:
-            return False
-    finally:
-        copia.unlink(missing_ok=True)
+    # así que entra a lo que versionaría git) y borrado siempre. Los dos que plantan en el
+    # árbol van con candado entre procesos (5.2.c): ver `prueba_arbol_gitleaks.py`.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from benchmarks.prueba_arbol_gitleaks import probar
+    if not probar(con_candado=True):
+        return False
     # Sin la herramienta: rojo con la instrucción, nunca un verde por omisión.
     return _en_proceso("check_gitleaks.py", [], shutil__which=lambda nombre: None) != 0
+
+
+@prueba("prueba_arbol_gitleaks", "dos copias de la prueba de gitleaks a la vez (la carrera del 4-nov)")
+def _t_carrera_gitleaks():
+    # corte-v5 5.2.c. Sabotaje: dos copias SIN candado, la segunda arrancando cuando la
+    # primera ya plantó; tiene que reproducir el rojo. Arreglo: con candado, las dos verdes.
+    # Las copias usan un candado propio y este proceso toma el del árbol mientras tanto, para
+    # que otra corrida de test_guardrails (la de cobertura.py) no plante en medio.
+    import time
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from benchmarks.prueba_arbol_gitleaks import candado_arbol
+    script = str(ROOT / "benchmarks" / "prueba_arbol_gitleaks.py")
+
+    def par(args, desfase):
+        a = subprocess.Popen([PY, script, *args], cwd=ROOT,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        time.sleep(desfase)
+        b = subprocess.Popen([PY, script, *args], cwd=ROOT,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return a.wait(), b.wait()
+
+    # El desfase sale de cuánto tarda un escaneo: la segunda copia arranca su control
+    # verde cuando la primera ya terminó el suyo y está plantando.
+    t0 = time.time()
+    subprocess.run([PY, str(ROOT / "benchmarks" / "check_gitleaks.py")], cwd=ROOT,
+                   capture_output=True)
+    desfase = (time.time() - t0) * 1.3
+    propio = Path(tempfile.gettempdir()) / f"benchmark_carrera_{os.getpid()}.lock"
+    with candado_arbol():
+        sin = par(["--sin-candado"], desfase)
+        con = par(["--candado", str(propio)], desfase)
+    propio.unlink(missing_ok=True)
+    return any(c != 0 for c in sin) and con == (0, 0)
 
 
 @prueba("cobertura.py", "el núcleo bajo el piso de cobertura")

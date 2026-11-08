@@ -17,9 +17,11 @@ M2. Runs sin proveedor registrado: en un ABIERTO es rojo (criterio estricto: la
     registrado» y no es rojo (fecha de corte: el campo existe desde el 14-ago).
 M3. Harbor: un abierto cuyas tareas agénticas las sirvió más de un proveedor es rojo.
 
-Nace INFORMATIVO (sale con 0 aunque haya rojos): el 4-nov daba rojo en la mayoría de los
-rankeados, y un bloqueante que nace en rojo se aprende a ignorar. Pasa a bloqueante en
-5.2.a, después de la ventana de medición. `qa.py` lo corre como informativo.
+Nació INFORMATIVO (salía con 0 aunque hubiera rojos): el 4-nov daba rojo en la mayoría de
+los rankeados, y un bloqueante que nace en rojo se aprende a ignorar. Desde el 8-nov-2026
+(corte-v5 5.2.a) es BLOQUEANTE: sale con 1 si un rankeado tiene el examen mezclado. Entró
+en verde: los 70 rankeados limpios, una vez que el índice dejó de promediar runs de tests
+renombrados (`solo_tests_vigentes`). Sin `--duro` opcional: `qa.py` lo corre tal cual.
 
 Uso:  python benchmarks/check_mezcla.py [--detalle]
 """
@@ -97,6 +99,11 @@ def _harbor_por_id() -> dict[str, list[str]]:
     return out
 
 
+def codigo_salida(n: Counter) -> int:
+    """1 si hay algún rankeado mezclado. Los «no registrado» (cerrados) no son rojo (M2)."""
+    return 1 if n["mezclado"] else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--detalle", action="store_true")
@@ -137,9 +144,9 @@ def main() -> int:
             if e != "limpio":
                 print(f"   {'❌' if e == 'mezclado' else 'ℹ️ '} {k}: {'; '.join(mot)}")
     if n["mezclado"]:
-        print(f"\n  ⚠️  {n['mezclado']} rankeado(s) con examen mezclado. INFORMATIVO hasta "
-              f"5.2.a (corte-v5): la ventana de v5 los re-mide en proveedor fijo.")
-    return 0
+        print(f"\n  ❌ {n['mezclado']} rankeado(s) con examen mezclado: se mide en proveedor "
+              f"fijo o sale del índice (decisión de Cristian, 4-nov-2026).")
+    return codigo_salida(n)
 
 
 if __name__ == "__main__":

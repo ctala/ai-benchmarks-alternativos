@@ -3,12 +3,35 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado] · próximo: mayor
+## [No publicado]
 
+## [v5.0.0] - 2026-11-08 — el examen v5: proveedor fijo, thinking por peldaño y el trabajo agéntico contado en tareas de Harbor (70 rankeados)
+
+> OK de Cristian para el commit, el release v5.0.0, el push y el merge del blog (8-nov-2026): *«Opción A, con estas
+> condiciones»*. Lo que no se construyó en el corte pasa al change `corte-v5-1`, cada tarea con su motivo (DECISIONES, 8-nov-2026).
+
+- **v5.0.0 sale con lo medido y `corte-v5` se archiva (8-nov-2026, Cristian).** Pasan a v5.1 las ocasiones, la
+  recalibración del z-score (`--recalibrate` mueve la media/std congeladas y necesita su OK aparte; este release solo
+  estampa la etiqueta, como todos), Terminal-Bench en el Spark y los dos hallazgos de la ventana. Se suman
+  `prompt_injection_es` al examen, bootstrap pareado, fichas con «N de 4», `dateModified` estable, rediseño de la
+  precisión y la reescritura de AGENTS.md.
+- **El índice v5 promedia solo los tests vigentes del examen (`solo_tests_vigentes`).** MiniMax M3 promediaba dos runs
+  de julio, sin proveedor registrado, de tests de `content_verificable` que se renombraron. MiniMax M3 3,76 → 3,59; el
+  orden de los 70 rankeados no cambia. Test unitario con sabotaje.
+- **Runs mezclados pasa a bloqueante (5.2.a).** `check_mezcla` sale con 1 si un rankeado tiene el examen en más de un
+  proveedor; entra en verde (70 de 70 limpios). `qa.py` lo corre bloqueante, sin `--duro`. Sabotaje de `codigo_salida` en rojo.
+- **La prueba de gitleaks lleva candado entre procesos (5.2.c).** `qa.py` corre `cobertura.py` en paralelo y esa corrida
+  vuelve a lanzar `test_guardrails`: dos copias plantaban secretos en el mismo árbol. `prueba_arbol_gitleaks.py` serializa
+  con `flock`; `_t_carrera_gitleaks` lanza dos copias sin candado y exige el rojo, y con candado las dos verdes.
+  La prueba de `check_changelog` dejaba de probar justo después de un release (la sección ya vacía la hacía
+  devolver falso antes de fabricar su cambio); ahora sigue al cambio fabricado.
+- **Diez docs vigentes sin revisar desde julio pasan a snapshot con nota de era visible (5.2.b).** AGENTS.md recomendaba
+  modelos retirados (Llama 3.3 70B en Groq, Hermes 4 70B); se reescribe en v5.1 y CLAUDE.md lo dice.
 - **Agentes en Harbor de punta a punta, Mercury fuera y el cheatsheet v4 desenlazado (8-nov-2026, Cristian).** En /mejor-llm-para-agentes/ el grupo de cabeza, el veredicto y la segunda tabla salen de las tareas de Harbor superadas, contadas exactas: 17 modelos con 4 de 4, la mejor compra es MiMo V2.6 Flash. La tabla «Calidad×precio» (70 % `score_agentico` + 30 % precio) se reemplaza por una ordenada por tareas y precio. A3 suma las reglas e y f, con sabotaje. **Mercury 3** (rankeado) y **Mercury 2.5** (histórico) pasan a retirados por el proveedor: 0 endpoints y fuera del catálogo de OpenRouter, igual que Devstral. El README deja de enlazar el CheatSheet de septiembre y marca la era de los snapshots v4 que enlaza. ROADMAP v5.1: `prompt_injection_es` al examen y «N de 4» en las fichas (esto último, posible v5.0.1).
 - **/modelos-n8n/ deja de recomendar con cifras v4 escritas a mano (8-nov-2026, Cristian).** El párrafo que
   recomendaba Qwen 3.7 Flash («8,18 en tool calling, calidad 8,46») y Llama 4 Scout, ninguno rankeado en v5,
-  se reemplaza por una línea que enlaza a /mejor-llm-para-n8n/, que sale del dato. La sección no se reescribe.
+  se reemplaza por una línea que enlaza a /mejor-llm-para-n8n/, que sale del dato. También sale la frase sin fecha
+  que comparaba Mistral Small 4 contra Claude Sonnet 4.6 en $/mes; la nota fechada de agosto sobre Groq queda.
 - **Blog: los posts del examen anterior se congelan con dos marcas, y los generadores no escriben sin `--write`
   (8-nov-2026, decisión de Cristian).** Un congelado lleva `benchmarkEra: "v4"` y la nota visible «Medido con el
   examen anterior. El ranking vigente está acá»; con una sola, rojo en `check_blog_consistency` y

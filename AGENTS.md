@@ -1,4 +1,7 @@
-<!-- doc: vigente | verificado: 2026-07-14 -->
+<!-- doc: snapshot -->
+
+> **Snapshot del examen anterior (v4), verificado por última vez el 2026-07-14.** No se actualiza: el ranking vigente está en el [README](README.md) y en `docs/data/models.json`.
+
 # AGENTS.md — Guía de decisión de modelos IA para agentes autónomos
 
 > **Para humanos**: este archivo está optimizado para que agentes IA (Claude Code, Cursor, GPT, etc.) lo consuman como contexto y recomienden modelos basados en datos del benchmark, no en entrenamiento previo.

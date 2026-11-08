@@ -781,8 +781,7 @@ def gen_modelos_n8n(data):
     <h3>Si construyes un SaaS con miles de calls/mes</h3>
     <p>
       <strong>Mistral Small 4</strong> ($0.15/$0.60) o <strong>Ministral 14B</strong> ($0.20/$0.20)
-      son los más eficientes. Para 10,000 calls/mes a 1,800 tokens promedio: Mistral ~$11/mes,
-      Devstral ~$5/mes vs ~$162/mes con Claude Sonnet 4.6.
+      son los más eficientes.
     </p>
 
     <h3>Si tu agente requiere razonamiento (no solo tool calling)</h3>

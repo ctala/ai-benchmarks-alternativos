@@ -98,8 +98,8 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **7.88** | ⭐ | 137 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | [responses](benchmarks/results/responses/or-llama-3.3-70b/) |
 | `qwen/qwen3-coder-next` | ✅ Apache 2.0 | $0.11/0.8 | **7.81** |  | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3-coder-next.md) | [responses](benchmarks/results/responses/qwen3-coder-next/) |
 | `minimax/minimax-m3.1-flash` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.075/0.3 | **7.80** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3_1-flash.md) | [responses](benchmarks/results/responses/minimax-m3.1-flash/) |
-| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **7.80** |  | 139 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `nvidia/nemotron-3.5-lightning` | ✅  | $0.08/0.2 | **7.78** | ⭐ | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3_5-lightning.md) | [responses](benchmarks/results/responses/nemotron-3.5-lightning/) |
+| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **7.77** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `meta-llama/llama-3.1-8b-instruct` | ✅ Llama Community | $0.05/0.08 | **6.99** | ⭐ | 137 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_1-8b-instruct.md) | [responses](benchmarks/results/responses/or-llama-3.1-8b/) |
 
 #### Mejor coding
@@ -125,7 +125,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **8.87** |  | 137 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/groq-gpt-oss-20b/) |
 | `nvidia/nemotron-3-ultra-550b-a55b` | ✅ NVIDIA Open Model | $0.6/2.4 | **8.87** |  | 137 | [per-model](benchmarks/results/per-model/nvidia_nemotron-3-ultra-550b-a55b.md) | [responses](benchmarks/results/responses/openrouter-nemotron-3-ultra-550b/) |
 | `stepfun/step-3.5-flash` | ✅ Apache 2.0 | $0.1/0.3 | **8.82** |  | 137 | [per-model](benchmarks/results/per-model/stepfun_step-3_5-flash.md) | [responses](benchmarks/results/responses/or-step-3.5-flash/) |
-| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **8.82** |  | 139 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
+| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **8.82** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `meta-llama/llama-3.3-70b-instruct` | ✅ Llama Community | $0.1/0.32 | **8.81** | ⭐ | 137 | [per-model](benchmarks/results/per-model/meta-llama_llama-3_3-70b-instruct.md) | [responses](benchmarks/results/responses/or-llama-3.3-70b/) |
 | `minimax/minimax-m3.1-flash` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.075/0.3 | **8.80** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3_1-flash.md) | [responses](benchmarks/results/responses/minimax-m3.1-flash/) |
 | `google/gemma-4-26b-a4b-it` | ✅ Apache 2.0 | $0.09/0.3 | **8.79** |  | 137 | [per-model](benchmarks/results/per-model/google_gemma-4-26b-a4b-it.md) | [responses](benchmarks/results/responses/gemma-4-26b/) |
@@ -247,7 +247,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `z-ai/glm-5.3` | ✅ MIT | $1.4/4.4 | **7.06** | ⭐ | 137 | [per-model](benchmarks/results/per-model/z-ai_glm-5_3.md) | [responses](benchmarks/results/responses/glm-5.3/) |
 | `moonshotai/kimi-k2.7-code` | ✅ Modified MIT | $0.7/3.5 | **6.98** |  | 137 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_7-code.md) | [responses](benchmarks/results/responses/kimi-k2.7-code/) |
 | `anthropic/claude-opus-5.5` | ❌ Proprietary | $4.0/20.0 | **6.98** |  | 137 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-5_5.md) | [responses](benchmarks/results/responses/claude-opus-5.5/) |
-| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **6.96** |  | 139 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
+| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **6.96** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `moonshotai/kimi-k2.5` | ✅ Modified MIT | $0.45/2.25 | **6.95** |  | 137 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2_5.md) | [responses](benchmarks/results/responses/kimi-k2.5-thinking/) |
 | `deepseek/deepseek-v4-pro-0813` | ✅ MIT | $0.9834/2.9502 | **6.89** |  | 137 | [per-model](benchmarks/results/per-model/deepseek_deepseek-v4-pro-0813.md) | [responses](benchmarks/results/responses/deepseek-v4-pro-0813/) |
 | `qwen/qwen3.8-max-0902` | ❌ Proprietary | $2.0/6.0 | **6.82** |  | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3_8-max-0902.md) | [responses](benchmarks/results/responses/qwen-3.8-max-0902/) |
@@ -330,7 +330,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `anthropic/claude-opus-5.5` | ❌ Proprietary | $4.0/20.0 | **7.16** |  | 137 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-5_5.md) | [responses](benchmarks/results/responses/claude-opus-5.5/) |
 | `qwen/qwen3.8-max-0902` | ❌ Proprietary | $2.0/6.0 | **7.16** |  | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3_8-max-0902.md) | [responses](benchmarks/results/responses/qwen-3.8-max-0902/) |
 | `anthropic/claude-fable-5.1` | ❌ Proprietary | $10.0/50.0 | **7.01** |  | 137 | [per-model](benchmarks/results/per-model/anthropic_claude-fable-5_1.md) | [responses](benchmarks/results/responses/claude-fable-5.1/) |
-| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **6.81** |  | 139 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
+| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **6.81** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `openai/gpt-6-astra` | ❌ Proprietary | $10/50 | **6.78** |  | 137 | [per-model](benchmarks/results/per-model/openai_gpt-6-astra.md) | [responses](benchmarks/results/responses/gpt-6-astra/) |
 
 #### Calidad por dólar — cuánta calidad rinde cada peso (calidad ÷ $/1k calls; premia lo barato a propósito, mira la columna Calidad)
@@ -375,7 +375,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `qwen/qwen3.5-35b-a3b` | ✅ Apache 2.0 | $0.3125/1.25 | **4.30** |  | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3_5-35b-a3b.md) | [responses](benchmarks/results/responses/or-qwen-3.5-35b/) |
 | `thinkingmachines/inkling-small` | ✅  | $0.45/1.2 | **4.24** |  | 137 | [per-model](benchmarks/results/per-model/thinkingmachines_inkling-small.md) | [responses](benchmarks/results/responses/inkling-small/) |
 | `tencent/hy4` | ❌  | $0.417/1.2505 | **4.23** |  | 137 | [per-model](benchmarks/results/per-model/tencent_hy4.md) | [responses](benchmarks/results/responses/hy4/) |
-| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **4.13** |  | 139 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
+| `minimax/minimax-m3` | ✅ MiniMax Community License (propia de MiniMax, no MIT) | $0.3/1.2 | **4.11** |  | 137 | [per-model](benchmarks/results/per-model/minimax_minimax-m3.md) | [responses](benchmarks/results/responses/minimax-m3/) |
 | `meta/muse-glimmer-30b` | ✅  | $0.35/1.5 | **3.62** | ⭐ | 137 | [per-model](benchmarks/results/per-model/meta_muse-glimmer-30b.md) | [responses](benchmarks/results/responses/muse-glimmer-30b/) |
 | `qwen/qwen3.6-plus` | ❌ Proprietary | $0.325/1.95 | **2.85** | ⭐ | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-plus.md) | [responses](benchmarks/results/responses/qwen-3.6-plus/) |
 | `qwen/qwen3.6-27b` | ✅ Apache 2.0 | $0.3/2 | **2.80** | ⭐ | 137 | [per-model](benchmarks/results/per-model/qwen_qwen3_6-27b.md) | [responses](benchmarks/results/responses/qwen3.6-27b/) |
@@ -434,7 +434,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 
 | Modelo | OS | $ in/out | Calidad (indic.) | Frontera | Runs | Per-model MD | Responses |
 |---|---|---:|---:|:-:|---:|---|---|
-| `openai/gpt-5.6-luna` | ❌  | $0.2/1.2 | **8.61** |  | 156 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | [responses](benchmarks/results/responses/gpt-5.6-luna/) |
+| `openai/gpt-5.6-luna` | ❌  | $0.2/1.2 | **8.59** |  | 154 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna.md) | [responses](benchmarks/results/responses/gpt-5.6-luna/) |
 | `anthropic/claude-opus-4-6` | ❌  | $5.0/25.0 | **8.56** |  | 207 | [per-model](benchmarks/results/per-model/anthropic_claude-opus-4-6.md) | [responses](benchmarks/results/responses/claude-opus-4.6/) |
 | `sakana/sakana-namazu` | ❌  | $0.95/4.0 | **8.52** |  | 1584 | [per-model](benchmarks/results/per-model/sakana_sakana-namazu.md) | [responses](benchmarks/results/responses/sakana-namazu/) |
 | `meituan/longcat-2.0` | ❌  | $0.3/1.2 | **8.52** |  | 22 | [per-model](benchmarks/results/per-model/meituan_longcat-2_0.md) | [responses](benchmarks/results/responses/longcat-2.0/) |
@@ -491,7 +491,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `google/gemini-2.5-pro` | ❌  | $1.25/10.0 | **7.66** |  | 173 | [per-model](benchmarks/results/per-model/google_gemini-2_5-pro.md) | [responses](benchmarks/results/responses/gemini-pro/) |
 | `qwen/qwen3-next-80b-a3b-thinking` | ✅ Apache 2.0 | $0.15/1.2 | **7.55** ⛔ |  | 150 | [per-model](benchmarks/results/per-model/qwen_qwen3-next-80b-a3b-thinking.md) | [responses](benchmarks/results/responses/nim-qwen3-next-thinking/) |
 | `google/gemini-3.5-flash` | ❌  | $1.5/9.0 | **7.50** |  | 160 | [per-model](benchmarks/results/per-model/google_gemini-3_5-flash.md) | [responses](benchmarks/results/responses/gemini-3.5-flash/) |
-| `mistralai/mistral-nemo` | ✅ Apache 2.0 | $0.02/0.02 | **7.21** |  | 504 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/mistral-nemo/) |
+| `mistralai/mistral-nemo` | ✅ Apache 2.0 | $0.02/0.02 | **7.17** |  | 498 | [per-model](benchmarks/results/per-model/mistralai_mistral-nemo.md) | [responses](benchmarks/results/responses/mistral-nemo/) |
 | `moonshotai/kimi-k2-thinking` | ✅ Modified MIT | $0.6/2.5 | **5.00** |  | 2 | [per-model](benchmarks/results/per-model/moonshotai_kimi-k2-thinking.md) | [responses](benchmarks/results/responses/nim-kimi-k2-thinking/) |
 
 #### Retirados — fuera del ranking y de las recomendaciones

@@ -1,4 +1,7 @@
-<!-- doc: vigente | verificado: 2026-07-01 -->
+<!-- doc: snapshot -->
+
+> **Snapshot del examen anterior (v4), verificado por última vez el 2026-07-01.** No se actualiza: el ranking vigente está en el [README](README.md) y en `docs/data/models.json`.
+
 ---
 title: "Extended Thinking — qué es, qué modelos lo tienen, cómo lo medimos"
 fecha: "2026-04-30"

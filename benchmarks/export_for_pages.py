@@ -74,6 +74,26 @@ def solo_ventana(runs: list[dict]) -> list[dict]:
     return [r for r in runs if r.get("_ventana") or (r.get("suite"), r.get("test_name")) not in medidos]
 
 
+def solo_tests_vigentes(runs: list[dict], vigentes: dict[str, set[str]]) -> list[dict]:
+    """Saca los runs de un test que ya no está en su suite con ese nombre. Función pura.
+
+    8-nov-2026: MiniMax M3 promediaba en v5 dos runs de julio, sin proveedor registrado,
+    de `content_verificable/sin_call_to_action` y `restriccion_enterrada`, tests que se
+    renombraron. `solo_ventana` no los podía sacar porque la ventana mide el nombre nuevo,
+    no el viejo: el par (suite, test) no coincide. El examen v5 son los tests vigentes;
+    un run de otro nombre no es parte de él. Solo se filtran suites que `vigentes`
+    conoce: una suite jubilada la saca el índice, no esto. El historial queda como está.
+    """
+    return [r for r in runs
+            if r.get("suite") not in vigentes or r.get("test_name") in vigentes[r.get("suite")]]
+
+
+def _tests_vigentes() -> dict[str, set[str]]:
+    """{suite del examen: nombres de sus tests hoy}."""
+    from benchmarks.runner import ALL_TEST_SUITES as _TS  # noqa: PLC0415
+    return {s: {t["name"] for t in _TS[s]} for s in suites_reg.del_examen() if s in _TS}
+
+
 # Eras del harness (DECISIONES, 5-nov-2026: «el ranking v5 solo incluye modelos con el examen
 # v5 completo»). Un modelo que no lo completó sale del ranking a la tabla «histórico», marcado
 # con la era de la mayoría de sus runs del índice. Las fronteras son los cambios del harness
@@ -387,9 +407,10 @@ def load_all_results():
             mname = renombre.get((mid, mname), mname)
             by_id[mid].append(r)
             by_id_and_name[(mid, mname)].append(r)
+    vigentes = _tests_vigentes()
     for d in (by_id, by_id_and_name):
         for k in d:
-            d[k] = solo_ventana(d[k])
+            d[k] = solo_tests_vigentes(solo_ventana(d[k]), vigentes)
     return by_id, by_id_and_name
 
 

@@ -1,4 +1,7 @@
-<!-- doc: vigente | verificado: 2026-07-12 -->
+<!-- doc: snapshot -->
+
+> **Snapshot del examen anterior (v4), verificado por última vez el 2026-07-12.** No se actualiza: el ranking vigente está en el [README](README.md) y en `docs/data/models.json`.
+
 # IA para Emprendedores: Todos los Casos de Uso Reales
 
 > Para un fundador solo o equipo pequeño que necesita hacer todo.

@@ -1,4 +1,7 @@
-<!-- doc: vigente | verificado: 2026-07-16 -->
+<!-- doc: snapshot -->
+
+> **Snapshot del examen anterior (v4), verificado por última vez el 2026-07-16.** No se actualiza: el ranking vigente está en el [README](README.md) y en `docs/data/models.json`.
+
 # Relanzamiento v4.0 del benchmark — decisión + plan
 
 *Aprobado por Cristian el 16-jul-2026. Sobre `benchmarks.cristiantala.com`.*
