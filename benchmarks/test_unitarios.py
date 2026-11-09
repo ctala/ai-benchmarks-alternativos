@@ -2804,6 +2804,17 @@ def test_tier_publicado_es_precio_y_la_ruta_va_aparte():
     assert indice.tier_de_precio("cloud_nim", 4.0, 20.0) == "premium"
 
 
+def test_reward_sin_los_checks_que_no_cuentan():
+    from benchmarks import indice
+    t = {"test_archivo_valido": "passed", "test_no_factura_la_linea_duplicada": "failed",
+         "test_total_correcto": "failed", "test_escala_lo_que_requiere_decision_humana": "failed",
+         "test_respeta_el_tope_contractual": "passed"}
+    assert indice.reward_sin_checks("harbor-facturacion", t) == 1.0     # quedan 2 de 2
+    assert indice.reward_sin_checks("harbor-cotizar", t) == 0.4         # otra tarea: cuentan todos
+    assert indice.reward_sin_checks("harbor-facturacion",
+                                    {"test_total_correcto": "passed"}) is None  # nada que contar
+
+
 def test_bands_global_usa_la_nota_v6_y_su_margen():
     from benchmarks import bands
     a = {"key": "a", "score_calidad": 8.9, "calidad_ci95": 0.25, "quality_avg": 8.0, "quality_ci95": 0.3}

@@ -47,6 +47,9 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from benchmarks import indice as _ix  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 JOBS = ROOT / "jobs"
 SALIDA = ROOT / "tareas-agente" / "resultados.json"
@@ -73,6 +76,16 @@ FIRMAS = [
         r"maximum context length is \d+ tokens|context_length_exceeded", re.I),
      "entró en un bucle degenerado y reventó su propia ventana de contexto"),
 ]
+
+
+def _checks(trial: Path) -> dict[str, str]:
+    """{check: estado} del `ctrf.json` del verificador; vacío si no está o no se lee."""
+    p = trial / "verifier" / "ctrf.json"
+    try:
+        return {t["name"].split("::")[-1]: t["status"]
+                for t in json.loads(p.read_text())["results"]["tests"]}
+    except Exception:
+        return {}
 
 
 def _causa(traza: str) -> tuple[str | None, str | None]:
@@ -230,6 +243,12 @@ def recolectar() -> dict:
                 reward = float(rw.read_text().strip())
             except ValueError:
                 pass
+        # El reward se recalcula desde el detalle de cada check, sin los que no cuentan
+        # (`indice.CHECKS_SIN_CONTAR`). Sin el detalle queda el del verificador.
+        reward_verificador = reward
+        tests = _checks(trial)
+        if tests:
+            reward = _ix.reward_sin_checks(tarea, tests)
 
         traza_p = trial / "agent" / "mini-swe-agent.txt"
         traza = traza_p.read_text(errors="replace") if traza_p.exists() else ""
@@ -263,7 +282,7 @@ def recolectar() -> dict:
         tray = tray_p.read_text(errors="replace") if tray_p.exists() else ""
         costo, fuente = _costo(tray, modelo)
         por_modelo[(tarea, modelo)].append(
-            {"reward": reward, "causa": causa, "detalle": detalle,
+            {"reward": reward, "reward_verificador": reward_verificador, "causa": causa, "detalle": detalle,
              "costo_usd": costo, "costo_fuente": fuente, "checksum": checksum,
              "proveedores": _proveedores(tray),
              "ventana": es_de_ventana(agente_cfg)})
@@ -317,7 +336,8 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
         if ceros and estado not in ("sin_herramientas", "rompe_bucle", "sin_credencial"):
             fila["causas_de_los_ceros"] = sorted(set(ceros))
 
-        tareas.setdefault(tarea, {"modelos": {}, **meta_tarea.get(tarea, {})})
+        tareas.setdefault(tarea, {"modelos": {}, **meta_tarea.get(tarea, {}),
+                                  "checks_sin_contar": sorted(_ix.CHECKS_SIN_CONTAR.get(tarea, {}))})
         tareas[tarea]["modelos"][modelo] = fila
 
     for tarea, d in tareas.items():

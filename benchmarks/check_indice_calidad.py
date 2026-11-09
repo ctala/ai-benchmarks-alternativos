@@ -19,6 +19,9 @@ Qué verifica (exit 1 si algo falla; bloqueante en `qa.py`):
   I5  un modelo sin dato agéntico no rankea, no tiene nota y no aparece en ningún orden por
       la nota: ni en el grupo, ni en el README, ni en una tabla «Calidad» de las páginas
   I6  ningún tier publicado es una ruta (`cloud_nim` y compañía van en `ruta`)
+  I7  cada check de `indice.CHECKS_SIN_CONTAR` existe en el `test_outputs.py` de su tarea (una
+      errata dejaría la regla sin efecto en silencio) y `resultados.json` publica la misma
+      lista por tarea (DECISIONES, 9-nov-2026)
 
 Uso:
     python benchmarks/check_indice_calidad.py
@@ -162,6 +165,35 @@ def i6_tier(data: dict) -> list[str]:
             for m in data["models"] if indice.es_ruta(m.get("tier"))]
 
 
+def i7_checks_sin_contar(sin_contar: dict, tests: dict[str, str], resultados: dict) -> list[str]:
+    """`tests`: {tarea: texto de su test_outputs.py}; `resultados`: tareas-agente/resultados.json."""
+    fallos = []
+    for tarea, checks in sin_contar.items():
+        src = tests.get(tarea)
+        if src is None:
+            fallos.append(f"I7 · {tarea}: no existe la tarea, y tiene checks que no cuentan")
+            continue
+        for c in checks:
+            if not re.search(rf"^def {re.escape(c)}\(", src, flags=re.M):
+                fallos.append(f"I7 · {tarea}: el check «{c}» no está en su test_outputs.py")
+    publicadas = (resultados or {}).get("tareas") or {}
+    if not publicadas:
+        fallos.append("I7 · resultados.json no trae tareas: el chequeo no miró nada")
+    for tarea, d in publicadas.items():
+        esperado = sorted(sin_contar.get(tarea, {}))
+        if d.get("checks_sin_contar") != esperado:
+            fallos.append(f"I7 · {tarea}: resultados.json publica checks_sin_contar="
+                          f"{d.get('checks_sin_contar')} y indice.py dice {esperado}")
+    return fallos
+
+
+def leer_harbor() -> tuple[dict, dict]:
+    tests = {p.parent.parent.name: p.read_text(encoding="utf-8")
+             for p in sorted((ROOT / "tareas-agente").glob("*/tests/test_outputs.py"))}
+    resultados = json.loads((ROOT / "tareas-agente" / "resultados.json").read_text(encoding="utf-8"))
+    return tests, resultados
+
+
 def revisar(data, readme, html, fuentes, paginas) -> list[str]:
     return (i1_nota(data["models"]) + i2_peso_unico(fuentes) + i3_html(data, html)
             + i4_grupo(data, readme) + i5_sin_dato(data, readme, paginas) + i6_tier(data))
@@ -182,6 +214,7 @@ def leer_todo():
 def main() -> int:
     data, readme, html, fuentes, paginas = leer_todo()
     fallos = revisar(data, readme, html, fuentes, paginas)
+    fallos += i7_checks_sin_contar(indice.CHECKS_SIN_CONTAR, *leer_harbor())
     leidos = sum(1 for m in data["models"] if m.get("score_calidad") is not None)
     print(f"  {leidos} notas de calidad leídas · {len(paginas)} páginas · {len(fuentes)} fuentes")
     if not leidos:

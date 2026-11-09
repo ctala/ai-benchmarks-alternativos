@@ -31,6 +31,13 @@ queda en 20 %. El export publica `grupo_cabeza` con `n`, `de`, `margen` (mediana
 grupo) y `mas_barato`. Las tablas muestran «≈» en vez de puesto; los parsers que leían la fila «1»
 (`check_cortes`, sus pruebas) aceptan «≈».
 
+**Checks que no cuentan.** Un check cuya trampa el agente no puede conocer por lo que ve no
+cuenta hasta que su tarea se corrija (`indice.CHECKS_SIN_CONTAR`; hoy 3 de facturación).
+`export_harbor` recalcula el reward de cada intento desde el `ctrf.json` sin esos checks y publica
+la lista por tarea; I7 exige que cada nombre exista en su `test_outputs.py`. Con la regla apagada
+el export reproduce el publicado (control de la simulación). Consecuencia conocida: Harbor queda
+como piso (48 de 68 con 4 de 4) hasta las tareas nuevas de `corte-v5-1`.
+
 **Tier.** `cloud_*` es una ruta. El tier publicado se deriva del precio mezclado (3:1) cuando el
 declarado es una ruta; la ruta va en el campo `ruta`.
 

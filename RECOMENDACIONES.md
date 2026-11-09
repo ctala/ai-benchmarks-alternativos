@@ -55,19 +55,19 @@ Lo mejor que puedes comprar con cada techo de gasto, a 3,000 llamadas/mes. Orden
 
 | Presupuesto | Modelo | Calidad | Costo real |
 |---|---|---:|---:|
-| Menos de $10/mes | **Qwen 3.8 Flash** | 8.91 | ≈$2/mes |
-| Hasta $30/mes | **Qwen 3.8 Flash** | 8.91 | ≈$2/mes |
-| Hasta $100/mes | **Qwen 3.8 Flash** | 8.91 | ≈$2/mes |
+| Menos de $10/mes | **Qwen 3.6 27B base (OpenRouter FP8)** | 9.00 | ≈$9/mes |
+| Hasta $30/mes | **GLM 5.3** | 9.00 | ≈$21/mes |
+| Hasta $100/mes | **GLM 5.3** | 9.00 | ≈$21/mes |
 
 ---
 
 ## El resumen de todo el benchmark
 
-**18 modelos empatan en calidad** en la cima del ranking global.
+**35 modelos empatan en calidad** en la cima del ranking global.
 
-El más barato de ese grupo — **MiMo V2.6 Flash** — sale **≈$1/mes**.
-El más caro — **GPT-6 Astra** — sale **≈$234/mes**.
+El más barato de ese grupo — **Ling 3.0 Flash** — sale **≈$0/mes**.
+El más caro — **Claude Fable 5.1** — sale **≈$234/mes**.
 
-Eso es **168.3× más caro** por una diferencia de calidad de **-0.03 puntos**, que está dentro del margen de error.
+Eso es **780.0× más caro** por una diferencia de calidad de **+0.03 puntos**, que está dentro del margen de error.
 
 Si te llevás una sola cosa de este benchmark, que sea esta.

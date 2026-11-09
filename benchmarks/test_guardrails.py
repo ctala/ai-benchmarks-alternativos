@@ -2161,6 +2161,22 @@ def _t_indice_calidad():
     # I6: un tier que es una ruta
     d = copy.deepcopy(data); d["models"][0]["tier"] = "cloud_nim"
     casos.append(ci.i6_tier(d))
+    # I7: control verde con lo real; un check excluido con errata, y resultados.json con otra lista
+    from benchmarks import indice as ix
+    tests, res = ci.leer_harbor()
+    if not ix.CHECKS_SIN_CONTAR or ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, res):
+        return False
+    t0 = next(iter(ix.CHECKS_SIN_CONTAR))
+    errata = {**ix.CHECKS_SIN_CONTAR, t0: {**ix.CHECKS_SIN_CONTAR[t0], "test_que_no_existe": "x"}}
+    casos.append(ci.i7_checks_sin_contar(errata, tests, res))
+    r2 = copy.deepcopy(res); r2["tareas"][t0]["checks_sin_contar"] = []
+    casos.append(ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, r2))
+    # y de punta a punta: resultados.json sin la lista publicada tiene que dejar rojo el script
+    with Sabotaje(ROOT / "tareas-agente" / "resultados.json"):
+        rp = ROOT / "tareas-agente" / "resultados.json"
+        rp.write_text(json.dumps(r2, ensure_ascii=False), encoding="utf-8")
+        if _correr("check_indice_calidad.py") == 0:
+            return False
     return all(bool(c) for c in casos)
 
 

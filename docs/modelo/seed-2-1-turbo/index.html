@@ -249,7 +249,7 @@
   </section>
   <section class="ficha-bloque" aria-label="Ficha de Seed 2.1 Turbo">
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">8.69<span class="k-unit">/10</span></span><span class="k-sub">11 por encima · del mejor al peor hay 3.6 puntos · examen 8.25, tareas de agente 10.00</span></div>
+    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">8.69<span class="k-unit">/10</span></span><span class="k-sub">36 por encima · del mejor al peor hay 3.7 puntos · examen 8.25, tareas de agente 10.00</span></div>
     <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$3.90</span><span class="k-sub">el 22º más caro de 68</span></div>
     <div class="kpi is-cyan"><span class="k-label">Al mes, uso típico</span><span class="k-value">$5.85</span><span class="k-sub">50 llamadas por día, todos los días</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">57<span class="k-unit"> tok/s</span></span><span class="k-sub">110.4 s de espera media</span></div>
@@ -320,9 +320,9 @@
     <div class="table-scroll"><table class="results-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1k</th><th scope="col">Latencia</th><th scope="col">Por qué</th></tr></thead>
       <tbody>
-        <tr><td><strong>MiMo V2.6 Flash</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>8.70</td><td>$0.462</td><td>57.0 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
-        <tr><td><strong>Qwen 3.8 Flash</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>8.91</td><td>$0.750</td><td>43.9 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
-        <tr><td><strong>Claude Haiku 5.5</strong><br><span class="meta">Responde antes</span></td><td>8.67</td><td>$0.780</td><td>10.6 s</td><td class="meta">al menos 40% menos de espera, sin caer de nota</td></tr>
+        <tr><td><strong>Ling 3.0 Flash</strong><br><span class="meta">Más barato, calidad equivalente</span></td><td>8.85</td><td>$0.101</td><td>54.8 s</td><td class="meta">misma nota o mejor, menos plata por llamada</td></tr>
+        <tr><td><strong>Qwen 3.6 27B base (OpenRouter FP8)</strong><br><span class="meta">Mejor nota, precio parecido</span></td><td>9.00</td><td>$3.09</td><td>49.2 s</td><td class="meta">hasta 30% más caro, pero rinde más</td></tr>
+        <tr><td><strong>Gemini 3.5 Flash Lite</strong><br><span class="meta">Responde antes</span></td><td>8.67</td><td>$3.84</td><td>4.5 s</td><td class="meta">al menos 40% menos de espera, sin caer de nota</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -358,13 +358,13 @@
       <thead><tr><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$/1.000 llamadas</th></tr></thead>
       <tbody>
         <tr><td><strong style="color:var(--green);font-weight:700">Seed 2.1 Turbo</strong><br><span class="meta">Este modelo</span></td><td>8.69</td><td>$3.90</td></tr>
-        <tr><td><strong>Qwen 3.8 Flash</strong><br><span class="meta">El de más calidad medida</span></td><td>8.91</td><td>$0.750</td></tr>
-        <tr><td><strong>Claude Fable 5.1</strong><br><span class="meta">El frontier más caro del top 10</span></td><td>8.88</td><td>$78.00</td></tr>
+        <tr><td><strong>GLM 5.3</strong><br><span class="meta">El de más calidad medida</span></td><td>9.00</td><td>$7.02</td></tr>
+        <tr><td><strong>Qwen 3.8 Max 0902</strong><br><span class="meta">El frontier más caro del top 10</span></td><td>8.90</td><td>$9.60</td></tr>
       </tbody>
     </table></div>
     <ul>
-      <li><strong>Qwen 3.8 Flash</strong> (el techo medido) rinde 3% más <em>y además</em> es más barato: $0.750 contra $3.90. Acá no hay que elegir.</li>
-      <li><strong>Claude Fable 5.1</strong> (el caro que todos conocen) rinde <strong>2% más</strong> (8.88 contra 8.69) y cuesta <strong>20 veces más</strong> por llamada.</li>
+      <li><strong>GLM 5.3</strong> (el techo medido) rinde <strong>4% más</strong> (9.00 contra 8.69) y cuesta <strong>2 veces más</strong> por llamada.</li>
+      <li><strong>Qwen 3.8 Max 0902</strong> (el caro que todos conocen) rinde <strong>2% más</strong> (8.90 contra 8.69) y cuesta <strong>2 veces más</strong> por llamada.</li>
     </ul>
     <p class="meta">Los tres salen de las mismas 29 tareas, el mismo juez y los mismos
     límites. Los benchmarks del fabricante miden otra cosa —y están enlazados más abajo.</p>
@@ -435,7 +435,7 @@
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>
 <script type="application/json" id="contrato-pagina">
-{"tipo": "ficha", "generador": "generate_model_cards", "recomienda": ["MiMo V2.6 Flash", "Qwen 3.8 Flash", "Claude Haiku 5.5"], "nota": "ficha de un modelo del histórico: foto de su era, sin puesto"}
+{"tipo": "ficha", "generador": "generate_model_cards", "recomienda": ["Ling 3.0 Flash", "Qwen 3.6 27B base (OpenRouter FP8)", "Gemini 3.5 Flash Lite"], "nota": "ficha de un modelo del histórico: foto de su era, sin puesto"}
 </script>
 </main>
 <footer>

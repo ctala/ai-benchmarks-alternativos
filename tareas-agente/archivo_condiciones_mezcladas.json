@@ -6,6 +6,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009219,
@@ -18,6 +19,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005135,
@@ -30,6 +32,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004329,
@@ -42,6 +45,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01051,
@@ -54,6 +58,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004524,
@@ -66,6 +71,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008254,
@@ -83,6 +89,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001444,
@@ -95,6 +102,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002055,
@@ -107,6 +115,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002537,
@@ -119,6 +128,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002426,
@@ -136,6 +146,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015114,
@@ -148,6 +159,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017459,
@@ -160,6 +172,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01462,
@@ -177,6 +190,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015178,
@@ -189,6 +203,7 @@
     },
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004919,
@@ -201,6 +216,7 @@
     },
     {
      "reward": 0.6667,
+     "reward_verificador": 0.6667,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004837,
@@ -218,6 +234,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015985,
@@ -230,6 +247,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015333,
@@ -242,6 +260,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017439,
@@ -259,6 +278,7 @@
    "intentos": [
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000838,
@@ -271,6 +291,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000832,
@@ -283,6 +304,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000836,
@@ -300,6 +322,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012459,
@@ -312,6 +335,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017345,
@@ -324,6 +348,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021458,
@@ -341,6 +366,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006609,
@@ -353,6 +379,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002391,
@@ -365,6 +392,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004175,
@@ -382,6 +410,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014169,
@@ -394,6 +423,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018599,
@@ -406,6 +436,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011886,
@@ -423,6 +454,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.042423,
@@ -435,6 +467,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.013045,
@@ -447,6 +480,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024143,
@@ -464,6 +498,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.037548,
@@ -476,6 +511,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027474,
@@ -488,6 +524,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.035936,
@@ -505,6 +542,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.032356,
@@ -518,6 +556,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.025091,
@@ -530,6 +569,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.032446,
@@ -547,6 +587,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031943,
@@ -559,6 +600,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01142,
@@ -571,6 +613,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018377,
@@ -588,6 +631,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010372,
@@ -600,6 +644,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015238,
@@ -612,6 +657,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007956,
@@ -629,6 +675,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.026242,
@@ -641,6 +688,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.029084,
@@ -653,6 +701,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.032039,
@@ -670,6 +719,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009939,
@@ -682,6 +732,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00679,
@@ -694,6 +745,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011504,
@@ -711,6 +763,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002212,
@@ -723,6 +776,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003071,
@@ -735,6 +789,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003439,
@@ -752,6 +807,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.022045,
@@ -764,6 +820,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023576,
@@ -776,6 +833,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015165,
@@ -793,6 +851,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031718,
@@ -805,6 +864,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.0249,
@@ -817,6 +877,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021333,
@@ -834,6 +895,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043008,
@@ -846,6 +908,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.044074,
@@ -858,6 +921,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050386,
@@ -875,6 +939,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000797,
@@ -887,6 +952,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001201,
@@ -899,6 +965,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001751,
@@ -916,6 +983,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012691,
@@ -928,6 +996,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012809,
@@ -940,6 +1009,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011104,
@@ -957,6 +1027,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.138944,
@@ -969,6 +1040,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.145643,
@@ -981,6 +1053,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.159492,
@@ -998,6 +1071,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000998,
@@ -1010,6 +1084,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001961,
@@ -1023,6 +1098,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00291,
@@ -1041,6 +1117,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050808,
@@ -1053,6 +1130,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.140982,
@@ -1065,6 +1143,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.047411,
@@ -1081,7 +1160,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.75,
+     "reward": 1.0,
+     "reward_verificador": 0.75,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.022731,
@@ -1099,6 +1179,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007109,
@@ -1111,6 +1192,7 @@
     },
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012213,
@@ -1123,6 +1205,7 @@
     },
     {
      "reward": 0.6667,
+     "reward_verificador": 0.6667,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008461,
@@ -1139,7 +1222,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006934,
@@ -1157,6 +1241,7 @@
    "intentos": [
     {
      "reward": 0.6667,
+     "reward_verificador": 0.6667,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003708,
@@ -1169,6 +1254,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003506,
@@ -1181,6 +1267,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00346,
@@ -1198,6 +1285,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021305,
@@ -1210,6 +1298,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017048,
@@ -1222,6 +1311,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018559,
@@ -1239,6 +1329,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001711,
@@ -1251,6 +1342,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00182,
@@ -1263,6 +1355,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004072,
@@ -1280,6 +1373,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.034066,
@@ -1292,6 +1386,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043043,
@@ -1304,6 +1399,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.025028,
@@ -1321,6 +1417,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000784,
@@ -1333,6 +1430,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000619,
@@ -1346,6 +1444,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000587,
@@ -1364,6 +1463,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.016163,
@@ -1376,6 +1476,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014048,
@@ -1388,6 +1489,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007431,
@@ -1405,6 +1507,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004427,
@@ -1417,6 +1520,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006202,
@@ -1429,6 +1533,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005114,
@@ -1446,6 +1551,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001366,
@@ -1458,6 +1564,7 @@
     },
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001717,
@@ -1470,6 +1577,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000926,
@@ -1487,6 +1595,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008928,
@@ -1499,6 +1608,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010042,
@@ -1511,6 +1621,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011807,
@@ -1528,6 +1639,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003602,
@@ -1540,6 +1652,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003116,
@@ -1552,6 +1665,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001713,
@@ -1569,6 +1683,7 @@
    "intentos": [
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000362,
@@ -1582,6 +1697,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000233,
@@ -1594,6 +1710,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000109,
@@ -1611,6 +1728,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.382566,
@@ -1623,6 +1741,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.229564,
@@ -1635,6 +1754,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.15553,
@@ -1652,6 +1772,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006521,
@@ -1664,6 +1785,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009393,
@@ -1676,6 +1798,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005445,
@@ -1693,6 +1816,7 @@
    "intentos": [
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.010721,
@@ -1705,6 +1829,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.003291,
@@ -1717,6 +1842,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.001498,
@@ -1734,6 +1860,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008952,
@@ -1746,6 +1873,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011628,
@@ -1758,6 +1886,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011552,
@@ -1775,6 +1904,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018449,
@@ -1787,6 +1917,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.020311,
@@ -1799,6 +1930,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017907,
@@ -1816,6 +1948,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01725,
@@ -1828,6 +1961,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.03614,
@@ -1840,6 +1974,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.016006,
@@ -1857,6 +1992,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024281,
@@ -1869,6 +2005,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014391,
@@ -1881,6 +2018,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043475,
@@ -1898,6 +2036,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003931,
@@ -1910,6 +2049,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004057,
@@ -1922,6 +2062,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004305,
@@ -1939,6 +2080,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005354,
@@ -1951,6 +2093,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00529,
@@ -1963,6 +2106,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004496,
@@ -1980,6 +2124,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.016997,
@@ -1992,6 +2137,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018281,
@@ -2004,6 +2150,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.016719,
@@ -2021,6 +2168,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005795,
@@ -2033,6 +2181,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004631,
@@ -2045,6 +2194,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004492,
@@ -2062,6 +2212,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.013642,
@@ -2074,6 +2225,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011788,
@@ -2086,6 +2238,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010094,
@@ -2103,6 +2256,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023734,
@@ -2115,6 +2269,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018225,
@@ -2127,6 +2282,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.020066,
@@ -2144,6 +2300,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.064687,
@@ -2156,6 +2313,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.09431,
@@ -2168,6 +2326,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.061871,
@@ -2185,6 +2344,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006335,
@@ -2197,6 +2357,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006759,
@@ -2209,6 +2370,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004866,
@@ -2226,6 +2388,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011482,
@@ -2238,6 +2401,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010882,
@@ -2250,6 +2414,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012133,
@@ -2267,6 +2432,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021534,
@@ -2279,6 +2445,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023743,
@@ -2291,6 +2458,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.03631,
@@ -2308,6 +2476,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002378,
@@ -2320,6 +2489,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003836,
@@ -2332,6 +2502,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003003,
@@ -2349,6 +2520,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.267481,
@@ -2361,6 +2533,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.149895,
@@ -2373,6 +2546,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.142497,
@@ -2390,6 +2564,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017345,
@@ -2402,6 +2577,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.029525,
@@ -2414,6 +2590,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017017,
@@ -2431,6 +2608,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003015,
@@ -2443,6 +2621,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003207,
@@ -2455,6 +2634,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002388,
@@ -2472,6 +2652,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004042,
@@ -2484,6 +2665,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002998,
@@ -2496,6 +2678,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003638,
@@ -2513,6 +2696,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.020544,
@@ -2525,6 +2709,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.025882,
@@ -2537,6 +2722,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.019389,
@@ -2554,6 +2740,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.022888,
@@ -2566,6 +2753,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031037,
@@ -2578,6 +2766,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.026965,
@@ -2595,6 +2784,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.035661,
@@ -2607,6 +2797,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024931,
@@ -2619,6 +2810,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.02986,
@@ -2636,6 +2828,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003048,
@@ -2648,6 +2841,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001725,
@@ -2660,6 +2854,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003522,
@@ -2677,6 +2872,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.060676,
@@ -2689,6 +2885,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050338,
@@ -2701,6 +2898,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050336,
@@ -2718,6 +2916,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.022651,
@@ -2730,6 +2929,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.0382,
@@ -2742,6 +2942,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.026487,
@@ -2759,6 +2960,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.14124,
@@ -2771,6 +2973,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.080382,
@@ -2783,6 +2986,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.147707,
@@ -2795,6 +2999,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2805,6 +3010,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2815,6 +3021,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2825,6 +3032,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.112432,
@@ -2837,6 +3045,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.134109,
@@ -2849,6 +3058,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.098941,
@@ -2866,6 +3076,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.085562,
@@ -2878,6 +3089,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.038338,
@@ -2890,6 +3102,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.036598,
@@ -2907,6 +3120,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2917,6 +3131,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2927,6 +3142,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2937,6 +3153,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002711,
@@ -2950,6 +3167,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002133,
@@ -2962,6 +3180,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002342,
@@ -2979,6 +3198,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2989,6 +3209,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -2999,6 +3220,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3009,6 +3231,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00115,
@@ -3021,6 +3244,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "rompe_bucle",
      "detalle": "tiene herramientas pero no sostiene el formato de tool call",
      "costo_usd": 0.000429,
@@ -3033,6 +3257,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001055,
@@ -3050,6 +3275,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003558,
@@ -3063,6 +3289,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004066,
@@ -3075,6 +3302,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003813,
@@ -3092,6 +3320,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.34782,
@@ -3104,6 +3333,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.074838,
@@ -3116,6 +3346,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.079176,
@@ -3133,6 +3364,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00145,
@@ -3146,6 +3378,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000921,
@@ -3158,6 +3391,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001964,
@@ -3176,6 +3410,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002442,
@@ -3188,6 +3423,7 @@
     },
     {
      "reward": 0.8462,
+     "reward_verificador": 0.8462,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003163,
@@ -3200,6 +3436,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007264,
@@ -3217,6 +3454,7 @@
    "intentos": [
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.033746,
@@ -3229,6 +3467,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.022972,
@@ -3241,6 +3480,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041221,
@@ -3258,6 +3498,7 @@
    "intentos": [
     {
      "reward": 0.7,
+     "reward_verificador": 0.7,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004156,
@@ -3271,6 +3512,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007913,
@@ -3283,6 +3525,7 @@
     },
     {
      "reward": 0.9,
+     "reward_verificador": 0.9,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005322,
@@ -3300,6 +3543,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007898,
@@ -3312,6 +3556,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.019082,
@@ -3324,6 +3569,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010329,
@@ -3341,6 +3587,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.048164,
@@ -3353,6 +3600,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.055413,
@@ -3365,6 +3613,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.06,
@@ -3382,6 +3631,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.047244,
@@ -3394,6 +3644,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043817,
@@ -3406,6 +3657,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039747,
@@ -3423,6 +3675,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050368,
@@ -3435,6 +3688,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.064437,
@@ -3447,6 +3701,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.047087,
@@ -3464,6 +3719,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.030001,
@@ -3476,6 +3732,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031849,
@@ -3488,6 +3745,7 @@
     },
     {
      "reward": 0.9,
+     "reward_verificador": 0.9,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031115,
@@ -3505,6 +3763,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3515,6 +3774,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3525,6 +3785,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3535,6 +3796,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039342,
@@ -3547,6 +3809,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.040338,
@@ -3560,6 +3823,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.052807,
@@ -3578,6 +3842,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3588,6 +3853,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3598,6 +3864,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3608,6 +3875,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.096656,
@@ -3620,6 +3888,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.081309,
@@ -3632,6 +3901,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.044817,
@@ -3649,6 +3919,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3659,6 +3930,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3669,6 +3941,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3679,6 +3952,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.015243,
@@ -3691,6 +3965,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014572,
@@ -3703,6 +3978,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018256,
@@ -3720,6 +3996,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3730,6 +4007,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.020665,
@@ -3742,6 +4020,7 @@
     },
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -3757,6 +4036,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043228,
@@ -3769,6 +4049,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041059,
@@ -3781,6 +4062,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.046239,
@@ -3798,6 +4080,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.036997,
@@ -3810,6 +4093,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.035556,
@@ -3822,6 +4106,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.038266,
@@ -3839,6 +4124,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017393,
@@ -3851,6 +4137,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.030674,
@@ -3863,6 +4150,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017871,
@@ -3880,6 +4168,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.060886,
@@ -3892,6 +4181,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.049685,
@@ -3904,6 +4194,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.057422,
@@ -3921,6 +4212,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008377,
@@ -3933,6 +4225,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01107,
@@ -3945,6 +4238,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012084,
@@ -3962,6 +4256,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.130321,
@@ -3974,6 +4269,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.165507,
@@ -3986,6 +4282,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.134441,
@@ -4003,6 +4300,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039519,
@@ -4015,6 +4313,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039203,
@@ -4027,6 +4326,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041874,
@@ -4044,6 +4344,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009805,
@@ -4056,6 +4357,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011152,
@@ -4068,6 +4370,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009203,
@@ -4085,6 +4388,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.085725,
@@ -4097,6 +4401,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043938,
@@ -4109,6 +4414,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.11195,
@@ -4127,6 +4433,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.193052,
@@ -4139,6 +4446,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.238439,
@@ -4151,6 +4459,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.14524,
@@ -4168,6 +4477,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.06418,
@@ -4180,6 +4490,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.054196,
@@ -4192,6 +4503,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.086887,
@@ -4209,6 +4521,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01084,
@@ -4222,6 +4535,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01556,
@@ -4235,6 +4549,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010222,
@@ -4253,6 +4568,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.045737,
@@ -4265,6 +4581,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.100563,
@@ -4277,6 +4594,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.04185,
@@ -4294,6 +4612,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005098,
@@ -4306,6 +4625,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005052,
@@ -4318,6 +4638,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00985,
@@ -4335,6 +4656,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003696,
@@ -4347,6 +4669,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004419,
@@ -4359,6 +4682,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004066,
@@ -4376,6 +4700,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.105522,
@@ -4388,6 +4713,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.113413,
@@ -4400,6 +4726,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.094045,
@@ -4417,6 +4744,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.078287,
@@ -4429,6 +4757,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.07038,
@@ -4441,6 +4770,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.086201,
@@ -4458,6 +4788,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.079678,
@@ -4470,6 +4801,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.077038,
@@ -4482,6 +4814,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.072901,
@@ -4499,6 +4832,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.033825,
@@ -4511,6 +4845,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023131,
@@ -4523,6 +4858,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.02219,
@@ -4540,6 +4876,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.04144,
@@ -4552,6 +4889,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.06306,
@@ -4564,6 +4902,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.045068,
@@ -4581,6 +4920,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031836,
@@ -4593,6 +4933,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031312,
@@ -4605,6 +4946,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.03156,
@@ -4622,6 +4964,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006443,
@@ -4634,6 +4977,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005047,
@@ -4646,6 +4990,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004265,
@@ -4664,6 +5009,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006139,
@@ -4677,6 +5023,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003645,
@@ -4690,6 +5037,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007762,
@@ -4707,6 +5055,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.073526,
@@ -4719,6 +5068,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.091944,
@@ -4731,6 +5081,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.232308,
@@ -4748,6 +5099,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00479,
@@ -4760,6 +5112,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009571,
@@ -4772,6 +5125,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003939,
@@ -4789,6 +5143,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001592,
@@ -4802,6 +5157,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001217,
@@ -4815,6 +5171,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001222,
@@ -4833,6 +5190,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -4843,6 +5201,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": "sin_credencial",
      "detalle": "falta la credencial del proveedor — no es un fallo del modelo",
      "costo_usd": null,
@@ -4853,6 +5212,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031994,
@@ -4865,6 +5225,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041752,
@@ -4877,6 +5238,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.025885,
@@ -4889,6 +5251,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.040207,
@@ -4901,6 +5264,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027624,
@@ -4918,6 +5282,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001369,
@@ -4930,6 +5295,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002514,
@@ -4943,6 +5309,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001211,
@@ -4955,6 +5322,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007979,
@@ -4974,6 +5342,7 @@
    "intentos": [
     {
      "reward": null,
+     "reward_verificador": null,
      "causa": null,
      "detalle": null,
      "costo_usd": null,
@@ -4984,6 +5353,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021147,
@@ -4996,6 +5366,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.036874,
@@ -5008,6 +5379,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01639,
@@ -5025,6 +5397,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.035134,
@@ -5037,6 +5410,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.074624,
@@ -5049,6 +5423,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.050824,
@@ -5066,6 +5441,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.026727,
@@ -5078,6 +5454,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.034961,
@@ -5090,6 +5467,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021402,
@@ -5107,6 +5485,7 @@
    "intentos": [
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003876,
@@ -5119,6 +5498,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 1.300153,
@@ -5132,6 +5512,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002381,
@@ -5149,6 +5530,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00313,
@@ -5161,6 +5543,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002892,
@@ -5173,6 +5556,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004854,
@@ -5190,6 +5574,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006668,
@@ -5203,6 +5588,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002981,
@@ -5215,6 +5601,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002405,
@@ -5233,6 +5620,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039144,
@@ -5245,6 +5633,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.04143,
@@ -5257,6 +5646,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039714,
@@ -5274,6 +5664,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.03487,
@@ -5286,6 +5677,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.043719,
@@ -5298,6 +5690,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.062731,
@@ -5315,6 +5708,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.039442,
@@ -5327,6 +5721,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.05336,
@@ -5339,6 +5734,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.040296,
@@ -5356,6 +5752,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023503,
@@ -5368,6 +5765,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.019574,
@@ -5380,6 +5778,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01465,
@@ -5397,6 +5796,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004409,
@@ -5409,6 +5809,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007819,
@@ -5421,6 +5822,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004439,
@@ -5438,6 +5840,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007921,
@@ -5450,6 +5853,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00498,
@@ -5462,6 +5866,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004754,
@@ -5479,6 +5884,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004402,
@@ -5492,6 +5898,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005583,
@@ -5505,6 +5912,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006278,
@@ -5522,6 +5930,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031703,
@@ -5535,6 +5944,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.045144,
@@ -5548,6 +5958,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.034916,
@@ -5565,6 +5976,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.085227,
@@ -5577,6 +5989,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.142643,
@@ -5589,6 +6002,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.085675,
@@ -5606,6 +6020,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.060838,
@@ -5618,6 +6033,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.087086,
@@ -5630,6 +6046,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.059202,
@@ -5647,6 +6064,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041925,
@@ -5659,6 +6077,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041904,
@@ -5671,6 +6090,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.069705,
@@ -5688,6 +6108,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.019151,
@@ -5700,6 +6121,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.097607,
@@ -5713,6 +6135,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027956,
@@ -5730,6 +6153,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010182,
@@ -5742,6 +6166,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002652,
@@ -5754,6 +6179,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009645,
@@ -5771,6 +6197,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.103571,
@@ -5783,6 +6210,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.081203,
@@ -5795,6 +6223,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.078069,
@@ -5812,6 +6241,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.029612,
@@ -5824,6 +6254,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.16214,
@@ -5836,6 +6267,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.061679,
@@ -5853,6 +6285,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005053,
@@ -5865,6 +6298,7 @@
     },
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007636,
@@ -5877,6 +6311,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.002689,
@@ -5894,6 +6329,7 @@
    "intentos": [
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001533,
@@ -5906,6 +6342,7 @@
     },
     {
      "reward": 0.0,
+     "reward_verificador": 0.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00334,
@@ -5918,6 +6355,7 @@
     },
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014387,
@@ -5935,6 +6373,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005379,
@@ -5947,6 +6386,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004029,
@@ -5959,6 +6399,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003869,
@@ -5976,6 +6417,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.102614,
@@ -5988,6 +6430,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.101861,
@@ -6000,6 +6443,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.086434,
@@ -6017,6 +6461,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.072559,
@@ -6029,6 +6474,7 @@
     },
     {
      "reward": 0.9231,
+     "reward_verificador": 0.9231,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.080419,
@@ -6041,6 +6487,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.059667,
@@ -6058,6 +6505,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003512,
@@ -6070,6 +6518,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003812,
@@ -6082,6 +6531,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005186,
@@ -6099,6 +6549,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.033571,
@@ -6111,6 +6562,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023096,
@@ -6123,6 +6575,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.026276,
@@ -6140,6 +6593,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006845,
@@ -6152,6 +6606,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012617,
@@ -6164,6 +6619,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006929,
@@ -6181,6 +6637,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.162001,
@@ -6193,6 +6650,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.136245,
@@ -6205,6 +6663,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.181489,
@@ -6222,6 +6681,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.094045,
@@ -6234,6 +6694,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.041033,
@@ -6246,6 +6707,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.072244,
@@ -6263,6 +6725,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017508,
@@ -6275,6 +6738,7 @@
     },
     {
      "reward": 0.8,
+     "reward_verificador": 0.8,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011247,
@@ -6287,6 +6751,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011457,
@@ -6304,6 +6769,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.063518,
@@ -6316,6 +6782,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024467,
@@ -6328,6 +6795,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.094815,
@@ -6345,6 +6813,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012217,
@@ -6357,6 +6826,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012815,
@@ -6370,6 +6840,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.019619,
@@ -6388,6 +6859,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.02006,
@@ -6400,6 +6872,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024851,
@@ -6412,6 +6885,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.00489,
@@ -6429,6 +6903,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006745,
@@ -6441,6 +6916,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007034,
@@ -6453,6 +6929,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009473,
@@ -6470,6 +6947,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027362,
@@ -6482,6 +6960,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.020819,
@@ -6494,6 +6973,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.03173,
@@ -6511,6 +6991,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004866,
@@ -6523,6 +7004,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.01262,
@@ -6535,6 +7017,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007319,
@@ -6552,6 +7035,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027015,
@@ -6564,6 +7048,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.028336,
@@ -6576,6 +7061,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014647,
@@ -6593,6 +7079,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009686,
@@ -6605,6 +7092,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.02418,
@@ -6617,6 +7105,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.030382,
@@ -6634,6 +7123,7 @@
    "intentos": [
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.028081,
@@ -6646,6 +7136,7 @@
     },
     {
      "reward": 0.8889,
+     "reward_verificador": 0.8889,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.018239,
@@ -6658,6 +7149,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.035338,
@@ -6675,6 +7167,7 @@
    "intentos": [
     {
      "reward": 0.7778,
+     "reward_verificador": 0.7778,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001345,
@@ -6687,6 +7180,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.000908,
@@ -6699,6 +7193,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001076,
@@ -6715,7 +7210,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004559,
@@ -6727,7 +7223,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.003572,
@@ -6739,7 +7236,8 @@
      "ventana": false
     },
     {
-     "reward": 0.75,
+     "reward": 1.0,
+     "reward_verificador": 0.75,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001811,
@@ -6757,6 +7255,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017513,
@@ -6770,6 +7269,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.021369,
@@ -6785,6 +7285,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.017954,
@@ -6804,6 +7305,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.194089,
@@ -6816,6 +7318,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.079504,
@@ -6828,6 +7331,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.585478,
@@ -6846,6 +7350,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.030489,
@@ -6858,6 +7363,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.028764,
@@ -6870,6 +7376,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.029726,
@@ -6887,6 +7394,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.118724,
@@ -6899,6 +7407,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.642398,
@@ -6911,6 +7420,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.20895,
@@ -6928,6 +7438,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.344568,
@@ -6940,6 +7451,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.201494,
@@ -6952,6 +7464,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.1943,
@@ -6969,6 +7482,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.023681,
@@ -6983,6 +7497,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006664,
@@ -6997,6 +7512,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.008901,
@@ -7014,7 +7530,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.030567,
@@ -7026,7 +7543,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.011961,
@@ -7038,7 +7556,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.024425,
@@ -7055,7 +7574,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.230204,
@@ -7067,7 +7587,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.061439,
@@ -7079,7 +7600,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.750528,
@@ -7098,6 +7620,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.037447,
@@ -7110,6 +7633,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.025233,
@@ -7122,6 +7646,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.045692,
@@ -7138,7 +7663,8 @@
    "marca": "condiciones_mezcladas",
    "intentos": [
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.076234,
@@ -7150,7 +7676,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.033028,
@@ -7162,7 +7689,8 @@
      "ventana": false
     },
     {
-     "reward": 0.625,
+     "reward": 1.0,
+     "reward_verificador": 0.625,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.037554,
@@ -7180,6 +7708,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.628868,
@@ -7192,6 +7721,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.376526,
@@ -7204,6 +7734,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.45782,
@@ -7221,6 +7752,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001612,
@@ -7233,6 +7765,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001428,
@@ -7245,6 +7778,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.001633,
@@ -7262,6 +7796,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.010097,
@@ -7275,6 +7810,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.006004,
@@ -7289,6 +7825,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.007811,
@@ -7308,6 +7845,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004161,
@@ -7320,6 +7858,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005139,
@@ -7332,6 +7871,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.005151,
@@ -7349,6 +7889,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.055017,
@@ -7361,6 +7902,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.31622,
@@ -7373,6 +7915,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.05922,
@@ -7390,6 +7933,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.053498,
@@ -7402,6 +7946,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.040942,
@@ -7414,6 +7959,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.049911,
@@ -7431,6 +7977,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.090434,
@@ -7443,6 +7990,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.096176,
@@ -7455,6 +8003,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.069234,
@@ -7472,6 +8021,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.383372,
@@ -7484,6 +8034,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.334024,
@@ -7496,6 +8047,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.17083,
@@ -7513,6 +8065,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004383,
@@ -7525,6 +8078,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004454,
@@ -7537,6 +8091,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.004471,
@@ -7554,6 +8109,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.014976,
@@ -7566,6 +8122,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.009848,
@@ -7578,6 +8135,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.012453,
@@ -7595,6 +8153,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.031476,
@@ -7607,6 +8166,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.037285,
@@ -7619,6 +8179,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.027029,
@@ -7636,6 +8197,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.193807,
@@ -7648,6 +8210,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.17683,
@@ -7660,6 +8223,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.144365,
@@ -7677,6 +8241,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.062416,
@@ -7689,6 +8254,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.062297,
@@ -7701,6 +8267,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.085989,
@@ -7718,6 +8285,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.146892,
@@ -7730,6 +8298,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.14278,
@@ -7742,6 +8311,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.135634,
@@ -7759,6 +8329,7 @@
    "intentos": [
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.328266,
@@ -7771,6 +8342,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.299834,
@@ -7783,6 +8355,7 @@
     },
     {
      "reward": 1.0,
+     "reward_verificador": 1.0,
      "causa": null,
      "detalle": null,
      "costo_usd": 0.264754,

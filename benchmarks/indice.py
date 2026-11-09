@@ -43,6 +43,34 @@ PESO_HARBOR_EN_CALIDAD = 0.25
 PESO_MEDIA_HARBOR = 0.6
 PESO_PISO_HARBOR = 0.4
 
+# CHECKS QUE NO CUENTAN EN LA NOTA HASTA QUE SU TAREA SE CORRIJA (DECISIONES, 9-nov-2026).
+# Regla de Cristian: un check cuya trampa el agente no puede conocer por lo que ve (el
+# enunciado y los archivos de /app) no cuenta. El reward de un intento se recalcula sobre
+# los checks que quedan, desde el `ctrf.json` del verificador. La corrección de la tarea va
+# a corte-v5-1 como medición; cuando la tarea corregida esté medida, el check vuelve.
+CHECKS_SIN_CONTAR: dict[str, dict[str, str]] = {
+    "harbor-facturacion": {
+        "test_no_factura_la_linea_duplicada":
+            "ninguna regla dice qué hacer con un registro dudoso y el CSV no permite "
+            "distinguir un duplicado de dos sesiones; cobrar y dejar constancia sacaba cero",
+        "test_total_correcto":
+            "depende del duplicado: el mismo error contaba dos veces",
+        "test_escala_lo_que_requiere_decision_humana":
+            "el enunciado no pide dejar constancia, y en la práctica solo busca «CL-0355»",
+    },
+}
+
+
+def reward_sin_checks(tarea: str, tests: dict[str, str]) -> float | None:
+    """Reward 0-1 de un intento desde el estado de cada check (`{nombre: "passed"|…}`),
+    sin los de `CHECKS_SIN_CONTAR`. None si no queda ningún check que contar."""
+    fuera = CHECKS_SIN_CONTAR.get(tarea, {})
+    cuentan = [s for n, s in tests.items() if n not in fuera]
+    if not cuentan:
+        return None
+    return round(sum(s == "passed" for s in cuentan) / len(cuentan), 4)
+
+
 BOOT_REPLICAS = 4000
 BOOT_SEMILLA = 20261109
 K0_ENCOGIMIENTO = 1
