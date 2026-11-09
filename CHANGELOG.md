@@ -5,6 +5,11 @@
 
 ## [No publicado]
 
+### Planificación (sin cambio de versión)
+- **Change `corte-v5-1`** (OpenSpec, rama `corte/v5.1`): lo que salió de v5.0.0, cada tarea con su motivo — ocasiones, recalibración (necesita OK aparte, R8), Terminal-Bench en el Spark, registro y hallazgos de la ventana, y lo anotado para 5.1. Fila del 8-nov en DECISIONES.
+- **5.7: «≈» en la calculadora, después de resolver el grupo de cabeza** (hoy 31 de 70, 44 %, sobre el tope de 20 %): con la banda actual marcaría casi la mitad del ranking como empate. Fila del 9-nov en DECISIONES. La reescritura de AGENTS.md ya estaba como 5.6.
+- **5.7 reemplazada el mismo día y 2.3 nueva**: Cristian decidió que el «≈» llega con el índice v6.0.0 (change `indice-calidad-harbor`), y que Harbor entre al compuesto como componente propio en la recalibración; mientras tanto «ajustado a mis pesos» no ve lo agéntico y lo declara.
+
 ## [v6.0.0] - 2026-11-09 — la calidad incluye las tareas reales de agente (75 % examen + 25 % Harbor; 68 rankeados)
 
 > OK de Cristian para el commit del blog, el release v6.0.0, el push del benchmark y el merge del blog (9-nov-2026), con QA completo en verde.
