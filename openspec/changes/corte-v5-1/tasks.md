@@ -1,3 +1,11 @@
+## 0. Primera prioridad de la próxima ventana: Harbor que separe arriba (DECISIONES, 9-nov-2026)
+
+Con las 4 tareas actuales Harbor funciona como piso: 48 de 68 rankeados superan 4 de 4 y no ordena la cabeza. El peso (25 %) se revisa cuando estas tareas estén medidas, no antes. Es medición: ventana declarada.
+
+- [ ] 0.1 Tareas de Harbor nuevas que hoy no pase la mayoría de los 48 con 4 de 4, cada trampa deducible de lo que el agente ve (`instruction.md` y `/app`). Verificar: muestra antes del lote con al menos 3 de los 48 y su tasa de acierto, auditoría de cada check contra el enunciado y `harbor check` en verde.
+- [ ] 0.2 Corregir `harbor-facturacion`: qué hacer con un registro dudoso, aceptar «cobrar y dejar constancia», el total sin contar doble un mismo error, la constancia pedida en el enunciado y la regla del contrato vencido escrita. Con la tarea corregida medida, sus checks salen de `indice.CHECKS_SIN_CONTAR` y vuelven a contar. Verificar: la solución de referencia y una respuesta «cobra y anota» sacan 1,0; el checksum nuevo descarta los intentos viejos.
+- [ ] 0.3 Sacar el voseo de los enunciados de las 4 tareas («Sos», «tenés», «Cotizá», «Registrá»…). Cambia el checksum: va en el mismo corte que 0.2. Verificar: grep sin voseo en `tareas-agente/*/instruction.md`.
+
 ## 1. Ocasiones (de corte-v5 3.1, 3.3-3.6)
 
 Motivo de salida de v5.0.0: no se construyeron en la ventana; v5.0.0 sale con los pilares y la columna agéntica medidos.
