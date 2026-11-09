@@ -130,6 +130,12 @@ EXTRA_DIMS = [
 ]
 
 
+
+def _cal(m):
+    """La nota de calidad publicada (9-nov-2026: examen + tareas de agente), o «—» sin ella."""
+    q = m.get("score_calidad")
+    return f"{q:.2f}" if q is not None else "—"
+
 def _base_name(name: str) -> str:
     """'Claude Opus 4.8 (suscripción)' -> 'claude opus 4.8'.
 
@@ -325,7 +331,7 @@ def _render_historico(cfg, todos, vigentes):
     rows = "".join(
         f'<tr><td>{enlace_ficha(m, texto=short(m, cfg), bold=bool(m.get("ranked")))}'
         f'{"" if m.get("ranked") else _badge_historico(m)}</td>'
-        f'<td>{(m.get("quality_avg") or 0):.2f}</td>'
+        f'<td>{_cal(m)}</td>'
         f'<td>{pillar(m,"Coding"):.1f}</td><td>{pillar(m,"Contenido"):.1f}</td>'
         f'<td>{pillar(m,"Razonamiento"):.1f}</td><td>{pillar(m,"Agentes"):.1f}</td>'
         f'<td>≈${month(m):,.0f}/mes</td></tr>'
@@ -366,7 +372,7 @@ def render(cfg, models):
         return _render_historico(cfg, todos, vs) if len(todos) >= 2 else None
 
     cheapest, priciest = vs[0], vs[-1]
-    best_q = max(vs, key=lambda m: m.get("quality_avg") or 0)
+    best_q = max(vs, key=lambda m: m.get("score_calidad") or 0)
     today = date.today().isoformat()
     tests_k = fmt_k(get_counts()["total_runs"])
     url = f"{SITE}/{cfg['slug']}/"
@@ -382,7 +388,7 @@ def render(cfg, models):
         tr_cls = ' class="win"' if is_cheap else ""
         rows.append(
             f'<tr{tr_cls}><td>{enlace_ficha(m, texto=short(m, cfg), bold=True)}{badge}</td>'
-            f'<td>{(m.get("quality_avg") or 0):.2f}</td>'
+            f'<td>{_cal(m)}</td>'
             f'<td>{pillar(m,"Coding"):.1f}</td><td>{pillar(m,"Contenido"):.1f}</td>'
             f'<td>{pillar(m,"Razonamiento"):.1f}</td><td>{pillar(m,"Agentes"):.1f}</td>'
             f'<td>≈${month(m):,.0f}/mes</td>'
@@ -390,7 +396,7 @@ def render(cfg, models):
             f'<td>{(m.get("score_global") or 0):.2f}</td></tr>'
         )
 
-    gap = (best_q.get("quality_avg") or 0) - (cheapest.get("quality_avg") or 0)
+    gap = (best_q.get("score_calidad") or 0) - (cheapest.get("score_calidad") or 0)
     times = (month(priciest) / month(cheapest)) if month(cheapest) else None
     tie = abs(gap) <= 0.30
 
@@ -403,13 +409,13 @@ def render(cfg, models):
         <span class="verdict-tag">Empieza por este</span>
         <strong>{esc(short(cheapest, cfg))}</strong>
         <span class="verdict-cost">≈${month(cheapest):,.0f}/mes</span>
-        <span class="verdict-note">calidad {(cheapest.get('quality_avg') or 0):.2f}/10 · {(cheapest.get('latency_avg_s') or 0):.1f}s de respuesta</span>
+        <span class="verdict-note">calidad {_cal(cheapest)}/10 · {(cheapest.get('latency_avg_s') or 0):.1f}s de respuesta</span>
       </div>
       <div class="verdict-card verdict-costly">
         <span class="verdict-tag">El flagship</span>
         <strong>{esc(short(priciest, cfg))}</strong>
         <span class="verdict-cost">≈${month(priciest):,.0f}/mes</span>
-        <span class="verdict-note">calidad {(priciest.get('quality_avg') or 0):.2f}/10 · {(priciest.get('latency_avg_s') or 0):.1f}s. {'La misma calidad, más lento y más caro.' if tie else ''}</span>
+        <span class="verdict-note">calidad {_cal(priciest)}/10 · {(priciest.get('latency_avg_s') or 0):.1f}s. {'La misma calidad, más lento y más caro.' if tie else ''}</span>
       </div>
     </div>
     <p class="verdict-foot">Costos a <strong>3.000 llamadas/mes</strong> (≈100 por día).

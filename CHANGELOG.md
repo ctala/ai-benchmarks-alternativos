@@ -3,7 +3,16 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado]
+## [No publicado] · próximo: mayor
+
+### MAJOR — la calidad incluye tareas reales de agente (índice v6.0.0, examen v5)
+- **Calidad = 75 % examen + 25 % Harbor.** El examen separa poco a los rankeados (desviación 0,27) y las cuatro tareas reales de agente separan mucho (1,87); una nota que no las veía ordenaba por la parte que menos distingue. El peso vive en una constante (`indice.py`) y nadie más la recalcula (`check_indice_calidad`, bloqueante).
+- **El margen incluye el ruido de Harbor** (bootstrap de los intentos por tarea, con la varianza encogida hacia la de la tarea para que acertar 3 de 3 no declare ruido cero). El grupo de cabeza sale de la nota y ese margen.
+- **Todo se ordena por la nota, también dentro del grupo de cabeza** («≈» en vez de puesto, una línea con cuántos son y el margen, el más barato etiquetado). Reemplaza «dentro del grupo, elige por precio»: ordenar por algo distinto a la nota visible confundía.
+- **Sin dato agéntico no rankea** (GPT-OSS 20B y 120B): sin sus tareas no hay nota, y no se inventa la mitad que falta. Conservan su ficha con el motivo.
+- **Compuesto y pilares siguen sobre el examen y se rotulan «Examen»**, sin recalibrar; «ajustado a mis pesos» todavía no ve lo agéntico y lo dice.
+- **El tier es precio**: `cloud_nim` era una ruta y se leía como una categoría de costo; la ruta va aparte.
+- **Los chequeos que leían la fila «1» aceptan «≈».** Con el grupo de cabeza sin puesto, `check_cortes` saltaba el grupo y leía el «1» de la segunda tabla, y C3 dejaba de ver justo a los de arriba. Las dos pruebas de sabotaje van por el mismo patrón; las reviews fechadas se ordenan por la columna que muestran y su línea de método sale del export.
 
 ## [v5.0.0] - 2026-11-08 — el examen v5: proveedor fijo, thinking por peldaño y el trabajo agéntico contado en tareas de Harbor (70 rankeados)
 

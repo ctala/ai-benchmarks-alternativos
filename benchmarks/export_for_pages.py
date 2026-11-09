@@ -28,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from benchmarks import elegibilidad
 from benchmarks import proveedor_fijo as _pf
 from benchmarks import suites as suites_reg
+from benchmarks.indice import es_ruta as _ix_es_ruta, tier_de_precio as _ix_tier
 from benchmarks.config import MODELS as _CLOUD_MODELS
 from benchmarks.models import OLLAMA_MODELS, SUBSCRIPTIONS, renombres as _renombres
 from benchmarks.scoring import compute_final_score, cost_score_log, DEFAULT_WEIGHTS
@@ -270,13 +271,32 @@ def _rasgo_credenciales(runs: list) -> dict | None:
 
 
 def _resumen_cabeza(models_export: list) -> dict:
-    """Cuántos rankeados no se separan del mejor en el índice (`bands.grupo_cabeza`)."""
+    """Cuántos rankeados no se separan del mejor en la nota (`bands.grupo_cabeza`), con el
+    margen y el más barato del grupo: las superficies los leen de acá y no los recalculan
+    (DECISIONES, 9-nov-2026). `margen` es la mediana de `calidad_ci95` dentro del grupo."""
+    from statistics import median
     from benchmarks.bands import grupo_cabeza
     ranked = [m for m in models_export if m.get("ranked")]
     cab = grupo_cabeza(ranked) if ranked else []
+    cis = [m["calidad_ci95"] for m in cab if m.get("calidad_ci95") is not None]
+    con_precio = [m for m in cab if m.get("cost_per_1k_calls_usd") is not None]
+    barato = min(con_precio, key=lambda m: m["cost_per_1k_calls_usd"]) if con_precio else None
     return {"n": len(cab), "de": len(ranked),
             "porcentaje": round(100 * len(cab) / len(ranked)) if ranked else None,
+            "margen": round(median(cis), 2) if cis else None,
+            "mas_barato": ({"key": barato["key"], "name": barato["name"]} if barato else None),
             "claves": [m.get("key") for m in cab]}
+
+
+def _indice_calidad_meta() -> dict:
+    from benchmarks import indice as _ix
+    return {"peso_harbor": _ix.PESO_HARBOR_EN_CALIDAD,
+            "peso_examen": round(1 - _ix.PESO_HARBOR_EN_CALIDAD, 4),
+            "nota_harbor": {"peso_media": _ix.PESO_MEDIA_HARBOR, "peso_piso": _ix.PESO_PISO_HARBOR},
+            "margen": {"metodo": "bootstrap de intentos por tarea con varianza encogida (B)",
+                       "replicas": _ix.BOOT_REPLICAS, "semilla": _ix.BOOT_SEMILLA,
+                       "k0": _ix.K0_ENCOGIMIENTO},
+            "sin_dato_agentico": "fuera del ranking"}
 
 
 def _seguridad_mediana(models_export: list) -> dict:
@@ -291,9 +311,9 @@ def _seguridad_mediana(models_export: list) -> dict:
 def _precio_calidad(models_export: list) -> dict:
     """Correlación de Pearson entre el precio por mil llamadas y la calidad, sobre los
     rankeados. `r2_pct` es la parte de la diferencia de calidad que explica el precio."""
-    ps = [(m["cost_per_1k_calls_usd"], m["quality_avg"]) for m in models_export
+    ps = [(m["cost_per_1k_calls_usd"], m["score_calidad"]) for m in models_export
           if m.get("ranked") and m.get("cost_per_1k_calls_usd") is not None
-          and m.get("quality_avg") is not None]
+          and m.get("score_calidad") is not None]
     if len(ps) < 3:
         return {"pearson": None, "r2_pct": None, "de": len(ps)}
     n = len(ps)
@@ -1370,7 +1390,9 @@ def build_export(recalibrate=False, scoring_version=None):
             "key": cfg_key,
             "id": model_id,
             "name": cfg.get("name", cfg_key),
-            "tier": cfg.get("tier", "?"),
+            # 9-nov-2026: el tier es PRECIO. `cloud_nim` y compañía son rutas y van en `ruta`.
+            "tier": _ix_tier(cfg.get("tier"), cfg.get("cost_input"), cfg.get("cost_output")),
+            "ruta": cfg.get("tier") if _ix_es_ruta(cfg.get("tier")) else None,
             "provider": cfg.get("provider", "openrouter"),
             "open_source": cfg.get("open_source", False),
             "license": cfg.get("license", ""),
@@ -1661,7 +1683,8 @@ def build_export(recalibrate=False, scoring_version=None):
 
     # ── ÍNDICE DE CALIDAD — el titular desde v4.1 ────────────────────────────────
     # Decisión de Cristian, 13-ago-2026 (PLAN-V4.1.md §3). Se publican DOS ejes:
-    #   score_calidad  → "¿qué modelo es mejor?"      solo quality_avg
+    #   score_calidad  → "¿qué modelo es mejor?"      solo quality_avg (hasta v5; desde
+    #                    v6.0.0, 75 % examen + 25 % Harbor, ver `indice.py` y más abajo)
     #   score_global   → "¿qué me conviene pagar?"    el compuesto 70/15/7,5/7,5
     # Costo, velocidad y latencia se muestran COMO COLUMNAS al lado del índice de
     # calidad, nunca dentro de él. Es lo que hace Artificial Analysis.
@@ -1698,33 +1721,8 @@ def build_export(recalibrate=False, scoring_version=None):
     # modelos solos y sin cambiarle el significado al número.
     for m in models_export:
         q = m.get("quality_avg")
-        m["score_calidad"] = None if q is None else round(q, 2)
-
-    # ── FRONTERA DE PARETO — el segundo eje publicado ────────────────────────────
-    # Un modelo está en la frontera si NINGÚN otro es a la vez mejor, más barato Y
-    # más rápido. Todo lo que queda fuera está estrictamente dominado: existe algo
-    # que le gana en las tres cosas.
-    #
-    # Por qué esto y no una segunda tabla de "mejor valor" (corrección del 13-ago):
-    # el compuesto 70/15/7,5/7,5 correlaciona **r = 0,943** con el índice de calidad
-    # — 6 de 10 del top compartido, 2 modelos que no se mueven ni un puesto. Eran dos
-    # tablas para decir casi lo mismo. La causa es de diseño: el costo aporta ±0,30 al
-    # z compuesto contra ±1,3 de la calidad, así que el precio casi no mueve el orden.
-    # La frontera, en cambio, deja fuera a 69 de 82: información nueva, no una
-    # reordenación de la misma lista. Y responde la pregunta que el ranking no puede,
-    # que es "¿cuáles vale la pena siquiera considerar?".
-    _PARETO_DIMS = [("score_calidad", True), ("cost_per_1k_calls_usd", False),
-                    ("latency_avg_s", False)]
-    _cands = [m for m in models_export
-              if m.get("ranked") and all(m.get(c) is not None for c, _ in _PARETO_DIMS)]
-    for m in models_export:
-        m["pareto"] = False
-    for m in _cands:
-        dominado = any(
-            all((o[c] > m[c]) if hi else (o[c] < m[c]) for c, hi in _PARETO_DIMS)
-            for o in _cands
-        )
-        m["pareto"] = not dominado
+        m["nota_examen"] = None if q is None else round(q, 2)
+        m["score_calidad"] = None  # desde v6.0.0 la pone `indice.calidad`, después de Harbor
 
     # ── DIMENSIÓN AGÉNTICA — reward de tareas reales, FUERA del índice ───────────
     # Qué es: la tarea corre dentro de un agente de verdad (Harbor + mini-swe-agent),
@@ -1751,6 +1749,7 @@ def build_export(recalibrate=False, scoring_version=None):
     # (la lista vive en `_FIRST_PARTY`, a nivel de módulo, para que `aplicar_reemplazos`
     # lea el Harbor de un modelo con la MISMA regla.)
     _agentico = _cargar_agentico()
+    _harbor_crudo: dict = {}
 
     # Un modelo NO SIRVE en un agente si en alguna tarea quedó sin poder ejecutarla por
     # razones del modelo o de su disponibilidad. Es un filtro duro, no un puntaje: para
@@ -1789,6 +1788,7 @@ def build_export(recalibrate=False, scoring_version=None):
             m["sirve_para_agentes"] = None
             continue
         _r = _harbor_de(m, _agentico)
+        _harbor_crudo[id(m)] = _r
         if not _r:
             m["agentico"] = None
             m["sirve_para_agentes"] = None
@@ -1826,6 +1826,52 @@ def build_export(recalibrate=False, scoring_version=None):
         if _mal and _ok:
             m["agentico"]["falla_en"] = sorted(_mal)
 
+    # ── LA NOTA DE CALIDAD DESDE v6.0.0: 75 % examen + 25 % Harbor ───────────────────
+    # DECISIONES, 9-nov-2026 (Cristian). La definición entera vive en `indice.py`; acá
+    # solo se aplica. Un modelo sin dato agéntico sale del ranking con su motivo: la nota
+    # no se puede calcular y no se inventa la mitad que falta.
+    from benchmarks import indice as _ix
+    _var_pool = _ix.varianza_agrupada([_harbor_crudo.get(id(m)) for m in models_export
+                                       if m.get("ranked") and _harbor_crudo.get(id(m))])
+    for m in models_export:
+        if (m.get("agentico") or {}).get("sin_dato"):
+            m["ranked"] = False
+            m["fuera_del_ranking"] = "sin_dato_agentico"
+        _r = _harbor_crudo.get(id(m))
+        _h = _ix.nota_harbor(_r) if _r else None
+        _se = _ix.se_harbor(_r, _var_pool) if _r else None
+        _q, _ci = _ix.calidad(m.get("quality_avg"), m.get("quality_ci95"), _h, _se)
+        m["nota_harbor"] = None if _h is None else round(_h, 2)
+        m["nota_harbor_se"] = None if _se is None else round(_se, 3)
+        m["score_calidad"] = None if _q is None else round(_q, 2)
+        m["calidad_ci95"] = None if _ci is None else round(_ci, 3)
+
+    # ── FRONTERA DE PARETO — el segundo eje publicado ────────────────────────────
+    # Un modelo está en la frontera si NINGÚN otro es a la vez mejor, más barato Y
+    # más rápido. Todo lo que queda fuera está estrictamente dominado: existe algo
+    # que le gana en las tres cosas.
+    #
+    # Por qué esto y no una segunda tabla de "mejor valor" (corrección del 13-ago):
+    # el compuesto 70/15/7,5/7,5 correlaciona **r = 0,943** con el índice de calidad
+    # — 6 de 10 del top compartido, 2 modelos que no se mueven ni un puesto. Eran dos
+    # tablas para decir casi lo mismo. La causa es de diseño: el costo aporta ±0,30 al
+    # z compuesto contra ±1,3 de la calidad, así que el precio casi no mueve el orden.
+    # La frontera, en cambio, deja fuera a 69 de 82: información nueva, no una
+    # reordenación de la misma lista. Y responde la pregunta que el ranking no puede,
+    # que es "¿cuáles vale la pena siquiera considerar?".
+    _PARETO_DIMS = [("score_calidad", True), ("cost_per_1k_calls_usd", False),
+                    ("latency_avg_s", False)]
+    _cands = [m for m in models_export
+              if m.get("ranked") and all(m.get(c) is not None for c, _ in _PARETO_DIMS)]
+    for m in models_export:
+        m["pareto"] = False
+    for m in _cands:
+        dominado = any(
+            all((o[c] > m[c]) if hi else (o[c] < m[c]) for c, hi in _PARETO_DIMS)
+            for o in _cands
+        )
+        m["pareto"] = not dominado
+
     # ── EL VEREDICTO DE ELEGIBILIDAD, decidido UNA vez y grabado en el dato ──
     #
     # Antes cada superficie decidía por su cuenta si un modelo se podía recomendar: 76
@@ -1857,7 +1903,7 @@ def build_export(recalibrate=False, scoring_version=None):
     # Sort: ranked (muestra solida) primero, luego tested, luego score desc.
     # Asi cualquier consumidor que tome los primeros N del array obtiene un
     # ranking valido sin tener que conocer los umbrales.
-    models_export.sort(key=lambda m: (not m["ranked"], not m["tested"], -(m.get("score_global") or 0)))
+    models_export.sort(key=lambda m: (not m["ranked"], not m["tested"], -(m.get("score_calidad") or 0)))
 
     _runs_active, _runs_discarded = count_runs_measured()
 
@@ -1869,6 +1915,9 @@ def build_export(recalibrate=False, scoring_version=None):
         # El grupo de cabeza del índice y el rasgo de credenciales, sobre los RANKEADOS. Los
         # textos públicos leen estas cifras; nunca se escriben a mano (Cristian, 7-nov-2026).
         "grupo_cabeza": _resumen_cabeza(models_export),
+        # 9-nov-2026: cómo se compone la nota de calidad. Las superficies leen el peso de
+        # acá (la calculadora rellena el texto); ninguna lo tiene escrito como cifra propia.
+        "indice_calidad": _indice_calidad_meta(),
         "rasgo_credenciales": _resumen_rasgo(models_export),
         "seguridad_mediana": _seguridad_mediana(models_export),
         "precio_calidad": _precio_calidad(models_export),

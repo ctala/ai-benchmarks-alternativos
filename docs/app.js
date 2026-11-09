@@ -209,9 +209,17 @@ async function load() {
   // Es exactamente lo que la regla del repo prohíbe («nunca escribir un score a mano en
   // un doc vivo»), en la página más visitada del sitio y con un texto que se lee como
   // metodología. Ahora no se puede desincronizar: no existe la cifra fija.
-  const _rk = state.data.models.filter(m => m.ranked && m.quality_avg != null);
+  // 9-nov-2026: el rango es de la nota de calidad publicada (examen + tareas de agente).
+  const _rk = state.data.models.filter(m => m.ranked && m.score_calidad != null);
+  // El peso de Harbor dentro de la calidad sale del export: aquí no hay copia del número.
+  const _ic = state.data.indice_calidad || {};
+  if (_ic.peso_harbor != null) {
+    const ph = Math.round(_ic.peso_harbor * 100);
+    document.querySelectorAll(".peso-harbor").forEach(el => { el.textContent = ph; });
+    document.querySelectorAll(".peso-examen").forEach(el => { el.textContent = 100 - ph; });
+  }
   if (_rk.length) {
-    const qs = _rk.map(m => m.quality_avg).sort((a, b) => a - b);
+    const qs = _rk.map(m => m.score_calidad).sort((a, b) => a - b);
     const n1 = qs[0].toFixed(2).replace(".", ",");
     const n2 = qs[qs.length - 1].toFixed(2).replace(".", ",");
     ["rk-n", "rk-n2"].forEach(id => {
@@ -584,7 +592,8 @@ function getScore(model, taskKey, subtaskKey) {
   // es exactamente el modo de falla que no se nota. Lo reportó Cristian; lo caza
   // ahora `qa_calculadora.mjs`.
   // Se devuelve el valor CRUDO, a propósito: es la escala absoluta que v4.1 adoptó
-  // (`score_calidad` = `quality_avg` sin z-scorear) porque el z-score estiraba 1,39
+  // (`score_calidad`: desde v6.0.0, 75 % examen + 25 % tareas de agente, del export; antes era
+  // `quality_avg` sin z-scorear) porque el z-score estiraba 1,39
   // puntos reales a 8 publicados. Z-scorear la suite acá lo reintroduciría por la
   // puerta de atrás — probado: arreglaba `tool_calling` y rompía `structured_output`,
   // donde todos puntúan alto y juntos, mostrando como mediocre a un eje en el que
@@ -894,7 +903,10 @@ function fmtCtx(tokens) {
 function notRankedBadge(m) {
   if (m.ranked) return "";
   let label, title;
-  if (m.historico) {
+  if (m.fuera_del_ranking === "sin_dato_agentico") {
+    label = "sin dato agéntico";
+    title = "Sin tareas de agente medidas: la nota de calidad incluye esas tareas (25 %), así que sin ellas no hay nota ni puesto.";
+  } else if (m.historico) {
     label = `histórico · ${(m.era || {}).era || "?"}`;
     title = `Rindió el examen completo antes de la ventana de v5 (${(m.era || {}).etiqueta || "fecha desconocida"}). Otra versión del harness: no compite con el ranking v5.`;
   } else if (m.provider === "claude_code") {
@@ -1238,7 +1250,8 @@ function render() {
   } else if (f.task === "score_calidad") {
     taskLabel = "Calidad";
   } else if (f.task !== "score_global") {
-    taskLabel = f.task;
+    // 9-nov-2026: un pilar es solo examen; «Calidad» es la nota con las tareas de agente.
+    taskLabel = `Examen de ${f.task}`;
   }
 
   // Costo-beneficio: clasifica cada modelo según su eficiencia (score² / costo)
@@ -1331,7 +1344,23 @@ function render() {
   // Sorting custom del usuario (si seleccionó una columna haciendo click en header)
   const sorted = applySort(top);
 
-  const html = `
+  // GRUPO DE CABEZA (9-nov-2026). En la vista por defecto —la nota de calidad, sin eje ni
+  // orden propio— los que el benchmark no separa del mejor llevan «≈» en vez de puesto, el
+  // más barato del grupo lleva su etiqueta y una línea arriba dice cuántos son y el margen.
+  // Todo sale de `grupo_cabeza` del export: aquí no se recalcula nada.
+  const cab = state.data.grupo_cabeza || {};
+  const vistaNota = f.task === "score_calidad" && !f.subtask && !state.sort.column;
+  const enCab = new Set(vistaNota ? (cab.claves || []) : []);
+  const baratoCab = vistaNota ? (cab.mas_barato || {}).key : null;
+  const fmtN = v => (v == null ? "?" : Number(v).toFixed(2).replace(".", ","));
+  const lineaCab = vistaNota && cab.n
+    ? `<p class="linea-cabeza" data-grupo-n="${cab.n}" data-grupo-margen="${cab.margen}">El benchmark no separa a estos <strong>${cab.n}</strong> de ${cab.de} rankeados (margen de error ±${fmtN(cab.margen)}): llevan «≈» en vez de puesto. Dentro del grupo, el más barato es <strong>${(cab.mas_barato || {}).name || "—"}</strong>.</p>`
+    : "";
+  const notaAjustada = f.task === "score_global"
+    ? `<p class="linea-cabeza limitacion">«Ajustado a mis pesos» combina el examen, el costo, la velocidad y la latencia. <strong>No ve el trabajo agéntico</strong>: las tareas reales de agente todavía no son un componente de este puntaje (limitación conocida, se corrige con la recalibración).</p>`
+    : "";
+
+  const html = `${lineaCab}${notaAjustada}
     <table class="results-table">
       <thead>
         <tr>
@@ -1339,7 +1368,7 @@ function render() {
           <th>Modelo</th>
           <th class="num sortable" onclick="toggleSort('final')" title="Click para ordenar">Score ${taskLabel} ${sortIndicator("final")}</th>
           ${showComponents ? `
-            <th class="num sortable" onclick="toggleSort('quality')" title="Quality (70% del score global por default): score automático + LLM-as-Judge Phi-4. 10 = excelente, 0 = malo. Click para ordenar">Quality ${sortIndicator("quality")}</th>
+            <th class="num sortable" onclick="toggleSort('quality')" title="Examen (70% del score ajustado por default): score automático + LLM-as-Judge Phi-4. No incluye las tareas reales de agente. Click para ordenar">Examen ${sortIndicator("quality")}</th>
             <th class="num sortable" onclick="toggleSort('cost')" title="Cost score (15% por default): INVERSO al precio — 10 = gratis o muy barato, 5 = $0.01/call, 2 = $0.10/call, 0 = $1.00+/call. Más alto = más barato. Click para ordenar">Costo↓ ${sortIndicator("cost")}</th>
             <th class="num sortable" onclick="toggleSort('tools')" title="Tool calling (badge, no pondera el score global): adherencia al schema OpenAI tools. 10 = perfecto, 7 = N/A (test sin tools). Click para ordenar">Tools ${sortIndicator("tools")}</th>
           ` : ""}
@@ -1353,10 +1382,10 @@ function render() {
       <tbody>
         ${sorted.map((m, i) => `
           <tr class="fila-modelo" onclick="toggleFicha(${i})" title="Click para ver velocidad, latencia, seguridad y por qué quedó acá">
-            <td class="num n-fila"><span class="chev" aria-hidden="true">▸</span>${i + 1}</td>
+            <td class="num n-fila"><span class="chev" aria-hidden="true">▸</span>${enCab.has(m.key) ? "≈" : i + 1}</td>
             <td>
-              <span class="model-name">${m.name}</span>${notRankedBadge(m)}
-              <div class="model-meta">${modelTags(m)} · ${m.id}</div>
+              <span class="model-name">${m.name}</span>${notRankedBadge(m)}${m.key === baratoCab ? ` <span class="ctx-badge" data-mas-barato="1">el más barato del grupo</span>` : ""}
+              <div class="model-meta">${modelTags(m)} · ${m.id}${m.provider ? ` · ruta: ${m.provider}` : ""}</div>
             </td>
             <td class="num">${scorePill(m._task_score)}</td>
             ${showComponents ? `
@@ -1751,7 +1780,7 @@ function wizResult() {
   }
   const top = scored[0].m;
   // alternativa más barata con calidad >= 8 (la tesis: no pagues de más)
-  const cheap = scored.map(x => x.m).filter(m => (m.quality_avg || 0) >= 8 && m.name !== top.name)
+  const cheap = scored.map(x => x.m).filter(m => (m.score_calidad || 0) >= 8 && m.name !== top.name)
     .sort((a, c) => (a.cost_input_per_M ?? 999) - (c.cost_input_per_M ?? 999))[0];
 
   const price = (m) => m.cost_input_per_M != null ? `$${m.cost_input_per_M}/M in` : "—";
@@ -1759,7 +1788,7 @@ function wizResult() {
   const badges = (m) => [
     m.open_source ? `<span class="wiz-bdg os">Open source</span>` : "",
     `<span class="wiz-bdg price">${price(m)}</span>`,
-    `<span class="wiz-bdg q">Calidad ${m.quality_avg ?? "—"}/10</span>`,
+    `<span class="wiz-bdg q">Calidad ${m.score_calidad ?? "—"}/10</span>`,
   ].join("");
 
   const taskLabel = t.id === "general" ? "uso general" : t.ot.toLowerCase();
@@ -1832,13 +1861,13 @@ function wizResult() {
           <div><div class="k">Velocidad</div><div class="v">${Math.round(top.tokens_per_second || 0)} <small>tok/s</small></div></div>
           <div><div class="k">Espera</div><div class="v${(top.latency_avg_s || 0) > 30 ? " lento" : ""}">${
             top.latency_avg_s == null ? "—" : (+top.latency_avg_s).toFixed(1)} <small>s</small></div></div>
-          <div><div class="k">Calidad</div><div class="v">${top.quality_avg ?? "—"}</div></div>
+          <div><div class="k">Calidad</div><div class="v">${top.score_calidad ?? "—"}</div></div>
         </div>
       </div>
       ${cheap ? `
       <div class="wiz-deeper" style="border-color:rgba(0,212,255,.28)">
         <div class="dh" style="color:var(--cyan)">💡 Si quieres gastar menos (misma tesis: la calidad top no cuesta caro)</div>
-        <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.quality_avg}/10 a ${price(cheap)} <span class="ar">→</span></a>
+        <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.score_calidad}/10 a ${price(cheap)} <span class="ar">→</span></a>
       </div>` : ""}
       <button class="wiz-restart arriba" type="button"
               onclick="document.getElementById('wiz-restart').click()">↺ Probar con otro caso</button>

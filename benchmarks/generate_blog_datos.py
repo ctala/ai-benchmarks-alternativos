@@ -73,8 +73,9 @@ def _usd(x) -> str:
 
 
 def rankeados(data: dict) -> list[dict]:
-    return sorted([m for m in data["models"] if m.get("ranked")],
-                  key=lambda m: -(m.get("quality_avg") or 0))
+    # 9-nov-2026: por la nota de calidad publicada (examen + Harbor), la misma del sitio.
+    return sorted([m for m in data["models"] if m.get("ranked") and m.get("score_calidad") is not None],
+                  key=lambda m: -m["score_calidad"])
 
 
 def dato(m: dict, campo: str, orden: list[dict]) -> str:
@@ -91,6 +92,8 @@ def dato(m: dict, campo: str, orden: list[dict]) -> str:
                              f"Un post no puede citar una nota que no existe.")
         return _num(v)
     if campo == "calidad":
+        return _num(m["score_calidad"])
+    if campo == "examen":
         return _num(m["quality_avg"])
     if campo == "precio1k":
         return _usd(m["cost_per_1k_calls_usd"])
@@ -120,18 +123,18 @@ def dato(m: dict, campo: str, orden: list[dict]) -> str:
         return f"{ok} de {n}"
     if campo == "seguridad":
         return _num(m["security_score"]) if m.get("security_score") is not None else "—"
-    raise SystemExit(f"ERROR: campo desconocido «{campo}» (calidad, precio1k, posicion, "
+    raise SystemExit(f"ERROR: campo desconocido «{campo}» (calidad, examen, precio1k, posicion, "
                      f"puesto_compuesto, compuesto, velocidad, contexto, seguridad, harbor)")
 
 
 # Cada eje es una pregunta que un post le hace al ranking: «¿quién manda hoy en esto?».
 # La clave es que la respuesta salga del dato, no de la memoria de quien escribió el post.
 EJES = {
-    "calidad":   lambda ms: max(ms, key=lambda m: m["quality_avg"]),
+    "calidad":   lambda ms: max(ms, key=lambda m: m["score_calidad"]),
     "compuesto": lambda ms: max(ms, key=lambda m: m["score_global"]),
     "barato":    lambda ms: min(ms, key=lambda m: m["cost_per_1k_calls_usd"]),
     "abierto":   lambda ms: max([m for m in ms if m.get("open_source")],
-                                key=lambda m: m["quality_avg"]),
+                                key=lambda m: m["score_calidad"]),
     "codigo":    lambda ms: max([m for m in ms if (m.get("quality_by_suite") or {}).get("code_generation")],
                                 key=lambda m: m["quality_by_suite"]["code_generation"]),
     "seguridad": lambda ms: max([m for m in ms if m.get("security_score") is not None],
@@ -215,7 +218,7 @@ def vigente(eje: str, ms: list[dict]) -> str:
         return f"{m['name']} ({_num(m['security_score'])})"
     if eje == "harbor_barato":
         return f"{m['name']} ({_usd(m['cost_per_1k_calls_usd'])})"
-    return f"{m['name']} ({_num(m['quality_avg'])})"
+    return f"{m['name']} ({_num(m['score_calidad'])})"
 
 
 def global_(campo: str, data: dict) -> str:

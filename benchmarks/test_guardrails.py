@@ -278,7 +278,7 @@ def _t_cortes():
         return False  # control verde (corte-v5 1.10: no lo tenía)
     with Sabotaje(pg):
         import re as _re
-        pg.write_text(_re.sub(r"(<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?)[^<]+",
+        pg.write_text(_re.sub(r"(<tr><td>(?:1|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?)[^<]+",
                               r"\1Modelo Inventado", pg.read_text(encoding="utf-8"), count=1),
                       encoding="utf-8")
         return _correr("check_cortes.py") != 0
@@ -305,7 +305,8 @@ def _t_cortes_c3():
         return False
     with Sabotaje(pg):
         t = pg.read_text(encoding="utf-8")
-        roto = t.replace("<tr><td>1</td>", f"<tr><td>99</td><td>{no_apto}</td></tr><tr><td>1</td>", 1)
+        import re as _re  # la primera fila es «1» o «≈» (grupo de cabeza, v6.0.0)
+        roto = _re.sub(r"<tr><td>(1|≈)</td>", lambda x: f"<tr><td>99</td><td>{no_apto}</td></tr>{x[0]}", t, count=1)
         if roto == t:
             raise AssertionError(f"{cfg['slug']} no tiene fila #1: el sabotaje no tocaría nada")
         pg.write_text(roto, encoding="utf-8")
@@ -2100,6 +2101,67 @@ def _t_omitidas():
         return False
     _, code = resumen([("a", "falla", "x"), ("b", "omitida", "x")])
     return code != 0
+
+
+# ── check_indice_calidad: la nota v6 tiene una definición (9-nov-2026) ──────────────
+@prueba("check_indice_calidad", "una nota recalculada con otro peso, una cifra del grupo a mano, "
+        "un sin dato agéntico en un orden por la nota, un tier que es ruta")
+def _t_indice_calidad():
+    import copy
+    sys.path.insert(0, str(ROOT))
+    from benchmarks import check_indice_calidad as ci
+    data, readme, html, fuentes, paginas = ci.leer_todo()
+    # control: con el árbol real, verde (y leyendo datos de verdad)
+    if ci.revisar(data, readme, html, fuentes, paginas):
+        return False
+    if not any(m.get("score_calidad") is not None for m in data["models"]):
+        return False
+    rk = [m for m in data["models"] if m.get("ranked")]
+    sin = [m for m in data["models"] if (m.get("agentico") or {}).get("sin_dato")]
+    if not rk or not sin:
+        return False  # sin un sin-dato real, I5 no tendría a quién mirar
+    # De punta a punta, por el script real que corre qa.py: control verde y un README con el
+    # N del grupo escrito a mano (el fallo más probable al editar texto) tiene que salir rojo.
+    if _correr("check_indice_calidad.py") != 0:
+        return False
+    with Sabotaje(ROOT / "README.md"):
+        r = ROOT / "README.md"
+        t = r.read_text(encoding="utf-8")
+        roto = re.sub(r"no separa a estos (\*{0,2})(\d+)",
+                      lambda x: f"no separa a estos {x[1]}{int(x[2]) + 1}", t, count=1)
+        if roto == t:
+            raise AssertionError("el README no tiene la línea del grupo: el sabotaje no tocaría nada")
+        r.write_text(roto, encoding="utf-8")
+        if _correr("check_indice_calidad.py") == 0:
+            return False
+    casos = []
+    # I1: una nota publicada que no sale de la fórmula (otro peso)
+    d = copy.deepcopy(data); m = next(x for x in d["models"] if x.get("ranked"))
+    m["score_calidad"] = round(0.5 * m["quality_avg"] + 0.5 * m["nota_harbor"], 2)
+    casos.append(ci.i1_nota(d["models"]))
+    # I2: app.js combina examen y Harbor por su cuenta, y un generador define el peso
+    f = dict(fuentes); f["docs/app.js"] += "\nconst q = 0.8 * m.quality_avg + 0.2 * m.nota_harbor;\n"
+    casos.append(ci.i2_peso_unico(f))
+    f = dict(fuentes); f["benchmarks/generate_rankings.py"] += "\nPESO_HARBOR_EN_CALIDAD = 0.3\n"
+    casos.append(ci.i2_peso_unico(f))
+    # I3: el HTML estático con otro peso
+    casos.append(ci.i3_html(data, html.replace('class="peso-harbor">25<', 'class="peso-harbor">30<')))
+    # I4: el README con un N escrito a mano, y un más barato que no es el más barato
+    casos.append(ci.i4_grupo(data, re.sub(r"no separa a estos (\d+) de",
+                                          lambda x: f"no separa a estos {int(x[1]) + 1} de", readme)))
+    d = copy.deepcopy(data); d["grupo_cabeza"]["mas_barato"] = {"key": d["grupo_cabeza"]["claves"][0], "name": "x"}
+    casos.append(ci.i4_grupo(d, readme))
+    # I5: un sin dato agéntico que rankea, y otro listado en una tabla «Calidad»
+    d = copy.deepcopy(data); x = next(y for y in d["models"] if y["key"] == sin[0]["key"])
+    x["ranked"], x["score_calidad"] = True, 8.0
+    casos.append(ci.i5_sin_dato(d, readme, {}))
+    pag = {"docs/x/index.html": ('<table><tr><th scope="col">Calidad</th></tr>'
+                                 f'<tr><td><a href="/modelo/{sin[0]["key"]}/">x</a></td></tr></table>')}
+    casos.append(ci.i5_sin_dato(data, readme, pag))
+    # I6: un tier que es una ruta
+    d = copy.deepcopy(data); d["models"][0]["tier"] = "cloud_nim"
+    casos.append(ci.i6_tier(d))
+    return all(bool(c) for c in casos)
 
 
 def main() -> int:

@@ -61,9 +61,9 @@ def usd(x) -> str:
 
 
 def rankeados(data: dict) -> list[dict]:
-    """Por índice de calidad, que es el titular desde v4.1 — no por el compuesto."""
-    return sorted([m for m in data["models"] if m.get("ranked")],
-                  key=lambda m: -(m.get("quality_avg") or 0))
+    """Por la nota de calidad publicada (desde v6.0.0: 75 % examen + 25 % Harbor)."""
+    return sorted([m for m in data["models"] if m.get("ranked") and m.get("score_calidad") is not None],
+                  key=lambda m: -m["score_calidad"])
 
 
 # 8-nov-2026 (Cristian): no se corona dentro del ruido. Las filas del grupo de cabeza
@@ -73,7 +73,7 @@ EMPATE = "≈"
 
 
 def _fila(pos: str, m: dict, ultima_col: str) -> str:
-    celdas = [m["name"], f"{m['quality_avg']:.2f}", usd(m.get("cost_per_1k_calls_usd")),
+    celdas = [m["name"], f"{m['score_calidad']:.2f}", usd(m.get("cost_per_1k_calls_usd")),
               ultima_col]
     return "| " + " | ".join([pos] + celdas) + " |"
 

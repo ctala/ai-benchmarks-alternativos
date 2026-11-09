@@ -146,12 +146,12 @@ def main():
                  if not is_local(m)
                  and m.get("cost_per_1k_calls_usd") is not None
                  and m["cost_per_1k_calls_usd"] * CALLS / 1000 <= techo
-                 and m.get("quality_avg") is not None]
+                 and m.get("score_calidad") is not None]
         if not cands:
             continue
-        best = max(cands, key=lambda m: m["quality_avg"])
+        best = max(cands, key=lambda m: m["score_calidad"])
         cost = best["cost_per_1k_calls_usd"] * CALLS / 1000
-        A(f"| {etiqueta} | **{best['name']}** | {best['quality_avg']:.2f} | ≈${cost:,.0f}/mes |")
+        A(f"| {etiqueta} | **{best['name']}** | {best['score_calidad']:.2f} | ≈${cost:,.0f}/mes |")
     A("")
 
     # El dato que resume todo el proyecto.

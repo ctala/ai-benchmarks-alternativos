@@ -124,7 +124,7 @@ def row_for_model(m: dict, score_key: str = "score_calidad") -> str:
     )
 
 
-def table_header(title: str) -> list[str]:
+def table_header(title: str, columna: str = "Calidad") -> list[str]:
     return [
         f"#### {title}",
         "",
@@ -135,7 +135,7 @@ def table_header(title: str) -> list[str]:
         "(sin endpoint con herramientas, o no sostiene el bucle). "
         "Ver [tareas-agente/RESULTADOS.md](tareas-agente/RESULTADOS.md).",
         "",
-        "| Modelo | OS | $ in/out | Calidad | Frontera | Runs | Per-model MD | Responses |",
+        f"| Modelo | OS | $ in/out | {columna} | Frontera | Runs | Per-model MD | Responses |",
         "|---|---|---:|---:|:-:|---:|---|---|",
     ]
 
@@ -154,7 +154,7 @@ def build_global_table(models: list[dict]) -> str:
 
 
 def build_quality_table(models: list[dict]) -> str:
-    lines = table_header("Mejor calidad pura (sin considerar costo ni velocidad)")
+    lines = table_header("Mejor examen (sin las tareas de agente ni costo ni velocidad)", "Examen")
     for m in sorted(models, key=lambda x: -(x.get("quality_avg") or -1)):
         lines.append(row_for_model(m, "quality_avg"))
     return "\n".join(lines)
@@ -166,7 +166,8 @@ def build_suite_table(models: list[dict], suites: list[str], title: str) -> str:
         vals = [by_suite.get(s) for s in suites if by_suite.get(s) is not None]
         return sum(vals) / len(vals) if vals else -1
 
-    lines = table_header(title)
+    # 9-nov-2026: una tabla por suites es solo examen; «Calidad» es la nota con Harbor.
+    lines = table_header(title, "Examen")
     for m in sorted(models, key=lambda x: -score(x)):
         s = score(m)
         if s < 0:
@@ -257,7 +258,7 @@ def build_subscription_table(models: list[dict]) -> str:
         "tabla principal (la latencia por CLI es 2.5-4× peor y no es del modelo). Sirven para "
         "la pregunta de quien ya paga el plan: *¿qué modelo uso dentro de mi suscripción?*",
         "",
-        "| Modelo | Calidad (piso) | Velocidad | Runs | Per-model MD | Responses |",
+        "| Modelo | Examen (piso) | Velocidad | Runs | Per-model MD | Responses |",
         "|---|---:|---:|---:|---|---|",
     ]
     for m in sorted(models, key=lambda x: -(x.get("quality_avg") or -1)):

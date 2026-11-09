@@ -87,7 +87,7 @@ def snapshot(ref: str | None) -> dict:
 
 def _puestos(snap: dict) -> dict:
     rank = sorted((m for m in snap.values() if m.get("ranked")),
-                  key=lambda x: -(x.get("quality_avg") or 0))
+                  key=lambda x: -(x.get("score_calidad") or 0))
     return {m["key"]: i for i, m in enumerate(rank, 1)}
 
 
@@ -148,7 +148,7 @@ def construir(a: dict, b: dict, umbral: float) -> list[str]:
     # más larga. El puesto es relativo a quién más hay; la nota es del modelo.
     movs = []
     for k in set(pa) & set(pb):
-        d = (b[k].get("quality_avg") or 0) - (a[k].get("quality_avg") or 0)
+        d = (b[k].get("score_calidad") or 0) - (a[k].get("score_calidad") or 0)
         if abs(d) >= umbral:
             movs.append((k, d))
     if movs:
@@ -157,7 +157,7 @@ def construir(a: dict, b: dict, umbral: float) -> list[str]:
         for k, d in sorted(movs, key=lambda t: pb[t[0]]):
             flecha = "↑" if pb[k] < pa[k] else "↓" if pb[k] > pa[k] else "="
             L += [f"| {b[k]['name']} | #{pa[k]} → **#{pb[k]}** {flecha} | "
-                  f"{a[k].get('quality_avg'):.2f} → {b[k].get('quality_avg'):.2f} ({d:+.2f}) |"]
+                  f"{a[k].get('score_calidad'):.2f} → {b[k].get('score_calidad'):.2f} ({d:+.2f}) |"]
         L += [""]
 
     # ── 4. Entraron ──────────────────────────────────────────────────────────
@@ -165,9 +165,9 @@ def construir(a: dict, b: dict, umbral: float) -> list[str]:
     if nuevos:
         L += ["### 🆕 Modelos nuevos", "",
               "| Modelo | Precio $/M | Runs | Estado |", "|---|---|---:|---|"]
-        for k in sorted(nuevos, key=lambda x: -(b[x].get("quality_avg") or -1)):
+        for k in sorted(nuevos, key=lambda x: -(b[x].get("score_calidad") or -1)):
             m = b[k]
-            estado = (f"**#{pb[k]} del ranking**, calidad {m['quality_avg']:.2f}" if k in pb
+            estado = (f"**#{pb[k]} del ranking**, calidad {m['score_calidad']:.2f}" if k in pb
                       else f"en evaluación ({m.get('runs', 0)} runs, piso 50)" if m.get("tested")
                       else "sin medir todavía")
             L += [f"| **{m['name']}** | {_fmt_precio(m)} | {m.get('runs', 0)} | {estado} |"]

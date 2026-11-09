@@ -69,7 +69,7 @@ CORONAS = ("lidera", "encabeza la tabla", "la opción a vencer", "#1:")
 # por debajo de esto, dos modelos se ven iguales y declarar un ganador es inventarlo.
 TOL = 0.005
 
-FILA_1 = re.compile(r"<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
+FILA_1 = re.compile(r"<tr><td>(?:1|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
 CARD = re.compile(r'<span class="verdict-tag">([^<]*)</span>\s*<strong>([^<]*)</strong>', re.S)
 FILA = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
 CELDA = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)

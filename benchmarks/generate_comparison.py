@@ -541,7 +541,7 @@ def family(models, cfg):
         if sum((m.get("score_by_pillar") or {}).get(p) or 0 for p in PILLARS) <= 0:
             continue
         out.append(m)
-    # Ordena por CALIDAD MEDIA en los 4 pilares, no por score_global.
+    # Ordena por la nota de CALIDAD publicada (9-nov-2026), no por score_global.
     # Con el compuesto, /grok-vs-chatgpt/ ponia Grok 4.1 Fast arriba de Grok 4.5:
     # el barato encabezaba una pagina que promete decir cual es MEJOR.
     out.sort(key=lambda m: -capacidad(m))
@@ -566,9 +566,11 @@ def capacidad(m):
     publica, y el compuesto sale — responde otra pregunta y ya tiene su lugar en la
     calculadora.
     """
-    vals = [pillar(m, p) for p in PILLARS]
-    vals = [v for v in vals if v > 0]
-    return sum(vals) / len(vals) if vals else 0
+    # 9-nov-2026 (DECISIONES): la columna «Calidad» es la nota publicada —75 % examen + 25 %
+    # tareas reales de agente— leída del export, no un promedio propio de los pilares. Sin
+    # nota (sin dato agéntico) va al final y la celda dice «—».
+    q = m.get("score_calidad")
+    return q if q is not None else -1.0
 
 
 def pillar(m, name):
@@ -635,7 +637,8 @@ def row(rank, m, top=False):
         motivo = (m.get("elegible") or {}).get("motivos", {}).get("ranking")
         titulo = elegibilidad.MOTIVOS.get(motivo, "no entra al ranking")
         nm += f' <span class="row-badge no-rankea" title="{esc(titulo)}">no rankea</span>'
-    return (f"<tr><td>{rank}</td><td>{nm}</td><td><strong>{capacidad(m):.2f}</strong></td>"
+    _c = capacidad(m)
+    return (f"<tr><td>{rank}</td><td>{nm}</td><td><strong>{f'{_c:.2f}' if _c >= 0 else '—'}</strong></td>"
             f"<td>{pcell(m,'Coding')}</td><td>{pcell(m,'Contenido')}</td>"
             f"<td>{pcell(m,'Razonamiento')}</td><td>{pcell(m,'Agentes')}</td>"
             f"<td>{fmt_cost(m)}</td><td>{round(m.get('tokens_per_second') or 0)} tok/s</td></tr>")
@@ -868,16 +871,37 @@ def methodology():
 </section>"""
 
 
+def _nota(m):
+    q = m.get("score_calidad")
+    return f"{q:.2f}" if q is not None else "sin nota"
+
+
+def ganador_calidad(a, b):
+    """(ganador, perdedor, empate) por la nota de calidad del export (9-nov-2026). Empata si
+    `bands` no los distingue con su margen, o si a alguno le falta la nota."""
+    from benchmarks.bands import _indistinguishable
+    qa, qb = a.get("score_calidad"), b.get("score_calidad")
+    if qa is None or qb is None:
+        return a, b, True
+    w, l = (a, b) if qa >= qb else (b, a)
+    return w, l, _indistinguishable(a, b, None)
+
+
 def analysis(a_name, b_name, A, B):
     """V/S real por tipo de trabajo (data-driven, cero invención: todo sale de los scores)."""
     a0, b0 = A[0], B[0]
-    winner = a0 if a0["score_global"] >= b0["score_global"] else b0
-    loser = b0 if winner is a0 else a0
+    winner, loser, empate = ganador_calidad(a0, b0)
     secs = [methodology()]
+    if empate:
+        rapido = (f"En calidad el benchmark <strong>no separa</strong> a {esc(a0.get('name'))} "
+                  f"({_nota(a0)}) de {esc(b0.get('name'))} ({_nota(b0)}): la diferencia cabe en el "
+                  f"margen de error.")
+    else:
+        rapido = (f"En calidad gana <strong>{esc(winner.get('name'))}</strong> ({_nota(winner)} vs "
+                  f"{_nota(loser)} de {esc(loser.get('name'))}).")
     secs.append(f"""<section>
   <h2>Veredicto rápido</h2>
-  <p>En el cómputo global gana <strong>{esc(winner.get('name'))}</strong> ({winner['score_global']:.2f} vs
-  {loser['score_global']:.2f} de {esc(loser.get('name'))}) — empujado por costo y velocidad. Pero
+  <p>{rapido} La calidad suma el examen y tareas reales de agente. Pero
   <strong>no hay ganador universal</strong>: cambia por tipo de trabajo. El enfrentamiento real, abajo.</p>
 </section>""")
 
@@ -961,7 +985,7 @@ def funnel_block():
 def faq(a_name, b_name, A, B, foto=False):
     a0, b0 = A[0], B[0]
     tests_k = fmt_k(get_counts()["total_runs"])
-    winner = a0 if a0["score_global"] >= b0["score_global"] else b0
+    winner, _loser, empate = ganador_calidad(a0, b0)
     if foto:
         # Una foto histórica no corona a nadie, tampoco en el FAQ que lee Google.
         primera = (
@@ -976,10 +1000,14 @@ def faq(a_name, b_name, A, B, foto=False):
     else:
         primera = (
             f"¿{a_name} o {b_name} es mejor en 2026?",
-            f"Depende de la tarea. En el cómputo global de nuestro benchmark gana {winner.get('name')}, "
-            f"pero el mejor por pilar cambia (ver arriba). La pregunta correcta es 'mejor para qué caso'.",
-            f"Depende de la tarea. En el cómputo global de nuestro benchmark gana <strong>{esc(winner.get('name'))}</strong>, "
-            f"pero el mejor por pilar cambia (ver arriba). La pregunta correcta es \"mejor para qué caso\".",
+            (f"Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error. "
+             if empate else
+             f"Depende de la tarea. En calidad nuestro benchmark da arriba a {winner.get('name')}, ")
+            + "pero el mejor por pilar cambia (ver arriba). La pregunta correcta es 'mejor para qué caso'.",
+            (f"Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error. "
+             if empate else
+             f"Depende de la tarea. En calidad nuestro benchmark da arriba a <strong>{esc(winner.get('name'))}</strong>, ")
+            + "pero el mejor por pilar cambia (ver arriba). La pregunta correcta es \"mejor para qué caso\".",
         )
     qas = [
         primera,

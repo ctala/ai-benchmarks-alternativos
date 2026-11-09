@@ -426,10 +426,12 @@ def test_fila_eje_marca_sin_comparar_cuando_falta_uno():
 
 def test_capacidad_ignora_pilares_sin_medir():
     import generate_comparison as gc
-    m = {"dims_by_pillar": {"Coding": {"quality_avg": 8.0},
-                            "Contenido": {"quality_avg": 6.0}}}
+    # 9-nov-2026: la columna «Calidad» es la nota publicada (examen + Harbor), leída del
+    # export. Sin nota (sin dato agéntico) no se inventa un promedio de pilares: va al final.
+    m = {"score_calidad": 7.0, "dims_by_pillar": {"Coding": {"quality_avg": 8.0},
+                                                  "Contenido": {"quality_avg": 6.0}}}
     assert gc.capacidad(m) == pytest.approx(7.0)
-    assert gc.capacidad({}) == 0
+    assert gc.capacidad({"dims_by_pillar": {"Coding": {"quality_avg": 8.0}}}) == -1
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -1790,7 +1792,7 @@ def test_las_fichas_ordenan_por_la_nota_que_muestran():
     raiz = pathlib.Path(__file__).resolve().parent.parent
     d = json.loads((raiz / "docs/data/models.json").read_text())
     R = [m for m in d["models"] if m.get("ranked")]
-    orden = sorted(R, key=lambda x: -(x.get("quality_avg") or 0))
+    orden = sorted(R, key=lambda x: -(x.get("score_calidad") or 0))  # la nota v6 (9-nov-2026)
     esperado = {m["key"]: i + 1 for i, m in enumerate(orden)}
 
     malas = []
@@ -2232,11 +2234,14 @@ def test_grupo_de_cabeza_por_suite_usa_su_margen_y_no_el_tope_absoluto():
     de 0,30 (pensado para el global) coronaba a Sonnet 5.5 en resúmenes por 0,5."""
     from benchmarks import bands
     a = {"name": "A", "quality_by_suite": {"s": 9.0}, "quality_ci95_by_suite": {"s": 1.39},
-         "quality_avg": 9.0, "quality_ci95": 0.1}
+         "quality_avg": 9.0, "quality_ci95": 0.1,
+         "score_calidad": 9.0, "calidad_ci95": 0.1}
     b = {"name": "B", "quality_by_suite": {"s": 8.5}, "quality_ci95_by_suite": {"s": 0.42},
-         "quality_avg": 8.5, "quality_ci95": 0.1}
+         "quality_avg": 8.5, "quality_ci95": 0.1,
+         "score_calidad": 8.5, "calidad_ci95": 0.1}
     c = {"name": "C", "quality_by_suite": {"s": 3.0}, "quality_ci95_by_suite": {"s": 0.2},
-         "quality_avg": 3.0, "quality_ci95": 0.1}
+         "quality_avg": 3.0, "quality_ci95": 0.1,
+         "score_calidad": 3.0, "calidad_ci95": 0.1}
     assert [m["name"] for m in bands.grupo_cabeza([a, b, c], bands.SUITE + "s")] == ["A", "B"]
     # En el global, el mismo 0,5 con márgenes chicos sí separa.
     assert [m["name"] for m in bands.grupo_cabeza([a, b, c], None)] == ["A"]
@@ -2677,7 +2682,7 @@ def test_blog_tablas_no_coronan_el_grupo_de_cabeza():
     """8-nov-2026 (Cristian). Dentro del grupo de cabeza no hay puesto ni negrita."""
     import pytest
     from benchmarks import generate_blog_tablas as GT
-    ms = [{"key": k, "name": k.upper(), "ranked": True, "quality_avg": q,
+    ms = [{"key": k, "name": k.upper(), "ranked": True, "score_calidad": q,
            "cost_per_1k_calls_usd": 1.0, "open_source": True, "license": "MIT"}
           for k, q in [("a", 8.6), ("b", 8.5), ("c", 8.4), ("d", 7.0)]]
     d = {"models": ms, "grupo_cabeza": {"claves": ["a", "b", "c"]}}
@@ -2714,7 +2719,7 @@ def test_blog_datos_globales_salen_del_export():
     import pytest
     from benchmarks import generate_blog_datos as G
     from benchmarks import export_for_pages as E
-    ms = [{"ranked": True, "security_score": s, "cost_per_1k_calls_usd": c, "quality_avg": q}
+    ms = [{"ranked": True, "security_score": s, "cost_per_1k_calls_usd": c, "score_calidad": q}
           for s, c, q in [(1.0, 1.0, 8.0), (2.5, 2.0, 8.2), (9.0, 3.0, 8.1)]]
     d = {"models": [], "seguridad_mediana": E._seguridad_mediana(ms), "precio_calidad": E._precio_calidad(ms)}
     assert G.global_("seguridad_mediana", d) == "2,50"
@@ -2752,3 +2757,62 @@ def test_agentes_veredicto_y_segunda_tabla_hablan_en_harbor():
     assert "2 modelos superan 4 de 4 tareas agénticas" in html
     assert "por las mismas tareas superadas" in html
     assert not re.search(r"calidad\s+\d+[.,]\d+", html), html
+
+
+# ── indice.py: la nota de calidad v6 (9-nov-2026) ─────────────────────────────────
+def test_nota_harbor_es_06_media_04_piso():
+    from benchmarks import indice
+    t = {"a": {"rewards": [1.0, 1.0, 1.0]}, "b": {"rewards": [1.0, 0.5, 0.0]}}
+    # medias 1,0 y 0,5 → 0,75; piso 0 → 10 × (0,6 × 0,75 + 0,4 × 0) = 4,5
+    assert abs(indice.nota_harbor(t) - 4.5) < 1e-9
+    # con media/piso publicados (lo que lee `score_agentico`) da lo mismo
+    t2 = {"a": {"media": 1.0, "piso": 1.0}, "b": {"media": 0.5, "piso": 0.0}}
+    assert abs(indice.nota_harbor(t2) - 4.5) < 1e-9
+    assert indice.nota_harbor({}) is None
+
+
+def test_calidad_pondera_con_el_peso_unico_y_sin_harbor_no_hay_nota():
+    from benchmarks import indice
+    w = indice.PESO_HARBOR_EN_CALIDAD
+    q, ci = indice.calidad(8.0, 0.392, 10.0, 0.0)
+    assert abs(q - ((1 - w) * 8.0 + w * 10.0)) < 1e-9
+    assert abs(ci - (1 - w) * 0.392) < 1e-9          # sin ruido de Harbor, solo el del examen
+    assert indice.calidad(8.0, 0.3, None, None) == (None, None)
+    assert indice.calidad(None, None, 9.0, 0.1) == (None, None)
+
+
+def test_se_harbor_no_es_cero_con_tres_intentos_iguales():
+    """Método B: «nunca falló en 3» no prueba que no falle; la varianza se encoge hacia la
+    de la tarea. Sin varianza agrupada (nadie falla nunca) sí es cero."""
+    from benchmarks import indice
+    perfecto = {"a": {"rewards": [1.0, 1.0, 1.0]}, "b": {"rewards": [1.0, 1.0, 1.0]}}
+    pool = indice.varianza_agrupada([perfecto, {"a": {"rewards": [1.0, 0.0, 1.0]},
+                                                "b": {"rewards": [1.0, 1.0, 1.0]}}])
+    assert indice.se_harbor(perfecto, pool, replicas=500) > 0
+    assert indice.se_harbor(perfecto, {"a": 0.0, "b": 0.0}, replicas=500) == 0
+    # determinista: misma semilla, mismo error
+    assert indice.se_harbor(perfecto, pool, replicas=300) == indice.se_harbor(perfecto, pool, replicas=300)
+
+
+def test_tier_publicado_es_precio_y_la_ruta_va_aparte():
+    from benchmarks import indice
+    assert indice.es_ruta("cloud_nim") and indice.es_ruta("cloud_ollama") and not indice.es_ruta("cheap")
+    assert indice.tier_de_precio("cheap", 9.0, 9.0) == "cheap"           # el declarado se respeta
+    assert indice.tier_de_precio("cloud_nim", 0.10, 0.30) == "ultra_cheap"
+    assert indice.tier_de_precio("cloud_nim", 1.0, 4.0) == "cheap"
+    assert indice.tier_de_precio("cloud_nim", 3.0, 15.0) == "medium"      # mezcla 6,0: el tope de medium
+    assert indice.tier_de_precio("cloud_nim", 4.0, 20.0) == "premium"
+
+
+def test_bands_global_usa_la_nota_v6_y_su_margen():
+    from benchmarks import bands
+    a = {"key": "a", "score_calidad": 8.9, "calidad_ci95": 0.25, "quality_avg": 8.0, "quality_ci95": 0.3}
+    b = {"key": "b", "score_calidad": 8.1, "calidad_ci95": 0.25, "quality_avg": 8.6, "quality_ci95": 0.3}
+    assert [m["key"] for m in bands.grupo_cabeza([a, b])] == ["a"]   # ordena y separa por la nota
+
+
+def test_sin_dato_agentico_no_rankea():
+    from benchmarks import elegibilidad
+    m = {"examen_completo": True, "agentico": {"sin_dato": "formato_endpoint", "motivo": "x"}}
+    v = elegibilidad.evaluar(m, 50)
+    assert v["ranking"] is False and v["motivos"]["ranking"] == "sin_dato_agentico"

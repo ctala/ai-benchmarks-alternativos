@@ -298,9 +298,9 @@ def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
     # puntos: es la misma trampa que hizo abandonar el z-score en v4.1, servida en el
     # lugar más visible de la página. Es información legítima, así que no se borra: baja
     # a subtítulo y viaja con el dato que desarma la mala lectura (el rango real).
-    q = m.get("quality_avg")
+    q = m.get("score_calidad")
     if q is not None:
-        qs = sorted((x.get("quality_avg") or 0) for x in ranked if x.get("quality_avg"))
+        qs = sorted((x.get("score_calidad") or 0) for x in ranked if x.get("score_calidad"))
         # El rango se MIDE, no se escribe a mano: cambia con cada modelo nuevo.
         rango = (qs[-1] - qs[0]) if len(qs) > 1 else 0
         # 7-nov-2026 (Cristian): dentro del grupo de cabeza el puesto no es una diferencia
@@ -312,7 +312,15 @@ def kpis(m: dict, puesto: int | None, total: int, ranked: list) -> str:
             sub = f"#{puesto} de {total}" if puesto else f"{sum(1 for x in qs if x > q)} por encima"
         if rango:
             sub += f" · del mejor al peor hay {rango:.1f} puntos"
+        # 9-nov-2026: la nota es 75 % examen + 25 % tareas reales de agente; se muestran las dos partes.
+        if m.get("quality_avg") is not None and m.get("nota_harbor") is not None:
+            sub += (f" · examen {m['quality_avg']:.2f}, tareas de agente {m['nota_harbor']:.2f}")
         tiles.append(("", "Nota de calidad", f"{q:.2f}<span class=\"k-unit\">/10</span>", sub))
+    elif m.get("quality_avg") is not None and m.get("fuera_del_ranking") == "sin_dato_agentico":
+        # Sin dato agéntico no hay nota de calidad (falta su 25 %): se muestra el examen
+        # con el motivo visible, sin puesto.
+        tiles.append(("", "Examen", f"{m['quality_avg']:.2f}<span class=\"k-unit\">/10</span>",
+                      "sin dato agéntico: sin nota de calidad y fuera del ranking"))
     c = m.get("cost_per_1k_calls_usd")
     if c is not None:
         cs = sorted(x.get("cost_per_1k_calls_usd") or 0 for x in ranked
@@ -521,20 +529,20 @@ def contra_frontier(m: dict, ranked: list) -> str:
     tiene en la cabeza cuando dice «lo mejor»). Los dos salen del dato, así que la
     sección no envejece cuando cambia el ranking.
     """
-    q, c = m.get("quality_avg"), m.get("cost_per_1k_calls_usd")
+    q, c = m.get("score_calidad"), m.get("cost_per_1k_calls_usd")
     if q is None or not c:
         return ""
-    otros = [x for x in ranked if x["key"] != m["key"] and x.get("quality_avg")]
+    otros = [x for x in ranked if x["key"] != m["key"] and x.get("score_calidad")]
     if not otros:
         return ""
-    mejor = max(otros, key=lambda x: x["quality_avg"])
-    top10 = sorted(otros, key=lambda x: -x["quality_avg"])[:10]
+    mejor = max(otros, key=lambda x: x["score_calidad"])
+    top10 = sorted(otros, key=lambda x: -x["score_calidad"])[:10]
     caro = max(top10, key=lambda x: x.get("cost_per_1k_calls_usd") or 0)
 
     filas, notas = [], []
     for x, etiqueta in ((m, "Este modelo"), (mejor, "El de más calidad medida"),
                         (caro, "El frontier más caro del top 10")):
-        xq, xc = x.get("quality_avg"), x.get("cost_per_1k_calls_usd")
+        xq, xc = x.get("score_calidad"), x.get("cost_per_1k_calls_usd")
         destacar = ' style="color:var(--green);font-weight:700"' if x["key"] == m["key"] else ""
         filas.append(
             f'<tr><td><strong{destacar}>{esc(x["name"])}</strong><br>'
@@ -542,7 +550,7 @@ def contra_frontier(m: dict, ranked: list) -> str:
             f'<td>{_n(xq)}</td><td>{_usd(xc)}</td></tr>')
 
     def frase(x, como):
-        xq, xc = x.get("quality_avg"), x.get("cost_per_1k_calls_usd")
+        xq, xc = x.get("score_calidad"), x.get("cost_per_1k_calls_usd")
         if x["key"] == m["key"] or not xc:
             return None
         dq = xq - q
@@ -694,9 +702,9 @@ def por_tarea(m: dict) -> str:
 
 # ── alternativas: la pregunta real es «¿y qué más?» ──────────────────────────
 def alternativas(m: dict, ranked: list) -> tuple[str, list]:
-    q = m.get("quality_avg")
+    q = m.get("score_calidad")
     c = m.get("cost_per_1k_calls_usd")
-    otros = [x for x in ranked if x["key"] != m["key"] and x.get("quality_avg")]
+    otros = [x for x in ranked if x["key"] != m["key"] and x.get("score_calidad")]
     picks, vistos = [], set()
 
     def add(cand, etiqueta, porque):
@@ -707,21 +715,21 @@ def alternativas(m: dict, ranked: list) -> tuple[str, list]:
     if q and c:
         # más barato sin perder calidad (tolerancia media punto)
         cbaratos = [x for x in otros if (x.get("cost_per_1k_calls_usd") or 9e9) < c
-                    and (x["quality_avg"] or 0) >= q - 0.15]
+                    and (x["score_calidad"] or 0) >= q - 0.15]
         cbaratos.sort(key=lambda x: x.get("cost_per_1k_calls_usd") or 9e9)
         add(cbaratos[0] if cbaratos else None, "Más barato, calidad equivalente",
             "misma nota o mejor, menos plata por llamada")
         # mejor calidad a precio parecido
         cerca = [x for x in otros if (x.get("cost_per_1k_calls_usd") or 9e9) <= c * 1.3
-                 and (x["quality_avg"] or 0) > q]
-        cerca.sort(key=lambda x: -(x["quality_avg"] or 0))
+                 and (x["score_calidad"] or 0) > q]
+        cerca.sort(key=lambda x: -(x["score_calidad"] or 0))
         add(cerca[0] if cerca else None, "Mejor nota, precio parecido",
             "hasta 30% más caro, pero rinde más")
     # más rápido en latencia
     if m.get("latency_avg_s"):
         rap = [x for x in otros if x.get("latency_avg_s")
                and x["latency_avg_s"] < m["latency_avg_s"] * 0.6
-               and (x.get("quality_avg") or 0) >= (q or 0) - 0.3]
+               and (x.get("score_calidad") or 0) >= (q or 0) - 0.3]
         rap.sort(key=lambda x: x["latency_avg_s"])
         add(rap[0] if rap else None, "Responde antes",
             "al menos 40% menos de espera, sin caer de nota")
@@ -733,7 +741,7 @@ def alternativas(m: dict, ranked: list) -> tuple[str, list]:
 
     filas = "\n        ".join(
         f"<tr><td><strong>{esc(c_['name'])}</strong><br><span class=\"meta\">{esc(et)}</span></td>"
-        f"<td>{_n(c_.get('quality_avg'))}</td><td>{_usd(c_.get('cost_per_1k_calls_usd'))}</td>"
+        f"<td>{_n(c_.get('score_calidad'))}</td><td>{_usd(c_.get('cost_per_1k_calls_usd'))}</td>"
         f"<td>{_lat(c_)}</td>"
         f"<td class=\"meta\">{esc(pq)}</td></tr>"
         for c_, et, pq in picks)
@@ -806,7 +814,10 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
     hoy = date.today().isoformat()
     url = f"{SITE}/modelo/{slug(m)}/"
     alt_html, alt_nombres = alternativas(m, ranked)
-    desc = (f"{nombre}: {m.get('runs') or 0} runs propios en español — calidad {_n(m.get('quality_avg'))}, "
+    _cal = (f"calidad {_n(m.get('score_calidad'))}" if m.get("score_calidad") is not None
+            else f"examen {_n(m.get('quality_avg'))}, sin dato agéntico"
+            if m.get("fuera_del_ranking") == "sin_dato_agentico" else f"calidad {_n(m.get('score_calidad'))}")
+    desc = (f"{nombre}: {m.get('runs') or 0} runs propios en español — {_cal}, "
             f"{_usd(m.get('cost_per_1k_calls_usd'))} por 1.000 llamadas. Para qué sirve de verdad "
             f"en un negocio chico, y cuándo conviene otro.")
     # 19-ago-2026 · EL BLOQUE FICHA. Cristian: «está bien, pero no parece ficha».
@@ -941,7 +952,7 @@ def main() -> int:
     # Es la tercera copia del mismo error en dos días: ya estaba en el cheatsheet y en
     # `release_diff.py`. Regla: en cualquier cosa que se publique, el orden sale de
     # `quality_avg`. `score_global` es interno y no se muestra ni se ordena por él.
-    ranked.sort(key=lambda x: -(x.get("quality_avg") or 0))
+    ranked.sort(key=lambda x: -(x.get("score_calidad") or 0))
     puestos = {m["key"]: i + 1 for i, m in enumerate(ranked)}
     CABEZA.update(d.get("grupo_cabeza") or {"n": 0, "de": 0, "porcentaje": None, "claves": []})
     SUCESORES.update({m["key"]: m["name"] for m in d["models"]})

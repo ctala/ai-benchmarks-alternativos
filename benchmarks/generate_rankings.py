@@ -84,10 +84,10 @@ RANKINGS = [
         "title": "LLM más baratos en 2026 (con buena calidad): ranking con benchmark real",
         "h1": "LLM más baratos con buena calidad (2026)",
         "intent_kw": "llm más barato, modelos de ia baratos, llm economico, mejor llm barato, ia barata para agentes",
-        "criterion": "cost", "min_score": 6.8,
+        "criterion": "cost", "min_score": 8.4,
         "case": "presupuesto ajustado (mejor relación calidad/precio para volumen real)",
         "what": "relación calidad/precio",
-        "lead": "El modelo más caro casi nunca es el que necesitas. Filtramos los que rinden bien (score global ≥ 6,8) "
+        "lead": "El modelo más caro casi nunca es el que necesitas. Filtramos los que rinden bien (calidad ≥ 8,4, examen y tareas reales de agente) "
                 "y los ordenamos del más barato al más caro. Ideal para agentes con 1.000+ calls/mes.",
         "use_cases": ["agentes con alto volumen", "startups con presupuesto ajustado", "procesamiento batch", "prototipos que escalan", "calls diarios masivos"],
         "why": "Cuando pasas de cientos a miles de calls por mes, el costo por millón de tokens pasa a ser más importante que ganar 0.2 puntos de calidad. El ranking refleja eso.",
@@ -102,7 +102,7 @@ RANKINGS = [
         "case": "open source (pesos abiertos — corres local o en cualquier provider, sin lock-in)",
         "what": "modelos open source",
         "lead": "Si quieres correr local o evitar lock-in, estos son los mejores modelos de pesos abiertos según el "
-                "benchmark — ordenados por score global. Verificamos la licencia (cuidado con los \"Plus\" propietarios).",
+                "benchmark — ordenados por calidad (examen y tareas reales de agente). Verificamos la licencia (cuidado con los \"Plus\" propietarios).",
         "use_cases": ["ejecución local", "privacidad de datos", "evitar vendor lock-in", "finetuning propio", "deploy en infraestructura propia"],
         "why": "Open source no es solo filosofía: es soberanía sobre tus datos, costos predecibles y la posibilidad de correr local cuando la privacidad lo exige.",
         "related": ["modelos-open-source-local", "qwen-vs-llama", "mejor-llm-barato"],
@@ -366,12 +366,16 @@ def rank_models(models, cfg):
         base = [m for m in base if suite(m, sname) > 0]
         return sorted(base, key=lambda m: -suite(m, sname))
     if crit == "cost":
-        base = [m for m in base if (m.get("score_global") or 0) >= cfg.get("min_score", 6.8)]
+        # 9-nov-2026: el piso es sobre la nota de calidad (examen + Harbor), no sobre el
+        # compuesto. 8,4 deja el mismo número de modelos (32 de 68) que el 6,8 del compuesto.
+        base = [m for m in base if (m.get("score_calidad") or 0) >= cfg.get("min_score", 8.4)]
         return sorted(base, key=lambda m: (m.get("cost_input_per_M") or 99) + (m.get("cost_output_per_M") or 99))
     if crit == "open_source":
-        base = [m for m in base if m.get("open_source")]
-        return sorted(base, key=lambda m: -(m.get("score_global") or 0))
-    return sorted(base, key=lambda m: -(m.get("score_global") or 0))
+        base = [m for m in base if m.get("open_source") and m.get("score_calidad") is not None]
+        return sorted(base, key=lambda m: -m["score_calidad"])
+    # 9-nov-2026: todo orden global es por la nota de calidad publicada (`score_calidad`).
+    base = [m for m in base if m.get("score_calidad") is not None]
+    return sorted(base, key=lambda m: -m["score_calidad"])
 
 
 def pillar_quality(m, name):
@@ -414,13 +418,12 @@ def score_agentico(m):
     trabajo desatendido «a veces falla» y «no falla» no son lo mismo, y promediar los
     intentos los vuelve indistinguibles.
     """
-    t = (m.get("agentico") or {}).get("tareas") or {}
-    vals = [x for x in t.values() if x.get("media") is not None]
-    if not vals:
+    # La nota de Harbor tiene UNA definición (`indice.nota_harbor`, 9-nov-2026): la misma
+    # que entra al 25 % de la calidad.
+    from benchmarks.indice import nota_harbor
+    real = nota_harbor((m.get("agentico") or {}).get("tareas") or {})
+    if real is None:
         return None
-    media = sum(x["media"] for x in vals) / len(vals)
-    piso = min((x.get("piso") if x.get("piso") is not None else 0) for x in vals)
-    real = (0.6 * media + 0.4 * piso) * 10
     tools = m.get("tool_calling_score_avg")
     if tools is None:
         return real
@@ -503,7 +506,7 @@ def score_for(m, cfg):
         return pillar_quality(m, cfg["pillar"])
     if cfg["criterion"] == "suite":
         return suite(m, cfg["suite"])
-    return m.get("score_global") or 0
+    return m.get("score_calidad") or 0
 
 
 def score_label(cfg):
@@ -521,10 +524,11 @@ def score_label(cfg):
         # una tabla que se entiende y una que parece rota.
         if cfg["pillar"] == "Agentes":
             return "Trabajo agéntico"
-        return f"Calidad en {cfg['pillar']}"   # capacidad pura, sin costo ni velocidad
+        # 9-nov-2026: «Calidad» es la nota con Harbor; el pilar es solo examen y se rotula así.
+        return f"Examen de {cfg['pillar']}"   # capacidad pura, sin costo ni velocidad
     if cfg["criterion"] == "suite":
         return cfg["suite"].replace("_", " ").title()
-    return "Score global"
+    return "Calidad"
 
 
 # Puesto de cada modelo en el ÍNDICE DE CALIDAD global. Se calcula una vez y se usa en
@@ -597,7 +601,7 @@ def row_ranking(rank, m, cfg, top=False, badges=None):
         # Se resalta cuando el modelo está MUY abajo en el global: es el caso que la
         # página existe para mostrar — bueno en este eje, escondido por el promedio.
         total = len(_PUESTO_GLOBAL) or 1
-        clase = ' class="contraste"' if pg and rank <= 5 and pg > total * 0.5 else ""
+        clase = ' class="contraste"' if pg and (rank == "≈" or rank <= 5) and pg > total * 0.5 else ""
         return (f"<tr><td>{rank}</td><td>{nm}</td><td>{relevant:.1f}</td>"
                 f"<td>{gl if gl is not None else '—'}</td>"
                 f"<td{clase}>{f'#{pg} de {total}' if pg else '—'}</td>"
@@ -715,12 +719,28 @@ def por_que_separa(cfg) -> str:
     return "su diferencia con el siguiente es mayor que el margen de error"
 
 
-def frase_grupo(grupo, all_ranked):
-    """«El benchmark no separa a los primeros N…» — o a N de la cima, si no son contiguos."""
+def margen_grupo(grupo, cfg):
+    """Margen típico del grupo en la nota que ordena la página: la mediana de los
+    `calidad_ci95` publicados por el export. Solo en las páginas que ordenan por la nota
+    (no por pilar, suite ni conteo de Harbor). No recalcula nada: resume lo publicado."""
+    if cfg.get("criterion") in ("pillar", "suite"):
+        return None
+    from statistics import median
+    xs = [m["calidad_ci95"] for m in grupo if m.get("calidad_ci95") is not None]
+    return round(median(xs), 2) if xs else None
+
+
+def frase_grupo(grupo, all_ranked, cfg=None):
+    """«El benchmark no separa a los primeros N (margen ±M)» — o a N de la cima.
+
+    9-nov-2026: ya no dice «dentro del grupo, elige por precio» (reemplaza la fila del
+    6-nov). El orden es por la nota también dentro del grupo, con «≈» en vez de puesto, y
+    el más barato se nombra aparte."""
     n = len(grupo)
     primeros = [m.get("key") for m in all_ranked[:n]] == [m.get("key") for m in grupo]
     quienes = f"a los primeros {n}" if primeros else f"a estos {n} modelos de la cima"
-    return (f"el benchmark no separa {quienes}; dentro del grupo, elige por precio")
+    mg = margen_grupo(grupo, cfg or {})
+    return f"el benchmark no separa {quienes}" + (f" (margen de error ±{mg:.2f})".replace(".", ",") if mg else "")
 
 
 def mas_barato(grupo):
@@ -738,7 +758,7 @@ def reading_guide(cfg, ranked, grupo=None):
     s1 = score_for(top1, cfg)
     grupo = grupo or []
     if len(grupo) > 1:
-        gap_text = (f"{frase_grupo(grupo, ranked)}. Los {len(grupo)} "
+        gap_text = (f"{frase_grupo(grupo, ranked, cfg)}. Los {len(grupo)} "
                     + (f"superan {fmt_eje(top1, cfg)} en todos sus intentos, así que la medición no "
                        f"tiene con qué separarlos" if es_agentes(cfg) else
                        f"rondan los {s1:.1f}/10 y {por_que_empatan(cfg)}"))
@@ -913,7 +933,7 @@ def analysis(cfg, ranked, grupo=None):
         nombres = _nombres(grupo, 8) + (f" y {len(grupo) - 8} más" if len(grupo) > 8 else "")
         return f"""<section>
   <h2>Quiénes encabezan</h2>
-  <p>Para {esc(cfg['case'])}, {frase_grupo(grupo, ranked)}: {nombres}. {esc(por_que_empatan(cfg)).capitalize()}, y
+  <p>Para {esc(cfg['case'])}, {frase_grupo(grupo, ranked, cfg)}: {nombres}. {esc(por_que_empatan(cfg)).capitalize()}, y
   ordenarlos por puesto sería inventar una diferencia que la medición no tiene.</p>
   <p>Dentro del grupo, el más barato es <strong>{esc(b.get('name'))}</strong>, a {fmt_cost(b)} por millón de tokens.
   Antes de pagar más por otro del grupo, pruébalos con tus propios prompts.</p>
@@ -951,7 +971,7 @@ def faq(cfg, ranked, grupo=None):
     label = cfg['case'].split('(')[0].strip()
     if len(grupo) > 1:
         b = mas_barato(grupo)
-        txt = (f"En {cfg['what']}, {frase_grupo(grupo, ranked)}. El más barato del grupo es "
+        txt = (f"En {cfg['what']}, {frase_grupo(grupo, ranked, cfg)}. El más barato del grupo es "
                f"{b.get('name')}. No hay un único 'mejor': {por_que_empatan(cfg)}.")
         q1 = (f"¿Cuál es el mejor LLM para {label} hoy?", txt,
               esc(txt).replace(esc(b.get('name')), f"<strong>{esc(b.get('name'))}</strong>", 1))
@@ -1438,9 +1458,11 @@ def render_ranking(cfg, models):
     tests_k = fmt_k(get_counts()["total_runs"])
     grupo = cabeza(cfg, all_ranked)
     if len(grupo) > 1:
-        cierre = (f"{len(grupo)} modelos superan {harbor_texto(grupo[0], largo=True)}: elige por precio."
+        cierre = (f"{len(grupo)} modelos superan {harbor_texto(grupo[0], largo=True)}; "
+                  f"el más barato es {mas_barato(grupo).get('name')}."
                   if es_agentes(cfg) else
-                  f"El benchmark no separa a {len(grupo)} modelos de la cima: elige por precio.")
+                  f"El benchmark no separa a {len(grupo)} modelos de la cima; "
+                  f"el más barato del grupo es {mas_barato(grupo).get('name')}.")
     elif grupo:
         cierre = f"Queda solo arriba: {ranked[0].get('name')}."
     else:
@@ -1448,8 +1470,12 @@ def render_ranking(cfg, models):
     desc = (f"{cfg['h1']} con {tests_k} runs reales: ranking por {cfg['case']}. "
             f"Incluye costos para volumen y posición de modelos frontier. {cierre}")
     # El grupo se marca en la tabla: es lo que el texto cita, y check_ganadores lo cuenta.
+    en_grupo = {g.get("key") for g in grupo} if len(grupo) > 1 else set()
+    barato_grupo = mas_barato(grupo).get("key") if len(grupo) > 1 else None
     for m in ranked:
-        if any(g.get("key") == m.get("key") for g in grupo) and len(grupo) > 1:
+        if m.get("key") == barato_grupo:
+            badges.setdefault(m.get("name"), "grupo de cabeza · el más barato")
+        elif m.get("key") in en_grupo:
             badges.setdefault(m.get("name"), "grupo de cabeza")
     today = date.today().isoformat()
     # El numero de fila es la posicion REAL en el ranking completo, no el indice
@@ -1459,7 +1485,9 @@ def render_ranking(cfg, models):
     # arriba abajo y una fila #50 encima de una #37 deja el orden sin columna que lo explique.
     ranked.sort(key=lambda m: pos_of.get(m.get("name"), 10**6))
     rows = "\n        ".join(
-        row_ranking(pos_of.get(m.get("name"), i + 1), m, cfg, top=(i == 0), badges=badges)
+        # 9-nov-2026: en el grupo de cabeza el puesto es «≈»; fuera del grupo, el número.
+        row_ranking("≈" if m.get("key") in en_grupo else pos_of.get(m.get("name"), i + 1),
+                    m, cfg, top=(i == 0), badges=badges)
         for i, m in enumerate(ranked)
     )
     dataset_ld = json.dumps(dataset_schema(cfg, ranked), ensure_ascii=False, indent=2)

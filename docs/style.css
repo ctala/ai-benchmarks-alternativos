@@ -1805,3 +1805,21 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-pick-name a.a-ficha { color: inherit; text-decoration: none; }
 .wiz-pick-name a.a-ficha:hover { text-decoration: underline; }
 .wiz-pick-name .pick-ar { font-size: .6em; color: var(--cyan); vertical-align: super; }
+
+/* Grupo de cabeza (9-nov-2026): la línea arriba de la tabla con N, margen y el más
+   barato, y la nota de la limitación de «ajustado a mis pesos». Las cifras salen del export. */
+.linea-cabeza {
+  margin: 0 0 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--cyan);
+  background: var(--bg-card);
+  color: var(--prose);
+  font-size: 0.92rem;
+}
+.linea-cabeza.limitacion { border-left-color: var(--gray-dark); }
+.ctx-badge[data-mas-barato] {
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.12);
+  border-color: rgba(0, 212, 255, 0.35);
+  cursor: default;
+}

@@ -49,24 +49,24 @@ vigentes, en [DECISIONES.md](DECISIONES.md).
 
 ### Índice de calidad — ¿qué modelo responde mejor?
 
-Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del número** — un modelo caro no es peor, es caro, y mezclarlo esconde cuál es cuál.
+La calidad es **75 % el examen y 25 % cuatro tareas reales de agente** (Harbor: el modelo trabaja dentro de un agente, con herramientas, y un test verifica el resultado). **El precio y la velocidad se muestran al lado, no van dentro del número.**
+
+> **El benchmark no separa a estos 18 de 68 rankeados** (margen de error ±0,27): su diferencia de calidad cabe en el margen, así que llevan «≈» en vez de puesto. Dentro del grupo, el más barato es **MiMo V2.6 Flash**.
 
 | # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
 |---|---|---:|---:|---:|---|---:|
-| ≈ | **Qwen 3.6 27B base (OpenRouter FP8)** | **8.66** | $3.09 | 49s | openrouter | 137 |
-| ≈ | **GLM 5.3** | **8.66** | $7.02 | 78s | openrouter | 137 |
-| ≈ | **Qwen 3.6 Plus** | **8.61** | $3.02 | 56s | openrouter | 137 |
-| ≈ | **GLM 5.2** | **8.60** | $3.43 | 21s | openrouter | 137 |
-| ≈ | **Qwen 3.5 397B** | **8.60** | $5.42 | 52s | openrouter | 137 |
-| ≈ | **Mistral Large 4.0** | **8.59** | $3.36 | 47s | openrouter | 137 |
-| ≈ | **Qwen 3.8 Flash** | **8.55** | $0.75 | 44s | openrouter | 137 |
-| ≈ | **Gemma 4 31B** | **8.54** | $0.54 | 14s | openrouter | 137 |
-| ≈ | **Qwen 3.8 27B** | **8.54** | $3.89 | 159s | openrouter | 137 |
-| ≈ | **Qwen 3.8 Max 0902** | **8.54** | $9.60 | 162s | openrouter | 137 |
+| ≈ | **Qwen 3.8 Flash** | **8.91** | $0.75 | 44s | openrouter | 137 |
+| ≈ | **Qwen 3.8 27B** | **8.90** | $3.89 | 159s | openrouter | 137 |
+| ≈ | **Qwen 3.8 Max 0902** | **8.90** | $9.60 | 162s | openrouter | 137 |
+| ≈ | **Gemini 4 Argon** | **8.90** | $15.60 | 24s | openrouter | 137 |
+| ≈ | **Claude Fable 5.1** | **8.88** | $78.00 | 35s | openrouter | 137 |
+| ≈ | **Muse Spark 1.3** | **8.84** | $6.75 | 21s | openrouter | 137 |
+| ≈ | **MiMo V2.6 Pro** | **8.84** | $1.44 | 70s | openrouter | 137 |
+| ≈ | **Claude Opus 5.5** | **8.81** | $31.20 | 29s | openrouter | 137 |
+| ≈ | **Claude Sonnet 5.5** | **8.79** | $15.60 | 20s | openrouter | 137 |
+| ≈ | **Fugu Max** | **8.73** | $9.60 | 18s | openrouter | 137 |
 
-> **El grupo de cabeza: 31 de 70 modelos rankeados (44 %).** Son los que el benchmark no separa del mejor: su diferencia de calidad cabe en el margen de error de la medición. Por eso llevan «≈» en vez de un puesto, y el orden entre ellos no es una diferencia real. Que el grupo sea tan grande dice que, en calidad, la mayoría de estos modelos ya rinde parecido: dentro de él conviene elegir por precio, velocidad o por la tarea concreta.
-
-> **La precisión literal (string_precision) no entra al índice 5.0.0.** Casi todos los modelos copian bien una API key, un JWT o un hash, así que la suite ya no separa por precisión: lo que separa es si el modelo se niega ante algo que parece un secreto. Eso es una política, no una falla, y se publica aparte como el rasgo **«¿maneja credenciales?»**, siempre con su cuenta: de 70 modelos rankeados, 58 copian las seis cadenas (sí), 11 se niegan en alguna (a veces) y 1 se niega en todas. La suite se sigue rindiendo para que cada modelo tenga su rasgo, y en 5.1 la precisión se mide con cadenas difíciles que no parezcan secretos.
+> **La precisión literal (string_precision) no entra al índice 5.0.0.** Casi todos los modelos copian bien una API key, un JWT o un hash, así que la suite ya no separa por precisión: lo que separa es si el modelo se niega ante algo que parece un secreto. Eso es una política, no una falla, y se publica aparte como el rasgo **«¿maneja credenciales?»**, siempre con su cuenta: de 68 modelos rankeados, 56 copian las seis cadenas (sí), 11 se niegan en alguna (a veces) y 1 se niega en todas. La suite se sigue rindiendo para que cada modelo tenga su rasgo, y en 5.1 la precisión se mide con cadenas difíciles que no parezcan secretos.
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
@@ -74,45 +74,40 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 
 | # | Modelo | Calidad/$ | Calidad | $/1k calls | Provider |
 |---|---|---:|---:|---:|---|
-| 1 | **Ling 3.0 Flash** | **83.8** | 8.46 | $0.10 | openrouter |
-| 2 | **Llama 3.1 8B Instant** | **51.8** | 6.99 | $0.14 | openrouter |
-| 3 | **DeepSeek V4 Flash 0731** | **42.0** | 8.32 | $0.20 | openrouter |
-| 4 | **GPT-OSS 20B** | **36.9** | 8.09 | $0.22 | openrouter |
-| 5 | **GPT-OSS 120B** | **28.9** | 8.13 | $0.28 | openrouter |
-| 6 | **DeepSeek V4 Flash (OpenRouter)** | **27.4** | 8.01 | $0.29 | openrouter |
-| 7 | **Nemotron 3 Nano 30B** | **25.2** | 7.94 | $0.32 | openrouter |
-| 8 | **Nemotron 3.5 Lightning** | **24.0** | 7.78 | $0.32 | openrouter |
-| 9 | **Ministral 14B** | **22.0** | 7.91 | $0.36 | openrouter |
-| 10 | **Granite 4.2 8B** | **21.1** | 8.28 | $0.39 | openrouter |
+| 1 | **Ling 3.0 Flash** | **84.2** | 8.50 | $0.10 | openrouter |
+| 2 | **DeepSeek V4 Flash 0731** | **41.7** | 8.26 | $0.20 | openrouter |
+| 3 | **Llama 3.1 8B Instant** | **39.3** | 5.30 | $0.14 | openrouter |
+| 4 | **DeepSeek V4 Flash (OpenRouter)** | **27.9** | 8.16 | $0.29 | openrouter |
+| 5 | **Nemotron 3 Nano 30B** | **25.2** | 7.94 | $0.32 | openrouter |
+| 6 | **Nemotron 3.5 Lightning** | **24.6** | 7.97 | $0.32 | openrouter |
+| 7 | **Ministral 14B** | **21.7** | 7.81 | $0.36 | openrouter |
+| 8 | **Granite 4.2 8B** | **20.9** | 8.23 | $0.39 | openrouter |
+| 9 | **MiMo V2.6 Flash** | **18.8** | 8.70 | $0.46 | openrouter |
+| 10 | **Gemma 4 26B MoE (3.8B activos)** | **17.1** | 8.17 | $0.48 | openrouter |
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **20 de 70** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **15 de 68** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
-| **Qwen 3.6 27B base (OpenRouter FP8)** | 8.66 | $3.09 | 49s | openrouter |
-| **GLM 5.3** | 8.66 | $7.02 | 78s | openrouter |
-| **Qwen 3.6 Plus** | 8.61 | $3.02 | 56s | openrouter |
-| **GLM 5.2** | 8.60 | $3.43 | 21s | openrouter |
-| **Mistral Large 4.0** | 8.59 | $3.36 | 47s | openrouter |
-| **Qwen 3.8 Flash** | 8.55 | $0.75 | 44s | openrouter |
-| **Gemma 4 31B** | 8.54 | $0.54 | 14s | openrouter |
-| **Muse Glimmer 30B** | 8.52 | $2.35 | 13s | openrouter |
-| **Ling 3.0 Flash** | 8.46 | $0.10 | 55s | openrouter |
-| **DeepSeek V4 Flash 0731** | 8.32 | $0.20 | 14s | openrouter |
-| **GPT-6 Luna** | 8.28 | $0.78 | 12s | openrouter |
-| **MiniMax M2.5** | 8.24 | $1.70 | 11s | openrouter |
-| **Gemini 3.5 Flash Lite** | 8.23 | $3.84 | 4s | openrouter |
-| **Claude Haiku 5.5** | 8.22 | $0.78 | 11s | openrouter |
-| **Qwen 3-Next 80B Instruct** | 8.05 | $1.68 | 6s | openrouter |
-| **Mistral Small 4** | 7.99 | $0.94 | 9s | openrouter |
-| **Llama 4 Maverick** | 7.97 | $1.10 | 8s | openrouter |
-| **Llama 3.3 70B** | 7.88 | $0.51 | 8s | openrouter |
-| **Nemotron 3.5 Lightning** | 7.78 | $0.32 | 5s | openrouter |
-| **Llama 3.1 8B Instant** | 6.99 | $0.14 | 4s | openrouter |
+| **Qwen 3.8 Flash** | 8.91 | $0.75 | 44s | openrouter |
+| **Gemini 4 Argon** | 8.90 | $15.60 | 24s | openrouter |
+| **Muse Spark 1.3** | 8.84 | $6.75 | 21s | openrouter |
+| **Claude Sonnet 5.5** | 8.79 | $15.60 | 20s | openrouter |
+| **Fugu Max** | 8.73 | $9.60 | 18s | openrouter |
+| **MiMo V2.6 Flash** | 8.70 | $0.46 | 57s | openrouter |
+| **Claude Haiku 5.5** | 8.67 | $0.78 | 11s | openrouter |
+| **Ling 3.0 Flash** | 8.50 | $0.10 | 55s | openrouter |
+| **Gemma 4 31B** | 8.40 | $0.54 | 14s | openrouter |
+| **DeepSeek V4 Flash 0731** | 8.26 | $0.20 | 14s | openrouter |
+| **Gemini 3.5 Flash Lite** | 8.19 | $3.84 | 4s | openrouter |
+| **GPT-6 Luna** | 8.19 | $0.78 | 12s | openrouter |
+| **Qwen 3-Next 80B Instruct** | 8.15 | $1.68 | 6s | openrouter |
+| **Nemotron 3.5 Lightning** | 7.97 | $0.32 | 5s | openrouter |
+| **Llama 3.1 8B Instant** | 5.30 | $0.14 | 4s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 70 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 68 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 

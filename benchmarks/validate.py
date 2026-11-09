@@ -322,6 +322,11 @@ def b3_examen_completo_implica_rankeado(models, verbose):
         cfg = _CFG.get(m.get("key") or "", {})
         if any(m.get(x) or cfg.get(x) for x in motivos):
             continue
+        # 9-nov-2026 (v6.0.0): sin dato agéntico no hay nota y no rankea. El motivo vale solo
+        # si es verdad: el estado `sin_dato` está declarado en su `agentico`.
+        if (m.get("fuera_del_ranking") == "sin_dato_agentico"
+                and (m.get("agentico") or {}).get("sin_dato")):
+            continue
         si = m.get("suites_incompletas") or {}
         if any(not i.get("fuera_del_indice") for i in si.values()):
             continue

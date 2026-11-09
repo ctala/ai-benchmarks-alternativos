@@ -25,6 +25,9 @@ import argparse
 import json
 import re
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from benchmarks.indice import PESO_HARBOR_EN_CALIDAD as PESO  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
@@ -44,7 +47,7 @@ def load_ranked() -> tuple[list[dict], dict]:
     data = json.loads(MODELS_JSON.read_text())
     ranked = [
         m for m in data.get("models", [])
-        if m.get("ranked") and m.get("score_global") is not None
+        if m.get("ranked") and m.get("score_calidad") is not None
     ]
     # Orden por CALIDAD: desde v4.1 el titular responde "¿qué modelo es mejor?".
     # El compuesto (score_global) va en su propia tabla, más abajo.
@@ -70,37 +73,41 @@ def build_block(ranked: list[dict], data: dict) -> str:
         "",
         "### Índice de calidad — ¿qué modelo responde mejor?",
         "",
-        "Solo calidad. **El precio y la velocidad se muestran al lado, no van dentro del "
-        "número** — un modelo caro no es peor, es caro, y mezclarlo esconde cuál es cuál.",
+        f"La calidad es **{100 - round(100 * PESO):d} % el examen y {round(100 * PESO):d} % "
+        "cuatro tareas reales de agente** (Harbor: el modelo trabaja dentro de un agente, "
+        "con herramientas, y un test verifica el resultado). **El precio y la velocidad se "
+        "muestran al lado, no van dentro del número.**",
         "",
-        "| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |",
-        "|---|---|---:|---:|---:|---|---:|",
     ]
     # 7-nov-2026 (Cristian): dentro del grupo de cabeza el puesto no es una diferencia real,
     # así que esas filas no llevan número. Las cifras salen del export, nunca a mano.
+    # 9-nov-2026: la línea del grupo va ARRIBA de la tabla, con N, margen y el más barato.
     cab = data.get("grupo_cabeza") or {}
     en_cab = set(cab.get("claves") or [])
+    barato = (cab.get("mas_barato") or {}).get("key")
+    if cab.get("n"):
+        mg = f"{cab['margen']:.2f}".replace(".", ",") if cab.get("margen") is not None else "?"
+        lines += [
+            f"> **El benchmark no separa a estos {cab['n']} de {cab['de']} rankeados** "
+            f"(margen de error ±{mg}): su diferencia de calidad cabe en el margen, así que "
+            f"llevan «≈» en vez de puesto. Dentro del grupo, el más barato es "
+            f"**{(cab.get('mas_barato') or {}).get('name', '—')}**.",
+            "",
+        ]
+    lines += [
+        "| # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |",
+        "|---|---|---:|---:|---:|---|---:|",
+    ]
     for i, m in enumerate(ranked[:TOP_N], 1):
         lat = m.get("latency_avg_s")
         pos = "≈" if m.get("key") in en_cab else str(i)
         lines.append(
-            f"| {pos} | **{m['name']}** | **{(m.get('score_calidad') or 0):.2f}** | "
+            f"| {pos} | **{m['name']}**{' · el más barato del grupo' if m.get('key') == barato else ''} | **{(m.get('score_calidad') or 0):.2f}** | "
             f"{fmt_cost(m)} | {f'{lat:.0f}s' if lat is not None else '—'} | "
             f"{m.get('provider', '?')} | {m.get('runs', 0)} |"
         )
 
     rg = data.get("rasgo_credenciales") or {}
-    if cab.get("n"):
-        lines += [
-            "",
-            f"> **El grupo de cabeza: {cab['n']} de {cab['de']} modelos rankeados "
-            f"({cab['porcentaje']} %).** Son los que el benchmark no separa del mejor: su "
-            f"diferencia de calidad cabe en el margen de error de la medición. Por eso llevan "
-            f"«≈» en vez de un puesto, y el orden entre ellos no es una diferencia real. Que el "
-            f"grupo sea tan grande dice que, en calidad, la mayoría de estos modelos ya rinde "
-            f"parecido: dentro de él conviene elegir por precio, velocidad o por la tarea "
-            f"concreta.",
-        ]
     if rg.get("de"):
         lines += [
             "",

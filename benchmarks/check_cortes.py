@@ -41,8 +41,12 @@ ROOT = Path(__file__).resolve().parent.parent
 # cambia por una razón buena y el control deja de mirar. Por eso además de unificar el
 # patrón, C1 ahora EXIGE encontrar la fila (ver abajo): si no la encuentra, es un fallo,
 # no un silencio.
-FILA_1 = re.compile(r"<tr><td>1</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
-FILA_N = re.compile(r"<tr><td>\d+</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
+#
+# 9-nov-2026 (v6.0.0): el grupo de cabeza lleva «≈» en vez de puesto. La primera fila de la
+# tabla es «1» o «≈»; con el patrón viejo, FILA_1 saltaba el grupo y leía el «1» de la
+# segunda tabla, y FILA_N dejaba de ver justo a los del grupo (C3 quedaba ciego arriba).
+FILA_1 = re.compile(r"<tr><td>(?:1|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
+FILA_N = re.compile(r"<tr><td>(?:\d+|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
 sys.path.insert(0, str(ROOT))
 
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"

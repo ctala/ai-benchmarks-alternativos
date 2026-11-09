@@ -71,6 +71,8 @@ MOTIVOS = {
     "self_hosted": "corre en hardware propio: su velocidad y costo no comparan con una API",
     "ruta_suscripcion": ("es el mismo modelo por una suscripción personal: el precio y el "
                          "cupo no son los que vas a pagar tú"),
+    "sin_dato_agentico": ("no tiene dato agéntico: no rindió las tareas reales de agente, y la "
+                          "nota de calidad las incluye desde v6.0.0"),
 }
 
 
@@ -159,6 +161,11 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
         no("ranking", "historico")
     if m.get("notes") and "no rankea por política" in (m.get("notes") or "").lower():
         no("ranking", "esfuerzo")
+    # 9-nov-2026 (Cristian): desde v6.0.0 la nota es 75 % examen + 25 % Harbor. Sin dato
+    # agéntico no hay nota, y no se inventa la mitad que falta: fuera del ranking, con ficha
+    # y con el motivo visible («sin dato agéntico»).
+    if (m.get("agentico") or {}).get("sin_dato"):
+        no("ranking", "sin_dato_agentico")
 
     # ── Agéntico: exige EVIDENCIA, no capacidad declarada ──────────────────
     #

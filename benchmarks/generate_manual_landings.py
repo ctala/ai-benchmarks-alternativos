@@ -298,19 +298,34 @@ def _badge_no_rankea(m):
             f'title="{esc(MOTIVOS.get(mot, "no entra al ranking"))}">no rankea</span>')
 
 
+def _pos(rank, m):
+    """9-nov-2026: un modelo del grupo de cabeza (el global del export) lleva «≈», no puesto."""
+    claves = ((load_data().get("grupo_cabeza") or {}).get("claves")) or []
+    return "≈" if m.get("key") in claves else rank
+
+
 def row_alt(rank, m):
     top = rank == 1
     name = enlace_ficha(m, bold=top)
     name += _badge_no_rankea(m)
-    return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"
+    return (f"<tr><td>{_pos(rank, m)}</td><td>{name}</td><td>{m['score_calidad']:.2f}</td>"
             f"<td>{fmt_cost(m)}</td><td>{esc(fmt_license(m))}</td><td>{esc(fmt_provider_speed(m))}</td></tr>")
 
+
+
+def linea_calidad(data):
+    """La línea de método sobre una tabla «Calidad». Los pesos salen del export (9-nov-2026):
+    antes decía «Score ponderado: calidad 70 % + costo 15 %…» sobre una columna que ya no es
+    el compuesto."""
+    ph = round(100 * (data.get("indice_calidad") or {})["peso_harbor"])
+    return (f"Calidad de 0 a 10: {100 - ph} % examen + {ph} % tareas reales de agente (Harbor). "
+            f"Costo y velocidad van aparte.")
 
 def table_alt(models, c):
     rows = "\n        ".join(row_alt(i + 1, m) for i, m in enumerate(models))
     return f"""<div class="table-scroll"><table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
       </thead>
       <tbody>
         {rows}
@@ -335,9 +350,9 @@ def gen_alternativas_chatgpt(data):
     models = _recomendables(data)
     c = counts(data)
     # Alternativas = todo modelo testeado que no sea de OpenAI (provider openai) salvo GPT-OSS open source.
-    alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0
+    alts = [m for m in models if m.get("tested") and m.get("score_calidad") is not None
             and (m.get("provider") != "openai" or "gpt-oss" in m["name"].lower())]
-    alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
+    alts = sorted(alts, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Alternativas a ChatGPT en 2026: 10 modelos comparados con benchmark real"
     desc = ("¿Buscas alternativas a ChatGPT/GPT-4/GPT-5 para agentes, coding o contenido en español? "
@@ -368,7 +383,7 @@ def gen_alternativas_chatgpt(data):
   <section class="results">
     <div class="results-header">
       <h2>Top 10 alternativas a ChatGPT (ranking global)</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
 
     {table_alt(alts, c)}
@@ -449,8 +464,8 @@ def gen_alternativas_claude(data):
     n_raz, lider_raz = _cabeza_pilar(data, "Razonamiento")
     rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
-    alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "anthropic"]
-    alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
+    alts = [m for m in models if m.get("tested") and m.get("score_calidad") is not None and m.get("provider") != "anthropic"]
+    alts = sorted(alts, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Alternativas a Claude en 2026: 10 modelos comparados con benchmark real"
     desc = ("¿Buscas alternativas a Claude por precio o por el cambio en la suscripción Pro? "
@@ -481,7 +496,7 @@ def gen_alternativas_claude(data):
   <section class="results">
     <div class="results-header">
       <h2>Top 10 alternativas a Claude (ranking global)</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
 
     {table_alt(alts, c)}
@@ -563,8 +578,8 @@ def gen_alternativas_gemini(data):
     rapido, rapido_tps = _mas_rapido(data)
     n_cont, lider_cont = _cabeza_pilar(data, "Contenido")
     c = counts(data)
-    alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and m.get("provider") != "google"]
-    alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
+    alts = [m for m in models if m.get("tested") and m.get("score_calidad") is not None and m.get("provider") != "google"]
+    alts = sorted(alts, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Alternativas a Gemini en 2026: 10 modelos comparados con benchmark real"
     desc = ("¿Buscas alternativas a Gemini 2.5/3.1 Flash, Flash Lite o Pro de Google? "
@@ -594,7 +609,7 @@ def gen_alternativas_gemini(data):
   <section class="results">
     <div class="results-header">
       <h2>Top 10 alternativas a Gemini (ranking global)</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
 
     {table_alt(alts, c)}
@@ -851,7 +866,7 @@ def row_cheap(rank, m):
     name += _badge_no_rankea(m)
     cost_1k = m.get("cost_per_1k_calls_usd") or 0
     cost_str = f"~${cost_1k * 5:.2f}" if cost_1k else "—"
-    return (f"<tr><td>{rank}</td><td>{name}</td><td>{m['score_global']:.2f}</td>"
+    return (f"<tr><td>{_pos(rank, m)}</td><td>{name}</td><td>{m['score_calidad']:.2f}</td>"
             f"<td>{fmt_cost(m)}</td><td>{cost_str}</td><td>{esc(fmt_license(m))}</td></tr>")
 
 
@@ -859,9 +874,9 @@ def gen_modelos_baratos(data):
     rapido, rapido_tps = _mas_rapido(data)
     models = _recomendables(data)
     c = counts(data)
-    cheap = [m for m in models if m.get("tested") and m.get("score_global", 0) >= 6.8
+    cheap = [m for m in models if m.get("tested") and (m.get("score_calidad") or 0) >= 8.4
              and m.get("cost_input_per_M", 99) <= 1.0 and m.get("cost_output_per_M", 99) <= 2.0]
-    cheap = sorted(cheap, key=lambda m: -m["score_global"])[:10]
+    cheap = sorted(cheap, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Modelos IA baratos para emprendedores: mejores alternativas low-cost (2026)"
     desc = ("Modelos IA accesibles para emprendedores latinoamericanos: comparativa de los más baratos "
@@ -874,7 +889,7 @@ def gen_modelos_baratos(data):
     rows = "\n        ".join(row_cheap(i + 1, m) for i, m in enumerate(cheap))
     table = f"""<div class="table-scroll"><table class="results-table">
       <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Score</th><th scope="col">$ in/out per M</th><th scope="col">$/mes (5K calls)*</th><th scope="col">License</th></tr>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$ in/out per M</th><th scope="col">$/mes (5K calls)*</th><th scope="col">License</th></tr>
       </thead>
       <tbody>
         {rows}
@@ -1007,8 +1022,8 @@ def gen_modelos_baratos(data):
 def gen_modelos_open_source_local(data):
     models = _recomendables(data)
     c = counts(data)
-    oss = [m for m in models if m.get("tested") and m.get("open_source") and m.get("score_global", 0) > 0]
-    oss = sorted(oss, key=lambda m: -m["score_global"])[:10]
+    oss = [m for m in models if m.get("tested") and m.get("open_source") and m.get("score_calidad") is not None]
+    oss = sorted(oss, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Modelos IA open-source para correr local: comparativa por hardware (2026)"
     desc = ("¿Qué modelo IA open-source correr local en Mac M-series, NVIDIA DGX Spark o GPU dedicada? "
@@ -1151,8 +1166,8 @@ def gen_alternativas_deepseek(data):
     n_glob, _ = _cabeza_pilar(data, None)
     rapido, rapido_tps = _mas_rapido(data)
     c = counts(data)
-    alts = [m for m in models if m.get("tested") and m.get("score_global", 0) > 0 and "deepseek" not in m["name"].lower()]
-    alts = sorted(alts, key=lambda m: -m["score_global"])[:10]
+    alts = [m for m in models if m.get("tested") and m.get("score_calidad") is not None and "deepseek" not in m["name"].lower()]
+    alts = sorted(alts, key=lambda m: -m["score_calidad"])[:10]
 
     title = "Alternativas a DeepSeek 2026: 10 modelos con benchmark"
     desc = (f"Ranking de alternativas a DeepSeek con datos reales. {c['total_models']} modelos, {c['tested_count']} testeados, {c['tests_marketing']} tests. "
@@ -1178,7 +1193,7 @@ def gen_alternativas_deepseek(data):
   <section class="results">
     <div class="results-header">
       <h2>Top 10 alternativas a DeepSeek (ranking global)</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
 
     {table_alt(alts, c)}
@@ -1254,12 +1269,12 @@ def gen_fable_5_review(data):
     # retiraron después, con el mismo filtro que `_recomendables` salvo `retired`.
     compare = sorted(
         [_por_key[k] for k in compare_keys if k in _por_key],
-        key=lambda m: -m.get("score_global", 0),
+        key=lambda m: -(m.get("score_calidad") or 0),
     )
-    # Todas por la columna que la tabla muestra (Score): Fable fijo arriba era un orden que
+    # Todas por la columna que la tabla muestra (Calidad, 9-nov-2026; antes Score): Fable fijo arriba era un orden que
     # ninguna columna explicaba (auditar_paginas P2, 6-nov-2026).
     table_models = sorted(([fable] + compare) if fable else compare,
-                          key=lambda m: -(m.get("score_global") or 0))
+                          key=lambda m: -(m.get("score_calidad") or 0))
 
     title = "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)"
     desc = (f"Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score {_f_score}, "
@@ -1306,7 +1321,7 @@ def gen_fable_5_review(data):
   <section class="results">
     <div class="results-header">
       <h2>Fable 5 vs alternativas directas</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
 
     {table_alt(table_models, c)}
@@ -1443,8 +1458,9 @@ def gen_glm_5_2_explicado(data):
         v = qs.get(k)
         return f"{v:.2f}" if isinstance(v, (int, float)) else "—"
 
-    familia = sorted([m for m in models if str(m.get("name", "")).startswith("GLM ")],
-                     key=lambda m: -(m.get("score_global") or 0))
+    familia = sorted([m for m in models if str(m.get("name", "")).startswith("GLM ")
+                      and m.get("score_calidad") is not None],
+                     key=lambda m: -m["score_calidad"])
 
     title = f"GLM 5.2: por qué su score no refleja su calidad real | Benchmark {MES_DATA}"
     desc = (f"GLM 5.2 tiene score compuesto {_g} pero calidad {_q} ({_pos} por calidad pura). "
@@ -1476,7 +1492,7 @@ def gen_glm_5_2_explicado(data):
         <tr><th scope="col">Métrica</th><th scope="col">GLM 5.2</th><th scope="col">Qué mide</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>quality_avg</strong></td><td><strong>{_q}</strong></td><td>Calidad pura: es el titular del benchmark desde v4.1.</td></tr>
+        <tr><td><strong>quality_avg</strong></td><td><strong>{_q}</strong></td><td>Examen: fue el titular del benchmark de v4.1 a v5; desde v6.0.0 la calidad suma las tareas reales de agente.</td></tr>
         <tr><td><strong>score_global</strong></td><td><strong>{_g}</strong></td><td>Compuesto: calidad + costo + velocidad + latencia.</td></tr>
         <tr><td>long_context_quality</td><td><strong>{_ctx}</strong></td><td>Recuperar un dato dentro de un contexto enorme (NIAH).</td></tr>
         <tr><td>security_score</td><td><strong>{_sec}</strong></td><td>Resistencia a prompt injection en español.</td></tr>
@@ -1519,7 +1535,7 @@ def gen_glm_5_2_explicado(data):
   <section class="results">
     <div class="results-header">
       <h2>GLM 5.2 dentro de la familia GLM</h2>
-      <p class="meta">Score ponderado {c['scoring_version']}: calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%.</p>
+      <p class="meta">{linea_calidad(data)}</p>
     </div>
     {table_alt(familia, c)}
     <p class="meta">La familia se movió: hay versiones más nuevas que GLM 5.2 midiendo mejor.
@@ -1533,7 +1549,7 @@ def gen_glm_5_2_explicado(data):
         <tr><th scope="col">Métrica</th><th scope="col">GLM 5.2</th><th scope="col">Claude Opus 4.8</th></tr>
       </thead>
       <tbody>
-        <tr><td>Calidad (el titular)</td><td>{_q}</td><td>{_n(opus, 'quality_avg')}</td></tr>
+        <tr><td>Examen</td><td>{_q}</td><td>{_n(opus, 'quality_avg')}</td></tr>
         <tr><td>Score compuesto</td><td>{_g}</td><td>{_n(opus, 'score_global')}</td></tr>
         <tr><td>Coding</td><td>{fmt_pillar(glm, 'Coding')}</td><td>{fmt_pillar(opus, 'Coding')}</td></tr>
         <tr><td>Contenido</td><td>{fmt_pillar(glm, 'Contenido')}</td><td>{fmt_pillar(opus, 'Contenido')}</td></tr>
@@ -1583,7 +1599,7 @@ def gen_glm_5_2_explicado(data):
          f"razonamiento ({_suite('reasoning')}) y tareas largas multi-turno "
          f"({_suite('agent_long_horizon')})."),
         ("¿GLM 5.2 o Claude Opus 4.8?",
-         f"En calidad pura están cerca ({_q} contra {_n(opus, 'quality_avg')}). La diferencia está en "
+         f"En el examen están cerca ({_q} contra {_n(opus, 'quality_avg')}). La diferencia está en "
          f"seguridad ({_sec} contra {_n(opus, 'security_score')}) y en precio. GLM 5.2 es viable si el "
          f"modelo no queda expuesto a usuarios maliciosos."),
         ("¿Sigue siendo la mejor opción de su familia?",

@@ -37,7 +37,7 @@ SUITE = "suite:"
 
 
 def _q(m: dict, pillar: str | None):
-    """(calidad, margen_error) del modelo — global, dentro de un pilar o de una suite.
+    """(nota, margen_error) del modelo — global (la nota v6), dentro de un pilar o de una suite.
 
     Una suite se pide como `suite:<nombre>` (6-nov-2026): las páginas que ordenan por
     una sola suite agrupan su cabeza con el mismo mecanismo que el global."""
@@ -48,7 +48,10 @@ def _q(m: dict, pillar: str | None):
     if pillar:
         d = (m.get("dims_by_pillar") or {}).get(pillar) or {}
         return d.get("quality_avg"), d.get("quality_ci95")
-    return m.get("quality_avg"), m.get("quality_ci95")
+    # Global (9-nov-2026): la nota publicada desde v6.0.0 —75 % examen + 25 % Harbor— y su
+    # margen, que incluye el ruido de Harbor (`indice.py`). Pilares y suites siguen sobre el
+    # examen: son «Examen» en las superficies.
+    return m.get("score_calidad"), m.get("calidad_ci95")
 
 
 def _indistinguishable(a: dict, b: dict, pillar: str | None) -> bool:
@@ -132,8 +135,9 @@ MAX_BAND_DELTA = 0.30
 
 def grupo_cabeza(models: list[dict], pillar: str | None = None) -> list[dict]:
     """Los modelos que el benchmark NO separa del mejor en esa dimensión (la banda 1),
-    ordenados por calidad. Es lo que se publica en vez de un #1 (DECISIONES, 6-nov-2026:
-    «el benchmark no separa a los primeros N; dentro del grupo, elige por precio»)."""
+    ordenados por la nota. Es lo que se publica en vez de un #1. Desde el 9-nov-2026 el orden
+    es por la nota también dentro del grupo (con «≈» en vez de puesto) y el más barato lleva
+    una etiqueta; reemplaza «dentro del grupo, elige por precio» del 6-nov."""
     bands = quality_bands(models, pillar)
     if not bands:
         return []

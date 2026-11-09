@@ -152,6 +152,11 @@ CHEQUEOS = [
     # formato del endpoint» es explícito y no lo pone rojo; un hueco, sí.
     ("datos", "ningún rankeado se publicó sin su tarea agéntica",
      [PY, "benchmarks/check_agentico_publicado.py"], True, True),
+    # 9-nov-2026 (v6.0.0): la nota de calidad (75 % examen + 25 % Harbor) tiene una sola
+    # definición, el grupo de cabeza sale del export y sin dato agéntico no se ordena por
+    # la nota. Bloqueante desde que nace: nace en verde.
+    ("datos", "la nota de calidad tiene una definición y las superficies la leen del export",
+     [PY, "benchmarks/check_indice_calidad.py"], True, True),
     # 6-nov-2026: «DeepSeek V3» medía deepseek-v3.2. Bloqueante desde que nace, con sus
     # excepciones escritas y con motivo.
     ("datos", "el nombre visible trae la versión de su id",

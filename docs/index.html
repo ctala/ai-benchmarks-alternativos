@@ -88,7 +88,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=522bd7c6">
+<link rel="stylesheet" href="style.css?v=f0591964">
 <!-- GTM: mismo container que cristiantala.com, para seguir el funnel cruzado
      blog → benchmark → comunidad desde un solo lugar. Diferido (primera
      interacción o 3.5s idle) para no cargarlo en la ruta crítica del LCP. -->
@@ -221,10 +221,13 @@
         <strong>complementa</strong> con lo que a quien emprende le importa y ellos no miden —costo en el
         proveedor real, latencia desde LATAM, español neutro y agentes multi-turno (N8N, Hermes, soporte).
         Para investigación académica → los oficiales. Para decidir qué poner en producción en español → esto.
-        Desde v4.1 el orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
+        El orden por defecto es el <strong>índice de calidad</strong>: solo calidad, con el
         precio y la latencia al lado en vez de mezclados adentro —un modelo caro no es peor, es caro—.
+        Desde v6.0.0 la calidad incluye tareas reales: es <span class="peso-examen">75</span> % la
+        nota media del examen y <span class="peso-harbor">25</span> % cuatro tareas de agente, donde
+        el modelo trabaja con herramientas y un test verifica el resultado.
         Si quieres que el precio pese, mueves los pesos tú. La escala es <strong>absoluta</strong>:
-        es la nota media del examen, donde 10 sería perfecto en todo. No se compara contra los
+        10 sería perfecto en todo. No se compara contra los
         otros modelos, así que <strong>agregar uno nuevo no mueve el score de nadie</strong> y una
         cifra citada no caduca sola. Los <strong id="rk-n">96</strong> rankeados caen entre
         <strong id="rk-rango">7,26 y 8,52</strong>: sí,
@@ -235,7 +238,7 @@
       </p>
     </details>
     <p class="meta">
-      Dataset <strong>v5.0.0</strong> · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
+      Dataset <strong>v5.0.0</strong> · examen v5 · <span id="hero-updated" aria-live="polite">julio 2026</span> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">ver repo</a>
     </p>
   </section>
@@ -359,8 +362,8 @@
 
       <div class="filter">
         <label for="quality">Calidad mínima: <output id="quality-out">8.0</output></label>
-        <input type="range" id="quality" min="6.9" max="8.75" step="0.05" value="6.9">
-        <small>Nota media del examen, escala absoluta 0-10 (10 = perfecto en todo).
+        <input type="range" id="quality" min="5.3" max="9" step="0.05" value="5.3">
+        <small>Nota de calidad (examen y tareas reales de agente), escala absoluta 0-10 (10 = perfecto en todo).
         Los <strong id="rk-n2">96</strong> rankeados caen entre
         <strong id="rk-rango2">7,26 y 8,52</strong>: están más cerca entre sí
         de lo que un ranking sugiere, y por eso el slider se mueve en ese tramo.
@@ -959,6 +962,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=d5c57d3a"></script>
+<script src="app.js?v=03739932"></script>
 </body>
 </html>
