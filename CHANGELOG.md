@@ -5,6 +5,10 @@
 
 ## [No publicado]
 
+### Planificación (sin cambio de versión)
+- **Change `corte-v5-1`** (OpenSpec, rama `corte/v5.1`): lo que salió de v5.0.0, cada tarea con su motivo — ocasiones, recalibración (necesita OK aparte, R8), Terminal-Bench en el Spark, registro y hallazgos de la ventana, y lo anotado para 5.1. Fila del 8-nov en DECISIONES.
+- **5.7: «≈» en la calculadora, después de resolver el grupo de cabeza** (hoy 31 de 70, 44 %, sobre el tope de 20 %): con la banda actual marcaría casi la mitad del ranking como empate. Fila del 9-nov en DECISIONES. La reescritura de AGENTS.md ya estaba como 5.6.
+
 ## [v5.0.0] - 2026-11-08 — el examen v5: proveedor fijo, thinking por peldaño y el trabajo agéntico contado en tareas de Harbor (70 rankeados)
 
 > OK de Cristian para el commit, el release v5.0.0, el push y el merge del blog (8-nov-2026): *«Opción A, con estas
