@@ -296,7 +296,12 @@ def _indice_calidad_meta() -> dict:
             "margen": {"metodo": "bootstrap de intentos por tarea con varianza encogida (B)",
                        "replicas": _ix.BOOT_REPLICAS, "semilla": _ix.BOOT_SEMILLA,
                        "k0": _ix.K0_ENCOGIMIENTO},
-            "sin_dato_agentico": "fuera del ranking"}
+            "sin_dato_agentico": "fuera del ranking",
+            # DECISIONES 9-nov-2026: los checks que no cuentan y la línea de método que los
+            # declara; la calculadora y las fichas la leen de acá, no la escriben.
+            "checks_sin_contar": _ix.checks_sin_contar_meta(Path(__file__).resolve().parent.parent),
+            "linea_checks": _ix.linea_checks_sin_contar(
+                _ix.checks_sin_contar_meta(Path(__file__).resolve().parent.parent))}
 
 
 def _seguridad_mediana(models_export: list) -> dict:

@@ -188,6 +188,7 @@ BRAND_CSS = """<style>
 # los nombres por key, para decir quién reemplazó a un histórico.
 CABEZA: dict = {"n": 0, "de": 0, "porcentaje": None, "claves": []}
 SUCESORES: dict = {}
+DATA: dict = {}
 
 
 def slug(m: dict) -> str:
@@ -890,6 +891,10 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
     # Nota que la declaración del proveedor pide publicar (Fugu Max, DECISIONES 5-nov-2026).
     nota_publica = (f'    <p class="meta nota-publica">{esc(m["nota_publica"])}</p>\n'
                     if m.get("nota_publica") else "")
+    # DECISIONES 9-nov-2026: la línea de los checks que no cuentan sale del export, no se escribe acá.
+    _lc = (DATA.get("indice_calidad") or {}).get("linea_checks")
+    linea_checks = (f'    <p class="ficha-fuente nota-checks">{esc(_lc)}</p>\n'
+                    if _lc and m.get("nota_harbor") is not None else "")
     body = f"""  <section class="hero ficha-hero">
     <h1>{esc(nombre)}: para qué sirve de verdad (benchmark en español)</h1>
 {linea_retiro}{nota_publica}    <p class="lead">{lead}</p>
@@ -901,7 +906,7 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
     <p class="ficha-fuente">Medido con <strong>{m.get('runs') or 0} runs</strong> que puntúan,
     juez Phi-4 vía OpenRouter · actualizado {hoy} ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos</a></p>
-  </section>
+{linea_checks}  </section>
 {por_tarea(m)}
 {alt_html}
 {ficha(m, puesto, len(ranked))}
@@ -938,6 +943,7 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
 
 def main() -> int:
     d = json.loads(MODELS_JSON.read_text())
+    DATA.clear(); DATA.update(d)
     ranked = [m for m in d["models"] if m.get("ranked")]
     # 3-sep-2026 · ORDENAR POR LO QUE LA FICHA MUESTRA, NO POR LA ESCALA VIEJA.
     #

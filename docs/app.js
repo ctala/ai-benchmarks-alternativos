@@ -218,6 +218,10 @@ async function load() {
     document.querySelectorAll(".peso-harbor").forEach(el => { el.textContent = ph; });
     document.querySelectorAll(".peso-examen").forEach(el => { el.textContent = 100 - ph; });
   }
+  // DECISIONES 9-nov-2026: la línea de los checks que no cuentan viene hecha del export
+  // (`indice_calidad.linea_checks`); vacía si no hay ninguno excluido.
+  const _nc = document.getElementById("nota-checks");
+  if (_nc) _nc.textContent = _ic.linea_checks || "";
   if (_rk.length) {
     const qs = _rk.map(m => m.score_calidad).sort((a, b) => a - b);
     const n1 = qs[0].toFixed(2).replace(".", ",");

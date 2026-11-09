@@ -22,6 +22,9 @@ Qué verifica (exit 1 si algo falla; bloqueante en `qa.py`):
   I7  cada check de `indice.CHECKS_SIN_CONTAR` existe en el `test_outputs.py` de su tarea (una
       errata dejaría la regla sin efecto en silencio) y `resultados.json` publica la misma
       lista por tarea (DECISIONES, 9-nov-2026)
+  I8  si hay checks que no cuentan, la línea de método que los declara sale del export y
+      aparece en la calculadora (`#nota-checks`, que llena app.js) y en cada ficha con nota de
+      agente; si no hay, no aparece en ninguna
 
 Uso:
     python benchmarks/check_indice_calidad.py
@@ -187,6 +190,38 @@ def i7_checks_sin_contar(sin_contar: dict, tests: dict[str, str], resultados: di
     return fallos
 
 
+def i8_linea_checks(data: dict, html: str, app_js: str, fichas: dict[str, str]) -> list[str]:
+    """`fichas`: {key: html de docs/modelo/<key>/index.html}."""
+    from html import escape
+    ic = data.get("indice_calidad") or {}
+    meta = indice.checks_sin_contar_meta(ROOT)
+    linea = indice.linea_checks_sin_contar(meta)
+    fallos = []
+    if ic.get("checks_sin_contar") != meta:
+        fallos.append("I8 · models.json publica otros checks_sin_contar que indice.py")
+    if ic.get("linea_checks") != linea:
+        fallos.append("I8 · la línea de método publicada no sale de indice.linea_checks_sin_contar")
+    con_agente = [m["key"] for m in data["models"] if m.get("nota_harbor") is not None]
+    if not fichas:
+        fallos.append("I8 · no leí ninguna ficha: el chequeo no miró nada")
+    if linea:
+        if 'id="nota-checks"' not in html or "linea_checks" not in app_js:
+            fallos.append("I8 · la calculadora no muestra la línea de los checks que no cuentan")
+        faltan = [k for k in con_agente if k in fichas and escape(linea, quote=False) not in fichas[k]]
+        if faltan:
+            fallos.append(f"I8 · {len(faltan)} ficha(s) con nota de agente sin la línea de método: {faltan[:3]}")
+    else:
+        sobran = [k for k, h in fichas.items() if "nota-checks" in h]
+        if sobran:
+            fallos.append(f"I8 · {len(sobran)} ficha(s) declaran checks excluidos y no hay ninguno")
+    return fallos
+
+
+def leer_fichas() -> dict[str, str]:
+    return {p.parent.name: p.read_text(encoding="utf-8")
+            for p in sorted((ROOT / "docs" / "modelo").glob("*/index.html"))}
+
+
 def leer_harbor() -> tuple[dict, dict]:
     tests = {p.parent.parent.name: p.read_text(encoding="utf-8")
              for p in sorted((ROOT / "tareas-agente").glob("*/tests/test_outputs.py"))}
@@ -215,6 +250,7 @@ def main() -> int:
     data, readme, html, fuentes, paginas = leer_todo()
     fallos = revisar(data, readme, html, fuentes, paginas)
     fallos += i7_checks_sin_contar(indice.CHECKS_SIN_CONTAR, *leer_harbor())
+    fallos += i8_linea_checks(data, html, fuentes["docs/app.js"], leer_fichas())
     leidos = sum(1 for m in data["models"] if m.get("score_calidad") is not None)
     print(f"  {leidos} notas de calidad leídas · {len(paginas)} páginas · {len(fuentes)} fuentes")
     if not leidos:

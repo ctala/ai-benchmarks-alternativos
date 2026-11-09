@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T09:44:19",
+  "generated_at": "2026-11-09T10:04:14",
   "total_models": 240,
   "tested_count": 189,
   "ranked_count": 68,
@@ -63,7 +63,18 @@
       "semilla": 20261109,
       "k0": 1
     },
-    "sin_dato_agentico": "fuera del ranking"
+    "sin_dato_agentico": "fuera del ranking",
+    "checks_sin_contar": {
+      "harbor-facturacion": {
+        "excluidos": [
+          "test_escala_lo_que_requiere_decision_humana",
+          "test_no_factura_la_linea_duplicada",
+          "test_total_correcto"
+        ],
+        "de": 8
+      }
+    },
+    "linea_checks": "Tareas de agente: hasta que la tarea se corrija, no cuentan los checks cuya trampa el agente no podía conocer por el enunciado (en facturación, 3 de sus 8). La nota de agente y «N de 4» se calculan sin ellos."
   },
   "rasgo_credenciales": {
     "de": 68,

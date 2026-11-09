@@ -2732,6 +2732,26 @@ def test_blog_datos_globales_salen_del_export():
         G.global_("seguridad_mediana", {})
 
 
+def test_blog_globales_del_grupo_salen_del_export():
+    """9-nov-2026: el N y el rango del grupo, los rankeados y los abiertos arriba no se
+    escriben a mano en la prosa del pilar; sin el grupo en el export, falla."""
+    import pytest
+    from benchmarks import generate_blog_datos as G
+    ms = [{"key": f"m{i}", "ranked": True, "score_calidad": 9.0 - i / 10,
+           "open_source": i % 2 == 0} for i in range(12)]
+    d = {"models": ms, "grupo_cabeza": {"n": 3, "de": 12, "claves": ["m0", "m1", "m2"]}}
+    assert G.global_("rankeados", d) == "12"
+    assert G.global_("grupo_n", d) == "3"
+    assert G.global_("grupo_rango", d) == "8,80 y 9,00"
+    assert G.global_("abiertos_grupo", d) == "2"
+    assert G.global_("abiertos_top10", d) == "5"
+    assert G.global_("top10_amplitud", d) == "0,90"
+    texto, cambios = G.aplicar("<!-- G:grupo_n -->31<!-- /G --> de <!-- G:rankeados -->70<!-- /G -->", d, "p.md")
+    assert "3<!-- /G --> de <!-- G:rankeados -->12" in texto and len(cambios) == 2
+    with pytest.raises(SystemExit):
+        G.global_("grupo_n", {"models": ms})
+
+
 def test_agentes_veredicto_y_segunda_tabla_hablan_en_harbor():
     """8-nov-2026: /mejor-llm-para-agentes/ decía «calidad 9.20/10» en el veredicto y
     «Calidad×precio 8,86» en la segunda tabla, las dos de `score_agentico`. Ahora las dos

@@ -234,6 +234,30 @@ def global_(campo: str, data: dict) -> str:
         if not v:
             raise SystemExit("ERROR: models.json no trae `seguridad_mediana`.")
         return str(v)
+    # 9-nov-2026 (Cristian): las cifras del grupo de cabeza y los conteos que la prosa del
+    # pilar cita tampoco se escriben a mano. Salen del export (`grupo_cabeza`, `ranked`).
+    if campo in ("rankeados", "grupo_n", "grupo_rango", "abiertos_top10", "abiertos_grupo",
+                 "top10_amplitud"):
+        orden = rankeados(data)
+        if not orden:
+            raise SystemExit("ERROR: models.json no trae rankeados con nota de calidad.")
+        if campo == "rankeados":
+            return str(len(orden))
+        if campo == "abiertos_top10":
+            return str(sum(1 for m in orden[:10] if m.get("open_source")))
+        if campo == "top10_amplitud":
+            return _num(orden[0]["score_calidad"] - orden[min(9, len(orden) - 1)]["score_calidad"])
+        g = data.get("grupo_cabeza") or {}
+        if not g.get("claves"):
+            raise SystemExit("ERROR: models.json no trae `grupo_cabeza`.")
+        por_key = {m["key"]: m for m in data["models"]}
+        cab = [por_key[k] for k in g["claves"] if k in por_key]
+        if campo == "grupo_n":
+            return str(g["n"])
+        if campo == "abiertos_grupo":
+            return str(sum(1 for m in cab if m.get("open_source")))
+        qs = [m["score_calidad"] for m in cab]
+        return f"{_num(min(qs))} y {_num(max(qs))}"
     pc = data.get("precio_calidad") or {}
     if campo == "correlacion_precio":
         if pc.get("pearson") is None:
@@ -244,7 +268,8 @@ def global_(campo: str, data: dict) -> str:
             raise SystemExit("ERROR: models.json no trae `precio_calidad`.")
         return str(pc["r2_pct"])
     raise SystemExit(f"ERROR: dato global desconocido «{campo}» "
-                     "(seguridad_mediana, seguridad_medidos, correlacion_precio, precio_explica_pct)")
+                     "(seguridad_mediana, seguridad_medidos, correlacion_precio, precio_explica_pct, "
+                     "rankeados, grupo_n, grupo_rango, abiertos_top10, abiertos_grupo, top10_amplitud)")
 
 
 def aplicar(texto: str, data: dict, archivo: str) -> tuple[str, list[str]]:

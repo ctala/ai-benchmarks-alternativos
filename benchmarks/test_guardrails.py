@@ -2171,6 +2171,17 @@ def _t_indice_calidad():
     casos.append(ci.i7_checks_sin_contar(errata, tests, res))
     r2 = copy.deepcopy(res); r2["tareas"][t0]["checks_sin_contar"] = []
     casos.append(ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, r2))
+    # I8: control verde; una ficha sin la línea, la calculadora sin su hueco, y la línea
+    # publicada a mano (distinta de la que arma indice.py)
+    fichas = ci.leer_fichas()
+    if ci.i8_linea_checks(data, html, fuentes["docs/app.js"], fichas):
+        return False
+    k8 = next(m["key"] for m in data["models"] if m.get("nota_harbor") is not None and m["key"] in fichas)
+    f8 = dict(fichas); f8[k8] = re.sub(r'<p class="ficha-fuente nota-checks">.*?</p>', "", f8[k8], flags=re.S)
+    casos.append(ci.i8_linea_checks(data, html, fuentes["docs/app.js"], f8))
+    casos.append(ci.i8_linea_checks(data, html.replace('id="nota-checks"', 'id="otra"'), fuentes["docs/app.js"], fichas))
+    d = copy.deepcopy(data); d["indice_calidad"]["linea_checks"] = "Algunos checks no cuentan."
+    casos.append(ci.i8_linea_checks(d, html, fuentes["docs/app.js"], fichas))
     # y de punta a punta: resultados.json sin la lista publicada tiene que dejar rojo el script
     with Sabotaje(ROOT / "tareas-agente" / "resultados.json"):
         rp = ROOT / "tareas-agente" / "resultados.json"

@@ -61,6 +61,36 @@ CHECKS_SIN_CONTAR: dict[str, dict[str, str]] = {
 }
 
 
+# Cómo se nombra cada tarea en una página pública.
+NOMBRE_TAREA = {"harbor-cotizar": "cotizar", "harbor-facturacion": "facturación",
+                "harbor-reunion": "reunión", "harbor-ruteo": "ruteo"}
+
+
+def checks_sin_contar_meta(raiz) -> dict:
+    """{tarea: {"excluidos": [...], "de": total de checks}} para el export; solo tareas con excluidos."""
+    import re as _re
+    from pathlib import Path as _P
+    out = {}
+    for tarea, checks in CHECKS_SIN_CONTAR.items():
+        if not checks:
+            continue
+        src = (_P(raiz) / "tareas-agente" / tarea / "tests" / "test_outputs.py").read_text(encoding="utf-8")
+        out[tarea] = {"excluidos": sorted(checks), "de": len(_re.findall(r"^def test_", src, flags=_re.M))}
+    return out
+
+
+def linea_checks_sin_contar(meta: dict | None) -> str | None:
+    """La línea de método que acompaña a «N de 4» y a la nota de agente. Sale del export
+    (`indice_calidad.checks_sin_contar`); None si no hay checks excluidos."""
+    if not meta:
+        return None
+    partes = [f"en {NOMBRE_TAREA.get(t, t)}, {len(d['excluidos'])} de sus {d['de']}"
+              for t, d in sorted(meta.items())]
+    return ("Tareas de agente: hasta que la tarea se corrija, no cuentan los checks cuya trampa "
+            "el agente no podía conocer por el enunciado (" + "; ".join(partes) + "). "
+            "La nota de agente y «N de 4» se calculan sin ellos.")
+
+
 def reward_sin_checks(tarea: str, tests: dict[str, str]) -> float | None:
     """Reward 0-1 de un intento desde el estado de cada check (`{nombre: "passed"|…}`),
     sin los de `CHECKS_SIN_CONTAR`. None si no queda ningún check que contar."""
