@@ -13,6 +13,6 @@
 
 ## 3. Cierre
 
-- [ ] 3.1 DECISIONES (reemplaza la fila del 6-nov), CHANGELOG v6.0.0, 7 superficies de versión.
-- [ ] 3.2 Blog: `--check` y la lista de cifras que cambian; `--write` solo con OK (parada c).
-- [ ] 3.3 Push, release y deploy, cada uno con OK y verificación en vivo (parada d).
+- [x] 3.1 DECISIONES (reemplaza la fila del 6-nov), CHANGELOG v6.0.0, 7 superficies de versión.
+- [x] 3.2 Blog: `--check` y la lista de cifras que cambian; `--write` solo con OK (parada c).
+- [x] 3.3 Push, release y deploy, cada uno con OK y verificación en vivo (parada d). OK de Cristian el 9-nov; la verificación en vivo se hace sobre lo empujado y, si algo falla, entra como fix.

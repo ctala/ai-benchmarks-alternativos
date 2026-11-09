@@ -3,7 +3,11 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado] · próximo: mayor
+## [No publicado]
+
+## [v6.0.0] - 2026-11-09 — la calidad incluye las tareas reales de agente (75 % examen + 25 % Harbor; 68 rankeados)
+
+> OK de Cristian para el commit del blog, el release v6.0.0, el push del benchmark y el merge del blog (9-nov-2026), con QA completo en verde.
 
 ### MAJOR — la calidad incluye tareas reales de agente (índice v6.0.0, examen v5)
 - **Calidad = 75 % examen + 25 % Harbor.** El examen separa poco a los rankeados (desviación 0,27) y las cuatro tareas reales de agente separan mucho (1,87); una nota que no las veía ordenaba por la parte que menos distingue. El peso vive en una constante (`indice.py`) y nadie más la recalcula (`check_indice_calidad`, bloqueante).
