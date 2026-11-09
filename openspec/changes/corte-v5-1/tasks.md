@@ -18,6 +18,7 @@ Motivo de salida: `--recalibrate` mueve la media/std congeladas; necesita su OK 
 
 - [ ] 2.1 Simular la referencia v5 contra el ranking v5 (con la v4, 1 punto de calidad vale 5,73 de score). Verificar: simulación con control verde sobre lo publicado en v5.0.0.
 - [ ] 2.2 Con el OK de Cristian, `export_for_pages.py --recalibrate --scoring-version v5.1` y `ocasiones` por modelo. Verificar: fila en DECISIONES y bump según VERSIONADO.
+- [ ] 2.3 Harbor entra al compuesto («ajustado a mis pesos») como componente propio, con su media/std en la referencia recalibrada. Motivo: desde v6.0.0 la nota de calidad incluye Harbor (25 %), pero el compuesto sigue sobre el examen y no ve el trabajo agéntico; la calculadora lo declara como limitación conocida (DECISIONES, 9-nov-2026). Verificar: simulación con control verde, OK aparte para recalibrar (R8) y la limitación se retira de la calculadora con su guardrail.
 
 ## 3. Terminal-Bench en el Spark (de corte-v5 4.1-4.3)
 
@@ -44,4 +45,4 @@ Motivo de salida: la ventana se midió (lotes v5c01-v5c30), pero su registro for
 - [ ] 5.4 `dateModified` solo con cambio de contenido en `generate_comparison.py` y `generate_rankings.py`. Verificar: guardrail con sabotaje.
 - [ ] 5.5 Rediseño de la precisión con cadenas difíciles que no parezcan secretos (suite nueva, aditiva; DECISIONES 7-nov-2026). Verificar: muestra antes del examen (Regla 0.7 del RUNBOOK).
 - [ ] 5.6 Reescribir AGENTS.md para v5 (hoy snapshot v4: recomienda modelos retirados) y devolverlo a «vigente». Verificar: `check_docs` y `check_consistency` verdes.
-- [ ] 5.7 «≈» en la calculadora para el grupo de cabeza, **después de 5.2**. Motivo: hoy el grupo es 31 de 70 (44 %, sobre el `MAX_BAND_SHARE` de 20 %); con esa banda el «≈» marcaría casi la mitad del ranking como empate. Cristian, 9-nov-2026. Verificar: `grupo_cabeza.porcentaje` ≤ 20 % antes de empezar; la marca sale de `grupo_cabeza.claves` del export (no de `app.js`) y `qa_calculadora` da rojo si se le quita a una fila del grupo o se le pone a una de fuera, con su sabotaje.
+- [x] 5.7 «≈» en la calculadora para el grupo de cabeza. — **descartada en este change: pasa a `indice-calidad-harbor` (DECISIONES, 9-nov-2026)**: Cristian decidió que el «≈» llega a la calculadora con el índice v6.0.0, sin esperar a que el grupo baje de 20 %; con la nota nueva el grupo es 18 de 68 (26 %) y `MAX_BAND_SHARE` se queda en 20 %. La condición original (después de 5.2, grupo ≤ 20 %) queda reemplazada; 5.2 sigue abierta para achicar el grupo.
