@@ -2829,10 +2829,13 @@ def test_reward_sin_los_checks_que_no_cuentan():
     t = {"test_archivo_valido": "passed", "test_no_factura_la_linea_duplicada": "failed",
          "test_total_correcto": "failed", "test_escala_lo_que_requiere_decision_humana": "failed",
          "test_respeta_el_tope_contractual": "passed"}
-    assert indice.reward_sin_checks("harbor-facturacion", t) == 1.0     # quedan 2 de 2
-    assert indice.reward_sin_checks("harbor-cotizar", t) == 0.4         # otra tarea: cuentan todos
+    ck = indice.CHECKS_SIN_CONTAR["harbor-facturacion"]["checksum"]
+    assert indice.reward_sin_checks("harbor-facturacion", t, ck) == 1.0       # quedan 2 de 2
+    assert indice.reward_sin_checks("harbor-cotizar", t, ck) == 0.4           # otra tarea: cuentan todos
+    assert indice.reward_sin_checks("harbor-facturacion", t, "otra-version") == 0.4  # la corregida: cuentan
+    assert indice.reward_sin_checks("harbor-facturacion", t, None) == 0.4     # sin checksum no se excluye
     assert indice.reward_sin_checks("harbor-facturacion",
-                                    {"test_total_correcto": "passed"}) is None  # nada que contar
+                                    {"test_total_correcto": "passed"}, ck) is None  # nada que contar
 
 
 def test_bands_global_usa_la_nota_v6_y_su_margen():
@@ -2847,3 +2850,112 @@ def test_sin_dato_agentico_no_rankea():
     m = {"examen_completo": True, "agentico": {"sin_dato": "formato_endpoint", "motivo": "x"}}
     v = elegibilidad.evaluar(m, 50)
     assert v["ranking"] is False and v["motivos"]["ranking"] == "sin_dato_agentico"
+
+
+# ── Suites nuevas de la ventana v6.1 (9-nov-2026) ─────────────────────────────────
+# Cada scorer se prueba en las dos direcciones: la respuesta correcta saca 10 y la
+# respuesta con el defecto que la suite dice cazar baja. Un scorer que da 10 a todo
+# pasaría el primer chequeo y es justo lo que el segundo atrapa.
+
+def test_precision_datos_fixtures_y_scorer_en_las_dos_direcciones():
+    from benchmarks.tests import precision_datos as pd
+    from benchmarks.scoring import score_expected_answer
+    pd._verificar_fixtures()   # los DV calculados son los del enunciado
+    assert len(pd.TESTS) >= 10
+    for t in pd.TESTS:
+        ea = t["expected_answer"]
+        items = ea["items"]
+        primero = [i[0] if isinstance(i, (list, tuple)) else str(i) for i in items]
+        perfecta = "\n".join(primero)
+        assert score_expected_answer(perfecta, ea) == 10.0, t["name"]
+        # Sabotaje: un carácter cambiado en un ítem con dígitos tiene que costar.
+        k = next((n for n, x in enumerate(primero) if any(c.isdigit() for c in x)), None)
+        if k is None:
+            continue
+        x = primero[k]
+        pos = max(n for n, c in enumerate(x) if c.isdigit())
+        alterado = x[:pos] + ("1" if x[pos] != "1" else "2") + x[pos + 1:]
+        if alterado in ({*items[k]} if isinstance(items[k], (list, tuple)) else {items[k]}):
+            continue
+        roto = "\n".join(primero[:k] + [alterado] + primero[k + 1:])
+        assert score_expected_answer(roto, ea) < 10.0, t["name"]
+
+
+def test_noticias_relevancia_scorer_y_balance():
+    from benchmarks.tests import noticias_relevancia as nr
+    from benchmarks.scoring import score_expected_answer
+    decisiones = [t["expected_answer"]["decision"] for t in nr.TESTS]
+    assert len(nr.TESTS) >= 50
+    # La mitad pasa y la mitad no: un modelo que siempre dice lo mismo no puede ganar.
+    assert 0.4 <= decisiones.count("PASA") / len(decisiones) <= 0.6
+    assert len({t["name"] for t in nr.TESTS}) == len(nr.TESTS)
+    for t in nr.TESTS:
+        ea = t["expected_answer"]
+        otra = "NO_PASA" if ea["decision"] == "PASA" else "PASA"
+        bien = '```json\n{"decision": "%s", "motivo": "x"}\n```' % ea["decision"]
+        mal = '{"decision": "%s", "motivo": "x"}' % otra
+        assert score_expected_answer(bien, ea) == 10.0, t["name"]
+        assert score_expected_answer(mal, ea) == 0.0, t["name"]
+        assert score_expected_answer("no sé", ea) == 0.0, t["name"]
+
+
+def test_noticias_traduccion_scorer_en_las_dos_direcciones():
+    from benchmarks.tests import noticias_traduccion as nt
+    from benchmarks.scoring import score_expected_answer
+    assert len(nt.TESTS) >= 10
+    for t in nt.TESTS:
+        ea = t["expected_answer"]
+        bien = ea["original"]
+        for f in ea["fragmentos"]:
+            bien = bien.replace(f["cjk"], f["aceptados"][0])
+        assert score_expected_answer(bien, ea) >= 9.0, (t["name"], bien)
+        # Sabotaje: devolver el original sin traducir deja el CJK y tiene que costar.
+        assert score_expected_answer(ea["original"], ea) < score_expected_answer(bien, ea), t["name"]
+        assert score_expected_answer("", ea) == 0.0, t["name"]
+
+
+def test_noticias_redaccion_castiga_cjk_voseo_y_cifra_ajena():
+    from benchmarks.tests import noticias_redaccion as nr
+    from benchmarks.scoring import score_expected_answer
+    assert len(nr.TESTS) >= 20
+    for t in nr.TESTS:
+        ea = t["expected_answer"]
+        base = ea["fuente"]
+        sucia = base + "\n\nEn 2099 la empresa tenés 小米 que crecer."
+        assert score_expected_answer(sucia, ea) < score_expected_answer(base, ea), t["name"]
+        assert score_expected_answer("", ea) == 0.0, t["name"]
+
+
+def test_noticias_extraccion_scorer_en_las_dos_direcciones():
+    import json as _j
+    from benchmarks.tests import noticias_extraccion as ne
+    from benchmarks.scoring import score_expected_answer
+    assert len(ne.TESTS) >= 20
+    for t in ne.TESTS:
+        ea = t["expected_answer"]
+        todos = [{"texto": p["texto"], "nucleo": p["nucleo"]} for p in ea["plantados"]]
+        bien = "```json\n" + _j.dumps({"claims": todos}, ensure_ascii=False) + "\n```"
+        assert score_expected_answer(bien, ea) == 10.0, t["name"]
+        # Sabotaje: perder el dato enterrado al final tiene que costar.
+        sin_final = [c for c, p in zip(todos, ea["plantados"]) if not p.get("final")]
+        assert len(sin_final) < len(todos), t["name"]
+        mal = _j.dumps({"claims": sin_final}, ensure_ascii=False)
+        assert score_expected_answer(mal, ea) < 10.0, t["name"]
+        assert score_expected_answer("no hay JSON", ea) == 0.0, t["name"]
+
+
+def test_noticias_verificacion_scorer_y_balance():
+    import json as _j
+    from benchmarks.tests import noticias_verificacion as nv
+    from benchmarks.scoring import score_expected_answer
+    gates = [t["expected_answer"]["gate"] for t in nv.TESTS]
+    assert len(nv.TESTS) >= 20 and 0.4 <= gates.count("PASA") / len(gates) <= 0.6
+    for t in nv.TESTS:
+        ea = t["expected_answer"]
+        lista = [{"id": k, "veredicto": v} for k, v in ea["esperados"].items()]
+        assert score_expected_answer(_j.dumps({"veredictos": lista}), ea) == 10.0, t["name"]
+        todo_r = [{"id": k, "veredicto": "RESPALDADO"} for k in ea["esperados"]]
+        nota_r = score_expected_answer(_j.dumps({"veredictos": todo_r}), ea)
+        # Sabotaje: el modelo que respalda todo no puede sacar 10 en un caso que bloquea.
+        if ea["gate"] != "PASA":
+            assert nota_r < 10.0, t["name"]

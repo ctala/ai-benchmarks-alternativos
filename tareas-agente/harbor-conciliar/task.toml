@@ -1,0 +1,31 @@
+schema_version = "1.1"
+artifacts = []
+
+[task]
+name = "ctala/conciliacion-bancaria-es"
+description = "Conciliar la cartola bancaria de una pyme chilena contra sus facturas: un pago parcial, un abono que cubre dos facturas y no alcanza, facturas en USD pagadas en CLP (una en fin de semana), una filial que paga con su RUT, un abono de otro cliente que cita un folio ajeno, una devolución del fisco con el mismo monto que una factura y cargos bancarios que citan folios. Cada error cobra de más o da por cobrada una deuda viva."
+keywords = ["business", "spanish", "rules-following", "accounting", "reconciliation"]
+[[task.authors]]
+name = "Cristian Tala"
+
+[metadata]
+difficulty = "hard"
+category = "business"
+tags = ["es", "accounting", "reconciliation", "instruction-adherence"]
+expert_time_estimate_min = 25.0
+junior_time_estimate_min = 70.0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = true
+mcp_servers = []

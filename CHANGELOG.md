@@ -10,6 +10,12 @@
 - **5.7: «≈» en la calculadora, después de resolver el grupo de cabeza** (hoy 31 de 70, 44 %, sobre el tope de 20 %): con la banda actual marcaría casi la mitad del ranking como empate. Fila del 9-nov en DECISIONES. La reescritura de AGENTS.md ya estaba como 5.6.
 - **5.7 reemplazada el mismo día y 2.3 nueva**: Cristian decidió que el «≈» llega con el índice v6.0.0 (change `indice-calidad-harbor`), y que Harbor entre al compuesto como componente propio en la recalibración; mientras tanto «ajustado a mis pesos» no ve lo agéntico y lo declara.
 
+### Ventana v6.1 — construcción, sin medir (rama `ventana/v6-1`)
+- **La regla de los checks que no cuentan se ata a la versión medida de la tarea** (`task_checksum`), no al nombre del check: corregir facturación renombraba sus checks y rompía la regla antes de medir la versión corregida. Cuando la corregida se mida, la exclusión se apaga sola e I7 exige borrarla. Nueva dependencia: `dirhash==0.5.0`, la misma que usa Harbor para el checksum.
+- **Facturación corregida y sin voseo en las 4 tareas.** La regla de registros dudosos, el tope, el contrato vigente y la constancia ahora están escritos donde el agente los lee; cobrar y dejar constancia ya no saca cero. Cambian los checksums, así que las 4 se miden de nuevo junto con las 4 nuevas.
+- **Dos suites nuevas fuera del índice:** `precision_datos` (14 tests y 81 ítems con identificadores fiscales y bancarios ficticios y montos en formato regional: la precisión que `string_precision` dejó de medir) y `noticias_relevancia` reescrita (58 notas con verdad por construcción contra el criterio A-Filtro, mitad pasa y mitad no). El filtro es una ocasión, no promedia; la precisión se decide en la parada D.
+- **Dos modelos nuevos en el catálogo** (Gemini 3.1 Flash Lite GA y LFM-3 1.7B), **Qwen 3.7 Flash con su proveedor fijo** (`alibaba`) y **GPT-OSS 20B/120B pasan a `dekallm/bf16`**, condicionado a un ping multi-turno, para que tengan dato agéntico.
+
 ## [v6.0.0] - 2026-11-09 — la calidad incluye las tareas reales de agente (75 % examen + 25 % Harbor; 68 rankeados)
 
 > OK de Cristian para el commit del blog, el release v6.0.0, el push del benchmark y el merge del blog (9-nov-2026), con QA completo en verde.

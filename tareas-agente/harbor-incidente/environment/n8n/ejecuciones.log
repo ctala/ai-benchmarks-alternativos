@@ -1,0 +1,12 @@
+2026-10-27T09:00:03-03:00 boletin-semanal exec=7702 status=success | Leer estado(1) > Leer RSS(10) > Filtrar nuevos(4) > Crear campaña(1) > Actualizar estado(1)
+2026-11-02T07:00:00-03:00 WARN credencial "Listmonk API": el token vence el 2026-11-20
+2026-11-03T09:00:02-03:00 boletin-semanal exec=7741 status=success | Leer estado(1) > Leer RSS(10) > Filtrar nuevos(0) > Crear campaña(sin items, no se ejecutó) > Actualizar estado(sin items, no se ejecutó)
+2026-11-05T11:42:10-03:00 listmonk campaña 58 "Prueba SMTP" cancelada: smtp: 535 5.7.8 Authentication failed
+2026-11-06T09:00:04-03:00 drip-onboarding exec=8790 status=success | Clientes nuevos(3) > Elegir plantilla(3) > Postmark send(3) > drip_estado CREATE(3)
+2026-11-06T10:00:05-03:00 drip-onboarding exec=8812 status=success | Clientes nuevos(4) > Elegir plantilla(4) > Postmark send(4) > drip_estado CREATE(0, error, continueOnFail)
+2026-11-06T10:00:06-03:00 WARN postmark: 429 Too Many Requests en 1 de 4 envíos; reintento OK
+2026-11-06T11:00:05-03:00 drip-onboarding exec=8836 status=success | Clientes nuevos(4) > Elegir plantilla(4) > Postmark send(4) > drip_estado CREATE(0, error, continueOnFail)
+2026-11-07T07:00:00-03:00 WARN credencial "Listmonk API": el token vence el 2026-11-20
+2026-11-07T10:00:04-03:00 drip-onboarding exec=8901 status=success | Clientes nuevos(3) > Elegir plantilla(3) > Postmark send(3) > drip_estado CREATE(0, error, continueOnFail)
+2026-11-07T10:00:05-03:00 WARN postmark: 429 Too Many Requests en 1 de 3 envíos; reintento OK
+2026-11-08T09:00:03-03:00 drip-onboarding exec=8950 status=success | Clientes nuevos(2) > Elegir plantilla(2) > Postmark send(2) > drip_estado CREATE(2)

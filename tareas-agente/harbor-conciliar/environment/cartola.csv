@@ -1,0 +1,11 @@
+id_mov,fecha,descripcion,rut_contraparte,monto_clp
+M-01,2026-10-05,Transf. de Comercial Los Andes SpA pago F-1040 F-1039,76.345.678-1,3000000
+M-02,2026-10-06,Transf. Distribuidora Norte Grande pago F-1042,77.678.901-1,595000
+M-03,2026-10-09,Transf. Pacifico Logistica Ltda F-1043,77.234.567-4,1785000
+M-04,2026-10-13,Transf. Servicios Digitales Maipo abono F-1041,76.567.890-0,1000000
+M-05,2026-10-15,Transf. Exportadora Austral SA inv F-1044,78.456.789-3,3780000
+M-06,2026-10-16,Comision cobranza F-1048,,-12000
+M-07,2026-10-17,Transf. Exportadora Austral SA inv F-1045,78.456.789-3,2375000
+M-08,2026-10-21,Transf. Inversiones Pacifico SpA F-1047,76.123.456-0,1428000
+M-09,2026-10-27,Devolucion PPM Tesoreria General,60.805.000-0,1190000
+M-10,2026-10-30,Comision mantencion cuenta corriente,,-8900

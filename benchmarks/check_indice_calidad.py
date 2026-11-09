@@ -19,9 +19,12 @@ Qué verifica (exit 1 si algo falla; bloqueante en `qa.py`):
   I5  un modelo sin dato agéntico no rankea, no tiene nota y no aparece en ningún orden por
       la nota: ni en el grupo, ni en el README, ni en una tabla «Calidad» de las páginas
   I6  ningún tier publicado es una ruta (`cloud_nim` y compañía van en `ruta`)
-  I7  cada check de `indice.CHECKS_SIN_CONTAR` existe en el `test_outputs.py` de su tarea (una
-      errata dejaría la regla sin efecto en silencio) y `resultados.json` publica la misma
-      lista por tarea (DECISIONES, 9-nov-2026)
+  I7  cada regla de `indice.CHECKS_SIN_CONTAR` está atada a la versión publicada de su tarea
+      (`task_checksum` de `resultados.json`); si se publicó otra versión (la corregida ya se
+      midió), la regla se borra. Cuando el directorio de la tarea en disco ES esa versión
+      (`dirhash`), cada check excluido existe en su `test_outputs.py` y el total de checks
+      coincide (una errata dejaría la regla sin efecto en silencio). `resultados.json` publica
+      la misma lista por tarea (DECISIONES, 9-nov-2026)
   I8  si hay checks que no cuentan, la línea de método que los declara sale del export y
       aparece en la calculadora (`#nota-checks`, que llena app.js) y en cada ficha con nota de
       agente; si no hay, no aparece en ninguna
@@ -168,22 +171,35 @@ def i6_tier(data: dict) -> list[str]:
             for m in data["models"] if indice.es_ruta(m.get("tier"))]
 
 
-def i7_checks_sin_contar(sin_contar: dict, tests: dict[str, str], resultados: dict) -> list[str]:
-    """`tests`: {tarea: texto de su test_outputs.py}; `resultados`: tareas-agente/resultados.json."""
+def i7_checks_sin_contar(sin_contar: dict, tests: dict[str, str], resultados: dict,
+                         checksums_disco: dict[str, str]) -> list[str]:
+    """`tests`: {tarea: texto de su test_outputs.py}; `resultados`: tareas-agente/resultados.json;
+    `checksums_disco`: {tarea: dirhash del directorio de la tarea tal como está en disco}."""
     fallos = []
-    for tarea, checks in sin_contar.items():
+    publicadas = (resultados or {}).get("tareas") or {}
+    if not publicadas:
+        fallos.append("I7 · resultados.json no trae tareas: el chequeo no miró nada")
+    for tarea, regla in sin_contar.items():
         src = tests.get(tarea)
         if src is None:
             fallos.append(f"I7 · {tarea}: no existe la tarea, y tiene checks que no cuentan")
             continue
-        for c in checks:
+        publicado = (publicadas.get(tarea) or {}).get("task_checksum")
+        if publicado != regla.get("checksum"):
+            fallos.append(f"I7 · {tarea}: la regla es de la versión {str(regla.get('checksum'))[:12]} y "
+                          f"la publicada es {str(publicado)[:12]}: la corregida ya se midió, "
+                          "sus checks vuelven a contar y la regla se borra de CHECKS_SIN_CONTAR")
+            continue
+        if checksums_disco.get(tarea) != regla["checksum"]:
+            continue   # la tarea en disco ya es otra versión (corregida, sin medir): no se lee aquí
+        for c in regla["checks"]:
             if not re.search(rf"^def {re.escape(c)}\(", src, flags=re.M):
                 fallos.append(f"I7 · {tarea}: el check «{c}» no está en su test_outputs.py")
-    publicadas = (resultados or {}).get("tareas") or {}
-    if not publicadas:
-        fallos.append("I7 · resultados.json no trae tareas: el chequeo no miró nada")
+        n = len(re.findall(r"^def test_", src, flags=re.M))
+        if n != regla.get("de"):
+            fallos.append(f"I7 · {tarea}: la regla dice {regla.get('de')} checks y la tarea tiene {n}")
     for tarea, d in publicadas.items():
-        esperado = sorted(sin_contar.get(tarea, {}))
+        esperado = sorted(indice.checks_excluidos(tarea, d.get("task_checksum")))
         if d.get("checks_sin_contar") != esperado:
             fallos.append(f"I7 · {tarea}: resultados.json publica checks_sin_contar="
                           f"{d.get('checks_sin_contar')} y indice.py dice {esperado}")
@@ -222,11 +238,16 @@ def leer_fichas() -> dict[str, str]:
             for p in sorted((ROOT / "docs" / "modelo").glob("*/index.html"))}
 
 
-def leer_harbor() -> tuple[dict, dict]:
+def leer_harbor() -> tuple[dict, dict, dict]:
+    # El checksum de Harbor es `dirhash(dir, "sha256")` (harbor 0.21, `Task.checksum`). Sin
+    # el paquete, I7 no puede saber qué versión está en disco: falla con ruido, no en silencio.
+    from dirhash import dirhash
     tests = {p.parent.parent.name: p.read_text(encoding="utf-8")
              for p in sorted((ROOT / "tareas-agente").glob("*/tests/test_outputs.py"))}
     resultados = json.loads((ROOT / "tareas-agente" / "resultados.json").read_text(encoding="utf-8"))
-    return tests, resultados
+    disco = {t: dirhash(str(ROOT / "tareas-agente" / t), "sha256") for t in indice.CHECKS_SIN_CONTAR
+             if (ROOT / "tareas-agente" / t).is_dir()}
+    return tests, resultados, disco
 
 
 def revisar(data, readme, html, fuentes, paginas) -> list[str]:

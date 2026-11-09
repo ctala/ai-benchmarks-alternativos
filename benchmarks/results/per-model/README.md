@@ -87,7 +87,7 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | 79 | [Qwen 3.6 35B base (OpenRouter FP8)](qwen_qwen3_6-35b-a3b.md) | 7.47 | 7.93 | 116 | 369/375 | [ver detalles](qwen_qwen3_6-35b-a3b.md) |
 | 80 | [DeepSeek V4 Flash (OpenRouter)](deepseek_deepseek-v4-flash.md) | 7.47 | 7.98 | 47 | 470/474 | [ver detalles](deepseek_deepseek-v4-flash.md) |
 | 81 | [Claude Haiku 4.5](anthropic_claude-haiku-4_5.md) | 7.47 | 7.99 | 91 | 181/181 | [ver detalles](anthropic_claude-haiku-4_5.md) |
-| 82 | [Gemini 3.1 Flash Lite](google_gemini-3_1-flash-lite-preview.md) | 7.46 | 7.73 | 99 | 238/289 | [ver detalles](google_gemini-3_1-flash-lite-preview.md) |
+| 82 | [Gemini 3.1 Flash Lite](google_gemini-3_1-flash-lite.md) | 7.46 | 7.73 | 99 | 238/316 | [ver detalles](google_gemini-3_1-flash-lite.md) |
 | 83 | [Nemotron 3 Ultra 550B](nvidia_nemotron-3-ultra-550b-a55b.md) | 7.46 | 8.18 | 93 | 418/464 | [ver detalles](nvidia_nemotron-3-ultra-550b-a55b.md) |
 | 84 | [Gemma 4 31B (DGX Spark Q4_K_M)](gemma4_31b.md) | 7.45 | 8.40 | 9 | 88/90 | [ver detalles](gemma4_31b.md) |
 | 85 | [Gemini 4 Argon](google_gemini-4-argon.md) | 7.44 | 8.59 | 40 | 143/143 | [ver detalles](google_gemini-4-argon.md) |

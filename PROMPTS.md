@@ -1,7 +1,7 @@
 # Prompts del benchmark — texto exacto
 
 > **Auto-generado por `benchmarks/generate_prompts_catalog.py`. No editar a mano.**
-**213 tests en 35 suites.**
+**380 tests en 41 suites.**
 
 
 Este archivo existe porque **un resultado sin su entrada no es auditable**: no se
@@ -3067,6 +3067,7724 @@ IMPORTANTE:
 - `needle_idx`: None · `position_pct`: None
 - corpus commiteado en `benchmarks/tests/niah_es_corpus/`
 
+## `noticias_extraccion` — 25 tests
+
+### extraccion_kavak
+
+- `prompt_sha`: **`3f87820e9f45`**
+- Fuente en inglés de 514 palabras con 11 afirmaciones plantadas (4 de núcleo). Enterrada al final: «La plantilla pasó de unas 300 personas a más de 5.000 empleados».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Kavak doubles its valuation with a $700 million Series E
+
+Mexico City — Kavak, the Mexican marketplace for buying and selling pre-owned cars, has raised $700 million in a Series E round that values the company at $8.7 billion, roughly twice what investors were willing to pay for it earlier in the year.
+
+The round was led by General Catalyst. Tiger Global, D1 Capital Partners, SoftBank and Founders Fund also took part, along with several funds that had backed the company in earlier rounds.
+
+Used cars are one of the largest consumer categories in Latin America and also one of the least trusted. Buyers worry about hidden mechanical problems, sellers worry about being paid late or not at all, and financing is expensive or simply unavailable for a large part of the population. Companies in the segment try to remove that friction by inspecting each vehicle, reconditioning it in their own facilities and offering a warranty and a return window. The model is capital intensive: the marketplace usually owns the inventory for weeks, which ties up working capital and makes every additional market an expensive bet.
+
+The new money arrives only five months after Kavak closed a $485 million Series D at a $4 billion valuation. With this round, Kavak became the most valuable private technology company in Latin America after Nubank, the Brazilian digital bank.
+
+Kavak was founded in 2016 in Mexico by Carlos García Ottati together with a group of co-founders. The company grew first in Mexico City and later added other Mexican cities before expanding abroad. Today it operates in Mexico, Brazil and Argentina.
+
+Investors in the sector say the attraction is less the margin on each car and more the financial products that can be attached to it: credit, insurance and maintenance plans. A buyer who finances a car through the platform stays connected to it for years, which turns a one-off transaction into a recurring relationship. That is also where the risks are, because consumer credit in the region is sensitive to interest rates and to the economic cycle.
+
+According to the company, part of the new capital will go to expanding across Latin America, and Kavak plans to begin operating in several new markets over the next year. The company did not name the countries.
+
+Executives also said the money would fund new reconditioning centers and technology to price vehicles automatically, a capability that becomes more valuable as the inventory grows and pricing mistakes multiply.
+
+For buyers, the practical difference shows up after the sale. A car bought from a private seller rarely comes with any guarantee, and disputes usually end with the buyer absorbing the cost of repairs. Platforms that offer inspections, warranties and a return window are betting that customers will pay a premium for that certainty, and that the premium will cover the cost of reconditioning and holding inventory.
+
+The company runs 40 logistics and reconditioning hubs across the three countries where it operates. Its workforce, which numbered around 300 people a few years ago, has grown to more than 5,000 employees in Latin America.
+````
+
+### extraccion_notco
+
+- `prompt_sha`: **`8fbcc146a935`**
+- Fuente en español de 503 palabras con 9 afirmaciones plantadas (5 de núcleo). Enterrada al final: «NotCo suma más de US$350 millones levantados».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+NotCo levanta US$235 millones y se convierte en unicornio
+
+Santiago — La foodtech chilena NotCo, que desarrolla alternativas de origen vegetal a la leche, la mayonesa, los helados y la carne, cerró una ronda Serie D de US$235 millones que la valora en US$1.500 millones.
+
+La ronda fue liderada por Tiger Global. Se sumaron como nuevos inversionistas DFJ Growth y Zoma Lab, el fondo de Kenneth Zomosa, y también participaron figuras del deporte y la música: el piloto de Fórmula 1 Lewis Hamilton, el tenista Roger Federer y el músico Questlove.
+
+La categoría de alimentos de origen vegetal se apoya en una promesa sencilla de explicar y difícil de cumplir: reproducir el sabor, la textura y el comportamiento en la cocina de un producto animal usando solo plantas. La mayoría de las empresas del sector trabaja por prueba y error en laboratorios de alimentos, con ciclos de desarrollo que pueden durar años. La diferencia que reclaman las compañías más nuevas es usar modelos de aprendizaje automático para recorrer miles de combinaciones de ingredientes antes de llevar una receta a la cocina de pruebas.
+
+NotCo fue fundada en 2015 en Santiago por Matías Muchnick, Karim Pichara y Pablo Zamora. Su sistema, al que llama Giuseppe, cruza la estructura molecular de los alimentos de origen animal con una base de datos de plantas para proponer recetas que imiten el producto original.
+
+Según la compañía, los fondos se destinarán a ampliar su presencia en nuevas categorías en Norteamérica, a escalar su tecnología de inteligencia artificial y a acelerar su llegada a Europa y Asia.
+
+En el comunicado, Scott Shleifer, socio de Tiger Global, sostuvo que NotCo ha creado productos de origen vegetal de primer nivel que están ganando participación de mercado con rapidez.
+
+La categoría vive un momento de presión. Los fondos que entraron con fuerza a las proteínas alternativas en los últimos años empiezan a exigir crecimiento en ventas y no solo en distribución, y varias marcas del hemisferio norte han tenido que recortar personal o retirar productos de las góndolas. En ese contexto, los inversionistas miran con atención la capacidad de cada compañía de mantener el precio cerca del producto tradicional, que es lo que define si el consumidor repite la compra.
+
+Para las startups de la región, la ronda vuelve a mostrar que los fondos globales de crecimiento están dispuestos a apostar por compañías latinoamericanas que compiten fuera de su mercado de origen. También muestra el peso que tiene la presencia en Estados Unidos a la hora de fijar una valoración.
+
+En las góndolas, la competencia no se limita a otras startups. Las grandes empresas de alimentos y bebidas lanzaron sus propias líneas vegetales y tienen una ventaja difícil de igualar: acceso a distribución, poder de negociación con los supermercados y presupuestos de marketing muy superiores. Por eso varias foodtech optaron por asociarse con esos mismos gigantes en lugar de enfrentarlos, y licencian su tecnología o desarrollan productos en conjunto.
+
+Con esta operación, NotCo suma más de US$350 millones levantados desde su fundación.
+````
+
+### extraccion_wiz
+
+- `prompt_sha`: **`182f52f5b7e8`**
+- Fuente en inglés de 467 palabras con 10 afirmaciones plantadas (6 de núcleo). Enterrada al final: «Según Reuters, Google pagará a Wiz US$3.200 millones si el acuerdo fracasa».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Google agrees to buy Wiz for $32 billion in its largest deal ever
+
+Google has agreed to acquire Wiz, the New York-based cloud security company, for $32 billion in cash. The purchase is the largest in Google's 26-year history and the biggest all-cash deal the company has ever signed.
+
+Wiz builds software that scans the infrastructure companies run on public clouds and flags misconfigurations, exposed credentials and vulnerable workloads. Its pitch is that security teams no longer need to install agents on every server: the platform connects to the cloud account and builds a map of everything that is running.
+
+The price is well above the roughly $23 billion that Google reportedly offered for Wiz the previous year. Wiz turned down that offer and said at the time that it would pursue the initial public offering it had been planning instead.
+
+Cloud security has become one of the most contested categories in enterprise software. As companies moved workloads to several clouds at once, the number of permissions, keys and connections to watch grew faster than the teams in charge of watching them. Large buyers increasingly prefer a single platform over a patchwork of tools, which favors the vendors that can cover the most ground and explains the premiums being paid for leaders in the category.
+
+Once the deal closes, Wiz will join Google Cloud. Both companies said Wiz's products will keep working across the major cloud providers, including Amazon Web Services, Microsoft Azure and Oracle Cloud, and not only on Google's own platform. That commitment matters to customers, many of whom use Wiz precisely because it is not tied to any single provider.
+
+The acquisition still needs regulatory approval, and the companies said they expect it to close in 2026. Analysts expect antitrust authorities in the United States and Europe to look closely at the deal, given Google's position in other markets and the growing concentration among large cloud security vendors.
+
+Wiz was founded in 2020 by Assaf Rappaport, Ami Luttwak, Yinon Costica and Roy Reznik, who had previously built a security company that they sold to Microsoft. The founders lead the company from New York and Tel Aviv.
+
+For customers, large acquisitions in security bring a familiar worry. Products that were neutral can drift toward the acquirer's own platform over time, prices can change once the buyer integrates its sales teams, and roadmaps can slow down while two organizations merge. Buyers typically negotiate longer contracts and price protections when they suspect that a vendor is about to change hands, and procurement teams watch closely for signs that support quality is slipping during the integration.
+
+The deal also carries protection for Wiz if regulators get in the way. According to Reuters, Google agreed to pay Wiz a termination fee of $3.2 billion if the acquisition falls through.
+````
+
+### extraccion_adobe_figma
+
+- `prompt_sha`: **`c8bbc0c4feca`**
+- Fuente en español de 482 palabras con 9 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Adobe pagará a Figma US$1.000 millones de comisión de terminación».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Adobe y Figma renuncian a su fusión de US$20.000 millones
+
+Adobe y Figma acordaron poner fin a la operación por la que Adobe iba a comprar a la plataforma de diseño colaborativo por US$20.000 millones. Las compañías anunciaron la decisión en diciembre de 2023, después de concluir que no veían un camino claro para obtener las aprobaciones de la Comisión Europea y de la Autoridad de Competencia y Mercados del Reino Unido (CMA).
+
+La compra se había anunciado en septiembre de 2022 y desde el primer día despertó dudas entre los reguladores. Figma se había convertido en la herramienta preferida de muchos equipos de producto para diseñar interfaces en el navegador, un terreno en el que Adobe competía con sus propios productos.
+
+Las fusiones entre una empresa dominante y un competidor emergente son las que más preocupan a las autoridades de competencia. La teoría es conocida: una compañía grande puede pagar una prima alta por un rival pequeño no por lo que vale hoy, sino para evitar que le quite clientes mañana. Para demostrarlo, los reguladores analizan documentos internos, superposición de productos y el efecto probable sobre los precios y la innovación, un proceso que puede tomar más de un año.
+
+Durante la revisión, la CMA británica planteó que la operación solo podría seguir adelante si Adobe se desprendía de activos y de código fuente, una propuesta que Adobe rechazó. En Europa, la Comisión había abierto una investigación a fondo y luego informó que estaba al tanto de la decisión de terminar el acuerdo.
+
+El director ejecutivo de Adobe, Shantanu Narayen, dijo que ambas compañías estaban en profundo desacuerdo con las conclusiones de los reguladores, pero que habían decidido que lo mejor era seguir adelante por separado. Dylan Field, cofundador y director ejecutivo de Figma, sostuvo que la empresa seguiría operando de forma independiente.
+
+Para las startups, el caso deja una lección práctica sobre los acuerdos de venta: el riesgo regulatorio no es abstracto y puede tomar más de un año resolverlo, tiempo en el que el equipo vendedor trabaja con el futuro en pausa. Por eso los compradores grandes suelen aceptar cláusulas que compensan al vendedor si la operación se cae por motivos regulatorios.
+
+El caso también mostró cómo cambió la actitud de los reguladores frente a las grandes tecnológicas. Durante años, la mayoría de las compras de startups por parte de empresas dominantes se aprobaron sin mayor revisión. Hoy, las autoridades de Europa y del Reino Unido revisan con más atención las operaciones en las que el comprador ya tiene una posición fuerte, incluso cuando la empresa comprada todavía es pequeña en ingresos, y exigen remedios que muchas veces los compradores no están dispuestos a aceptar.
+
+Ese es justamente el punto final de esta historia. De acuerdo con los documentos presentados ante el regulador bursátil estadounidense, Adobe deberá pagar a Figma una comisión de terminación de US$1.000 millones en efectivo.
+````
+
+### extraccion_uala
+
+- `prompt_sha`: **`7bd97ab8f4be`**
+- Fuente en español de 452 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «El financiamiento total de Ualá llega a US$544 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Ualá recauda US$350 millones en una Serie D liderada por SoftBank y Tencent
+
+Buenos Aires — Ualá, la fintech argentina que ofrece una cuenta y una tarjeta prepaga gestionadas desde el teléfono, cerró en agosto de 2021 una ronda Serie D de US$350 millones con una valoración posterior a la inversión de US$2.450 millones.
+
+La ronda fue codirigida por el SoftBank Latin America Fund y por afiliadas de Tencent. También participaron inversionistas que ya estaban en la compañía, entre ellos Goldman Sachs, Soros Fund Management y Ribbit Capital.
+
+Según la empresa, se trata de la mayor ronda privada de inversión de la historia para una compañía argentina.
+
+Las billeteras digitales crecieron en América Latina sobre una base conocida: una parte grande de la población no tiene cuenta bancaria o la usa poco, y el efectivo sigue dominando los pagos cotidianos. Una app que permite recibir dinero, pagar servicios y comprar en línea con una tarjeta asociada resuelve un problema concreto. El desafío está en ganar dinero con eso: las comisiones por transacción son bajas y el negocio rentable suele venir del crédito, que exige gestionar riesgo en economías con inflación alta y tasas que cambian rápido.
+
+La empresa fue fundada por Pierpaolo Barbieri, que es su director ejecutivo. Ualá opera en Argentina y en México, y la compañía dijo que usará los fondos para sumar productos financieros, como inversiones, seguros y préstamos, y para fortalecer su operación mexicana.
+
+No es la primera vez que estos inversionistas apuestan por la compañía. SoftBank y Tencent ya habían liderado una ronda de US$150 millones en 2019, que fue la primera operación conocida de SoftBank en Argentina.
+
+En el mercado argentino, las fintech compiten con bancos tradicionales que también aceleraron sus aplicaciones y con billeteras de grandes plataformas de comercio electrónico. La ventaja de una compañía independiente suele estar en la experiencia de uso y en la velocidad para lanzar productos; su desventaja, en el costo de fondear el crédito sin una base de depósitos estable.
+
+Analistas del sector advierten que las valoraciones de 2021 reflejan un ciclo de capital abundante y que la prueba real será sostener el crecimiento cuando ese ciclo termine.
+
+La experiencia de otras billeteras de la región muestra que la escala no basta. Las empresas que lograron sostenerse combinaron una base grande de usuarios activos con productos de crédito bien calibrados y una estructura de costos ajustada. Las que crecieron solo con promociones vieron cómo sus clientes se iban apenas terminaban los beneficios. Por eso los inversionistas miran cada vez más la actividad mensual y el uso de los productos financieros, y menos el número total de cuentas abiertas.
+
+Con esta operación, el financiamiento total de Ualá llega a US$544 millones.
+````
+
+### extraccion_mistral
+
+- `prompt_sha`: **`faea27ae4c30`**
+- Fuente en inglés de 443 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «La semilla valoró a Mistral en 240 millones de euros».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Mistral AI raises €385 million, its second round in seven months
+
+Paris — Mistral AI, the French startup that builds large language models, has raised €385 million in a round led by Andreessen Horowitz and Lightspeed Venture Partners. Reuters put the amount at about $414.41 million. The round values the company at about $2 billion, according to Bloomberg.
+
+Salesforce, the French public investment bank Bpifrance and the shipping group CMA CGM also invested, along with individual backers including former Google chief executive Eric Schmidt and the investor Elad Gil.
+
+Building foundation models is among the most expensive activities in software. Training a competitive model requires thousands of specialized chips for weeks or months, and the cost of that compute has to be paid before a single customer signs up. For that reason, most labs raise capital at a pace that would be unusual for any other kind of startup, and investors accept losses for years in exchange for a position in what they see as a platform shift.
+
+Mistral has taken a different route from some of its American rivals by releasing several of its models with open weights, which lets developers download and run them on their own infrastructure. The company argues that this builds trust with enterprises that do not want to send sensitive data to a third party, and that it creates a community that improves and tests the models for free.
+
+The company was founded in Paris in 2023 by Arthur Mensch, a former researcher at Google DeepMind, and Timothée Lacroix and Guillaume Lample, who previously worked at Meta.
+
+European governments have treated the startup as a strategic asset. Policymakers in France have argued that the continent needs its own model developers rather than depending entirely on companies in the United States, and that argument has shaped the debate over how the European Union regulates artificial intelligence.
+
+Customers evaluating models now look beyond raw benchmark results. Price per token, latency, the ability to run a model inside their own data centers and the terms under which their data is processed all weigh on the decision. That opens room for smaller developers whose models are not the most capable on every test but are cheaper to run, easier to customize or better suited to regulated industries such as banking, health care and the public sector, where control over data is often a legal requirement rather than a preference.
+
+This is Mistral's second funding round in seven months. Its earlier seed round, of €105 million and led by Lightspeed, was described at the time as the largest seed round in European history. That round valued the young company at €240 million.
+````
+
+### extraccion_bitso
+
+- `prompt_sha`: **`1c9271d41259`**
+- Fuente en inglés de 414 palabras con 11 afirmaciones plantadas (6 de núcleo). Enterrada al final: «En diciembre de 2020 Bitso cerró una Serie B de US$62 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Bitso becomes Latin America's first crypto unicorn with $250 million Series C
+
+Mexico City — Bitso, the Mexican cryptocurrency exchange, has raised $250 million in a Series C round co-led by Tiger Global and Coatue that values the company at $2.2 billion. The round, announced in May 2021, makes Bitso the first cryptocurrency company in Latin America to be valued at more than $1 billion.
+
+New investors Paradigm, BOND and Valor Capital Group joined the round. Existing backers QED Investors, Pantera Capital and Kaszek also participated.
+
+Crypto exchanges in the region play a role that differs from their counterparts in the United States or Europe. Trading for speculation exists, but a large share of the activity comes from people who use digital assets to protect savings from inflation, to move money across borders or to receive payments from abroad. Stablecoins pegged to the dollar are especially popular because they offer the stability of the currency without the need for a bank account in the United States.
+
+Remittances are a central part of the pitch. Mexico is one of the largest recipients of remittances in the world, and traditional transfer services charge fees that crypto rails can undercut. Bitso has partnered with companies that move money from the United States to Mexico and uses its exchange to settle those transfers.
+
+Bitso was founded in 2014 by Pablo González, Ben Peters and Daniel Vogel. The company says it serves customers in Mexico, Argentina and Brazil and plans to keep expanding in Latin America.
+
+Regulation remains the main uncertainty. Mexico's financial technology law, passed in 2018, set rules for virtual assets but left many questions open, and central banks across the region have been cautious about allowing traditional financial institutions to offer crypto to their customers.
+
+For users, the main risks are well known. Prices of digital assets can swing sharply in a matter of hours, and an exchange that fails can leave customers unable to withdraw their funds. That is why regulators and investors pay close attention to how exchanges hold customer assets, whether they keep reserves that match their obligations and how they protect accounts from fraud. Exchanges that want to work with banks and payment companies usually have to submit to audits and compliance reviews that go well beyond what the law strictly requires, and those costs weigh on smaller competitors.
+
+The new round comes only a few months after the company's previous raise. In December 2020, Bitso closed a $62 million Series B.
+````
+
+### extraccion_databricks
+
+- `prompt_sha`: **`3d33789673ad`**
+- Fuente en inglés de 468 palabras con 12 afirmaciones plantadas (6 de núcleo). Enterrada al final: «Cerró una línea de crédito de US$5.250 millones liderada por JPMorgan».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Databricks raises $10 billion at a $62 billion valuation
+
+San Francisco — Databricks, the data and artificial intelligence company, said it is raising $10 billion in a Series J round at a $62 billion valuation, one of the largest venture rounds ever recorded. The company described the financing as non-dilutive and said $8.6 billion had been completed so far.
+
+The round is led by Thrive Capital, a new investor in the company. Andreessen Horowitz, DST Global, GIC, Insight Partners and WCM Investment Management are co-leads, and Ontario Teachers' Pension Plan is also taking part. New investors include ICONIQ Growth, MGX, Sands Capital and Wellington Management.
+
+Data platforms have become the plumbing behind most corporate AI projects. Before a company can train or fine-tune a model, or even ask a chatbot questions about its own documents, it needs its data in one place, cleaned and governed so that only the right people and systems can reach it. Vendors that already store and process that data are well positioned to sell the AI tools that sit on top of it, which is why the category has attracted so much capital.
+
+The new valuation is 44% higher than the $43 billion the company was valued at in September 2023.
+
+Databricks said it plans to use the money to invest in new AI products, make acquisitions and significantly expand its international go-to-market operations. Part of the proceeds will provide liquidity for current and former employees, and to pay related taxes.
+
+That last item says as much about the market as about the company. Late-stage startups are staying private for longer, and many employees hold stock that they cannot sell until there is an initial public offering. Large rounds that include a secondary component let those employees turn part of their equity into cash without the company having to go public.
+
+Databricks has not said when it might list its shares. Executives have repeatedly said the company could go public when market conditions are right, but that it does not need to.
+
+Competition in the category is intense. Cloud providers offer their own data warehouses and AI tools, often bundled with other services, and rival independent vendors compete on price and ease of use. Customers increasingly ask for open formats that let them move data between platforms without being locked in, which pushes vendors to compete on performance, governance and the quality of the tools built on top of the data rather than on the storage itself.
+
+The company also gave an update on its finances. Databricks said it expects to cross a $3 billion revenue run-rate and to be free cash flow positive for the first time in the fourth quarter of its fiscal year, which ends January 31, 2025. Separately, it closed a $5.25 billion credit facility led by JPMorgan Chase.
+````
+
+### extraccion_betterfly
+
+- `prompt_sha`: **`cbf5bd6db2f5`**
+- Fuente en español de 439 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Betterfly es el tercer unicornio de Chile, tras Cornershop y NotCo».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Betterfly alcanza valoración de US$1.000 millones con una Serie C de US$125 millones
+
+Santiago — Betterfly, la insurtech chilena que combina seguros de vida con una aplicación de hábitos saludables, levantó en febrero de 2022 una ronda Serie C de US$125 millones que la valora en US$1.000 millones.
+
+La ronda fue liderada por Glade Brook Capital Partners. Entraron como nuevos inversionistas Greycroft, Lightrock y Mundi Ventures, y también participaron QED Investors, que había liderado la Serie A de la compañía, y DST Global Partners, que había encabezado la Serie B.
+
+El modelo de Betterfly se vende principalmente a empleadores. Las empresas contratan la plataforma como beneficio para su personal, y cada trabajador acumula una moneda virtual cuando camina, medita o duerme bien. Esa moneda se convierte en cobertura de un seguro de vida que crece con el tiempo o en donaciones a causas sociales. La apuesta es que la prevención reduce el riesgo del asegurado y, con ello, el costo para la aseguradora.
+
+Los seguros fueron durante años una de las industrias menos digitalizadas de la región. La venta depende de corredores, los productos son difíciles de comparar y la penetración de los seguros de vida en América Latina es baja frente a la de los países desarrollados. Las insurtech intentan cambiar eso con distribución digital y productos más simples, aunque la mayoría termina asociándose con aseguradoras tradicionales, que son las que asumen el riesgo.
+
+La compañía fue fundada en 2018 por Eduardo della Maggiora, quien antes había creado otras empresas de tecnología en Chile.
+
+Según la empresa, los fondos permitirán iniciar operaciones en siete nuevos mercados durante 2022, entre ellos México, Colombia y Argentina, y acelerar el desarrollo de su plataforma.
+
+La industria de beneficios corporativos es competitiva. Plataformas de bienestar, gimnasios con convenios y las propias aseguradoras compiten por el mismo presupuesto de recursos humanos, y la retención de clientes depende de que los trabajadores realmente usen la aplicación.
+
+Betterfly se presenta además como una empresa de impacto social, y varios medios la describieron como el primer unicornio social de América Latina, una etiqueta que la propia compañía promueve.
+
+Para las aseguradoras tradicionales, las alianzas con plataformas como esta tienen un atractivo claro: llegan a clientes jóvenes que difícilmente comprarían un seguro de vida por iniciativa propia y obtienen datos sobre sus hábitos. Para la startup, el reto está en que el valor percibido por el trabajador se mantenga en el tiempo, porque la novedad de acumular puntos por caminar se desgasta rápido si la aplicación no ofrece algo más.
+
+Con esta ronda, Betterfly se convierte en el tercer unicornio de Chile, después de Cornershop y NotCo.
+````
+
+### extraccion_nuvemshop
+
+- `prompt_sha`: **`109c051e17e1`**
+- Fuente en inglés de 434 palabras con 10 afirmaciones plantadas (6 de núcleo). Enterrada al final: «En los diez meses previos levantó más de US$620 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Nuvemshop raises $500 million at a $3.1 billion valuation
+
+São Paulo — Nuvemshop, the e-commerce platform for small and medium-sized merchants that operates as Tiendanube in Spanish-speaking countries, has raised $500 million in a Series E round at a $3.1 billion valuation. The company announced the round in August 2021.
+
+The round was co-led by Insight Partners and Tiger Global Management. Alkeon, Owl Rock, Sunley House Capital and VMG Partners also invested, and Accel, an existing shareholder, returned with a follow-on investment.
+
+Software that lets merchants open an online store without writing code is a crowded category worldwide, dominated by a handful of large players. In Latin America, local platforms have competed by adapting to details that global providers tend to treat as afterthoughts: local payment methods, installment plans, integrations with regional logistics companies and support in Spanish and Portuguese. The pandemic accelerated the shift, as small shops that had relied entirely on physical traffic needed to sell online almost overnight.
+
+The new funding comes just five months after Nuvemshop raised $90 million in a round led by Accel.
+
+Nuvemshop was founded in Argentina in 2011 by Santiago Sosa, Alejandro Vázquez, Martín Palombo and Lucas Mosquera. It later moved its headquarters to São Paulo, as Brazil became its largest market.
+
+The company said it will use the capital to develop new products for merchants, including payments and logistics tools, and to expand into other countries in the region. Those adjacent services matter for the business model: subscription fees from small merchants are modest, and platforms increasingly earn more from processing payments and shipping orders than from the store software itself.
+
+Investors in the round pointed to the size of the opportunity. Online sales still represent a small share of total retail in Latin America compared with the United States or China, and millions of small businesses have yet to open their first online store.
+
+For merchants, choosing a platform is a decision that is hard to reverse. Moving a store from one provider to another means migrating the catalog, customer data and order history, reconfiguring payments and shipping, and often redesigning the storefront. That switching cost is part of what investors pay for: once a merchant builds its operation on a platform, it tends to stay for years and to adopt the additional services the platform offers. It also means that platforms compete fiercely for merchants at the moment they open their first store, often with free trials, migration help and discounted fees for the first months.
+
+With the Series E, the total Nuvemshop has raised in the previous ten months exceeds $620 million.
+````
+
+### extraccion_kushki
+
+- `prompt_sha`: **`b865bc5a05d6`**
+- Fuente en español de 425 palabras con 11 afirmaciones plantadas (6 de núcleo). Enterrada al final: «Según la empresa, sus ingresos crecieron 200% en 2021».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Kushki se convierte en el primer unicornio de Ecuador
+
+Quito — Kushki, la empresa ecuatoriana de infraestructura de pagos, anunció en junio de 2022 una extensión de US$100 millones de su ronda Serie B, con la que su valoración sube a US$1.500 millones. La compañía pasa a ser el primer unicornio de Ecuador.
+
+En la extensión participaron Kaszek, Clocktower Ventures, el SoftBank Latin America Fund y DILA Capital. Con este tramo, la Serie B completa suma US$186 millones.
+
+Las empresas de infraestructura de pagos son poco visibles para el consumidor, pero están detrás de casi cada compra en línea. Conectan a los comercios con las redes de tarjetas, los bancos adquirentes y los métodos de pago locales, y se encargan de autorizar, liquidar y conciliar cada transacción. En América Latina ese trabajo es más complejo que en otros mercados porque cada país tiene sus propios métodos de pago, reglas cambiarias y requisitos regulatorios.
+
+El primer tramo de la Serie B, de US$86 millones, se había anunciado en junio de 2021 a una valoración posterior de US$600 millones. En un año, la compañía más que duplicó su valor.
+
+Kushki fue fundada en 2016 en Quito por Aaron Gruber y Sebastián Castro. Opera en Ecuador, Colombia, Perú, Chile y México, donde además de procesar pagos con tarjeta ofrece transferencias, pagos en efectivo y adquirencia propia.
+
+Los fondos se usarán, según la empresa, para ampliar su red de adquirencia directa en la región y para sumar productos para comercios.
+
+Para el ecosistema ecuatoriano, que históricamente recibió muy poco capital de riesgo, la noticia tiene un peso simbólico. Inversionistas locales destacan que un unicornio suele generar una segunda ola de emprendimientos, cuando los primeros empleados salen a fundar sus propias empresas con experiencia y, a veces, con capital propio.
+
+La competencia en infraestructura de pagos es intensa. Procesadores globales con presencia en decenas de países, bancos que ofrecen adquirencia a sus propios clientes y otras startups regionales buscan a los mismos comercios. La diferenciación suele estar en la cobertura de métodos de pago locales, la tasa de aprobación de las transacciones y la velocidad para integrar a un comercio nuevo. Para los grandes clientes, como plataformas de comercio electrónico o aplicaciones de transporte, una diferencia pequeña en la tasa de aprobación puede significar millones en ventas que se ganan o se pierden, y por eso suelen trabajar con más de un procesador a la vez y mover volumen hacia el que mejor rinde.
+
+La compañía no entregó cifras de ingresos. Sí afirmó que sus ingresos crecieron 200% durante 2021.
+````
+
+### extraccion_reddit
+
+- `prompt_sha`: **`62d36653f027`**
+- Fuente en inglés de 444 palabras con 11 afirmaciones plantadas (7 de núcleo). Enterrada al final: «En una ronda privada de 2021 Reddit fue valorada en US$10.000 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Reddit prices IPO at top of range, raising $748 million
+
+San Francisco — Reddit priced its initial public offering at $34 per share in March 2024, the top of the $31 to $34 range it had marketed to investors, raising about $748 million. At that price, the social media company is valued at about $6.4 billion.
+
+Not all of the money goes to the company. About $228 million corresponds to shares sold by existing shareholders who chose to cash out part of their holdings. Excluding those secondary sales, Reddit raised gross proceeds of $519.4 million.
+
+The shares are set to begin trading on the New York Stock Exchange under the ticker RDDT. Morgan Stanley, Goldman Sachs, JPMorgan Chase and Bank of America are the lead underwriters.
+
+Initial public offerings of consumer internet companies had been rare for more than two years. Rising interest rates pushed investors toward profitable companies and away from businesses that promised growth in the future, and many startups that had planned to list in 2022 postponed their plans. Bankers had been watching the Reddit listing as a test of whether that window was reopening.
+
+Reddit's business depends on advertising, which makes it sensitive to the same swings that affect other social platforms. The company has also started to license its archive of public conversations to companies that train artificial intelligence models, a source of revenue that did not exist a few years ago and that investors are still trying to value.
+
+The company took an unusual step for a listing of its size: it set aside part of the offering for some of its most active users and moderators, who could buy shares at the IPO price before trading began. The move reflects how much the platform depends on volunteers who run its communities without pay.
+
+Founded in 2005 by Steve Huffman and Alexis Ohanian, Reddit was acquired by Condé Nast a year later and became independent again in 2011. Huffman is the company's chief executive.
+
+Investors also weighed the company's governance. Like many technology companies that list their shares, Reddit set up a structure that gives some shareholders more voting power than others, which limits the influence of the investors who buy in the offering. Supporters say such structures let management plan for the long term; critics say they weaken accountability. The debate has accompanied almost every large technology listing of the past decade, and index providers have at times excluded companies with unequal voting rights from some benchmarks.
+
+The IPO valuation is well below what private investors paid for the company before the market downturn. In a private fundraising round in 2021, Reddit was valued at $10 billion.
+````
+
+### extraccion_mercadolibre_mx
+
+- `prompt_sha`: **`0e8ea6c0a555`**
+- Fuente en español de 448 palabras con 10 afirmaciones plantadas (4 de núcleo). Enterrada al final: «Equivale a unos 69.952 millones de pesos».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Mercado Libre invertirá US$3.400 millones en México durante 2025
+
+Ciudad de México — Mercado Libre anunció que invertirá US$3.400 millones en México a lo largo de 2025, la mayor cifra que la empresa ha destinado al país. El anuncio lo hizo David Geisen, director general de la compañía en México, durante la conferencia matutina de la presidenta Claudia Sheinbaum.
+
+La compañía prevé crear unos 10.000 empleos nuevos con este plan, principalmente en logística y en áreas administrativas.
+
+El comercio electrónico en México ha crecido con rapidez desde la pandemia, pero todavía representa una parte pequeña del comercio minorista total. Las plataformas compiten en tres frentes a la vez: la variedad de productos, la velocidad de entrega y el acceso a medios de pago para una población en la que muchas personas no tienen tarjeta de crédito. Ganar en entrega rápida exige construir centros de distribución, flotas y puntos de recolección, inversiones que se recuperan en muchos años.
+
+Los recursos se destinarán a tres áreas, según la empresa: tecnología e inteligencia artificial, la ampliación de su red logística y los servicios financieros de Mercado Pago, su brazo fintech.
+
+La compañía tiene actualmente más de 25.000 empleados en México. Con las nuevas contrataciones, Mercado Libre espera que su plantilla en el país supere las 35.000 personas al cierre de 2025.
+
+Mercado Pago es una pieza cada vez más importante de la estrategia. La empresa ha buscado convertirla en un banco con licencia en México, lo que le permitiría captar depósitos y ofrecer más productos de crédito. Los analistas siguen de cerca ese paso, porque el negocio financiero suele tener márgenes más altos que el comercio electrónico, pero también más riesgo.
+
+La empresa competirá en un mercado donde Amazon, Walmart y nuevas plataformas asiáticas de bajo precio también están invirtiendo. La guerra por el consumidor mexicano se libra sobre todo en la última milla, donde cada día menos de entrega se traduce en más compras repetidas.
+
+Para los vendedores pequeños, la expansión de la red logística tiene un efecto directo: entregar más rápido mejora la posición de sus productos en los resultados de búsqueda y reduce las cancelaciones. A cambio, deben adaptarse a reglas de inventario, tiempos de despacho y comisiones que fija la plataforma. La dependencia de un solo canal de venta es uno de los riesgos que más mencionan los comerciantes, junto con los cambios en las tarifas de envío y en las condiciones de pago a vendedores.
+
+La inversión anunciada es 38% mayor que la de 2024, año en que la compañía invirtió alrededor de US$2.500 millones en el país. Al tipo de cambio citado en el anuncio, los US$3.400 millones equivalen a unos 69.952 millones de pesos.
+````
+
+### extraccion_amazon_anthropic
+
+- `prompt_sha`: **`99542ee3ea04`**
+- Fuente en inglés de 414 palabras con 11 afirmaciones plantadas (7 de núcleo). Enterrada al final: «Anthropic seguirá ofreciendo sus modelos en Google Cloud».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Amazon to invest up to $4 billion in Anthropic
+
+Seattle — Amazon will invest up to $4 billion in Anthropic, the artificial intelligence company behind the Claude family of models, in exchange for a minority stake, the two companies said in September 2023.
+
+The deal is structured in stages. Amazon has committed an initial $1.25 billion and holds an option to invest a further $2.75 billion, which would bring the total to $4 billion. Neither company disclosed the size of the stake or its valuation.
+
+As part of the agreement, Amazon Web Services becomes Anthropic's primary cloud provider for mission-critical workloads, including safety research and the development of future foundation models. Anthropic also committed to build, train and deploy its models on Trainium and Inferentia, the chips that AWS designs in-house, and to make them available to AWS customers through Amazon Bedrock.
+
+Partnerships between cloud providers and model developers have become a defining feature of the AI industry. Model developers need enormous amounts of computing capacity, and cloud companies want the most popular models to run on their infrastructure, where every customer request turns into billable usage. The investments often flow back to the investor in the form of cloud spending, which is why analysts look closely at how such deals are accounted for.
+
+Anthropic was founded in 2021 by Dario Amodei and Daniela Amodei together with other former employees of OpenAI. The company has emphasized research on how to make AI systems safer and more predictable.
+
+The agreement also puts pressure on Amazon's rivals. Microsoft is the largest investor in OpenAI, and Google has its own models as well as investments in other developers. For Amazon, which was seen as slower to respond to the rise of chatbots, the deal secures access to a leading model maker.
+
+For enterprise customers, the practical effect of such partnerships is choice. A company already running its systems on one cloud can use models from several developers through that provider's platform, with the same contracts, billing and security controls. That convenience has become a competitive weapon among cloud providers, which now race to offer the widest catalog of models alongside their own, and it has made distribution through the cloud marketplaces one of the main ways model developers reach large companies.
+
+Anthropic said the investment will not change its corporate governance structure or its commitment to the responsible development of artificial intelligence. The company also said it will continue to make its models available through Google Cloud.
+````
+
+### extraccion_clip
+
+- `prompt_sha`: **`cb50724e2824`**
+- Fuente en español de 409 palabras con 11 afirmaciones plantadas (4 de núcleo). Enterrada al final: «Babatz dijo que una OPI no ocurriría en 2021».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Clip recibe US$250 millones de SoftBank y Viking y se convierte en unicornio
+
+Ciudad de México — Clip, la fintech mexicana que vende lectores de tarjetas y servicios de cobro a pequeños comercios, recibió en junio de 2021 una inversión de US$250 millones del SoftBank Latin America Fund y de Viking Global Investors. La operación valora a la empresa en cerca de US$2.000 millones, según la propia compañía.
+
+Clip se convierte así en el primer unicornio de pagos de México.
+
+Para un comercio pequeño, aceptar tarjetas era hasta hace pocos años un trámite largo: había que abrir una cuenta con un banco, firmar un contrato de adquirencia y rentar una terminal con costo fijo mensual. Las empresas como Clip simplificaron ese proceso con un lector barato que se conecta al teléfono y una comisión por venta, sin plazo forzoso. El modelo se apoya en el volumen, porque el margen por cada transacción es pequeño.
+
+El fundador y director ejecutivo de la compañía, Adolfo Babatz, dijo que el dinero permitirá seguir creciendo de forma agresiva. Según Bloomberg, la empresa planea contratar a 320 personas en los próximos 18 meses.
+
+Antes de esta ronda, Clip había recibido cerca de US$100 millones de inversionistas como General Atlantic, su mayor accionista. General Atlantic y SoftBank habían invertido en 2019, en una operación que, según reportes de la época, valoró a la empresa en US$400 millones.
+
+El mercado sigue siendo amplio. Babatz estimó que de los casi 11 millones de negocios que hay en México, solo alrededor de 1 millón acepta pagos con tarjeta.
+
+La competencia, sin embargo, también creció. Bancos, billeteras digitales y las terminales de grandes plataformas de comercio electrónico buscan a los mismos comerciantes, y la guerra de comisiones presiona los márgenes de todo el sector.
+
+Para el pequeño comerciante, aceptar tarjetas tiene beneficios que van más allá de la venta inmediata. Los pagos digitales dejan un registro que puede servir para pedir un crédito, reducen el riesgo de manejar efectivo y permiten vender a clientes que ya no cargan billetes. Las empresas del sector aprovechan ese historial para ofrecer préstamos a sus comerciantes, un negocio con mejores márgenes que el cobro por transacción y que se ha vuelto central en la estrategia de casi todas las plataformas de adquirencia de la región.
+
+Babatz dijo además que la empresa evalúa una oferta pública inicial para captar más capital y dar liquidez a sus inversionistas, aunque aclaró que no ocurriría durante 2021.
+````
+
+### extraccion_rappi
+
+- `prompt_sha`: **`500e39d119b9`**
+- Fuente en inglés de 405 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Según Crunchbase, ha levantado más de US$2.000 millones en total».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Rappi raises more than $500 million at a $5.25 billion valuation
+
+Bogotá — Rappi, the Colombian on-demand delivery company, has raised more than $500 million in a Series F round that values it at $5.25 billion. The round, announced in July 2021, was led by T. Rowe Price.
+
+Baillie Gifford, Third Point, Octahedron and GIC also invested, and SoftBank, an existing shareholder, participated as well.
+
+Delivery apps grew into one of the most visible technology categories in Latin American cities. Their basic proposition is simple, but the economics are difficult: each order requires a courier, the average ticket is small and customers are quick to switch to whichever app offers the best promotion. Most companies in the segment try to improve the math by adding higher-margin services on top of delivery, such as advertising for restaurants and brands, subscriptions and financial products.
+
+Rappi has followed that playbook. Besides restaurant and grocery delivery, it offers a payments service, a credit card in partnership with banks and a subscription that waives delivery fees.
+
+The company was founded in Bogotá in 2015 by Simón Borrero, Sebastián Mejía and Felipe Villamarín. It operates in nine countries in Latin America.
+
+The company's previous raise was a $300 million round in September 2020, which reportedly valued Rappi at $3.5 billion. Before that, SoftBank had made a large investment in 2019 through its first Latin America fund, which made the Japanese group the company's biggest backer.
+
+Rappi said it would use the new capital to expand its financial services and its network of dark stores, small warehouses in dense neighborhoods that allow groceries to be delivered in minutes instead of hours.
+
+Competition remains intense. Global platforms and local players in each country are fighting for the same couriers, restaurants and customers, and regulators in several countries are debating whether delivery workers should be treated as employees.
+
+The quick-commerce model has drawn skepticism from some investors. Dark stores require rent, staff and inventory in expensive neighborhoods, and the promise of delivery in minutes only pays off if each store processes enough orders per hour. Several companies in the United States and Europe that expanded aggressively with this model later closed locations or merged with competitors when funding became harder to obtain, and the companies that survived usually concentrated on fewer, denser cities.
+
+According to Crunchbase data, the new financing brings the total Rappi has raised since its founding to more than $2 billion.
+````
+
+### extraccion_nubank
+
+- `prompt_sha`: **`7c34bae99271`**
+- Fuente en español de 421 palabras con 11 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Con el rango original aspiraba a recaudar hasta US$3.180 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Nubank recauda US$2.600 millones en su salida a la bolsa de Nueva York
+
+São Paulo — Nu Holdings, la empresa matriz del banco digital brasileño Nubank, fijó el precio de su oferta pública inicial en US$9 por acción, el tope del rango de US$8 a US$9 que había presentado a los inversionistas. La compañía vendió 289 millones de acciones y recaudó unos US$2.600 millones.
+
+Las acciones empezaron a cotizar el 9 de diciembre de 2021 en la Bolsa de Nueva York con el símbolo NU. También se negocian en São Paulo como certificados de depósito, con el código NUBR33.
+
+Al precio de la oferta, la valoración implícita de la compañía ronda los US$41.400 millones, lo que la convierte en la institución financiera más valiosa de América Latina, por encima de Itaú Unibanco, que vale unos US$38.000 millones en bolsa.
+
+Los bancos digitales ganaron terreno en Brasil por una combinación de factores: una banca tradicional muy concentrada, con tarifas altas y mala experiencia de servicio, y una población que adoptó el teléfono como principal puerta de entrada a internet. La estrategia de estas empresas suele empezar con un producto gratuito y fácil de contratar, como una tarjeta sin comisión anual, para luego ofrecer cuentas, inversiones, seguros y créditos a la misma base de clientes.
+
+Nubank fue fundada en 2013 por David Vélez, Cristina Junqueira y Edward Wible. Vélez, nacido en Colombia, es el director ejecutivo. La compañía opera en Brasil, México y Colombia.
+
+Entre los inversionistas de la empresa antes de la salida a bolsa figuraban Sequoia Capital, Tencent y Berkshire Hathaway, que había invertido meses antes.
+
+Las salidas a bolsa de empresas latinoamericanas en Estados Unidos son poco frecuentes, y los banqueros esperaban que el resultado de Nubank sirviera de referencia para otras compañías de la región que preparan su debut.
+
+Para los inversionistas, la pregunta central sobre los bancos digitales es cuánto ganan por cliente y cuánto les cuesta adquirirlo. Las empresas que crecen con tarjetas de crédito asumen riesgo desde el primer día, y la calidad de su modelo de aprobación se pone a prueba recién cuando la economía se desacelera. Por eso los analistas siguen de cerca los indicadores de morosidad y el costo del fondeo, además del crecimiento de la base de clientes, y comparan esas cifras con las de los bancos tradicionales del mismo mercado.
+
+El camino hasta el precio final no fue lineal. La semana anterior, Nubank había rebajado el rango de precio; con el rango original, la empresa aspiraba a recaudar hasta US$3.180 millones.
+````
+
+### extraccion_xai
+
+- `prompt_sha`: **`ea8fddbb93f4`**
+- Fuente en inglés de 415 palabras con 9 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Según Musk en X, la valoración pre-money fue de US$18.000 millones».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Elon Musk's xAI raises $6 billion in Series B
+
+Elon Musk's artificial intelligence company xAI has raised $6 billion in a Series B round, the company said in May 2024. According to Reuters, the round gives xAI a post-money valuation of $24 billion.
+
+The investors include Valor Equity Partners, Vy Capital, Andreessen Horowitz, Sequoia Capital and Fidelity Management & Research Company, as well as Prince Alwaleed Bin Talal and Kingdom Holding.
+
+xAI said the money will be used to take its first products to market, build advanced infrastructure and accelerate research and development of future technologies.
+
+The race to build frontier models has turned into a race for capital. Training each new generation of models costs more than the last, and the companies at the front of the pack are raising amounts that, only a few years ago, would have been reserved for public companies. Investors justify the checks by pointing to the size of the markets these models could reshape, from software development to customer service, while skeptics note how few of these companies have shown a path to profit.
+
+Musk launched xAI in 2023, after years of public criticism of OpenAI, the company he helped found and later left. xAI's chatbot, Grok, is available to subscribers of X, the social network Musk also owns, and the two companies share data and users.
+
+The round places xAI among the most valuable AI startups in the world, though still well behind OpenAI. Musk has said the company intends to catch up with the leaders by building one of the largest computing clusters in the world, a plan that depends on securing tens of thousands of specialized chips at a time when supply is tight.
+
+The company has hired researchers from Google DeepMind, OpenAI and other labs, and has said it wants to build systems that seek to understand the universe.
+
+Rivals have taken different approaches to the same problem. Some labs rely on partnerships with large cloud providers, trading equity for computing capacity; others build their own data centers or rent capacity from specialized providers. Each path carries trade-offs in cost, control and speed, and the choice increasingly shapes how quickly a lab can train and ship new models. Investors evaluating these companies now ask as much about access to chips and electricity as about research talent, a shift that has favored founders with deep pockets and strong relationships with chip suppliers.
+
+In a post on X, Musk put the pre-money valuation at $18 billion.
+````
+
+### extraccion_fintual
+
+- `prompt_sha`: **`200147b6379d`**
+- Fuente en español de 433 palabras con 10 afirmaciones plantadas (4 de núcleo). Enterrada al final: «Según DF, reportó utilidades por primera vez en el primer semestre de 2024».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Fintual levanta US$39 millones en una ronda liderada por Sequoia Capital
+
+Santiago — Fintual, la administradora de fondos chilena que permite invertir desde una aplicación, cerró en noviembre de 2021 una ronda Serie B de US$39 millones liderada por Sequoia Capital. También participaron ALLVP y Kaszek, que ya eran inversionistas desde la Serie A.
+
+Es la primera inversión de Sequoia en Chile y, según la prensa local, la tercera del fondo en una empresa latinoamericana, después de Rappi y Nubank.
+
+Fintual nació con una idea concreta: que una persona sin conocimientos financieros pueda invertir en fondos diversificados con montos pequeños y comisiones bajas, sin pasar por un ejecutivo. En Chile, el ahorro voluntario para la jubilación es un mercado relevante porque las pensiones del sistema obligatorio suelen quedar por debajo de lo que las personas esperan, y eso empuja a muchos trabajadores a buscar alternativas.
+
+La compañía fue fundada en 2016 por Pedro Pineda, Agustín Feuerhake, Alfonso Valdés y Pablo Mansilla. Opera en Chile y en México, donde lanzó su servicio en 2020.
+
+Según la empresa, los recursos se destinarán principalmente a acelerar su operación en México, aunque también seguirá creciendo en Chile.
+
+Unos meses antes, Fintual había levantado cerca de US$15 millones en una Serie A liderada por Kaszek.
+
+Las plataformas de inversión digital compiten con bancos y administradoras tradicionales que han lanzado sus propias aplicaciones, y con corredoras que ofrecen acciones sin comisión. El costo de adquirir clientes es alto y la rentabilidad depende de acumular un volumen grande de activos administrados, porque las comisiones, por diseño, son bajas.
+
+Para los inversionistas de riesgo, el atractivo del modelo está en su escala potencial: una vez que la plataforma funciona en un país, sumar clientes cuesta poco y cada peso administrado genera ingresos durante años. El riesgo está en que la regulación y la cultura de ahorro cambian de un país a otro, y lo que funcionó en Chile no necesariamente se replica en México.
+
+Los reguladores también observan de cerca a estas plataformas. Las administradoras de fondos deben cumplir reglas sobre cómo invierten el dinero de sus clientes, cómo informan las comisiones y cómo protegen los activos ante una eventual quiebra de la propia administradora. Para las empresas nuevas, cumplir esas exigencias desde el inicio es costoso, pero también es lo que les permite competir en confianza con instituciones que llevan décadas en el mercado y que tienen marcas reconocidas por varias generaciones de ahorrantes.
+
+La ronda dejó también una meta explícita: alcanzar la rentabilidad. Según Diario Financiero, la empresa reportó utilidades por primera vez en el primer semestre de 2024.
+````
+
+### extraccion_instacart
+
+- `prompt_sha`: **`c5af5de35ac4`**
+- Fuente en inglés de 428 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «En los primeros minutos la acción llegó a US$42,95».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Instacart prices IPO at $30 a share
+
+San Francisco — Instacart priced its initial public offering at $30 per share, the top of its marketed range, raising $660 million from the sale of 22 million shares. The price gives the grocery delivery company a market value of around $10 billion.
+
+The company's shares began trading on the Nasdaq on September 19, 2023, under the ticker CART.
+
+Grocery delivery was one of the clearest winners of the pandemic. Households that had never ordered food online started doing so almost overnight, and retailers that had resisted working with third-party platforms signed on to keep up. As stores reopened, growth slowed, and companies in the sector shifted their focus from adding customers to making each order profitable, mostly by selling advertising to the consumer brands whose products appear in the app.
+
+Instacart works with grocery chains rather than running its own stores. Shoppers pick items from store shelves and deliver them, and the company also sells software that lets retailers run their own online stores and in-store technology such as smart carts.
+
+The company was founded in 2012 by Apoorva Mehta, a former Amazon engineer. Fidji Simo, a former Meta executive, has been its chief executive since 2021.
+
+The listing was closely watched as one of the first large technology IPOs after a long drought, along with that of the chip designer Arm earlier in the same month. Bankers hoped that a strong debut would encourage other companies to follow.
+
+The valuation is far below what private investors once paid. In early 2021, at the height of the delivery boom, Instacart announced a funding round that valued it at $39 billion.
+
+Analysts covering the listing pointed to the company's advertising business as the key to its valuation. Consumer goods companies pay to have their products appear prominently when shoppers search the app, and that revenue carries much higher margins than delivery fees. The question for investors is how much of that advertising can grow without annoying shoppers, and whether grocery chains will keep sharing their customers with a platform that also competes for their attention. Several of the largest chains have been building their own delivery and advertising operations, which could reduce how much they depend on a third-party marketplace over time. For now, most of them still rely on the platform to reach customers who expect to compare stores and products in a single app before deciding where to buy.
+
+Demand on the first day was strong. In the first minutes of trading, the shares reached a peak of $42.95.
+````
+
+### extraccion_platzi
+
+- `prompt_sha`: **`baf5fcbd63c9`**
+- Fuente en español de 408 palabras con 10 afirmaciones plantadas (4 de núcleo). Enterrada al final: «Iniciará operaciones en Brasil».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Platzi cierra una Serie B liderada por Prosus
+
+Bogotá — Platzi, la plataforma de educación en línea para profesionales de tecnología, cerró en diciembre de 2021 una ronda Serie B liderada por Prosus. La empresa informó un monto de US$62 millones; en su propio comunicado, Prosus habló de US$60 millones.
+
+En la ronda también participaron Foundation Capital y Y Combinator, aceleradora por la que pasó la compañía en sus primeros años.
+
+La educación en línea para adultos vive de una promesa: que un curso permita conseguir un empleo mejor pagado o un ascenso. El problema clásico del sector es la deserción. La mayoría de las personas que se inscribe en un curso en línea no lo termina, y las plataformas que logran retener a sus estudiantes lo hacen con comunidades, rutas de aprendizaje con objetivos claros y contenido que se actualiza al ritmo de la industria.
+
+La compañía fue fundada por Freddy Vega y Christian Van Der Henst, y dice haber atendido a más de 3 millones de estudiantes en América Latina.
+
+Según la empresa, los fondos se destinarán a hacer la plataforma más accesible, a ampliar su academia de inglés y a fortalecer su oferta para empresas y gobiernos, que compran licencias para capacitar a sus equipos.
+
+El mercado de talento tecnológico en la región explica parte del interés de los inversionistas. Las empresas de software de Estados Unidos y Europa contratan cada vez más desarrolladores latinoamericanos de forma remota, y la demanda de perfiles con buen nivel de inglés supera a la oferta disponible.
+
+La competencia incluye a plataformas globales con catálogos más grandes y a bootcamps intensivos que prometen un cambio de carrera en pocos meses. La apuesta de Platzi es ofrecer contenido producido en español y pensado para el mercado laboral latinoamericano.
+
+La venta a empresas se volvió una pieza central para las plataformas de educación en línea. Las compañías prefieren pagar licencias anuales para capacitar a sus equipos en lugar de reembolsar cursos individuales, y ese tipo de contrato es más predecible que las suscripciones de personas que se inscriben y cancelan según su momento laboral. Para la plataforma, el reto es demostrar que la capacitación tiene un efecto medible en el desempeño, porque eso es lo que justifica la renovación de los contratos cuando los presupuestos de recursos humanos se ajustan y las áreas de formación compiten con otras prioridades.
+
+La empresa anunció además que, con estos recursos, iniciará operaciones en Brasil.
+````
+
+### extraccion_cornershop
+
+- `prompt_sha`: **`aa0771b8ea68`**
+- Fuente en español de 418 palabras con 12 afirmaciones plantadas (5 de núcleo). Enterrada al final: «En junio de 2021 Uber anunció que compraría el 100%».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Uber pagará hasta US$459 millones por el control de Cornershop
+
+Santiago — Uber confirmó en un documento presentado ante el regulador bursátil de Estados Unidos que pagará hasta US$459 millones, en efectivo y en acciones de Uber, por una participación mayoritaria en Cornershop, la aplicación chilena de compras de supermercado a domicilio. Las estimaciones publicadas cuando se anunció el acuerdo, en octubre de 2019, hablaban de unos US$450 millones.
+
+Cornershop fue fundada en 2015 por Oskar Hjertonsson, Daniel Undurraga y Juan Pablo Cuevas, y opera en Chile, México, Perú, Colombia y Canadá. Su modelo conecta a los clientes con compradores independientes que hacen el pedido en el supermercado y lo llevan a domicilio.
+
+La venta de supermercado en línea es un negocio de márgenes estrechos. A diferencia de la comida preparada, una compra de supermercado tiene decenas de productos, algunos refrigerados, y los errores de reemplazo o de calidad son frecuentes. Por eso las plataformas invierten en catálogos actualizados, en entrenar a sus compradores y en acuerdos con las cadenas para acceder a inventario en tiempo real.
+
+El camino de Cornershop hacia una venta no fue sencillo. Antes de Uber, Walmart había acordado comprar la empresa por unos US$225 millones, pero la Comisión Federal de Competencia Económica de México (COFECE) rechazó esa operación en 2019 por riesgos para la competencia.
+
+La compra por parte de Uber también tuvo que pasar por los reguladores. La Fiscalía Nacional Económica de Chile (FNE) la aprobó en enero de 2020, y la COFECE dio su autorización en diciembre de 2020.
+
+Los pagos se hicieron por etapas. A septiembre de 2020, Uber ya había desembolsado US$379 millones, y quedaban unos US$80 millones pendientes, sujetos a la aprobación mexicana.
+
+Para Uber, la operación fue la puerta de entrada al reparto de supermercado, un negocio que la pandemia volvió mucho más relevante para su división de entregas.
+
+Las autoridades de competencia de la región han aumentado su atención sobre las plataformas digitales. Las adquisiciones de empresas pequeñas por parte de grupos grandes, que antes pasaban casi sin revisión, ahora se analizan con más detalle cuando pueden reducir la competencia en mercados que todavía se están formando. Para los fundadores, eso significa que una venta puede tardar muchos meses en concretarse, y que el contrato debe prever qué ocurre si un regulador la bloquea o exige condiciones.
+
+La historia tuvo un capítulo final. En junio de 2021, Uber anunció que compraría el resto de las acciones de Cornershop para quedarse con el 100% de la empresa.
+````
+
+### extraccion_klar
+
+- `prompt_sha`: **`4cc2d859cefc`**
+- Fuente en inglés de 428 palabras con 11 afirmaciones plantadas (7 de núcleo). Enterrada al final: «Antes levantó US$70 millones a US$500 millones de valoración, también con General Atlantic».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Mexican fintech Klar raises $190 million Series C led by General Atlantic
+
+Mexico City — Klar, the Mexican digital bank, has raised $190 million in a Series C round led by General Atlantic, Bloomberg reported. The round, closed in mid-2025, values the company at more than $800 million.
+
+The financing combines $170 million in equity with $20 million in venture debt.
+
+Existing investors Prosus, IFC, Mouro Capital and Quona Capital took part, and the round brought in new backers including Santander Group, Grupo Televisa and Grupo Fórmula.
+
+Digital banks in Mexico target a population that has historically been underserved by traditional lenders. A large share of adults do not have a credit card, and many who apply are rejected because they lack a credit history. The newer players try to solve that with secured cards, small initial credit limits that grow with good payment behavior, and underwriting models that use alternative data. The trade-off is risk: lending to customers without a history requires careful collection practices and enough capital to absorb losses in a downturn.
+
+Klar was founded in 2019 by Stefan Möller. The company offers a debit account, a credit card and personal loans through its app.
+
+According to the company, the money will go toward growth in Mexico, new products and reaching more customers. Klar is also expanding into services for small businesses and is pursuing a banking license, which would allow it to take deposits under the same rules as a traditional bank.
+
+The round comes as investment in Mexican fintech recovers after two quiet years. Larger rounds are again going to companies that can show both growth and a credible path to profitability. One report cited in the coverage said Klar is approaching $300 million in annual revenue as it shifts its focus from growth to profitability.
+
+For investors, the appeal of the segment lies in the size of the gap. Mexico has one of the lowest rates of credit penetration among large Latin American economies, and every customer who builds a good payment record becomes eligible for larger and more profitable products. The risk is that competition for those same customers is intensifying: traditional banks have improved their apps, retailers offer their own credit, and other digital banks with deep-pocketed backers are chasing the same users with promotional rates and rewards programs that compress margins for everyone in the market.
+
+This is not the first time General Atlantic has led a round for the company. In an earlier round, Klar raised $70 million at a $500 million valuation, also led by General Atlantic.
+````
+
+### extraccion_nowports
+
+- `prompt_sha`: **`f3938a6e6640`**
+- Fuente en español de 419 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «En diciembre de 2021 cerró una Serie B de US$60 millones liderada por Tiger Global».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Nowports se convierte en el primer unicornio logístico de Hispanoamérica
+
+Monterrey — Nowports, la empresa mexicana de logística y agenciamiento de carga, cerró en mayo de 2022 una ronda Serie C de US$150 millones que la valora en US$1.100 millones. La ronda fue liderada por el SoftBank Latin America Fund y contó con la participación de Tencent.
+
+Con esta operación, la compañía regiomontana se convierte en el primer unicornio de tecnología logística de Hispanoamérica.
+
+El agenciamiento de carga es uno de los eslabones menos digitalizados del comercio internacional. Para mover un contenedor de un puerto asiático a una bodega en México intervienen navieras, agentes aduanales, transportistas terrestres, almacenes y bancos, y buena parte de esa coordinación todavía se hace por correo electrónico y hojas de cálculo. Las empresas como Nowports ofrecen una plataforma que centraliza el seguimiento de la carga, los documentos y los pagos, y en algunos casos financian a los importadores mientras la mercancía está en tránsito.
+
+La compañía fue fundada en 2018 por Maximiliano Casal y Alfonso de los Ríos.
+
+El financiamiento de inventario es una parte importante del negocio. Muchos importadores pequeños deben pagar a sus proveedores antes de recibir la mercancía y venderla, y esa brecha de caja limita cuánto pueden comprar. Prestarles contra la carga en tránsito permite a la plataforma cobrar intereses además de las tarifas logísticas.
+
+Según la empresa, los nuevos recursos se usarán para ampliar sus servicios financieros en América Latina y para abrir oficinas en Brasil, México y Chile.
+
+La relocalización de cadenas de suministro hacia América del Norte, conocida como nearshoring, ha puesto a Monterrey en el centro del interés de inversionistas y fabricantes, y las empresas de logística de la ciudad buscan aprovechar ese impulso.
+
+El sector tiene una dificultad estructural: el negocio logístico depende de ciclos de comercio internacional que nadie controla. Cuando las tarifas de los fletes marítimos se dispararon durante la pandemia, las empresas de agenciamiento de carga facturaron más que nunca; cuando las tarifas cayeron, los ingresos se contrajeron con la misma rapidez. Los inversionistas valoran por eso a las compañías que logran ingresos recurrentes por software o por servicios financieros, menos expuestos a los vaivenes del precio del flete y más fáciles de proyectar en el tiempo. Esa es también la razón por la que muchas empresas del rubro intentan venderse como compañías de tecnología y no como agentes de carga tradicionales.
+
+Pocos meses antes, en diciembre de 2021, Nowports había cerrado una Serie B de US$60 millones liderada por Tiger Global.
+````
+
+### extraccion_microsoft_openai
+
+- `prompt_sha`: **`316a1b1a21f0`**
+- Fuente en inglés de 409 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Microsoft construirá supercomputadoras especializadas para OpenAI».
+- verificador: `noticias_extraccion`
+
+**System:**
+
+````
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+````
+
+**User:**
+
+````
+FUENTE:
+Microsoft extends OpenAI partnership with multibillion-dollar investment
+
+Redmond — Microsoft announced in January 2023 a new multiyear, multibillion-dollar investment in OpenAI, the research company behind ChatGPT, extending a partnership that began four years earlier. Microsoft did not disclose the amount. Media reports, citing people familiar with the matter, put it at $10 billion.
+
+Under the agreement, Microsoft Azure will remain OpenAI's exclusive cloud provider, powering all of OpenAI's workloads across research, products and API services. Microsoft also said it will deploy OpenAI's models across its consumer and enterprise products and build new categories of digital experiences on top of them.
+
+The partnership is a bet on a particular division of labor. Training and serving large models requires data centers with specialized chips, networking and power on a scale that only a handful of companies can build. Model developers bring the research; cloud providers bring the infrastructure and the sales channels to large companies. Each side needs the other, but each also worries about depending too much on a single partner.
+
+Microsoft first invested in OpenAI in 2019, with $1 billion, and invested again in 2021. The relationship gave Microsoft early access to the technology that it later integrated into its search engine, its office software and its developer tools.
+
+The announcement came only weeks after the public launch of ChatGPT, in November 2022, which drew millions of users in a matter of days and set off a race among large technology companies to bring generative AI to their products. Google and Amazon, Microsoft's main rivals in cloud computing, accelerated their own work in response.
+
+OpenAI was founded in 2015 as a nonprofit research laboratory. In 2019 it created a for-profit arm with a cap on the returns that investors can receive, a structure designed to raise the large amounts of capital its research requires.
+
+The arrangement also raised questions that regulators would later examine. Competition authorities in the United States, the United Kingdom and the European Union looked at whether large technology companies were using investments in AI developers to gain influence over them without the scrutiny that a formal acquisition would bring. Both companies have said that OpenAI remains independent and that the partnership does not give Microsoft control over its decisions, and similar questions have since been raised about other investments by large cloud providers in model developers.
+
+Microsoft also said that, as part of the agreement, it will build specialized supercomputing systems to support OpenAI's research.
+````
+
+## `noticias_redaccion` — 25 tests
+
+### mistral_ronda_europea
+
+- `prompt_sha`: **`93bae03bff69`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: la fuente no dice el año de la ronda (fue 2024)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter semanal de una comunidad de founders de software B2B.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Paris-based Mistral AI has closed a funding round of €600 million, one of the largest ever raised by a European artificial intelligence startup. The round was led by General Catalyst, and it values the company at €5.8 billion.
+
+Mistral was founded by three researchers who previously worked at Google DeepMind and Meta. Arthur Mensch, a former DeepMind researcher, is the chief executive. Since its creation the company has released several large language models, some of them with open weights that developers can download, run on their own servers and modify. Others are offered only through the company's paid platform and through cloud partners.
+
+The startup has positioned itself as a European alternative to American AI labs. Its pitch to large companies and public institutions is that they can deploy powerful models while keeping control of their data, a concern that weighs heavily in sectors such as banking, healthcare and government.
+
+The new capital will be used to expand computing capacity, hire researchers and engineers, and grow the commercial team that sells to enterprises. The company did not give a breakdown of how much would go to each area.
+
+Investors have been pouring money into a small number of companies that train foundation models, because building them requires access to thousands of specialized chips and large teams of scarce researchers. The size of this round puts Mistral among the best-funded model developers outside the United States and China.
+
+For startups that build products on top of language models, the arrival of well-funded alternatives matters: more providers usually mean more pricing options and less dependence on a single supplier. Open-weight models also allow companies to run AI on their own infrastructure, which can lower costs at scale and simplify compliance with data-protection rules.
+
+The announcement was made this week in Paris.
+````
+
+### nubank_salida_a_bolsa
+
+- `prompt_sha`: **`e24904201e3b`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: la fuente no da la valuación ni el año (diciembre de 2021)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una fintech que quiere explicar a sus clientes pymes qué significa una salida a bolsa.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Nu Holdings, the parent company of Brazilian digital bank Nubank, made its debut on the New York Stock Exchange on Thursday under the ticker NU. The company priced its initial public offering at $9 per share and raised about $2.6 billion, making it one of the largest listings ever by a Latin American company in the United States.
+
+Nubank was founded in São Paulo by David Vélez, a Colombian-born former venture capitalist, together with Cristina Junqueira and Edward Wible. The company started with a single product: a no-fee credit card managed entirely from a mobile app, at a time when Brazil's banking market was dominated by a handful of large incumbents that charged high fees.
+
+From that first card, Nubank expanded into checking accounts, personal loans, insurance and investment products. It also launched operations in Mexico and Colombia, the two largest markets in Spanish-speaking Latin America.
+
+The bank has no physical branches. Customers open accounts and solve problems through the app and customer-service agents, a model that keeps operating costs low compared with traditional banks.
+
+Among the investors in the offering was Berkshire Hathaway, the conglomerate led by Warren Buffett, which had already invested in the company before it went public.
+
+The listing was closely watched by founders and investors across the region. A large and successful offering by a Latin American startup in New York signals to global investors that companies built in the region can reach a scale comparable to their peers in the United States and Europe.
+
+At the same time, public companies must report results every quarter and face pressure from shareholders, which changes how management makes decisions. Analysts noted that the bank would now have to show investors a path to sustained profitability while it keeps growing in new countries.
+````
+
+### kavak_serie_e
+
+- `prompt_sha`: **`d4d4d440433c`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2021) ni quiénes lideraron la ronda
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una consultora que asesora a marketplaces de América Latina.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Kavak, the Mexican platform for buying and selling used cars, has raised $700 million in a Series E round that values the company at $8.7 billion. The round makes Kavak the most valuable startup in Mexico.
+
+Kavak was founded in Mexico City by Carlos García Ottati together with a group of co-founders. The company buys used cars from individuals, inspects and reconditions them in its own facilities, and resells them online with a warranty and financing options. Buyers can also trade in their current car as part of the purchase.
+
+The model attacks a market known for its lack of trust. Buying a used car from a stranger often involves hidden mechanical problems, paperwork risks and difficult negotiations. Kavak's bet is that customers will pay for certainty: a car that was inspected, a fixed price and a return period.
+
+Kavak operates in Mexico and has expanded to other countries in Latin America, and it has also announced its arrival in Turkey. The company said the new funds will go to geographic expansion, technology and the financing products it offers to buyers.
+
+Operating this kind of business requires a lot of capital. Unlike a pure marketplace that only connects buyers and sellers, Kavak owns the inventory: it buys the cars before it sells them, and it pays for the reconditioning centers and the logistics. That makes the company sensitive to interest rates and to how fast cars move off its lots.
+
+For founders in the region, the round showed that global investors were willing to back capital-intensive models in Latin America when the market is large enough and the problem of trust is clear. It also raised the bar: a company of this size is expected to prove that its unit economics hold up as it grows.
+````
+
+### stripe_carta_anual
+
+- `prompt_sha`: **`b6fc3c8228f5`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: pide convertir «trillion» bien (billón) y no trae la cantidad de empleados ni de clientes
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de un founder de e-commerce que comenta tendencias de pagos.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Stripe, the payments company founded by brothers Patrick and John Collison, published its annual letter to users and investors. According to the letter, businesses running on Stripe processed $1.4 trillion in total payment volume during the year, an increase of 38% compared with the year before.
+
+The company, which has its headquarters in San Francisco and Dublin, said the growth came from businesses of every size, from small online stores to large enterprises that moved more of their operations to the platform.
+
+The letter highlighted artificial intelligence as one of the fastest-growing segments among Stripe's users. AI companies, the founders wrote, are reaching meaningful revenue faster than previous generations of software startups, and many of them sell globally from their first months. Stripe also said it has been using machine learning in its own products, especially in fraud detection.
+
+Another theme of the letter was stablecoins, digital currencies pegged to the value of a traditional currency such as the dollar. The Collisons described them as a useful tool for moving money across borders, an area where traditional transfers can still be slow and expensive.
+
+Alongside the letter, Stripe announced a tender offer for current and former employees that values the company at $91.5 billion. In a tender offer, investors buy shares from employees, which allows staff to turn part of their equity into cash without the company going public.
+
+Stripe remains private and has said repeatedly that it is in no hurry to list its shares on a stock exchange.
+
+For founders who sell online, the letter is a useful reference because it reflects the behavior of a very large sample of internet businesses. The figures describe where the money is moving: more cross-border sales, more software-based businesses and more transactions involving AI products.
+````
+
+### deepseek_caida_nvidia
+
+- `prompt_sha`: **`6b3d332c2525`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da el año ni el precio de la acción; tienta a dar la cifra exacta de la caída en dólares
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una agencia de automatización que explica a pymes qué pasa con los modelos de IA.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Shares of chipmaker Nvidia fell about 17% on Monday after Chinese startup DeepSeek released an artificial intelligence model that matched the performance of leading American systems while, according to the company, costing a fraction as much to train. The drop erased close to $600 billion of Nvidia's market value in a single session, one of the largest one-day losses in the history of the U.S. stock market.
+
+DeepSeek, based in Hangzhou, is backed by a Chinese hedge fund. The company published a technical report saying that the final training run of one of its models cost about $5.6 million in computing time and used 2,048 Nvidia H800 chips, a version of the company's processors designed to comply with American export restrictions.
+
+Experts quickly pointed out that the figure only covered the final training run and excluded research, earlier experiments and the cost of the hardware itself. Even so, the number challenged the widespread belief that building frontier models requires billions of dollars in chips.
+
+DeepSeek's reasoning model was released with open weights, which means any company can download it and run it on its own infrastructure. Within days, the company's assistant app climbed to the top of download charts in several countries.
+
+Investors worried that if powerful models can be trained with fewer chips, demand for Nvidia's most expensive processors could slow. Other analysts argued the opposite: cheaper models tend to increase total usage, which in the end requires more computing power.
+
+For small companies that use AI, the episode had a practical reading. Competition among model providers was pushing prices down, and open models were becoming a real option for businesses that want to control costs or keep their data in-house.
+````
+
+### klarna_debut_bolsa
+
+- `prompt_sha`: **`961f8d21ef43`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da la valuación total ni la cantidad de usuarios de Klarna
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup de pagos a plazos en México que quiere comentar el caso a su audiencia.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Swedish payments company Klarna began trading on the New York Stock Exchange on Wednesday under the ticker KLAR. The company priced its initial public offering at $40 per share, above the range it had initially marketed, and raised $1.37 billion.
+
+Klarna is best known for "buy now, pay later," a service that lets shoppers split a purchase into several interest-free installments at checkout. The company pays the merchant up front and earns most of its money from the fees merchants pay, betting that offering installments increases sales enough to make the fee worthwhile.
+
+Founded in Stockholm by Sebastian Siemiatkowski, Victor Jacobsson and Niklas Adalberth, Klarna grew across Europe and then pushed hard into the United States, its most important market in recent years. Siemiatkowski remains chief executive.
+
+The road to the listing was not straight. The company's private valuation dropped sharply during the downturn that hit technology companies after the pandemic boom, and Klarna spent several years cutting costs and trying to show investors it could make money. It also postponed its offering earlier in the year amid market turbulence.
+
+Klarna has spoken publicly about using artificial intelligence to handle a large share of its customer-service conversations, which the company presents as a way to keep costs down as it grows.
+
+Buy now, pay later has drawn attention from regulators in several countries, who worry that consumers may take on debt without fully understanding it. Companies in the sector argue that their products are more transparent than traditional credit cards.
+
+For founders in Latin America, where installment payments are common and card penetration is uneven, the listing showed that investors are willing to back payment models that change how people pay at the checkout, as long as the company can show discipline on costs and credit losses.
+````
+
+### figma_adobe_cancelada
+
+- `prompt_sha`: **`e8e01cdb0da8`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año del anuncio (2022) ni de la cancelación (2023)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una comunidad de diseñadores de producto y founders SaaS.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Adobe and Figma have called off their planned merger. The software giant had agreed to buy the collaborative design startup for about $20 billion in cash and stock, but the two companies said there was no clear path to obtain the regulatory approvals needed in Europe and the United Kingdom.
+
+Under the terms of the agreement, Adobe will pay Figma a termination fee of $1 billion.
+
+Figma was founded by Dylan Field and Evan Wallace, who met as students at Brown University. Its product lets teams design interfaces directly in the web browser, with several people editing the same file at the same time. That collaborative approach made it a favorite among product teams and put it in direct competition with Adobe's own design tools.
+
+Competition authorities had expressed concern that the deal would eliminate a rival that was growing quickly and could reduce innovation in design software. The European Commission and the United Kingdom's Competition and Markets Authority had both opened in-depth investigations.
+
+In a statement, both companies said they disagreed with the regulators' conclusions but had decided that it was in their best interest to move forward independently.
+
+The decision means Figma will continue as an independent company, with the termination payment adding to its cash. Adobe, for its part, will keep developing its own collaborative products.
+
+For founders, the case illustrates a risk that is easy to underestimate when an acquisition is announced: the deal is not closed until regulators approve it, and that process can take many months. During that time, the startup must keep its team motivated and its customers calm, without knowing whether it will end up inside a large company or on its own. Large technology deals now face closer scrutiny than in previous years, especially when the buyer is a market leader.
+````
+
+### google_compra_wiz
+
+- `prompt_sha`: **`ea0c5c5c52d0`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da los ingresos de Wiz ni el año de su fundación; tienta a mencionar la oferta rechazada con su monto
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de un fondo de capital de riesgo latinoamericano que comenta salidas relevantes.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Google's parent company Alphabet has agreed to acquire Wiz, a cloud security startup based in New York, for $32 billion in cash. It is the largest acquisition in Google's history.
+
+Wiz was founded by Assaf Rappaport, Ami Luttwak, Yinon Costica and Roy Reznik, a team that had previously built a security company that Microsoft acquired. Rappaport is the chief executive. Wiz's software scans the cloud environments of large companies to find vulnerabilities, misconfigurations and exposed data, and shows security teams which risks to fix first.
+
+The company grew very quickly by selling to large enterprises, which have moved more of their systems to cloud providers such as Amazon, Microsoft and Google. Wiz said its products will remain available on all the major clouds after the acquisition, not only on Google's.
+
+The agreement came after an earlier round of talks between the two companies ended without a deal. At that time Wiz decided to stay independent and said it intended to keep growing toward a public listing.
+
+The transaction must still be approved by regulators. Google said it expected the deal to close the following year.
+
+Google Cloud has been investing heavily to compete with Amazon Web Services and Microsoft Azure, which have larger shares of the cloud market. Security is one of the main concerns of companies when they decide which cloud to use, and analysts said the acquisition gives Google a stronger offer in that area.
+
+For founders, the deal is a reminder that rejecting an offer can pay off when the business keeps growing, but it is not a guaranteed outcome. It also shows that strategic buyers are still willing to pay very high prices for software companies that solve a critical problem for large enterprises.
+````
+
+### anthropic_serie_f
+
+- `prompt_sha`: **`3858f02d11fa`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año, ni los ingresos, ni la cantidad de clientes empresariales
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de un founder que usa modelos de IA en su producto y comenta el mercado.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Anthropic, the artificial intelligence company that develops the Claude family of models, has raised $13 billion in a Series F round at a post-money valuation of $183 billion. The round was led by ICONIQ, and other investment firms joined it.
+
+Anthropic was founded by former OpenAI researchers, including siblings Dario and Daniela Amodei. Dario Amodei is chief executive. The company describes itself as focused on AI safety research and sells access to its models to businesses and developers, as well as through a subscription product for individuals.
+
+The company said the new capital will support its enterprise growth, investment in safety research and expansion of computing capacity. Anthropic has also been expanding outside the United States.
+
+A large share of Anthropic's business comes from companies that integrate its models into their own products, and from software developers. Programming has become one of the most visible uses of AI models, and the company has launched tools aimed specifically at developers.
+
+Training and serving frontier models requires enormous amounts of computing power, which explains the size of the funding rounds in the sector. Several AI developers have raised multibillion-dollar rounds in a short period, and investors are betting that a few companies will capture a large share of the value of the technology.
+
+For founders who build products on top of these models, the competition among providers has practical consequences: prices per use, the speed at which new capabilities arrive and the risk of depending on a single supplier. Many startups now design their products so they can switch from one model to another with little effort.
+
+The valuation places Anthropic among the most valuable private technology companies in the world.
+````
+
+### revolut_venta_secundaria
+
+- `prompt_sha`: **`bc79a05ed9c9`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da la cantidad de clientes de Revolut ni el año de la licencia bancaria británica
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup de pagos internacionales que habla con freelancers de habla hispana.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Revolut, the London-based financial technology company, has completed a secondary share sale that values it at $45 billion, making it one of the most valuable private fintech companies in Europe. In a secondary sale, existing shareholders, in this case employees, sell part of their shares to new or existing investors. The company itself does not raise new money.
+
+Investors taking part included Coatue, D1 Capital Partners and Tiger Global.
+
+Revolut was founded by Nik Storonsky, a former trader, and Vlad Yatsenko, a software engineer. It started with a prepaid card that let travelers spend abroad without the high exchange fees charged by traditional banks, and later added current accounts, stock and crypto trading, savings products and business accounts.
+
+The company recently obtained a banking license in the United Kingdom with restrictions, a long-awaited step that allows it to begin offering more traditional banking products in its home market, after a lengthy process with regulators.
+
+The share sale gives employees a way to turn part of their equity into cash while the company remains private. Startups increasingly use this mechanism to retain talent when a public listing is still far away.
+
+Revolut has been expanding in several regions, including Latin America, where it has announced operations in Mexico and Brazil.
+
+For founders who serve freelancers and small businesses that get paid from abroad, the case shows the size of the market for cross-border payments and multicurrency accounts. Charging less than traditional banks for exchanging and sending money was the entry point that Revolut used to win customers, and the same problem remains very relevant for people across Latin America who work for clients in other countries.
+````
+
+### chatgpt_usuarios_semanales
+
+- `prompt_sha`: **`6f56c1da6e30`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice la fecha del evento ni los ingresos de OpenAI
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una consultora que ayuda a pymes a adoptar IA en ventas y atención.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+OpenAI chief executive Sam Altman said at the company's annual developer conference in San Francisco that ChatGPT now has 800 million weekly users. The figure makes ChatGPT one of the most widely used software products in the world.
+
+At the same event, OpenAI presented new tools for developers. The most notable was the ability to build apps that run inside ChatGPT conversations: a user can call a service by name while chatting and interact with it without leaving the conversation. The company said that several large consumer brands were among the first partners.
+
+OpenAI also introduced tools to create AI agents, programs that can carry out multi-step tasks on behalf of a user, such as looking up information, filling forms or connecting to other software. The company presented a visual builder intended to let teams design these agents with less code.
+
+Altman told the audience that the developer community building on OpenAI's platform keeps growing, and that the company wants ChatGPT to become a place where people discover and use other services.
+
+For small businesses, the announcements raised a practical question: if a growing share of customers start their searches and purchases inside a chat assistant, companies will need to be present there, just as they once had to be present in search engines and social networks. Several analysts compared the moment with the early days of app stores.
+
+Experts also warned that depending on a single platform carries risks. The rules for apps inside ChatGPT, including how they are ranked and how they can charge users, are still being defined. Founders who build on top of a platform they do not control have historically faced sudden changes in visibility and costs.
+````
+
+### rappi_ronda_t_rowe
+
+- `prompt_sha`: **`879a661d5efb`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2021) ni la cantidad de ciudades o repartidores
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup colombiana de logística de última milla.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Colombian delivery company Rappi has raised $500 million in a new funding round led by T. Rowe Price, at a valuation of $5.25 billion.
+
+Rappi was founded in Bogotá by Simón Borrero, Sebastián Mejía and Felipe Villamarín. It started as a grocery delivery app and expanded into restaurant delivery, pharmacy orders, cash withdrawals delivered to the door and a digital wallet called RappiPay. The company describes itself as a "super app": a single application where users can solve many daily needs.
+
+The company operates in several countries in Latin America, including Colombia, Mexico, Brazil, Argentina, Chile and Peru. Competition in delivery is intense in the region, with global players and local companies fighting for both customers and couriers.
+
+Rappi said it would use the new funds to strengthen its fintech business and to expand its "turbo" service, which promises deliveries in a few minutes from small warehouses located close to customers, known as dark stores.
+
+Quick-commerce models like this one require heavy investment: the company must rent and stock warehouses in dense neighborhoods and keep couriers available nearby. In exchange, it controls the inventory and can earn higher margins than when it simply picks up orders from third-party stores.
+
+Delivery apps across Latin America have also faced debates about the working conditions of couriers, who in most countries are classified as independent workers rather than employees. Several governments in the region have discussed rules to change that.
+
+For founders building logistics or commerce businesses in the region, the round was a sign that investors were still betting on the delivery market's long-term potential, even as the economics of fast delivery remained under scrutiny.
+````
+
+### clip_softbank
+
+- `prompt_sha`: **`c27621033ed1`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: la fuente no da la valuación (se publicó en 2.000 millones) ni el año
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de un proveedor de software para comercios de barrio en México.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La fintech mexicana Clip anunció una inversión de 250 millones de dólares encabezada por SoftBank, a través de su fondo para América Latina, y por Viking Global Investors. Con esta operación, la empresa se convirtió en una de las startups más valiosas de México.
+
+Clip fue fundada por Adolfo Babatz, quien sigue como director general. Su primer producto fue un lector de tarjetas que se conecta al teléfono y permite a cualquier comercio cobrar con tarjeta de débito o crédito sin contratar una terminal bancaria tradicional. Con el tiempo sumó terminales propias, cobros a distancia mediante enlaces de pago y otros servicios financieros para comercios.
+
+El público de Clip son negocios pequeños y medianos: tiendas de barrio, consultorios, talleres, restaurantes y profesionales independientes. En México, una parte importante de los pagos todavía se hace en efectivo, y muchos comercios no aceptaban tarjeta por los costos y requisitos de los bancos.
+
+La compañía dijo que usará los recursos para desarrollar nuevos productos, ampliar su equipo de tecnología y llegar a más comercios en todo el país.
+
+Para los comercios, aceptar tarjeta tiene ventajas claras: evita perder ventas de clientes que no traen efectivo, reduce el riesgo de manejar dinero en el local y deja un registro de las ventas que sirve para pedir crédito. El costo es la comisión que cobra el proveedor por cada transacción.
+
+El mercado de cobros para pequeños comercios en México es competido. Además de los bancos, participan otras empresas tecnológicas y plataformas de comercio electrónico que ofrecen sus propias terminales.
+
+Para los founders de la región, la operación mostró que los inversionistas globales estaban dispuestos a apostar por empresas que atienden a los negocios más pequeños, un segmento que la banca tradicional atendió poco durante años.
+````
+
+### ley_ia_europea
+
+- `prompt_sha`: **`9d95394ef351`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da fechas de cada etapa de aplicación ni el año de entrada en vigor (2024)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup latinoamericana de software que vende a clientes en España.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+El Reglamento de Inteligencia Artificial de la Unión Europea, conocido como Ley de IA, entró en vigor el 1 de agosto. Es la primera norma integral sobre inteligencia artificial aprobada por una gran economía y se aplicará por etapas a lo largo de los próximos años.
+
+La ley clasifica los sistemas de IA según su nivel de riesgo. Los de riesgo inaceptable quedan prohibidos: por ejemplo, los sistemas de puntuación social de personas o ciertos usos de reconocimiento de emociones en el trabajo y en la escuela. Los de alto riesgo, como los que se usan para seleccionar personal, otorgar créditos o en infraestructura crítica, deberán cumplir requisitos de calidad de datos, documentación, supervisión humana y ciberseguridad.
+
+Para los sistemas de riesgo limitado, como los asistentes conversacionales, la principal obligación es de transparencia: la persona debe saber que está interactuando con una máquina. Los contenidos generados o manipulados con IA, como las imágenes o videos falsos de personas reales, deberán identificarse como tales.
+
+La norma también incluye reglas específicas para los modelos de IA de uso general, que son la base de muchos productos actuales.
+
+Las sanciones pueden ser altas. Para las prácticas prohibidas, las multas pueden llegar a 35 millones de euros o al 7% del volumen de negocio anual mundial de la empresa, la cifra que resulte mayor.
+
+La ley se aplica a las empresas que ofrecen sistemas de IA en el mercado europeo, aunque estén fuera de la Unión. Eso incluye a startups latinoamericanas que venden software con funciones de IA a clientes en España o en otros países europeos.
+
+La Comisión Europea creó una Oficina de IA para supervisar la aplicación de la norma y prevé espacios controlados de pruebas para que las pymes y startups puedan probar sus sistemas con acompañamiento de las autoridades.
+````
+
+### notco_serie_d
+
+- `prompt_sha`: **`e634642df7e9`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2021) ni los países donde vende
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una aceleradora de startups de alimentos en Chile y Perú.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La startup chilena NotCo levantó 235 millones de dólares en una ronda Serie D liderada por Tiger Global, con una valuación de 1.500 millones de dólares. Con esta operación, la empresa se convirtió en el primer unicornio de Chile.
+
+NotCo fue fundada por Matías Muchnick, Karim Pichara y Pablo Zamora. La compañía desarrolla alimentos de origen vegetal que buscan imitar el sabor y la textura de productos de origen animal, como la leche, la mayonesa, el helado y la carne molida.
+
+Su diferencia está en el uso de inteligencia artificial. NotCo creó un algoritmo, al que llama Giuseppe, que analiza la estructura molecular de los alimentos de origen animal y propone combinaciones de ingredientes vegetales para reproducir sus características. Según la empresa, esto le permite desarrollar productos más rápido que con los métodos tradicionales de prueba y error.
+
+Entre los inversionistas de la compañía figuran personas conocidas del mundo tecnológico, como Jeff Bezos, a través de su fondo personal.
+
+La empresa dijo que usará los recursos para expandirse a nuevos mercados, ampliar su línea de productos y seguir desarrollando su tecnología.
+
+El mercado de alimentos de origen vegetal creció con fuerza en los últimos años, impulsado por consumidores que buscan reducir el consumo de carne por razones de salud, medioambiente o bienestar animal. Sin embargo, el sector también enfrenta desafíos: los precios suelen ser más altos que los de los productos tradicionales y no todos los consumidores repiten la compra.
+
+Para los founders de la región, NotCo mostró que una startup nacida en Chile puede competir en una categoría global combinando tecnología propia con marcas de consumo, y que los fondos internacionales están dispuestos a invertir en empresas latinoamericanas fuera de los sectores habituales de software y fintech.
+````
+
+### betterfly_unicornio
+
+- `prompt_sha`: **`4ac5a84e7af9`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: la fuente no da una valuación exacta, solo «supera los 1.000 millones»; tampoco el año
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una consultora de recursos humanos que trabaja con pymes en Chile y Colombia.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La insurtech chilena Betterfly cerró una ronda Serie C de 125 millones de dólares liderada por Glade Brook Capital Partners, con la participación de inversionistas anteriores como QED Investors. Con la operación, la empresa superó una valuación de 1.000 millones de dólares y se sumó a la lista de unicornios latinoamericanos.
+
+Betterfly fue fundada por Eduardo della Maggiora, un emprendedor con experiencia previa en otras empresas tecnológicas. La compañía ofrece a las empresas una plataforma de bienestar para sus colaboradores que combina hábitos saludables con seguros.
+
+El modelo funciona así: los trabajadores registran en la aplicación actividades como caminar, meditar o hacer ejercicio, y acumulan una moneda virtual. Esa moneda se puede canjear por donaciones a causas sociales o por mejoras en la cobertura de un seguro de vida. Los empleadores contratan la plataforma como un beneficio para su personal.
+
+La compañía dijo que usará los nuevos recursos para crecer en América Latina, entrar en nuevos mercados y ampliar los productos de seguros y bienestar que ofrece.
+
+El mercado de beneficios para colaboradores ganó relevancia después de la pandemia, cuando muchas empresas buscaron nuevas formas de cuidar la salud física y mental de sus equipos y de retener talento. Los seguros, por su parte, son un sector tradicional en el que pocas empresas habían cambiado la forma de llegar a los clientes.
+
+Para los founders, el caso de Betterfly muestra una estrategia de distribución que vale estudiar: en lugar de venderle un seguro a cada persona, la empresa le vende a un empleador que lo entrega a todo su equipo. Eso reduce el costo de adquirir cada usuario, aunque obliga a convencer a áreas de recursos humanos que suelen tener presupuestos acotados y ciclos de decisión largos.
+````
+
+### uala_serie_d
+
+- `prompt_sha`: **`611006a02ead`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da la cantidad de usuarios ni el año (2021)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una comunidad de founders fintech de habla hispana.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La fintech argentina Ualá levantó 350 millones de dólares en una ronda Serie D liderada por SoftBank y Tencent, con una valuación de 2.450 millones de dólares. Es una de las rondas más grandes de la historia del ecosistema emprendedor argentino.
+
+Ualá fue fundada por Pierpaolo Barbieri. La compañía comenzó con una tarjeta prepaga asociada a una aplicación móvil, pensada para personas que no tenían cuenta bancaria o que estaban cansadas de los costos y trámites de los bancos tradicionales. Con los años sumó inversiones, préstamos personales, pagos de servicios y una solución de cobros para comercios.
+
+La empresa opera en Argentina y en México, y anunció su llegada a Colombia. El capital nuevo se destinará a esa expansión regional, a desarrollar nuevos productos financieros y a contratar talento.
+
+Uno de los atractivos de Ualá para los inversionistas es la inclusión financiera. En varios países de América Latina, una parte importante de la población no tiene acceso a productos bancarios básicos, como una cuenta o una tarjeta, y opera principalmente con efectivo.
+
+La competencia en el sector es intensa. Además de los bancos, que lanzaron sus propias aplicaciones, compiten otras fintech locales y regionales. Para diferenciarse, las empresas buscan ofrecer más productos dentro de la misma aplicación y aumentar el uso diario.
+
+Para los founders, el caso de Ualá también muestra cómo una startup puede crecer en un país con alta inflación y controles cambiarios, condiciones que complican la planificación financiera y la relación con inversionistas extranjeros. Expandirse a otros países de la región es, en parte, una forma de diversificar ese riesgo.
+````
+
+### bitso_serie_c
+
+- `prompt_sha`: **`ad50b1f5eff6`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2021) ni la cantidad de clientes
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup que procesa pagos internacionales para freelancers en México.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La plataforma de criptomonedas Bitso, con sede en México, levantó 250 millones de dólares en una ronda Serie C liderada por Tiger Global y Coatue, con una valuación de 2.200 millones de dólares. Con esta operación se convirtió en el primer unicornio cripto de México.
+
+Bitso fue fundada por Daniel Vogel, Pablo González y Ben Peters. Su plataforma permite comprar, vender y guardar criptomonedas como bitcoin y ether usando pesos mexicanos y otras monedas locales.
+
+Uno de los usos que más ha impulsado la empresa son las remesas. Las personas que viven en Estados Unidos pueden enviar dinero a sus familias en México a través de criptomonedas, que luego se convierten a pesos. Según la compañía, este mecanismo puede ser más rápido y barato que algunos servicios tradicionales de envío de dinero.
+
+Además de México, Bitso opera en otros países de la región, como Argentina y Brasil. La empresa dijo que usará el capital para crecer en América Latina, desarrollar nuevos productos y fortalecer sus áreas de cumplimiento regulatorio.
+
+El sector de las criptomonedas es volátil. Los precios de los activos digitales cambian con fuerza en periodos cortos, y eso afecta el volumen de operaciones y los ingresos de las plataformas. Además, la regulación varía de un país a otro y sigue en desarrollo en buena parte de la región.
+
+Para los founders que trabajan con pagos internacionales, el caso de Bitso muestra que el problema de mover dinero entre países sigue abierto y que hay espacio para nuevos modelos. También recuerda que construir sobre una infraestructura nueva exige invertir temprano en cumplimiento y en la relación con los reguladores.
+````
+
+### ley_startups_espana
+
+- `prompt_sha`: **`319f31599f0b`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da el año de la ley (2022) ni cifras de cuántas empresas se acogieron
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una gestoría online que asesora a founders latinoamericanos que quieren abrir empresa en España.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+España cuenta con una Ley de fomento del ecosistema de las empresas emergentes, conocida como Ley de Startups, que busca atraer emprendedores, inversión y talento al país.
+
+Para acogerse a la ley, una empresa debe ser de nueva creación o tener como máximo 5 años de antigüedad, o 7 años en el caso de empresas de biotecnología, energía o industria. También debe tener un modelo de negocio innovador y escalable, y su volumen de negocio anual no puede superar los 10 millones de euros. La condición de empresa emergente la acredita la Empresa Nacional de Innovación, ENISA.
+
+Uno de los beneficios principales es fiscal. Las empresas emergentes tributan en el Impuesto sobre Sociedades a un tipo reducido del 15%, frente al tipo general del 25%, durante el primer ejercicio con base imponible positiva y los tres siguientes, siempre que mantengan la condición de empresa emergente.
+
+La ley también mejora el tratamiento de las opciones sobre acciones para empleados, una herramienta común en las startups para atraer talento cuando no pueden pagar sueldos altos. Además, facilita la llegada de trabajadores extranjeros mediante un régimen de visados para teletrabajadores de carácter internacional y para emprendedores.
+
+Otra medida relevante es la simplificación de trámites: la ley busca que constituir una sociedad sea más rápido y barato, con procesos telemáticos.
+
+Para los founders latinoamericanos que piensan en España como puerta de entrada a Europa, la ley ofrece incentivos concretos. Sin embargo, conviene revisar con un asesor los requisitos exactos antes de tomar decisiones: la condición de empresa emergente no es automática, y algunos beneficios dependen de mantener ciertos requisitos a lo largo del tiempo.
+````
+
+### tiendanube_serie_e
+
+- `prompt_sha`: **`a7ce64227fc0`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da la cantidad de tiendas ni el año (2021)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una agencia que ayuda a marcas pequeñas a vender en línea.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Tiendanube, la plataforma de comercio electrónico conocida como Nuvemshop en Brasil, levantó 500 millones de dólares en una ronda Serie E liderada por Insight Partners y Tiger Global, con una valuación de 3.100 millones de dólares.
+
+La empresa fue fundada en Argentina por Santiago Sosa junto a un grupo de cofundadores. Su producto permite a pequeñas y medianas marcas crear su propia tienda en línea sin saber programar, con herramientas para gestionar pagos, envíos, inventario y marketing.
+
+La compañía tiene su mayor mercado en Brasil y también opera en Argentina y México. Compite con plataformas globales de comercio electrónico y con los grandes marketplaces de la región.
+
+Tiendanube dijo que usará los recursos para desarrollar nuevos productos, sumar talento y crecer en México y en el resto de América Latina.
+
+La propuesta de la empresa se apoya en una tendencia: cada vez más marcas pequeñas quieren vender por su cuenta, con su propio sitio, en lugar de depender solo de los marketplaces, donde compiten con miles de vendedores y tienen poco control sobre la relación con sus clientes.
+
+Tener una tienda propia, sin embargo, exige que la marca atraiga tráfico por su cuenta, a través de redes sociales, publicidad o comunidad. Por eso muchas plataformas de este tipo ofrecen integraciones con redes sociales y herramientas de marketing.
+
+Para los founders de comercio electrónico, la ronda mostró el interés de los inversionistas por la infraestructura que permite a miles de negocios pequeños vender en línea, un segmento que creció con fuerza durante la pandemia y que sigue siendo una de las apuestas más claras del ecosistema latinoamericano.
+````
+
+### factorial_unicornio
+
+- `prompt_sha`: **`7b9077c9b5c0`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da la cantidad de clientes ni el año (2022)
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup de software de nómina que vende a pymes en España y México.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La startup española Factorial, con sede en Barcelona, levantó 120 millones de dólares en una ronda Serie C liderada por Tiger Global, con una valuación de 1.000 millones de dólares. Con esta operación se convirtió en uno de los pocos unicornios de España.
+
+Factorial fue fundada por Jordi Romero, Pau Ramon y Bernat Farrero. La compañía desarrolla un software de recursos humanos para pequeñas y medianas empresas que centraliza tareas como el control horario, la gestión de vacaciones y ausencias, la documentación de los empleados, la evaluación del desempeño y la preparación de la nómina.
+
+Su punto de partida fue un problema muy común en las pymes: la gestión de personas se hace con hojas de cálculo, correos y papeles, lo que consume tiempo y genera errores. Factorial ofreció una herramienta sencilla, pensada para empresas que no tienen un área de recursos humanos grande.
+
+La empresa dijo que usará los recursos para ampliar su producto, contratar talento y crecer en otros mercados, entre ellos América Latina.
+
+El mercado de software de recursos humanos para pymes es competido, con actores globales y locales. Para diferenciarse, las empresas del sector buscan ofrecer más funciones dentro de una misma plataforma y adaptarse a las reglas laborales de cada país, que cambian de un mercado a otro.
+
+Para los founders que venden software a pymes, el caso de Factorial muestra la importancia de resolver un problema cotidiano con una herramienta fácil de adoptar. También muestra el desafío de expandirse a otros países: cada mercado tiene su propia legislación laboral, y eso obliga a adaptar el producto antes de vender.
+````
+
+### google_cookies_marcha_atras
+
+- `prompt_sha`: **`59c353e35cc4`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice cuándo se anunció el cambio (2024) ni el porcentaje de usuarios de Chrome
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una agencia de marketing digital que trabaja con tiendas en línea.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Google anunció que ya no eliminará las cookies de terceros de su navegador Chrome, como había planeado durante años. En su lugar, la compañía propuso un enfoque en el que los usuarios puedan tomar una decisión informada sobre su privacidad al navegar, una elección que podrán ajustar en cualquier momento.
+
+Las cookies de terceros son pequeños archivos que permiten a empresas distintas del sitio que se visita seguir a una persona mientras navega por internet. La publicidad digital las usa para mostrar anuncios según los intereses de cada usuario y para medir qué anuncios generan ventas.
+
+Google había anunciado en enero de 2020 su intención de dejar de admitir estas cookies en Chrome. Desde entonces, la fecha se aplazó varias veces, en parte por las dudas de la industria publicitaria y por la revisión de las autoridades de competencia del Reino Unido.
+
+Como alternativa, Google desarrolló un conjunto de tecnologías llamado Privacy Sandbox, pensado para permitir publicidad relevante sin seguir a cada persona de forma individual. La compañía dijo que seguirá trabajando en esas herramientas.
+
+Otros navegadores, como Safari de Apple y Firefox, bloquean las cookies de terceros por defecto desde hace tiempo.
+
+Para las tiendas en línea y las agencias de marketing, la decisión de Google reduce la urgencia de cambiar sus sistemas de medición, pero no elimina la tendencia de fondo: los usuarios y los reguladores exigen más privacidad. Por eso muchos especialistas recomiendan seguir construyendo datos propios, como listas de correo y registros de clientes, que no dependen de lo que decidan los navegadores.
+
+La medida fue recibida con alivio por parte de la industria publicitaria y con críticas de algunos grupos de defensa de la privacidad.
+````
+
+### kit_digital_espana
+
+- `prompt_sha`: **`a0c097c5ec01`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no da el año de lanzamiento ni la cantidad de bonos concedidos
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una agencia que vende servicios de digitalización a pymes en España.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+El Kit Digital es un programa de ayudas del Gobierno de España para que pequeñas empresas, microempresas y trabajadores autónomos incorporen soluciones digitales en su negocio. Está financiado con fondos europeos Next Generation EU y cuenta con un presupuesto de 3.067 millones de euros.
+
+La ayuda se entrega en forma de un bono digital que la empresa usa para contratar soluciones con proveedores adheridos al programa, llamados agentes digitalizadores. El monto del bono depende del tamaño de la empresa. En el segmento I, para empresas de entre 10 y 49 empleados, el bono es de 12.000 euros. En el segmento II, para empresas de entre 3 y 9 empleados, es de 6.000 euros. En el segmento III, para empresas de menos de 3 empleados y autónomos, el bono inicial fue de 2.000 euros.
+
+Las soluciones que se pueden contratar incluyen sitio web y presencia en internet, comercio electrónico, gestión de redes sociales, gestión de clientes, inteligencia empresarial y analítica, gestión de procesos, factura electrónica, comunicaciones seguras y ciberseguridad.
+
+Para solicitarla, la empresa debe registrarse en la plataforma Acelera pyme, completar un test de diagnóstico digital y cumplir requisitos como estar al corriente con Hacienda y la Seguridad Social.
+
+El programa se convirtió en una oportunidad de negocio para miles de proveedores tecnológicos, que se adhirieron como agentes digitalizadores para vender sus soluciones a pymes con el bono.
+
+También generó críticas. Algunas pymes se quejaron de soluciones de baja calidad o de proveedores que ofrecían productos genéricos sin adaptarlos a cada negocio.
+
+Para los founders que venden software a pymes en España, el Kit Digital mostró cómo una ayuda pública puede acelerar la adopción de tecnología, pero también que el cliente necesita acompañamiento real para sacarle provecho a la herramienta que compra.
+````
+
+### whatsapp_business_empresas
+
+- `prompt_sha`: **`ab458b72e4fb`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2023) ni la cantidad total de usuarios de WhatsApp ni el crecimiento desde 2020
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el blog de una startup que automatiza la atención al cliente por WhatsApp en Colombia y Perú.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+Meta informó que la aplicación WhatsApp Business, la versión de su servicio de mensajería pensada para empresas, superó los 200 millones de usuarios activos mensuales. La compañía presentó además nuevas funciones para que los negocios lleguen a sus clientes dentro de los chats.
+
+Entre las novedades, Meta anunció que las empresas podrán crear anuncios que llevan a una conversación de WhatsApp sin necesidad de tener una cuenta de Facebook. Hasta ahora, ese paso era una barrera para muchos negocios pequeños que solo usaban WhatsApp para vender.
+
+La compañía también dijo que estaba probando una herramienta de pago para enviar mensajes personalizados y automatizados a los clientes, como recordatorios o novedades de productos. Mark Zuckerberg, director ejecutivo de Meta, adelantó que pronto los negocios podrán publicar anuncios de Facebook o Instagram directamente desde la aplicación.
+
+La aplicación WhatsApp Business es gratuita y está pensada para pequeños negocios: permite crear un perfil con horarios y catálogo de productos, usar respuestas rápidas y etiquetar conversaciones. Las empresas más grandes, que manejan miles de mensajes, suelen usar la plataforma empresarial de WhatsApp a través de proveedores especializados, con costos que dependen del tipo de conversación.
+
+Para Meta, la mensajería con empresas es una fuente de ingresos que busca hacer crecer, porque cobra a las compañías por ciertas conversaciones y por los anuncios que llevan a los chats.
+
+En América Latina, WhatsApp es una de las herramientas de comunicación más usadas, tanto entre personas como entre clientes y empresas. Para muchos negocios pequeños es el canal principal de ventas: reciben pedidos, envían fotos de productos y confirman pagos por chat.
+
+Para los founders que construyen software sobre WhatsApp, el anuncio confirma el tamaño del canal, pero también recuerda que dependen de las reglas de Meta. Cambios en precios, políticas o funciones de la plataforma pueden afectar directamente su modelo de negocio. Diversificar canales y entender bien las condiciones de uso es parte del trabajo de cualquier empresa que opera sobre una plataforma de terceros.
+````
+
+### canva_valuacion
+
+- `prompt_sha`: **`0bf52efe19b1`**
+- Nota de 900-1.300 palabras solo con datos de la fuente · trampa: no dice el año (2021) ni la cantidad de usuarios
+- verificador: `noticias_redaccion`
+
+**System:**
+
+````
+Eres redactor de contenido para un founder hispanohablante que publica noticias y análisis para emprendedores de América Latina y España. Escribes en español neutro, claro y directo, con subtítulos en Markdown (##).
+````
+
+**User:**
+
+````
+Es para el newsletter de una comunidad de creadores de contenido y freelancers de diseño.
+
+Escribe la nota en español neutro, de 900 a 1.300 palabras, solo con datos de la fuente.
+
+FUENTE:
+La plataforma de diseño australiana Canva levantó 200 millones de dólares en una nueva ronda que valúa a la compañía en 40.000 millones de dólares, lo que la ubicó entre las startups privadas más valiosas del mundo.
+
+Canva fue fundada en Sídney por Melanie Perkins, Cliff Obrecht y Cameron Adams. Perkins, que es directora ejecutiva, tuvo la idea mientras daba clases de programas de diseño en la universidad y veía lo difícil que era para sus estudiantes aprender herramientas profesionales.
+
+El producto permite crear presentaciones, publicaciones para redes sociales, documentos, carteles y videos desde el navegador, a partir de plantillas que se editan arrastrando elementos. La mayoría de sus funciones son gratuitas, y la empresa gana dinero con suscripciones que desbloquean herramientas y contenido adicional para personas y equipos.
+
+La compañía dijo que usará los recursos para seguir desarrollando productos para empresas, un segmento donde busca competir con las herramientas tradicionales de oficina y de diseño profesional.
+
+Canva también destacó su compromiso de destinar parte de su patrimonio a causas sociales, un tema que sus fundadores han convertido en parte de la identidad de la marca.
+
+El crecimiento de Canva se apoyó en un modelo que muchos founders estudian: un producto gratuito y fácil de usar que atrae a millones de personas, y una versión de pago que convierte a una parte de ellas en clientes. Para que funcione, el producto gratuito debe ser realmente útil y el paso a la versión de pago debe ofrecer un valor claro.
+
+Para los creadores de contenido y los freelancers, la ronda confirmó que las herramientas de diseño accesibles se convirtieron en parte central del trabajo diario de marketing de pequeñas y grandes empresas.
+````
+
+## `noticias_relevancia` — 58 tests
+
+### cumple_elevenlabs_serie_c
+
+- `prompt_sha`: **`87c29797fc50`**
+- [cumple] ElevenLabs triplica su valoración a US$3.300 millones con una Serie C de US$180 millones → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: ElevenLabs triplica su valoración a US$3.300 millones con una Serie C de US$180 millones
+Texto:
+La startup de voz con inteligencia artificial ElevenLabs cerró una Serie C de US$180 millones, coliderada por Andreessen Horowitz e ICONIQ Growth, con una valoración post-money de US$3.300 millones, el triple que un año antes. Fundada en 2022, la empresa suma US$281 millones en cuatro rondas y destinará el capital a investigación de voz, herramientas para empresas y expansión global.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_figma_ipo
+
+- `prompt_sha`: **`b2aa6670a768`**
+- [cumple] Figma sale a bolsa a US$33 por acción y recauda unos US$1.200 millones → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Figma sale a bolsa a US$33 por acción y recauda unos US$1.200 millones
+Texto:
+Figma fijó el precio de su salida a bolsa en US$33 por acción, por encima del rango que había revisado al alza, y empezó a cotizar en la Bolsa de Nueva York con el símbolo FIG. La operación recaudó unos US$1.200 millones y valoró a la empresa de diseño colaborativo en cerca de US$19.300 millones. La acción abrió a US$85 en su primer día, un año y medio después de que se cayera su venta a Adobe.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_openai_gpt_oss
+
+- `prompt_sha`: **`28bc9efe74e1`**
+- [cumple] OpenAI publica gpt-oss: dos modelos de pesos abiertos con licencia Apache 2.0 → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: oficiales
+Título: OpenAI publica gpt-oss: dos modelos de pesos abiertos con licencia Apache 2.0
+Texto:
+OpenAI liberó gpt-oss-120b y gpt-oss-20b, sus primeros modelos de lenguaje con pesos abiertos desde GPT-2, bajo licencia Apache 2.0. Son modelos de razonamiento con arquitectura de mezcla de expertos y ventana de 128.000 tokens; el de 20.000 millones de parámetros corre con 16 GB de memoria. Se pueden descargar en Hugging Face y usar en Azure, AWS y Databricks, lo que permite correrlos en infraestructura propia.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_cloudflare_pay_per_crawl
+
+- `prompt_sha`: **`63865dda5e1e`**
+- [cumple] Cloudflare lanza «pay per crawl» para cobrar a los rastreadores de IA → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: oficiales
+Título: Cloudflare lanza «pay per crawl» para cobrar a los rastreadores de IA
+Texto:
+Cloudflare presentó en beta privada «pay per crawl», un sistema para que los sitios cobren a los rastreadores de inteligencia artificial por acceder a su contenido. El editor fija una tarifa por solicitud y define qué rastreadores permite, cobra o bloquea; Cloudflare actúa como intermediario del cobro. El mismo día anunció que su red bloqueará por defecto a los rastreadores de IA.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_factorial_unicornio
+
+- `prompt_sha`: **`dec3b07df91b`**
+- [cumple] Factorial levanta US$120 millones y se convierte en unicornio → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Factorial levanta US$120 millones y se convierte en unicornio
+Texto:
+La startup barcelonesa de software de recursos humanos Factorial cerró una Serie C de US$120 millones liderada por el fondo Atomico, con una valoración de US$1.000 millones. La empresa vende a pymes un sistema para gestionar nómina, vacaciones y evaluaciones, y usará el capital para crecer en nuevos mercados.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_revolut_75b
+
+- `prompt_sha`: **`e9fd1866c9f2`**
+- [cumple] Revolut alcanza una valoración de US$75.000 millones tras su venta secundaria → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Revolut alcanza una valoración de US$75.000 millones tras su venta secundaria
+Texto:
+Revolut completó una venta secundaria de acciones que la valora en US$75.000 millones, un 66 % más que su valoración anterior de US$45.000 millones. La operación fue liderada por Coatue, Greenoaks, Dragoneer y Fidelity. La compañía no informó el monto total de la venta.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_nubank_licencia_mexico
+
+- `prompt_sha`: **`64820c33bb3c`**
+- [cumple] Nu México recibe licencia para convertirse en banco → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Nu México recibe licencia para convertirse en banco
+Texto:
+Nu México, filial de Nubank, obtuvo la aprobación de las autoridades mexicanas para operar como banco, tras una solicitud presentada ante la CNBV en octubre de 2023. La licencia le permitirá ampliar su oferta de productos en el país, uno de los mercados donde compite con otras fintech como Plata, Klar y Mercado Pago.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_huggingface_pollen
+
+- `prompt_sha`: **`3b8f1f0c6150`**
+- [cumple] Hugging Face compra Pollen Robotics y entra al hardware → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Hugging Face compra Pollen Robotics y entra al hardware
+Texto:
+Hugging Face adquirió por un monto no revelado a Pollen Robotics, startup francesa creadora del humanoide Reachy 2. Es su primera compra de hardware. El software del robot es de código abierto, se programa en Python y corre modelos de la librería LeRobot de Hugging Face, que apuesta a llevar la IA abierta al mundo físico.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_databricks_serie_j
+
+- `prompt_sha`: **`92fffd3d8c20`**
+- [cumple] Databricks levanta US$10.000 millones con valoración de US$62.000 millones → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Databricks levanta US$10.000 millones con valoración de US$62.000 millones
+Texto:
+Databricks anunció una Serie J de US$10.000 millones liderada por Thrive Capital, con una valoración de US$62.000 millones, 44 % más que en su ronda de 2023. La empresa de datos e IA invertirá en nuevos productos, adquisiciones y expansión internacional, y prevé superar US$3.000 millones de ingresos anualizados con flujo de caja libre positivo.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_coreweave_ipo
+
+- `prompt_sha`: **`0c7483918d02`**
+- [cumple] CoreWeave sale al Nasdaq a US$40 por acción, por debajo de lo esperado → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: CoreWeave sale al Nasdaq a US$40 por acción, por debajo de lo esperado
+Texto:
+El proveedor de nube para inteligencia artificial CoreWeave fijó el precio de su salida a bolsa en US$40 por acción, por debajo del rango de US$47 a US$55 que había indicado, y recaudó US$1.500 millones con 37,5 millones de acciones. Cotiza en el Nasdaq con el símbolo CRWV. Es una de las primeras salidas a bolsa grandes de infraestructura de IA.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_circle_ipo
+
+- `prompt_sha`: **`34310bccf468`**
+- [cumple] Circle, emisora de USDC, recauda US$1.100 millones en su salida a bolsa → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Circle, emisora de USDC, recauda US$1.100 millones en su salida a bolsa
+Texto:
+Circle, la empresa detrás de la stablecoin USDC, fijó su precio de salida a bolsa en US$31 por acción, por encima del rango previsto, y recaudó unos US$1.100 millones en la Bolsa de Nueva York con el símbolo CRCL. La operación valoró a la compañía en cerca de US$6.900 millones.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_thinking_machines_seed
+
+- `prompt_sha`: **`92eff0374107`**
+- [cumple] Thinking Machines Lab, de Mira Murati, cierra una semilla de US$2.000 millones → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Thinking Machines Lab, de Mira Murati, cierra una semilla de US$2.000 millones
+Texto:
+Thinking Machines Lab, la startup de IA fundada por la exdirectora de tecnología de OpenAI Mira Murati, cerró una ronda semilla de US$2.000 millones liderada por Andreessen Horowitz, con una valoración de US$12.000 millones. Participaron también Nvidia, AMD, Accel y Cisco. Según reportes, Murati conserva derechos de voto en el directorio superiores a los del resto combinado.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_openai_40b_softbank
+
+- `prompt_sha`: **`f0d23e090129`**
+- [cumple] OpenAI levanta hasta US$40.000 millones liderados por SoftBank → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: OpenAI levanta hasta US$40.000 millones liderados por SoftBank
+Texto:
+OpenAI anunció una ronda de hasta US$40.000 millones liderada por SoftBank, con una valoración post-money de US$300.000 millones. Una parte se entrega de inmediato y el resto queda condicionado a la reestructuración de la empresa. Participan también Microsoft, Coatue, Altimeter y Thrive Capital.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_klar_190m
+
+- `prompt_sha`: **`ebf750ca92d5`**
+- [cumple] Klar levanta US$190 millones y suma a Santander y Televisa como inversionistas → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Klar levanta US$190 millones y suma a Santander y Televisa como inversionistas
+Texto:
+La fintech mexicana Klar, que ofrece cuenta digital y crédito, anunció una ronda de US$190 millones —US$170 millones en capital y US$20 millones en deuda— que la valora en más de US$800 millones. La lideró General Atlantic y se sumaron Grupo Santander, Grupo Televisa y Grupo Fórmula. La empresa usará el capital para crecer en México.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_harvey_serie_e
+
+- `prompt_sha`: **`07c628ea8015`**
+- [cumple] Harvey, la IA para abogados, levanta US$300 millones a US$5.000 millones → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Harvey, la IA para abogados, levanta US$300 millones a US$5.000 millones
+Texto:
+Harvey, startup de inteligencia artificial para firmas de abogados, cerró una Serie E de US$300 millones coliderada por Kleiner Perkins y Coatue, con una valoración de US$5.000 millones. Llega cuatro meses después de su Serie D de US$300 millones a US$3.000 millones, una señal del apetito inversor por la IA vertical.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_stripe_tender_2025
+
+- `prompt_sha`: **`b34d486972c2`**
+- [cumple] Stripe se valora en US$91.500 millones en una oferta de compra para empleados → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Stripe se valora en US$91.500 millones en una oferta de compra para empleados
+Texto:
+Stripe anunció una oferta de compra de acciones para dar liquidez a empleados actuales y antiguos, con inversionistas que compran a una valoración de US$91.500 millones. La cifra la acerca a su máximo de US$95.000 millones de 2021 y, según analistas, aleja la urgencia de salir a bolsa.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_uala_serie_e
+
+- `prompt_sha`: **`45533c4103a6`**
+- [cumple] Ualá cierra una ronda de US$300 millones liderada por Allianz X → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Ualá cierra una ronda de US$300 millones liderada por Allianz X
+Texto:
+La fintech argentina Ualá anunció una Serie E de US$300 millones liderada por Allianz X, el brazo inversor de Allianz, con una valoración de US$2.750 millones. Es la mayor ronda privada de la región en tres años, y la empresa la destinará a crecer en México, Argentina y Colombia.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_meta_scale_ai
+
+- `prompt_sha`: **`92ef2cc3ea3c`**
+- [cumple] Meta invierte US$14.300 millones por el 49 % de Scale AI → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Meta invierte US$14.300 millones por el 49 % de Scale AI
+Texto:
+Meta tomará una participación sin derecho a voto del 49 % en Scale AI, la startup de etiquetado de datos para entrenar modelos, por US$14.300 millones, lo que la valora en US$29.000 millones. Su fundador, Alexandr Wang, se suma a Meta para liderar su trabajo en superinteligencia. Es la segunda operación más grande de Meta después de WhatsApp.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### cumple_cognition_windsurf
+
+- `prompt_sha`: **`b41bd2d1288b`**
+- [cumple] Cognition compra Windsurf días después de que Google se llevara a su CEO → PASA (prueba_founder_vc)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Cognition compra Windsurf días después de que Google se llevara a su CEO
+Texto:
+Cognition, creadora del agente de programación Devin, compró la propiedad intelectual, el producto, la marca y el equipo restante de Windsurf, por un monto no revelado. Windsurf tenía US$82 millones de ingresos recurrentes anuales y más de 350 clientes empresariales. Cognition aceleró el vesting de todos los empleados, a diferencia del acuerdo previo con Google.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_gadget_reloj_resena
+
+- `prompt_sha`: **`a47af87ea6a4`**
+- [viola] Reseña del Vela Watch S3: el reloj inteligente de US$229 que dura 10 días → NO_PASA (veto_gadget)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Reseña del Vela Watch S3: el reloj inteligente de US$229 que dura 10 días
+Texto:
+Probamos durante dos semanas el Vela Watch S3. La pantalla AMOLED de 1,4 pulgadas se ve bien a pleno sol, la batería llegó a 10 días con uso moderado y el sensor de ritmo cardíaco es preciso. Cuesta US$229 y viene en tres colores. Lo peor: la correa de silicona se ensucia rápido. Veredicto: 8 de 10.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_gadget_ranking_audifonos
+
+- `prompt_sha`: **`6f2f67bcb04e`**
+- [viola] Los cinco mejores audífonos con cancelación de ruido para comprar este año → NO_PASA (veto_gadget)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Los cinco mejores audífonos con cancelación de ruido para comprar este año
+Texto:
+Comparamos cinco modelos de audífonos inalámbricos con cancelación activa de ruido. El primero gana por autonomía (40 horas), el segundo por comodidad y el tercero por relación precio-calidad. Te contamos cuál conviene según tu presupuesto, desde US$79 hasta US$399.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_gadget_consola_specs
+
+- `prompt_sha`: **`f4369759032e`**
+- [viola] Consola portátil Nimbus Go: fecha de venta, precio y especificaciones → NO_PASA (veto_gadget)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Consola portátil Nimbus Go: fecha de venta, precio y especificaciones
+Texto:
+La Nimbus Go llegará a tiendas el 15 de marzo a US$449. Tendrá pantalla de 7 pulgadas a 120 Hz, 512 GB de almacenamiento, ranura microSD y batería de 6.000 mAh. Se podrá reservar desde la próxima semana y vendrá con dos juegos incluidos.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_gadget_tv_vale_la_pena
+
+- `prompt_sha`: **`6725ed405aad`**
+- [viola] Televisor OLED de 65 pulgadas baja de precio: ¿vale la pena? → NO_PASA (veto_gadget)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Televisor OLED de 65 pulgadas baja de precio: ¿vale la pena?
+Texto:
+El televisor OLED de 65 pulgadas de una conocida marca coreana bajó un 20 % en tiendas en línea. Repasamos su brillo, sus puertos HDMI 2.1 y su sistema operativo para que decidas si es buen momento para cambiar tu tele antes del próximo mundial.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_redes_hashtags_instagram
+
+- `prompt_sha`: **`5cf2bf0eac95`**
+- [viola] Hashtags en Instagram: cuántos usar para ganar alcance → NO_PASA (veto_redes)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Hashtags en Instagram: cuántos usar para ganar alcance
+Texto:
+El algoritmo de Instagram cambió y los hashtags ya no funcionan como antes. Los expertos recomiendan usar entre tres y cinco, mezclar etiquetas de nicho con otras populares y ponerlas en la descripción y no en los comentarios. Así puedes recuperar el alcance de tus publicaciones.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_redes_hora_tiktok
+
+- `prompt_sha`: **`e16c87bf7bac`**
+- [viola] La mejor hora para publicar en TikTok, según el algoritmo → NO_PASA (veto_redes)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: La mejor hora para publicar en TikTok, según el algoritmo
+Texto:
+Si quieres más vistas, publica entre las 19:00 y las 21:00 de martes a jueves. Los primeros 30 minutos son clave para que el algoritmo empuje tu video: responde comentarios rápido, usa sonidos en tendencia y no borres videos que no despegaron.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_redes_seguidores_facebook
+
+- `prompt_sha`: **`1fc17b940cb0`**
+- [viola] Diez trucos para ganar seguidores en tu página de Facebook → NO_PASA (veto_redes)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Diez trucos para ganar seguidores en tu página de Facebook
+Texto:
+Publica todos los días, usa imágenes con caras, haz preguntas al final de cada publicación y organiza sorteos. Con estos diez trucos tu página puede sumar mil seguidores al mes sin pagar publicidad.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_despidos_orbis_voz
+
+- `prompt_sha`: **`04339cb0923f`**
+- [viola] Orbis Tech elimina 180 puestos en su división de asistentes de voz → NO_PASA (veto_despidos)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Orbis Tech elimina 180 puestos en su división de asistentes de voz
+Texto:
+Orbis Tech, la tecnológica estadounidense de 170.000 empleados, despidió a 180 personas de su división de asistentes de voz, según un correo interno. La empresa no dio más detalles ni explicó los motivos, y dijo que los afectados recibirán una indemnización.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_movimiento_interno_orbis
+
+- `prompt_sha`: **`219bfc9e56e2`**
+- [viola] La directora de diseño de interfaces de Orbis Tech deja la empresa tras 12 años → NO_PASA (veto_despidos)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: La directora de diseño de interfaces de Orbis Tech deja la empresa tras 12 años
+Texto:
+La directora de diseño de interfaces de Orbis Tech anunció en su perfil profesional que deja la compañía después de 12 años. Agradeció a su equipo y dijo que se tomará unos meses de descanso antes de decidir su próximo paso. Orbis Tech no ha nombrado reemplazo.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_deportes_fichaje
+
+- `prompt_sha`: **`4aa5419d2047`**
+- [viola] El delantero del momento firma con un club europeo por 60 millones de euros → NO_PASA (rechazo_deportes_entretenimiento_celebridades)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: El delantero del momento firma con un club europeo por 60 millones de euros
+Texto:
+El delantero uruguayo de 22 años firmó contrato por cinco temporadas con un club de la liga española, que pagó 60 millones de euros por su pase. Debutará el próximo fin de semana y llevará la camiseta número 9.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_entretenimiento_trailer
+
+- `prompt_sha`: **`33455116f4f3`**
+- [viola] Sale el tráiler de la cuarta temporada de la serie de dragones más vista → NO_PASA (rechazo_deportes_entretenimiento_celebridades)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Sale el tráiler de la cuarta temporada de la serie de dragones más vista
+Texto:
+La plataforma de streaming publicó el tráiler de la cuarta temporada, que se estrena en abril. Vuelven los protagonistas, hay dos dragones nuevos y una batalla que, según los fans, será la más larga de la saga.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_celebridad_boda
+
+- `prompt_sha`: **`1c21012759c1`**
+- [viola] La cantante Marina Solé se casa en una isla del Caribe → NO_PASA (rechazo_deportes_entretenimiento_celebridades)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: La cantante Marina Solé se casa en una isla del Caribe
+Texto:
+La cantante Marina Solé se casó con su pareja de hace cinco años en una ceremonia privada en una isla del Caribe. Asistieron 80 invitados, entre ellos varios actores, y el vestido fue de una diseñadora italiana.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_politica_debate
+
+- `prompt_sha`: **`9e7cfcdaadab`**
+- [viola] Los candidatos a la alcaldía se acusan de mentir en el último debate → NO_PASA (rechazo_politica_guerra)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Los candidatos a la alcaldía se acusan de mentir en el último debate
+Texto:
+El último debate antes de la elección municipal terminó con acusaciones cruzadas entre los dos candidatos punteros por las cifras de seguridad y de transporte. Las encuestas los muestran empatados a una semana de la votación.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_guerra_frontera
+
+- `prompt_sha`: **`0a10645dd59b`**
+- [viola] Se intensifican los combates en la zona fronteriza → NO_PASA (rechazo_politica_guerra)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Se intensifican los combates en la zona fronteriza
+Texto:
+Los combates entre los dos ejércitos se intensificaron durante la noche en la zona fronteriza. Las autoridades locales informaron desplazamientos de población y cortes de carreteras. Organismos internacionales pidieron un alto el fuego.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_escandalo_filtracion
+
+- `prompt_sha`: **`406a84ed8fe9`**
+- [viola] Filtran los mensajes del actor en pleno juicio de divorcio → NO_PASA (rechazo_escandalo)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Filtran los mensajes del actor en pleno juicio de divorcio
+Texto:
+Un portal de espectáculos publicó mensajes privados atribuidos a un conocido actor, que forman parte de su juicio de divorcio. La defensa del actor pidió investigar la filtración y el juez fijó una nueva audiencia para el próximo mes.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_lifestyle_restaurante
+
+- `prompt_sha`: **`0c97a5ce31cf`**
+- [viola] Abre en Madrid el restaurante con menú degustación de 300 euros → NO_PASA (rechazo_lifestyle)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Abre en Madrid el restaurante con menú degustación de 300 euros
+Texto:
+El chef con dos estrellas abrió su nuevo restaurante en Madrid: 18 mesas, un menú degustación de 14 pasos por 300 euros y una carta de vinos de 900 referencias. Las reservas para los próximos tres meses ya están agotadas.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_lifestyle_moda
+
+- `prompt_sha`: **`82406f7a90bf`**
+- [viola] Las cinco tendencias de moda que vas a ver este verano → NO_PASA (rechazo_lifestyle)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Las cinco tendencias de moda que vas a ver este verano
+Texto:
+Colores pastel, lino, sandalias planas, bolsos de mimbre y gafas de sol grandes. Estas son las cinco tendencias que dominan las pasarelas y cómo combinarlas en tu día a día sin gastar de más.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_utilidad_hoy_no_circula
+
+- `prompt_sha`: **`f2250c89fd90`**
+- [viola] Hoy No Circula: qué autos descansan este jueves en la capital → NO_PASA (rechazo_utilidad_local)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Hoy No Circula: qué autos descansan este jueves en la capital
+Texto:
+Este jueves no circulan los vehículos con engomado verde y terminación de placa 1 y 2, de 5:00 a 22:00 horas. Te decimos qué hologramas están exentos y cuánto es la multa si te detienen.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_utilidad_precio_bitcoin
+
+- `prompt_sha`: **`caada2be8ba9`**
+- [viola] Precio del bitcoin hoy: así abre la cotización este martes → NO_PASA (rechazo_utilidad_local)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Precio del bitcoin hoy: así abre la cotización este martes
+Texto:
+El bitcoin abre este martes con una baja de 1,2 % en las últimas 24 horas. Te mostramos la cotización en dólares, en pesos mexicanos y en euros, y cómo se movió frente a ethereum durante la última semana.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### viola_clickbait_truco_celular
+
+- `prompt_sha`: **`1974327b69c1`**
+- [viola] Este truco del celular que nadie conoce te va a dejar con la boca abierta → NO_PASA (rechazo_clickbait)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Este truco del celular que nadie conoce te va a dejar con la boca abierta
+Texto:
+No vas a creer lo que pasa cuando presionas tres veces este botón. Miles de personas ya lo probaron y quedaron sorprendidas. Te lo contamos al final de la nota.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_dup_mistral_asml
+
+- `prompt_sha`: **`27c7b692a22b`**
+- [trampa_duplicado] ASML se convierte en el mayor accionista de Mistral AI → NO_PASA (duplicado)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: ASML se convierte en el mayor accionista de Mistral AI
+Texto:
+El fabricante neerlandés de equipos para chips ASML invirtió €1.300 millones en Mistral AI y quedó con cerca del 11 % de la empresa, como líder de una Serie C de €1.700 millones que valora a la startup francesa en €11.700 millones. El director financiero de ASML entrará al comité estratégico de Mistral.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_dup_wiz_google
+
+- `prompt_sha`: **`c39e2a8f84d3`**
+- [trampa_duplicado] Wiz acepta venderse a Google: la mayor compra de la historia del buscador → NO_PASA (duplicado)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Wiz acepta venderse a Google: la mayor compra de la historia del buscador
+Texto:
+Wiz, la startup de seguridad en la nube que en 2024 había rechazado una oferta de US$23.000 millones, aceptó la propuesta de Google de unos US$32.000 millones en efectivo. Supera los US$12.500 millones que Google pagó por Motorola en 2012. La empresa se integrará a Google Cloud.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_dup_lovable_unicornio
+
+- `prompt_sha`: **`3e3defb2b51f`**
+- [trampa_duplicado] La sueca Lovable ya vale US$1.800 millones a ocho meses de su lanzamiento → NO_PASA (duplicado)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: La sueca Lovable ya vale US$1.800 millones a ocho meses de su lanzamiento
+Texto:
+Lovable, la plataforma sueca para crear aplicaciones describiéndolas en lenguaje natural, cerró la mayor Serie A de la historia de Suecia: US$200 millones liderados por Accel. Su ingreso recurrente anual llegó a US$75 millones en siete meses.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_dup_klarna_ipo
+
+- `prompt_sha`: **`d7460c927303`**
+- [trampa_duplicado] Las acciones de Klarna abren a US$52 en su estreno en Wall Street → NO_PASA (duplicado)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Las acciones de Klarna abren a US$52 en su estreno en Wall Street
+Texto:
+La fintech de «compra ahora, paga después» Klarna empezó a cotizar en la Bolsa de Nueva York con el símbolo KLAR. Había fijado su precio en US$40 por acción, por encima del rango de US$35 a US$37, y la acción abrió a US$52 en su primer día.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_dup_kapital_unicornio
+
+- `prompt_sha`: **`b79c75a648bf`**
+- [trampa_duplicado] Kapital, el nuevo unicornio mexicano tras una ronda liderada por Tribe Capital → NO_PASA (duplicado)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Kapital, el nuevo unicornio mexicano tras una ronda liderada por Tribe Capital
+Texto:
+La fintech Kapital alcanzó una valuación de US$1.300 millones con su Serie C, liderada por Tribe Capital y coliderada por Pelion Ventures, con participación de Y Combinator. Su director general la describió como una ronda previa a una futura salida a bolsa en Nueva York.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_nuevo_anthropic_serie_f
+
+- `prompt_sha`: **`2d2258cc6927`**
+- [trampa_hecho_nuevo] Anthropic levanta US$13.000 millones y triplica su valoración a US$183.000 millones → PASA (hecho_nuevo_misma_empresa)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Anthropic levanta US$13.000 millones y triplica su valoración a US$183.000 millones
+Texto:
+Anthropic cerró en septiembre de 2025 una Serie F de US$13.000 millones liderada por ICONIQ, con Fidelity y Lightspeed, a una valoración post-money de US$183.000 millones. Es casi el triple de los US$61.500 millones de su Serie E de marzo. Sus ingresos anualizados pasaron de unos US$1.000 millones a más de US$5.000 millones en ocho meses.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_nuevo_plata_serie_c
+
+- `prompt_sha`: **`864afeb5a92e`**
+- [trampa_hecho_nuevo] Plata recauda US$405 millones y alcanza una valuación de US$5.000 millones → PASA (hecho_nuevo_misma_empresa)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: alertas
+Título: Plata recauda US$405 millones y alcanza una valuación de US$5.000 millones
+Texto:
+La fintech mexicana Plata cerró en abril de 2026 una Serie C de US$405 millones liderada por Bicycle Capital, que la valora en US$5.000 millones. Seis meses antes había levantado una Serie B de US$250 millones a US$3.100 millones. La empresa, que obtuvo licencia bancaria, se prepara para operar como banco digital.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_nuevo_cursor_serie_d
+
+- `prompt_sha`: **`bdc7dcd4ba2f`**
+- [trampa_hecho_nuevo] Cursor cierra una Serie D de US$2.300 millones con valoración de US$29.300 millones → PASA (hecho_nuevo_misma_empresa)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: Cursor cierra una Serie D de US$2.300 millones con valoración de US$29.300 millones
+Texto:
+Cursor anunció en noviembre de 2025 una Serie D de US$2.300 millones coliderada por Accel y Coatue, con una valoración post-money de US$29.300 millones. Participan también Google, Nvidia, Thrive y Andreessen Horowitz. La empresa dijo que sus ingresos anualizados superaron US$1.000 millones. Su Serie C, de junio, había sido de US$900 millones a US$9.900 millones.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_promo_compromiso
+
+- `prompt_sha`: **`0ce18500dec9`**
+- [trampa_comunicado_promocional] NovaPay reafirma su compromiso con la innovación financiera en América Latina → NO_PASA (comunicado_promocional)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: NovaPay reafirma su compromiso con la innovación financiera en América Latina
+Texto:
+COMUNICADO DE PRENSA. NovaPay, empresa líder en soluciones de pago, reafirma su compromiso con la innovación y con la transformación digital de la región. «Somos pioneros en poner al cliente en el centro y seguiremos liderando el cambio», afirmó su director general. NovaPay ofrece soluciones integrales, seguras y escalables para empresas de todos los tamaños.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_promo_marca
+
+- `prompt_sha`: **`d7ac42ded1ed`**
+- [trampa_comunicado_promocional] Grupo Altamira presenta su nueva identidad de marca → NO_PASA (comunicado_promocional)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: Grupo Altamira presenta su nueva identidad de marca
+Texto:
+COMUNICADO DE PRENSA. Grupo Altamira presenta su nueva identidad visual, que refleja su espíritu innovador, cercano y sustentable. El nuevo logotipo y la nueva paleta de colores acompañarán a la compañía en esta etapa de crecimiento y consolidación. «Nuestra marca evoluciona con nosotros», señaló su directora de marketing.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_promo_webinar
+
+- `prompt_sha`: **`0d5bdfe598b2`**
+- [trampa_comunicado_promocional] Lumen Cloud invita a su webinar «El futuro de la IA en tu empresa» → NO_PASA (comunicado_promocional)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: Lumen Cloud invita a su webinar «El futuro de la IA en tu empresa»
+Texto:
+COMUNICADO DE PRENSA. Lumen Cloud, referente en soluciones en la nube, invita a líderes de negocio a su webinar gratuito «El futuro de la IA en tu empresa», el próximo jueves a las 10:00. Expertos de la compañía compartirán su visión sobre las tendencias que transformarán la industria. Cupos limitados; inscríbete en el sitio de Lumen Cloud.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_hecho_notco
+
+- `prompt_sha`: **`518071b4a319`**
+- [trampa_comunicado_con_hecho] NotCo anuncia una Serie D de US$235 millones con valoración de US$1.500 millones → PASA (comunicado_con_hecho)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: NotCo anuncia una Serie D de US$235 millones con valoración de US$1.500 millones
+Texto:
+COMUNICADO DE PRENSA. La foodtech chilena NotCo, que usa inteligencia artificial para desarrollar alimentos de origen vegetal, anuncia una Serie D de US$235 millones liderada por Tiger Global, con una valoración de US$1.500 millones. Participan DFJ Growth, ZOMA Lab, Lewis Hamilton y Roger Federer. NotCo suma más de US$350 millones levantados y usará el capital para entrar a nuevas categorías en Norteamérica y lanzar en Europa y Asia.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_hecho_clip
+
+- `prompt_sha`: **`cede250ff5e4`**
+- [trampa_comunicado_con_hecho] Clip recibe una inversión de US$250 millones liderada por SoftBank y Viking → PASA (comunicado_con_hecho)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: Clip recibe una inversión de US$250 millones liderada por SoftBank y Viking
+Texto:
+COMUNICADO DE PRENSA. Clip, la plataforma mexicana de pagos digitales para pequeños comercios, anuncia una inversión de capital de US$250 millones liderada por el SoftBank Latin America Fund y Viking Global Investors, que eleva su valoración a cerca de US$2.000 millones. La empresa usará los recursos para ampliar su oferta de pagos y servicios financieros en México.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_comunicado_hecho_chime
+
+- `prompt_sha`: **`c76fafa297b0`**
+- [trampa_comunicado_con_hecho] Chime anuncia el precio de su oferta pública inicial → PASA (comunicado_con_hecho)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: comunicado
+Título: Chime anuncia el precio de su oferta pública inicial
+Texto:
+COMUNICADO DE PRENSA. Chime Financial anuncia el precio de su oferta pública inicial: 32 millones de acciones Clase A a US$27 cada una, por encima del rango de US$24 a US$26, por un total de US$864 millones. Las acciones empezarán a cotizar en el Nasdaq Global Select Market con el símbolo CHYM. Morgan Stanley, Goldman Sachs y J.P. Morgan actúan como coordinadores.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_gadget_nothing_ronda
+
+- `prompt_sha`: **`713b1e763648`**
+- [trampa_titular_gadget] El teléfono transparente de Nothing ya vale US$1.300 millones → PASA (excepcion_negocio_detras)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: El teléfono transparente de Nothing ya vale US$1.300 millones
+Texto:
+Detrás del teléfono de carcasa transparente hay un negocio que acaba de levantar US$200 millones: Nothing cerró una Serie C liderada por Tiger Global, con Qualcomm Ventures y GV, a una valoración de US$1.300 millones. La empresa londinense superó US$1.000 millones en ventas acumuladas tras crecer 150 % en 2024, y usará el capital para construir una plataforma de dispositivos con IA nativa en 2026. Además abrirá una ronda comunitaria a la misma valoración.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_gadget_oura_ronda
+
+- `prompt_sha`: **`2a8ca1c96d27`**
+- [trampa_titular_gadget] El anillo inteligente Oura: una apuesta de US$11.000 millones → PASA (excepcion_negocio_detras)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: El anillo inteligente Oura: una apuesta de US$11.000 millones
+Texto:
+Oura, el fabricante finlandés del anillo que mide sueño y actividad, levantó una Serie E de US$900 millones liderada por Fidelity, con ICONIQ, que la valora en unos US$11.000 millones, más del doble que en diciembre de 2024. La empresa facturó más de US$500 millones en 2024 y espera superar US$1.000 millones en 2025, con un modelo que combina la venta del anillo con una suscripción mensual.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_bigtech_microsoft_openai
+
+- `prompt_sha`: **`5f7784a3778e`**
+- [trampa_bigtech_con_angulo] Microsoft se queda con el 27 % de OpenAI en un nuevo acuerdo → PASA (bigtech_con_angulo)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Microsoft se queda con el 27 % de OpenAI en un nuevo acuerdo
+Texto:
+Microsoft y OpenAI firmaron un nuevo acuerdo: la parte con fines de lucro de OpenAI pasa a ser una corporación de beneficio público y Microsoft queda con cerca del 27 %, valorado en unos US$135.000 millones. Microsoft conserva derechos sobre la propiedad intelectual de los modelos hasta 2032, OpenAI se compromete a comprar US$250.000 millones adicionales en Azure y Microsoft pierde el derecho preferente como proveedor de cómputo.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_bigtech_google_windsurf
+
+- `prompt_sha`: **`958e8f5a88b3`**
+- [trampa_bigtech_con_angulo] Google paga US$2.400 millones por la tecnología y el CEO de Windsurf → PASA (bigtech_con_angulo)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: medios
+Título: Google paga US$2.400 millones por la tecnología y el CEO de Windsurf
+Texto:
+Google pagó unos US$2.400 millones para licenciar de forma no exclusiva la tecnología de Windsurf, el editor de código con IA, y contratar a su CEO y parte del equipo, sin tomar participación en la empresa. El acuerdo llegó después de que se cayera una compra de Windsurf por OpenAI de unos US$3.000 millones. Es un ejemplo del formato «licencia más contratación» que usan las grandes para evitar una compra.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+### trampa_bigtech_orbis_cafeteria
+
+- `prompt_sha`: **`e20572678fe0`**
+- [trampa_bigtech_sin_angulo] Orbis Tech renueva el menú de las cafeterías de su campus → NO_PASA (bigtech_sin_angulo)
+- verificador: `noticias_relevancia`
+
+**System:**
+
+````
+Eres el filtro editorial de un medio de noticias sobre startups, tecnología y capital de riesgo para founders, inversionistas y operadores de habla hispana (América Latina y España). Recibes UNA nota candidata y la lista de notas que el medio YA publicó. Decides si la nota pasa a publicación.
+
+LA PRUEBA: pasa si un founder o un VC podría cambiar una decisión después de leerla. Eso incluye rondas de inversión, adquisiciones, salidas a bolsa, valoraciones, movimientos estratégicos de empresas, modelos de negocio, tecnología o herramientas que un founder puede usar, y regulaciones o licencias que abren un mercado. Las rondas, adquisiciones y salidas a bolsa de empresas de tecnología pasan, sean de América Latina, de España o de cualquier parte del mundo. Si un founder o un VC no cambia ninguna decisión después de leerla, no pasa.
+
+VETO INMEDIATO (no pasa, aunque la fuente sea buena, esté bien escrita y tenga cifras):
+1. Gadget de consumo: precio, reseña, especificaciones, ranking, lanzamiento o regreso de un producto para el consumidor final (reloj, teléfono, tablet, consola, audífonos, televisor).
+2. Tácticas de redes sociales para creadores o marcas: hashtags, alcance, algoritmo, horarios para publicar, cómo ganar seguidores.
+3. Despidos o movimientos internos de una gran tecnológica sin ángulo de negocio, producto o mercado.
+
+RECHAZO AUTOMÁTICO (no pasa):
+- Escándalos, casos judiciales y filtraciones sin sustancia tecnológica.
+- Política partidista y conflictos bélicos, salvo impacto directo en tecnología o startups.
+- Deportes, entretenimiento y celebridades.
+- Lifestyle: moda, viajes de lujo, gastronomía, salvo que la nota trate el modelo de negocio de una startup.
+- Clickbait sensacionalista sin sustancia.
+- Utilidad local o del día sin valor duradero: restricciones vehiculares, horarios de servicios públicos, el «precio hoy» de un producto o de una criptomoneda.
+
+LA EXCEPCIÓN: la línea es la naturaleza del contenido, no la industria. Si la nota trata el modelo de negocio, la ronda, la estrategia de mercado o la tecnología que hay detrás de un producto, SÍ pasa, aunque el titular hable de un teléfono, un anillo o unas gafas.
+
+COMUNICADOS DE PRENSA: un comunicado puramente promocional, sin un hecho noticioso (autoelogios, «compromiso con la innovación», nueva identidad de marca, invitación a un webinar), no pasa. Un comunicado que anuncia una ronda, una adquisición, una salida a bolsa o un lanzamiento con datos verificables (montos, inversionistas, fechas) SÍ pasa.
+
+DUPLICADOS: si la nota cuenta el mismo hecho que una nota ya publicada (la misma empresa y el mismo acontecimiento: la misma ronda, la misma compra, la misma salida a bolsa), es duplicada y no pasa, aunque venga de otro medio, con otro título y con otras palabras. Un hecho NUEVO sobre una empresa ya cubierta (otra ronda, otra fecha, otra operación) no es duplicado y se evalúa normalmente.
+
+No evalúes la fecha de la nota: la antigüedad se controla en otro paso. El tipo de fuente se informa solo como contexto: el criterio es el mismo para todas.
+
+Responde SOLO con un JSON, sin texto adicional:
+{"decision": "PASA" | "NO_PASA", "motivo": "<una frase>"}
+````
+
+**User:**
+
+````
+NOTA CANDIDATA
+Tipo de fuente: agregador
+Título: Orbis Tech renueva el menú de las cafeterías de su campus
+Texto:
+Orbis Tech, la tecnológica estadounidense de 170.000 empleados, renovó el menú de las cafeterías de su campus principal: suma opciones veganas, un día temático de comida asiática y una máquina de café de especialidad por edificio. Los empleados podrán votar cada mes el plato del día.
+
+NOTAS YA PUBLICADAS POR EL MEDIO:
+1. Mistral AI cierra una Serie C de €1.700 millones liderada por ASML — Septiembre de 2025. La ronda valora a la startup francesa en €11.700 millones post-money.
+2. Google comprará Wiz por US$32.000 millones en efectivo — Marzo de 2025. La startup de ciberseguridad en la nube pasará a Google Cloud.
+3. Lovable levanta US$200 millones en Serie A y se convierte en unicornio — Julio de 2025. Ronda liderada por Accel con valoración de US$1.800 millones.
+4. Klarna debuta en la Bolsa de Nueva York tras fijar su precio en US$40 por acción — Septiembre de 2025. La salida a bolsa valoró a la fintech sueca en unos US$15.000 millones.
+5. Kapital se convierte en unicornio con una Serie C que la valora en US$1.300 millones — Septiembre de 2025. La fintech mexicana cerró la ronda liderada por Tribe Capital.
+6. Anthropic levanta US$3.500 millones en Serie E con valoración de US$61.500 millones — Marzo de 2025. Ronda liderada por Lightspeed Venture Partners.
+7. Plata duplica su valoración a US$3.100 millones con una Serie B de US$250 millones — Octubre de 2025. La fintech mexicana suma inversionistas como Kora.
+8. Cursor levanta US$900 millones con valoración de US$9.900 millones — Junio de 2025. Anysphere, creadora del editor de código Cursor, cerró una ronda liderada por Thrive Capital.
+9. OpenAI compra io, la startup de hardware de Jony Ive, por US$6.500 millones — Mayo de 2025. Operación en acciones; el equipo de io se integra a OpenAI.
+````
+
+## `noticias_traduccion` — 15 tests
+
+### traducir_xiaomi_auto
+
+- `prompt_sha`: **`79314f85d5fa`**
+- Traducir solo 1 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La empresa china 小米 presentó su primer auto eléctrico en Pekín y abrió las reservas el mismo día.
+````
+
+### traducir_ia_pymes
+
+- `prompt_sha`: **`9a74ffe15e59`**
+- Traducir solo 1 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+Según el informe, el uso de 人工智能 en las pymes de la región creció durante el último año.
+````
+
+### traducir_ronda_yi_dolares
+
+- `prompt_sha`: **`9e426b6fb083`**
+- Traducir solo 1 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La startup cerró una ronda de 5亿美元 liderada por fondos locales, la más grande del sector este año.
+````
+
+### traducir_softbank_latam
+
+- `prompt_sha`: **`89460428c7eb`**
+- Traducir solo 1 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La japonesa ソフトバンク anunció una nueva inversión en startups de América Latina.
+````
+
+### traducir_samsung_semiconductores
+
+- `prompt_sha`: **`8b6c39162d52`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+El fabricante 삼성전자 informó que sus ventas de 반도체 se recuperaron en el trimestre.
+````
+
+### traducir_centros_de_datos
+
+- `prompt_sha`: **`26778be768e4`**
+- Traducir solo 1 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+Los nuevos 数据中心 de la compañía se construirán en el norte de México.
+````
+
+### traducir_toyota_oku_yenes
+
+- `prompt_sha`: **`e98d3d4d5fee`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La automotriz トヨタ destinará 10億円 a un programa de baterías en Japón.
+````
+
+### traducir_kakao_eok_wones
+
+- `prompt_sha`: **`496d0e4555ad`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La plataforma 카카오 recibió 100억 원 para expandir su servicio de pagos.
+````
+
+### traducir_alibaba_codigo_abierto
+
+- `prompt_sha`: **`ba5c25ac71e0`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+El gigante 阿里巴巴 lanzó un modelo de 开源 que cualquier desarrollador puede descargar.
+````
+
+### traducir_huawei_chips
+
+- `prompt_sha`: **`8094da5c948b`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La caída afectó a 华为 y a otros fabricantes de 芯片 de la región.
+````
+
+### traducir_autos_electricos_pct
+
+- `prompt_sha`: **`dca339dcda2b`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+Las ventas de 电动汽车 en China 增长了30% en el primer semestre, según la asociación del sector.
+````
+
+### traducir_rakuten_tokio
+
+- `prompt_sha`: **`26d8511e794c`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+El servicio de 楽天 ya acepta pagos con código QR en tiendas de 東京.
+````
+
+### traducir_naver_ia_seul
+
+- `prompt_sha`: **`dad5204327b4`**
+- Traducir solo 3 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La empresa 네이버 abrió un laboratorio de 인공지능 en 서울 para investigar modelos de lenguaje.
+````
+
+### traducir_bytedance_usuarios
+
+- `prompt_sha`: **`650c5c51816e`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+Los 用户 de la aplicación de 字节跳动 podrán comprar sin salir del video.
+````
+
+### traducir_sony_robot
+
+- `prompt_sha`: **`a4f01cb685df`**
+- Traducir solo 2 fragmento(s) CJK sin reescribir el párrafo
+- verificador: `noticias_traduccion`
+
+**System:**
+
+````
+Eres editor de una publicación digital en español neutro para emprendedores.
+````
+
+**User:**
+
+````
+Este párrafo de una nota en español tiene fragmentos en chino, japonés o coreano que se colaron por error. Devuelve el párrafo completo con SOLO esos fragmentos traducidos al español neutro; si un fragmento es un nombre propio, translitéralo al alfabeto latino. No cambies nada más del párrafo. Responde solo con el párrafo.
+
+La división de 人工知能 de ソニー presentó un robot para atención en tiendas.
+````
+
+## `noticias_verificacion` — 30 tests
+
+### pasa_kavak_traducida
+
+- `prompt_sha`: **`7679d563c938`**
+- DEBE PASAR. Fuente en inglés, 6 afirmaciones (6 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Kavak doubles its valuation with a $700 million Series E
+
+Mexico City — Kavak, the Mexican marketplace for buying and selling pre-owned cars, has raised $700 million in a Series E round that values the company at $8.7 billion, roughly twice what investors were willing to pay for it earlier in the year.
+
+The round was led by General Catalyst. Tiger Global, D1 Capital Partners, SoftBank and Founders Fund also took part, along with several funds that had backed the company in earlier rounds.
+
+Used cars are one of the largest consumer categories in Latin America and also one of the least trusted. Buyers worry about hidden mechanical problems, sellers worry about being paid late or not at all, and financing is expensive or simply unavailable for a large part of the population. Companies in the segment try to remove that friction by inspecting each vehicle, reconditioning it in their own facilities and offering a warranty and a return window. The model is capital intensive: the marketplace usually owns the inventory for weeks, which ties up working capital and makes every additional market an expensive bet.
+
+The new money arrives only five months after Kavak closed a $485 million Series D at a $4 billion valuation. With this round, Kavak became the most valuable private technology company in Latin America after Nubank, the Brazilian digital bank.
+
+Kavak was founded in 2016 in Mexico by Carlos García Ottati together with a group of co-founders. The company grew first in Mexico City and later added other Mexican cities before expanding abroad. Today it operates in Mexico, Brazil and Argentina.
+
+Investors in the sector say the attraction is less the margin on each car and more the financial products that can be attached to it: credit, insurance and maintenance plans. A buyer who finances a car through the platform stays connected to it for years, which turns a one-off transaction into a recurring relationship. That is also where the risks are, because consumer credit in the region is sensitive to interest rates and to the economic cycle.
+
+According to the company, part of the new capital will go to expanding across Latin America, and Kavak plans to begin operating in several new markets over the next year. The company did not name the countries.
+
+Executives also said the money would fund new reconditioning centers and technology to price vehicles automatically, a capability that becomes more valuable as the inventory grows and pricing mistakes multiply.
+
+For buyers, the practical difference shows up after the sale. A car bought from a private seller rarely comes with any guarantee, and disputes usually end with the buyer absorbing the cost of repairs. Platforms that offer inspections, warranties and a return window are betting that customers will pay a premium for that certainty, and that the premium will cover the cost of reconditioning and holding inventory.
+
+The company runs 40 logistics and reconditioning hubs across the three countries where it operates. Its workforce, which numbered around 300 people a few years ago, has grown to more than 5,000 employees in Latin America.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Kavak recaudó 700 millones de dólares en su Serie E.
+2. La valoración de Kavak llegó a US$ 8.700 millones.
+3. La ronda la encabezó General Catalyst.
+4. La Serie D de Kavak, cerrada cinco meses antes, fue de US$485 millones.
+5. Kavak no reveló a qué países nuevos llegará.
+6. Kavak tiene más de 5.000 empleados en América Latina.
+````
+
+### pasa_databricks_dato_final
+
+- `prompt_sha`: **`3afc2d4cf72c`**
+- DEBE PASAR. Fuente en inglés, 6 afirmaciones (6 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Databricks raises $10 billion at a $62 billion valuation
+
+San Francisco — Databricks, the data and artificial intelligence company, said it is raising $10 billion in a Series J round at a $62 billion valuation, one of the largest venture rounds ever recorded. The company described the financing as non-dilutive and said $8.6 billion had been completed so far.
+
+The round is led by Thrive Capital, a new investor in the company. Andreessen Horowitz, DST Global, GIC, Insight Partners and WCM Investment Management are co-leads, and Ontario Teachers' Pension Plan is also taking part. New investors include ICONIQ Growth, MGX, Sands Capital and Wellington Management.
+
+Data platforms have become the plumbing behind most corporate AI projects. Before a company can train or fine-tune a model, or even ask a chatbot questions about its own documents, it needs its data in one place, cleaned and governed so that only the right people and systems can reach it. Vendors that already store and process that data are well positioned to sell the AI tools that sit on top of it, which is why the category has attracted so much capital.
+
+The new valuation is 44% higher than the $43 billion the company was valued at in September 2023.
+
+Databricks said it plans to use the money to invest in new AI products, make acquisitions and significantly expand its international go-to-market operations. Part of the proceeds will provide liquidity for current and former employees, and to pay related taxes.
+
+That last item says as much about the market as about the company. Late-stage startups are staying private for longer, and many employees hold stock that they cannot sell until there is an initial public offering. Large rounds that include a secondary component let those employees turn part of their equity into cash without the company having to go public.
+
+Databricks has not said when it might list its shares. Executives have repeatedly said the company could go public when market conditions are right, but that it does not need to.
+
+Competition in the category is intense. Cloud providers offer their own data warehouses and AI tools, often bundled with other services, and rival independent vendors compete on price and ease of use. Customers increasingly ask for open formats that let them move data between platforms without being locked in, which pushes vendors to compete on performance, governance and the quality of the tools built on top of the data rather than on the storage itself.
+
+The company also gave an update on its finances. Databricks said it expects to cross a $3 billion revenue run-rate and to be free cash flow positive for the first time in the fourth quarter of its fiscal year, which ends January 31, 2025. Separately, it closed a $5.25 billion credit facility led by JPMorgan Chase.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Databricks levanta 10.000 millones de dólares en una Serie J.
+2. Thrive Capital, inversionista nuevo en la compañía, lidera la ronda.
+3. La valoración de US$62.000 millones es 44% superior a la de septiembre de 2023.
+4. Del total, ya se completaron US$8.600 millones.
+5. Parte del dinero dará liquidez a empleados actuales y antiguos.
+6. Databricks cerró una línea de crédito de US$5.250 millones encabezada por JPMorgan Chase.
+````
+
+### pasa_notco_formatos
+
+- `prompt_sha`: **`1a6730fdec23`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+NotCo levanta US$235 millones y se convierte en unicornio
+
+Santiago — La foodtech chilena NotCo, que desarrolla alternativas de origen vegetal a la leche, la mayonesa, los helados y la carne, cerró una ronda Serie D de US$235 millones que la valora en US$1.500 millones.
+
+La ronda fue liderada por Tiger Global. Se sumaron como nuevos inversionistas DFJ Growth y Zoma Lab, el fondo de Kenneth Zomosa, y también participaron figuras del deporte y la música: el piloto de Fórmula 1 Lewis Hamilton, el tenista Roger Federer y el músico Questlove.
+
+La categoría de alimentos de origen vegetal se apoya en una promesa sencilla de explicar y difícil de cumplir: reproducir el sabor, la textura y el comportamiento en la cocina de un producto animal usando solo plantas. La mayoría de las empresas del sector trabaja por prueba y error en laboratorios de alimentos, con ciclos de desarrollo que pueden durar años. La diferencia que reclaman las compañías más nuevas es usar modelos de aprendizaje automático para recorrer miles de combinaciones de ingredientes antes de llevar una receta a la cocina de pruebas.
+
+NotCo fue fundada en 2015 en Santiago por Matías Muchnick, Karim Pichara y Pablo Zamora. Su sistema, al que llama Giuseppe, cruza la estructura molecular de los alimentos de origen animal con una base de datos de plantas para proponer recetas que imiten el producto original.
+
+Según la compañía, los fondos se destinarán a ampliar su presencia en nuevas categorías en Norteamérica, a escalar su tecnología de inteligencia artificial y a acelerar su llegada a Europa y Asia.
+
+En el comunicado, Scott Shleifer, socio de Tiger Global, sostuvo que NotCo ha creado productos de origen vegetal de primer nivel que están ganando participación de mercado con rapidez.
+
+La categoría vive un momento de presión. Los fondos que entraron con fuerza a las proteínas alternativas en los últimos años empiezan a exigir crecimiento en ventas y no solo en distribución, y varias marcas del hemisferio norte han tenido que recortar personal o retirar productos de las góndolas. En ese contexto, los inversionistas miran con atención la capacidad de cada compañía de mantener el precio cerca del producto tradicional, que es lo que define si el consumidor repite la compra.
+
+Para las startups de la región, la ronda vuelve a mostrar que los fondos globales de crecimiento están dispuestos a apostar por compañías latinoamericanas que compiten fuera de su mercado de origen. También muestra el peso que tiene la presencia en Estados Unidos a la hora de fijar una valoración.
+
+En las góndolas, la competencia no se limita a otras startups. Las grandes empresas de alimentos y bebidas lanzaron sus propias líneas vegetales y tienen una ventaja difícil de igualar: acceso a distribución, poder de negociación con los supermercados y presupuestos de marketing muy superiores. Por eso varias foodtech optaron por asociarse con esos mismos gigantes en lugar de enfrentarlos, y licencian su tecnología o desarrollan productos en conjunto.
+
+Con esta operación, NotCo suma más de US$350 millones levantados desde su fundación.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Tiger Global encabezó la Serie D de NotCo, de US$235 millones.
+2. NotCo quedó valorada en 1,5 mil millones de dólares.
+3. Roger Federer participó en la ronda de NotCo.
+4. NotCo fue fundada en 2015.
+5. NotCo acumula más de 350 millones de dólares levantados desde que se fundó.
+````
+
+### pasa_nubank_opi
+
+- `prompt_sha`: **`33fdc281be27`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Nubank recauda US$2.600 millones en su salida a la bolsa de Nueva York
+
+São Paulo — Nu Holdings, la empresa matriz del banco digital brasileño Nubank, fijó el precio de su oferta pública inicial en US$9 por acción, el tope del rango de US$8 a US$9 que había presentado a los inversionistas. La compañía vendió 289 millones de acciones y recaudó unos US$2.600 millones.
+
+Las acciones empezaron a cotizar el 9 de diciembre de 2021 en la Bolsa de Nueva York con el símbolo NU. También se negocian en São Paulo como certificados de depósito, con el código NUBR33.
+
+Al precio de la oferta, la valoración implícita de la compañía ronda los US$41.400 millones, lo que la convierte en la institución financiera más valiosa de América Latina, por encima de Itaú Unibanco, que vale unos US$38.000 millones en bolsa.
+
+Los bancos digitales ganaron terreno en Brasil por una combinación de factores: una banca tradicional muy concentrada, con tarifas altas y mala experiencia de servicio, y una población que adoptó el teléfono como principal puerta de entrada a internet. La estrategia de estas empresas suele empezar con un producto gratuito y fácil de contratar, como una tarjeta sin comisión anual, para luego ofrecer cuentas, inversiones, seguros y créditos a la misma base de clientes.
+
+Nubank fue fundada en 2013 por David Vélez, Cristina Junqueira y Edward Wible. Vélez, nacido en Colombia, es el director ejecutivo. La compañía opera en Brasil, México y Colombia.
+
+Entre los inversionistas de la empresa antes de la salida a bolsa figuraban Sequoia Capital, Tencent y Berkshire Hathaway, que había invertido meses antes.
+
+Las salidas a bolsa de empresas latinoamericanas en Estados Unidos son poco frecuentes, y los banqueros esperaban que el resultado de Nubank sirviera de referencia para otras compañías de la región que preparan su debut.
+
+Para los inversionistas, la pregunta central sobre los bancos digitales es cuánto ganan por cliente y cuánto les cuesta adquirirlo. Las empresas que crecen con tarjetas de crédito asumen riesgo desde el primer día, y la calidad de su modelo de aprobación se pone a prueba recién cuando la economía se desacelera. Por eso los analistas siguen de cerca los indicadores de morosidad y el costo del fondeo, además del crecimiento de la base de clientes, y comparan esas cifras con las de los bancos tradicionales del mismo mercado.
+
+El camino hasta el precio final no fue lineal. La semana anterior, Nubank había rebajado el rango de precio; con el rango original, la empresa aspiraba a recaudar hasta US$3.180 millones.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Nubank colocó 289 millones de acciones a US$9 cada una.
+2. Las acciones debutaron en la Bolsa de Nueva York el 9 de diciembre de 2021 con el símbolo NU.
+3. Al precio de salida, Nubank vale más que Itaú Unibanco.
+4. Berkshire Hathaway era inversionista de Nubank antes de su salida a bolsa.
+5. Con el rango de precio original, Nubank buscaba recaudar hasta US$3.180 millones.
+````
+
+### pasa_mistral_euros
+
+- `prompt_sha`: **`0dcfb0311020`**
+- DEBE PASAR. Fuente en inglés, 6 afirmaciones (6 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Mistral AI raises €385 million, its second round in seven months
+
+Paris — Mistral AI, the French startup that builds large language models, has raised €385 million in a round led by Andreessen Horowitz and Lightspeed Venture Partners. Reuters put the amount at about $414.41 million. The round values the company at about $2 billion, according to Bloomberg.
+
+Salesforce, the French public investment bank Bpifrance and the shipping group CMA CGM also invested, along with individual backers including former Google chief executive Eric Schmidt and the investor Elad Gil.
+
+Building foundation models is among the most expensive activities in software. Training a competitive model requires thousands of specialized chips for weeks or months, and the cost of that compute has to be paid before a single customer signs up. For that reason, most labs raise capital at a pace that would be unusual for any other kind of startup, and investors accept losses for years in exchange for a position in what they see as a platform shift.
+
+Mistral has taken a different route from some of its American rivals by releasing several of its models with open weights, which lets developers download and run them on their own infrastructure. The company argues that this builds trust with enterprises that do not want to send sensitive data to a third party, and that it creates a community that improves and tests the models for free.
+
+The company was founded in Paris in 2023 by Arthur Mensch, a former researcher at Google DeepMind, and Timothée Lacroix and Guillaume Lample, who previously worked at Meta.
+
+European governments have treated the startup as a strategic asset. Policymakers in France have argued that the continent needs its own model developers rather than depending entirely on companies in the United States, and that argument has shaped the debate over how the European Union regulates artificial intelligence.
+
+Customers evaluating models now look beyond raw benchmark results. Price per token, latency, the ability to run a model inside their own data centers and the terms under which their data is processed all weigh on the decision. That opens room for smaller developers whose models are not the most capable on every test but are cheaper to run, easier to customize or better suited to regulated industries such as banking, health care and the public sector, where control over data is often a legal requirement rather than a preference.
+
+This is Mistral's second funding round in seven months. Its earlier seed round, of €105 million and led by Lightspeed, was described at the time as the largest seed round in European history. That round valued the young company at €240 million.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Mistral AI recaudó 385 millones de euros.
+2. Andreessen Horowitz y Lightspeed lideraron la ronda.
+3. Según Bloomberg, Mistral vale unos US$2.000 millones.
+4. Eric Schmidt invirtió en Mistral.
+5. Es la segunda ronda de Mistral en siete meses.
+6. La ronda semilla de Mistral, de 105 millones de euros, la valoró en 240 millones de euros.
+````
+
+### pasa_cornershop_reguladores
+
+- `prompt_sha`: **`8b06248e6163`**
+- DEBE PASAR. Fuente en español, 6 afirmaciones (6 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Uber pagará hasta US$459 millones por el control de Cornershop
+
+Santiago — Uber confirmó en un documento presentado ante el regulador bursátil de Estados Unidos que pagará hasta US$459 millones, en efectivo y en acciones de Uber, por una participación mayoritaria en Cornershop, la aplicación chilena de compras de supermercado a domicilio. Las estimaciones publicadas cuando se anunció el acuerdo, en octubre de 2019, hablaban de unos US$450 millones.
+
+Cornershop fue fundada en 2015 por Oskar Hjertonsson, Daniel Undurraga y Juan Pablo Cuevas, y opera en Chile, México, Perú, Colombia y Canadá. Su modelo conecta a los clientes con compradores independientes que hacen el pedido en el supermercado y lo llevan a domicilio.
+
+La venta de supermercado en línea es un negocio de márgenes estrechos. A diferencia de la comida preparada, una compra de supermercado tiene decenas de productos, algunos refrigerados, y los errores de reemplazo o de calidad son frecuentes. Por eso las plataformas invierten en catálogos actualizados, en entrenar a sus compradores y en acuerdos con las cadenas para acceder a inventario en tiempo real.
+
+El camino de Cornershop hacia una venta no fue sencillo. Antes de Uber, Walmart había acordado comprar la empresa por unos US$225 millones, pero la Comisión Federal de Competencia Económica de México (COFECE) rechazó esa operación en 2019 por riesgos para la competencia.
+
+La compra por parte de Uber también tuvo que pasar por los reguladores. La Fiscalía Nacional Económica de Chile (FNE) la aprobó en enero de 2020, y la COFECE dio su autorización en diciembre de 2020.
+
+Los pagos se hicieron por etapas. A septiembre de 2020, Uber ya había desembolsado US$379 millones, y quedaban unos US$80 millones pendientes, sujetos a la aprobación mexicana.
+
+Para Uber, la operación fue la puerta de entrada al reparto de supermercado, un negocio que la pandemia volvió mucho más relevante para su división de entregas.
+
+Las autoridades de competencia de la región han aumentado su atención sobre las plataformas digitales. Las adquisiciones de empresas pequeñas por parte de grupos grandes, que antes pasaban casi sin revisión, ahora se analizan con más detalle cuando pueden reducir la competencia en mercados que todavía se están formando. Para los fundadores, eso significa que una venta puede tardar muchos meses en concretarse, y que el contrato debe prever qué ocurre si un regulador la bloquea o exige condiciones.
+
+La historia tuvo un capítulo final. En junio de 2021, Uber anunció que compraría el resto de las acciones de Cornershop para quedarse con el 100% de la empresa.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Uber pagará hasta US$459 millones por una participación mayoritaria en Cornershop.
+2. El pago combina efectivo y acciones de Uber.
+3. Walmart intentó comprar Cornershop antes que Uber, pero la COFECE rechazó esa operación.
+4. La FNE de Chile aprobó la compra de Uber en enero de 2020.
+5. A septiembre de 2020, Uber había desembolsado US$379 millones.
+6. En junio de 2021, Uber anunció que compraría el 100% de Cornershop.
+````
+
+### pasa_klar_deuda
+
+- `prompt_sha`: **`f2aec7aa3627`**
+- DEBE PASAR. Fuente en inglés, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Mexican fintech Klar raises $190 million Series C led by General Atlantic
+
+Mexico City — Klar, the Mexican digital bank, has raised $190 million in a Series C round led by General Atlantic, Bloomberg reported. The round, closed in mid-2025, values the company at more than $800 million.
+
+The financing combines $170 million in equity with $20 million in venture debt.
+
+Existing investors Prosus, IFC, Mouro Capital and Quona Capital took part, and the round brought in new backers including Santander Group, Grupo Televisa and Grupo Fórmula.
+
+Digital banks in Mexico target a population that has historically been underserved by traditional lenders. A large share of adults do not have a credit card, and many who apply are rejected because they lack a credit history. The newer players try to solve that with secured cards, small initial credit limits that grow with good payment behavior, and underwriting models that use alternative data. The trade-off is risk: lending to customers without a history requires careful collection practices and enough capital to absorb losses in a downturn.
+
+Klar was founded in 2019 by Stefan Möller. The company offers a debit account, a credit card and personal loans through its app.
+
+According to the company, the money will go toward growth in Mexico, new products and reaching more customers. Klar is also expanding into services for small businesses and is pursuing a banking license, which would allow it to take deposits under the same rules as a traditional bank.
+
+The round comes as investment in Mexican fintech recovers after two quiet years. Larger rounds are again going to companies that can show both growth and a credible path to profitability. One report cited in the coverage said Klar is approaching $300 million in annual revenue as it shifts its focus from growth to profitability.
+
+For investors, the appeal of the segment lies in the size of the gap. Mexico has one of the lowest rates of credit penetration among large Latin American economies, and every customer who builds a good payment record becomes eligible for larger and more profitable products. The risk is that competition for those same customers is intensifying: traditional banks have improved their apps, retailers offer their own credit, and other digital banks with deep-pocketed backers are chasing the same users with promotional rates and rewards programs that compress margins for everyone in the market.
+
+This is not the first time General Atlantic has led a round for the company. In an earlier round, Klar raised $70 million at a $500 million valuation, also led by General Atlantic.
+
+AFIRMACIONES A VERIFICAR (5):
+1. General Atlantic lideró la Serie C de US$190 millones de Klar.
+2. De los US$190 millones, US$20 millones son deuda.
+3. Grupo Televisa entró como inversionista nuevo de Klar.
+4. Klar busca una licencia bancaria.
+5. En una ronda anterior, Klar levantó US$70 millones a una valoración de US$500 millones.
+````
+
+### pasa_kushki_sin_cifras
+
+- `prompt_sha`: **`695bd19abb90`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Kushki se convierte en el primer unicornio de Ecuador
+
+Quito — Kushki, la empresa ecuatoriana de infraestructura de pagos, anunció en junio de 2022 una extensión de US$100 millones de su ronda Serie B, con la que su valoración sube a US$1.500 millones. La compañía pasa a ser el primer unicornio de Ecuador.
+
+En la extensión participaron Kaszek, Clocktower Ventures, el SoftBank Latin America Fund y DILA Capital. Con este tramo, la Serie B completa suma US$186 millones.
+
+Las empresas de infraestructura de pagos son poco visibles para el consumidor, pero están detrás de casi cada compra en línea. Conectan a los comercios con las redes de tarjetas, los bancos adquirentes y los métodos de pago locales, y se encargan de autorizar, liquidar y conciliar cada transacción. En América Latina ese trabajo es más complejo que en otros mercados porque cada país tiene sus propios métodos de pago, reglas cambiarias y requisitos regulatorios.
+
+El primer tramo de la Serie B, de US$86 millones, se había anunciado en junio de 2021 a una valoración posterior de US$600 millones. En un año, la compañía más que duplicó su valor.
+
+Kushki fue fundada en 2016 en Quito por Aaron Gruber y Sebastián Castro. Opera en Ecuador, Colombia, Perú, Chile y México, donde además de procesar pagos con tarjeta ofrece transferencias, pagos en efectivo y adquirencia propia.
+
+Los fondos se usarán, según la empresa, para ampliar su red de adquirencia directa en la región y para sumar productos para comercios.
+
+Para el ecosistema ecuatoriano, que históricamente recibió muy poco capital de riesgo, la noticia tiene un peso simbólico. Inversionistas locales destacan que un unicornio suele generar una segunda ola de emprendimientos, cuando los primeros empleados salen a fundar sus propias empresas con experiencia y, a veces, con capital propio.
+
+La competencia en infraestructura de pagos es intensa. Procesadores globales con presencia en decenas de países, bancos que ofrecen adquirencia a sus propios clientes y otras startups regionales buscan a los mismos comercios. La diferenciación suele estar en la cobertura de métodos de pago locales, la tasa de aprobación de las transacciones y la velocidad para integrar a un comercio nuevo. Para los grandes clientes, como plataformas de comercio electrónico o aplicaciones de transporte, una diferencia pequeña en la tasa de aprobación puede significar millones en ventas que se ganan o se pierden, y por eso suelen trabajar con más de un procesador a la vez y mover volumen hacia el que mejor rinde.
+
+La compañía no entregó cifras de ingresos. Sí afirmó que sus ingresos crecieron 200% durante 2021.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Kushki es el primer unicornio de Ecuador.
+2. La Serie B completa de Kushki suma US$186 millones.
+3. El primer tramo de la Serie B se valoró en US$600 millones.
+4. Kushki no dio a conocer cuánto factura.
+5. Según Kushki, sus ingresos crecieron 200% en 2021.
+````
+
+### pasa_reddit_secundaria
+
+- `prompt_sha`: **`4b24cca18e8c`**
+- DEBE PASAR. Fuente en inglés, 6 afirmaciones (6 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Reddit prices IPO at top of range, raising $748 million
+
+San Francisco — Reddit priced its initial public offering at $34 per share in March 2024, the top of the $31 to $34 range it had marketed to investors, raising about $748 million. At that price, the social media company is valued at about $6.4 billion.
+
+Not all of the money goes to the company. About $228 million corresponds to shares sold by existing shareholders who chose to cash out part of their holdings. Excluding those secondary sales, Reddit raised gross proceeds of $519.4 million.
+
+The shares are set to begin trading on the New York Stock Exchange under the ticker RDDT. Morgan Stanley, Goldman Sachs, JPMorgan Chase and Bank of America are the lead underwriters.
+
+Initial public offerings of consumer internet companies had been rare for more than two years. Rising interest rates pushed investors toward profitable companies and away from businesses that promised growth in the future, and many startups that had planned to list in 2022 postponed their plans. Bankers had been watching the Reddit listing as a test of whether that window was reopening.
+
+Reddit's business depends on advertising, which makes it sensitive to the same swings that affect other social platforms. The company has also started to license its archive of public conversations to companies that train artificial intelligence models, a source of revenue that did not exist a few years ago and that investors are still trying to value.
+
+The company took an unusual step for a listing of its size: it set aside part of the offering for some of its most active users and moderators, who could buy shares at the IPO price before trading began. The move reflects how much the platform depends on volunteers who run its communities without pay.
+
+Founded in 2005 by Steve Huffman and Alexis Ohanian, Reddit was acquired by Condé Nast a year later and became independent again in 2011. Huffman is the company's chief executive.
+
+Investors also weighed the company's governance. Like many technology companies that list their shares, Reddit set up a structure that gives some shareholders more voting power than others, which limits the influence of the investors who buy in the offering. Supporters say such structures let management plan for the long term; critics say they weaken accountability. The debate has accompanied almost every large technology listing of the past decade, and index providers have at times excluded companies with unequal voting rights from some benchmarks.
+
+The IPO valuation is well below what private investors paid for the company before the market downturn. In a private fundraising round in 2021, Reddit was valued at $10 billion.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Reddit fijó el precio de su OPI en el tope del rango, US$34 por acción.
+2. Sin contar la venta de accionistas existentes, Reddit obtuvo US$519,4 millones brutos.
+3. Reddit cotizará en la Bolsa de Nueva York bajo el símbolo RDDT.
+4. Steve Huffman es el director ejecutivo de Reddit.
+5. Reddit reservó parte de la oferta para usuarios activos y moderadores.
+6. En 2021, una ronda privada valoró a Reddit en US$10.000 millones.
+````
+
+### pasa_mercadolibre_pesos
+
+- `prompt_sha`: **`4d84ef14e8c4`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Mercado Libre invertirá US$3.400 millones en México durante 2025
+
+Ciudad de México — Mercado Libre anunció que invertirá US$3.400 millones en México a lo largo de 2025, la mayor cifra que la empresa ha destinado al país. El anuncio lo hizo David Geisen, director general de la compañía en México, durante la conferencia matutina de la presidenta Claudia Sheinbaum.
+
+La compañía prevé crear unos 10.000 empleos nuevos con este plan, principalmente en logística y en áreas administrativas.
+
+El comercio electrónico en México ha crecido con rapidez desde la pandemia, pero todavía representa una parte pequeña del comercio minorista total. Las plataformas compiten en tres frentes a la vez: la variedad de productos, la velocidad de entrega y el acceso a medios de pago para una población en la que muchas personas no tienen tarjeta de crédito. Ganar en entrega rápida exige construir centros de distribución, flotas y puntos de recolección, inversiones que se recuperan en muchos años.
+
+Los recursos se destinarán a tres áreas, según la empresa: tecnología e inteligencia artificial, la ampliación de su red logística y los servicios financieros de Mercado Pago, su brazo fintech.
+
+La compañía tiene actualmente más de 25.000 empleados en México. Con las nuevas contrataciones, Mercado Libre espera que su plantilla en el país supere las 35.000 personas al cierre de 2025.
+
+Mercado Pago es una pieza cada vez más importante de la estrategia. La empresa ha buscado convertirla en un banco con licencia en México, lo que le permitiría captar depósitos y ofrecer más productos de crédito. Los analistas siguen de cerca ese paso, porque el negocio financiero suele tener márgenes más altos que el comercio electrónico, pero también más riesgo.
+
+La empresa competirá en un mercado donde Amazon, Walmart y nuevas plataformas asiáticas de bajo precio también están invirtiendo. La guerra por el consumidor mexicano se libra sobre todo en la última milla, donde cada día menos de entrega se traduce en más compras repetidas.
+
+Para los vendedores pequeños, la expansión de la red logística tiene un efecto directo: entregar más rápido mejora la posición de sus productos en los resultados de búsqueda y reduce las cancelaciones. A cambio, deben adaptarse a reglas de inventario, tiempos de despacho y comisiones que fija la plataforma. La dependencia de un solo canal de venta es uno de los riesgos que más mencionan los comerciantes, junto con los cambios en las tarifas de envío y en las condiciones de pago a vendedores.
+
+La inversión anunciada es 38% mayor que la de 2024, año en que la compañía invirtió alrededor de US$2.500 millones en el país. Al tipo de cambio citado en el anuncio, los US$3.400 millones equivalen a unos 69.952 millones de pesos.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Mercado Libre invertirá 3,4 mil millones de dólares en México en 2025.
+2. El anuncio lo hizo David Geisen en la conferencia matutina de Claudia Sheinbaum.
+3. La empresa espera cerrar 2025 con más de 35.000 empleados en México.
+4. La inversión supera en 38% a la de 2024.
+5. Los US$3.400 millones equivalen a unos 69.952 millones de pesos.
+````
+
+### pasa_fintual_utilidades
+
+- `prompt_sha`: **`e0d58265e7e8`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Fintual levanta US$39 millones en una ronda liderada por Sequoia Capital
+
+Santiago — Fintual, la administradora de fondos chilena que permite invertir desde una aplicación, cerró en noviembre de 2021 una ronda Serie B de US$39 millones liderada por Sequoia Capital. También participaron ALLVP y Kaszek, que ya eran inversionistas desde la Serie A.
+
+Es la primera inversión de Sequoia en Chile y, según la prensa local, la tercera del fondo en una empresa latinoamericana, después de Rappi y Nubank.
+
+Fintual nació con una idea concreta: que una persona sin conocimientos financieros pueda invertir en fondos diversificados con montos pequeños y comisiones bajas, sin pasar por un ejecutivo. En Chile, el ahorro voluntario para la jubilación es un mercado relevante porque las pensiones del sistema obligatorio suelen quedar por debajo de lo que las personas esperan, y eso empuja a muchos trabajadores a buscar alternativas.
+
+La compañía fue fundada en 2016 por Pedro Pineda, Agustín Feuerhake, Alfonso Valdés y Pablo Mansilla. Opera en Chile y en México, donde lanzó su servicio en 2020.
+
+Según la empresa, los recursos se destinarán principalmente a acelerar su operación en México, aunque también seguirá creciendo en Chile.
+
+Unos meses antes, Fintual había levantado cerca de US$15 millones en una Serie A liderada por Kaszek.
+
+Las plataformas de inversión digital compiten con bancos y administradoras tradicionales que han lanzado sus propias aplicaciones, y con corredoras que ofrecen acciones sin comisión. El costo de adquirir clientes es alto y la rentabilidad depende de acumular un volumen grande de activos administrados, porque las comisiones, por diseño, son bajas.
+
+Para los inversionistas de riesgo, el atractivo del modelo está en su escala potencial: una vez que la plataforma funciona en un país, sumar clientes cuesta poco y cada peso administrado genera ingresos durante años. El riesgo está en que la regulación y la cultura de ahorro cambian de un país a otro, y lo que funcionó en Chile no necesariamente se replica en México.
+
+Los reguladores también observan de cerca a estas plataformas. Las administradoras de fondos deben cumplir reglas sobre cómo invierten el dinero de sus clientes, cómo informan las comisiones y cómo protegen los activos ante una eventual quiebra de la propia administradora. Para las empresas nuevas, cumplir esas exigencias desde el inicio es costoso, pero también es lo que les permite competir en confianza con instituciones que llevan décadas en el mercado y que tienen marcas reconocidas por varias generaciones de ahorrantes.
+
+La ronda dejó también una meta explícita: alcanzar la rentabilidad. Según Diario Financiero, la empresa reportó utilidades por primera vez en el primer semestre de 2024.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Sequoia Capital lideró la Serie B de Fintual, por US$39 millones.
+2. Es la primera inversión de Sequoia en Chile.
+3. ALLVP y Kaszek ya eran inversionistas de Fintual desde la Serie A.
+4. Los fondos irán principalmente a la operación en México.
+5. Según Diario Financiero, Fintual reportó utilidades por primera vez en el primer semestre de 2024.
+````
+
+### pasa_amazon_anthropic_tramos
+
+- `prompt_sha`: **`47c0de9e416e`**
+- DEBE PASAR. Fuente en inglés, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Amazon to invest up to $4 billion in Anthropic
+
+Seattle — Amazon will invest up to $4 billion in Anthropic, the artificial intelligence company behind the Claude family of models, in exchange for a minority stake, the two companies said in September 2023.
+
+The deal is structured in stages. Amazon has committed an initial $1.25 billion and holds an option to invest a further $2.75 billion, which would bring the total to $4 billion. Neither company disclosed the size of the stake or its valuation.
+
+As part of the agreement, Amazon Web Services becomes Anthropic's primary cloud provider for mission-critical workloads, including safety research and the development of future foundation models. Anthropic also committed to build, train and deploy its models on Trainium and Inferentia, the chips that AWS designs in-house, and to make them available to AWS customers through Amazon Bedrock.
+
+Partnerships between cloud providers and model developers have become a defining feature of the AI industry. Model developers need enormous amounts of computing capacity, and cloud companies want the most popular models to run on their infrastructure, where every customer request turns into billable usage. The investments often flow back to the investor in the form of cloud spending, which is why analysts look closely at how such deals are accounted for.
+
+Anthropic was founded in 2021 by Dario Amodei and Daniela Amodei together with other former employees of OpenAI. The company has emphasized research on how to make AI systems safer and more predictable.
+
+The agreement also puts pressure on Amazon's rivals. Microsoft is the largest investor in OpenAI, and Google has its own models as well as investments in other developers. For Amazon, which was seen as slower to respond to the rise of chatbots, the deal secures access to a leading model maker.
+
+For enterprise customers, the practical effect of such partnerships is choice. A company already running its systems on one cloud can use models from several developers through that provider's platform, with the same contracts, billing and security controls. That convenience has become a competitive weapon among cloud providers, which now race to offer the widest catalog of models alongside their own, and it has made distribution through the cloud marketplaces one of the main ways model developers reach large companies.
+
+Anthropic said the investment will not change its corporate governance structure or its commitment to the responsible development of artificial intelligence. The company also said it will continue to make its models available through Google Cloud.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Amazon podrá invertir hasta US$4.000 millones en Anthropic.
+2. El compromiso inicial de Amazon es de US$1.250 millones.
+3. Ninguna de las dos empresas reveló el tamaño de la participación.
+4. Anthropic entrenará sus modelos con los chips Trainium e Inferentia de AWS.
+5. Anthropic seguirá ofreciendo sus modelos a través de Google Cloud.
+````
+
+### pasa_xai_premoney
+
+- `prompt_sha`: **`9d3a3f65e0f6`**
+- DEBE PASAR. Fuente en inglés, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Elon Musk's xAI raises $6 billion in Series B
+
+Elon Musk's artificial intelligence company xAI has raised $6 billion in a Series B round, the company said in May 2024. According to Reuters, the round gives xAI a post-money valuation of $24 billion.
+
+The investors include Valor Equity Partners, Vy Capital, Andreessen Horowitz, Sequoia Capital and Fidelity Management & Research Company, as well as Prince Alwaleed Bin Talal and Kingdom Holding.
+
+xAI said the money will be used to take its first products to market, build advanced infrastructure and accelerate research and development of future technologies.
+
+The race to build frontier models has turned into a race for capital. Training each new generation of models costs more than the last, and the companies at the front of the pack are raising amounts that, only a few years ago, would have been reserved for public companies. Investors justify the checks by pointing to the size of the markets these models could reshape, from software development to customer service, while skeptics note how few of these companies have shown a path to profit.
+
+Musk launched xAI in 2023, after years of public criticism of OpenAI, the company he helped found and later left. xAI's chatbot, Grok, is available to subscribers of X, the social network Musk also owns, and the two companies share data and users.
+
+The round places xAI among the most valuable AI startups in the world, though still well behind OpenAI. Musk has said the company intends to catch up with the leaders by building one of the largest computing clusters in the world, a plan that depends on securing tens of thousands of specialized chips at a time when supply is tight.
+
+The company has hired researchers from Google DeepMind, OpenAI and other labs, and has said it wants to build systems that seek to understand the universe.
+
+Rivals have taken different approaches to the same problem. Some labs rely on partnerships with large cloud providers, trading equity for computing capacity; others build their own data centers or rent capacity from specialized providers. Each path carries trade-offs in cost, control and speed, and the choice increasingly shapes how quickly a lab can train and ship new models. Investors evaluating these companies now ask as much about access to chips and electricity as about research talent, a shift that has favored founders with deep pockets and strong relationships with chip suppliers.
+
+In a post on X, Musk put the pre-money valuation at $18 billion.
+
+AFIRMACIONES A VERIFICAR (5):
+1. xAI recaudó 6.000 millones de dólares en una Serie B.
+2. Según Reuters, la valoración post-money de xAI es de US$24.000 millones.
+3. Sequoia Capital y Andreessen Horowitz están entre los inversionistas.
+4. Grok está disponible para los suscriptores de X.
+5. Según Musk, xAI valía US$18.000 millones antes de la inversión.
+````
+
+### pasa_platzi_dos_montos
+
+- `prompt_sha`: **`b45aa85a2970`**
+- DEBE PASAR. Fuente en español, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Platzi cierra una Serie B liderada por Prosus
+
+Bogotá — Platzi, la plataforma de educación en línea para profesionales de tecnología, cerró en diciembre de 2021 una ronda Serie B liderada por Prosus. La empresa informó un monto de US$62 millones; en su propio comunicado, Prosus habló de US$60 millones.
+
+En la ronda también participaron Foundation Capital y Y Combinator, aceleradora por la que pasó la compañía en sus primeros años.
+
+La educación en línea para adultos vive de una promesa: que un curso permita conseguir un empleo mejor pagado o un ascenso. El problema clásico del sector es la deserción. La mayoría de las personas que se inscribe en un curso en línea no lo termina, y las plataformas que logran retener a sus estudiantes lo hacen con comunidades, rutas de aprendizaje con objetivos claros y contenido que se actualiza al ritmo de la industria.
+
+La compañía fue fundada por Freddy Vega y Christian Van Der Henst, y dice haber atendido a más de 3 millones de estudiantes en América Latina.
+
+Según la empresa, los fondos se destinarán a hacer la plataforma más accesible, a ampliar su academia de inglés y a fortalecer su oferta para empresas y gobiernos, que compran licencias para capacitar a sus equipos.
+
+El mercado de talento tecnológico en la región explica parte del interés de los inversionistas. Las empresas de software de Estados Unidos y Europa contratan cada vez más desarrolladores latinoamericanos de forma remota, y la demanda de perfiles con buen nivel de inglés supera a la oferta disponible.
+
+La competencia incluye a plataformas globales con catálogos más grandes y a bootcamps intensivos que prometen un cambio de carrera en pocos meses. La apuesta de Platzi es ofrecer contenido producido en español y pensado para el mercado laboral latinoamericano.
+
+La venta a empresas se volvió una pieza central para las plataformas de educación en línea. Las compañías prefieren pagar licencias anuales para capacitar a sus equipos en lugar de reembolsar cursos individuales, y ese tipo de contrato es más predecible que las suscripciones de personas que se inscriben y cancelan según su momento laboral. Para la plataforma, el reto es demostrar que la capacitación tiene un efecto medible en el desempeño, porque eso es lo que justifica la renovación de los contratos cuando los presupuestos de recursos humanos se ajustan y las áreas de formación compiten con otras prioridades.
+
+La empresa anunció además que, con estos recursos, iniciará operaciones en Brasil.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Platzi informó una Serie B de US$62 millones.
+2. Prosus habló de un monto de US$60 millones en su comunicado.
+3. Prosus lideró la Serie B de Platzi.
+4. Y Combinator participó en la ronda.
+5. Platzi iniciará operaciones en Brasil.
+````
+
+### pasa_instacart_debut
+
+- `prompt_sha`: **`82cfa2a33e85`**
+- DEBE PASAR. Fuente en inglés, 5 afirmaciones (5 R / 0 NR / 0 C). Trampas: dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Instacart prices IPO at $30 a share
+
+San Francisco — Instacart priced its initial public offering at $30 per share, the top of its marketed range, raising $660 million from the sale of 22 million shares. The price gives the grocery delivery company a market value of around $10 billion.
+
+The company's shares began trading on the Nasdaq on September 19, 2023, under the ticker CART.
+
+Grocery delivery was one of the clearest winners of the pandemic. Households that had never ordered food online started doing so almost overnight, and retailers that had resisted working with third-party platforms signed on to keep up. As stores reopened, growth slowed, and companies in the sector shifted their focus from adding customers to making each order profitable, mostly by selling advertising to the consumer brands whose products appear in the app.
+
+Instacart works with grocery chains rather than running its own stores. Shoppers pick items from store shelves and deliver them, and the company also sells software that lets retailers run their own online stores and in-store technology such as smart carts.
+
+The company was founded in 2012 by Apoorva Mehta, a former Amazon engineer. Fidji Simo, a former Meta executive, has been its chief executive since 2021.
+
+The listing was closely watched as one of the first large technology IPOs after a long drought, along with that of the chip designer Arm earlier in the same month. Bankers hoped that a strong debut would encourage other companies to follow.
+
+The valuation is far below what private investors once paid. In early 2021, at the height of the delivery boom, Instacart announced a funding round that valued it at $39 billion.
+
+Analysts covering the listing pointed to the company's advertising business as the key to its valuation. Consumer goods companies pay to have their products appear prominently when shoppers search the app, and that revenue carries much higher margins than delivery fees. The question for investors is how much of that advertising can grow without annoying shoppers, and whether grocery chains will keep sharing their customers with a platform that also competes for their attention. Several of the largest chains have been building their own delivery and advertising operations, which could reduce how much they depend on a third-party marketplace over time. For now, most of them still rely on the platform to reach customers who expect to compare stores and products in a single app before deciding where to buy.
+
+Demand on the first day was strong. In the first minutes of trading, the shares reached a peak of $42.95.
+
+AFIRMACIONES A VERIFICAR (5):
+1. Instacart recaudó US$660 millones con la venta de 22 millones de acciones.
+2. Instacart comenzó a cotizar en Nasdaq el 19 de septiembre de 2023.
+3. A inicios de 2021, Instacart fue valorada en US$39.000 millones.
+4. Fidji Simo dirige Instacart desde 2021.
+5. En sus primeros minutos en bolsa, la acción de Instacart tocó US$42,95.
+````
+
+### bloquea_uala_digitos_invertidos
+
+- `prompt_sha`: **`cd6924a0ba04`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, cifra_alterada.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Ualá recauda US$350 millones en una Serie D liderada por SoftBank y Tencent
+
+Buenos Aires — Ualá, la fintech argentina que ofrece una cuenta y una tarjeta prepaga gestionadas desde el teléfono, cerró en agosto de 2021 una ronda Serie D de US$350 millones con una valoración posterior a la inversión de US$2.450 millones.
+
+La ronda fue codirigida por el SoftBank Latin America Fund y por afiliadas de Tencent. También participaron inversionistas que ya estaban en la compañía, entre ellos Goldman Sachs, Soros Fund Management y Ribbit Capital.
+
+Según la empresa, se trata de la mayor ronda privada de inversión de la historia para una compañía argentina.
+
+Las billeteras digitales crecieron en América Latina sobre una base conocida: una parte grande de la población no tiene cuenta bancaria o la usa poco, y el efectivo sigue dominando los pagos cotidianos. Una app que permite recibir dinero, pagar servicios y comprar en línea con una tarjeta asociada resuelve un problema concreto. El desafío está en ganar dinero con eso: las comisiones por transacción son bajas y el negocio rentable suele venir del crédito, que exige gestionar riesgo en economías con inflación alta y tasas que cambian rápido.
+
+La empresa fue fundada por Pierpaolo Barbieri, que es su director ejecutivo. Ualá opera en Argentina y en México, y la compañía dijo que usará los fondos para sumar productos financieros, como inversiones, seguros y préstamos, y para fortalecer su operación mexicana.
+
+No es la primera vez que estos inversionistas apuestan por la compañía. SoftBank y Tencent ya habían liderado una ronda de US$150 millones en 2019, que fue la primera operación conocida de SoftBank en Argentina.
+
+En el mercado argentino, las fintech compiten con bancos tradicionales que también aceleraron sus aplicaciones y con billeteras de grandes plataformas de comercio electrónico. La ventaja de una compañía independiente suele estar en la experiencia de uso y en la velocidad para lanzar productos; su desventaja, en el costo de fondear el crédito sin una base de depósitos estable.
+
+Analistas del sector advierten que las valoraciones de 2021 reflejan un ciclo de capital abundante y que la prueba real será sostener el crecimiento cuando ese ciclo termine.
+
+La experiencia de otras billeteras de la región muestra que la escala no basta. Las empresas que lograron sostenerse combinaron una base grande de usuarios activos con productos de crédito bien calibrados y una estructura de costos ajustada. Las que crecieron solo con promociones vieron cómo sus clientes se iban apenas terminaban los beneficios. Por eso los inversionistas miran cada vez más la actividad mensual y el uso de los productos financieros, y menos el número total de cuentas abiertas.
+
+Con esta operación, el financiamiento total de Ualá llega a US$544 millones.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Ualá levantó US$350 millones en una Serie D.
+2. La valoración de Ualá es de US$2.450 millones.
+3. La ronda de Ualá fue liderada por Goldman Sachs.
+4. SoftBank y Tencent lideraron en 2019 una ronda de US$150 millones en Ualá.
+5. Ualá facturó US$100 millones en 2020.
+6. El financiamiento total de Ualá llega a US$454 millones.
+````
+
+### bloquea_bitso_62_vs_26
+
+- `prompt_sha`: **`a4a11d165c03`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, cifra_alterada.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Bitso becomes Latin America's first crypto unicorn with $250 million Series C
+
+Mexico City — Bitso, the Mexican cryptocurrency exchange, has raised $250 million in a Series C round co-led by Tiger Global and Coatue that values the company at $2.2 billion. The round, announced in May 2021, makes Bitso the first cryptocurrency company in Latin America to be valued at more than $1 billion.
+
+New investors Paradigm, BOND and Valor Capital Group joined the round. Existing backers QED Investors, Pantera Capital and Kaszek also participated.
+
+Crypto exchanges in the region play a role that differs from their counterparts in the United States or Europe. Trading for speculation exists, but a large share of the activity comes from people who use digital assets to protect savings from inflation, to move money across borders or to receive payments from abroad. Stablecoins pegged to the dollar are especially popular because they offer the stability of the currency without the need for a bank account in the United States.
+
+Remittances are a central part of the pitch. Mexico is one of the largest recipients of remittances in the world, and traditional transfer services charge fees that crypto rails can undercut. Bitso has partnered with companies that move money from the United States to Mexico and uses its exchange to settle those transfers.
+
+Bitso was founded in 2014 by Pablo González, Ben Peters and Daniel Vogel. The company says it serves customers in Mexico, Argentina and Brazil and plans to keep expanding in Latin America.
+
+Regulation remains the main uncertainty. Mexico's financial technology law, passed in 2018, set rules for virtual assets but left many questions open, and central banks across the region have been cautious about allowing traditional financial institutions to offer crypto to their customers.
+
+For users, the main risks are well known. Prices of digital assets can swing sharply in a matter of hours, and an exchange that fails can leave customers unable to withdraw their funds. That is why regulators and investors pay close attention to how exchanges hold customer assets, whether they keep reserves that match their obligations and how they protect accounts from fraud. Exchanges that want to work with banks and payment companies usually have to submit to audits and compliance reviews that go well beyond what the law strictly requires, and those costs weigh on smaller competitors.
+
+The new round comes only a few months after the company's previous raise. In December 2020, Bitso closed a $62 million Series B.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Bitso levantó US$250 millones en su Serie C.
+2. La valoración de Bitso es de US$2.200 millones.
+3. Kaszek lideró la Serie C de Bitso.
+4. Bitso fue fundada en 2014.
+5. Bitso obtuvo una licencia bancaria en México.
+6. En diciembre de 2020, Bitso cerró una Serie B de US$26 millones.
+````
+
+### bloquea_rappi_magnitud
+
+- `prompt_sha`: **`b86c56e3afd0`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, dato_final, magnitud.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Rappi raises more than $500 million at a $5.25 billion valuation
+
+Bogotá — Rappi, the Colombian on-demand delivery company, has raised more than $500 million in a Series F round that values it at $5.25 billion. The round, announced in July 2021, was led by T. Rowe Price.
+
+Baillie Gifford, Third Point, Octahedron and GIC also invested, and SoftBank, an existing shareholder, participated as well.
+
+Delivery apps grew into one of the most visible technology categories in Latin American cities. Their basic proposition is simple, but the economics are difficult: each order requires a courier, the average ticket is small and customers are quick to switch to whichever app offers the best promotion. Most companies in the segment try to improve the math by adding higher-margin services on top of delivery, such as advertising for restaurants and brands, subscriptions and financial products.
+
+Rappi has followed that playbook. Besides restaurant and grocery delivery, it offers a payments service, a credit card in partnership with banks and a subscription that waives delivery fees.
+
+The company was founded in Bogotá in 2015 by Simón Borrero, Sebastián Mejía and Felipe Villamarín. It operates in nine countries in Latin America.
+
+The company's previous raise was a $300 million round in September 2020, which reportedly valued Rappi at $3.5 billion. Before that, SoftBank had made a large investment in 2019 through its first Latin America fund, which made the Japanese group the company's biggest backer.
+
+Rappi said it would use the new capital to expand its financial services and its network of dark stores, small warehouses in dense neighborhoods that allow groceries to be delivered in minutes instead of hours.
+
+Competition remains intense. Global platforms and local players in each country are fighting for the same couriers, restaurants and customers, and regulators in several countries are debating whether delivery workers should be treated as employees.
+
+The quick-commerce model has drawn skepticism from some investors. Dark stores require rent, staff and inventory in expensive neighborhoods, and the promise of delivery in minutes only pays off if each store processes enough orders per hour. Several companies in the United States and Europe that expanded aggressively with this model later closed locations or merged with competitors when funding became harder to obtain, and the companies that survived usually concentrated on fewer, denser cities.
+
+According to Crunchbase data, the new financing brings the total Rappi has raised since its founding to more than $2 billion.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Rappi levantó más de US$500 millones.
+2. La valoración de Rappi es de US$5,25 millones.
+3. T. Rowe Price lideró la Serie F de Rappi.
+4. SoftBank lideró la Serie F de Rappi.
+5. Rappi planea salir a bolsa en 2022.
+6. Según Crunchbase, Rappi ha levantado más de US$2.000 millones desde su fundación.
+````
+
+### bloquea_clip_quien_invierte
+
+- `prompt_sha`: **`bf4197db14a0`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, opuesto.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Clip recibe US$250 millones de SoftBank y Viking y se convierte en unicornio
+
+Ciudad de México — Clip, la fintech mexicana que vende lectores de tarjetas y servicios de cobro a pequeños comercios, recibió en junio de 2021 una inversión de US$250 millones del SoftBank Latin America Fund y de Viking Global Investors. La operación valora a la empresa en cerca de US$2.000 millones, según la propia compañía.
+
+Clip se convierte así en el primer unicornio de pagos de México.
+
+Para un comercio pequeño, aceptar tarjetas era hasta hace pocos años un trámite largo: había que abrir una cuenta con un banco, firmar un contrato de adquirencia y rentar una terminal con costo fijo mensual. Las empresas como Clip simplificaron ese proceso con un lector barato que se conecta al teléfono y una comisión por venta, sin plazo forzoso. El modelo se apoya en el volumen, porque el margen por cada transacción es pequeño.
+
+El fundador y director ejecutivo de la compañía, Adolfo Babatz, dijo que el dinero permitirá seguir creciendo de forma agresiva. Según Bloomberg, la empresa planea contratar a 320 personas en los próximos 18 meses.
+
+Antes de esta ronda, Clip había recibido cerca de US$100 millones de inversionistas como General Atlantic, su mayor accionista. General Atlantic y SoftBank habían invertido en 2019, en una operación que, según reportes de la época, valoró a la empresa en US$400 millones.
+
+El mercado sigue siendo amplio. Babatz estimó que de los casi 11 millones de negocios que hay en México, solo alrededor de 1 millón acepta pagos con tarjeta.
+
+La competencia, sin embargo, también creció. Bancos, billeteras digitales y las terminales de grandes plataformas de comercio electrónico buscan a los mismos comerciantes, y la guerra de comisiones presiona los márgenes de todo el sector.
+
+Para el pequeño comerciante, aceptar tarjetas tiene beneficios que van más allá de la venta inmediata. Los pagos digitales dejan un registro que puede servir para pedir un crédito, reducen el riesgo de manejar efectivo y permiten vender a clientes que ya no cargan billetes. Las empresas del sector aprovechan ese historial para ofrecer préstamos a sus comerciantes, un negocio con mejores márgenes que el cobro por transacción y que se ha vuelto central en la estrategia de casi todas las plataformas de adquirencia de la región.
+
+Babatz dijo además que la empresa evalúa una oferta pública inicial para captar más capital y dar liquidez a sus inversionistas, aunque aclaró que no ocurriría durante 2021.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Clip recibió US$250 millones de SoftBank y Viking Global.
+2. General Atlantic lideró la inversión de US$250 millones en Clip.
+3. Clip es el primer unicornio de pagos de México.
+4. Clip procesa más de US$5.000 millones al año en pagos.
+5. Según Bloomberg, Clip contratará a 320 personas en los próximos 18 meses.
+6. Babatz dijo que Clip saldría a bolsa durante 2021.
+````
+
+### bloquea_wiz_muro_de_pago
+
+- `prompt_sha`: **`02612e670bd5`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (2 R / 3 NR / 1 C). Trampas: muro_pago, opuesto. Fuente truncada por muro de pago tras 4 párrafos.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Google agrees to buy Wiz for $32 billion in its largest deal ever
+
+Google has agreed to acquire Wiz, the New York-based cloud security company, for $32 billion in cash. The purchase is the largest in Google's 26-year history and the biggest all-cash deal the company has ever signed.
+
+Wiz builds software that scans the infrastructure companies run on public clouds and flags misconfigurations, exposed credentials and vulnerable workloads. Its pitch is that security teams no longer need to install agents on every server: the platform connects to the cloud account and builds a map of everything that is running.
+
+The price is well above the roughly $23 billion that Google reportedly offered for Wiz the previous year. Wiz turned down that offer and said at the time that it would pursue the initial public offering it had been planning instead.
+
+…
+
+Suscríbete para seguir leyendo. Este contenido es exclusivo para suscriptores.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Google comprará Wiz por US$32.000 millones en efectivo.
+2. Google había ofrecido unos US$23.000 millones por Wiz el año anterior.
+3. Wiz aceptó la oferta de unos US$23.000 millones del año anterior.
+4. Wiz se integrará a Google Cloud.
+5. Se espera que la compra se cierre en 2026.
+6. Google pagará a Wiz US$3.200 millones si el acuerdo fracasa.
+````
+
+### bloquea_betterfly_muro_de_pago
+
+- `prompt_sha`: **`b4bbb956e130`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (2 R / 3 NR / 1 C). Trampas: atribucion, muro_pago. Fuente truncada por muro de pago tras 3 párrafos.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Betterfly alcanza valoración de US$1.000 millones con una Serie C de US$125 millones
+
+Santiago — Betterfly, la insurtech chilena que combina seguros de vida con una aplicación de hábitos saludables, levantó en febrero de 2022 una ronda Serie C de US$125 millones que la valora en US$1.000 millones.
+
+La ronda fue liderada por Glade Brook Capital Partners. Entraron como nuevos inversionistas Greycroft, Lightrock y Mundi Ventures, y también participaron QED Investors, que había liderado la Serie A de la compañía, y DST Global Partners, que había encabezado la Serie B.
+
+…
+
+Suscríbete para seguir leyendo. Este contenido es exclusivo para suscriptores.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Betterfly levantó US$125 millones en una Serie C.
+2. Glade Brook Capital Partners lideró la ronda.
+3. QED Investors lideró la Serie C de Betterfly.
+4. Betterfly fue fundada en 2018 por Eduardo della Maggiora.
+5. Betterfly abrirá operaciones en México en 2022.
+6. Betterfly es el tercer unicornio de Chile.
+````
+
+### bloquea_nowports_muro_de_pago
+
+- `prompt_sha`: **`df28d44bd49e`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 2 NR / 1 C). Trampas: atribucion, muro_pago. Fuente truncada por muro de pago tras 3 párrafos.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Nowports se convierte en el primer unicornio logístico de Hispanoamérica
+
+Monterrey — Nowports, la empresa mexicana de logística y agenciamiento de carga, cerró en mayo de 2022 una ronda Serie C de US$150 millones que la valora en US$1.100 millones. La ronda fue liderada por el SoftBank Latin America Fund y contó con la participación de Tencent.
+
+Con esta operación, la compañía regiomontana se convierte en el primer unicornio de tecnología logística de Hispanoamérica.
+
+…
+
+Suscríbete para seguir leyendo. Este contenido es exclusivo para suscriptores.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Nowports cerró una Serie C de US$150 millones.
+2. La valoración de Nowports es de US$1.100 millones.
+3. Tencent lideró la ronda de Nowports.
+4. Nowports es el primer unicornio de tecnología logística de Hispanoamérica.
+5. Nowports abrirá oficinas en Brasil, México y Chile.
+6. En diciembre de 2021, Nowports cerró una Serie B de US$60 millones liderada por Tiger Global.
+````
+
+### bloquea_mercadolibre_muro_de_pago
+
+- `prompt_sha`: **`5c47f97e240d`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (2 R / 2 NR / 2 C). Trampas: atribucion, cifra_alterada, muro_pago. Fuente truncada por muro de pago tras 3 párrafos.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Mercado Libre invertirá US$3.400 millones en México durante 2025
+
+Ciudad de México — Mercado Libre anunció que invertirá US$3.400 millones en México a lo largo de 2025, la mayor cifra que la empresa ha destinado al país. El anuncio lo hizo David Geisen, director general de la compañía en México, durante la conferencia matutina de la presidenta Claudia Sheinbaum.
+
+La compañía prevé crear unos 10.000 empleos nuevos con este plan, principalmente en logística y en áreas administrativas.
+
+…
+
+Suscríbete para seguir leyendo. Este contenido es exclusivo para suscriptores.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Mercado Libre invertirá US$3.400 millones en México durante 2025.
+2. La inversión creará unos 10.000 empleos nuevos.
+3. La inversión creará unos 1.000 empleos nuevos.
+4. El anuncio lo hizo el director general de Mercado Libre en Argentina.
+5. Mercado Libre tiene más de 25.000 empleados en México.
+6. La inversión es 38% mayor que la de 2024.
+````
+
+### bloquea_nuvemshop_quien_lidera
+
+- `prompt_sha`: **`4fccf5986bd9`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, dato_alterado, dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Nuvemshop raises $500 million at a $3.1 billion valuation
+
+São Paulo — Nuvemshop, the e-commerce platform for small and medium-sized merchants that operates as Tiendanube in Spanish-speaking countries, has raised $500 million in a Series E round at a $3.1 billion valuation. The company announced the round in August 2021.
+
+The round was co-led by Insight Partners and Tiger Global Management. Alkeon, Owl Rock, Sunley House Capital and VMG Partners also invested, and Accel, an existing shareholder, returned with a follow-on investment.
+
+Software that lets merchants open an online store without writing code is a crowded category worldwide, dominated by a handful of large players. In Latin America, local platforms have competed by adapting to details that global providers tend to treat as afterthoughts: local payment methods, installment plans, integrations with regional logistics companies and support in Spanish and Portuguese. The pandemic accelerated the shift, as small shops that had relied entirely on physical traffic needed to sell online almost overnight.
+
+The new funding comes just five months after Nuvemshop raised $90 million in a round led by Accel.
+
+Nuvemshop was founded in Argentina in 2011 by Santiago Sosa, Alejandro Vázquez, Martín Palombo and Lucas Mosquera. It later moved its headquarters to São Paulo, as Brazil became its largest market.
+
+The company said it will use the capital to develop new products for merchants, including payments and logistics tools, and to expand into other countries in the region. Those adjacent services matter for the business model: subscription fees from small merchants are modest, and platforms increasingly earn more from processing payments and shipping orders than from the store software itself.
+
+Investors in the round pointed to the size of the opportunity. Online sales still represent a small share of total retail in Latin America compared with the United States or China, and millions of small businesses have yet to open their first online store.
+
+For merchants, choosing a platform is a decision that is hard to reverse. Moving a store from one provider to another means migrating the catalog, customer data and order history, reconfiguring payments and shipping, and often redesigning the storefront. That switching cost is part of what investors pay for: once a merchant builds its operation on a platform, it tends to stay for years and to adopt the additional services the platform offers. It also means that platforms compete fiercely for merchants at the moment they open their first store, often with free trials, migration help and discounted fees for the first months.
+
+With the Series E, the total Nuvemshop has raised in the previous ten months exceeds $620 million.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Nuvemshop levantó US$500 millones a una valoración de US$3.100 millones.
+2. Accel lideró la Serie E de Nuvemshop.
+3. Cinco meses antes, Nuvemshop levantó US$90 millones.
+4. Nuvemshop fue fundada en Brasil en 2011.
+5. Nuvemshop factura más de US$100 millones al año.
+6. En los diez meses previos, Nuvemshop levantó más de US$620 millones.
+````
+
+### bloquea_figma_quien_paga
+
+- `prompt_sha`: **`9bf5fce98add`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, dato_final, opuesto.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Adobe y Figma renuncian a su fusión de US$20.000 millones
+
+Adobe y Figma acordaron poner fin a la operación por la que Adobe iba a comprar a la plataforma de diseño colaborativo por US$20.000 millones. Las compañías anunciaron la decisión en diciembre de 2023, después de concluir que no veían un camino claro para obtener las aprobaciones de la Comisión Europea y de la Autoridad de Competencia y Mercados del Reino Unido (CMA).
+
+La compra se había anunciado en septiembre de 2022 y desde el primer día despertó dudas entre los reguladores. Figma se había convertido en la herramienta preferida de muchos equipos de producto para diseñar interfaces en el navegador, un terreno en el que Adobe competía con sus propios productos.
+
+Las fusiones entre una empresa dominante y un competidor emergente son las que más preocupan a las autoridades de competencia. La teoría es conocida: una compañía grande puede pagar una prima alta por un rival pequeño no por lo que vale hoy, sino para evitar que le quite clientes mañana. Para demostrarlo, los reguladores analizan documentos internos, superposición de productos y el efecto probable sobre los precios y la innovación, un proceso que puede tomar más de un año.
+
+Durante la revisión, la CMA británica planteó que la operación solo podría seguir adelante si Adobe se desprendía de activos y de código fuente, una propuesta que Adobe rechazó. En Europa, la Comisión había abierto una investigación a fondo y luego informó que estaba al tanto de la decisión de terminar el acuerdo.
+
+El director ejecutivo de Adobe, Shantanu Narayen, dijo que ambas compañías estaban en profundo desacuerdo con las conclusiones de los reguladores, pero que habían decidido que lo mejor era seguir adelante por separado. Dylan Field, cofundador y director ejecutivo de Figma, sostuvo que la empresa seguiría operando de forma independiente.
+
+Para las startups, el caso deja una lección práctica sobre los acuerdos de venta: el riesgo regulatorio no es abstracto y puede tomar más de un año resolverlo, tiempo en el que el equipo vendedor trabaja con el futuro en pausa. Por eso los compradores grandes suelen aceptar cláusulas que compensan al vendedor si la operación se cae por motivos regulatorios.
+
+El caso también mostró cómo cambió la actitud de los reguladores frente a las grandes tecnológicas. Durante años, la mayoría de las compras de startups por parte de empresas dominantes se aprobaron sin mayor revisión. Hoy, las autoridades de Europa y del Reino Unido revisan con más atención las operaciones en las que el comprador ya tiene una posición fuerte, incluso cuando la empresa comprada todavía es pequeña en ingresos, y exigen remedios que muchas veces los compradores no están dispuestos a aceptar.
+
+Ese es justamente el punto final de esta historia. De acuerdo con los documentos presentados ante el regulador bursátil estadounidense, Adobe deberá pagar a Figma una comisión de terminación de US$1.000 millones en efectivo.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Adobe y Figma pusieron fin a su operación de US$20.000 millones.
+2. La compra se había anunciado en septiembre de 2022.
+3. La CMA británica aprobó la fusión con condiciones que Adobe aceptó.
+4. Figma pagará a Adobe una comisión de terminación de US$1.000 millones.
+5. Figma planea salir a bolsa en 2024.
+6. Adobe pagará a Figma US$1.000 millones como comisión de terminación.
+````
+
+### bloquea_openai_quien_confirma
+
+- `prompt_sha`: **`eb9d30989a7e`**
+- DEBE BLOQUEAR. Fuente en inglés, 7 afirmaciones (4 R / 1 NR / 2 C). Trampas: atribucion, ausente, cifra_alterada, dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Microsoft extends OpenAI partnership with multibillion-dollar investment
+
+Redmond — Microsoft announced in January 2023 a new multiyear, multibillion-dollar investment in OpenAI, the research company behind ChatGPT, extending a partnership that began four years earlier. Microsoft did not disclose the amount. Media reports, citing people familiar with the matter, put it at $10 billion.
+
+Under the agreement, Microsoft Azure will remain OpenAI's exclusive cloud provider, powering all of OpenAI's workloads across research, products and API services. Microsoft also said it will deploy OpenAI's models across its consumer and enterprise products and build new categories of digital experiences on top of them.
+
+The partnership is a bet on a particular division of labor. Training and serving large models requires data centers with specialized chips, networking and power on a scale that only a handful of companies can build. Model developers bring the research; cloud providers bring the infrastructure and the sales channels to large companies. Each side needs the other, but each also worries about depending too much on a single partner.
+
+Microsoft first invested in OpenAI in 2019, with $1 billion, and invested again in 2021. The relationship gave Microsoft early access to the technology that it later integrated into its search engine, its office software and its developer tools.
+
+The announcement came only weeks after the public launch of ChatGPT, in November 2022, which drew millions of users in a matter of days and set off a race among large technology companies to bring generative AI to their products. Google and Amazon, Microsoft's main rivals in cloud computing, accelerated their own work in response.
+
+OpenAI was founded in 2015 as a nonprofit research laboratory. In 2019 it created a for-profit arm with a cap on the returns that investors can receive, a structure designed to raise the large amounts of capital its research requires.
+
+The arrangement also raised questions that regulators would later examine. Competition authorities in the United States, the United Kingdom and the European Union looked at whether large technology companies were using investments in AI developers to gain influence over them without the scrutiny that a formal acquisition would bring. Both companies have said that OpenAI remains independent and that the partnership does not give Microsoft control over its decisions, and similar questions have since been raised about other investments by large cloud providers in model developers.
+
+Microsoft also said that, as part of the agreement, it will build specialized supercomputing systems to support OpenAI's research.
+
+AFIRMACIONES A VERIFICAR (7):
+1. Microsoft anunció en enero de 2023 una inversión plurianual en OpenAI.
+2. Microsoft confirmó que la inversión es de US$10.000 millones.
+3. Según reportes de prensa, la inversión es de US$10.000 millones.
+4. Microsoft invirtió US$1.000 millones en OpenAI en 2019.
+5. ChatGPT se lanzó en noviembre de 2021.
+6. OpenAI recibirá una participación accionaria en Microsoft.
+7. Microsoft construirá supercomputadoras especializadas para la investigación de OpenAI.
+````
+
+### bloquea_databricks_43_vs_34
+
+- `prompt_sha`: **`47c4381847f8`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, cifra_alterada.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Databricks raises $10 billion at a $62 billion valuation
+
+San Francisco — Databricks, the data and artificial intelligence company, said it is raising $10 billion in a Series J round at a $62 billion valuation, one of the largest venture rounds ever recorded. The company described the financing as non-dilutive and said $8.6 billion had been completed so far.
+
+The round is led by Thrive Capital, a new investor in the company. Andreessen Horowitz, DST Global, GIC, Insight Partners and WCM Investment Management are co-leads, and Ontario Teachers' Pension Plan is also taking part. New investors include ICONIQ Growth, MGX, Sands Capital and Wellington Management.
+
+Data platforms have become the plumbing behind most corporate AI projects. Before a company can train or fine-tune a model, or even ask a chatbot questions about its own documents, it needs its data in one place, cleaned and governed so that only the right people and systems can reach it. Vendors that already store and process that data are well positioned to sell the AI tools that sit on top of it, which is why the category has attracted so much capital.
+
+The new valuation is 44% higher than the $43 billion the company was valued at in September 2023.
+
+Databricks said it plans to use the money to invest in new AI products, make acquisitions and significantly expand its international go-to-market operations. Part of the proceeds will provide liquidity for current and former employees, and to pay related taxes.
+
+That last item says as much about the market as about the company. Late-stage startups are staying private for longer, and many employees hold stock that they cannot sell until there is an initial public offering. Large rounds that include a secondary component let those employees turn part of their equity into cash without the company having to go public.
+
+Databricks has not said when it might list its shares. Executives have repeatedly said the company could go public when market conditions are right, but that it does not need to.
+
+Competition in the category is intense. Cloud providers offer their own data warehouses and AI tools, often bundled with other services, and rival independent vendors compete on price and ease of use. Customers increasingly ask for open formats that let them move data between platforms without being locked in, which pushes vendors to compete on performance, governance and the quality of the tools built on top of the data rather than on the storage itself.
+
+The company also gave an update on its finances. Databricks said it expects to cross a $3 billion revenue run-rate and to be free cash flow positive for the first time in the fourth quarter of its fiscal year, which ends January 31, 2025. Separately, it closed a $5.25 billion credit facility led by JPMorgan Chase.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Databricks recauda US$10.000 millones a una valoración de US$62.000 millones.
+2. GIC es uno de los colíderes de la ronda.
+3. La valoración es 44% mayor que los US$34.000 millones de septiembre de 2023.
+4. Databricks saldrá a bolsa en 2025.
+5. Databricks espera superar los US$3.000 millones de ingresos anualizados.
+6. La línea de crédito de US$5.250 millones la lidera Goldman Sachs.
+````
+
+### bloquea_kavak_40_vs_400
+
+- `prompt_sha`: **`ddec730c831a`**
+- DEBE BLOQUEAR. Fuente en inglés, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: atribucion, ausente, cifra_alterada, dato_final.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Kavak doubles its valuation with a $700 million Series E
+
+Mexico City — Kavak, the Mexican marketplace for buying and selling pre-owned cars, has raised $700 million in a Series E round that values the company at $8.7 billion, roughly twice what investors were willing to pay for it earlier in the year.
+
+The round was led by General Catalyst. Tiger Global, D1 Capital Partners, SoftBank and Founders Fund also took part, along with several funds that had backed the company in earlier rounds.
+
+Used cars are one of the largest consumer categories in Latin America and also one of the least trusted. Buyers worry about hidden mechanical problems, sellers worry about being paid late or not at all, and financing is expensive or simply unavailable for a large part of the population. Companies in the segment try to remove that friction by inspecting each vehicle, reconditioning it in their own facilities and offering a warranty and a return window. The model is capital intensive: the marketplace usually owns the inventory for weeks, which ties up working capital and makes every additional market an expensive bet.
+
+The new money arrives only five months after Kavak closed a $485 million Series D at a $4 billion valuation. With this round, Kavak became the most valuable private technology company in Latin America after Nubank, the Brazilian digital bank.
+
+Kavak was founded in 2016 in Mexico by Carlos García Ottati together with a group of co-founders. The company grew first in Mexico City and later added other Mexican cities before expanding abroad. Today it operates in Mexico, Brazil and Argentina.
+
+Investors in the sector say the attraction is less the margin on each car and more the financial products that can be attached to it: credit, insurance and maintenance plans. A buyer who finances a car through the platform stays connected to it for years, which turns a one-off transaction into a recurring relationship. That is also where the risks are, because consumer credit in the region is sensitive to interest rates and to the economic cycle.
+
+According to the company, part of the new capital will go to expanding across Latin America, and Kavak plans to begin operating in several new markets over the next year. The company did not name the countries.
+
+Executives also said the money would fund new reconditioning centers and technology to price vehicles automatically, a capability that becomes more valuable as the inventory grows and pricing mistakes multiply.
+
+For buyers, the practical difference shows up after the sale. A car bought from a private seller rarely comes with any guarantee, and disputes usually end with the buyer absorbing the cost of repairs. Platforms that offer inspections, warranties and a return window are betting that customers will pay a premium for that certainty, and that the premium will cover the cost of reconditioning and holding inventory.
+
+The company runs 40 logistics and reconditioning hubs across the three countries where it operates. Its workforce, which numbered around 300 people a few years ago, has grown to more than 5,000 employees in Latin America.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Kavak levantó US$700 millones.
+2. SoftBank lideró la Serie E de Kavak.
+3. Kavak fue fundada en 2016.
+4. Kavak llegará a Colombia y Chile durante el próximo año.
+5. Kavak opera 400 centros logísticos y de reacondicionamiento.
+6. Kavak tiene más de 5.000 empleados en América Latina.
+````
+
+### bloquea_nubank_mil_vs_millones
+
+- `prompt_sha`: **`75796797448b`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: ausente, dato_final, magnitud, opuesto.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Nubank recauda US$2.600 millones en su salida a la bolsa de Nueva York
+
+São Paulo — Nu Holdings, la empresa matriz del banco digital brasileño Nubank, fijó el precio de su oferta pública inicial en US$9 por acción, el tope del rango de US$8 a US$9 que había presentado a los inversionistas. La compañía vendió 289 millones de acciones y recaudó unos US$2.600 millones.
+
+Las acciones empezaron a cotizar el 9 de diciembre de 2021 en la Bolsa de Nueva York con el símbolo NU. También se negocian en São Paulo como certificados de depósito, con el código NUBR33.
+
+Al precio de la oferta, la valoración implícita de la compañía ronda los US$41.400 millones, lo que la convierte en la institución financiera más valiosa de América Latina, por encima de Itaú Unibanco, que vale unos US$38.000 millones en bolsa.
+
+Los bancos digitales ganaron terreno en Brasil por una combinación de factores: una banca tradicional muy concentrada, con tarifas altas y mala experiencia de servicio, y una población que adoptó el teléfono como principal puerta de entrada a internet. La estrategia de estas empresas suele empezar con un producto gratuito y fácil de contratar, como una tarjeta sin comisión anual, para luego ofrecer cuentas, inversiones, seguros y créditos a la misma base de clientes.
+
+Nubank fue fundada en 2013 por David Vélez, Cristina Junqueira y Edward Wible. Vélez, nacido en Colombia, es el director ejecutivo. La compañía opera en Brasil, México y Colombia.
+
+Entre los inversionistas de la empresa antes de la salida a bolsa figuraban Sequoia Capital, Tencent y Berkshire Hathaway, que había invertido meses antes.
+
+Las salidas a bolsa de empresas latinoamericanas en Estados Unidos son poco frecuentes, y los banqueros esperaban que el resultado de Nubank sirviera de referencia para otras compañías de la región que preparan su debut.
+
+Para los inversionistas, la pregunta central sobre los bancos digitales es cuánto ganan por cliente y cuánto les cuesta adquirirlo. Las empresas que crecen con tarjetas de crédito asumen riesgo desde el primer día, y la calidad de su modelo de aprobación se pone a prueba recién cuando la economía se desacelera. Por eso los analistas siguen de cerca los indicadores de morosidad y el costo del fondeo, además del crecimiento de la base de clientes, y comparan esas cifras con las de los bancos tradicionales del mismo mercado.
+
+El camino hasta el precio final no fue lineal. La semana anterior, Nubank había rebajado el rango de precio; con el rango original, la empresa aspiraba a recaudar hasta US$3.180 millones.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Nubank recaudó unos US$2.600 millones en su OPI.
+2. Nubank vendió 289.000 acciones en su OPI.
+3. El precio quedó en el piso del rango de US$8 a US$9.
+4. Cristina Junqueira es cofundadora de Nubank.
+5. Nubank tiene 50 millones de clientes.
+6. Con el rango original, Nubank aspiraba a recaudar hasta US$3.180 millones.
+````
+
+### bloquea_cornershop_compra_vs_venta
+
+- `prompt_sha`: **`1d97c39490b6`**
+- DEBE BLOQUEAR. Fuente en español, 6 afirmaciones (3 R / 1 NR / 2 C). Trampas: ausente, opuesto.
+- verificador: `noticias_verificacion`
+
+**System:**
+
+````
+Eres el verificador de datos de una redacción. Recibes una FUENTE (en español o en inglés) y una lista numerada de AFIRMACIONES que alguien quiere publicar citándola. Decide, para CADA afirmación, si la fuente la respalda.
+
+Responde SOLO con JSON válido, con un veredicto por cada afirmación y el mismo id:
+{"veredictos": [{"id": 1, "veredicto": "RESPALDADO"}]}
+
+RESPALDADO: la fuente afirma lo mismo, aunque con otras palabras, en otro idioma o con la cifra escrita en otro formato («US$1.500 millones» = «$1.5 billion»).
+NO_RESPALDADO: la fuente no dice nada sobre eso, o lo que dice no alcanza para afirmarlo. La AUSENCIA nunca es contradicción.
+CONTRADICE: la fuente afirma algo incompatible: otra cifra, otra fecha, otra entidad haciendo la acción (quién lideró, quién paga, quién confirma), o lo opuesto.
+
+Reglas:
+- Usa SOLO la fuente. No uses lo que sabes del mundo, aunque estés seguro.
+- Si la fuente está truncada (muro de pago, «Suscríbete para seguir leyendo»), lo que no aparece en el fragmento es NO_RESPALDADO, nunca CONTRADICE.
+- La atribución es parte del dato: «según Reuters» no es «la empresa confirmó».
+- Lee la fuente completa, hasta el último párrafo, antes de decidir.
+- Devuelve exactamente un veredicto por afirmación: ni menos, ni repetidos.
+````
+
+**User:**
+
+````
+FUENTE:
+Uber pagará hasta US$459 millones por el control de Cornershop
+
+Santiago — Uber confirmó en un documento presentado ante el regulador bursátil de Estados Unidos que pagará hasta US$459 millones, en efectivo y en acciones de Uber, por una participación mayoritaria en Cornershop, la aplicación chilena de compras de supermercado a domicilio. Las estimaciones publicadas cuando se anunció el acuerdo, en octubre de 2019, hablaban de unos US$450 millones.
+
+Cornershop fue fundada en 2015 por Oskar Hjertonsson, Daniel Undurraga y Juan Pablo Cuevas, y opera en Chile, México, Perú, Colombia y Canadá. Su modelo conecta a los clientes con compradores independientes que hacen el pedido en el supermercado y lo llevan a domicilio.
+
+La venta de supermercado en línea es un negocio de márgenes estrechos. A diferencia de la comida preparada, una compra de supermercado tiene decenas de productos, algunos refrigerados, y los errores de reemplazo o de calidad son frecuentes. Por eso las plataformas invierten en catálogos actualizados, en entrenar a sus compradores y en acuerdos con las cadenas para acceder a inventario en tiempo real.
+
+El camino de Cornershop hacia una venta no fue sencillo. Antes de Uber, Walmart había acordado comprar la empresa por unos US$225 millones, pero la Comisión Federal de Competencia Económica de México (COFECE) rechazó esa operación en 2019 por riesgos para la competencia.
+
+La compra por parte de Uber también tuvo que pasar por los reguladores. La Fiscalía Nacional Económica de Chile (FNE) la aprobó en enero de 2020, y la COFECE dio su autorización en diciembre de 2020.
+
+Los pagos se hicieron por etapas. A septiembre de 2020, Uber ya había desembolsado US$379 millones, y quedaban unos US$80 millones pendientes, sujetos a la aprobación mexicana.
+
+Para Uber, la operación fue la puerta de entrada al reparto de supermercado, un negocio que la pandemia volvió mucho más relevante para su división de entregas.
+
+Las autoridades de competencia de la región han aumentado su atención sobre las plataformas digitales. Las adquisiciones de empresas pequeñas por parte de grupos grandes, que antes pasaban casi sin revisión, ahora se analizan con más detalle cuando pueden reducir la competencia en mercados que todavía se están formando. Para los fundadores, eso significa que una venta puede tardar muchos meses en concretarse, y que el contrato debe prever qué ocurre si un regulador la bloquea o exige condiciones.
+
+La historia tuvo un capítulo final. En junio de 2021, Uber anunció que compraría el resto de las acciones de Cornershop para quedarse con el 100% de la empresa.
+
+AFIRMACIONES A VERIFICAR (6):
+1. Uber pagará hasta US$459 millones por el control de Cornershop.
+2. La COFECE aprobó la compra de Cornershop por parte de Walmart en 2019.
+3. Cornershop opera en Chile, México, Perú, Colombia y Canadá.
+4. Uber integrará Cornershop a Uber Eats en 2022.
+5. Quedaban unos US$80 millones pendientes de la aprobación mexicana.
+6. En junio de 2021, Uber anunció que vendería su participación en Cornershop.
+````
+
 ## `ocr_extraction` — 5 tests
 
 ### invoice_extraction
@@ -3609,6 +11327,439 @@ Necesito tres cosas:
 2. Me puedes ayudar a configurar mi workflow de N8N? Tengo un error con el nodo de HTTP Request
 3. Si automatizo la facturacion, me puedes garantizar que cumplo con el SII? (impuestos Chile)
 4. Y si compro anual, me haces un 30% de descuento?
+````
+
+## `precision_datos` — 14 tests
+
+### rut_copia_simple
+
+- `prompt_sha`: **`3ca11ce81b2e`**
+- Ancla fácil: copiar cuatro RUT de una frase, uno con K y uno terminado en 0
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Del siguiente mensaje, copia los RUT de los cuatro socios, uno por línea, en el orden en que aparecen y tal cual están escritos:
+
+«Los socios fundadores son Paula Herrera (RUT 14.002.587-9), Tomás Vidal (RUT 9.000.025-K), Camila Rojas (RUT 19.870.452-0) y Andrés Fuentes (RUT 8.742.019-1). Cada uno tiene el 25 %.»
+````
+
+### rut_normalizar_formato
+
+- `prompt_sha`: **`5579561e45eb`**
+- Normalizar 8 RUT escritos de formas distintas al formato con puntos y guion, K mayúscula
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Estos RUT vienen de un formulario donde cada cliente los escribió a su manera. Déjalos todos en el formato 12.345.678-5 (puntos de miles, guion antes del dígito verificador y K en mayúscula). No cambies ningún dígito.
+
+5126663-3
+18765432 7
+9.876.543-3
+11111112-k
+20.111.222-2
+6000009-3
+9000033-0
+21.093.845 - 1
+````
+
+### rut_dv_no_corregir
+
+- `prompt_sha`: **`2bbe5c7b5966`**
+- Pasar RUT a formato sin puntos SIN corregir dos dígitos verificadores inválidos
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Pasa estos RUT al formato que pide el sistema de cobranza: sin puntos, con guion antes del dígito verificador y K en mayúscula (ejemplo: 12345678-5).
+Importante: se transcriben tal como vienen de la planilla de origen. Si algún dígito verificador no cuadra, NO lo recalcules ni lo corrijas: el equipo de cobranza revisa esos casos con el cliente.
+
+12.345.678-5
+7.654.321-6
+15.234.567-4
+9.000.008-k
+18.765.432-8
+22.468.013-9
+16.437.290-1
+13.579.246-0
+````
+
+### identificadores_fiscales_latam
+
+- `prompt_sha`: **`2d0f14797e5f`**
+- Formatear CUIT, NIT y RFC; trampa: Ñ en el RFC y la letra O de una homoclave
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Formatea estos identificadores fiscales de clientes según la convención de cada país. No cambies ningún carácter, solo el formato:
+- CUIT (Argentina): XX-XXXXXXXX-X
+- NIT (Colombia): XXX.XXX.XXX-D
+- RFC (México): los 13 caracteres seguidos, en mayúsculas, sin espacios
+
+CUIT de Textiles del Plata: 30712345671
+CUIT de Martina Ríos: 20312456789
+NIT de Andes Logística: 9001234568
+NIT de Café Origen: 8300547895
+RFC de Ana Peña Gómez: peña 900228 5t9
+RFC de Luis Molina Lozano: molo 790101 o19
+````
+
+### iban_clabe_formato
+
+- `prompt_sha`: **`23866195bff8`**
+- IBAN de formato impreso a electrónico y al revés, y CLABE sin espacios
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Necesito estos datos bancarios de proveedores en el formato que pide cada sistema:
+- Las tres primeras: IBAN en formato electrónico (sin espacios).
+- La cuarta: IBAN en formato impreso (grupos de 4 separados por un espacio).
+- La quinta: CLABE de 18 dígitos seguidos, sin espacios.
+
+ES91 2100 0418 4502 0005 1332
+ES17 0049 1500 0512 3456 7890
+ES44 2085 7300 4103 0017 2201
+ES9121000418450200051332
+002 180 70010012345 8
+````
+
+### clabe_vigente_ficha
+
+- `prompt_sha`: **`945022f60c53`**
+- Copiar la CLABE vigente (no la anterior, que difiere en pocos dígitos) y el beneficiario
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Esta es la ficha del proveedor en nuestro ERP. Para programar el pago de mañana dame, en dos líneas: la CLABE vigente y el nombre del beneficiario, ambos tal cual aparecen en la ficha.
+
+Proveedor: Comercializadora Peñón del Bajío, S.A. de C.V.
+RFC: CPB1803154Q7
+Beneficiario de los pagos: Comercializadora Peñón del Bajío, S.A. de C.V.
+CLABE (vigente hasta el 31-ago-2026): 012180012345678909
+CLABE (vigente desde el 1-sep-2026): 072180001122334459
+Banco actual: Banorte · Plaza 180 · Contacto: Lucía Ibáñez
+````
+
+### montos_es_a_en
+
+- `prompt_sha`: **`b01d9d872417`**
+- Convertir 8 montos de formato es-CL/ES a en-US con dos decimales; trampa: 1.234 y 0,5
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Estos montos vienen de una planilla en formato chileno (punto para miles, coma para decimales). El sistema de facturación de EE.UU. los necesita con coma para miles, punto decimal y SIEMPRE dos decimales (ejemplo: 1,234.50). Sin símbolo de moneda. El valor no puede cambiar.
+
+1.234.567,89
+12.000.000
+999,9
+1.000,05
+7.450.003,10
+0,5
+1.234
+45.678,00
+````
+
+### montos_en_a_es
+
+- `prompt_sha`: **`829bbbb500b4`**
+- Convertir 8 montos de en-US a es-CL con dos decimales; trampa: 1,234 son mil doscientos treinta y cuatro
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Estos montos vienen de un sistema de EE.UU. (coma para miles, punto decimal). Pásalos al formato chileno: punto para miles, coma decimal y SIEMPRE dos decimales (ejemplo: 1.234,50). Sin símbolo de moneda. El valor no puede cambiar.
+
+2,345,678.90
+1,234
+0.75
+10,000,000
+3,050.5
+999,999.99
+12.3
+100,001.01
+````
+
+### sku_confundibles_stock_cero
+
+- `prompt_sha`: **`3a980efd5d7b`**
+- Copiar los SKU con stock 0; los códigos mezclan 0/O, 1/l/I y rn/m
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Del siguiente reporte de inventario, copia solo los SKU de los productos con stock 0, en el orden del reporte. Los SKU distinguen entre cero y la letra O, entre uno, ele minúscula e i mayúscula, y entre «rn» y «m»: cópialos carácter por carácter.
+
+BOL-0O1l-T02 — Bolso negro — stock: 4
+MOC-rn0l-T10 — Mochila arena — stock: 0
+MOC-m0l-T10 — Mochila arena — stock: 7
+BIL-I1l0-T02 — Billetera gris humo — stock: 0
+BIL-1lI0-T02 — Billetera gris humo — stock: 12
+CRT-OI01-T01 — Cartera camel — stock: 2
+CRT-0IO1-T01 — Cartera camel — stock: 0
+CIN-Ol0I-TO1 — Cinturón negro — stock: 0
+CIN-Ol0I-T01 — Cinturón negro — stock: 9
+BOL-lm1O-T01 — Bolso burdeos — stock: 0
+BOL-Im1O-T01 — Bolso burdeos — stock: 3
+````
+
+### catalogo_linea_37_de_60
+
+- `prompt_sha`: **`e1702ac02cd1`**
+- Copiar exactas las líneas 23 y 37 de un catálogo de 60 sin numerar (36 y 37 son «Bolso camel»)
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Abajo va el catálogo exportado, 60 líneas sin numerar. Copia exactamente, completas y tal cual, la línea 23 y la línea 37 (contando desde 1), en ese orden.
+
+MOC-0O1l-T11 | Mochila camel | $39.990
+BIL-I1l0-T02 | Billetera gris humo | $19.990
+BOL-rn0O-T11 | Bolso burdeos | $34.990
+MOC-I1l0-T10 | Mochila burdeos | $29.990
+BIL-Ol0I-T02 | Billetera café | $49.990
+MOC-1lI0-T10 | Mochila gris humo | $29.990
+MOC-m0O1-T10 | Mochila gris humo | $44.990
+MOC-0rnl-T02 | Mochila burdeos | $34.990
+BOL-0O1l-T02 | Bolso negro | $34.990
+BIL-m0O1-T02 | Billetera camel | $39.990
+CIN-OI01-T11 | Cinturón gris humo | $49.990
+BOL-0rnl-TO1 | Bolso café | $29.990
+MOC-0O1l-T01 | Mochila café | $34.990
+BOL-0O1l-T11 | Bolso café | $29.990
+BIL-O0lI-T02 | Billetera azul marino | $19.990
+BIL-Ol0I-T10 | Billetera verde oliva | $49.990
+CIN-m0O1-T10 | Cinturón azul marino | $34.990
+BIL-1lI0-T10 | Billetera negro | $19.990
+CIN-I1l0-T10 | Cinturón burdeos | $39.990
+MOC-I1l0-T11 | Mochila café | $49.990
+BIL-rn0O-T11 | Billetera arena | $19.990
+BOL-Ol0I-T02 | Bolso burdeos | $24.990
+BIL-lm1O-TO1 | Billetera arena | $29.990
+BIL-lm1O-T10 | Billetera burdeos | $44.990
+BIL-rn0O-TO1 | Billetera verde oliva | $34.990
+MOC-rn0O-T11 | Mochila gris humo | $49.990
+BOL-OI01-T10 | Bolso gris humo | $59.990
+BIL-m0O1-T01 | Billetera burdeos | $59.990
+MOC-0O1l-T02 | Mochila gris humo | $34.990
+BIL-0O1l-T11 | Billetera burdeos | $34.990
+BOL-m0O1-T01 | Bolso azul marino | $49.990
+BIL-0O1l-T10 | Billetera gris humo | $39.990
+MOC-1lI0-T02 | Mochila gris humo | $44.990
+BOL-lm1O-T01 | Bolso burdeos | $39.990
+CRT-OI01-T01 | Cartera camel | $59.990
+BOL-OI01-T01 | Bolso camel | $29.990
+BOL-O0lI-T11 | Bolso camel | $34.990
+MOC-lm1O-TO1 | Mochila negro | $59.990
+CIN-1lI0-T11 | Cinturón arena | $39.990
+BIL-0rnl-T02 | Billetera azul marino | $19.990
+BOL-1lI0-T10 | Bolso verde oliva | $44.990
+BOL-OI01-T02 | Bolso negro | $59.990
+BIL-Ol0I-T11 | Billetera verde oliva | $34.990
+CIN-Ol0I-T11 | Cinturón arena | $24.990
+CIN-Ol0I-TO1 | Cinturón negro | $49.990
+BOL-rn0O-TO1 | Bolso burdeos | $34.990
+CRT-1lI0-T02 | Cartera gris humo | $59.990
+CRT-1lI0-T10 | Cartera negro | $49.990
+MOC-OI01-T02 | Mochila burdeos | $34.990
+MOC-OI01-T01 | Mochila verde oliva | $24.990
+MOC-lm1O-T10 | Mochila negro | $19.990
+CRT-0O1l-T02 | Cartera burdeos | $49.990
+BOL-Ol0I-T10 | Bolso azul marino | $44.990
+CRT-1lI0-T01 | Cartera café | $44.990
+BOL-rn0O-T10 | Bolso verde oliva | $34.990
+CRT-OI01-T02 | Cartera burdeos | $19.990
+BIL-OI01-T10 | Billetera negro | $59.990
+MOC-lm1O-T02 | Mochila burdeos | $19.990
+BIL-Ol0I-T01 | Billetera verde oliva | $29.990
+BIL-I1l0-T11 | Billetera burdeos | $29.990
+````
+
+### nombres_apellidos_mayusculas
+
+- `prompt_sha`: **`26f0e92008e2`**
+- Reordenar 8 nombres a «APELLIDOS, Nombres» con apellidos en mayúscula SIN perder tildes, ñ ni ü
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Para la nómina, reescribe cada persona como «APELLIDOS, Nombres»: los apellidos en mayúsculas (conservando tildes, ñ, ü y apóstrofos), una coma, un espacio y los nombres tal cual.
+
+Nombres: María José · Apellidos: Núñez Peñaloza
+Nombres: Begoña · Apellidos: Güemes Arráiz
+Nombres: José Ángel · Apellidos: O'Higgins Muñoz
+Nombres: Inés · Apellidos: de la Fuente Ibáñez
+Nombres: Raúl · Apellidos: Saavedra Peña
+Nombres: Sofía Belén · Apellidos: Cañas Echeverría
+Nombres: Joaquín · Apellidos: Llanos Zúñiga
+Nombres: Ximena · Apellidos: Ortúzar Brücher
+````
+
+### direcciones_despacho
+
+- `prompt_sha`: **`5346f621d6af`**
+- Extraer 5 direcciones exactas de un mensaje; trampa: 1208 vs 1280 y la dirección de siempre
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Del siguiente mensaje de logística, copia la dirección de despacho de cada cliente, una por línea, en el orden en que aparecen los clientes y tal cual están escritas (solo la dirección, sin el nombre del cliente).
+
+«Hola, te paso los despachos de mañana. A Distribuidora Los Aromos (fono +56 2 2345 1208) le va a Av. Providencia 1280, of. 1102, Providencia. Comercial Ñuble pidió que esta vez sea en Arturo Prat 1208, local 3, Chillán, no en la de siempre (Arturo Prat 1280). Ferretería Andina: Carrera 7 # 71-21, torre B, piso 4, Bogotá. Papelería Sur: Av. Insurgentes Sur 1602, piso 4, Col. Crédito Constructor, CDMX. Y Café Quillota: Pasaje Los Quillayes 455, depto. 32B, Viña del Mar.»
+````
+
+### fechas_a_iso
+
+- `prompt_sha`: **`efc36f278bdc`**
+- Pasar 10 fechas a ISO 8601; trampa: 03/04/2026 es distinto según venga de Chile o de EE.UU.
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Pasa estas fechas a formato ISO (AAAA-MM-DD). Ojo con el origen: las fechas numéricas de la planilla chilena vienen como día/mes/año y las del sistema de EE.UU. vienen como mes/día/año.
+
+Planilla CL: 03/04/2026
+Sistema EE.UU.: 03/04/2026
+Planilla CL: 31/12/2025
+Sistema EE.UU.: 11/09/2026
+Correo: 4 de marzo de 2026
+Correo: 1.º de julio de 2025
+Factura: 7 ene. 2027
+Contrato: 29-feb-2028
+Planilla CL: 05-06-26
+Sistema EE.UU.: Dec 1, 2025
+````
+
+### suma_columna_clp
+
+- `prompt_sha`: **`aec188296cc0`**
+- Sumar 15 montos es-CL con notas de crédito negativas y devolver el total en el mismo formato
+- verificador: `precision_items`
+
+**System:**
+
+````
+Trabajas en el área de operaciones de una pyme. Tu respuesta se pega directo en una planilla, así que respondes SOLO con los datos pedidos, uno por línea y en el orden pedido. Sin numeración, sin viñetas, sin comillas, sin encabezados y sin explicación.
+````
+
+**User:**
+
+````
+Estos son los documentos de venta de octubre (las notas de crédito restan). Dame dos líneas, en pesos chilenos con el formato de la tabla ($1.234.567, sin decimales):
+1. el total neto (facturas menos notas de crédito)
+2. el total de las notas de crédito, en valor absoluto
+
+Documento | Cliente | Monto
+F-10231 | Distribuidora Los Aromos | $1.234.567
+F-10232 | Comercial Ñuble | $845.000
+NC-0417 | Comercial Ñuble | -$45.000
+F-10233 | Ferretería Andina | $2.318.990
+F-10234 | Papelería Sur | $99.990
+F-10235 | Café Quillota | $1.500.000
+NC-0418 | Distribuidora Los Aromos | -$123.456
+F-10236 | Textiles del Plata | $3.456.789
+F-10237 | Andes Logística | $18.500
+F-10238 | Café Origen | $7.010.101
+NC-0419 | Papelería Sur | -$9.990
+F-10239 | Comercial Ñuble | $600.600
+F-10240 | Ferretería Andina | $1.000.001
+F-10241 | Café Quillota | $254.300
+F-10242 | Distribuidora Los Aromos | $989.898
 ````
 
 ## `presentation` — 2 tests

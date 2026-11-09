@@ -69,6 +69,9 @@ from benchmarks.tests import agent_capabilities, strategy, sales_outreach, trans
 # std 0.25 -> no distingue un 8B de Opus). Las de aca se pueden fallar de forma
 # verificable: o cazas el error aritmetico / la causalidad falsa, o no.
 from benchmarks.tests import business_audit
+from benchmarks.tests import precision_datos, noticias_relevancia  # ventana v6.1
+from benchmarks.tests import noticias_redaccion, noticias_traduccion
+from benchmarks.tests import noticias_extraccion, noticias_verificacion
 # Suite nueva (jul-2026): PLANIFICAR un negocio, no auditarlo. Auditar es verificar
 # (hay una respuesta correcta escondida); planificar es generar (no la hay). Se mide
 # la VALIDEZ del plan, no su belleza: restricciones respetadas, aritmetica que cierra,
@@ -183,6 +186,13 @@ ALL_TEST_SUITES = {
     "dominio_entidad": dominio_entidad.TESTS,
     "tool_calling_adversarial": tool_calling_adversarial.TESTS,
     "prompt_injection_es": prompt_injection_es.TESTS,
+    # Ventana v6.1 (9-nov-2026): fuera del índice; ver su nota en suites.py.
+    "precision_datos": precision_datos.TESTS,
+    "noticias_relevancia": noticias_relevancia.TESTS,
+    "noticias_redaccion": noticias_redaccion.TESTS,
+    "noticias_traduccion": noticias_traduccion.TESTS,
+    "noticias_extraccion": noticias_extraccion.TESTS,
+    "noticias_verificacion": noticias_verificacion.TESTS,
 }
 
 

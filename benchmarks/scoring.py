@@ -137,6 +137,26 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
         return _score_exact_vs_distractor(response, expected_answer)
     elif answer_type == "list_completeness":
         return _score_list_completeness(response, expected_answer)
+    # Ventana v6.1 (9-nov-2026): los scorers de las suites nuevas viven en su módulo y se
+    # importan acá adentro, porque alguno importa helpers de este archivo.
+    elif answer_type == "precision_items":
+        from benchmarks.scoring_precision_datos import score_precision_items
+        return score_precision_items(response, expected_answer)
+    elif answer_type == "noticias_relevancia":
+        from benchmarks.scoring_noticias_relevancia import score_noticias_relevancia
+        return score_noticias_relevancia(response, expected_answer)
+    elif answer_type == "noticias_redaccion":
+        from benchmarks.scoring_noticias_redaccion import score_noticias_redaccion
+        return score_noticias_redaccion(response, expected_answer)
+    elif answer_type == "noticias_traduccion":
+        from benchmarks.scoring_noticias_redaccion import score_noticias_traduccion
+        return score_noticias_traduccion(response, expected_answer)
+    elif answer_type == "noticias_extraccion":
+        from benchmarks.scoring_noticias_claims import score_noticias_extraccion
+        return score_noticias_extraccion(response, expected_answer)
+    elif answer_type == "noticias_verificacion":
+        from benchmarks.scoring_noticias_claims import score_noticias_verificacion
+        return score_noticias_verificacion(response, expected_answer)
     else:
         # Antes devolvía 5.0 en silencio. Un tipo mal escrito —o un scorer que alguien
         # olvida implementar— entregaba una nota media plausible y el error viajaba
@@ -148,7 +168,9 @@ def score_expected_answer(response: str, expected_answer: dict) -> float:
             f"reasoning, constraint_check, must_not_assert, hallucination_check, "
             f"honesty_check, creativity_check, depth_check, range, niah_extraction, "
             f"credential_leak_check, json_valid, json_exact, language_check, "
-            f"exact_vs_distractor, list_completeness. "
+            f"exact_vs_distractor, list_completeness, precision_items, "
+            f"noticias_relevancia, noticias_redaccion, noticias_traduccion, "
+            f"noticias_extraccion, noticias_verificacion. "
             f"Si agregaste un tipo, implementá su scorer."
         )
 

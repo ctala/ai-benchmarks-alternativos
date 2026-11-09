@@ -1,0 +1,7 @@
+2026-10-01 rodrigo  secretos/smtp.env: rotación trimestral de la contraseña SMTP (Postmark)
+2026-10-22 rodrigo  secretos/listmonk.env: token nuevo de la API de Listmonk
+2026-10-27 n8n      boletin-semanal: Boletín #41 enviado
+2026-10-28 marcela  estado/boletin.json: edición manual después de reenviar el Boletín #41 a los no abiertos
+2026-11-02 marcela  listmonk: campaña Promo Cyber enviada
+2026-11-04 rodrigo  listmonk: PUT /api/settings para cambiar el remitente a boletin@elroble.example (cuerpo copiado del GET /api/settings)
+2026-11-05 dueño    datos/drip_copy.csv: aprobadas las plantillas T2 de la prueba de bienvenida

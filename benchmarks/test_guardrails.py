@@ -2161,16 +2161,27 @@ def _t_indice_calidad():
     # I6: un tier que es una ruta
     d = copy.deepcopy(data); d["models"][0]["tier"] = "cloud_nim"
     casos.append(ci.i6_tier(d))
-    # I7: control verde con lo real; un check excluido con errata, y resultados.json con otra lista
+    # I7: control verde con lo real; después, sobre una tarea sintética que ES la versión
+    # de la regla, un check excluido con errata y un total distinto; resultados.json con otra
+    # lista; y la versión publicada cambiada (la corregida ya se midió: la regla tiene que irse)
     from benchmarks import indice as ix
-    tests, res = ci.leer_harbor()
-    if not ix.CHECKS_SIN_CONTAR or ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, res):
+    tests, res, disco = ci.leer_harbor()
+    if not ix.CHECKS_SIN_CONTAR or ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, res, disco):
         return False
-    t0 = next(iter(ix.CHECKS_SIN_CONTAR))
-    errata = {**ix.CHECKS_SIN_CONTAR, t0: {**ix.CHECKS_SIN_CONTAR[t0], "test_que_no_existe": "x"}}
-    casos.append(ci.i7_checks_sin_contar(errata, tests, res))
+    t0 = next(iter(ix.CHECKS_SIN_CONTAR)); r0 = ix.CHECKS_SIN_CONTAR[t0]
+    otros = [f"test_otro_{i}" for i in range(r0["de"] - len(r0["checks"]))]
+    src0 = "\n".join(f"def {c}():\n    pass\n" for c in [*r0["checks"], *otros])
+    tests0, disco0 = {**tests, t0: src0}, {**disco, t0: r0["checksum"]}
+    if ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests0, res, disco0):
+        return False                       # control de la tarea sintética: tiene que dar verde
+    errata = {**ix.CHECKS_SIN_CONTAR, t0: {**r0, "checks": {**r0["checks"], "test_que_no_existe": "x"}}}
+    casos.append(ci.i7_checks_sin_contar(errata, tests0, res, disco0))
+    casos.append(ci.i7_checks_sin_contar({**ix.CHECKS_SIN_CONTAR, t0: {**r0, "de": r0["de"] + 1}},
+                                         tests0, res, disco0))
     r2 = copy.deepcopy(res); r2["tareas"][t0]["checks_sin_contar"] = []
-    casos.append(ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, r2))
+    casos.append(ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, r2, disco))
+    r3 = copy.deepcopy(res); r3["tareas"][t0]["task_checksum"] = "0" * 64
+    casos.append(ci.i7_checks_sin_contar(ix.CHECKS_SIN_CONTAR, tests, r3, disco))
     # I8: control verde; una ficha sin la línea, la calculadora sin su hueco, y la línea
     # publicada a mano (distinta de la que arma indice.py)
     fichas = ci.leer_fichas()

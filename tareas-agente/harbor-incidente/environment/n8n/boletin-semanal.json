@@ -1,0 +1,12 @@
+{
+  "name": "boletin-semanal",
+  "active": true,
+  "nodes": [
+    {"name": "Martes 09:00", "type": "n8n-nodes-base.scheduleTrigger", "parameters": {"rule": {"interval": [{"field": "weeks", "triggerAtDay": [2], "triggerAtHour": 9}]}}},
+    {"name": "Leer estado", "type": "n8n-nodes-base.readWriteFile", "parameters": {"operation": "read", "fileSelector": "/data/estado/boletin.json"}},
+    {"name": "Leer RSS", "type": "n8n-nodes-base.rssFeedRead", "parameters": {"url": "https://elroble.example/blog/feed"}},
+    {"name": "Filtrar nuevos", "type": "n8n-nodes-base.filter", "parameters": {"conditions": {"conditions": [{"leftValue": "={{ DateTime.fromISO($json.isoDate) }}", "operator": {"type": "dateTime", "operation": "after"}, "rightValue": "={{ DateTime.fromISO($('Leer estado').item.json.ultimo_envio) }}"}]}}},
+    {"name": "Crear campaña", "type": "n8n-nodes-base.httpRequest", "parameters": {"method": "POST", "url": "https://listmonk.elroble.example/api/campaigns", "authentication": "predefinedCredentialType", "nodeCredentialType": "listmonkApi"}},
+    {"name": "Actualizar estado", "type": "n8n-nodes-base.readWriteFile", "parameters": {"operation": "write", "fileName": "/data/estado/boletin.json"}}
+  ]
+}

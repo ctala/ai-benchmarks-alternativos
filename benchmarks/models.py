@@ -2108,6 +2108,29 @@ MODELS = {
         "publisher": "Upstage",
         "notes": "Publicado 10-ago-2026. No-thinking (verificado). Licencia sin verificar.",
     },
+    # Ventana v6.1 (DECISIONES, 9-nov-2026): los dos que faltaban de los que Eco usa hoy en
+    # producción (Flash Lite GA en filtro, claims, verificación y traducción) y un modelo
+    # chico abierto que, si sirve, es un ahorro real en producción.
+    "gemini-3.1-flash-lite-ga": {
+        "id": "google/gemini-3.1-flash-lite",
+        "name": "Gemini 3.1 Flash Lite (GA)",
+        "cost_input": 0.25, "cost_output": 1.50,
+        "tier": "cheap", "context_window": 1048576, "multimodal": True,
+        "publisher": "Google", "license": "Proprietary",
+        "notes": "La versión GA (id sin -preview) que usa Ecosistema Startup en producción desde "
+                 "septiembre de 2026. La -preview es otra entrada (`gemini-3.1-flash-lite`).",
+    },
+    "lfm-3-1.7b": {
+        "id": "liquid/lfm-3-1.7b",
+        "name": "LFM-3 1.7B",
+        "cost_input": 0.08, "cost_output": 0.20,
+        "tier": "ultra_cheap", "context_window": 262144,
+        "publisher": "Liquid AI", "open_source": True, "license": "LFM Open License v1.0",
+        "weights_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+        "notes": "1,7B. Su único proveedor en OpenRouter (Liquid, el autor) topa la salida en "
+                 "8.192 tokens, bajo el presupuesto estándar: se mide con el techo que hay, como "
+                 "Muse Glimmer. El proveedor declara que retiene los prompts.",
+    },
     "qwen3.7-flash": {
         "id": "qwen/qwen3.7-flash",
         "name": "Qwen 3.7 Flash",

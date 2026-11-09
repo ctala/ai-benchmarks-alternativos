@@ -1,0 +1,5 @@
+[project]
+name = "facturador-roble"
+version = "1.8.2"
+description = "Scripts internos de facturación y reportes de Ferretería El Roble SpA"
+requires-python = ">=3.10"

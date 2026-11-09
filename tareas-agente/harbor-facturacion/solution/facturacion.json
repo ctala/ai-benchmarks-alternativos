@@ -18,8 +18,18 @@
     }
   ],
   "total_neto_usd": 5629.5,
-  "notas": [
-    "CL-0301: 45 h registradas, tope contractual 40 h sin autorización escrita — se facturan 40; las 5 restantes requieren autorización del cliente.",
-    "CL-0355: 14 h registradas pero contrato vencido el 2026-07-31 — no se factura, requiere renovación."
+  "observaciones": [
+    {
+      "cliente_id": "CL-0142",
+      "detalle": "línea repetida el 2026-08-18 (5 h, Documentación): no se facturó; confirmar si fueron dos sesiones."
+    },
+    {
+      "cliente_id": "CL-0301",
+      "detalle": "45 h registradas, tope contractual 40 h sin autorización escrita: se facturan 40; las 5 restantes requieren autorización del cliente."
+    },
+    {
+      "cliente_id": "CL-0355",
+      "detalle": "14 h registradas pero contrato vencido el 2026-07-31: no se factura, requiere renovación."
+    }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "app.site_name": "Ferretería El Roble",
+  "app.root_url": "https://listmonk.elroble.example",
+  "app.from_email": "Ferretería El Roble <boletin@elroble.example>",
+  "app.concurrency": 5,
+  "smtp": [
+    {
+      "enabled": true,
+      "host": "smtp.postmarkapp.com",
+      "port": 587,
+      "auth_protocol": "login",
+      "username": "pm-roble-01",
+      "password": "••••••••",
+      "tls_type": "STARTTLS",
+      "max_conns": 10
+    }
+  ]
+}

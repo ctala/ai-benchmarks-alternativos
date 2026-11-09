@@ -25,4 +25,8 @@ paths = [
   '''^docs/jubilacion-2026-10\.json$''',
   '''^docs/jubilacion-2026-10-opcion-A\.json$''',
   '''^benchmarks/dominancia_resultado\.json$''',
+  # Credenciales FICTICIAS del entorno de `harbor-incidente` (9-nov-2026): la tarea pide
+  # reponer la contraseña SMTP vigente desde este archivo, así que el fixture tiene que
+  # parecer una credencial. No existen fuera de la tarea.
+  '''^tareas-agente/harbor-incidente/environment/secretos/''',
 ]

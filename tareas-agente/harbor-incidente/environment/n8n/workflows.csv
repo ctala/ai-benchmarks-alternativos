@@ -1,0 +1,5 @@
+id,nombre,activo,actualizado
+wf_boletin_01,boletin-semanal,true,2026-09-15
+wf_boletin_02,boletin-semanal (copia),false,2026-08-30
+wf_drip_01,drip-onboarding,true,2026-10-20
+wf_resp_01,respaldo-nocodb,true,2026-07-02

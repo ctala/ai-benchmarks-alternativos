@@ -9,6 +9,8 @@
   "cohere/north-mini-code",
   "deepseek/deepseek-r1",
   "deepseek/deepseek-r1:free",
+  "inception/mercury-2.5",
+  "inception/mercury-3",
   "kwaipilot/kat-coder-air-v2.5",
   "kwaipilot/kat-coder-pro-v2.5",
   "liquid/lfm-2-24b-a2b",
@@ -212,6 +214,18 @@
   "google/gemini-2.5-pro": {
    "mandatory": true
   },
+  "google/gemini-3.1-flash-lite": {
+   "default_effort": "minimal",
+   "default_enabled": true,
+   "mandatory": false,
+   "supported_efforts": [
+    "high",
+    "medium",
+    "low",
+    "minimal",
+    "none"
+   ]
+  },
   "google/gemini-3.1-flash-lite-preview": {
    "default_effort": "minimal",
    "default_enabled": true,
@@ -313,28 +327,6 @@
     "none"
    ]
   },
-  "inception/mercury-2.5": {
-   "default_effort": "medium",
-   "default_enabled": true,
-   "mandatory": false,
-   "supported_efforts": [
-    "high",
-    "medium",
-    "low",
-    "none"
-   ]
-  },
-  "inception/mercury-3": {
-   "default_effort": "medium",
-   "default_enabled": true,
-   "mandatory": false,
-   "supported_efforts": [
-    "high",
-    "medium",
-    "low",
-    "none"
-   ]
-  },
   "inclusionai/ling-3.0-flash": {
    "default_enabled": true,
    "mandatory": false
@@ -342,6 +334,9 @@
   "inclusionai/ling-3.0-flash-vl": {
    "default_enabled": true,
    "mandatory": false
+  },
+  "liquid/lfm-3-1.7b": {
+   "mandatory": true
   },
   "meituan/longcat-2.0": {
    "default_enabled": true,
@@ -1275,6 +1270,20 @@
    "tools",
    "top_p"
   ],
+  "google/gemini-3.1-flash-lite": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_p"
+  ],
   "google/gemini-3.1-flash-lite-preview": [
    "include_reasoning",
    "max_tokens",
@@ -1452,30 +1461,6 @@
    "top_logprobs",
    "top_p"
   ],
-  "inception/mercury-2.5": [
-   "include_reasoning",
-   "max_tokens",
-   "reasoning",
-   "reasoning_effort",
-   "response_format",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools"
-  ],
-  "inception/mercury-3": [
-   "include_reasoning",
-   "max_tokens",
-   "reasoning",
-   "reasoning_effort",
-   "response_format",
-   "stop",
-   "structured_outputs",
-   "temperature",
-   "tool_choice",
-   "tools"
-  ],
   "inclusionai/ling-3.0-flash": [
    "frequency_penalty",
    "include_reasoning",
@@ -1513,6 +1498,27 @@
    "tool_choice",
    "tools",
    "top_k",
+   "top_p"
+  ],
+  "liquid/lfm-3-1.7b": [
+   "frequency_penalty",
+   "include_reasoning",
+   "logprobs",
+   "max_completion_tokens",
+   "max_tokens",
+   "min_p",
+   "presence_penalty",
+   "reasoning",
+   "repetition_penalty",
+   "response_format",
+   "seed",
+   "stop",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_logprobs",
    "top_p"
   ],
   "meituan/longcat-2.0": [
@@ -1691,9 +1697,7 @@
   "minimax/minimax-m2.7": [
    "frequency_penalty",
    "include_reasoning",
-   "logit_bias",
    "max_tokens",
-   "min_p",
    "presence_penalty",
    "reasoning",
    "repetition_penalty",
@@ -3027,5 +3031,5 @@
    "top_p"
   ]
  },
- "tomada": "2026-11-07"
+ "tomada": "2026-11-09"
 }

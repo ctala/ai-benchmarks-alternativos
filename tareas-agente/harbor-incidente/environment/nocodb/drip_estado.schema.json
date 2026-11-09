@@ -1,0 +1,9 @@
+{
+  "tabla": "drip_estado",
+  "columnas": [
+    {"nombre": "cliente", "tipo": "SingleLineText"},
+    {"nombre": "template_id", "tipo": "SingleLineText"},
+    {"nombre": "version", "tipo": "SingleSelect", "opciones": ["A", "B"]},
+    {"nombre": "enviado_en", "tipo": "DateTime"}
+  ]
+}

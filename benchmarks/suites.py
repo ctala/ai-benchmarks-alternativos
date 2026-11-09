@@ -221,6 +221,21 @@ SUITES = {
                 "la cuenta). Se sigue rindiendo para que todo modelo tenga el rasgo; en 5.1 "
                 "la precisión se rediseña con cadenas difíciles que no parezcan secretos.",
     },
+    "precision_datos": {
+        "pilar": "Coding", "en_promedio": False,
+        # "por_decidir" (9-nov-2026): reemplazo propuesto de la precisión de
+        # `string_precision`. Si entra al índice se decide con la simulación de la parada D.
+        "fuera_por": "por_decidir",
+        "menu": "Precisión con datos de negocio (RUT, montos, SKU)",
+        "decide": "no cambiar un carácter de un dato que cuesta plata",
+        "nota": "NUEVA el 9-nov-2026 (ventana v6.1, tarea 5.5). Mide lo que `string_precision` "
+                "dejó de medir cuando su política ante cadenas que parecen secretos tapó la "
+                "precisión: 14 tests y 81 ítems con identificadores fiscales y bancarios "
+                "ficticios con dígito verificador válido, montos que cambian de formato sin "
+                "cambiar de valor y caracteres confundibles. Nada parece una credencial. "
+                "Verdad exacta por ítem, sin juez. Fuera del índice hasta decidir en la "
+                "parada D, con la simulación, si reemplaza a la precisión del examen.",
+    },
     "ocr_extraction": {
         "pilar": "Coding", "en_promedio": True,
         "menu": "OCR / extracción desde imágenes",
@@ -409,14 +424,20 @@ SUITES = {
     # Diseño aprobado: benchmark-pack-noticias_e470.md
     "noticias_relevancia": {
         "pilar": "Contenido", "en_promedio": False,
-        "fuera_por": "cobertura",
+        # "ocasion" (9-nov-2026): se publica como una ocasión de uso con su propio grupo,
+        # no promedia. Decisión de Cristian para la ventana v6.1; no caduca con la
+        # cobertura. Sumarla al índice se simula aparte (parada D), con su peso en la nota.
+        "fuera_por": "ocasion",
         "menu": "Filtrar notas por criterio editorial",
         "decide": "distinguir si una nota es para tu medio",
-        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026. "
-                "6 tests × 10 notas = 60 notas totales con etiqueta humana (40 KEEP, 20 SKIP). "
-                "Mide decisiones correctas contra criterio editorial de Ecosistema Startup "
-                "(startups, VC, emprendimiento, tech for business). BLOQUEANTE: requiere "
-                "etiquetado humano (~1h) antes de medir.",
+        "nota": "REESCRITA el 9-nov-2026 (ventana v6.1). 58 notas, una por test (29 pasan): ~20 que "
+                "cumplen, ~20 que violan un veto y ~20 trampas (el mismo hecho ya publicado "
+                "por otro medio, comunicado promocional sin hecho contra comunicado con una "
+                "ronda, titular de gadget con cuerpo de negocio). Verdad POR CONSTRUCCIÓN: "
+                "cada caso cae de un lado de una regla escrita del criterio A-Filtro, sin "
+                "etiqueta a ojo. Las notas se reescribieron desde hechos públicos; ningún "
+                "texto de Eco. Absorbe la detección de duplicados a escala chica. Es una "
+                "OCASIÓN (etapa del pipeline de noticias), no entra al índice en esta ventana.",
     },
     "noticias_repetidas": {
         "pilar": "Agentes", "en_promedio": False,
@@ -439,16 +460,53 @@ SUITES = {
                 "automática (sin voseo, título ≤60 chars), 30% fidelidad a cifras, 30% utilidad "
                 "(3 preguntas Y/N al verificador). BLOQUEANTE: requiere crear 12 fichas (~1h).",
     },
+    "noticias_extraccion": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "ocasion",
+        "menu": "Extraer las afirmaciones verificables de una noticia",
+        "decide": "sacar todos los datos, también el del último párrafo",
+        "nota": "NUEVA el 9-nov-2026 (ventana v6.1). Etapa de extracción del pipeline de "
+                "noticias, como OCASIÓN (no promedia). 25 fuentes reescritas desde hechos "
+                "públicos (13 en inglés, 12 en español) con 259 afirmaciones plantadas, una "
+                "siempre en el párrafo final. Sin juez: 8,5 × recall + 1,5 × acierto de núcleo "
+                "× recall − 1 por afirmación con una cifra que no está en la fuente (tope 3).",
+    },
     "noticias_verificacion": {
         "pilar": "Agentes", "en_promedio": False,
-        "fuera_por": "cobertura",
+        "fuera_por": "ocasion",
         "menu": "Verificar afirmaciones contra fuente",
         "decide": "encontrar qué requiere fuente antes de publicar",
-        "nota": "FUERA DEL PROMEDIO hasta tener cobertura (80%). Suite creada 10-oct-2026. "
-                "8 notas × 12 afirmaciones = 96 total (4 copiadas, 3 parafraseadas, 3 con cifra "
-                "alterada, 2 inventadas). Veredictos: RESPALDA|CONTRADICE|SIN_RESPALDO. Complementa "
-                "a `verificar_claims_lote` midiendo detección de alteraciones sutiles. BLOQUEANTE: "
-                "requiere construir las 96 afirmaciones (~2-3h).",
+        "nota": "REESCRITA el 9-nov-2026 (ventana v6.1). Etapa de verificación del pipeline "
+                "de noticias, como OCASIÓN (no promedia). 30 casos (15 deben pasar, 15 "
+                "bloquear) con 171 afirmaciones: RESPALDADO, NO_RESPALDADO o CONTRADICE, con "
+                "cifras alteradas, magnitud, atribución, datos ausentes y fuente cortada por "
+                "muro de pago. Nota = veredictos correctos / afirmaciones; confundir CONTRADICE "
+                "con NO_RESPALDADO es error. Riesgo a vigilar en la muestra: respaldar todo "
+                "saca 7,4 de media.",
+    },
+    "noticias_redaccion": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "ocasion",
+        "menu": "Redactar una noticia desde una fuente",
+        "decide": "escribir la nota sin inventar cifras",
+        "nota": "NUEVA el 9-nov-2026 (ventana v6.1). Etapa de redacción del pipeline de "
+                "noticias, como OCASIÓN (no promedia). 25 fuentes (12 en inglés, 13 en "
+                "español) reescritas desde hechos públicos; cada una OMITE un dato que el "
+                "modelo probablemente conoce (año, valuación). Sin juez: 35 % ninguna cifra "
+                "ajena a la fuente (normalizada: US$100M = «100 millones de dólares»), 25 % el "
+                "dato clave cerca de su entidad, 15 % sin CJK, 15 % largo, 10 % sin voseo. "
+                "Los defectos de estilo se cuentan aparte y no entran a la nota.",
+    },
+    "noticias_traduccion": {
+        "pilar": "Contenido", "en_promedio": False,
+        "fuera_por": "ocasion",
+        "menu": "Corregir fragmentos en otro alfabeto",
+        "decide": "traducir el fragmento sin tocar el resto",
+        "nota": "NUEVA el 9-nov-2026 (ventana v6.1). Etapa de corrección del pipeline de "
+                "noticias, como OCASIÓN (no promedia). 15 textos en español con 26 fragmentos "
+                "en chino, japonés o coreano (4 con cifra: 10億円 = 1.000 millones de yenes). "
+                "Sin juez: 35 % sin CJK, 30 % el resto intacto, 25 % el término aceptado en su "
+                "lugar, 10 % la cifra bien convertida.",
     },
     "noticias_seo_discover": {
         "pilar": "Contenido", "en_promedio": False,

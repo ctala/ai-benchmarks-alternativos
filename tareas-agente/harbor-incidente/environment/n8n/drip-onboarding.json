@@ -1,0 +1,11 @@
+{
+  "name": "drip-onboarding",
+  "active": true,
+  "nodes": [
+    {"name": "Cada hora", "type": "n8n-nodes-base.scheduleTrigger", "parameters": {"rule": {"interval": [{"field": "hours"}]}}},
+    {"name": "Clientes nuevos", "type": "n8n-nodes-base.nocoDb", "parameters": {"operation": "getAll", "table": "clientes", "filter": "sin registro en drip_estado"}},
+    {"name": "Elegir plantilla", "type": "n8n-nodes-base.code", "parameters": {"jsCode": "// reparte A/B/T2 según datos/drip_copy.csv (aprobadas)"}},
+    {"name": "Postmark send", "type": "n8n-nodes-base.postmark", "retryOnFail": true, "parameters": {}},
+    {"name": "drip_estado CREATE", "type": "n8n-nodes-base.nocoDb", "continueOnFail": true, "parameters": {"operation": "create", "table": "drip_estado", "fields": ["cliente", "template_id", "version", "enviado_en"]}}
+  ]
+}

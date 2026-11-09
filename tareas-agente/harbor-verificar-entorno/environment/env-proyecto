@@ -1,0 +1,5 @@
+DB_HOST=pg-roble.interno
+DB_PORT=5432
+DB_NAME=roble_facturacion
+DB_USER=facturador
+ERP_URL=https://erp.elroble.example/api

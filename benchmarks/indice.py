@@ -48,35 +48,66 @@ PESO_PISO_HARBOR = 0.4
 # enunciado y los archivos de /app) no cuenta. El reward de un intento se recalcula sobre
 # los checks que quedan, desde el `ctrf.json` del verificador. La corrección de la tarea va
 # a corte-v5-1 como medición; cuando la tarea corregida esté medida, el check vuelve.
-CHECKS_SIN_CONTAR: dict[str, dict[str, str]] = {
+#
+# ATADA A LA VERSIÓN MEDIDA (9-nov-2026, ventana v6.1). Cada regla lleva el `task_checksum` de Harbor de
+# la versión que tenía el check defectuoso (`dirhash` del directorio de la tarea) y su número
+# de checks. Solo se aplica a los intentos de ESE checksum, y la línea de método se publica
+# solo mientras ese checksum sea el vigente en `resultados.json`. Cuando se mide la tarea
+# corregida el checksum vigente cambia: la exclusión deja de aplicarse sola y
+# `check_indice_calidad` I7 exige borrar la regla. Antes estaba atada al NOMBRE del check en
+# el archivo actual, y corregir la tarea (que renombra los checks) la rompía antes de medir.
+CHECKS_SIN_CONTAR: dict[str, dict] = {
     "harbor-facturacion": {
-        "test_no_factura_la_linea_duplicada":
-            "ninguna regla dice qué hacer con un registro dudoso y el CSV no permite "
-            "distinguir un duplicado de dos sesiones; cobrar y dejar constancia sacaba cero",
-        "test_total_correcto":
-            "depende del duplicado: el mismo error contaba dos veces",
-        "test_escala_lo_que_requiere_decision_humana":
-            "el enunciado no pide dejar constancia, y en la práctica solo busca «CL-0355»",
+        "checksum": "9da3feaef3a1ed794da319fbf04a622ab01142d10fa21d0f5f64810516b12b13",
+        "de": 8,
+        "checks": {
+            "test_no_factura_la_linea_duplicada":
+                "ninguna regla dice qué hacer con un registro dudoso y el CSV no permite "
+                "distinguir un duplicado de dos sesiones; cobrar y dejar constancia sacaba cero",
+            "test_total_correcto":
+                "depende del duplicado: el mismo error contaba dos veces",
+            "test_escala_lo_que_requiere_decision_humana":
+                "el enunciado no pide dejar constancia, y en la práctica solo busca «CL-0355»",
+        },
     },
 }
 
 
 # Cómo se nombra cada tarea en una página pública.
 NOMBRE_TAREA = {"harbor-cotizar": "cotizar", "harbor-facturacion": "facturación",
-                "harbor-reunion": "reunión", "harbor-ruteo": "ruteo"}
+                "harbor-reunion": "reunión", "harbor-ruteo": "ruteo",
+                "harbor-conciliar": "conciliar", "harbor-verificar-entorno": "verificar el entorno",
+                "harbor-incidente": "incidente", "harbor-leads-correo": "leads por correo"}
+
+
+def checksums_publicados(raiz) -> dict[str, str]:
+    """{tarea: task_checksum} de `tareas-agente/resultados.json`: la versión de cada tarea que
+    está detrás de las notas publicadas."""
+    import json as _json
+    from pathlib import Path as _P
+    p = _P(raiz) / "tareas-agente" / "resultados.json"
+    try:
+        tareas = _json.loads(p.read_text(encoding="utf-8")).get("tareas") or {}
+    except Exception:
+        return {}
+    return {t: d.get("task_checksum") for t, d in tareas.items() if d.get("task_checksum")}
+
+
+def checks_excluidos(tarea: str, checksum: str | None) -> dict[str, str]:
+    """Los checks que no cuentan en un intento de `tarea` con ese `checksum` ({} si ninguno)."""
+    regla = CHECKS_SIN_CONTAR.get(tarea)
+    if not regla or not checksum or checksum != regla["checksum"]:
+        return {}
+    return regla["checks"]
 
 
 def checks_sin_contar_meta(raiz) -> dict:
-    """{tarea: {"excluidos": [...], "de": total de checks}} para el export; solo tareas con excluidos."""
-    import re as _re
-    from pathlib import Path as _P
-    out = {}
-    for tarea, checks in CHECKS_SIN_CONTAR.items():
-        if not checks:
-            continue
-        src = (_P(raiz) / "tareas-agente" / tarea / "tests" / "test_outputs.py").read_text(encoding="utf-8")
-        out[tarea] = {"excluidos": sorted(checks), "de": len(_re.findall(r"^def test_", src, flags=_re.M))}
-    return out
+    """{tarea: {"excluidos": [...], "de": total}} para el export: solo las reglas cuya versión
+    es la publicada (si la tarea corregida ya se midió, la regla no rige y no se declara)."""
+    pub = checksums_publicados(raiz)
+    return {t: {"excluidos": sorted(r["checks"]), "de": r["de"]}
+            for t, r in CHECKS_SIN_CONTAR.items()
+            if r["checks"] and pub.get(t) == r["checksum"]}
 
 
 def linea_checks_sin_contar(meta: dict | None) -> str | None:
@@ -91,10 +122,10 @@ def linea_checks_sin_contar(meta: dict | None) -> str | None:
             "La nota de agente y «N de 4» se calculan sin ellos.")
 
 
-def reward_sin_checks(tarea: str, tests: dict[str, str]) -> float | None:
-    """Reward 0-1 de un intento desde el estado de cada check (`{nombre: "passed"|…}`),
-    sin los de `CHECKS_SIN_CONTAR`. None si no queda ningún check que contar."""
-    fuera = CHECKS_SIN_CONTAR.get(tarea, {})
+def reward_sin_checks(tarea: str, tests: dict[str, str], checksum: str | None) -> float | None:
+    """Reward 0-1 de un intento desde el estado de cada check (`{nombre: "passed"|…}`), sin
+    los que no cuentan para la versión `checksum` de la tarea. None si no queda ninguno."""
+    fuera = checks_excluidos(tarea, checksum)
     cuentan = [s for n, s in tests.items() if n not in fuera]
     if not cuentan:
         return None

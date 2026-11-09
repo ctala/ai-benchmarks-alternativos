@@ -73,6 +73,14 @@
    "tag": "sakana",
    "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false (sin max_tokens) responde este proveedor"
   },
+  "gemini-3.1-flash-lite-ga": {
+   "cuantizacion": "unknown",
+   "id": "google/gemini-3.1-flash-lite",
+   "motivo": "el mismo proveedor que el resto de los Gemini del ranking v5 (sin la variante flex, que es otro nivel de servicio)",
+   "provider_name": "Google",
+   "tag": "google-vertex/global",
+   "verificado": "pendiente: ping con tools, tool_choice y allow_fallbacks false antes de la ventana"
+  },
   "gemini-3.1-pro": {
    "cuantizacion": "unknown",
    "id": "google/gemini-3.1-pro-preview",
@@ -546,6 +554,17 @@
    "tag": "moonshotai",
    "techo_salida": 943718
   },
+  "lfm-3-1.7b": {
+   "contexto": 262144,
+   "cuantizacion": "fp8",
+   "id": "liquid/lfm-3-1.7b",
+   "motivo": "del autor y único proveedor; techo de salida 8.192 bajo SALIDA_MIN (se mide con el techo que hay)",
+   "precio_in_por_M": 0.08,
+   "precio_out_por_M": 0.2,
+   "provider_name": "Liquid",
+   "tag": "liquid/fp8",
+   "techo_salida": 8192
+  },
   "ling-3.0-flash": {
    "contexto": 131072,
    "cuantizacion": "bf16",
@@ -684,22 +703,22 @@
    "contexto": 131072,
    "cuantizacion": "bf16",
    "id": "openai/gpt-oss-120b",
-   "motivo": "sin cuantizar",
-   "precio_in_por_M": 0.037,
-   "precio_out_por_M": 0.17,
-   "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16",
+   "motivo": "sin cuantizar; reemplaza a deepinfra/bf16, que devuelve las tool calls dentro del razonamiento y deja a Harbor sin ver la llamada (DECISIONES, 9-nov-2026). Condicionado al ping multi-turno con tools antes de la ventana.",
+   "precio_in_por_M": 0.03,
+   "precio_out_por_M": 0.18,
+   "provider_name": "DekaLLM",
+   "tag": "dekallm/bf16",
    "techo_salida": 117964
   },
   "or-gpt-oss-20b": {
    "contexto": 131072,
    "cuantizacion": "bf16",
    "id": "openai/gpt-oss-20b",
-   "motivo": "sin cuantizar",
-   "precio_in_por_M": 0.03,
+   "motivo": "sin cuantizar; reemplaza a deepinfra/bf16, que devuelve las tool calls dentro del razonamiento y deja a Harbor sin ver la llamada (DECISIONES, 9-nov-2026). Condicionado al ping multi-turno con tools antes de la ventana.",
+   "precio_in_por_M": 0.029,
    "precio_out_por_M": 0.14,
-   "provider_name": "DeepInfra",
-   "tag": "deepinfra/bf16",
+   "provider_name": "DekaLLM",
+   "tag": "dekallm/bf16",
    "techo_salida": 117964
   },
   "or-kimi-k2.5": {
@@ -856,6 +875,17 @@
    "provider_name": "AkashML",
    "tag": "akashml/fp8",
    "techo_salida": 235929
+  },
+  "qwen3.7-flash": {
+   "contexto": 1000000,
+   "cuantizacion": "unknown",
+   "id": "qwen/qwen3.7-flash",
+   "motivo": "del autor (Alibaba); pesos no publicados",
+   "precio_in_por_M": 0.03,
+   "precio_out_por_M": 0.13,
+   "provider_name": "Alibaba",
+   "tag": "alibaba",
+   "techo_salida": 65536
   },
   "tencent-hy3": {
    "contexto": 262144,

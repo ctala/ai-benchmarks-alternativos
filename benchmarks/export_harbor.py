@@ -247,8 +247,19 @@ def recolectar() -> dict:
         # (`indice.CHECKS_SIN_CONTAR`). Sin el detalle queda el del verificador.
         reward_verificador = reward
         tests = _checks(trial)
+
+        # El checksum va antes que el reward: la regla de los checks que no cuentan está
+        # atada a la versión medida de la tarea, y sin checksum no se excluye nada.
+        res_p = trial / "result.json"
+        checksum = None
+        if res_p.exists():
+            try:
+                checksum = json.loads(res_p.read_text()).get("task_checksum")
+            except Exception:
+                pass
+
         if tests:
-            reward = _ix.reward_sin_checks(tarea, tests)
+            reward = _ix.reward_sin_checks(tarea, tests, checksum)
 
         traza_p = trial / "agent" / "mini-swe-agent.txt"
         traza = traza_p.read_text(errors="replace") if traza_p.exists() else ""
@@ -262,14 +273,6 @@ def recolectar() -> dict:
         # Medido: grok-4.20 promedia 0,67 y su cero fue `rompe_bucle`; llama-3.3-70b
         # promedia 0,62 y el suyo fue JSON malformado. Misma etiqueta, causas opuestas.
         causa, detalle = _causa(traza) if (reward in (None, 0.0)) else (None, None)
-
-        res_p = trial / "result.json"
-        checksum = None
-        if res_p.exists():
-            try:
-                checksum = json.loads(res_p.read_text()).get("task_checksum")
-            except Exception:
-                pass
 
         if checksum and vigente.get(tarea) and checksum != vigente[tarea]:
             descartadas[tarea] += 1
@@ -337,7 +340,8 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             fila["causas_de_los_ceros"] = sorted(set(ceros))
 
         tareas.setdefault(tarea, {"modelos": {}, **meta_tarea.get(tarea, {}),
-                                  "checks_sin_contar": sorted(_ix.CHECKS_SIN_CONTAR.get(tarea, {}))})
+                                  "checks_sin_contar": sorted(_ix.checks_excluidos(
+                                      tarea, (meta_tarea.get(tarea) or {}).get("task_checksum")))})
         tareas[tarea]["modelos"][modelo] = fila
 
     for tarea, d in tareas.items():

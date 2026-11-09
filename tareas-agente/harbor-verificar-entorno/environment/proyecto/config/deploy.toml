@@ -1,0 +1,7 @@
+[runtime]
+python = ""
+ruff = ""
+
+[cron]
+exportar = "0 7 1 * *"
+sincronizar = "*/30 * * * *"

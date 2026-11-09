@@ -43,7 +43,7 @@ el próximo que lo busque.
 | Ranking del README (bloque AUTO-RANKING) | `README.md` | 1 archivo | `benchmarks/generate_readme_ranking.py` | `benchmarks/check_consistency.py` |
 | Catálogo de modelos con su estado | `MODELOS.md` | 1 archivo | `benchmarks/generate_modelos_md_table.py` | `benchmarks/check_consistency.py` |
 | Recomendaciones por caso de uso | `RECOMENDACIONES.md` | 1 archivo | `benchmarks/generate_recomendaciones.py` | `benchmarks/check_consistency.py` |
-| MD navegable por modelo, con enlace a sus respuestas | `benchmarks/results/per-model/*.md` | 200 archivos | `benchmarks/generate_per_model_md.py` | `benchmarks/check_docs.py` |
+| MD navegable por modelo, con enlace a sus respuestas | `benchmarks/results/per-model/*.md` | 201 archivos | `benchmarks/generate_per_model_md.py` | `benchmarks/check_docs.py` |
 | Qué dato tiene que coincidir con qué, y quién lo hace cumplir | `SUPERFICIES.md` | 1 archivo | `benchmarks/generate_superficies.py` | `benchmarks/check_version.py` |
 | ESTE MAPA | `MAPA.md` | se genera acá | `benchmarks/generate_mapa.py` | `benchmarks/generate_mapa.py --check` |
 

@@ -1,0 +1,24 @@
+{
+  "id": 8812,
+  "workflow": "drip-onboarding",
+  "status": "success",
+  "nodos": {
+    "Elegir plantilla": {"items": 4, "salida": [
+      {"cliente": "c-2291", "template_id": "E1-T2-ayuda", "version": "T2"},
+      {"cliente": "c-2292", "template_id": "E1-B-bienvenida", "version": "B"},
+      {"cliente": "c-2293", "template_id": "E1-T2-ayuda", "version": "T2"},
+      {"cliente": "c-2294", "template_id": "E1-A-bienvenida", "version": "A"}
+    ]},
+    "Postmark send": {"items": 4, "status": "ok"},
+    "drip_estado CREATE": {
+      "items": 0,
+      "continueOnFail": true,
+      "error": {
+        "message": "Bad request - please check your parameters",
+        "description": "Invalid option(s) \"T2\" provided for column \"version\". Valid options are \"A, B\"",
+        "httpCode": 400,
+        "nota": "el lote se rechaza completo si un registro es inválido"
+      }
+    }
+  }
+}
