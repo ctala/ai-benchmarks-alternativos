@@ -38,9 +38,12 @@ LO QUE LA HACE DIFÍCIL
   · DATO AL FINAL: en cada caso al menos una afirmación solo se respalda con el ÚLTIMO
     párrafo de la fuente.
 
-La mitad de los casos (15) DEBE PASAR —todas sus afirmaciones están respaldadas— y la
-otra mitad (15) DEBE BLOQUEAR —al menos una no lo está—. Medir solo una dirección
-engaña: un verificador que bloquea todo se ve perfecto si solo miras alucinaciones.
+5 casos DEBEN PASAR —todas sus afirmaciones están respaldadas— y 25 DEBEN BLOQUEAR —al
+menos una no lo está—; 10 de esos 25 son casos casi limpios (`mixto_*`) con un solo
+problema escondido. Medir solo una dirección engaña: un verificador que bloquea todo se ve
+perfecto si solo miras alucinaciones, y uno que respalda todo, si solo miras lo publicable.
+La nota de cada caso es la media geométrica de las dos direcciones (9-nov-2026): con la
+mitad de los casos puros, «respaldar todo» sacaba 7,4; ahora 1,7, y «bloquear todo», 0.
 
 CÓMO SE PUNTÚA (sin juez; `benchmarks/scoring_noticias_claims.py`)
 -------------------------------------------------------------------
@@ -93,20 +96,25 @@ def texto_fuente(caso):
 # Cada afirmación: (texto, veredicto, tipo). Tipos: copia · parafrasis · dato_final ·
 # cifra_alterada · dato_alterado · magnitud · atribucion · ausente · muro_pago · opuesto.
 CASOS = [
+    # ── 9-nov-2026: 10 de los 15 casos que pasaban llevan ahora UNA afirmación con problema
+    # (cifra alterada, opuesto o ausente) y se llaman `mixto_*`; 5 siguen puros (`pasa_*`).
+    # Con todos puros, «respaldar todo» coincidía con la respuesta correcta en la mitad de
+    # la suite y sacaba 7,4: ningún scorer por caso puede distinguir esa línea base de un
+    # modelo que verifica de verdad. Ver el scorer en `scoring_noticias_claims.py`.
     # ── DEBEN PASAR (todas RESPALDADO) ───────────────────────────────────────
-    {"name": "pasa_kavak_traducida", "fuente": "kavak", "afirmaciones": [
+    {"name": "mixto_kavak_traducida", "fuente": "kavak", "afirmaciones": [
         ("Kavak recaudó 700 millones de dólares en su Serie E.", R, "parafrasis"),
         ("La valoración de Kavak llegó a US$ 8.700 millones.", R, "parafrasis"),
         ("La ronda la encabezó General Catalyst.", R, "parafrasis"),
-        ("La Serie D de Kavak, cerrada cinco meses antes, fue de US$485 millones.", R, "copia"),
+        ("La Serie D de Kavak, cerrada cinco meses antes, fue de US$585 millones.", C, "cifra_alterada"),
         ("Kavak no reveló a qué países nuevos llegará.", R, "parafrasis"),
         ("Kavak tiene más de 5.000 empleados en América Latina.", R, "dato_final"),
     ]},
-    {"name": "pasa_databricks_dato_final", "fuente": "databricks", "afirmaciones": [
+    {"name": "mixto_databricks_dato_final", "fuente": "databricks", "afirmaciones": [
         ("Databricks levanta 10.000 millones de dólares en una Serie J.", R, "parafrasis"),
         ("Thrive Capital, inversionista nuevo en la compañía, lidera la ronda.", R, "parafrasis"),
         ("La valoración de US$62.000 millones es 44% superior a la de septiembre de 2023.", R, "parafrasis"),
-        ("Del total, ya se completaron US$8.600 millones.", R, "copia"),
+        ("Del total, ya se completaron US$6.800 millones.", C, "cifra_alterada"),
         ("Parte del dinero dará liquidez a empleados actuales y antiguos.", R, "parafrasis"),
         ("Databricks cerró una línea de crédito de US$5.250 millones encabezada por JPMorgan Chase.", R, "dato_final"),
     ]},
@@ -117,32 +125,32 @@ CASOS = [
         ("NotCo fue fundada en 2015.", R, "copia"),
         ("NotCo acumula más de 350 millones de dólares levantados desde que se fundó.", R, "dato_final"),
     ]},
-    {"name": "pasa_nubank_opi", "fuente": "nubank", "afirmaciones": [
+    {"name": "mixto_nubank_opi", "fuente": "nubank", "afirmaciones": [
         ("Nubank colocó 289 millones de acciones a US$9 cada una.", R, "parafrasis"),
         ("Las acciones debutaron en la Bolsa de Nueva York el 9 de diciembre de 2021 con el símbolo NU.", R, "parafrasis"),
         ("Al precio de salida, Nubank vale más que Itaú Unibanco.", R, "parafrasis"),
-        ("Berkshire Hathaway era inversionista de Nubank antes de su salida a bolsa.", R, "parafrasis"),
+        ("Nubank usará los fondos de la salida a bolsa para lanzar una tarjeta en Chile.", NR, "ausente"),
         ("Con el rango de precio original, Nubank buscaba recaudar hasta US$3.180 millones.", R, "dato_final"),
     ]},
-    {"name": "pasa_mistral_euros", "fuente": "mistral", "afirmaciones": [
-        ("Mistral AI recaudó 385 millones de euros.", R, "parafrasis"),
+    {"name": "mixto_mistral_euros", "fuente": "mistral", "afirmaciones": [
+        ("Mistral AI recaudó 485 millones de euros.", C, "cifra_alterada"),
         ("Andreessen Horowitz y Lightspeed lideraron la ronda.", R, "parafrasis"),
         ("Según Bloomberg, Mistral vale unos US$2.000 millones.", R, "parafrasis"),
         ("Eric Schmidt invirtió en Mistral.", R, "parafrasis"),
         ("Es la segunda ronda de Mistral en siete meses.", R, "parafrasis"),
         ("La ronda semilla de Mistral, de 105 millones de euros, la valoró en 240 millones de euros.", R, "dato_final"),
     ]},
-    {"name": "pasa_cornershop_reguladores", "fuente": "cornershop", "afirmaciones": [
+    {"name": "mixto_cornershop_reguladores", "fuente": "cornershop", "afirmaciones": [
         ("Uber pagará hasta US$459 millones por una participación mayoritaria en Cornershop.", R, "copia"),
         ("El pago combina efectivo y acciones de Uber.", R, "parafrasis"),
         ("Walmart intentó comprar Cornershop antes que Uber, pero la COFECE rechazó esa operación.", R, "parafrasis"),
         ("La FNE de Chile aprobó la compra de Uber en enero de 2020.", R, "parafrasis"),
-        ("A septiembre de 2020, Uber había desembolsado US$379 millones.", R, "copia"),
+        ("A septiembre de 2020, Uber había desembolsado US$279 millones.", C, "cifra_alterada"),
         ("En junio de 2021, Uber anunció que compraría el 100% de Cornershop.", R, "dato_final"),
     ]},
-    {"name": "pasa_klar_deuda", "fuente": "klar", "afirmaciones": [
+    {"name": "mixto_klar_deuda", "fuente": "klar", "afirmaciones": [
         ("General Atlantic lideró la Serie C de US$190 millones de Klar.", R, "parafrasis"),
-        ("De los US$190 millones, US$20 millones son deuda.", R, "parafrasis"),
+        ("De los US$190 millones, US$50 millones son deuda.", C, "cifra_alterada"),
         ("Grupo Televisa entró como inversionista nuevo de Klar.", R, "parafrasis"),
         ("Klar busca una licencia bancaria.", R, "parafrasis"),
         ("En una ronda anterior, Klar levantó US$70 millones a una valoración de US$500 millones.", R, "dato_final"),
@@ -154,8 +162,8 @@ CASOS = [
         ("Kushki no dio a conocer cuánto factura.", R, "parafrasis"),
         ("Según Kushki, sus ingresos crecieron 200% en 2021.", R, "dato_final"),
     ]},
-    {"name": "pasa_reddit_secundaria", "fuente": "reddit", "afirmaciones": [
-        ("Reddit fijó el precio de su OPI en el tope del rango, US$34 por acción.", R, "parafrasis"),
+    {"name": "mixto_reddit_secundaria", "fuente": "reddit", "afirmaciones": [
+        ("Reddit fijó el precio de su OPI en el piso del rango, US$31 por acción.", C, "opuesto"),
         ("Sin contar la venta de accionistas existentes, Reddit obtuvo US$519,4 millones brutos.", R, "parafrasis"),
         ("Reddit cotizará en la Bolsa de Nueva York bajo el símbolo RDDT.", R, "parafrasis"),
         ("Steve Huffman es el director ejecutivo de Reddit.", R, "parafrasis"),
@@ -169,11 +177,11 @@ CASOS = [
         ("La inversión supera en 38% a la de 2024.", R, "parafrasis"),
         ("Los US$3.400 millones equivalen a unos 69.952 millones de pesos.", R, "dato_final"),
     ]},
-    {"name": "pasa_fintual_utilidades", "fuente": "fintual", "afirmaciones": [
+    {"name": "mixto_fintual_utilidades", "fuente": "fintual", "afirmaciones": [
         ("Sequoia Capital lideró la Serie B de Fintual, por US$39 millones.", R, "parafrasis"),
         ("Es la primera inversión de Sequoia en Chile.", R, "copia"),
         ("ALLVP y Kaszek ya eran inversionistas de Fintual desde la Serie A.", R, "parafrasis"),
-        ("Los fondos irán principalmente a la operación en México.", R, "parafrasis"),
+        ("Fintual planea salir a bolsa en Santiago el próximo año.", NR, "ausente"),
         ("Según Diario Financiero, Fintual reportó utilidades por primera vez en el primer semestre de 2024.", R, "dato_final"),
     ]},
     {"name": "pasa_amazon_anthropic_tramos", "fuente": "amazon_anthropic", "afirmaciones": [
@@ -183,9 +191,9 @@ CASOS = [
         ("Anthropic entrenará sus modelos con los chips Trainium e Inferentia de AWS.", R, "parafrasis"),
         ("Anthropic seguirá ofreciendo sus modelos a través de Google Cloud.", R, "dato_final"),
     ]},
-    {"name": "pasa_xai_premoney", "fuente": "xai", "afirmaciones": [
+    {"name": "mixto_xai_premoney", "fuente": "xai", "afirmaciones": [
         ("xAI recaudó 6.000 millones de dólares en una Serie B.", R, "parafrasis"),
-        ("Según Reuters, la valoración post-money de xAI es de US$24.000 millones.", R, "parafrasis"),
+        ("Según Reuters, la valoración post-money de xAI es de US$18.000 millones.", C, "cifra_alterada"),
         ("Sequoia Capital y Andreessen Horowitz están entre los inversionistas.", R, "parafrasis"),
         ("Grok está disponible para los suscriptores de X.", R, "parafrasis"),
         ("Según Musk, xAI valía US$18.000 millones antes de la inversión.", R, "dato_final"),
@@ -197,11 +205,11 @@ CASOS = [
         ("Y Combinator participó en la ronda.", R, "copia"),
         ("Platzi iniciará operaciones en Brasil.", R, "dato_final"),
     ]},
-    {"name": "pasa_instacart_debut", "fuente": "instacart", "afirmaciones": [
+    {"name": "mixto_instacart_debut", "fuente": "instacart", "afirmaciones": [
         ("Instacart recaudó US$660 millones con la venta de 22 millones de acciones.", R, "parafrasis"),
         ("Instacart comenzó a cotizar en Nasdaq el 19 de septiembre de 2023.", R, "parafrasis"),
         ("A inicios de 2021, Instacart fue valorada en US$39.000 millones.", R, "parafrasis"),
-        ("Fidji Simo dirige Instacart desde 2021.", R, "parafrasis"),
+        ("Instacart destinará lo recaudado a expandirse en Europa.", NR, "ausente"),
         ("En sus primeros minutos en bolsa, la acción de Instacart tocó US$42,95.", R, "dato_final"),
     ]},
 

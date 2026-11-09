@@ -477,12 +477,12 @@ SUITES = {
         "menu": "Verificar afirmaciones contra fuente",
         "decide": "encontrar qué requiere fuente antes de publicar",
         "nota": "REESCRITA el 9-nov-2026 (ventana v6.1). Etapa de verificación del pipeline "
-                "de noticias, como OCASIÓN (no promedia). 30 casos (15 deben pasar, 15 "
-                "bloquear) con 171 afirmaciones: RESPALDADO, NO_RESPALDADO o CONTRADICE, con "
+                "de noticias, como OCASIÓN (no promedia). 30 casos (5 deben pasar, 25 "
+                "bloquear, 10 de ellos con un solo problema escondido) con 171 afirmaciones: RESPALDADO, NO_RESPALDADO o CONTRADICE, con "
                 "cifras alteradas, magnitud, atribución, datos ausentes y fuente cortada por "
-                "muro de pago. Nota = veredictos correctos / afirmaciones; confundir CONTRADICE "
-                "con NO_RESPALDADO es error. Riesgo a vigilar en la muestra: respaldar todo "
-                "saca 7,4 de media.",
+                "muro de pago. Nota = media geométrica entre el acierto en lo respaldado y el "
+                "acierto exacto en lo que no (confundir CONTRADICE con NO_RESPALDADO es "
+                "error): respaldar todo saca 1,7 y bloquear todo, 0.",
     },
     "noticias_redaccion": {
         "pilar": "Contenido", "en_promedio": False,

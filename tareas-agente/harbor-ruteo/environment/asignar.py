@@ -69,7 +69,7 @@ def main() -> int:
         return 2
     if not a.escalar:
         if not a.modelo:
-            print("ERROR: falta el modelo, o usa --escalar", file=sys.stderr)
+            print("ERROR: falta el modelo, o usá --escalar", file=sys.stderr)
             return 2
         if a.modelo not in cat:
             print(f"ERROR: el modelo {a.modelo!r} no está en el catálogo. "

@@ -503,34 +503,34 @@ def _t_suites():
         return _correr("check_suites.py") != 0
 
 
-@prueba("check_suites S6", "una suite que dice no promediar y sí promedia")
+@prueba("check_suites S6", "el titular promedia con otro criterio que `del_indice()`")
 def _t_suites_declarado_vs_real():
     """S6 es un AVISO, no un fallo: el exit code no cambia, así que se lee el texto.
 
-    Y como S6 NACE con dos avisos (`tool_calling`, `integridad_idioma`), un control
-    global «verde antes de romper» es imposible — sería un sabotaje sobre un mundo ya
-    sucio, que es el falso verde que este archivo existe para evitar. Así que el control
-    es POR SUITE: `reasoning` no debe aparecer hoy, y debe aparecer tras el sabotaje.
+    9-nov-2026 · reescrito junto con S6. El aviso viejo nacía siempre en rojo (leía
+    funciones del export que ya no deciden), así que el control era por suite. Ahora S6
+    nace verde, y el control es global: sin aviso S6 antes de romper; con aviso después de
+    cambiar el filtro de `general` por un prefijo, que es exactamente la segunda definición
+    del índice que vivió en el export hasta el 17-sep.
     """
-    reg = ROOT / "benchmarks" / "suites.py"
+    exp = ROOT / "benchmarks" / "export_for_pages.py"
 
-    def s6_menciona(texto: str) -> bool:
+    def s6_avisa() -> bool:
         salida = subprocess.run([PY, str(ROOT / "benchmarks" / "check_suites.py")],
                                 capture_output=True, text=True, cwd=ROOT).stdout
-        return any("S6" in ln and texto in ln for ln in salida.splitlines())
+        return any("S6 ·" in ln and "⚠️" in ln for ln in salida.splitlines())
 
-    if s6_menciona("reasoning"):
-        return False  # control sucio: ya sale antes de romper nada, no prueba nada
-    with Sabotaje(reg):
-        original = reg.read_text(encoding="utf-8")
+    if s6_avisa():
+        return False  # control sucio: ya avisa antes de romper nada, no prueba nada
+    with Sabotaje(exp):
+        original = exp.read_text(encoding="utf-8")
         roto = original.replace(
-            '"reasoning": {\n        "pilar": "Razonamiento", "en_promedio": True,',
-            '"reasoning": {\n        "pilar": "Razonamiento", "en_promedio": False,', 1)
+            'if str(r.get("suite", "")) in _INDICE and not _is_low_coverage(r)]',
+            'if not _is_niah(r) and not _is_low_coverage(r)]', 1)
         if roto == original:
-            raise AssertionError(
-                "el sabotaje no cambió nada: `reasoning` ya no se declara así en suites.py")
-        reg.write_text(roto, encoding="utf-8")
-        return s6_menciona("reasoning")
+            raise AssertionError("el sabotaje no cambió nada: `general` ya no se arma así")
+        exp.write_text(roto, encoding="utf-8")
+        return s6_avisa()
 
 
 @prueba("check_suites S7", "una suite del índice sin peldaño (se mediría al default en silencio)")

@@ -2944,18 +2944,20 @@ def test_noticias_extraccion_scorer_en_las_dos_direcciones():
         assert score_expected_answer("no hay JSON", ea) == 0.0, t["name"]
 
 
-def test_noticias_verificacion_scorer_y_balance():
+def test_noticias_verificacion_scorer_y_lineas_base():
+    """9-nov-2026: las líneas base triviales tienen que quedar abajo. Con la proporción simple
+    de aciertos, «respaldar todo» sacaba 7,4 de media; Cristian: «no puede sacar 7,4»."""
     import json as _j
+    import statistics as _st
     from benchmarks.tests import noticias_verificacion as nv
     from benchmarks.scoring import score_expected_answer
-    gates = [t["expected_answer"]["gate"] for t in nv.TESTS]
-    assert len(nv.TESTS) >= 20 and 0.4 <= gates.count("PASA") / len(gates) <= 0.6
+    assert len(nv.TESTS) >= 20
+    def nota(ea, f):
+        lista = [{"id": k, "veredicto": f(v)} for k, v in ea["esperados"].items()]
+        return score_expected_answer(_j.dumps({"veredictos": lista}), ea)
     for t in nv.TESTS:
-        ea = t["expected_answer"]
-        lista = [{"id": k, "veredicto": v} for k, v in ea["esperados"].items()]
-        assert score_expected_answer(_j.dumps({"veredictos": lista}), ea) == 10.0, t["name"]
-        todo_r = [{"id": k, "veredicto": "RESPALDADO"} for k in ea["esperados"]]
-        nota_r = score_expected_answer(_j.dumps({"veredictos": todo_r}), ea)
-        # Sabotaje: el modelo que respalda todo no puede sacar 10 en un caso que bloquea.
-        if ea["gate"] != "PASA":
-            assert nota_r < 10.0, t["name"]
+        assert nota(t["expected_answer"], lambda v: v) == 10.0, t["name"]
+    eas = [t["expected_answer"] for t in nv.TESTS]
+    assert _st.mean(nota(ea, lambda v: "RESPALDADO") for ea in eas) < 3.0
+    assert _st.mean(nota(ea, lambda v: "CONTRADICE") for ea in eas) < 3.0
+    assert _st.mean(nota(ea, lambda v: "NO_RESPALDADO") for ea in eas) < 3.0

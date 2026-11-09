@@ -30,8 +30,9 @@ S4. Toda suite con pilar y `en_promedio: False` tiene el motivo escrito. Es la c
     que estuvo tres veces sin declarar: medida, con pilar natural, y fuera del promedio.
     Se reporta como AVISO, no como fallo — la decisión de meterlas mueve números
     publicados y se toma con simulación (`PLAN-ESTABILIDAD.md`), no de pasada.
-S6. Lo que el registro DECLARA sobre el promedio es lo que el export HACE. También
-    AVISO: hoy nace en rojo, y un bloqueante que arranca fallando se aprende a ignorar.
+S6. Lo que el registro DECLARA sobre el promedio es lo que el export HACE: `general` se
+    filtra por `del_indice()` y la cobertura, nada más. AVISO (9-nov-2026: reescrito; el
+    viejo leía funciones que ya no deciden y se disparaba siempre).
 S7. Toda suite del índice tiene peldaño (1-4) y ninguna otra lo tiene (corte-v5 3.1.a).
     El peldaño decide con qué thinking se mide cada suite: una suite del índice sin
     peldaño se mediría al default en silencio, y eso es un examen distinto del resto.
@@ -108,34 +109,33 @@ def s6_lo_declarado_es_lo_que_promedia(verbose=False) -> list[str]:
     No importa `export_for_pages` (arrastra el SDK de OpenAI, que tuvo el CI 40 días en
     rojo): lee su FUENTE y saca de ahí qué excluye, para que agregar una exclusión nueva
     quede cubierto solo.
+
+    9-nov-2026 · EL AVISO VIEJO QUEDÓ CADUCO. Leía las funciones `_is_niah`…`_is_agentic`
+    del export como si fueran la exclusión, y acusaba de «colarse al titular» a toda suite
+    con `en_promedio: False` (13 el 9-nov). Pero desde el 17-sep `general` se arma con
+    `suites.del_indice()` y esas funciones solo alimentan los ejes aparte: una suite fuera
+    del índice no puede entrar. Un aviso que se dispara siempre se aprende a ignorar. Ahora
+    S6 verifica lo que de verdad decide: que `general` filtre por `del_indice()` y por
+    nada más que la cobertura.
     """
     fuente = (ROOT / "benchmarks" / "export_for_pages.py").read_text(errors="ignore")
-    bloque = fuente[fuente.find("def _is_niah"):fuente.find("def _is_agentic")]
-    if not bloque:
-        return ["S6 · no se pudo leer qué excluye `general` en export_for_pages.py"]
-    prefijos = set(re.findall(r'startswith\(\s*["\'](\w+)["\']', bloque))
-    exactos = set(re.findall(r'==\s*["\'](\w+)["\']', bloque))
-    m = re.search(r"MIN_SUITE_COVERAGE\s*=\s*([\d.]+)", fuente)
-    umbral = f"{float(m.group(1)):.0%}" if m else "el umbral"
-
-    def excluida_por_codigo(s: str) -> bool:
-        return any(s.startswith(p) for p in prefijos) or s in exactos
-
-    avisos = []
-    contradicen = [k for k, s in SUITES.items()
-                   if s["en_promedio"] and excluida_por_codigo(k)]
-    for k in sorted(contradicen):
-        avisos.append(f"S6 · `{k}` declara `en_promedio: True` y el export lo EXCLUYE por "
-                      f"código: nunca promedia, diga lo que diga el registro")
-    colados = sorted(k for k, s in SUITES.items()
-                     if not s["en_promedio"] and not excluida_por_codigo(k))
-    if colados:
-        avisos.append(f"S6 · {len(colados)} suite(s) declaran `en_promedio: False` y nada "
-                      f"las excluye: entran al titular en cuanto su cobertura pase "
-                      f"{umbral}, sin que nadie lo decida → {', '.join(colados)}")
-    if verbose and not avisos:
-        print("  ✅ S6 · lo que el registro declara es lo que el export promedia")
-    return avisos
+    importa = re.search(r"from benchmarks\.suites import del_indice as (\w+)", fuente)
+    if not importa:
+        return ["S6 · export_for_pages.py ya no importa `suites.del_indice`: el titular puede "
+                "estar promediando con otra definición del índice"]
+    alias = importa.group(1)
+    conj = re.search(rf"(\w+)\s*=\s*{alias}\(\)", fuente)
+    linea = re.search(r"general\s*=\s*\[r for r in runs\s*if ([^\]]+)\]", fuente)
+    if not conj or not linea:
+        return ["S6 · no se pudo leer cómo se arma `general` en export_for_pages.py"]
+    cond = " ".join(linea.group(1).split())
+    esperada = f'str(r.get("suite", "")) in {conj.group(1)} and not _is_low_coverage(r)'
+    if cond != esperada:
+        return [f"S6 · `general` (el titular) no se filtra solo por `del_indice()` y la "
+                f"cobertura: `{cond}` — el registro y el export pueden divergir"]
+    if verbose:
+        print("  ✅ S6 · el titular promedia exactamente `del_indice()` (más el umbral de cobertura)")
+    return []
 
 
 def s7_peldanos(verbose=False) -> list[str]:

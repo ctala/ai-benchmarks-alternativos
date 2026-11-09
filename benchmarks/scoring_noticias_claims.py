@@ -364,12 +364,27 @@ def detalle_verificacion(response: str, expected: dict) -> dict:
             errores[k] = {"esperado": v, "devuelto": got}
     total = len(esperados)
     aciertos = total - len(errores)
-    nota = round(10.0 * aciertos / total, 2) if total and isinstance(lista, list) else 0.0
+    # 9-nov-2026 · media GEOMÉTRICA de dos aciertos: dejar pasar lo respaldado y marcar con
+    # el veredicto exacto lo que no lo está. Con la proporción simple de aciertos, «respaldar
+    # todo» sacaba 7,4 de media: la mayoría de las afirmaciones están respaldadas. Con la
+    # geométrica, una línea base trivial (todo RESPALDADO, o todo bloqueado) saca 0 en un caso
+    # mixto, porque falla por completo una de las dos direcciones. Un caso sin problemas
+    # (puro) se puntúa solo por lo respaldado.
+    resp = [k for k, v in esperados.items() if v == "RESPALDADO"]
+    prob = [k for k, v in esperados.items() if v != "RESPALDADO"]
+    r_ok = sum(k not in errores for k in resp) / len(resp) if resp else None
+    p_ok = sum(k not in errores for k in prob) / len(prob) if prob else None
+    if not total or not isinstance(lista, list):
+        nota = 0.0
+    elif r_ok is None or p_ok is None:
+        nota = round(10.0 * (r_ok if p_ok is None else p_ok), 2)
+    else:
+        nota = round(10.0 * (r_ok * p_ok) ** 0.5, 2)
     return {"nota": nota, "aciertos": aciertos, "total": total, "errores": errores,
-            "devueltos": len(devueltos)}
+            "devueltos": len(devueltos), "acierto_respaldados": r_ok, "acierto_problemas": p_ok}
 
 
 def score_noticias_verificacion(response: str, expected: dict) -> float:
-    """Nota 0-10 = 10 × veredictos correctos / afirmaciones enviadas. Faltante = error;
-    CONTRADICE↔NO_RESPALDADO = error; JSON que no parsea → 0."""
+    """Nota 0-10 = 10 × √(acierto en las respaldadas × acierto exacto en las que no lo están).
+    Faltante = error; CONTRADICE↔NO_RESPALDADO = error; JSON que no parsea → 0."""
     return detalle_verificacion(response, expected)["nota"]
