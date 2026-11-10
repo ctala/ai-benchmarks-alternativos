@@ -1,9 +1,9 @@
 # GLM 5.3 — structured_output/json_simple_extraction
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 9.04 | quality: 10.0
-- latency_total: 3.688s | tokens_per_second: 72.7
-- input_tokens: 108 | output_tokens: 268
+- success: True  | final: 9.13 | quality: 10.0
+- latency_total: 2.372s | tokens_per_second: 66.2
+- input_tokens: 108 | output_tokens: 157
 
 ## Entrada exacta (lo que recibió el modelo)
 

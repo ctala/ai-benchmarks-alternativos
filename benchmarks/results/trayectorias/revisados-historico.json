@@ -1,0 +1,343 @@
+{
+ "version": "historico",
+ "revisado": "2026-11-10",
+ "nota": "huellas (ruta, regla, sha256 del valor) de hallazgos de gitleaks revisados: ninguno es una credencial. El valor no se guarda. DECISIONES, 10-nov-2026.",
+ "clases": {
+  "huella pública de la clave GPG de la imagen de Python": 44,
+  "código de producto (SKU) inventado por el modelo, en un KeyError del verificador": 2,
+  "fragmento de razonamiento cifrado de OpenAI (reasoning_details)": 2,
+  "hash sha1 (40 hex) en la salida de un comando": 7
+ },
+ "hallazgos": [
+  {
+   "ruta": "2026-08-14__07-07-07/harbor-cotizar__yERgizj/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__07-07-07/harbor-cotizar__yERgizj/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__07-42-11/harbor-cotizar__QZNmsty/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__07-42-11/harbor-cotizar__QZNmsty/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__EWeUQVr/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__EWeUQVr/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__bkw2VZz/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__bkw2VZz/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__uRH798H/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-14__08-13-30/harbor-cotizar__uRH798H/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-19__15-07-06/harbor-cotizar__hHu4Vza/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-19__15-07-06/harbor-cotizar__hHu4Vza/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-22__06-53-37/harbor-cotizar__GiPSBCg/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-08-22__06-53-37/harbor-cotizar__GiPSBCg/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__09-11-19/harbor-cotizar__dTjoKyC/verifier/ctrf.json",
+   "regla": "generic-api-key",
+   "sha": "1dd2c69872b80c5ffc0a9e7d787d29616baf8e15ada36d1bdce88a3436d1c891",
+   "clase": "código de producto (SKU) inventado por el modelo, en un KeyError del verificador"
+  },
+  {
+   "ruta": "2026-09-14__09-11-19/harbor-cotizar__dTjoKyC/verifier/test-stdout.txt",
+   "regla": "generic-api-key",
+   "sha": "1dd2c69872b80c5ffc0a9e7d787d29616baf8e15ada36d1bdce88a3436d1c891",
+   "clase": "código de producto (SKU) inventado por el modelo, en un KeyError del verificador"
+  },
+  {
+   "ruta": "2026-09-14__15-52-10/harbor-cotizar__LY24vcW/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__15-52-10/harbor-cotizar__LY24vcW/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__16-16-57/harbor-cotizar__ZPnMWyj/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__16-16-57/harbor-cotizar__ZPnMWyj/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__16-16-57/harbor-cotizar__ZPnMWyj/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__16-16-57/harbor-cotizar__ZPnMWyj/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__17-36-37/harbor-facturacion__vRCM7TD/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "2026-09-14__17-36-37/harbor-facturacion__vRCM7TD/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__26fpzKL/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__26fpzKL/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__Y5iRGW2/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__Y5iRGW2/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__zv2otQ2/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__zv2otQ2/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__zv2otQ2/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-cotizar_c1_111913/harbor-cotizar__zv2otQ2/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-facturacion_c3_113152/harbor-facturacion__HvLyASf/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__deepseek-v4.1-flash__harbor-facturacion_c3_113152/harbor-facturacion__HvLyASf/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__fugu-max__harbor-facturacion_c1_155917/harbor-facturacion__8rZ7skE/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__fugu-max__harbor-facturacion_c1_155917/harbor-facturacion__8rZ7skE/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-cotizar_c1_162244/harbor-cotizar__Beyc7BA/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-cotizar_c1_162244/harbor-cotizar__Beyc7BA/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-cotizar_c1_162244/harbor-cotizar__GFoCFcc/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-cotizar_c1_162244/harbor-cotizar__GFoCFcc/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-facturacion_c1_162657/harbor-facturacion__KFzNKCe/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-facturacion_c1_162657/harbor-facturacion__KFzNKCe/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-facturacion_c1_162657/harbor-facturacion__SBM57Gx/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gemini-3.8-flash__harbor-facturacion_c1_162657/harbor-facturacion__SBM57Gx/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__gpt-6-astra__harbor-ruteo_c1_151214/harbor-ruteo__kFQwgMu/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "cd92a4d9afc88bdcb166732e5c7ac00477551979a301e3834746450564f73d78",
+   "clase": "fragmento de razonamiento cifrado de OpenAI (reasoning_details)"
+  },
+  {
+   "ruta": "v5__gpt-6-astra__harbor-ruteo_c1_151214/harbor-ruteo__kFQwgMu/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "cd92a4d9afc88bdcb166732e5c7ac00477551979a301e3834746450564f73d78",
+   "clase": "fragmento de razonamiento cifrado de OpenAI (reasoning_details)"
+  },
+  {
+   "ruta": "v5__hy4__harbor-cotizar_c1_130801/harbor-cotizar__R7c39Bx/agent/mini-swe-agent.trajectory.json",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__hy4__harbor-cotizar_c1_130801/harbor-cotizar__R7c39Bx/agent/mini-swe-agent.txt",
+   "regla": "generic-api-key",
+   "sha": "6c3b7674b58d9f7266cd8b823ecf469b0a03d1bf2c8c24df1d0121d8e818f1fa",
+   "clase": "huella pública de la clave GPG de la imagen de Python"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "25bd18cfde503ec8de8232a8e07357a23add8fe51cc454d2f1ad621be005e5c0",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "28753567a4fdaf1dce254ea89d2e9ffa921f783860c9e2fef8a5f55fbc2c4181",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "2db71bcb4cd7dae37749a17613e50ffadee4bdb91db3c6c1ac727d4005c60c34",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "5be72c6f5624f5b3b0f06c6d5d418796214010649a8acf01345a5a2367ede093",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "80091bc8407dacaba01f882b989098475f7c600aad86ed37146cf64908882d61",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "840006ddaf7831ce068c56e25bee2d2b60d4f003608538fa4df4ae23eccdbfcf",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  },
+  {
+   "ruta": "v5__hy4__harbor-facturacion_c1_131502/harbor-facturacion__SFz9pRF/agent/mini-swe-agent.txt",
+   "regla": "sourcegraph-access-token",
+   "sha": "c6bba3357b3a6395d5d3546520c0f4c5e9529007f2e9425db8c08fdbfb7297f4",
+   "clase": "hash sha1 (40 hex) en la salida de un comando"
+  }
+ ]
+}

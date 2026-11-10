@@ -1,13 +1,13 @@
 # Qwen 3.6 35B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-35b-a3b`
-- **Total tests**: 394/400 exitosos (6 errores)
-- **Score final**: 7.54
-- **Calidad**: 8.05
+- **Total tests**: 414/420 exitosos (6 errores)
+- **Score final**: 7.30
+- **Calidad**: 7.71
 - **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 118 tok/s
-- **Latencia primera token**: 19.96s
-- **Costo promedio por test**: $0.00360
+- **Velocidad**: 117 tok/s
+- **Latencia primera token**: 19.67s
+- **Costo promedio por test**: $0.00351
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 7.50 | 7.69 |
 | policy_adherence | 8 | 8 | 7.97 | 8.21 |
 | presentation | 4 | 4 | 8.25 | 9.16 |
-| prompt_injection_es | 20 | 20 | 2.70 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.62 | 1.00 |
 | reasoning | 6 | 6 | 8.34 | 9.37 |
 | sales_outreach | 6 | 6 | 7.32 | 7.42 |
 | startup_content | 10 | 10 | 8.30 | 9.17 |

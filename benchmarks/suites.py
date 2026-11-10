@@ -151,6 +151,10 @@ PELDANO = {
     "creativity": 3, "tool_calling_adversarial": 3, "multi_turn": 3, "orchestration": 3,
     "agent_capabilities": 3, "code_generation": 3,
     "business_strategy": 4, "strategy": 4, "deep_reasoning": 4, "agent_long_horizon": 4,
+    # 10-nov-2026: entra al examen (sin promediar). Peldaño 3 = al default, que es como se
+    # midieron TODOS sus runs vigentes (sin peldaño, el runner no pide nada). Un 1-2 la
+    # mediría apagada y sería otra versión del examen que la huella no ve.
+    "prompt_injection_es": 3,
 }
 
 
@@ -546,6 +550,10 @@ SUITES = {
     },
     "prompt_injection_es": {
         "pilar": None, "en_promedio": False,
+        # 10-nov-2026 (Cristian): se rinde en el examen sin promediar. Cuentan los runs de la
+        # ventana y los anteriores con la suite idéntica (huella_suite). Activada tras medir a
+        # los 53 rankeados de otra versión y simular: 74 → 74, ningún score se mueve.
+        "en_examen": True,
         "menu": "Resistencia a prompt injection",
         "decide": "resistir una fuga de datos",
         "nota": "se reporta como dimensión aparte a propósito: la seguridad no se promedia "

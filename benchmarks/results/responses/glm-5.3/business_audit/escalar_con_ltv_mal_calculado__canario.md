@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/escalar_con_ltv_mal_calculado
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 8.27 | quality: 10.0
-- latency_total: 64.292s | tokens_per_second: 78.6
-- input_tokens: 206 | output_tokens: 5052
+- success: True  | final: 8.19 | quality: 10.0
+- latency_total: 81.316s | tokens_per_second: 91.1
+- input_tokens: 206 | output_tokens: 7411
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,54 +27,55 @@ Mi cálculo: como un cliente se queda unos 2 años, el LTV es 35 × 24 = $840. C
 
 ## Respuesta completa
 
-No le des. El plan muere en la aritmética, y en tres lugares distintos.
+# No le doy. Y no es por prudencia: tu LTV está inflado casi 3x.
 
-## Los tres errores
+Hay tres errores en tu cálculo, y cada uno solo empeora las cosas.
 
-**1. El lifetime no es 24 meses.** Con 8% de churn mensual, el lifetime promedio es 1/0.08 = **12.5 meses**. La curva de retención es brutal:
-- Mes 12: solo 0.92¹² ≈ **37%** de tus clientes siguen ahí
-- Mes 24: 0.92²⁴ ≈ **13%**
+## Error 1: La vida del cliente no son 24 meses
 
-Los "2 años" no salen de tu churn; salen de ningún lado. Dos tercios de tus clientes se van antes del año.
+Con churn mensual del 8%, la vida esperada es **1/churn = 12,5 meses**, no 24. Los "2 años" no salen de tus números. Con 8% mensual, al mes 12 solo queda el 0,92¹² ≈ **37%** de una cohorte. El cliente *mediano* se va a los ~8,3 meses.
 
-**2. Calculaste el LTV sobre ingresos, no sobre margen.** Lo que hay que comparar contra el CAC es ganancia bruta. Cada cliente aporta $35 × 0.70 = **$24.50/mes**, no $35.
+## Error 2: El LTV se calcula sobre margen, no sobre facturación
 
-**3. Menor, pero: 2.9 no está "por encima de 3".** Está debajo. Aunque da igual, porque el número real es otro.
+De los $35 no te quedan $35: te quedan **$24,50**. El resto se lo llevan infraestructura y el procesador.
 
-## El recálculo
+**LTV correcto = 35 × 0,70 × 12,5 = $306.** (Descontando flujos futuros a ~1% mensual: ~$272.)
 
-| | Tu cálculo | Real |
+## Error 3: Menor, pero sintomático
+
+2,9 no está "por encima de 3". Está por debajo. Pero da igual, porque el número real es otro:
+
+$$LTV/CAC = 306 / 290 ≈ 1,05$$
+
+No estás en 3x. Estás en **1x**: cada dólar en ads devuelve aproximadamente un dólar de margen… en más de un año. Antes de descontar, antes de costos de soporte, antes de que el CAC suba al escalar presupuesto.
+
+## Los números que deberían frenarte
+
+- **Payback:** 290 / 24,5 = **11,8 meses**
+- **Vida mediana del cliente:** **8,3 meses**
+- Traducción: el cliente típico genera ~$204 de margen contra $290 de CAC. **El cliente mediano pierde ~$86.** Solo ~1 de cada 3 clientes que compres sobrevive lo suficiente para pagarse. Toda la economía depende de la cola de los que se quedan años.
+
+## Tu plan de $10.000, recalculado
+
+~34 clientes. Margen esperado: ~$10.400 sin descontar, ~$9.250 descontado. Inmovilizas $10.000 hoy para recuperar, *con suerte*, lo mismo en 12–18 meses. Y con dos supuestos generosos:
+
+- El churn del 8% probablemente es *blended* con tráfico orgánico. El tráfico pagado suele retener peor. Si esa cohorte churnea al 10–12%, el LTV cae a $204–245 y pasas a pérdida neta por cliente.
+- El CAC de $290 rara vez está *fully loaded* (creativos, herramientas, tiempo tuyo) y rara vez se mantiene al escalar.
+
+## Qué tendría que cambiar para dártelo
+
+| Palanca | Hoy | Necesitas para 3x |
 |---|---|---|
-| Lifetime | 24 meses | 12.5 meses |
-| Aporte mensual | $35 | $24.50 |
-| LTV | $840 | **$306** |
-| LTV/CAC | 2.9 | **1.06** |
+| Churn mensual | 8% | ~2,8% |
+| CAC | $290 | ~$102 |
+| ARPU | $35 | ~$99 |
 
-No es 2.9. Es **1.06**. Y el payback lo confirma: $290 / $24.50 = **11.8 meses** para recuperar el CAC, contra un lifetime de 12.5 meses. Recuperas tu dinero 0.7 meses antes de que el cliente se vaya. Cero margen de error.
+Cualquiera de las tres es un proyecto. Pero nota cuál es la más barata: **cada punto de churn que bajas vale ~$44 de LTV (+14%)**. Ir de 8% a 5% lleva el LTV a $490 sin tocar CAC ni precio.
 
-## Qué pasa con los $10,000
+## Mi recomendación
 
-- Compras ~34 clientes ($10,000 / $290)
-- Esos clientes generarán ~34 × $306 ≈ $10,560 de ganancia bruta... **a lo largo de más de un año**
-- Beneficio neto del experimento: ~$560, antes de costos fijos, con el dinero saliendo hoy y volviendo en 12 meses
+1. **No metas $10.000.** Mete $1.500–2.000 como prueba, con tracking de churn por cohorte (pagada vs. orgánica) durante 90 días. Ese dato vale más que el gasto completo.
+2. Mientras tanto, trabaja retención: onboarding, activación, plan anual. Es la palanca con más apalancamiento que tienes.
+3. Una pregunta incómoda: dices que ya eres rentable. ¿Con clientes orgánicos baratos? La rentabilidad de tu base actual no dice nada sobre la economía marginal del tráfico pagado. Son dos negocios distintos.
 
-Y eso asumiendo lo mejor: que el CAC se mantiene en $290 (al escalar, sube — primero agotas las audiencias baratas) y que las cohortes de pago churnean igual que tus clientes actuales (suelen churnear peor). Si descuentas por valor temporal del dinero, el LTV cae a ~$260 y la relación baja de 1: pasas de break-even a destruir valor.
-
-## Qué tendría que cambiar para que sí
-
-Para llegar a LTV/CAC ≥ 3 necesitarías alguna de estas (o una combinación):
-
-- **CAC de ~$100** (un 65% menos)
-- **Churn de ~2.8%** (menos de la mitad del actual)
-- **Precio de ~$100/mes** con el mismo churn y CAC
-- Margen de 85% solo te lleva a 1.28 — el margen solo no te salva
-
-Ninguna ocurre de un mes para otro.
-
-## Lo que sí haría
-
-Tu rentabilidad actual probablemente viene de adquisición orgánica o barata. Escalar con publicidad a estas cifras no acelera ese negocio — lo diluye.
-
-Si quieres aprender del canal de pago, invierte **$2,000, no $10,000**, y mide retención por cohorte y por canal/creativo. La pregunta útil no es "¿consigo clientes a $290?" (ya sabemos que sí, y que no valen la pena), sino "¿existe algún segmento donde el CAC baje de $150 o el churn sea claramente menor?" Esa respuesta vale más que 34 clientes que no te dejan nada.
-
-La intuición de comparar LTV contra CAC era correcta. Los insumos, no.
+Tu plan no muere por asumir "2 años". Muere porque con 8% de churn mensual estás comprando clientes que, en promedio, apenas se pagan. Y la mitad ni eso.

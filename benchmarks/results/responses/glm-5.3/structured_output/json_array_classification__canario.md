@@ -1,9 +1,9 @@
 # GLM 5.3 — structured_output/json_array_classification
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 8.99 | quality: 10.0
-- latency_total: 4.407s | tokens_per_second: 78.3
-- input_tokens: 179 | output_tokens: 345
+- success: True  | final: 8.89 | quality: 10.0
+- latency_total: 5.867s | tokens_per_second: 105.5
+- input_tokens: 179 | output_tokens: 619
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -25,4 +25,4 @@ Formato: [{"id": 1, "category": "", "priority": "", "sentiment": ""}, ...]
 
 ## Respuesta completa
 
-[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "neutral"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "negative"}]
+[{"id": 1, "category": "shipping", "priority": "high", "sentiment": "negative"}, {"id": 2, "category": "shipping", "priority": "low", "sentiment": "positive"}, {"id": 3, "category": "billing", "priority": "urgent", "sentiment": "negative"}, {"id": 4, "category": "technical", "priority": "high", "sentiment": "neutral"}]

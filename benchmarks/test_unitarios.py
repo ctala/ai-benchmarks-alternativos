@@ -2590,7 +2590,10 @@ def test_variante_b_string_precision_se_rinde_y_no_promedia():
     from benchmarks.runner import ALL_TEST_SUITES as T
     assert "string_precision" in suites.del_examen() and "string_precision" not in suites.del_indice()
     assert suites.del_indice() <= suites.del_examen()
-    assert sum(len(T[s]) for s in suites.del_examen()) == 143   # el examen v5 no cambia
+    # 143 hasta el 10-nov-2026; + los 20 de prompt_injection_es, que se rinde sin promediar
+    # (DECISIONES, 10-nov). El índice no cambia: 137.
+    assert sum(len(T[s]) for s in suites.del_examen()) == 163
+    assert "prompt_injection_es" in suites.del_examen() and "prompt_injection_es" not in suites.del_indice()
     assert sum(len(T[s]) for s in suites.del_indice()) == 137
     runner_src = (ROOT / "benchmarks" / "runner.py").read_text()
     assert "indice = _s.del_examen()" in runner_src             # el runner exige el examen entero
@@ -3264,10 +3267,39 @@ def test_empaquetar_trayectorias_redacta_y_no_sube_si_queda_una_clave(tmp_path):
     assert et.empaquetar("vT", [jobs], tmp_path / "w2", salida2, man2, redactar_antes=False) == 1
     assert not salida2.exists() and not man2.exists()
 
-    # 3. cualquier clave, no solo la de OpenRouter de hoy
-    for otra in ("sk-or-v1-" + "Z" * 40, "sk-ant-api03-" + "x" * 30, "sk-proj-" + "q" * 30):
-        assert et.PATRON_CLAVE.search(otra.encode())
-    assert not et.PATRON_CLAVE.search(b"sk-or-corta")
+    # 3. cualquier clave, no solo la de OpenRouter de hoy (11-nov-2026: + Google, Groq, HF,
+    #    GitHub, AWS y Bearer). Se arman por partes para que ningún escáner las vea enteras.
+    for otra in ("sk-or-v1-" + "Z" * 40, "sk-ant-api03-" + "x" * 30, "sk-proj-" + "q" * 30,
+                 "AI" + "za" + "S" * 35, "gs" + "k_" + "a9" * 15, "h" + "f_" + "Ab" * 15,
+                 "gh" + "p_" + "c3" * 18, "AK" + "IA" + "Q7" * 8, "Bear" + "er eyJ" + "h" * 30):
+        assert et.PATRON_CLAVE.search(otra.encode()), otra[:6]
+    for inocente in (b"sk-or-corta", b"Bearer $OPENROUTER_API_KEY", b"hf_corto", b"AKIA123"):
+        assert not et.PATRON_CLAVE.search(inocente), inocente
+
+
+def test_empaquetar_trayectorias_gitleaks_es_condicion(tmp_path):
+    # 11-nov-2026 (Cristian): gitleaks sobre la copia redactada es la segunda llave. Caza una
+    # forma que el patrón propio no conoce (un token de Slack) y, sin gitleaks, no se crea nada.
+    import shutil as _sh
+    from benchmarks import empaquetar_trayectorias as et
+    if not _sh.which("gitleaks"):
+        pytest.skip("gitleaks no instalado")
+    jobs = tmp_path / "jobs" / "v61r__m__t"
+    (jobs / "t__x").mkdir(parents=True)
+    (jobs / "t__x" / "result.json").write_text('{"reward": 1}')
+    # control verde: sin nada con forma de credencial, sale el paquete
+    assert et.empaquetar("vC", [jobs], tmp_path / "w0", tmp_path / "d0", tmp_path / "m0") == 0
+    # sabotaje 1: algo que solo gitleaks reconoce
+    slack = "xox" + "b-" + "1234567890" + "-" + "1234567890123" + "-" + "aB3dE5fG7hI9jK1lM3nO5pQ7"
+    (jobs / "t__x" / "trial.log").write_text(f"SLACK_BOT_TOKEN={slack}\n")
+    assert not et.PATRON_CLAVE.search(slack.encode())
+    assert et.empaquetar("vS", [jobs], tmp_path / "w1", tmp_path / "d1", tmp_path / "m1") == 1
+    assert not (tmp_path / "d1").exists() and not (tmp_path / "m1").exists()
+    # sabotaje 2: gitleaks ausente no es un verde
+    (jobs / "t__x" / "trial.log").unlink()
+    assert et.empaquetar("vN", [jobs], tmp_path / "w2", tmp_path / "d2", tmp_path / "m2",
+                         gitleaks_exe=str(tmp_path / "no-existe")) == 1
+    assert not (tmp_path / "d2").exists()
 
 
 def test_b3_en_evaluacion_es_motivo_solo_con_su_detalle():
@@ -3294,3 +3326,89 @@ def test_truncamiento_exime_solo_al_declarado_en_evaluacion():
         {"name": "E", "ranked": False},
     ]}
     assert ct.declarados_en_evaluacion(mj) == {"A"}
+
+
+def test_rango_fechas_publica_la_ventana_y_no_la_fecha_de_etiqueta():
+    # 10-nov-2026: en la ventana el timestamp es la etiqueta del archivo (fecha de apertura),
+    # no la del run. Publicarla como fecha diría 9-nov para un lote del 10-nov.
+    from benchmarks import export_for_pages as ex
+    v = [{"timestamp": "20261109_v61c14"}, {"timestamp": "20261104_v5c03"}]
+    assert ex._rango_fechas(v) == {"ventana": "v5 y v6.1"}
+    viejos = [{"timestamp": "20260602_101500"}, {"timestamp": "20260715_090000"}]
+    assert ex._rango_fechas(viejos) == {"desde": "2026-06-02", "hasta": "2026-07-15"}
+    assert ex._rango_fechas(viejos + v[:1]) == {"desde": "2026-06-02", "hasta": "2026-07-15",
+                                                "ventana": "v6.1"}
+    assert ex._rango_fechas([]) is None
+
+
+def test_reemplazo_enlaza_tambien_al_predecesor_ya_historico():
+    # 10-nov-2026: GPT-5.6 Sol quedó en el histórico por su propio examen y perdía el enlace a
+    # GPT-6.1 Sol. Un predecesor ni rankeado ni histórico (en evaluación) no se toca.
+    import export_for_pages as E
+    for estado, enlaza in (((False, True), True), ((False, False), False)):
+        ms = [{"key": "nuevo", "id": "x/nuevo", "ranked": True, "historico": False},
+              {"key": "viejo", "id": "x/viejo", "ranked": estado[0], "historico": estado[1]}]
+        ag = {"x/nuevo": _harbor(), "x/viejo": _harbor()}
+        E.aplicar_reemplazos(ms, ag, catalogo={"nuevo": {"reemplaza": "viejo"}, "viejo": {}})
+        assert (ms[1].get("reemplazado_por") == "nuevo") == enlaza, estado
+
+
+def test_frontera_redaccion_exige_superar_el_ruido_y_gana_el_mas_barato():
+    # 11-nov-2026 (Cristian): entra solo quien supera al anterior por más del ruido; «≈» gana
+    # el más barato, también dentro de la frontera; el piso es no rendir peor que el redactor.
+    from benchmarks import generate_eco_redaccion as g
+    def p(k, cpp, notas):
+        return {"key": k, "name": k, "cpp": cpp, "nota": round(sum(notas) / len(notas), 2),
+                "tests": {f"t{i}": v for i, v in enumerate(notas)}}
+    ruido = [0.1, -0.1] * 10
+    base = p("barato", 0.01, [8.0 + r for r in ruido])
+    mismo = p("ruido", 0.02, [8.05 + r * 3 for r in ruido])              # +0,05 dentro del ruido
+    medio = p("medio", 0.03, [9.0 + r for r in ruido])                   # supera a «barato»
+    caro = p("caro", 0.04, [9.02 - r for r in ruido])                    # ≈ «medio»
+    sube = p(g.PISO_REF, 0.05, [9.5 + r for r in ruido])                 # supera a «medio»
+    out = [base, mismo, medio, caro, sube]
+    g.marcar(out)
+    fr = [x["key"] for x in out if x["frontera"]]
+    assert fr == ["barato", "medio", g.PISO_REF], fr
+    assert mismo["empata_con"] == "barato" and caro["empata_con"] == "medio"
+    assert base["bajo_piso"] and not sube["bajo_piso"]
+    # «≈ gana el más barato» dentro de la frontera: «caro» supera a «barato» y empata con
+    # «medio», que también está por encima de «barato» → el lugar es de «medio».
+    out2 = [p("barato", 0.01, [8.0 + r for r in ruido]),
+            p("medio", 0.03, [8.2 + r * 7 for r in ruido]),              # ≈ barato (ruido grande)
+            p("caro", 0.04, [8.3 + r for r in ruido])]                   # supera a barato, ≈ medio
+    g.marcar(out2)
+    assert [x["key"] for x in out2 if x["frontera"]] == ["barato", "medio"]
+    assert out2[1]["en_lugar_de"] == ("caro", "barato") and out2[2]["empata_con"] == "medio"
+
+
+def test_empaquetar_excepcion_revisada_pasa_y_una_clave_nueva_bloquea(tmp_path):
+    # 11-nov-2026 (Cristian): las excepciones son por huella de cada hallazgo revisado. Prueba de
+    # control: una clave falsa con formato real, plantada en un archivo NUEVO, bloquea igual.
+    import shutil as _sh
+    from benchmarks import empaquetar_trayectorias as et
+    if not _sh.which("gitleaks"):
+        pytest.skip("gitleaks no instalado")
+    jobs = tmp_path / "jobs" / "v61r__m__t"
+    (jobs / "t__x").mkdir(parents=True)
+    slack = "xox" + "b-" + "1234567890" + "-" + "1234567890123" + "-" + "aB3dE5fG7hI9jK1lM3nO5pQ7"
+    (jobs / "t__x" / "trial.log").write_text(f"SLACK_BOT_TOKEN={slack}\n")
+    staging = tmp_path / "rev"
+    _sh.copytree(jobs, staging / jobs.name)
+    hall, err = et.gitleaks(staging)
+    assert not err and len(hall) == 1
+    revisados = {et.huella(h) for h in hall}
+    # el hallazgo revisado pasa
+    assert et.empaquetar("vR", [jobs], tmp_path / "w1", tmp_path / "d1", tmp_path / "m1",
+                         revisados=revisados) == 0
+    # la misma clave en un archivo nuevo: otra huella, bloquea
+    (jobs / "t__x" / "otro.log").write_text(f"SLACK_BOT_TOKEN={slack}\n")
+    assert et.empaquetar("vR", [jobs], tmp_path / "w2", tmp_path / "d2", tmp_path / "m2",
+                         revisados=revisados) == 1
+    (jobs / "t__x" / "otro.log").unlink()
+    # una clave falsa con formato real, en un archivo nuevo: bloquea
+    stripe = "sk" + "_live_" + "4eC39HqLyjWDarjtT1zdp7dc" + "Xy9Zq2Wv"
+    (jobs / "t__x" / "nuevo.log").write_text(f"STRIPE_KEY={stripe}\n")
+    assert et.empaquetar("vR", [jobs], tmp_path / "w3", tmp_path / "d3", tmp_path / "m3",
+                         revisados=revisados) == 1
+    assert not (tmp_path / "d3").exists()

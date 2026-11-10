@@ -256,7 +256,7 @@
   <div class="badges">
     <span class="badge on">⬡ Open source · Apache 2.0</span>
     <span class="badge on">⚒ Puede usar herramientas</span>
-    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 1.1/10</span>
+    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 1.9/10</span>
   </div>
   <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
@@ -294,21 +294,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 32 tareas medidas es <strong>7.71</strong>. Un
+    <p>Su media entre las 32 tareas medidas es <strong>7.73</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.20 (+1.49 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.13 (+1.42 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>Gestión de tareas (action items, planes)</strong> — 8.83 (+1.12 contra su media). <span class="meta">Decide: convertir una conversación en tareas</span></li>
-        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.75 (+1.04 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.20 (+1.47 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.13 (+1.40 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>Gestión de tareas (action items, planes)</strong> — 8.83 (+1.10 contra su media). <span class="meta">Decide: convertir una conversación en tareas</span></li>
+        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.75 (+1.02 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 2.58 (-5.13 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Estrategia (pricing, planificación)</strong> — 6.00 (-1.71 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
-        <li><strong>Resúmenes y extracción de datos</strong> — 6.64 (-1.07 contra su media). <span class="meta">Decide: resumir sin perder lo que importa</span></li>
-        <li><strong>Multi-turno (debugging, requisitos)</strong> — 6.76 (-0.95 contra su media). <span class="meta">Decide: no perderse en una conversación larga</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 3.11 (-4.62 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Estrategia (pricing, planificación)</strong> — 6.00 (-1.73 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
+        <li><strong>Resúmenes y extracción de datos</strong> — 6.64 (-1.09 contra su media). <span class="meta">Decide: resumir sin perder lo que importa</span></li>
+        <li><strong>Multi-turno (debugging, requisitos)</strong> — 6.76 (-0.97 contra su media). <span class="meta">Decide: no perderse en una conversación larga</span></li>
     </ul>
   </section>
   <section class="results">
@@ -337,7 +337,7 @@
         <tr><th scope="row">Runs que puntúan</th><td>137</td></tr>
         <tr><th scope="row">Tool calling</th><td>8.05</td></tr>
         <tr><th scope="row">¿Maneja credenciales?</th><td>sí (0 de 6)</td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">1.10</span> <span class="meta">(medido 2026-08-17)</span></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">1.90</span> <span class="meta">(medido en la ventana v6.1)</span></td></tr>
         <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
         <tr><th scope="row">Precio por millón · entrada</th><td>$0.312</td></tr>
         <tr><th scope="row">Precio por millón · salida</th><td>$1.25</td></tr>
@@ -392,6 +392,7 @@
         <tr><th scope="row">Estrategia (pricing. planificación)</th><td>3.497</td><td>5.236</td><td><strong>6.545</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>1.582</td><td>4.967</td><td><strong>6.208</strong></td></tr>
         <tr><th scope="row">Redactar una noticia desde una fuente</th><td>3.832</td><td>4.819</td><td><strong>6.023</strong></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>1.840</td><td>4.608</td><td><strong>5.760</strong></td></tr>
         <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>3.027</td><td>4.237</td><td><strong>5.296</strong></td></tr>
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>2.841</td><td>3.790</td><td><strong>4.737</strong></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>1.270</td><td>2.958</td><td><strong>3.697</strong></td></tr>
@@ -399,7 +400,6 @@
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>1.882</td><td>2.293</td><td><strong>2.866</strong></td></tr>
         <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>2.162</td><td>2.283</td><td><strong>2.853</strong></td></tr>
         <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>578</td><td>2.223</td><td><strong>2.778</strong></td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td>1.140</td><td>1.696</td><td><strong>2.120</strong></td></tr>
         <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>180</td><td>1.522</td><td><strong>1.902</strong></td></tr>
         <tr><th scope="row">OCR / extracción desde imágenes</th><td>417</td><td>1.498</td><td><strong>1.872</strong></td></tr>
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>813</td><td>1.418</td><td><strong>1.772</strong></td></tr>

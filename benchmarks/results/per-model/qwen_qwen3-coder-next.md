@@ -1,13 +1,13 @@
 # Qwen3-Coder-Next (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3-coder-next`
-- **Total tests**: 417/423 exitosos (6 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.64
+- **Total tests**: 437/443 exitosos (6 errores)
+- **Score final**: 7.16
+- **Calidad**: 7.34
 - **Judge score (Phi-4)**: 3.91/10
-- **Velocidad**: 70 tok/s
-- **Latencia primera token**: 10.84s
-- **Costo promedio por test**: $0.00213
+- **Velocidad**: 68 tok/s
+- **Latencia primera token**: 10.40s
+- **Costo promedio por test**: $0.00209
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 26 | 26 | 5.76 | 4.87 |
 | policy_adherence | 8 | 8 | 7.84 | 7.92 |
 | presentation | 5 | 5 | 8.48 | 9.48 |
-| prompt_injection_es | 20 | 20 | 2.55 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.60 | 1.00 |
 | reasoning | 6 | 6 | 8.16 | 8.99 |
 | sales_outreach | 6 | 6 | 7.21 | 7.33 |
 | startup_content | 13 | 13 | 8.52 | 9.54 |

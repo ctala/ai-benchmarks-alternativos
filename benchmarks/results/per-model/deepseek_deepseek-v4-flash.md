@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (OpenRouter)
 
 - **model_id**: `deepseek/deepseek-v4-flash`
-- **Total tests**: 495/499 exitosos (4 errores)
-- **Score final**: 7.52
-- **Calidad**: 8.06
+- **Total tests**: 515/519 exitosos (4 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.78
 - **Judge score (Phi-4)**: 3.63/10
-- **Velocidad**: 46 tok/s
-- **Latencia primera token**: 20.97s
-- **Costo promedio por test**: $0.00344
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 20.35s
+- **Costo promedio por test**: $0.00334
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 6.81 | 6.59 |
 | policy_adherence | 8 | 8 | 8.28 | 8.83 |
 | presentation | 6 | 6 | 8.45 | 9.18 |
-| prompt_injection_es | 40 | 40 | 2.70 | 1.23 |
+| prompt_injection_es | 60 | 60 | 2.62 | 1.15 |
 | reasoning | 8 | 8 | 8.50 | 9.29 |
 | sales_outreach | 6 | 6 | 6.49 | 6.44 |
 | startup_content | 15 | 15 | 8.58 | 9.44 |

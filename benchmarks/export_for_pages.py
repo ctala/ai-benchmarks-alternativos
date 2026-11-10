@@ -63,6 +63,7 @@ MIN_RUNS_RANKED = 50
 # no se promedian: se midieron en otras condiciones (proveedor sin fijar, otro effort) y
 # quedan para las tablas de antes/después (corte-v5 6.8 y 6.9). Se reconoce por el archivo.
 VENTANAS_DE_MEDICION = ("benchmark_20261104_v5c", "benchmark_20261109_v61c")  # v6.1: 10-nov-2026
+_NOMBRE_VENTANA = {"benchmark_20261104_v5c": "v5", "benchmark_20261109_v61c": "v6.1"}
 
 
 from benchmarks import huella_suite as _huella  # noqa: E402
@@ -74,10 +75,28 @@ _SIN_PROMEDIO_EN_EXAMEN = suites_reg.del_examen() - suites_reg.del_indice()
 
 
 def _rango_fechas(runs: list[dict]) -> dict | None:
-    """{desde, hasta} (AAAA-MM-DD) de los `timestamp` de unos runs; None si no hay fechas."""
-    fs = sorted(f"{t[:4]}-{t[4:6]}-{t[6:8]}" for t in (str(r.get("timestamp") or "") for r in runs)
+    """{desde, hasta} (AAAA-MM-DD) de los `timestamp` de unos runs; None si no hay fechas.
+
+    10-nov-2026: en los runs de una ventana el `timestamp` es la ETIQUETA del archivo
+    (`20261109_v61c14`), que por convención lleva la fecha en que se abrió la ventana, no la
+    del run: el lote de seguridad se midió el 10-nov y diría 9-nov. Para esos runs se publica la
+    ventana (`ventana`: «v6.1»), que es lo verdadero; la fecha solo se publica para los runs
+    anteriores, donde el timestamp sí es la hora del run."""
+    def ventana(r):
+        t = "benchmark_" + str(r.get("timestamp") or "")
+        return next((_NOMBRE_VENTANA.get(v, v) for v in VENTANAS_DE_MEDICION if t.startswith(v)), None)
+    vs = {ventana(r) for r in runs}
+    if runs and None not in vs:
+        return {"ventana": " y ".join(sorted(vs))}
+    fs = sorted(f"{t[:4]}-{t[4:6]}-{t[6:8]}" for t in (str(r.get("timestamp") or "") for r in runs
+                                                       if ventana(r) is None)
                 if len(t) >= 8 and t[:8].isdigit())
-    return {"desde": fs[0], "hasta": fs[-1]} if fs else None
+    if not fs:
+        return None
+    out = {"desde": fs[0], "hasta": fs[-1]}
+    if vs - {None}:
+        out["ventana"] = " y ".join(sorted(vs - {None}))
+    return out
 
 
 def es_de_ventana(nombre_archivo: str) -> bool:
@@ -290,7 +309,10 @@ def aplicar_reemplazos(models_export: list, agentico: dict, catalogo: dict | Non
         if not k_pred:
             continue
         suc, pred = por_key.get(k_suc), por_key.get(k_pred)
-        if not pred or not pred.get("ranked"):
+        # 10-nov-2026: un predecesor que ya está en el histórico por su propio examen (p. ej.
+        # GPT-5.6 Sol tras sumar `prompt_injection_es` al examen) igual lleva el enlace a su
+        # sucesor: si no, la ficha pierde «reemplazado por» sin que nada cambie de verdad.
+        if not pred or not (pred.get("ranked") or pred.get("historico")):
             continue
         if not sucesor_medido(suc, _harbor_de(suc, agentico), _harbor_de(pred, agentico)):
             continue

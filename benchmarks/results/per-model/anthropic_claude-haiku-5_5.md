@@ -1,13 +1,13 @@
 # Claude Haiku 5.5
 
 - **model_id**: `anthropic/claude-haiku-5.5`
-- **Total tests**: 544/548 exitosos (4 errores)
-- **Score final**: 8.42
-- **Calidad**: 8.72
+- **Total tests**: 564/568 exitosos (4 errores)
+- **Score final**: 8.34
+- **Calidad**: 8.60
 - **Judge score (Phi-4)**: 4.20/10
-- **Velocidad**: 163 tok/s
-- **Latencia primera token**: 7.32s
-- **Costo promedio por test**: $0.00266
+- **Velocidad**: 162 tok/s
+- **Latencia primera token**: 7.17s
+- **Costo promedio por test**: $0.00263
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -42,7 +42,7 @@
 | policy_adherence | 8 | 8 | 8.09 | 8.00 |
 | precision_datos | 14 | 14 | 9.05 | 9.29 |
 | presentation | 4 | 4 | 8.54 | 8.35 |
-| prompt_injection_es | 20 | 20 | 6.33 | 5.95 |
+| prompt_injection_es | 40 | 40 | 6.18 | 5.72 |
 | reasoning | 6 | 6 | 8.67 | 8.25 |
 | sales_outreach | 6 | 6 | 8.39 | 8.78 |
 | startup_content | 10 | 10 | 8.48 | 8.03 |

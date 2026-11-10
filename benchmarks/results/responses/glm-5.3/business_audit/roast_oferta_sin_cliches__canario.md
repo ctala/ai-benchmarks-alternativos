@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/roast_oferta_sin_cliches
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 6.93 | quality: 8.0
-- latency_total: 54.465s | tokens_per_second: 67.2
-- input_tokens: 180 | output_tokens: 3658
+- success: True  | final: 6.97 | quality: 8.0
+- latency_total: 33.294s | tokens_per_second: 88.2
+- input_tokens: 180 | output_tokens: 2937
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,79 +36,50 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-# Tu oferta es intercambiable. Ese es el problema de fondo.
+Te lo digo directo: esta oferta podría ser de cualquiera. Y ese es tu problema número uno.
 
-Cambia "IA" por "cripto", "marketing" o "fitness" y la oferta sigue funcionando palabra por palabra. Cuando una oferta es intercambiable, significa que no dice nada. Nadie paga $49/mes por "nada".
+**1. El título es un placeholder, no un título.**
+"Transforma tu negocio con el poder de la IA" lo han escrito 500 comunidades desde que salió ChatGPT. No dice para quién, no dice qué resultado, no dice por qué esta y no la de al lado. La gente no compara tu oferta con "no hacer nada", la compara con las otras 30 que vio esta semana.
+**Arreglo:** resultado específico + nicho + plazo. "Automatiza tu operación con IA y recupera 10 horas semanares" gana siempre a "transforma tu negocio".
 
-Punto por punto:
+**2. "Emprendedores como tú" no es un nicho, es un insulto a la segmentación.**
+Un fundador de SaaS y el dueño de una panadería no comparten ni los problemas ni el vocabulario. Cuando le hablas a todos, no le hablas a nadie. Y "como tú" es personalización falsa: finges conocerme y no sabes nada de mí.
+**Arreglo:** elige un segmento y sacrifica el resto. Dueños de agencias, ecommerce con menos de $1M, consultores independientes. Lo que sea. Específico gana.
 
----
+**3. Tu lista son features, no resultados. Y tienes "comunidad" dos veces.**
+"Acceso a la comunidad" y "soporte de la comunidad" son lo mismo. Que se te repita un item grita que ni tú sabes qué vendes. Además, nadie paga por acceso; pagan por lo que el acceso les consigue. Es como vender la llave del gimnasio en vez de perder 10 kilos.
+**Arreglo:** cada bullet responde "¿y eso qué me da a mí?":
+- "Comunidad" → "300 fundadores de [nicho] compartiendo qué automatización les funcionó esta semana"
+- "Cursos exclusivos" → "Implementaciones paso a paso, del prompt al flujo funcionando"
+- "Sesiones en vivo" → "Hot-seat mensual: traes tu problema, sales con la solución armada"
+- "Plantillas" → "Los prompts exactos que usamos con clientes que pagan $2,000"
 
-## 1. El título: "Transforma tu negocio con el poder de la IA"
+**4. Cero prueba.**
+Ningún número, ningún caso, ningún testimonial, nada sobre ti. ¿Por qué creerte y no al siguiente? La oferta actual vende fe pura.
+**Arreglo:** si tienes resultados, escupe números. Si no los tienes, tu problema no es el copy: consigue 10 beta users gratis, documenta qué lograron, y *después* escribe la oferta. No al revés.
 
-Es el título de 500 comunidades que ya existen. "Transformar" y "siguiente nivel" son promesas tan grandes que activan escepticismo, no deseo. Nadie despierta pensando "quiero transformar mi negocio". Despiertan pensando "estoy pagando $400/mes a una asistente por cosas que una IA podría hacer".
+**5. $49/mes flotando en el vacío.**
+Sin ancla, sin opción anual, sin garantía. Una hora de un consultor de IA cuesta $150+ — dilo, y de repente $49/mes es una ganga. Sin decirlo, es un precio cualquiera.
+**Arreglo:** ancla + anual con descuento + "cancela cuando quieras". El riesgo reverso solo te cuesta una línea.
 
-**Arreglo:** resultado específico + audiencia específica. Ejemplo: *"Deja de pagar por tareas que una IA hace en 5 minutos"* o *"Reduce tu tiempo de creación de contenido de 10 horas a 2 por semana"*.
+**6. "EMPIEZA HOY" en mayúsculas.**
+Gritar no es urgencia. Urgencia es una razón real para actuar ahora.
+**Arreglo:** botón con beneficio: "Quiero mi primera automatización" o "Recupera 10 horas esta semana".
 
-## 2. "Emprendedores como tú"
-
-"Tú" no existe. Un dueño de e-commerce y un fundador de SaaS no tienen un solo problema en común. Cuando le hablas a todos, la única persona que podría pagar no se siente aludida.
-
-**Arreglo:** elige UN avatar para la landing, aunque la comunidad sirva a varios. "Para dueños de agencias y consultoras que facturan entre $5k y $50k/mes."
-
-## 3. Los bullets: vendes acceso, no resultados
-
-- **"Acceso a la comunidad"** — ¿acceso a qué? ¿Un Discord muerto? Acceso no es beneficio.
-- **"Cursos exclusivos"** — "exclusivo" es un adjetivo, no un beneficio. Y "cursos" es la palabra que mata la retención: la gente compra cursos y no los termina. Estás vendiendo procrastinación.
-- **"Sesiones en vivo"** — ¿sobre qué? ¿Cada cuánto? ¿Con quién?
-- **"Plantillas y recursos"** — "recursos" es la palabra que se usa cuando no se sabe qué más decir.
-- **"Soporte de la comunidad"** — esto es lo mismo que el primer bullet. Listaste la comunidad dos veces. Eso es relleno, y el relleno grita "no tengo suficiente sustancia".
-
-**Arreglo:** cada bullet = resultado + especificidad. *"2 sesiones en vivo al mes donde desmontamos una automatización real de un miembro"* le gana a "sesiones en vivo" siempre.
-
-## 4. Cero mecanismo
-
-¿Por qué TU comunidad produce resultados cuando el 90% de comunidades de IA son gente compartiendo capturas de ChatGPT? No hay respuesta en tu oferta. Si no la hay en tu cabeza, tienes un problema más grave que el copy.
-
-**Arreglo:** nombra tu método. "Cada miembro lanza su primera automatización en 14 días con el framework X."
-
-## 5. Precio sin ancla y sin opción anual
-
-$49/mes no es caro, es injustificado. No hay nada contra qué compararlo. Y no ofrecer plan anual significa que no crees en tu propia retención — y le estás diciendo eso al cliente.
-
-**Arreglo:** ancla contra alternativas reales ("una VA cuesta $400/mes, una agencia $2,000") y ofrece anual con descuento.
-
-## 6. "EMPIEZA HOY" y cero reducción de riesgo
-
-¿Empezar qué? La urgencia sin motivo es urgencia falsa y la gente la huele. Y no hay garantía, no hay "cancela cuando quieras", no hay nada. El miedo del comprador no son los $49 — es pagar, entrar a un grupo muerto y sentirse idiota.
-
-**Arreglo:** describe qué pasa en las primeras 48 horas después de pagar, y agrega garantía si confías en tu producto: *"Si en 30 días no automatizaste tu primer proceso, te devolvemos el dinero."*
-
-## 7. Lo que falta completamente
-
-- **Prueba social:** cuántos miembros, un resultado concreto, un testimonial
-- **Quién eres tú:** ¿por qué aprender de ti y no del otro?
-- **Qué HARÁ el miembro:** la gente no paga por tener acceso, paga por hacer cosas con acompañamiento
+**Cómo se vería arreglado:**
 
 ---
+**Automatiza tu operación con IA y recupera 10 horas semanares**
+Para dueños de [nicho] que ya intentaron usar ChatGPT y no lograron nada concreto.
 
-## Cómo se ve arreglado
+- Una implementación nueva paso a paso cada semana — no teoría, flujos completos
+- Hot-seat mensual en vivo: tu problema, resuelto frente a todos
+- Los prompts y plantillas exactos que usamos con clientes reales
+- [N] fundadores de [nicho] adentro, compartiendo qué funciona HOY
 
-> **Deja de pagar por tareas que una IA hace en 5 minutos**
-> Para dueños de agencias y consultoras: en 90 días tendrás 3 procesos de tu negocio corriendo solos.
->
-> - **Método de 90 días** para identificar, automatizar y medir tus primeros flujos
-> - **2 sesiones en vivo al mes** desmontando automatizaciones reales de miembros
-> - **40+ plantillas de prompts y flujos** etiquetadas por tipo de negocio
-> - **Comunidad con challenge semanal** — [X] miembros, [X] respuestas diarias
->
-> $49/mes o $390/año (2 meses gratis). Cancela cuando quieras.
-> Si en 30 días no automatizaste tu primer proceso, te devuelvo el dinero.
->
-> [AUTOMATIZA MI PRIMER PROCESO]
+$49/mes — menos que una hora de un consultor de IA. Cancela cuando quieras.
 
-Los números entre corchetes son tuyos. Si no los tienes, ese es el siguiente problema a resolver — antes del copy.
-
+[Quiero mi primera automatización]
 ---
 
-**La línea dura:** no tienes una oferta, tienes una lista de features envuelta en lenguaje de hype. Vende un resultado específico para una persona específica con un mecanismo que solo tú tienes. Todo lo demás es decoración.
+Y la pregunta incómoda que ni el mejor copy resuelve: **¿qué tienes tú que los otros 300 no?** Si no puedes responder eso en una frase, arregla eso primero. El resto es maquillaje sobre un problema de producto.

@@ -1,13 +1,13 @@
 # Solar Pro 4
 
 - **model_id**: `upstage/solar-pro4`
-- **Total tests**: 397/401 exitosos (4 errores)
-- **Score final**: 7.56
-- **Calidad**: 8.07
+- **Total tests**: 417/421 exitosos (4 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 40 tok/s
-- **Latencia primera token**: 15.78s
-- **Costo promedio por test**: $0.00165
+- **Velocidad**: 39 tok/s
+- **Latencia primera token**: 15.11s
+- **Costo promedio por test**: $0.00162
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.41 | 6.26 |
 | policy_adherence | 8 | 8 | 8.43 | 9.08 |
 | presentation | 4 | 4 | 8.15 | 8.96 |
-| prompt_injection_es | 20 | 20 | 2.40 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.49 | 1.00 |
 | reasoning | 6 | 6 | 8.65 | 9.65 |
 | sales_outreach | 6 | 6 | 6.95 | 7.11 |
 | startup_content | 10 | 10 | 8.44 | 9.42 |

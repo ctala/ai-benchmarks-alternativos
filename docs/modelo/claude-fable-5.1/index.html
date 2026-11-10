@@ -257,7 +257,7 @@
     <span class="badge ">⬡ Propietario</span>
     <span class="badge on">⚒ Puede usar herramientas</span>
     <span class="badge info">⌸ Le caben ~1.700 páginas a la vez</span>
-    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 2.5/10</span>
+    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 3.2/10</span>
   </div>
   <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
@@ -295,21 +295,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 36 tareas medidas es <strong>7.04</strong>. Un
+    <p>Su media entre las 36 tareas medidas es <strong>7.06</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.67 (+1.63 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Extraer los datos verificables de un texto</strong> — 8.41 (+1.37 contra su media). <span class="meta">Decide: sacar TODOS los datos, no solo los fáciles</span></li>
-        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 8.37 (+1.33 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
-        <li><strong>Verificar un dato contra su fuente</strong> — 8.27 (+1.23 contra su media). <span class="meta">Decide: decidir si una fuente respalda una afirmación</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.67 (+1.61 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Extraer los datos verificables de un texto</strong> — 8.41 (+1.35 contra su media). <span class="meta">Decide: sacar TODOS los datos, no solo los fáciles</span></li>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 8.37 (+1.31 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
+        <li><strong>Verificar un dato contra su fuente</strong> — 8.27 (+1.21 contra su media). <span class="meta">Decide: decidir si una fuente respalda una afirmación</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 2.69 (-4.35 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 5.06 (-1.98 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 5.72 (-1.32 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.89 (-1.15 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 3.29 (-3.77 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 5.06 (-2.00 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 5.72 (-1.34 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.89 (-1.17 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
     </ul>
   </section>
   <section class="results">
@@ -338,7 +338,7 @@
         <tr><th scope="row">Runs que puntúan</th><td>137</td></tr>
         <tr><th scope="row">Tool calling</th><td>7.73</td></tr>
         <tr><th scope="row">¿Maneja credenciales?</th><td>se niega (6 de 6)</td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">2.50</span> <span class="meta">(medido 2026-10-10)</span></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">3.25</span> <span class="meta">(medido en la ventana v6.1)</span></td></tr>
         <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
         <tr><th scope="row">Precio por millón · entrada</th><td>$10.00</td></tr>
         <tr><th scope="row">Precio por millón · salida</th><td>$50.00</td></tr>
@@ -409,10 +409,10 @@
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>1.372</td><td>1.469</td><td><strong>1.836</strong></td></tr>
         <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>1.079</td><td>1.419</td><td><strong>1.773</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>559</td><td>1.340</td><td><strong>1.675</strong></td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td>491</td><td>1.263</td><td><strong>1.578</strong></td></tr>
         <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>691</td><td>1.110</td><td><strong>1.387</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>205</td><td>877</td><td><strong>1.096</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>817</td><td>847</td><td><strong>1.058</strong></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>478</td><td>700</td><td><strong>875</strong></td></tr>
         <tr><th scope="row">Encontrar el sitio oficial de una empresa</th><td>93</td><td>581</td><td><strong>726</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>557</td><td>559</td><td><strong>698</strong></td></tr>
         <tr><th scope="row">Extraer los datos verificables de un texto</th><td>148</td><td>438</td><td><strong>547</strong></td></tr>

@@ -1,13 +1,13 @@
 # GLM 5.3
 
 - **model_id**: `z-ai/glm-5.3`
-- **Total tests**: 598/598 exitosos (0 errores)
-- **Score final**: 7.68
-- **Calidad**: 8.95
+- **Total tests**: 618/618 exitosos (0 errores)
+- **Score final**: 7.58
+- **Calidad**: 8.82
 - **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 69 tok/s
-- **Latencia primera token**: 52.43s
-- **Costo promedio por test**: $0.04240
+- **Velocidad**: 68 tok/s
+- **Latencia primera token**: 51.45s
+- **Costo promedio por test**: $0.04158
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -42,7 +42,7 @@
 | policy_adherence | 8 | 8 | 7.46 | 8.33 |
 | precision_datos | 14 | 14 | 8.45 | 9.55 |
 | presentation | 4 | 4 | 7.92 | 9.66 |
-| prompt_injection_es | 20 | 20 | 5.52 | 5.95 |
+| prompt_injection_es | 40 | 40 | 5.08 | 5.50 |
 | reasoning | 6 | 6 | 8.00 | 9.63 |
 | sales_outreach | 6 | 6 | 7.33 | 8.52 |
 | startup_content | 10 | 10 | 7.71 | 9.40 |
@@ -4031,11 +4031,11 @@ Asumo jornada de ~9:00 a 18:00 con almuerzo de 12:00 a 13:00 (ajusta los bloques
 
 #### noticias_redaccion
 
+#### prompt_injection_es
+
 #### niah_es
 
 #### extraer_claims
-
-#### prompt_injection_es
 
 #### verificar_claims_lote
 

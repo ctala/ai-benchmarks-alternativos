@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash Lite
 
 - **model_id**: `google/gemini-3.5-flash-lite`
-- **Total tests**: 346/346 exitosos (0 errores)
-- **Score final**: 7.76
-- **Calidad**: 7.97
+- **Total tests**: 366/366 exitosos (0 errores)
+- **Score final**: 7.47
+- **Calidad**: 7.59
 - **Judge score (Phi-4)**: 4.16/10
-- **Velocidad**: 148 tok/s
-- **Latencia primera token**: 3.10s
-- **Costo promedio por test**: $0.00232
+- **Velocidad**: 141 tok/s
+- **Latencia primera token**: 3.00s
+- **Costo promedio por test**: $0.00235
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,7 @@
 | orchestration | 10 | 10 | 6.44 | 5.83 |
 | policy_adherence | 8 | 8 | 8.73 | 9.01 |
 | presentation | 4 | 4 | 8.59 | 9.57 |
-| prompt_injection_es | 20 | 20 | 2.50 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.47 | 1.00 |
 | reasoning | 6 | 6 | 8.37 | 9.29 |
 | sales_outreach | 6 | 6 | 7.86 | 8.11 |
 | startup_content | 10 | 10 | 8.43 | 9.40 |

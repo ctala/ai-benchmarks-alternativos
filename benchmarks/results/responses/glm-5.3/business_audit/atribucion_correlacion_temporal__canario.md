@@ -2,8 +2,8 @@
 
 - model_id: `z-ai/glm-5.3`
 - success: True  | final: 8.28 | quality: 10.0
-- latency_total: 69.791s | tokens_per_second: 66.0
-- input_tokens: 235 | output_tokens: 4606
+- latency_total: 89.43s | tokens_per_second: 52.8
+- input_tokens: 235 | output_tokens: 4722
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -28,29 +28,43 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 ## Respuesta completa
 
-**Conclusión corta: no se puede saber.** Los datos de marzo son compatibles con que la secuencia funcionó, pero también con que no hizo nada y el crecimiento vino de la publicidad o del video. No es una respuesta cómoda, pero es la honesta.
+## Conclusión: no se puede saber
 
-**Por qué no se puede atribuir:**
+Marzo fue mejor que febrero, eso es real. Pero **los datos no permiten separar el efecto de los emails del de la publicidad y del video del creador**. Decir "la secuencia funcionó" sería inventar una respuesta cómoda.
 
-1. **Tres cambios simultáneos.** Emails (1 de marzo), publicidad (3 de marzo) y mención de un creador grande (12 de marzo), todos dentro de la misma ventana de 11 días, sobre el mismo mes. Con un solo mes de datos agregados no hay forma matemática de separar sus efectos.
+## Lo que los datos sí sostienen
 
-2. **El tamaño de muestra no da ni para el mejor de los casos.** Pasar de 9 a 14 altas está dentro de la variación normal cuando manejas ~10 conversiones al mes: diferencias de ±5 entre meses son rutinarias a ese volumen. Aun si no hubieras lanzado nada más en marzo, 9→14 no sería evidencia concluyente. Necesitarías el doble de volumen, o varios meses, para distinguir señal de ruido.
+- MRR neto: +$1.200 (+29%) entre el 28/2 y el 31/3.
+- 14 altas contra 9 en febrero (+55%... aunque con muestras tan pequeñas, esa diferencia está dentro del rango normal de variación de un mes a otro).
 
-3. **El MRR no cuadra sin más datos.** +$1.200 con 5 altas netas adicionales implica precios altos, upgrades de plan, o menos churn. Sin el churn de marzo y el mix de planes, ni siquiera el +29% se puede descomponer.
+Eso es todo. Nada de esto apunta a los emails *específicamente*.
 
-**Lo que sí puedo revisar con datos que probablemente ya tienes:**
+## Por qué no puedo atribuirlo a la secuencia
 
-- **Origen de las 14 altas:** ¿cuántas eran usuarios free que ya existían antes del 1 de marzo (el público de los emails) vs. usuarios que se registraron en marzo (público de ads/video)? Si la mayoría son usuarios nuevos, los emails tienen poco que reclamar. Si la mayoría son antiguos, el crédito se inclina hacia la secuencia. Es el corte más informativo y se puede hacer hoy.
-- **Curva diaria de altas:** si se concentran después del 12, el sospechoso principal es el video. Si hay un salto entre el 1 y el 11, apunta más a emails/ads.
-- **Engagement de la secuencia:** opens y clicks de quienes convirtieron vs. quienes no. No prueba causalidad, pero si casi nadie abrió los emails, ya tienes la respuesta.
-- **Churn de marzo** para reconciliar el MRR.
+1. **Tres intervenciones simultáneas.** Emails (1/3), anuncios (3/3), mención del creador (12/3). Sin atribución, culpar o premiar a cualquiera de las tres es apostar. La mención del creador es candidata especialmente fuerte: una audiencia grande a mitad de mes puede generar tanto altas directas como nuevos usuarios gratuitos.
 
-Ninguno de estos cortes es definitivo por sí solo (el video, por ejemplo, también pudo reactivar usuarios antiguos), pero juntos acotarían bastante la respuesta.
+2. **No sé de dónde vienen las 14 altas.** ¿Cuántas eran usuarios gratuitos existentes (el público objetivo de los emails) y cuántas llegaron directo al plan pago desde el anuncio o el video? Si la mayoría son altas directas, la secuencia no tuvo nada que ver.
 
-**Lo que haría falta para estar seguros de verdad:**
+3. **El MRR es neto, no bruto.** Incluye bajas y cambios de plan. Con precio promedio desconocido, ni siquiera sé si 14 altas alcanzan aritméticamente para explicar +$1.200, o si hubo upgrades o menos churn contribuyendo. Y no tengo el churn de cada mes.
 
-- **Grupo de control.** La próxima secuencia: excluye aleatoriamente al 15–20% de los usuarios free y compara su conversión contra el resto durante 30–60 días. Es la única forma limpia de medir el efecto. Ojo: a estos volúmenes, incluso el test necesitará paciencia.
-- **UTMs** en los anuncios y en el link del video, para que cada alta quede etiquetada por canal desde el inicio.
-- **Una baseline más larga.** Con solo febrero como referencia no sé si +29% es excepcional o tu normalidad.
+4. **Línea base de un solo mes.** Sin enero ni diciembre no sé si la comunidad ya venía creciendo por su cuenta. Tampoco sé el tamaño de la base gratuita (el denominador de cualquier tasa de conversión), ni si creció con el video.
 
-Lo único que los datos sostienen hoy: marzo fue un buen mes en conjunto. Qué palanca lo causó, no lo sostienen.
+5. **Ni siquiera sé si los emails se abrieron.** Sin aperturas y clics, "funcionó" no tiene ni evidencia intermedia.
+
+## Qué haría falta
+
+**Con los datos que ya existen (análisis parcial):**
+- Fuente/UTM de cada una de las 14 altas: ¿free→paid o alta directa?
+- Serie **diaria** de altas de marzo, cruzada con las fechas de envío de cada email, el inicio de ads (3/3) y el video (12/3). Si las altas se concentran después del 12, el candidato principal es el video.
+- Métricas de la secuencia: entregas, aperturas, clics.
+- Churn de febrero y marzo, y precio promedio de planes, para descomponer el MRR.
+- Enero (o más) como línea base.
+- Tamaño de la base gratuita al 1/3 y al 31/3, y aclarar si los emails solo los recibieron los usuarios gratuitos del 1/3 o también quienes entraron después.
+
+**Para estar seguros de verdad (la próxima vez):**
+- **Grupo de control aleatorio.** Antes de activar la siguiente secuencia: 80% de usuarios gratuitos la reciben, 20% queda en holdout. Comparar conversión free→paid a 30-60 días. Es la única forma limpia de causalidad y no cuesta nada.
+- Advertencia honesta: con ~14 altas/mes, un holdout necesitará varias semanas para detectar un efecto. Mejor esperar ese tiempo que quedarnos con una conclusión falsa.
+
+## Cierre
+
+No diría "funcionó", pero tampoco diría "no funcionó". La secuencia está **sin medir**, no refutada. Con un holdout en el próximo lanzamiento, en un par de meses tendrías la respuesta de verdad.

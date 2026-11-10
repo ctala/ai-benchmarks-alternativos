@@ -1,13 +1,13 @@
 # GLM 5.3 Flash
 
 - **model_id**: `z-ai/glm-5.3-flash`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 7.75
-- **Calidad**: 8.66
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 7.73
+- **Calidad**: 8.61
 - **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 51 tok/s
-- **Latencia primera token**: 70.03s
-- **Costo promedio por test**: $0.00593
+- **Latencia primera token**: 67.16s
+- **Costo promedio por test**: $0.00573
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 7.04 | 7.46 |
 | policy_adherence | 8 | 8 | 7.96 | 8.58 |
 | presentation | 4 | 4 | 8.38 | 9.72 |
-| prompt_injection_es | 20 | 20 | 6.63 | 7.22 |
+| prompt_injection_es | 40 | 40 | 6.93 | 7.48 |
 | reasoning | 6 | 6 | 8.39 | 9.65 |
 | sales_outreach | 6 | 6 | 8.30 | 9.33 |
 | startup_content | 10 | 10 | 8.25 | 9.54 |
@@ -4034,12 +4034,12 @@ Aquí tienes la información extraída en formato JSON:
 
 #### noticias_redaccion
 
+#### prompt_injection_es
+
 #### niah_es
 
 #### verificar_claims_lote
 
 #### extraer_claims
-
-#### prompt_injection_es
 
 #### dominio_entidad

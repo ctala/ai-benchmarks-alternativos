@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro
 
 - **model_id**: `deepseek/deepseek-v4-pro`
-- **Total tests**: 391/413 exitosos (22 errores)
-- **Score final**: 7.06
-- **Calidad**: 7.88
+- **Total tests**: 411/433 exitosos (22 errores)
+- **Score final**: 6.82
+- **Calidad**: 7.54
 - **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 55 tok/s
-- **Latencia primera token**: 34.61s
-- **Costo promedio por test**: $0.01003
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 33.13s
+- **Costo promedio por test**: $0.01039
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 15 | 13 | 6.40 | 6.93 |
 | policy_adherence | 11 | 11 | 7.91 | 8.90 |
 | presentation | 5 | 5 | 7.81 | 9.14 |
-| prompt_injection_es | 20 | 20 | 2.19 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.17 | 1.00 |
 | reasoning | 8 | 8 | 7.93 | 9.40 |
 | sales_outreach | 6 | 6 | 6.30 | 6.78 |
 | startup_content | 15 | 14 | 7.93 | 9.42 |

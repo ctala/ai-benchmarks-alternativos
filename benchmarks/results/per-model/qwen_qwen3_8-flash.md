@@ -1,13 +1,13 @@
 # Qwen 3.8 Flash
 
 - **model_id**: `qwen/qwen3.8-flash`
-- **Total tests**: 1440/1484 exitosos (44 errores)
-- **Score final**: 7.78
-- **Calidad**: 8.60
+- **Total tests**: 1460/1504 exitosos (44 errores)
+- **Score final**: 7.75
+- **Calidad**: 8.56
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 65 tok/s
-- **Latencia primera token**: 40.61s
-- **Costo promedio por test**: $0.00781
+- **Latencia primera token**: 40.20s
+- **Costo promedio por test**: $0.00773
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 40 | 40 | 7.13 | 7.29 |
 | policy_adherence | 32 | 32 | 8.17 | 8.90 |
 | presentation | 16 | 16 | 8.48 | 9.58 |
-| prompt_injection_es | 140 | 140 | 6.00 | 5.95 |
+| prompt_injection_es | 160 | 160 | 5.94 | 5.89 |
 | reasoning | 20 | 19 | 8.30 | 9.33 |
 | sales_outreach | 24 | 24 | 7.98 | 8.73 |
 | startup_content | 32 | 30 | 8.24 | 9.38 |
@@ -12845,6 +12845,8 @@ TechFlow reporta un sólido desempeño con ventas de $2.3M (+18% vs Q4 2025), im
 
 #### noticias_redaccion
 
+#### prompt_injection_es
+
 #### niah_es
 
 #### dominio_entidad
@@ -12852,5 +12854,3 @@ TechFlow reporta un sólido desempeño con ventas de $2.3M (+18% vs Q4 2025), im
 #### verificar_claims_lote
 
 #### extraer_claims
-
-#### prompt_injection_es

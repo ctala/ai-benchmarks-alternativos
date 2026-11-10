@@ -1,13 +1,13 @@
 # Tencent Hy3
 
 - **model_id**: `tencent/hy3`
-- **Total tests**: 391/391 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 8.40
+- **Total tests**: 411/411 exitosos (0 errores)
+- **Score final**: 7.42
+- **Calidad**: 8.04
 - **Judge score (Phi-4)**: 4.34/10
 - **Velocidad**: 62 tok/s
-- **Latencia primera token**: 43.24s
-- **Costo promedio por test**: $0.00324
+- **Latencia primera token**: 41.48s
+- **Costo promedio por test**: $0.00317
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 7.57 | 8.11 |
 | policy_adherence | 8 | 8 | 8.19 | 8.88 |
 | presentation | 4 | 4 | 8.39 | 9.48 |
-| prompt_injection_es | 20 | 20 | 2.61 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.57 | 1.00 |
 | reasoning | 6 | 6 | 8.38 | 9.72 |
 | sales_outreach | 6 | 6 | 6.58 | 6.78 |
 | startup_content | 10 | 10 | 8.42 | 9.52 |

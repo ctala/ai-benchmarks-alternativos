@@ -16,7 +16,12 @@ QUÉ CALCULA
 - **costo por punto**: US$ por 1.000 llamadas (media de `cost_usd`, el precio del proveedor
   declarado) dividido por la nota. Un modelo el doble de caro con la misma nota cuesta el doble
   por punto.
-- **frontera**: los modelos que nadie supera en nota a un costo por punto menor o igual.
+- **frontera** (11-nov-2026, Cristian): se recorre de menor a mayor costo por punto; un modelo
+  entra solo si supera al último de la frontera por MÁS del ruido: diferencia pareada test a
+  test mayor que 2 errores estándar. Si no, es «≈» y gana el más barato. Antes bastaba con una
+  nota mayor, y la frontera coronaba diferencias de 0,02 que eran ruido.
+- **piso de Eco**: un modelo queda bajo el piso si rinde peor que el redactor actual de Eco
+  (`PISO_REF`) por más del ruido, con la misma prueba pareada.
 
 Escribe `docs/img/eco-redaccion.svg` y la tabla de la frontera dentro de OCASIONES.md, entre
 `<!-- ECO-REDACCION-START -->` y `<!-- ECO-REDACCION-END -->`. Nada de esto se edita a mano.
@@ -44,6 +49,8 @@ SUITE = "noticias_redaccion"
 VENTANA = "benchmark_20261109_v61c"
 # Los redactores de Eco hoy (OCASIONES, «Redacción»): se señalan siempre.
 ECO = {"deepseek-v4.1-flash": "DeepSeek V4.1 Flash", "qwen3.7-flash": "Qwen 3.7 Flash"}
+# El piso: no rendir peor que el redactor de Eco en producción por más del ruido.
+PISO_REF = "qwen3.7-flash"
 
 # Colores del Manual de Marca v2 (check_paleta): nada inventado. Verde neón para la frontera y
 # cian para Eco: validate_palette.js da PASS en daltonismo (ΔE 27), visión normal (30) y contraste
@@ -72,14 +79,66 @@ def puntos() -> list[dict]:
         costo = 1000 * st.mean(r.get("cost_usd") or 0 for r in rs)
         if nota <= 0 or costo <= 0:
             continue
+        por_test: dict[str, list] = {}
+        for r in rs:
+            por_test.setdefault(r["test_name"], []).append(r["quality"])
         out.append({"key": k, "name": rank[k]["name"], "nota": round(nota, 2), "n": len(rs),
-                    "costo_1k": round(costo, 4), "cpp": costo / nota})
+                    "costo_1k": round(costo, 4), "cpp": costo / nota,
+                    "tests": {t: st.mean(v) for t, v in por_test.items()}})
     out.sort(key=lambda p: (p["cpp"], -p["nota"]))
-    mejor = -1.0
-    for p in out:
-        p["frontera"] = p["nota"] > mejor
-        mejor = max(mejor, p["nota"])
+    marcar(out)
     return out
+
+
+def delta(a: dict, b: dict) -> tuple[float, float]:
+    """Diferencia pareada test a test (a − b) y su margen de ruido (2 errores estándar)."""
+    comun = [t for t in a["tests"] if t in b["tests"]]
+    d = [a["tests"][t] - b["tests"][t] for t in comun]
+    if len(d) < 2:
+        return (st.mean(d) if d else 0.0), float("inf")
+    return st.mean(d), 2 * st.stdev(d) / len(d) ** 0.5
+
+
+def marcar(out: list[dict]) -> None:
+    """Frontera con margen de ruido y piso de Eco. `out` viene ordenado por costo por punto."""
+    if not out:
+        return
+    campeon, mejor_nota = out[0], out[0]["nota"]
+    for p in out:
+        p["frontera"], p["empata_con"], p["delta"], p["en_lugar_de"] = p is campeon, None, None, None
+    for i, p in enumerate(out[1:], 1):
+        md, margen = delta(p, campeon)
+        coronaba = p["nota"] > mejor_nota          # la regla vieja: cualquier nota mayor
+        mejor_nota = max(mejor_nota, p["nota"])
+        if md > margen and md > 0:
+            # 11-nov-2026 (Cristian): «≈ gana el más barato» también dentro de la frontera. Si
+            # un modelo más barato que `p` (y más caro que el campeón) empata con `p`, el lugar
+            # es suyo: lo que `p` le gana al campeón lo consigue igual, a menor costo.
+            # El sustituto tiene que empatar con `p` Y estar por encima del campeón en nota: un
+            # modelo peor que el campeón no hereda el salto solo porque su ruido es grande.
+            igual = next((q for q in out[out.index(campeon) + 1:i]
+                          if q["nota"] > campeon["nota"]
+                          and abs(delta(p, q)[0]) <= delta(p, q)[1]), None)
+            if igual is not None:
+                dq = delta(p, igual)
+                p["empata_con"], p["delta"] = igual["name"], (dq[0], dq[1], igual["name"])
+                if not igual["frontera"]:
+                    igual["frontera"], igual["empata_con"] = True, None
+                    igual["delta"] = (*delta(igual, campeon), campeon["name"])
+                    igual["en_lugar_de"] = (p["name"], campeon["name"])
+                campeon = igual
+                continue
+            p["frontera"], p["delta"] = True, (md, margen, campeon["name"])
+            campeon = p
+        elif coronaba:
+            # Con la regla vieja entraba; ahora es un empate y gana el más barato.
+            p["empata_con"], p["delta"] = campeon["name"], (md, margen, campeon["name"])
+    ref = next((q for q in out if q["key"] == PISO_REF), None)
+    for p in out:
+        p["bajo_piso"] = False
+        if ref is not None and p is not ref:
+            md, margen = delta(p, ref)
+            p["bajo_piso"] = md < -margen
 
 
 def svg(ps: list[dict]) -> str:
@@ -93,8 +152,9 @@ def svg(ps: list[dict]) -> str:
     e = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
          f'font-family="Inter, system-ui, sans-serif" role="img" aria-labelledby="t d">',
          '<title id="t">Redacción de noticias: nota contra costo por punto</title>',
-         f'<desc id="d">{len(ps)} modelos rankeados, ventana v6.1. Frontera en azul; redactores de '
-         f'Eco en naranja.</desc>',
+         f'<desc id="d">{len(ps)} modelos rankeados, ventana v6.1. Frontera costo/calidad en verde '
+         f'(entra solo quien supera al anterior por más del ruido); redactores de Eco en cian; '
+         f'los que rinden peor que el redactor actual de Eco, como anillo vacío.</desc>',
          f'<rect width="{W}" height="{H}" fill="{FONDO}"/>',
          f'<text x="{ml}" y="22" font-size="15" font-weight="700" font-family="JetBrains Mono, ui-monospace, monospace" fill="{TINTA}">Redacción de noticias: '
          f'nota contra costo por punto</text>',
@@ -126,6 +186,12 @@ def svg(ps: list[dict]) -> str:
         r = 6 if p["key"] in ECO or p["frontera"] else 4.5
         tip = escape(f"{p['name']}: nota {p['nota']:.2f}, US$ {p['costo_1k']:.3f} por 1.000 llamadas")
         tenue = ' fill-opacity="0.55"' if color == GRIS else ""
+        if p["bajo_piso"]:
+            tip += " · bajo el piso de Eco"
+            # Segunda codificación, no solo color: bajo el piso es un anillo vacío.
+            e.append(f'<circle cx="{X(p["cpp"]):.1f}" cy="{Y(p["nota"]):.1f}" r="{r - 0.75}" '
+                     f'fill="{FONDO}" stroke="{color}" stroke-width="1.5"><title>{tip}</title></circle>')
+            continue
         e.append(f'<circle cx="{X(p["cpp"]):.1f}" cy="{Y(p["nota"]):.1f}" r="{r}" fill="{color}" '
                  f'stroke="{FONDO}" stroke-width="2"{tenue}><title>{tip}</title></circle>')
     # Etiquetas sin choques: cada una prueba posiciones (derecha, izquierda y después bajando en
@@ -161,10 +227,13 @@ def svg(ps: list[dict]) -> str:
         e.append(f'<text x="{b[0]:.1f}" y="{y + dy + 4:.1f}" font-size="11" fill="{TINTA}"{peso}>'
                  f'{escape(p["name"])}</text>')
     lx = W - mr - 190
-    for i, (c, t) in enumerate(((AZUL, "Frontera costo/calidad"), (NARANJA, "Redactor de Eco hoy"),
-                                (GRIS, "Resto de los rankeados"))):
-        y = H - mb - 52 + i * 16
-        e.append(f'<circle cx="{lx}" cy="{y}" r="5" fill="{c}"/>')
+    leyenda = ((AZUL, "Frontera costo/calidad", False), (NARANJA, "Redactor de Eco hoy", False),
+               (GRIS, "Resto de los rankeados", False),
+               (GRIS, f"Bajo el piso (peor que {ECO[PISO_REF]})", True))
+    for i, (c, t, anillo) in enumerate(leyenda):
+        y = H - mb - 68 + i * 16
+        e.append(f'<circle cx="{lx}" cy="{y}" r="4.5" fill="{FONDO}" stroke="{c}" stroke-width="1.5"/>'
+                 if anillo else f'<circle cx="{lx}" cy="{y}" r="5" fill="{c}"/>')
         e.append(f'<text x="{lx + 10}" y="{y + 4}" font-size="11" fill="{TINTA}">{t}</text>')
     e.append("</svg>")
     return "\n".join(e) + "\n"
@@ -173,16 +242,34 @@ def svg(ps: list[dict]) -> str:
 def bloque(ps: list[dict]) -> str:
     f = lambda v: f"{v:.2f}".replace(".", ",")
     f3 = lambda v: f"{v:.3f}".replace(".", ",")
-    filas = [p for p in ps if p["frontera"] or p["key"] in ECO]
+    filas = [p for p in ps if p["frontera"] or p["empata_con"] or p["key"] in ECO]
     lin = [INI, "",
            "![Redacción de noticias: nota contra costo por punto](docs/img/eco-redaccion.svg)", "",
-           "| Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto | |",
-           "|---|---|---|---|---|"]
+           "| Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto "
+           "| Diferencia pareada | |",
+           "|---|---|---|---|---|---|"]
     for p in filas:
-        marca = " · ".join(x for x in ("frontera" if p["frontera"] else "",
-                                         "redactor de Eco" if p["key"] in ECO else "") if x)
-        lin.append(f"| {p['name']} | {f(p['nota'])} | {f(p['costo_1k'])} | {f3(p['cpp'])} | {marca} |")
-    lin += ["", f"Generado por `generate_eco_redaccion.py` sobre {len(ps)} rankeados, runs de la "
+        d = p["delta"]
+        dif = (f"{f(d[0]) if d[0] < 0 else '+' + f(d[0])} ± {f(d[1])} contra {d[2]}" if d else "—")
+        marca = " · ".join(x for x in (
+            ("frontera" + (f", en lugar de {p['en_lugar_de'][0]} (que supera a {p['en_lugar_de'][1]}"
+                           " y empata con este, más barato)" if p["en_lugar_de"] else ""))
+            if p["frontera"] else "",
+            f"≈ {p['empata_con']}: gana el más barato" if p["empata_con"] else "",
+            "redactor de Eco" if p["key"] in ECO else "",
+            "bajo el piso de Eco" if p["bajo_piso"] else "") if x)
+        lin.append(f"| {p['name']} | {f(p['nota'])} | {f(p['costo_1k'])} | {f3(p['cpp'])} | {dif} "
+                   f"| {marca} |")
+    bajo = sorted((p for p in ps if p["bajo_piso"]), key=lambda p: -p["nota"])
+    lin += ["", "**Margen de ruido:** la diferencia pareada test a test en los 25 tests de "
+            "`noticias_redaccion` (un run por test), con un margen de 2 errores estándar. Un modelo "
+            "entra a la frontera solo si supera al anterior por más que ese margen; si no, es «≈» y "
+            "gana el más barato. Lo mismo dentro de la frontera: si el que supera al anterior empata "
+            "con uno más barato que también está por encima en nota, el lugar es del más barato.", "",
+            f"**Bajo el piso de Eco** (rinde peor que {ECO[PISO_REF]}, el redactor actual, por más "
+            f"del ruido): {len(bajo)} de {len(ps)} — "
+            + ", ".join(f"{p['name']} ({f(p['nota'])})" for p in bajo) + ".",
+            "", f"Generado por `generate_eco_redaccion.py` sobre {len(ps)} rankeados, runs de la "
             "ventana v6.1. No se edita a mano.", "", FIN]
     return "\n".join(lin)
 

@@ -494,9 +494,13 @@ def ficha(m: dict, puesto: int | None, total: int) -> str:
         # 10-nov-2026 (Cristian): con la fecha de los runs que cuentan. Pueden ser de antes de
         # la ventana si la suite es idéntica (huella_suite); el lector tiene que verlo.
         _f = m.get("security_fecha") or {}
-        _cuando = ("" if not _f else f' <span class="meta">(medido {_f["desde"]})</span>'
-                   if _f["desde"] == _f["hasta"] else
-                   f' <span class="meta">(medido entre {_f["desde"]} y {_f["hasta"]})</span>')
+        _partes = []
+        if _f.get("desde"):
+            _partes.append(f'el {_f["desde"]}' if _f["desde"] == _f["hasta"]
+                           else f'entre el {_f["desde"]} y el {_f["hasta"]}')
+        if _f.get("ventana"):
+            _partes.append(f'en la ventana {_f["ventana"]}')
+        _cuando = (f' <span class="meta">(medido {" y ".join(_partes)})</span>' if _partes else "")
         grupos[0][1].append(("Resistencia a prompt injection",
                              f'<span class="{cls}">{_n(s)}</span>{_cuando}'))
     out = []

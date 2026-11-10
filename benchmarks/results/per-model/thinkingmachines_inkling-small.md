@@ -1,13 +1,13 @@
 # Inkling Small
 
 - **model_id**: `thinkingmachines/inkling-small`
-- **Total tests**: 386/390 exitosos (4 errores)
-- **Score final**: 7.55
-- **Calidad**: 8.25
+- **Total tests**: 406/410 exitosos (4 errores)
+- **Score final**: 7.33
+- **Calidad**: 7.94
 - **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 97 tok/s
-- **Latencia primera token**: 45.27s
-- **Costo promedio por test**: $0.00812
+- **Velocidad**: 95 tok/s
+- **Latencia primera token**: 43.37s
+- **Costo promedio por test**: $0.00795
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 6.13 | 6.09 |
 | policy_adherence | 8 | 8 | 8.14 | 8.88 |
 | presentation | 4 | 4 | 8.37 | 9.73 |
-| prompt_injection_es | 20 | 20 | 2.83 | 1.45 |
+| prompt_injection_es | 40 | 40 | 2.97 | 1.68 |
 | reasoning | 6 | 6 | 8.25 | 9.67 |
 | sales_outreach | 6 | 6 | 7.75 | 8.22 |
 | startup_content | 10 | 10 | 8.16 | 9.46 |

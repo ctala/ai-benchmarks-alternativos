@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" width="760" height="460" font-family="Inter, system-ui, sans-serif" role="img" aria-labelledby="t d">
 <title id="t">Redacción de noticias: nota contra costo por punto</title>
-<desc id="d">74 modelos rankeados, ventana v6.1. Frontera en azul; redactores de Eco en naranja.</desc>
+<desc id="d">74 modelos rankeados, ventana v6.1. Frontera costo/calidad en verde (entra solo quien supera al anterior por más del ruido); redactores de Eco en cian; los que rinden peor que el redactor actual de Eco, como anillo vacío.</desc>
 <rect width="760" height="460" fill="#0a0a1a"/>
 <text x="64" y="22" font-size="15" font-weight="700" font-family="JetBrains Mono, ui-monospace, monospace" fill="#ffffff">Redacción de noticias: nota contra costo por punto</text>
 <text x="64" y="38" font-size="11.5" fill="#b0b0b0">74 rankeados · 25 tests · ventana v6.1 · más arriba y más a la izquierda es mejor</text>
@@ -26,32 +26,34 @@
 <text x="56" y="52.0" font-size="11" fill="#b0b0b0" text-anchor="end">10</text>
 <text x="400.0" y="446" font-size="11.5" fill="#b0b0b0" text-anchor="middle">US$ por 1.000 llamadas, por punto de nota (escala log)</text>
 <text x="16" y="226.0" font-size="11.5" fill="#b0b0b0" text-anchor="middle" transform="rotate(-90 16 226.0)">Nota de redacción</text>
-<polyline fill="none" stroke="#39ff14" stroke-width="2" points="81.8,195.1 96.2,80.4 173.2,55.1 184.3,53.5 225.7,48.8 381.1,48.0"/>
+<polyline fill="none" stroke="#39ff14" stroke-width="2" points="81.8,195.1 96.2,80.4 173.2,55.1"/>
 <circle cx="142.5" cy="138.2" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Nemotron 3.5 Lightning: nota 8.86, US$ 0.260 por 1.000 llamadas</title></circle>
-<circle cx="159.0" cy="267.9" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GPT-OSS 20B: nota 7.22, US$ 0.265 por 1.000 llamadas</title></circle>
+<circle cx="159.0" cy="267.9" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>GPT-OSS 20B: nota 7.22, US$ 0.265 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="172.2" cy="88.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>DeepSeek V4 Flash (OpenRouter): nota 9.49, US$ 0.418 por 1.000 llamadas</title></circle>
 <circle cx="172.2" cy="82.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>DeepSeek V4 Flash 0731: nota 9.56, US$ 0.421 por 1.000 llamadas</title></circle>
 <circle cx="180.7" cy="139.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Llama 3.3 70B: nota 8.84, US$ 0.438 por 1.000 llamadas</title></circle>
-<circle cx="183.9" cy="230.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GPT-OSS 120B: nota 7.70, US$ 0.398 por 1.000 llamadas</title></circle>
+<circle cx="183.9" cy="230.0" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>GPT-OSS 120B: nota 7.70, US$ 0.398 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="184.0" cy="130.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Nemotron 3 Nano 30B: nota 8.96, US$ 0.464 por 1.000 llamadas</title></circle>
+<circle cx="184.3" cy="53.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Gemma 4 31B: nota 9.93, US$ 0.516 por 1.000 llamadas</title></circle>
 <circle cx="191.1" cy="67.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>MiMo V2.6 Flash: nota 9.76, US$ 0.557 por 1.000 llamadas</title></circle>
 <circle cx="204.3" cy="122.4" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Solar Pro 4: nota 9.06, US$ 0.620 por 1.000 llamadas</title></circle>
-<circle cx="214.3" cy="159.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Llama 4 Maverick: nota 8.59, US$ 0.674 por 1.000 llamadas</title></circle>
+<circle cx="214.3" cy="159.5" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Llama 4 Maverick: nota 8.59, US$ 0.674 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="217.3" cy="83.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>DeepSeek V3.2: nota 9.55, US$ 0.781 por 1.000 llamadas</title></circle>
-<circle cx="227.1" cy="323.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Ministral 14B: nota 6.52, US$ 0.610 por 1.000 llamadas</title></circle>
-<circle cx="248.8" cy="249.7" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Step 3.5 Flash: nota 7.45, US$ 0.938 por 1.000 llamadas</title></circle>
-<circle cx="271.8" cy="249.7" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>MiniMax M3.1 Flash: nota 7.45, US$ 1.284 por 1.000 llamadas</title></circle>
-<circle cx="274.5" cy="281.4" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Mistral Small 4: nota 7.05, US$ 1.261 por 1.000 llamadas</title></circle>
-<circle cx="276.7" cy="257.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen3-Coder-Next (OpenRouter FP8): nota 7.35, US$ 1.357 por 1.000 llamadas</title></circle>
-<circle cx="276.9" cy="179.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>MiniMax M2.5: nota 8.34, US$ 1.543 por 1.000 llamadas</title></circle>
+<circle cx="225.7" cy="48.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GPT-6 Luna: nota 9.99, US$ 0.916 por 1.000 llamadas</title></circle>
+<circle cx="227.1" cy="323.3" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Ministral 14B: nota 6.52, US$ 0.610 por 1.000 llamadas · bajo el piso de Eco</title></circle>
+<circle cx="248.8" cy="249.7" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Step 3.5 Flash: nota 7.45, US$ 0.938 por 1.000 llamadas · bajo el piso de Eco</title></circle>
+<circle cx="271.8" cy="249.7" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>MiniMax M3.1 Flash: nota 7.45, US$ 1.284 por 1.000 llamadas · bajo el piso de Eco</title></circle>
+<circle cx="274.5" cy="281.4" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Mistral Small 4: nota 7.05, US$ 1.261 por 1.000 llamadas · bajo el piso de Eco</title></circle>
+<circle cx="276.7" cy="257.6" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Qwen3-Coder-Next (OpenRouter FP8): nota 7.35, US$ 1.357 por 1.000 llamadas · bajo el piso de Eco</title></circle>
+<circle cx="276.9" cy="179.3" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>MiniMax M2.5: nota 8.34, US$ 1.543 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="280.5" cy="68.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Claude Haiku 5.5: nota 9.74, US$ 1.893 por 1.000 llamadas</title></circle>
 <circle cx="284.4" cy="58.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Gemini 3.1 Flash Lite (GA): nota 9.87, US$ 2.023 por 1.000 llamadas</title></circle>
 <circle cx="292.8" cy="64.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Nemotron 3 Super: nota 9.79, US$ 2.253 por 1.000 llamadas</title></circle>
-<circle cx="294.7" cy="248.9" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3-Next 80B Instruct: nota 7.46, US$ 1.761 por 1.000 llamadas</title></circle>
+<circle cx="294.7" cy="248.9" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Qwen 3-Next 80B Instruct: nota 7.46, US$ 1.761 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="295.6" cy="71.7" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>MiMo V2.6 Pro: nota 9.70, US$ 2.320 por 1.000 llamadas</title></circle>
 <circle cx="308.1" cy="48.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GPT-6 Luna Pro: nota 9.99, US$ 2.836 por 1.000 llamadas</title></circle>
 <circle cx="317.2" cy="82.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Gemini 3.5 Flash Lite: nota 9.57, US$ 3.077 por 1.000 llamadas</title></circle>
-<circle cx="321.3" cy="280.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Granite 4.2 8B: nota 7.06, US$ 2.401 por 1.000 llamadas</title></circle>
+<circle cx="321.3" cy="280.6" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Granite 4.2 8B: nota 7.06, US$ 2.401 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="333.2" cy="72.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Inkling Small: nota 9.69, US$ 3.880 por 1.000 llamadas</title></circle>
 <circle cx="339.5" cy="58.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.6 35B base (OpenRouter FP8): nota 9.87, US$ 4.303 por 1.000 llamadas</title></circle>
 <circle cx="344.0" cy="51.2" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Muse Glimmer 30B: nota 9.96, US$ 4.618 por 1.000 llamadas</title></circle>
@@ -60,13 +62,14 @@
 <circle cx="353.6" cy="79.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.5 35B: nota 9.60, US$ 5.082 por 1.000 llamadas</title></circle>
 <circle cx="365.9" cy="63.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GLM 5.3 Flash: nota 9.81, US$ 6.151 por 1.000 llamadas</title></circle>
 <circle cx="380.1" cy="63.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Tencent Hy3: nota 9.81, US$ 7.474 por 1.000 llamadas</title></circle>
+<circle cx="381.1" cy="48.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.8 Flash: nota 10.00, US$ 7.719 por 1.000 llamadas</title></circle>
 <circle cx="383.8" cy="48.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GPT-6.1 Terra: nota 10.00, US$ 8.006 por 1.000 llamadas</title></circle>
-<circle cx="388.1" cy="286.1" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Nemotron 3 Ultra 550B: nota 6.99, US$ 5.934 por 1.000 llamadas</title></circle>
+<circle cx="388.1" cy="286.1" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Nemotron 3 Ultra 550B: nota 6.99, US$ 5.934 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="395.0" cy="63.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GLM 5.2: nota 9.80, US$ 9.154 por 1.000 llamadas</title></circle>
 <circle cx="405.2" cy="70.9" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.6 Plus: nota 9.71, US$ 10.424 por 1.000 llamadas</title></circle>
 <circle cx="405.6" cy="71.7" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.6 27B base (OpenRouter FP8): nota 9.70, US$ 10.472 por 1.000 llamadas</title></circle>
 <circle cx="405.9" cy="67.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GLM 5: nota 9.75, US$ 10.567 por 1.000 llamadas</title></circle>
-<circle cx="408.7" cy="267.1" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>MiniMax M3: nota 7.23, US$ 8.142 por 1.000 llamadas</title></circle>
+<circle cx="408.7" cy="267.1" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>MiniMax M3: nota 7.23, US$ 8.142 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="411.8" cy="112.1" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>DeepSeek V4 Pro: nota 9.19, US$ 10.809 por 1.000 llamadas</title></circle>
 <circle cx="418.2" cy="53.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Mistral Large 4.0: nota 9.93, US$ 12.748 por 1.000 llamadas</title></circle>
 <circle cx="422.2" cy="73.3" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>GLM-5.1: nota 9.68, US$ 13.130 por 1.000 llamadas</title></circle>
@@ -79,7 +82,7 @@
 <circle cx="451.7" cy="67.8" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Kimi K2.5: nota 9.75, US$ 19.788 por 1.000 llamadas</title></circle>
 <circle cx="452.5" cy="110.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Muse Spark 1.3: nota 9.21, US$ 18.912 por 1.000 llamadas</title></circle>
 <circle cx="454.5" cy="94.7" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Gemini 4 Argon: nota 9.41, US$ 19.867 por 1.000 llamadas</title></circle>
-<circle cx="458.2" cy="225.2" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Seed 2.0 Code: nota 7.76, US$ 17.228 por 1.000 llamadas</title></circle>
+<circle cx="458.2" cy="225.2" r="3.75" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"><title>Seed 2.0 Code: nota 7.76, US$ 17.228 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="459.2" cy="127.1" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Tencent Hy4: nota 9.00, US$ 20.276 por 1.000 llamadas</title></circle>
 <circle cx="495.3" cy="59.1" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Claude Sonnet 5.5: nota 9.86, US$ 36.378 por 1.000 llamadas</title></circle>
 <circle cx="504.0" cy="98.6" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Kimi K2.6: nota 9.36, US$ 38.902 por 1.000 llamadas</title></circle>
@@ -93,32 +96,24 @@
 <circle cx="568.1" cy="48.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Qwen 3.8 Max 0902: nota 10.00, US$ 100.099 por 1.000 llamadas</title></circle>
 <circle cx="609.8" cy="52.0" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Claude Fable 5.1: nota 9.95, US$ 176.513 por 1.000 llamadas</title></circle>
 <circle cx="614.7" cy="53.5" r="4.5" fill="#b0b0b0" stroke="#0a0a1a" stroke-width="2" fill-opacity="0.55"><title>Claude Fable 5.2: nota 9.93, US$ 188.277 por 1.000 llamadas</title></circle>
-<circle cx="81.8" cy="195.1" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>Llama 3.1 8B Instant: nota 8.14, US$ 0.104 por 1.000 llamadas</title></circle>
+<circle cx="81.8" cy="195.1" r="5.25" fill="#0a0a1a" stroke="#39ff14" stroke-width="1.5"><title>Llama 3.1 8B Instant: nota 8.14, US$ 0.104 por 1.000 llamadas · bajo el piso de Eco</title></circle>
 <circle cx="96.2" cy="80.4" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>Ling 3.0 Flash: nota 9.59, US$ 0.149 por 1.000 llamadas</title></circle>
 <circle cx="173.2" cy="55.1" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>Gemma 4 26B MoE (3.8B activos): nota 9.91, US$ 0.443 por 1.000 llamadas</title></circle>
-<circle cx="184.3" cy="53.5" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>Gemma 4 31B: nota 9.93, US$ 0.516 por 1.000 llamadas</title></circle>
-<circle cx="225.7" cy="48.8" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>GPT-6 Luna: nota 9.99, US$ 0.916 por 1.000 llamadas</title></circle>
-<circle cx="381.1" cy="48.0" r="6" fill="#39ff14" stroke="#0a0a1a" stroke-width="2"><title>Qwen 3.8 Flash: nota 10.00, US$ 7.719 por 1.000 llamadas</title></circle>
 <circle cx="201.8" cy="95.5" r="6" fill="#00d4ff" stroke="#0a0a1a" stroke-width="2"><title>Qwen 3.7 Flash: nota 9.40, US$ 0.621 por 1.000 llamadas</title></circle>
 <circle cx="266.1" cy="53.5" r="6" fill="#00d4ff" stroke="#0a0a1a" stroke-width="2"><title>DeepSeek V4.1 Flash: nota 9.93, US$ 1.585 por 1.000 llamadas</title></circle>
-<text x="391.1" y="52.0" font-size="11" fill="#ffffff">Qwen 3.8 Flash</text>
-<line x1="225.7" y1="48.8" x2="235.7" y2="78.8" stroke="#b0b0b0" stroke-width="1"/>
-<text x="235.7" y="82.8" font-size="11" fill="#ffffff">GPT-6 Luna</text>
-<line x1="184.3" y1="53.5" x2="174.3" y2="69.5" stroke="#b0b0b0" stroke-width="1"/>
-<text x="105.0" y="73.5" font-size="11" fill="#ffffff">Gemma 4 31B</text>
-<line x1="266.1" y1="53.5" x2="276.1" y2="97.5" stroke="#b0b0b0" stroke-width="1"/>
-<text x="276.1" y="101.5" font-size="11" fill="#ffffff" font-weight="600">DeepSeek V4.1 Flash</text>
-<line x1="173.2" y1="55.1" x2="183.2" y2="113.1" stroke="#b0b0b0" stroke-width="1"/>
-<text x="183.2" y="117.1" font-size="11" fill="#ffffff">Gemma 4 26B MoE (3.8B activos)</text>
+<text x="276.1" y="57.5" font-size="11" fill="#ffffff" font-weight="600">DeepSeek V4.1 Flash</text>
+<line x1="173.2" y1="55.1" x2="183.2" y2="71.1" stroke="#b0b0b0" stroke-width="1"/>
+<text x="183.2" y="75.1" font-size="11" fill="#ffffff">Gemma 4 26B MoE (3.8B activos)</text>
 <line x1="96.2" y1="80.4" x2="106.2" y2="96.4" stroke="#b0b0b0" stroke-width="1"/>
 <text x="106.2" y="100.4" font-size="11" fill="#ffffff">Ling 3.0 Flash</text>
-<line x1="201.8" y1="95.5" x2="211.8" y2="139.5" stroke="#b0b0b0" stroke-width="1"/>
-<text x="211.8" y="143.5" font-size="11" fill="#ffffff" font-weight="600">Qwen 3.7 Flash</text>
+<text x="211.8" y="99.5" font-size="11" fill="#ffffff" font-weight="600">Qwen 3.7 Flash</text>
 <text x="91.8" y="199.1" font-size="11" fill="#ffffff">Llama 3.1 8B Instant</text>
-<circle cx="546" cy="352" r="5" fill="#39ff14"/>
-<text x="556" y="356" font-size="11" fill="#ffffff">Frontera costo/calidad</text>
-<circle cx="546" cy="368" r="5" fill="#00d4ff"/>
-<text x="556" y="372" font-size="11" fill="#ffffff">Redactor de Eco hoy</text>
-<circle cx="546" cy="384" r="5" fill="#b0b0b0"/>
-<text x="556" y="388" font-size="11" fill="#ffffff">Resto de los rankeados</text>
+<circle cx="546" cy="336" r="5" fill="#39ff14"/>
+<text x="556" y="340" font-size="11" fill="#ffffff">Frontera costo/calidad</text>
+<circle cx="546" cy="352" r="5" fill="#00d4ff"/>
+<text x="556" y="356" font-size="11" fill="#ffffff">Redactor de Eco hoy</text>
+<circle cx="546" cy="368" r="5" fill="#b0b0b0"/>
+<text x="556" y="372" font-size="11" fill="#ffffff">Resto de los rankeados</text>
+<circle cx="546" cy="384" r="4.5" fill="#0a0a1a" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="556" y="388" font-size="11" fill="#ffffff">Bajo el piso (peor que Qwen 3.7 Flash)</text>
 </svg>

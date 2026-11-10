@@ -1,13 +1,13 @@
 # Muse Spark 1.3
 
 - **model_id**: `meta/muse-spark-1.3`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 7.60
-- **Calidad**: 8.60
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 7.56
+- **Calidad**: 8.56
 - **Judge score (Phi-4)**: 4.05/10
-- **Velocidad**: 136 tok/s
-- **Latencia primera token**: 16.46s
-- **Costo promedio por test**: $0.03787
+- **Velocidad**: 132 tok/s
+- **Latencia primera token**: 16.51s
+- **Costo promedio por test**: $0.03679
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 5.64 | 5.53 |
 | policy_adherence | 8 | 8 | 8.04 | 9.08 |
 | presentation | 4 | 4 | 8.27 | 9.69 |
-| prompt_injection_es | 20 | 20 | 7.30 | 8.20 |
+| prompt_injection_es | 40 | 40 | 7.04 | 7.97 |
 | reasoning | 6 | 6 | 8.23 | 9.58 |
 | sales_outreach | 6 | 6 | 7.38 | 8.22 |
 | startup_content | 10 | 10 | 8.30 | 9.75 |

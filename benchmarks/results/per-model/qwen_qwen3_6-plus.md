@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 360/365 exitosos (5 errores)
-- **Score final**: 7.22
-- **Calidad**: 8.04
+- **Total tests**: 380/385 exitosos (5 errores)
+- **Score final**: 6.96
+- **Calidad**: 7.67
 - **Judge score (Phi-4)**: 4.52/10
 - **Velocidad**: 53 tok/s
-- **Latencia primera token**: 44.45s
-- **Costo promedio por test**: $0.00769
+- **Latencia primera token**: 42.91s
+- **Costo promedio por test**: $0.00753
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 12 | 12 | 6.99 | 7.69 |
 | policy_adherence | 8 | 8 | 7.96 | 8.83 |
 | presentation | 4 | 4 | 8.10 | 9.39 |
-| prompt_injection_es | 20 | 20 | 2.40 | 1.15 |
+| prompt_injection_es | 40 | 40 | 2.35 | 1.07 |
 | reasoning | 6 | 6 | 8.07 | 9.50 |
 | sales_outreach | 6 | 6 | 6.45 | 6.78 |
 | startup_content | 10 | 10 | 8.07 | 9.32 |

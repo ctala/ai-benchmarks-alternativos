@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 483/487 exitosos (4 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.89
+- **Total tests**: 503/507 exitosos (4 errores)
+- **Score final**: 7.19
+- **Calidad**: 7.61
 - **Judge score (Phi-4)**: 3.60/10
-- **Velocidad**: 45 tok/s
-- **Latencia primera token**: 8.73s
-- **Costo promedio por test**: $0.00683
+- **Velocidad**: 44 tok/s
+- **Latencia primera token**: 8.43s
+- **Costo promedio por test**: $0.00663
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 7.44 | 7.84 |
 | policy_adherence | 8 | 8 | 7.84 | 8.12 |
 | presentation | 4 | 4 | 8.07 | 8.86 |
-| prompt_injection_es | 40 | 40 | 2.59 | 1.10 |
+| prompt_injection_es | 60 | 60 | 2.57 | 1.07 |
 | reasoning | 6 | 6 | 8.24 | 9.13 |
 | sales_outreach | 6 | 6 | 8.35 | 8.78 |
 | startup_content | 10 | 10 | 8.28 | 9.02 |

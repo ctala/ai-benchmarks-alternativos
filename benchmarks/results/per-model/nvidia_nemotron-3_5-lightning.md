@@ -1,13 +1,13 @@
 # Nemotron 3.5 Lightning
 
 - **model_id**: `nvidia/nemotron-3.5-lightning`
-- **Total tests**: 925/942 exitosos (17 errores)
-- **Score final**: 7.59
-- **Calidad**: 7.56
+- **Total tests**: 945/962 exitosos (17 errores)
+- **Score final**: 7.49
+- **Calidad**: 7.43
 - **Judge score (Phi-4)**: 3.97/10
-- **Velocidad**: 294 tok/s
-- **Latencia primera token**: 6.32s
-- **Costo promedio por test**: $0.00162
+- **Velocidad**: 289 tok/s
+- **Latencia primera token**: 6.20s
+- **Costo promedio por test**: $0.00161
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 15 | 10 | 6.49 | 5.43 |
 | policy_adherence | 20 | 20 | 8.65 | 8.75 |
 | presentation | 10 | 10 | 8.33 | 8.95 |
-| prompt_injection_es | 80 | 80 | 3.26 | 1.00 |
+| prompt_injection_es | 100 | 100 | 3.20 | 1.00 |
 | reasoning | 15 | 15 | 8.50 | 9.09 |
 | sales_outreach | 15 | 15 | 8.18 | 8.45 |
 | startup_content | 25 | 25 | 8.71 | 9.44 |

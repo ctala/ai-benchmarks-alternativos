@@ -256,7 +256,7 @@
   <div class="badges">
     <span class="badge on">⬡ Open source · MIT</span>
     <span class="badge on">⚒ Puede usar herramientas</span>
-    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 3.3/10</span>
+    <span class="badge warn">⛨ Cae ante instrucciones ocultas · 2.4/10</span>
   </div>
   <section class="perfil">
     <h2>Dónde está parado, pilar por pilar</h2>
@@ -294,21 +294,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 32 tareas medidas es <strong>7.77</strong>. Un
+    <p>Su media entre las 32 tareas medidas es <strong>7.75</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.18 (+1.41 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.10 (+1.33 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Presentaciones (slides, reportes)</strong> — 8.72 (+0.95 contra su media). <span class="meta">Decide: estructurar una presentación</span></li>
-        <li><strong>Gestión de tareas (action items, planes)</strong> — 8.71 (+0.94 contra su media). <span class="meta">Decide: convertir una conversación en tareas</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.18 (+1.43 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.10 (+1.35 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Presentaciones (slides, reportes)</strong> — 8.72 (+0.97 contra su media). <span class="meta">Decide: estructurar una presentación</span></li>
+        <li><strong>Gestión de tareas (action items, planes)</strong> — 8.71 (+0.96 contra su media). <span class="meta">Decide: convertir una conversación en tareas</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 4.14 (-3.63 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Auditar números (detectar el error plantado)</strong> — 6.78 (-0.99 contra su media). <span class="meta">Decide: encontrar el error en un número</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 6.79 (-0.98 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.81 (-0.96 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 3.39 (-4.36 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Auditar números (detectar el error plantado)</strong> — 6.78 (-0.97 contra su media). <span class="meta">Decide: encontrar el error en un número</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 6.79 (-0.96 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.81 (-0.94 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
     </ul>
   </section>
   <section class="results">
@@ -337,7 +337,7 @@
         <tr><th scope="row">Runs que puntúan</th><td>137</td></tr>
         <tr><th scope="row">Tool calling</th><td>6.51</td></tr>
         <tr><th scope="row">¿Maneja credenciales?</th><td>a veces (1 de 6)</td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">3.32</span> <span class="meta">(medido 2026-08-17)</span></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">2.35</span> <span class="meta">(medido en la ventana v6.1)</span></td></tr>
         <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
         <tr><th scope="row">Precio por millón · entrada</th><td>$0.270</td></tr>
         <tr><th scope="row">Precio por millón · salida</th><td>$1.08</td></tr>
@@ -382,6 +382,7 @@
       <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
       <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
       <tbody>
+        <tr><th scope="row">Resistencia a prompt injection</th><td>188</td><td>32.770</td><td><strong>40.962</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>3.240</td><td>14.272</td><td><strong>17.840</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>1.194</td><td>5.175</td><td><strong>6.468</strong></td></tr>
         <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>1.710</td><td>4.757</td><td><strong>5.946</strong></td></tr>
@@ -407,7 +408,6 @@
         <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>432</td><td>738</td><td><strong>922</strong></td></tr>
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>700</td><td>700</td><td><strong>875</strong></td></tr>
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>512</td><td>652</td><td><strong>815</strong></td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td>201</td><td>571</td><td><strong>713</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>124</td><td>547</td><td><strong>683</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>300</td><td>502</td><td><strong>627</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>461</td><td>477</td><td><strong>596</strong></td></tr>

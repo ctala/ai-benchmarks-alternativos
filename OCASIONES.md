@@ -214,16 +214,20 @@ Un modelo fuera de la frontera tiene a otro que escribe igual o mejor por menos.
 
 ![Redacción de noticias: nota contra costo por punto](docs/img/eco-redaccion.svg)
 
-| Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto | |
-|---|---|---|---|---|
-| Llama 3.1 8B Instant | 8,14 | 0,10 | 0,013 | frontera |
-| Ling 3.0 Flash | 9,59 | 0,15 | 0,016 | frontera |
-| Gemma 4 26B MoE (3.8B activos) | 9,91 | 0,44 | 0,045 | frontera |
-| Gemma 4 31B | 9,93 | 0,52 | 0,052 | frontera |
-| Qwen 3.7 Flash | 9,40 | 0,62 | 0,066 | redactor de Eco |
-| GPT-6 Luna | 9,99 | 0,92 | 0,092 | frontera |
-| DeepSeek V4.1 Flash | 9,93 | 1,59 | 0,160 | redactor de Eco |
-| Qwen 3.8 Flash | 10,00 | 7,72 | 0,772 | frontera |
+| Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto | Diferencia pareada | |
+|---|---|---|---|---|---|
+| Llama 3.1 8B Instant | 8,14 | 0,10 | 0,013 | — | frontera · bajo el piso de Eco |
+| Ling 3.0 Flash | 9,59 | 0,15 | 0,016 | +1,46 ± 0,36 contra Llama 3.1 8B Instant | frontera |
+| Gemma 4 26B MoE (3.8B activos) | 9,91 | 0,44 | 0,045 | +0,32 ± 0,38 contra Ling 3.0 Flash | frontera, en lugar de Gemma 4 31B (que supera a Ling 3.0 Flash y empata con este, más barato) |
+| Gemma 4 31B | 9,93 | 0,52 | 0,052 | +0,02 ± 0,18 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
+| Qwen 3.7 Flash | 9,40 | 0,62 | 0,066 | — | redactor de Eco |
+| GPT-6 Luna | 9,99 | 0,92 | 0,092 | +0,08 ± 0,11 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
+| DeepSeek V4.1 Flash | 9,93 | 1,59 | 0,160 | — | redactor de Eco |
+| Qwen 3.8 Flash | 10,00 | 7,72 | 0,772 | +0,09 ± 0,10 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
+
+**Margen de ruido:** la diferencia pareada test a test en los 25 tests de `noticias_redaccion` (un run por test), con un margen de 2 errores estándar. Un modelo entra a la frontera solo si supera al anterior por más que ese margen; si no, es «≈» y gana el más barato. Lo mismo dentro de la frontera: si el que supera al anterior empata con uno más barato que también está por encima en nota, el lugar es del más barato.
+
+**Bajo el piso de Eco** (rinde peor que Qwen 3.7 Flash, el redactor actual, por más del ruido): 15 de 74 — Llama 4 Maverick (8,59), MiniMax M2.5 (8,34), Llama 3.1 8B Instant (8,14), Seed 2.0 Code (7,76), GPT-OSS 120B (7,70), Qwen 3-Next 80B Instruct (7,46), Step 3.5 Flash (7,45), MiniMax M3.1 Flash (7,45), Qwen3-Coder-Next (OpenRouter FP8) (7,35), MiniMax M3 (7,23), GPT-OSS 20B (7,22), Granite 4.2 8B (7,06), Mistral Small 4 (7,05), Nemotron 3 Ultra 550B (6,99), Ministral 14B (6,52).
 
 Generado por `generate_eco_redaccion.py` sobre 74 rankeados, runs de la ventana v6.1. No se edita a mano.
 

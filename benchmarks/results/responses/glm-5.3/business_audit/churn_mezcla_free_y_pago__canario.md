@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/churn_mezcla_free_y_pago
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 8.33 | quality: 10.0
-- latency_total: 55.435s | tokens_per_second: 64.9
-- input_tokens: 177 | output_tokens: 3598
+- success: True  | final: 8.27 | quality: 10.0
+- latency_total: 58.407s | tokens_per_second: 86.6
+- input_tokens: 177 | output_tokens: 5060
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -29,46 +29,54 @@ Detalle que encontré exportando la tabla:
 
 ## Respuesta completa
 
-# Primero, respira: tu churn de negocio no es 31%
+# Respira: el 31% es real pero mide otra población que la que tú crees
 
-El panel está midiendo una **población mezclada** donde el 89% son usuarios gratuitos, que se van sin fricción porque no pagan nada. Al separar las poblaciones:
+Antes de interpretar el número, separamos la población. El panel está calculando el churn **de todos los usuarios mezclados**, y el 89% de tu base es plan gratuito:
 
-| Segmento | Usuarios inicio de mes | Bajas | Churn real |
+| Segmento | Usuarios | Bajas | Churn |
 |---|---|---|---|
 | Gratuito | 178 | 60 | **33.7%** |
 | Pago | 22 | 2 | **9.1%** |
-| Mezclado (lo que reporta el panel) | 200 | 62 | 31.0% |
+| Total | 200 | 62 | 31% |
 
-El 31% es un artefacto aritmético, no una señal de negocio. Estabas comparando un churn de pago (~5%) contra un churn de todos los usuarios. Son métricas de especies distintas.
+Verificación de consistencia: 0.89 × 33.7% + 0.11 × 9.1% = 31%. El panel no está roto; simplemente mezcla dos poblaciones con economías distintas. **El 97% de tus bajas (60 de 62) son usuarios que no generan ingreso directo.**
 
-**El dato tranquilizador:** con 22 usuarios de pago, cada usuario que se va vale 4.5 puntos porcentuales. La diferencia entre tu "5%" recordado y el 9.1% actual es literalmente **un usuario**. Con n=22, esa cifra es estadísticamente ruidosa: el churn de pago real podría estar entre ~2% y ~27%.
+## Qué tan grave es
 
-# ¿Qué tan grave es? Tres cosas separadas
+Depende de de dónde salió tu "5%", y eso es lo primero que hay que verificar:
 
-1. **Churn de pago (9.1%)**: es la cifra que importa y está elevada para SaaS maduro (1-3% mensual), pero con 22 usuarios estás en etapa donde las entrevistas valen más que la tasa.
-2. **Churn gratuito (33.7%)**: no es "churn" en el sentido de negocio — es fuga de funnel. Lo relevante ahí es activación y conversión, no retención a toda costa.
-3. **El problema operativo real**: casi tomas una decisión de pánico sobre una métrica mal definida. Eso es lo que hay que arreglar primero.
+**Escenario A — el 5% era churn de pago (o una métrica solo-de-pagos).** Entonces el salto a 31% es definicional, no un evento. Y tu churn de pago actual (9.1%) es estadísticamente indistinguible de 5%: con 22 usuarios de pago, si la tasa real fuera 5%, verías 2 o más bajas ~30% de las veces. Un usuario más o menos mueve la métrica 4.5 puntos.
 
-# Plan
+**Escenario B — el 5% era el churn combinado de la misma población.** Entonces pasaste de ~10 a 62 bajas en un mes: algo real pasó, concentrado en usuarios gratuitos. No es una crisis de ingresos, pero sí una señal del funnel.
 
-**Hoy — corregir la medición**
-- Segmenta el panel por plan. El churn mezclado no debe volver a ser tu cifra de cabecera.
-- Investiga de dónde salía tu 5%: ¿era churn solo de pago en meses anteriores? ¿Cambió la definición del panel? ¿Creció el plan gratuito recientemente (campaña, freemium nuevo)?
-- No comuniques el 31% a nadie como cifra de negocio.
+En cualquier caso, el impacto directo en ingresos este mes son 2 usuarios de pago. Ese es el número que debe dictar la urgidad.
 
-**Esta semana — validar la señal de pago**
-- Trae la serie histórica de churn de pago (3-6 meses). ¿El 9.1% es tendencia o ruido de un mes?
-- Entrevista a los 2 que se fueron. Con 22 clientes, 2 entrevistas te dicen más que cualquier tasa.
-- Calcula churn de **ingresos** (MRR perdido / MRR inicial), no solo de logos: si los que se fueron eran tus cuentas grandes, el 9.1% subestima el daño; si eran las pequeñas, lo sobreestima.
+La verdadera bandera amarilla es el **33.7% de churn gratuito**: no te cuesta MRR, pero es tu pipeline hacia pago. Si un tercio se va cada mes, tu adquisición llena un balde agujereado.
 
-**Esta semana — diagnosticar el gratuito**
-- Segmenta las 60 bajas por cohorte de registro y por activación: ¿alguna vez hicieron la acción clave del producto? Bajas de usuarios que nunca activaron son ruido; bajas de usuarios activados son señal.
-- Compara contra tu propio baseline, no contra benchmarks externos. Si el gratuito siempre churnea así y el funnel convierte, no hay problema.
+## El plan
 
-**Mediano plazo — gobernanza**
-- Define KPIs separados y por escrito: churn de pago (logos), churn de MRR, retención de gratuitos por cohorte, tasa de conversión gratuito→pago.
-- Antes de interpretar cualquier métrica del panel, pregunta siempre: ¿qué población está en el denominador?
+**Paso 0 — Verifica la definición (hoy)**
+- Recalcula los últimos 3–6 meses con esta misma fórmula (bajas / usuarios a inicio de mes, todos). ¿El 5% existió alguna vez bajo esta definición?
+- Confirma qué cuenta como "baja": ¿incluye borrado automático de cuentas gratuitas inactivas o limpiezas batch? Una purga de inactivos puede explicar 60 bajas de golpe.
 
-**Lo que NO hagas:** campañas de retención agresivas sobre usuarios gratuitos o mecanismos para dificultar la baja. El palanca para los gratuitos es activación y conversión, no retención forzada.
+**Paso 1 — Descompón las 60 bajas gratuitas (esta semana)**
+- Por antigüedad: ¿son signups recientes? Churn de cohortes nuevas (problema de activación o calidad de adquisición) ≠ usuarios consolidados que se van (problema de producto).
+- Por activación: ¿llegaron alguna vez a la acción central del producto? Si la mayoría nunca activó, no tienes un problema de retención, tienes uno de onboarding.
+- Por canal: una campaña de adquisición de baja calidad dispara churn 30 días después.
 
-¿Quieres que armemos la plantilla de entrevista para los 2 clientes de pago que se fueron, o el cálculo de churn de MRR si me pasas el valor de las suscripciones?
+**Paso 2 — Los 2 que pagaban (esta semana, prioridad)**
+- n=2 es malo para estadística pero perfecto para entrevistas. Escríbeles hoy. Lo que digen vale más que cualquier panel.
+- Revisa su MRR: si eran del plan alto, ese 9.1% pesa más de lo que parece.
+
+**Paso 3 — Arregla el panel**
+- Métrica principal: **churn de MRR** (pago, ponderado por ingreso), no churn de usuarios.
+- Muestra churn segmentado por plan y retención por cohorte (día 30/60/90).
+- Etiqueta cada métrica con su población y fórmula. Tu pánico de hoy nació de una métrica sin etiqueta.
+
+**Paso 4 — Benchmarks para orientarte**
+- Churn de MRR mensual: 1–3% (B2B), 4–7% (consumidor/PYMES). Estás en ~9% con incertidumbre enorme (n=2): obsérvalo 2–3 meses más antes de sacar conclusiones.
+- Churn gratuito de 30%+ es común en freemium con activación débil. La palanca ahí es activación, no campañas de retención.
+
+## En resumen
+
+No tienes un problema de 31%; tienes un problema de medición (métrica combinada dominada por usuarios gratuitos) más una señal manejable (34% gratuito, 9.1% pago con n=2). Antes de tocar producto o precios, corre el Paso 0 y el 1: verificar la historia y descomponer esas 60 bajas.

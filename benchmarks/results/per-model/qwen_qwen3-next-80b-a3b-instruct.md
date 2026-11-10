@@ -1,12 +1,12 @@
 # Qwen 3-Next 80B Instruct
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-instruct`
-- **Total tests**: 516/516 exitosos (0 errores)
-- **Score final**: 7.93
-- **Calidad**: 8.03
+- **Total tests**: 536/536 exitosos (0 errores)
+- **Score final**: 7.73
+- **Calidad**: 7.77
 - **Judge score (Phi-4)**: 4.39/10
-- **Velocidad**: 130 tok/s
-- **Latencia primera token**: 4.86s
+- **Velocidad**: 126 tok/s
+- **Latencia primera token**: 4.72s
 - **Costo promedio por test**: $0.00118
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -39,7 +39,7 @@
 | policy_adherence | 8 | 8 | 7.62 | 7.46 |
 | precision_datos | 14 | 14 | 8.36 | 8.17 |
 | presentation | 4 | 4 | 8.75 | 9.83 |
-| prompt_injection_es | 20 | 20 | 2.60 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.71 | 1.00 |
 | reasoning | 8 | 8 | 8.51 | 9.51 |
 | sales_outreach | 6 | 6 | 7.05 | 6.78 |
 | startup_content | 10 | 10 | 8.55 | 9.49 |

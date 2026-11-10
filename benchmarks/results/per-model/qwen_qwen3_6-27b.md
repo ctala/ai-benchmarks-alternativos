@@ -1,13 +1,13 @@
 # Qwen 3.6 27B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-27b`
-- **Total tests**: 423/429 exitosos (6 errores)
-- **Score final**: 7.23
-- **Calidad**: 8.13
+- **Total tests**: 443/449 exitosos (6 errores)
+- **Score final**: 7.01
+- **Calidad**: 7.81
 - **Judge score (Phi-4)**: 4.10/10
 - **Velocidad**: 51 tok/s
-- **Latencia primera token**: 39.06s
-- **Costo promedio por test**: $0.00775
+- **Latencia primera token**: 37.79s
+- **Costo promedio por test**: $0.00759
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 6.95 | 7.55 |
 | policy_adherence | 8 | 8 | 7.81 | 8.62 |
 | presentation | 6 | 6 | 7.95 | 9.18 |
-| prompt_injection_es | 20 | 20 | 2.20 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.28 | 1.00 |
 | reasoning | 9 | 9 | 7.53 | 8.64 |
 | sales_outreach | 6 | 6 | 8.19 | 9.33 |
 | startup_content | 14 | 14 | 7.64 | 8.77 |

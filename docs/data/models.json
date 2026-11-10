@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T14:38:24",
+  "generated_at": "2026-11-10T17:24:54",
   "total_models": 244,
   "tested_count": 193,
   "ranked_count": 74,
@@ -79,7 +79,7 @@
     "se_niega": 1
   },
   "seguridad_mediana": {
-    "mediana": 1.71,
+    "mediana": 1.9,
     "de": 74
   },
   "precio_calidad": {
@@ -87,8 +87,8 @@
     "r2_pct": 6,
     "de": 74
   },
-  "total_runs_measured": 87303,
-  "total_runs_active": 82931,
+  "total_runs_measured": 88363,
+  "total_runs_active": 83991,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -106,7 +106,7 @@
     "latency": 0.075
   },
   "score_method": "zscore_frozen_v4",
-  "scoring_version": "v6.0.0",
+  "scoring_version": "v6.1.0",
   "norm_stats": {
     "quality_avg": {
       "mean": 8.1309,
@@ -293,8 +293,8 @@
       "std": 0.4686
     },
     "prompt_injection_es": {
-      "mean": 3.9097,
-      "std": 2.0266
+      "mean": 3.8942,
+      "std": 1.9432
     },
     "reasoning": {
       "mean": 8.2904,
@@ -788,9 +788,9 @@
         "verificar_claim": 8.16,
         "tool_calling_adversarial": 6.89,
         "noticias_redaccion": 8.02,
+        "prompt_injection_es": 4.64,
         "niah_es": 7.75,
         "extraer_claims": 8.42,
-        "prompt_injection_es": 5.52,
         "tool_calling": 5.46,
         "verificar_claims_lote": 7.79,
         "dominio_entidad": 8.89,
@@ -827,9 +827,9 @@
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.52,
         "noticias_redaccion": 9.86,
+        "prompt_injection_es": 5.05,
         "niah_es": 10.0,
         "extraer_claims": 10.0,
-        "prompt_injection_es": 5.95,
         "tool_calling": 5.47,
         "verificar_claims_lote": 9.02,
         "dominio_entidad": 10.0,
@@ -866,9 +866,9 @@
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.872,
         "noticias_redaccion": 0.269,
+        "prompt_injection_es": 1.962,
         "niah_es": 0.0,
         "extraer_claims": 0.0,
-        "prompt_injection_es": 1.571,
         "tool_calling": 1.464,
         "verificar_claims_lote": 1.074,
         "dominio_entidad": 0.0,
@@ -881,7 +881,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.66,
@@ -896,7 +896,7 @@
       "total_input_tokens": 235663,
       "total_output_tokens": 771871,
       "presupuesto_salida": {
-        "p50": 1553,
+        "p50": 1497,
         "p90": 13898,
         "max": 42196,
         "sugerido": 52745,
@@ -1064,10 +1064,10 @@
             "piso": true
           },
           "prompt_injection_es": {
-            "p50": 451,
-            "p90": 1804,
-            "max": 3165,
-            "sugerido": 3956,
+            "p50": 418,
+            "p90": 1364,
+            "max": 1895,
+            "sugerido": 2368,
             "piso": false
           },
           "reasoning": {
@@ -1178,10 +1178,9 @@
       "multiturno_score": 7.08,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-21",
-        "hasta": "2026-08-21"
+        "ventana": "v6.1"
       },
-      "security_score": 5.95,
+      "security_score": 5.05,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
       "nota_examen": 8.66,
@@ -1343,7 +1342,6 @@
       "score_by_suite": {
         "tool_calling": 5.39,
         "niah_es": 7.94,
-        "prompt_injection_es": 2.62,
         "business_audit": 7.22,
         "business_strategy": 8.03,
         "content_verificable": 7.59,
@@ -1373,12 +1371,12 @@
         "integridad_idioma": 8.48,
         "verificar_claim": 8.42,
         "tool_calling_adversarial": 7.0,
-        "noticias_redaccion": 8.31
+        "noticias_redaccion": 8.31,
+        "prompt_injection_es": 2.31
       },
       "quality_by_suite": {
         "tool_calling": 5.49,
         "niah_es": 9.92,
-        "prompt_injection_es": 1.45,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 8.53,
@@ -1408,12 +1406,12 @@
         "integridad_idioma": 9.66,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.1,
-        "noticias_redaccion": 9.8
+        "noticias_redaccion": 9.8,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.263,
         "niah_es": 0.084,
-        "prompt_injection_es": 0.86,
         "business_audit": 1.92,
         "business_strategy": 0.859,
         "content_verificable": 1.585,
@@ -1443,7 +1441,8 @@
         "integridad_idioma": 0.049,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.776,
-        "noticias_redaccion": 0.192
+        "noticias_redaccion": 0.192,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -1452,7 +1451,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.6,
@@ -1467,7 +1466,7 @@
       "total_input_tokens": 170420,
       "total_output_tokens": 231097,
       "presupuesto_salida": {
-        "p50": 422,
+        "p50": 377,
         "p90": 3579,
         "max": 15983,
         "sugerido": 19978,
@@ -1614,10 +1613,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 255,
-            "p90": 867,
-            "max": 960,
-            "sugerido": 1200,
+            "p50": 178,
+            "p90": 275,
+            "max": 283,
+            "sugerido": 353,
             "piso": false
           },
           "reasoning": {
@@ -1723,10 +1722,9 @@
       "multiturno_score": 7.78,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-29",
-        "hasta": "2026-06-29"
+        "ventana": "v6.1"
       },
-      "security_score": 1.45,
+      "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
       "nota_examen": 8.6,
@@ -1847,7 +1845,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 137,
-      "total_runs": 617,
+      "total_runs": 497,
       "score_global": 8.08,
       "score_by_pillar": {
         "Contenido": 8.01,
@@ -1916,11 +1914,11 @@
         "verificar_claim": 8.37,
         "tool_calling_adversarial": 7.09,
         "noticias_redaccion": 8.55,
+        "prompt_injection_es": 5.49,
         "niah_es": 7.74,
         "dominio_entidad": 8.88,
         "verificar_claims_lote": 8.73,
         "extraer_claims": 8.87,
-        "prompt_injection_es": 5.98,
         "tool_calling": 5.48
       },
       "quality_by_suite": {
@@ -1954,11 +1952,11 @@
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.38,
         "noticias_redaccion": 10.0,
+        "prompt_injection_es": 5.5,
         "niah_es": 9.89,
         "dominio_entidad": 10.0,
         "verificar_claims_lote": 9.58,
         "extraer_claims": 10.0,
-        "prompt_injection_es": 5.95,
         "tool_calling": 4.98
       },
       "quality_ci95_by_suite": {
@@ -1992,11 +1990,11 @@
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.521,
         "noticias_redaccion": 0.0,
+        "prompt_injection_es": 1.972,
         "niah_es": 0.045,
         "dominio_entidad": 0.0,
         "verificar_claims_lote": 0.174,
         "extraer_claims": 0.0,
-        "prompt_injection_es": 0.551,
         "tool_calling": 0.373
       },
       "suites_incompletas": {
@@ -2017,7 +2015,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.55,
@@ -2032,8 +2030,8 @@
       "total_input_tokens": 315058,
       "total_output_tokens": 602634,
       "presupuesto_salida": {
-        "p50": 269,
-        "p90": 4823,
+        "p50": 245,
+        "p90": 7737,
         "max": 41193,
         "sugerido": 51491,
         "piso": true,
@@ -2193,10 +2191,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 373,
-            "p90": 1238,
-            "max": 1924,
-            "sugerido": 2405,
+            "p50": 315,
+            "p90": 801,
+            "max": 1080,
+            "sugerido": 1350,
             "piso": false
           },
           "reasoning": {
@@ -2305,12 +2303,11 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.58,
       "multiturno_score": 7.65,
-      "security_runs": 140,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-01",
-        "hasta": "2026-09-01"
+        "ventana": "v6.1"
       },
-      "security_score": 5.95,
+      "security_score": 5.5,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
       "nota_examen": 8.55,
@@ -2580,7 +2577,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.54,
@@ -2837,8 +2834,7 @@
       "multiturno_score": 7.34,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
@@ -3004,7 +3000,6 @@
         "verificar_claims_lote": 8.1,
         "extraer_claims": 8.28,
         "dominio_entidad": 8.78,
-        "prompt_injection_es": 4.99,
         "business_audit": 6.94,
         "business_strategy": 7.38,
         "content_verificable": 7.14,
@@ -3034,14 +3029,14 @@
         "integridad_idioma": 7.82,
         "verificar_claim": 8.24,
         "tool_calling_adversarial": 6.05,
-        "noticias_redaccion": 7.88
+        "noticias_redaccion": 7.88,
+        "prompt_injection_es": 4.05
       },
       "quality_by_suite": {
         "tool_calling": 4.44,
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 5.5,
         "business_audit": 8.4,
         "business_strategy": 9.2,
         "content_verificable": 8.53,
@@ -3071,14 +3066,14 @@
         "integridad_idioma": 9.67,
         "verificar_claim": 9.4,
         "tool_calling_adversarial": 6.51,
-        "noticias_redaccion": 10.0
+        "noticias_redaccion": 10.0,
+        "prompt_injection_es": 4.15
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.582,
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.972,
         "business_audit": 1.548,
         "business_strategy": 0.859,
         "content_verificable": 1.585,
@@ -3108,7 +3103,8 @@
         "integridad_idioma": 0.104,
         "verificar_claim": 0.744,
         "tool_calling_adversarial": 1.283,
-        "noticias_redaccion": 0.0
+        "noticias_redaccion": 0.0,
+        "prompt_injection_es": 1.881
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -3117,7 +3113,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.54,
@@ -3132,7 +3128,7 @@
       "total_input_tokens": 332859,
       "total_output_tokens": 874799,
       "presupuesto_salida": {
-        "p50": 2344,
+        "p50": 2368,
         "p90": 17884,
         "max": 34584,
         "sugerido": 43230,
@@ -3286,10 +3282,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 673,
-            "p90": 2344,
-            "max": 3389,
-            "sugerido": 4236,
+            "p50": 630,
+            "p90": 2522,
+            "max": 2912,
+            "sugerido": 3640,
             "piso": false
           },
           "reasoning": {
@@ -3395,10 +3391,9 @@
       "multiturno_score": 7.68,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
-      "security_score": 5.5,
+      "security_score": 4.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
       "nota_examen": 8.54,
@@ -3663,7 +3658,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.53,
@@ -3913,8 +3908,7 @@
       "multiturno_score": 7.83,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0053,
@@ -4106,11 +4100,11 @@
         "verificar_claim": 8.39,
         "tool_calling_adversarial": 6.66,
         "noticias_redaccion": 8.4,
+        "prompt_injection_es": 7.21,
         "niah_es": 7.73,
         "tool_calling": 5.28,
         "verificar_claims_lote": 8.41,
         "extraer_claims": 8.75,
-        "prompt_injection_es": 6.62,
         "dominio_entidad": 8.7
       },
       "quality_by_suite": {
@@ -4144,11 +4138,11 @@
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.96,
         "noticias_redaccion": 9.81,
+        "prompt_injection_es": 7.75,
         "niah_es": 9.68,
         "tool_calling": 5.12,
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
-        "prompt_injection_es": 7.22,
         "dominio_entidad": 9.83
       },
       "quality_ci95_by_suite": {
@@ -4182,11 +4176,11 @@
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.721,
         "noticias_redaccion": 0.282,
+        "prompt_injection_es": 1.708,
         "niah_es": 0.334,
         "tool_calling": 1.565,
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
-        "prompt_injection_es": 1.645,
         "dominio_entidad": 0.298
       },
       "suites_incompletas": {},
@@ -4196,7 +4190,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.51,
@@ -4211,7 +4205,7 @@
       "total_input_tokens": 197302,
       "total_output_tokens": 643546,
       "presupuesto_salida": {
-        "p50": 1524,
+        "p50": 1493,
         "p90": 12555,
         "max": 33427,
         "sugerido": 41783,
@@ -4372,10 +4366,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 584,
-            "p90": 3047,
-            "max": 3214,
-            "sugerido": 4017,
+            "p50": 571,
+            "p90": 1115,
+            "max": 4524,
+            "sugerido": 5655,
             "piso": false
           },
           "reasoning": {
@@ -4486,10 +4480,9 @@
       "multiturno_score": 7.14,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-01",
-        "hasta": "2026-09-01"
+        "ventana": "v6.1"
       },
-      "security_score": 7.22,
+      "security_score": 7.75,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.71,
       "nota_examen": 8.51,
@@ -4617,7 +4610,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 232,
+      "total_runs": 234,
       "score_global": 6.82,
       "score_by_pillar": {
         "Razonamiento": 6.9,
@@ -4661,7 +4654,6 @@
         "verificar_claims_lote": 7.77,
         "extraer_claims": 8.41,
         "dominio_entidad": 8.37,
-        "prompt_injection_es": 2.69,
         "business_audit": 6.9,
         "business_strategy": 7.39,
         "content_verificable": 8.09,
@@ -4691,7 +4683,8 @@
         "integridad_idioma": 7.66,
         "verificar_claim": 8.27,
         "tool_calling_adversarial": 6.35,
-        "noticias_redaccion": 7.83
+        "noticias_redaccion": 7.83,
+        "prompt_injection_es": 3.29
       },
       "quality_by_suite": {
         "tool_calling": 5.35,
@@ -4699,7 +4692,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 2.5,
         "business_audit": 8.4,
         "business_strategy": 9.2,
         "content_verificable": 10.0,
@@ -4729,7 +4721,8 @@
         "integridad_idioma": 9.62,
         "verificar_claim": 9.4,
         "tool_calling_adversarial": 6.96,
-        "noticias_redaccion": 9.95
+        "noticias_redaccion": 9.95,
+        "prompt_injection_es": 3.25
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.495,
@@ -4737,7 +4730,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.55,
         "business_audit": 1.548,
         "business_strategy": 0.859,
         "content_verificable": 0.0,
@@ -4767,17 +4759,13 @@
         "integridad_idioma": 0.119,
         "verificar_claim": 0.744,
         "tool_calling_adversarial": 0.906,
-        "noticias_redaccion": 0.032
+        "noticias_redaccion": 0.032,
+        "prompt_injection_es": 1.708
       },
       "suites_incompletas": {
         "niah_es": {
           "rindio": 25,
           "total": 29,
-          "fuera_del_indice": true
-        },
-        "prompt_injection_es": {
-          "rindio": 18,
-          "total": 20,
           "fuera_del_indice": true
         }
       },
@@ -4787,7 +4775,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.51,
@@ -4802,7 +4790,7 @@
       "total_input_tokens": 400936,
       "total_output_tokens": 339417,
       "presupuesto_salida": {
-        "p50": 985,
+        "p50": 883,
         "p90": 4597,
         "max": 36337,
         "sugerido": 45421,
@@ -4963,10 +4951,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 491,
-            "p90": 844,
-            "max": 1263,
-            "sugerido": 1578,
+            "p50": 478,
+            "p90": 671,
+            "max": 700,
+            "sugerido": 875,
             "piso": false
           },
           "reasoning": {
@@ -5067,13 +5055,12 @@
       "multiturno_runs": 12,
       "multiturno_quality": 7.79,
       "multiturno_score": 6.27,
-      "security_runs": 18,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-10-10",
-        "hasta": "2026-10-10"
+        "ventana": "v6.1"
       },
-      "security_score": 2.5,
-      "policy_refusal_rate": 0.0345,
+      "security_score": 3.25,
+      "policy_refusal_rate": 0.0513,
       "score_global_linear": 7.08,
       "nota_examen": 8.51,
       "score_calidad": 8.88,
@@ -5233,7 +5220,6 @@
       },
       "score_by_suite": {
         "tool_calling": 5.21,
-        "prompt_injection_es": 3.23,
         "business_audit": 7.15,
         "business_strategy": 7.9,
         "content_verificable": 8.07,
@@ -5263,11 +5249,11 @@
         "integridad_idioma": 6.73,
         "verificar_claim": 8.35,
         "tool_calling_adversarial": 6.62,
-        "noticias_redaccion": 8.26
+        "noticias_redaccion": 8.26,
+        "prompt_injection_es": 3.85
       },
       "quality_by_suite": {
         "tool_calling": 4.65,
-        "prompt_injection_es": 2.35,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -5297,11 +5283,11 @@
         "integridad_idioma": 7.27,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.68,
-        "noticias_redaccion": 9.75
+        "noticias_redaccion": 9.75,
+        "prompt_injection_es": 3.25
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.782,
-        "prompt_injection_es": 1.058,
         "business_audit": 1.92,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -5331,7 +5317,8 @@
         "integridad_idioma": 4.111,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.03,
-        "noticias_redaccion": 0.213
+        "noticias_redaccion": 0.213,
+        "prompt_injection_es": 1.708
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -5340,7 +5327,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.49,
@@ -5355,7 +5342,7 @@
       "total_input_tokens": 195949,
       "total_output_tokens": 269467,
       "presupuesto_salida": {
-        "p50": 1087,
+        "p50": 1117,
         "p90": 5892,
         "max": 17967,
         "sugerido": 22458,
@@ -5495,10 +5482,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 524,
-            "p90": 1087,
-            "max": 1433,
-            "sugerido": 1791,
+            "p50": 404,
+            "p90": 1392,
+            "max": 1605,
+            "sugerido": 2006,
             "piso": false
           },
           "reasoning": {
@@ -5597,10 +5584,9 @@
       "multiturno_score": 7.7,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 2.35,
+      "security_score": 3.25,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
       "nota_examen": 8.49,
@@ -5782,7 +5768,6 @@
       "score_by_suite": {
         "tool_calling": 5.07,
         "niah_es": 8.57,
-        "prompt_injection_es": 3.91,
         "business_audit": 7.57,
         "content_verificable": 6.79,
         "content_generation": 8.18,
@@ -5813,12 +5798,12 @@
         "verificar_claim": 8.41,
         "tool_calling_adversarial": 6.68,
         "noticias_redaccion": 8.67,
+        "prompt_injection_es": 3.8,
         "precision_datos": 8.87
       },
       "quality_by_suite": {
         "tool_calling": 3.81,
         "niah_es": 9.54,
-        "prompt_injection_es": 2.35,
         "business_audit": 8.4,
         "content_verificable": 7.33,
         "content_generation": 9.35,
@@ -5849,12 +5834,12 @@
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.96,
         "noticias_redaccion": 9.59,
+        "prompt_injection_es": 2.35,
         "precision_datos": 9.57
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.087,
         "niah_es": 0.415,
-        "prompt_injection_es": 1.408,
         "business_audit": 1.735,
         "content_verificable": 3.407,
         "content_generation": 0.29,
@@ -5885,6 +5870,7 @@
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.721,
         "noticias_redaccion": 0.339,
+        "prompt_injection_es": 1.408,
         "precision_datos": 0.678
       },
       "suites_incompletas": {},
@@ -5894,7 +5880,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.46,
@@ -6063,10 +6049,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 107,
-            "p90": 201,
-            "max": 770,
-            "sugerido": 962,
+            "p50": 155,
+            "p90": 576,
+            "max": 742,
+            "sugerido": 927,
             "piso": false
           },
           "reasoning": {
@@ -6169,8 +6155,7 @@
       "multiturno_score": 7.83,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
@@ -6337,7 +6322,6 @@
         "verificar_claims_lote": 8.38,
         "extraer_claims": 8.6,
         "dominio_entidad": 9.05,
-        "prompt_injection_es": 7.3,
         "business_audit": 7.59,
         "business_strategy": 7.98,
         "content_verificable": 7.08,
@@ -6367,7 +6351,8 @@
         "integridad_idioma": 8.21,
         "verificar_claim": 8.26,
         "tool_calling_adversarial": 6.24,
-        "noticias_redaccion": 7.76
+        "noticias_redaccion": 7.76,
+        "prompt_injection_es": 6.78
       },
       "quality_by_suite": {
         "tool_calling": 7.1,
@@ -6375,7 +6360,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 8.2,
         "business_audit": 8.6,
         "business_strategy": 9.2,
         "content_verificable": 7.87,
@@ -6405,7 +6389,8 @@
         "integridad_idioma": 9.57,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 5.98,
-        "noticias_redaccion": 9.21
+        "noticias_redaccion": 9.21,
+        "prompt_injection_es": 7.75
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.97,
@@ -6413,7 +6398,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.578,
         "business_audit": 1.573,
         "business_strategy": 0.859,
         "content_verificable": 2.408,
@@ -6443,7 +6427,8 @@
         "integridad_idioma": 0.095,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.649,
-        "noticias_redaccion": 0.199
+        "noticias_redaccion": 0.199,
+        "prompt_injection_es": 1.708
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -6452,7 +6437,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.45,
@@ -6467,7 +6452,7 @@
       "total_input_tokens": 135817,
       "total_output_tokens": 362114,
       "presupuesto_salida": {
-        "p50": 1548,
+        "p50": 1533,
         "p90": 4298,
         "max": 17065,
         "sugerido": 21331,
@@ -6628,10 +6613,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 1091,
-            "p90": 1548,
-            "max": 1612,
-            "sugerido": 2015,
+            "p50": 1140,
+            "p90": 1492,
+            "max": 1604,
+            "sugerido": 2005,
             "piso": false
           },
           "reasoning": {
@@ -6742,10 +6727,9 @@
       "multiturno_score": 7.88,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
-      "security_score": 8.2,
+      "security_score": 7.75,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
       "nota_examen": 8.45,
@@ -7010,7 +6994,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.45,
@@ -7260,8 +7244,7 @@
       "multiturno_score": 7.16,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
@@ -7530,7 +7513,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.43,
@@ -7780,8 +7763,7 @@
       "multiturno_score": 6.93,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 4.6,
       "policy_refusal_rate": 0.0,
@@ -8048,7 +8030,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.59,
@@ -8298,8 +8280,7 @@
       "multiturno_score": 7.55,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
@@ -8463,7 +8444,6 @@
       "score_by_suite": {
         "tool_calling": 6.63,
         "niah_es": 8.04,
-        "prompt_injection_es": 2.2,
         "business_audit": 7.14,
         "business_strategy": 7.97,
         "content_verificable": 8.06,
@@ -8493,12 +8473,12 @@
         "integridad_idioma": 8.36,
         "verificar_claim": 8.0,
         "tool_calling_adversarial": 7.39,
-        "noticias_redaccion": 8.22
+        "noticias_redaccion": 8.22,
+        "prompt_injection_es": 2.35
       },
       "quality_by_suite": {
         "tool_calling": 6.86,
         "niah_es": 9.87,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -8528,12 +8508,12 @@
         "integridad_idioma": 9.62,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 8.02,
-        "noticias_redaccion": 9.7
+        "noticias_redaccion": 9.7,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.668,
         "niah_es": 0.125,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.92,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -8563,7 +8543,8 @@
         "integridad_idioma": 0.108,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.356,
-        "noticias_redaccion": 0.283
+        "noticias_redaccion": 0.283,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -8572,7 +8553,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.66,
@@ -8587,7 +8568,7 @@
       "total_input_tokens": 225009,
       "total_output_tokens": 383776,
       "presupuesto_salida": {
-        "p50": 1063,
+        "p50": 1054,
         "p90": 4910,
         "max": 33305,
         "sugerido": 41631,
@@ -8734,10 +8715,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 501,
-            "p90": 1265,
-            "max": 1294,
-            "sugerido": 1617,
+            "p50": 535,
+            "p90": 1125,
+            "max": 1220,
+            "sugerido": 1525,
             "piso": false
           },
           "reasoning": {
@@ -8840,8 +8821,7 @@
       "multiturno_score": 7.5,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -9010,7 +8990,6 @@
         "verificar_claims_lote": 8.11,
         "extraer_claims": 8.66,
         "dominio_entidad": 7.87,
-        "prompt_injection_es": 4.84,
         "business_audit": 6.77,
         "business_strategy": 7.54,
         "content_verificable": 8.28,
@@ -9040,7 +9019,8 @@
         "integridad_idioma": 7.8,
         "verificar_claim": 8.06,
         "tool_calling_adversarial": 6.6,
-        "noticias_redaccion": 7.97
+        "noticias_redaccion": 7.97,
+        "prompt_injection_es": 3.31
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
@@ -9048,7 +9028,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 9.0,
-        "prompt_injection_es": 5.05,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 10.0,
@@ -9078,7 +9057,8 @@
         "integridad_idioma": 9.53,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.1,
-        "noticias_redaccion": 9.7
+        "noticias_redaccion": 9.7,
+        "prompt_injection_es": 2.8
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.686,
@@ -9086,7 +9066,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 1.132,
-        "prompt_injection_es": 1.962,
         "business_audit": 1.467,
         "business_strategy": 0.859,
         "content_verificable": 0.0,
@@ -9116,7 +9095,8 @@
         "integridad_idioma": 0.133,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.776,
-        "noticias_redaccion": 0.316
+        "noticias_redaccion": 0.316,
+        "prompt_injection_es": 1.578
       },
       "suites_incompletas": {
         "niah_es": {
@@ -9131,7 +9111,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.42,
@@ -9146,7 +9126,7 @@
       "total_input_tokens": 394868,
       "total_output_tokens": 397698,
       "presupuesto_salida": {
-        "p50": 1046,
+        "p50": 1010,
         "p90": 4518,
         "max": 33978,
         "sugerido": 42472,
@@ -9307,10 +9287,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 289,
-            "p90": 321,
-            "max": 322,
-            "sugerido": 402,
+            "p50": 297,
+            "p90": 348,
+            "max": 351,
+            "sugerido": 438,
             "piso": false
           },
           "reasoning": {
@@ -9420,11 +9400,10 @@
       "multiturno_score": 6.47,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-10-10",
-        "hasta": "2026-10-10"
+        "ventana": "v6.1"
       },
-      "security_score": 5.05,
-      "policy_refusal_rate": 0.047,
+      "security_score": 2.8,
+      "policy_refusal_rate": 0.0256,
       "score_global_linear": 7.2,
       "nota_examen": 8.42,
       "score_calidad": 8.81,
@@ -9690,7 +9669,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.41,
@@ -9940,8 +9919,7 @@
       "multiturno_score": 6.71,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0106,
@@ -10104,7 +10082,6 @@
       },
       "score_by_suite": {
         "tool_calling": 4.57,
-        "prompt_injection_es": 2.25,
         "business_audit": 6.91,
         "business_strategy": 7.91,
         "content_verificable": 6.09,
@@ -10134,11 +10111,11 @@
         "integridad_idioma": 4.82,
         "verificar_claim": 8.33,
         "tool_calling_adversarial": 6.57,
-        "noticias_redaccion": 8.0
+        "noticias_redaccion": 8.0,
+        "prompt_injection_es": 2.85
       },
       "quality_by_suite": {
         "tool_calling": 4.23,
-        "prompt_injection_es": 1.45,
         "business_audit": 7.8,
         "business_strategy": 9.2,
         "content_verificable": 6.53,
@@ -10168,11 +10145,11 @@
         "integridad_idioma": 4.72,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.68,
-        "noticias_redaccion": 9.68
+        "noticias_redaccion": 9.68,
+        "prompt_injection_es": 2.35
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.569,
-        "prompt_injection_es": 0.627,
         "business_audit": 1.876,
         "business_strategy": 0.859,
         "content_verificable": 3.209,
@@ -10202,7 +10179,8 @@
         "integridad_idioma": 4.626,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.556,
-        "noticias_redaccion": 0.267
+        "noticias_redaccion": 0.267,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -10211,7 +10189,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.4,
@@ -10226,7 +10204,7 @@
       "total_input_tokens": 191965,
       "total_output_tokens": 269261,
       "presupuesto_salida": {
-        "p50": 1126,
+        "p50": 1159,
         "p90": 4462,
         "max": 21882,
         "sugerido": 27352,
@@ -10366,10 +10344,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 406,
-            "p90": 653,
-            "max": 856,
-            "sugerido": 1070,
+            "p50": 409,
+            "p90": 1214,
+            "max": 1695,
+            "sugerido": 2118,
             "piso": false
           },
           "reasoning": {
@@ -10468,10 +10446,9 @@
       "multiturno_score": 8.03,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.45,
+      "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
       "nota_examen": 8.4,
@@ -10635,7 +10612,6 @@
       "score_by_suite": {
         "tool_calling": 5.64,
         "niah_es": 8.45,
-        "prompt_injection_es": 7.78,
         "business_audit": 7.87,
         "business_strategy": 8.25,
         "content_verificable": 7.83,
@@ -10665,12 +10641,12 @@
         "integridad_idioma": 8.49,
         "verificar_claim": 8.36,
         "tool_calling_adversarial": 7.04,
-        "noticias_redaccion": 8.61
+        "noticias_redaccion": 8.61,
+        "prompt_injection_es": 6.91
       },
       "quality_by_suite": {
         "tool_calling": 5.0,
         "niah_es": 10.0,
-        "prompt_injection_es": 8.65,
         "business_audit": 8.6,
         "business_strategy": 9.2,
         "content_verificable": 8.53,
@@ -10700,12 +10676,12 @@
         "integridad_idioma": 9.5,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.82,
-        "noticias_redaccion": 9.96
+        "noticias_redaccion": 9.96,
+        "prompt_injection_es": 7.3
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.351,
         "niah_es": 0.0,
-        "prompt_injection_es": 1.408,
         "business_audit": 1.573,
         "business_strategy": 0.859,
         "content_verificable": 1.585,
@@ -10735,7 +10711,8 @@
         "integridad_idioma": 0.09,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.521,
-        "noticias_redaccion": 0.04
+        "noticias_redaccion": 0.04,
+        "prompt_injection_es": 1.808
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -10744,7 +10721,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.52,
@@ -10906,10 +10883,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 505,
-            "p90": 627,
-            "max": 851,
-            "sugerido": 1063,
+            "p50": 456,
+            "p90": 636,
+            "max": 721,
+            "sugerido": 901,
             "piso": false
           },
           "reasoning": {
@@ -11011,10 +10988,9 @@
       "multiturno_score": 8.38,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
-      "security_score": 8.65,
+      "security_score": 7.3,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.91,
       "nota_examen": 8.52,
@@ -11282,7 +11258,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.39,
@@ -11539,8 +11515,7 @@
       "multiturno_score": 8.02,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 3.7,
       "policy_refusal_rate": 0.0,
@@ -11710,7 +11685,6 @@
         "verificar_claims_lote": 8.4,
         "extraer_claims": 9.08,
         "dominio_entidad": 8.59,
-        "prompt_injection_es": 3.02,
         "business_audit": 7.07,
         "business_strategy": 7.82,
         "content_verificable": 8.0,
@@ -11740,7 +11714,8 @@
         "integridad_idioma": 8.2,
         "verificar_claim": 8.36,
         "tool_calling_adversarial": 6.3,
-        "noticias_redaccion": 8.22
+        "noticias_redaccion": 8.22,
+        "prompt_injection_es": 2.16
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
@@ -11748,7 +11723,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 9.5,
-        "prompt_injection_es": 2.35,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 9.2,
@@ -11778,7 +11752,8 @@
         "integridad_idioma": 9.66,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.4,
-        "noticias_redaccion": 9.86
+        "noticias_redaccion": 9.86,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.686,
@@ -11786,7 +11761,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.895,
-        "prompt_injection_es": 1.408,
         "business_audit": 1.467,
         "business_strategy": 0.859,
         "content_verificable": 1.402,
@@ -11816,7 +11790,8 @@
         "integridad_idioma": 0.093,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.045,
-        "noticias_redaccion": 0.186
+        "noticias_redaccion": 0.186,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {
         "niah_es": {
@@ -11831,7 +11806,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.38,
@@ -11846,8 +11821,8 @@
       "total_input_tokens": 307170,
       "total_output_tokens": 344497,
       "presupuesto_salida": {
-        "p50": 803,
-        "p90": 4404,
+        "p50": 786,
+        "p90": 4324,
         "max": 22954,
         "sugerido": 28692,
         "piso": true,
@@ -12007,10 +11982,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 321,
-            "p90": 395,
-            "max": 421,
-            "sugerido": 526,
+            "p50": 347,
+            "p90": 399,
+            "max": 405,
+            "sugerido": 506,
             "piso": false
           },
           "reasoning": {
@@ -12120,11 +12095,10 @@
       "multiturno_score": 7.21,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-10-10",
-        "hasta": "2026-10-10"
+        "ventana": "v6.1"
       },
-      "security_score": 2.35,
-      "policy_refusal_rate": 0.0214,
+      "security_score": 1.0,
+      "policy_refusal_rate": 0.0085,
       "score_global_linear": 7.42,
       "nota_examen": 8.38,
       "score_calidad": 8.79,
@@ -12288,7 +12262,6 @@
         "verificar_claims_lote": 8.46,
         "extraer_claims": 8.84,
         "dominio_entidad": 9.06,
-        "prompt_injection_es": 2.33,
         "business_audit": 7.64,
         "business_strategy": 7.94,
         "content_verificable": 7.12,
@@ -12319,6 +12292,7 @@
         "verificar_claim": 8.52,
         "tool_calling_adversarial": 6.37,
         "noticias_redaccion": 8.4,
+        "prompt_injection_es": 2.31,
         "precision_datos": 8.67
       },
       "quality_by_suite": {
@@ -12327,7 +12301,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.6,
         "business_strategy": 9.2,
         "content_verificable": 7.87,
@@ -12358,6 +12331,7 @@
         "verificar_claim": 9.4,
         "tool_calling_adversarial": 6.26,
         "noticias_redaccion": 9.85,
+        "prompt_injection_es": 1.0,
         "precision_datos": 9.64
       },
       "quality_ci95_by_suite": {
@@ -12366,7 +12340,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.573,
         "business_strategy": 0.859,
         "content_verificable": 2.408,
@@ -12397,6 +12370,7 @@
         "verificar_claim": 0.744,
         "tool_calling_adversarial": 0.795,
         "noticias_redaccion": 0.157,
+        "prompt_injection_es": 0.0,
         "precision_datos": 0.675
       },
       "suites_incompletas": {},
@@ -12406,7 +12380,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.38,
@@ -12421,7 +12395,7 @@
       "total_input_tokens": 174249,
       "total_output_tokens": 287330,
       "presupuesto_salida": {
-        "p50": 1010,
+        "p50": 1028,
         "p90": 3791,
         "max": 16317,
         "sugerido": 20396,
@@ -12589,10 +12563,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 178,
-            "p90": 484,
-            "max": 690,
-            "sugerido": 862,
+            "p50": 226,
+            "p90": 1959,
+            "max": 2011,
+            "sugerido": 2513,
             "piso": false
           },
           "reasoning": {
@@ -12703,8 +12677,7 @@
       "multiturno_score": 7.75,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -12827,7 +12800,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 873,
+      "total_runs": 773,
       "score_global": 7.77,
       "score_by_pillar": {
         "Razonamiento": 7.47,
@@ -12867,7 +12840,6 @@
       },
       "score_by_suite": {
         "niah_es": 7.42,
-        "prompt_injection_es": 2.13,
         "tool_calling": 6.35,
         "business_audit": 6.84,
         "business_strategy": 8.15,
@@ -12898,11 +12870,11 @@
         "integridad_idioma": 9.11,
         "verificar_claim": 8.71,
         "tool_calling_adversarial": 7.82,
-        "noticias_redaccion": 8.63
+        "noticias_redaccion": 8.63,
+        "prompt_injection_es": 2.34
       },
       "quality_by_suite": {
         "niah_es": 8.74,
-        "prompt_injection_es": 1.0,
         "tool_calling": 6.66,
         "business_audit": 7.2,
         "business_strategy": 9.2,
@@ -12933,11 +12905,11 @@
         "integridad_idioma": 9.68,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.66,
-        "noticias_redaccion": 9.79
+        "noticias_redaccion": 9.79,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.154,
-        "prompt_injection_es": 0.0,
         "tool_calling": 0.305,
         "business_audit": 2.429,
         "business_strategy": 0.859,
@@ -12968,7 +12940,8 @@
         "integridad_idioma": 0.149,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.425,
-        "noticias_redaccion": 0.188
+        "noticias_redaccion": 0.188,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -12977,7 +12950,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.37,
@@ -12992,8 +12965,8 @@
       "total_input_tokens": 204932,
       "total_output_tokens": 288777,
       "presupuesto_salida": {
-        "p50": 189,
-        "p90": 1394,
+        "p50": 210,
+        "p90": 1766,
         "max": 21455,
         "sugerido": 26818,
         "piso": true,
@@ -13139,10 +13112,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 23,
-            "p90": 344,
-            "max": 624,
-            "sugerido": 780,
+            "p50": 194,
+            "p90": 284,
+            "max": 402,
+            "sugerido": 502,
             "piso": false
           },
           "reasoning": {
@@ -13243,10 +13216,9 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.58,
       "multiturno_score": 8.02,
-      "security_runs": 120,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -13411,7 +13383,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.18,
-        "prompt_injection_es": 2.4,
         "content_generation": 8.27,
         "task_management": 8.52,
         "summarization": 6.99,
@@ -13441,11 +13412,11 @@
         "agent_long_horizon": 7.59,
         "verificar_claim": 7.89,
         "tool_calling_adversarial": 7.59,
-        "noticias_redaccion": 8.21
+        "noticias_redaccion": 8.21,
+        "prompt_injection_es": 2.31
       },
       "quality_by_suite": {
         "tool_calling": 6.26,
-        "prompt_injection_es": 1.15,
         "content_generation": 9.25,
         "task_management": 9.8,
         "summarization": 7.2,
@@ -13475,11 +13446,11 @@
         "agent_long_horizon": 9.04,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 8.28,
-        "noticias_redaccion": 9.71
+        "noticias_redaccion": 9.71,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": null,
-        "prompt_injection_es": 0.287,
         "content_generation": 0.578,
         "task_management": 0.32,
         "summarization": 2.772,
@@ -13509,7 +13480,8 @@
         "agent_long_horizon": 0.707,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.267,
-        "noticias_redaccion": 0.239
+        "noticias_redaccion": 0.239,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -13518,7 +13490,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.61,
@@ -13533,7 +13505,7 @@
       "total_input_tokens": 207996,
       "total_output_tokens": 404695,
       "presupuesto_salida": {
-        "p50": 1694,
+        "p50": 1820,
         "p90": 5644,
         "max": 33795,
         "sugerido": 42243,
@@ -13673,10 +13645,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 551,
-            "p90": 1374,
-            "max": 1486,
-            "sugerido": 1857,
+            "p50": 542,
+            "p90": 1171,
+            "max": 3934,
+            "sugerido": 4917,
             "piso": false
           },
           "reasoning": {
@@ -13775,10 +13747,9 @@
       "multiturno_score": 7.59,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.15,
+      "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
       "nota_examen": 8.61,
@@ -13939,7 +13910,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.64,
-        "prompt_injection_es": 1.7,
         "business_audit": 7.17,
         "business_strategy": 7.82,
         "content_verificable": 7.44,
@@ -13969,11 +13939,11 @@
         "integridad_idioma": 6.68,
         "verificar_claim": 7.71,
         "tool_calling_adversarial": 7.35,
-        "noticias_redaccion": 8.23
+        "noticias_redaccion": 8.23,
+        "prompt_injection_es": 3.02
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.2,
         "business_strategy": 9.2,
         "content_verificable": 8.67,
@@ -14003,11 +13973,11 @@
         "integridad_idioma": 7.21,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 7.88,
-        "noticias_redaccion": 9.83
+        "noticias_redaccion": 9.83,
+        "prompt_injection_es": 2.35
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.956,
         "business_strategy": 0.859,
         "content_verificable": 2.339,
@@ -14037,7 +14007,8 @@
         "integridad_idioma": 4.08,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.409,
-        "noticias_redaccion": 0.181
+        "noticias_redaccion": 0.181,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -14046,7 +14017,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.6,
@@ -14062,7 +14033,7 @@
       "total_output_tokens": 385516,
       "presupuesto_salida": {
         "p50": 2020,
-        "p90": 5379,
+        "p90": 5725,
         "max": 31235,
         "sugerido": 39043,
         "piso": true,
@@ -14201,10 +14172,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 2048,
-            "p90": 2048,
-            "max": 2050,
-            "sugerido": 2562,
+            "p50": 2406,
+            "p90": 5725,
+            "max": 7091,
+            "sugerido": 8863,
             "piso": false
           },
           "reasoning": {
@@ -14303,10 +14274,9 @@
       "multiturno_score": 7.8,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.0,
+      "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
       "nota_examen": 8.6,
@@ -14468,7 +14438,6 @@
       "score_by_suite": {
         "tool_calling": 4.71,
         "niah_es": 8.39,
-        "prompt_injection_es": 3.23,
         "verificar_claims_lote": 8.46,
         "business_audit": 7.53,
         "business_strategy": 8.46,
@@ -14499,12 +14468,12 @@
         "integridad_idioma": 7.17,
         "verificar_claim": 8.65,
         "tool_calling_adversarial": 7.02,
-        "noticias_redaccion": 8.74
+        "noticias_redaccion": 8.74,
+        "prompt_injection_es": 3.53
       },
       "quality_by_suite": {
         "tool_calling": 3.95,
         "niah_es": 9.97,
-        "prompt_injection_es": 1.9,
         "verificar_claims_lote": 9.54,
         "business_audit": 7.8,
         "business_strategy": 9.2,
@@ -14535,12 +14504,12 @@
         "integridad_idioma": 7.2,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.68,
-        "noticias_redaccion": 9.56
+        "noticias_redaccion": 9.56,
+        "prompt_injection_es": 1.9
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.138,
         "niah_es": 0.046,
-        "prompt_injection_es": 1.183,
         "verificar_claims_lote": 0.392,
         "business_audit": 2.179,
         "business_strategy": 0.859,
@@ -14571,7 +14540,8 @@
         "integridad_idioma": 4.073,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.872,
-        "noticias_redaccion": 0.204
+        "noticias_redaccion": 0.204,
+        "prompt_injection_es": 1.183
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -14580,7 +14550,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.32,
@@ -14595,7 +14565,7 @@
       "total_input_tokens": 249203,
       "total_output_tokens": 308501,
       "presupuesto_salida": {
-        "p50": 412,
+        "p50": 397,
         "p90": 4703,
         "max": 20322,
         "sugerido": 25402,
@@ -14742,10 +14712,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 193,
-            "p90": 829,
-            "max": 864,
-            "sugerido": 1080,
+            "p50": 147,
+            "p90": 337,
+            "max": 995,
+            "sugerido": 1243,
             "piso": false
           },
           "reasoning": {
@@ -14858,8 +14828,7 @@
       "multiturno_score": 8.35,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
       "security_score": 1.9,
       "policy_refusal_rate": 0.0,
@@ -15129,7 +15098,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.32,
@@ -15386,8 +15355,7 @@
       "multiturno_score": 7.2,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -15570,7 +15538,6 @@
       },
       "score_by_suite": {
         "niah_es": 7.69,
-        "prompt_injection_es": 2.39,
         "tool_calling": 5.59,
         "extraer_claims": 8.41,
         "business_audit": 7.13,
@@ -15602,11 +15569,11 @@
         "integridad_idioma": 6.49,
         "verificar_claim": 7.84,
         "tool_calling_adversarial": 6.84,
-        "noticias_redaccion": 7.78
+        "noticias_redaccion": 7.78,
+        "prompt_injection_es": 3.13
       },
       "quality_by_suite": {
         "niah_es": 9.7,
-        "prompt_injection_es": 1.9,
         "tool_calling": 5.35,
         "extraer_claims": 10.0,
         "business_audit": 8.2,
@@ -15638,11 +15605,11 @@
         "integridad_idioma": 7.13,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 7.1,
-        "noticias_redaccion": 9.36
+        "noticias_redaccion": 9.36,
+        "prompt_injection_es": 2.35
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.112,
-        "prompt_injection_es": 1.183,
         "tool_calling": 1.138,
         "extraer_claims": 0.0,
         "business_audit": 1.956,
@@ -15674,7 +15641,8 @@
         "integridad_idioma": 4.035,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.776,
-        "noticias_redaccion": 0.525
+        "noticias_redaccion": 0.525,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {
         "extraer_claims": {
@@ -15689,7 +15657,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.42,
@@ -15704,7 +15672,7 @@
       "total_input_tokens": 236036,
       "total_output_tokens": 432461,
       "presupuesto_salida": {
-        "p50": 427,
+        "p50": 418,
         "p90": 7161,
         "max": 29975,
         "sugerido": 37468,
@@ -15858,10 +15826,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 341,
-            "p90": 1352,
-            "max": 1963,
-            "sugerido": 2453,
+            "p50": 237,
+            "p90": 1222,
+            "max": 3009,
+            "sugerido": 3761,
             "piso": false
           },
           "reasoning": {
@@ -15964,10 +15932,9 @@
       "multiturno_score": 7.66,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
-      "security_score": 1.9,
+      "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
       "nota_examen": 8.42,
@@ -16235,7 +16202,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.46,
@@ -16492,8 +16459,7 @@
       "multiturno_score": 7.68,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 6.85,
       "policy_refusal_rate": 0.0,
@@ -16660,7 +16626,6 @@
         "verificar_claims_lote": 8.15,
         "extraer_claims": 8.03,
         "dominio_entidad": 8.94,
-        "prompt_injection_es": 3.54,
         "business_audit": 6.72,
         "business_strategy": 7.53,
         "content_verificable": 8.15,
@@ -16690,7 +16655,8 @@
         "integridad_idioma": 8.27,
         "verificar_claim": 8.4,
         "tool_calling_adversarial": 6.83,
-        "noticias_redaccion": 8.45
+        "noticias_redaccion": 8.45,
+        "prompt_injection_es": 3.69
       },
       "quality_by_suite": {
         "tool_calling": 5.7,
@@ -16698,7 +16664,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 9.33,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 3.25,
         "business_audit": 7.4,
         "business_strategy": 8.8,
         "content_verificable": 9.33,
@@ -16728,7 +16693,8 @@
         "integridad_idioma": 9.59,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.24,
-        "noticias_redaccion": 9.99
+        "noticias_redaccion": 9.99,
+        "prompt_injection_es": 3.25
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.68,
@@ -16736,7 +16702,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 1.168,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.708,
         "business_audit": 1.843,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -16766,7 +16731,8 @@
         "integridad_idioma": 0.063,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.607,
-        "noticias_redaccion": 0.012
+        "noticias_redaccion": 0.012,
+        "prompt_injection_es": 1.708
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -16775,7 +16741,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.31,
@@ -16790,7 +16756,7 @@
       "total_input_tokens": 187763,
       "total_output_tokens": 309266,
       "presupuesto_salida": {
-        "p50": 594,
+        "p50": 596,
         "p90": 4128,
         "max": 14324,
         "sugerido": 17905,
@@ -16951,10 +16917,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 162,
-            "p90": 327,
-            "max": 362,
-            "sugerido": 452,
+            "p50": 202,
+            "p90": 471,
+            "max": 676,
+            "sugerido": 845,
             "piso": false
           },
           "reasoning": {
@@ -17065,8 +17031,7 @@
       "multiturno_score": 7.52,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
       "security_score": 3.25,
       "policy_refusal_rate": 0.0,
@@ -17233,7 +17198,6 @@
         "verificar_claims_lote": 8.83,
         "extraer_claims": 9.19,
         "dominio_entidad": 9.15,
-        "prompt_injection_es": 9.09,
         "content_generation": 8.43,
         "task_management": 8.37,
         "summarization": 7.63,
@@ -17263,7 +17227,8 @@
         "agent_long_horizon": 8.06,
         "verificar_claim": 8.21,
         "tool_calling_adversarial": 6.39,
-        "noticias_redaccion": 9.02
+        "noticias_redaccion": 9.02,
+        "prompt_injection_es": 8.6
       },
       "quality_by_suite": {
         "tool_calling": 6.05,
@@ -17271,7 +17236,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 10.0,
         "content_generation": 9.2,
         "task_management": 9.07,
         "summarization": 7.8,
@@ -17301,7 +17265,8 @@
         "agent_long_horizon": 8.88,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.4,
-        "noticias_redaccion": 9.99
+        "noticias_redaccion": 9.99,
+        "prompt_injection_es": 9.55
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.138,
@@ -17309,7 +17274,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "content_generation": 0.367,
         "task_management": 1.018,
         "summarization": 1.663,
@@ -17339,7 +17303,8 @@
         "agent_long_horizon": 1.072,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.7,
-        "noticias_redaccion": 0.01
+        "noticias_redaccion": 0.01,
+        "prompt_injection_es": 0.86
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -17348,7 +17313,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.28,
@@ -17363,7 +17328,7 @@
       "total_input_tokens": 102586,
       "total_output_tokens": 146387,
       "presupuesto_salida": {
-        "p50": 322,
+        "p50": 316,
         "p90": 2226,
         "max": 6123,
         "sugerido": 7653,
@@ -17524,10 +17489,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 116,
-            "p90": 323,
-            "max": 337,
-            "sugerido": 421,
+            "p50": 93,
+            "p90": 203,
+            "max": 278,
+            "sugerido": 347,
             "piso": false
           },
           "reasoning": {
@@ -17638,10 +17603,9 @@
       "multiturno_score": 8.06,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-26",
-        "hasta": "2026-09-26"
+        "ventana": "v6.1"
       },
-      "security_score": 10.0,
+      "security_score": 9.55,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.77,
       "nota_examen": 8.28,
@@ -17808,7 +17772,6 @@
         "verificar_claims_lote": 8.64,
         "extraer_claims": 8.62,
         "dominio_entidad": 8.66,
-        "prompt_injection_es": 7.74,
         "business_audit": 7.38,
         "business_strategy": 8.02,
         "content_verificable": 8.66,
@@ -17838,7 +17801,8 @@
         "integridad_idioma": 6.73,
         "verificar_claim": 7.97,
         "tool_calling_adversarial": 6.63,
-        "noticias_redaccion": 8.49
+        "noticias_redaccion": 8.49,
+        "prompt_injection_es": 7.63
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
@@ -17846,7 +17810,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 8.65,
         "business_audit": 8.2,
         "business_strategy": 9.2,
         "content_verificable": 10.0,
@@ -17876,7 +17839,8 @@
         "integridad_idioma": 7.16,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.96,
-        "noticias_redaccion": 9.76
+        "noticias_redaccion": 9.76,
+        "prompt_injection_es": 8.65
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.188,
@@ -17884,7 +17848,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.408,
         "business_audit": 1.513,
         "business_strategy": 0.859,
         "content_verificable": 0.0,
@@ -17914,7 +17877,8 @@
         "integridad_idioma": 4.053,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.721,
-        "noticias_redaccion": 0.227
+        "noticias_redaccion": 0.227,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -17923,7 +17887,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.27,
@@ -17938,7 +17902,7 @@
       "total_input_tokens": 241745,
       "total_output_tokens": 282013,
       "presupuesto_salida": {
-        "p50": 455,
+        "p50": 459,
         "p90": 3304,
         "max": 19748,
         "sugerido": 24685,
@@ -18100,9 +18064,9 @@
           },
           "prompt_injection_es": {
             "p50": 228,
-            "p90": 340,
-            "max": 413,
-            "sugerido": 516,
+            "p90": 336,
+            "max": 580,
+            "sugerido": 725,
             "piso": false
           },
           "reasoning": {
@@ -18213,8 +18177,7 @@
       "multiturno_score": 7.78,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-26",
-        "hasta": "2026-09-26"
+        "ventana": "v6.1"
       },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
@@ -18493,7 +18456,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.53,
@@ -18785,8 +18748,7 @@
       "multiturno_score": 7.82,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -19053,7 +19015,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.25,
@@ -19303,8 +19265,7 @@
       "multiturno_score": 7.59,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -19571,7 +19532,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.25,
@@ -19821,8 +19782,7 @@
       "multiturno_score": 7.66,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
@@ -19987,7 +19947,6 @@
         "tool_calling": 7.12,
         "extraer_claims": 8.87,
         "dominio_entidad": 9.24,
-        "prompt_injection_es": 2.5,
         "business_audit": 7.46,
         "business_strategy": 8.43,
         "content_verificable": 6.34,
@@ -20017,13 +19976,13 @@
         "integridad_idioma": 8.79,
         "verificar_claim": 8.29,
         "tool_calling_adversarial": 6.15,
-        "noticias_redaccion": 8.7
+        "noticias_redaccion": 8.7,
+        "prompt_injection_es": 2.43
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
         "extraer_claims": 9.33,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.7,
         "business_strategy": 9.2,
         "content_verificable": 5.87,
@@ -20053,13 +20012,13 @@
         "integridad_idioma": 9.56,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 5.84,
-        "noticias_redaccion": 9.57
+        "noticias_redaccion": 9.57,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
         "extraer_claims": 1.169,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.754,
         "business_strategy": 0.859,
         "content_verificable": 3.396,
@@ -20089,7 +20048,8 @@
         "integridad_idioma": 0.121,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 1.254,
-        "noticias_redaccion": 0.175
+        "noticias_redaccion": 0.175,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -20098,7 +20058,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.23,
@@ -20267,10 +20227,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 26,
+            "p50": 22,
             "p90": 36,
-            "max": 38,
-            "sugerido": 47,
+            "max": 36,
+            "sugerido": 45,
             "piso": false
           },
           "reasoning": {
@@ -20369,8 +20329,7 @@
       "multiturno_score": 8.1,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -20537,7 +20496,6 @@
         "verificar_claims_lote": 9.09,
         "extraer_claims": 8.84,
         "dominio_entidad": 9.28,
-        "prompt_injection_es": 6.31,
         "business_audit": 7.65,
         "business_strategy": 8.4,
         "content_verificable": 8.54,
@@ -20568,6 +20526,7 @@
         "verificar_claim": 8.25,
         "tool_calling_adversarial": 6.66,
         "noticias_redaccion": 8.72,
+        "prompt_injection_es": 6.01,
         "precision_datos": 8.79
       },
       "quality_by_suite": {
@@ -20576,7 +20535,6 @@
         "verificar_claims_lote": 9.86,
         "extraer_claims": 9.33,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 5.95,
         "business_audit": 8.0,
         "business_strategy": 9.2,
         "content_verificable": 9.2,
@@ -20607,6 +20565,7 @@
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 6.26,
         "noticias_redaccion": 9.74,
+        "prompt_injection_es": 5.5,
         "precision_datos": 9.29
       },
       "quality_ci95_by_suite": {
@@ -20615,7 +20574,6 @@
         "verificar_claims_lote": 0.248,
         "extraer_claims": 1.168,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.962,
         "business_audit": 1.663,
         "business_strategy": 0.859,
         "content_verificable": 1.402,
@@ -20646,6 +20604,7 @@
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 1.177,
         "noticias_redaccion": 0.233,
+        "prompt_injection_es": 1.972,
         "precision_datos": 1.349
       },
       "suites_incompletas": {
@@ -20661,7 +20620,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.22,
@@ -20676,7 +20635,7 @@
       "total_input_tokens": 273681,
       "total_output_tokens": 275509,
       "presupuesto_salida": {
-        "p50": 612,
+        "p50": 599,
         "p90": 4005,
         "max": 18365,
         "sugerido": 22956,
@@ -20844,10 +20803,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 439,
-            "p90": 591,
-            "max": 645,
-            "sugerido": 806,
+            "p50": 471,
+            "p90": 586,
+            "max": 594,
+            "sugerido": 742,
             "piso": false
           },
           "reasoning": {
@@ -20957,10 +20916,9 @@
       "multiturno_score": 7.74,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-10-10",
-        "hasta": "2026-10-10"
+        "ventana": "v6.1"
       },
-      "security_score": 5.95,
+      "security_score": 5.5,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.87,
       "nota_examen": 8.22,
@@ -21225,7 +21183,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.22,
@@ -21475,8 +21433,7 @@
       "multiturno_score": 7.38,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -21640,7 +21597,6 @@
       "score_by_suite": {
         "tool_calling": 6.03,
         "niah_es": 7.96,
-        "prompt_injection_es": 3.17,
         "extraer_claims": 8.65,
         "dominio_entidad": 9.03,
         "business_audit": 7.16,
@@ -21672,12 +21628,12 @@
         "integridad_idioma": 8.18,
         "verificar_claim": 7.97,
         "tool_calling_adversarial": 7.18,
-        "noticias_redaccion": 7.91
+        "noticias_redaccion": 7.91,
+        "prompt_injection_es": 2.1
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
         "niah_es": 9.93,
-        "prompt_injection_es": 2.35,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
         "business_audit": 8.25,
@@ -21709,12 +21665,12 @@
         "integridad_idioma": 9.65,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 7.52,
-        "noticias_redaccion": 9.31
+        "noticias_redaccion": 9.31,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.812,
         "niah_es": 0.058,
-        "prompt_injection_es": 1.408,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
         "business_audit": 1.771,
@@ -21746,7 +21702,8 @@
         "integridad_idioma": 0.061,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.398,
-        "noticias_redaccion": 0.502
+        "noticias_redaccion": 0.502,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {
         "dominio_entidad": {
@@ -21761,7 +21718,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.46,
@@ -21776,7 +21733,7 @@
       "total_input_tokens": 243145,
       "total_output_tokens": 370265,
       "presupuesto_salida": {
-        "p50": 626,
+        "p50": 658,
         "p90": 4732,
         "max": 22508,
         "sugerido": 28135,
@@ -21937,10 +21894,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 228,
-            "p90": 513,
-            "max": 541,
-            "sugerido": 676,
+            "p50": 181,
+            "p90": 814,
+            "max": 1006,
+            "sugerido": 1257,
             "piso": false
           },
           "reasoning": {
@@ -22043,10 +22000,9 @@
       "multiturno_score": 7.54,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-25",
-        "hasta": "2026-06-25"
+        "ventana": "v6.1"
       },
-      "security_score": 2.35,
+      "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
       "nota_examen": 8.46,
@@ -22211,7 +22167,6 @@
         "verificar_claims_lote": 8.8,
         "extraer_claims": 8.94,
         "dominio_entidad": 9.0,
-        "prompt_injection_es": 6.19,
         "business_audit": 7.29,
         "business_strategy": 8.16,
         "content_verificable": 8.95,
@@ -22241,7 +22196,8 @@
         "integridad_idioma": 7.02,
         "verificar_claim": 8.47,
         "tool_calling_adversarial": 6.23,
-        "noticias_redaccion": 8.85
+        "noticias_redaccion": 8.85,
+        "prompt_injection_es": 6.33
       },
       "quality_by_suite": {
         "tool_calling": 4.86,
@@ -22249,7 +22205,6 @@
         "verificar_claims_lote": 9.54,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 5.95,
         "business_audit": 7.8,
         "business_strategy": 9.2,
         "content_verificable": 10.0,
@@ -22279,7 +22234,8 @@
         "integridad_idioma": 7.21,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 5.98,
-        "noticias_redaccion": 9.93
+        "noticias_redaccion": 9.93,
+        "prompt_injection_es": 6.4
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.49,
@@ -22287,7 +22243,6 @@
         "verificar_claims_lote": 0.392,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 1.962,
         "business_audit": 1.876,
         "business_strategy": 0.859,
         "content_verificable": 0.0,
@@ -22317,7 +22272,8 @@
         "integridad_idioma": 4.083,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.084,
-        "noticias_redaccion": 0.115
+        "noticias_redaccion": 0.115,
+        "prompt_injection_es": 1.932
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -22326,7 +22282,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.21,
@@ -22341,7 +22297,7 @@
       "total_input_tokens": 246682,
       "total_output_tokens": 386884,
       "presupuesto_salida": {
-        "p50": 717,
+        "p50": 719,
         "p90": 5191,
         "max": 23480,
         "sugerido": 29350,
@@ -22502,10 +22458,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 274,
-            "p90": 537,
-            "max": 2266,
-            "sugerido": 2832,
+            "p50": 275,
+            "p90": 909,
+            "max": 1659,
+            "sugerido": 2073,
             "piso": false
           },
           "reasoning": {
@@ -22616,10 +22572,9 @@
       "multiturno_score": 7.33,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
-      "security_score": 5.95,
+      "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
       "nota_examen": 8.21,
@@ -22884,7 +22839,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.19,
@@ -23134,8 +23089,7 @@
       "multiturno_score": 7.97,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
@@ -23407,7 +23361,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.18,
@@ -23657,8 +23611,7 @@
       "multiturno_score": 7.03,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
@@ -23821,7 +23774,6 @@
       },
       "score_by_suite": {
         "tool_calling": 5.48,
-        "prompt_injection_es": 2.19,
         "business_audit": 6.23,
         "business_strategy": 7.88,
         "content_verificable": 8.03,
@@ -23851,11 +23803,11 @@
         "integridad_idioma": 6.71,
         "verificar_claim": 8.09,
         "tool_calling_adversarial": 6.6,
-        "noticias_redaccion": 7.84
+        "noticias_redaccion": 7.84,
+        "prompt_injection_es": 2.16
       },
       "quality_by_suite": {
         "tool_calling": 5.42,
-        "prompt_injection_es": 1.0,
         "business_audit": 6.65,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -23885,11 +23837,11 @@
         "integridad_idioma": 7.26,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.82,
-        "noticias_redaccion": 9.19
+        "noticias_redaccion": 9.19,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.234,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.286,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -23919,7 +23871,8 @@
         "integridad_idioma": 4.105,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 1.084,
-        "noticias_redaccion": 0.499
+        "noticias_redaccion": 0.499,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -23928,7 +23881,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.16,
@@ -24083,10 +24036,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 195,
-            "p90": 330,
-            "max": 371,
-            "sugerido": 463,
+            "p50": 188,
+            "p90": 314,
+            "max": 331,
+            "sugerido": 413,
             "piso": false
           },
           "reasoning": {
@@ -24185,8 +24138,7 @@
       "multiturno_score": 7.13,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -24456,7 +24408,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.14,
@@ -24713,8 +24665,7 @@
       "multiturno_score": 7.26,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -24984,7 +24935,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.12,
@@ -25241,8 +25192,7 @@
       "multiturno_score": 6.81,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
@@ -25406,7 +25356,6 @@
       "score_by_suite": {
         "tool_calling": 6.06,
         "niah_es": 8.26,
-        "prompt_injection_es": 2.83,
         "business_audit": 7.94,
         "business_strategy": 8.15,
         "content_verificable": 7.0,
@@ -25436,12 +25385,12 @@
         "integridad_idioma": 8.83,
         "verificar_claim": 8.36,
         "tool_calling_adversarial": 7.57,
-        "noticias_redaccion": 8.3
+        "noticias_redaccion": 8.3,
+        "prompt_injection_es": 3.1
       },
       "quality_by_suite": {
         "tool_calling": 6.33,
         "niah_es": 9.76,
-        "prompt_injection_es": 1.45,
         "business_audit": 9.0,
         "business_strategy": 9.2,
         "content_verificable": 7.33,
@@ -25471,12 +25420,12 @@
         "integridad_idioma": 9.62,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 7.38,
-        "noticias_redaccion": 9.69
+        "noticias_redaccion": 9.69,
+        "prompt_injection_es": 1.9
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.761,
         "niah_es": 0.15,
-        "prompt_injection_es": 0.86,
         "business_audit": 1.493,
         "business_strategy": 0.859,
         "content_verificable": 3.407,
@@ -25506,7 +25455,8 @@
         "integridad_idioma": 0.092,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.649,
-        "noticias_redaccion": 0.304
+        "noticias_redaccion": 0.304,
+        "prompt_injection_es": 1.183
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -25515,7 +25465,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.21,
@@ -25677,10 +25627,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 166,
-            "p90": 1736,
-            "max": 1985,
-            "sugerido": 2481,
+            "p50": 208,
+            "p90": 1179,
+            "max": 2469,
+            "sugerido": 3086,
             "piso": false
           },
           "reasoning": {
@@ -25784,10 +25734,9 @@
       "multiturno_score": 6.95,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
-      "security_score": 1.45,
+      "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.7,
       "nota_examen": 8.21,
@@ -25908,7 +25857,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 330,
+      "total_runs": 310,
       "score_global": 4.98,
       "score_by_pillar": {
         "Razonamiento": 7.35,
@@ -25949,7 +25898,6 @@
       "score_by_suite": {
         "tool_calling": 5.41,
         "niah_es": 8.32,
-        "prompt_injection_es": 2.61,
         "business_audit": 7.25,
         "business_strategy": 8.19,
         "content_verificable": 6.85,
@@ -25979,12 +25927,12 @@
         "integridad_idioma": 6.79,
         "verificar_claim": 8.27,
         "tool_calling_adversarial": 6.07,
-        "noticias_redaccion": 8.36
+        "noticias_redaccion": 8.36,
+        "prompt_injection_es": 2.39
       },
       "quality_by_suite": {
         "tool_calling": 5.25,
         "niah_es": 10.0,
-        "prompt_injection_es": 1.23,
         "business_audit": 7.85,
         "business_strategy": 9.2,
         "content_verificable": 7.33,
@@ -26014,12 +25962,12 @@
         "integridad_idioma": 7.24,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.12,
-        "noticias_redaccion": 9.49
+        "noticias_redaccion": 9.49,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.084,
         "niah_es": 0.0,
-        "prompt_injection_es": 0.435,
         "business_audit": 1.941,
         "business_strategy": 0.859,
         "content_verificable": 3.407,
@@ -26049,7 +25997,8 @@
         "integridad_idioma": 4.097,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.101,
-        "noticias_redaccion": 0.402
+        "noticias_redaccion": 0.402,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -26058,7 +26007,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.01,
@@ -26073,8 +26022,8 @@
       "total_input_tokens": 172203,
       "total_output_tokens": 218439,
       "presupuesto_salida": {
-        "p50": 255,
-        "p90": 2150,
+        "p50": 271,
+        "p90": 2156,
         "max": 17537,
         "sugerido": 21921,
         "piso": true,
@@ -26220,10 +26169,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 147,
-            "p90": 304,
-            "max": 4541,
-            "sugerido": 5676,
+            "p50": 123,
+            "p90": 196,
+            "max": 219,
+            "sugerido": 273,
             "piso": false
           },
           "reasoning": {
@@ -26327,12 +26276,11 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.08,
       "multiturno_score": 7.4,
-      "security_runs": 40,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
-      "security_score": 1.23,
+      "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.42,
       "nota_examen": 8.01,
@@ -26495,7 +26443,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.79,
-        "prompt_injection_es": 4.14,
         "business_audit": 6.78,
         "business_strategy": 8.48,
         "content_verificable": 8.6,
@@ -26525,11 +26472,11 @@
         "integridad_idioma": 7.14,
         "verificar_claim": 8.53,
         "tool_calling_adversarial": 6.81,
-        "noticias_redaccion": 7.75
+        "noticias_redaccion": 7.75,
+        "prompt_injection_es": 3.39
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
-        "prompt_injection_es": 3.32,
         "business_audit": 7.0,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -26559,11 +26506,11 @@
         "integridad_idioma": 7.27,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.68,
-        "noticias_redaccion": 8.34
+        "noticias_redaccion": 8.34,
+        "prompt_injection_es": 2.35
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
-        "prompt_injection_es": 1.283,
         "business_audit": 2.368,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -26593,7 +26540,8 @@
         "integridad_idioma": 4.114,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.781,
-        "noticias_redaccion": 0.441
+        "noticias_redaccion": 0.441,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -26602,7 +26550,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.24,
@@ -26617,10 +26565,10 @@
       "total_input_tokens": 164246,
       "total_output_tokens": 160212,
       "presupuesto_salida": {
-        "p50": 755,
-        "p90": 2262,
-        "max": 14272,
-        "sugerido": 17840,
+        "p50": 762,
+        "p90": 2307,
+        "max": 32770,
+        "sugerido": 40962,
         "piso": true,
         "por_tarea": {
           "agent_capabilities": {
@@ -26757,11 +26705,11 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 201,
-            "p90": 512,
-            "max": 571,
-            "sugerido": 713,
-            "piso": false
+            "p50": 188,
+            "p90": 438,
+            "max": 32770,
+            "sugerido": 40962,
+            "piso": true
           },
           "reasoning": {
             "p50": 2014,
@@ -26859,10 +26807,9 @@
       "multiturno_score": 7.75,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 3.32,
+      "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
       "nota_examen": 8.24,
@@ -27043,7 +26990,6 @@
       },
       "score_by_suite": {
         "niah_es": 8.45,
-        "prompt_injection_es": 2.69,
         "tool_calling": 6.57,
         "business_audit": 7.59,
         "business_strategy": 8.04,
@@ -27074,11 +27020,11 @@
         "integridad_idioma": 8.89,
         "verificar_claim": 8.38,
         "tool_calling_adversarial": 7.66,
-        "noticias_redaccion": 8.56
+        "noticias_redaccion": 8.56,
+        "prompt_injection_es": 2.53
       },
       "quality_by_suite": {
         "niah_es": 9.7,
-        "prompt_injection_es": 1.0,
         "tool_calling": 6.54,
         "business_audit": 8.4,
         "business_strategy": 9.2,
@@ -27109,11 +27055,11 @@
         "integridad_idioma": 9.66,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.8,
-        "noticias_redaccion": 9.87
+        "noticias_redaccion": 9.87,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.175,
-        "prompt_injection_es": 0.0,
         "tool_calling": 1.358,
         "business_audit": 1.735,
         "business_strategy": 0.859,
@@ -27144,7 +27090,8 @@
         "integridad_idioma": 0.039,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.434,
-        "noticias_redaccion": 0.194
+        "noticias_redaccion": 0.194,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -27153,7 +27100,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.48,
@@ -27168,7 +27115,7 @@
       "total_input_tokens": 306845,
       "total_output_tokens": 470477,
       "presupuesto_salida": {
-        "p50": 1071,
+        "p50": 1104,
         "p90": 5540,
         "max": 100877,
         "sugerido": 126096,
@@ -27315,10 +27262,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 763,
-            "p90": 1376,
-            "max": 1429,
-            "sugerido": 1786,
+            "p50": 915,
+            "p90": 1248,
+            "max": 1598,
+            "sugerido": 1997,
             "piso": false
           },
           "reasoning": {
@@ -27421,8 +27368,7 @@
       "multiturno_score": 7.92,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -27601,7 +27547,6 @@
       },
       "score_by_suite": {
         "tool_calling": 5.52,
-        "prompt_injection_es": 2.27,
         "business_audit": 6.4,
         "business_strategy": 7.73,
         "content_verificable": 7.58,
@@ -27631,11 +27576,11 @@
         "integridad_idioma": 8.31,
         "verificar_claim": 7.59,
         "tool_calling_adversarial": 6.5,
-        "noticias_redaccion": 7.62
+        "noticias_redaccion": 7.62,
+        "prompt_injection_es": 2.41
       },
       "quality_by_suite": {
         "tool_calling": 5.42,
-        "prompt_injection_es": 1.15,
         "business_audit": 6.83,
         "business_strategy": 8.8,
         "content_verificable": 8.33,
@@ -27665,11 +27610,11 @@
         "integridad_idioma": 9.66,
         "verificar_claim": 8.2,
         "tool_calling_adversarial": 6.68,
-        "noticias_redaccion": 8.81
+        "noticias_redaccion": 8.81,
+        "prompt_injection_es": 1.45
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.776,
-        "prompt_injection_es": 0.287,
         "business_audit": 2.307,
         "business_strategy": 0.859,
         "content_verificable": 1.847,
@@ -27699,7 +27644,8 @@
         "integridad_idioma": 0.112,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 1.101,
-        "noticias_redaccion": 0.396
+        "noticias_redaccion": 0.396,
+        "prompt_injection_es": 0.86
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -27708,7 +27654,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.15,
@@ -27723,7 +27669,7 @@
       "total_input_tokens": 153985,
       "total_output_tokens": 131899,
       "presupuesto_salida": {
-        "p50": 522,
+        "p50": 524,
         "p90": 1953,
         "max": 6916,
         "sugerido": 8645,
@@ -27864,9 +27810,9 @@
           },
           "prompt_injection_es": {
             "p50": 26,
-            "p90": 57,
-            "max": 190,
-            "sugerido": 237,
+            "p90": 257,
+            "max": 1685,
+            "sugerido": 2106,
             "piso": false
           },
           "reasoning": {
@@ -27965,10 +27911,9 @@
       "multiturno_score": 6.95,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.15,
+      "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
       "nota_examen": 8.15,
@@ -28089,7 +28034,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 283,
+      "total_runs": 263,
       "score_global": 8.45,
       "score_by_pillar": {
         "Razonamiento": 7.58,
@@ -28131,7 +28076,6 @@
         "tool_calling": 6.79,
         "extraer_claims": 9.0,
         "dominio_entidad": 9.09,
-        "prompt_injection_es": 2.57,
         "business_audit": 6.88,
         "business_strategy": 8.18,
         "content_verificable": 8.5,
@@ -28162,13 +28106,13 @@
         "verificar_claim": 8.35,
         "tool_calling_adversarial": 6.46,
         "noticias_redaccion": 8.77,
+        "prompt_injection_es": 2.62,
         "precision_datos": 8.55
       },
       "quality_by_suite": {
         "tool_calling": 6.77,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.2,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -28199,13 +28143,13 @@
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.12,
         "noticias_redaccion": 9.93,
+        "prompt_injection_es": 1.0,
         "precision_datos": 8.92
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.608,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.429,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -28236,6 +28180,7 @@
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.955,
         "noticias_redaccion": 0.134,
+        "prompt_injection_es": 0.0,
         "precision_datos": 1.039
       },
       "suites_incompletas": {
@@ -28251,7 +28196,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.54,
@@ -28266,8 +28211,8 @@
       "total_input_tokens": 170629,
       "total_output_tokens": 106593,
       "presupuesto_salida": {
-        "p50": 92,
-        "p90": 1296,
+        "p50": 132,
+        "p90": 1304,
         "max": 8852,
         "sugerido": 11065,
         "piso": true,
@@ -28435,9 +28380,9 @@
           },
           "prompt_injection_es": {
             "p50": 24,
-            "p90": 38,
-            "max": 46,
-            "sugerido": 57,
+            "p90": 37,
+            "max": 38,
+            "sugerido": 47,
             "piso": false
           },
           "reasoning": {
@@ -28538,12 +28483,11 @@
       "multiturno_runs": 12,
       "multiturno_quality": 9.12,
       "multiturno_score": 8.27,
-      "security_runs": 40,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.41,
+      "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.96,
       "nota_examen": 8.54,
@@ -28808,7 +28752,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.8,
@@ -29058,8 +29002,7 @@
       "multiturno_score": 8.55,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 4.35,
       "policy_refusal_rate": 0.0,
@@ -29182,7 +29125,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 325,
+      "total_runs": 305,
       "score_global": 3.59,
       "score_by_pillar": {
         "Contenido": 7.11,
@@ -29222,7 +29165,6 @@
       },
       "score_by_suite": {
         "niah_es": 8.21,
-        "prompt_injection_es": 3.42,
         "tool_calling": 5.0,
         "summarization": 7.06,
         "startup_content": 6.95,
@@ -29254,12 +29196,12 @@
         "verificar_claim": 7.94,
         "tool_calling_adversarial": 6.09,
         "noticias_redaccion": 6.62,
+        "prompt_injection_es": 4.76,
         "dominio_entidad": 9.17,
         "extraer_claims": 9.05
       },
       "quality_by_suite": {
         "niah_es": 10.0,
-        "prompt_injection_es": 2.8,
         "tool_calling": 4.3,
         "summarization": 7.3,
         "startup_content": 7.74,
@@ -29291,12 +29233,12 @@
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 5.84,
         "noticias_redaccion": 7.23,
+        "prompt_injection_es": 4.15,
         "dominio_entidad": 10.0,
         "extraer_claims": 10.0
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.0,
-        "prompt_injection_es": 1.116,
         "tool_calling": 1.68,
         "summarization": 0.97,
         "startup_content": 1.474,
@@ -29328,6 +29270,7 @@
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.906,
         "noticias_redaccion": 0.788,
+        "prompt_injection_es": 1.881,
         "dominio_entidad": 0.0,
         "extraer_claims": 0.0
       },
@@ -29338,7 +29281,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.77,
@@ -29353,8 +29296,8 @@
       "total_input_tokens": 272100,
       "total_output_tokens": 745770,
       "presupuesto_salida": {
-        "p50": 450,
-        "p90": 9147,
+        "p50": 339,
+        "p90": 9221,
         "max": 44965,
         "sugerido": 56206,
         "piso": true,
@@ -29514,10 +29457,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 540,
-            "p90": 880,
-            "max": 1884,
-            "sugerido": 2355,
+            "p50": 234,
+            "p90": 1082,
+            "max": 1137,
+            "sugerido": 1421,
             "piso": false
           },
           "reasoning": {
@@ -29619,12 +29562,11 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.96,
       "multiturno_score": 7.73,
-      "security_runs": 40,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
-      "security_score": 2.8,
+      "security_score": 4.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.2,
       "nota_examen": 7.77,
@@ -29785,7 +29727,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.07,
-        "prompt_injection_es": 2.25,
         "business_audit": 6.61,
         "business_strategy": 8.16,
         "content_verificable": 6.84,
@@ -29815,11 +29756,11 @@
         "integridad_idioma": 8.48,
         "verificar_claim": 7.69,
         "tool_calling_adversarial": 6.45,
-        "noticias_redaccion": 8.4
+        "noticias_redaccion": 8.4,
+        "prompt_injection_es": 2.1
       },
       "quality_by_suite": {
         "tool_calling": 6.05,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.0,
         "business_strategy": 9.2,
         "content_verificable": 7.33,
@@ -29849,11 +29790,11 @@
         "integridad_idioma": 9.65,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 6.82,
-        "noticias_redaccion": 9.55
+        "noticias_redaccion": 9.55,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.138,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.165,
         "business_strategy": 0.859,
         "content_verificable": 3.407,
@@ -29883,7 +29824,8 @@
         "integridad_idioma": 0.113,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.85,
-        "noticias_redaccion": 0.329
+        "noticias_redaccion": 0.329,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -29892,7 +29834,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.22,
@@ -30047,10 +29989,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 22,
-            "p90": 48,
-            "max": 48,
-            "sugerido": 60,
+            "p50": 25,
+            "p90": 51,
+            "max": 55,
+            "sugerido": 68,
             "piso": false
           },
           "reasoning": {
@@ -30149,8 +30091,7 @@
       "multiturno_score": 8.17,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -30333,7 +30274,6 @@
       },
       "score_by_suite": {
         "niah_es": 8.14,
-        "prompt_injection_es": 3.72,
         "business_audit": 6.39,
         "business_strategy": 7.48,
         "content_verificable": 7.13,
@@ -30363,11 +30303,11 @@
         "integridad_idioma": 6.44,
         "verificar_claim": 8.35,
         "tool_calling_adversarial": 7.3,
-        "noticias_redaccion": 6.57
+        "noticias_redaccion": 6.57,
+        "prompt_injection_es": 3.37
       },
       "quality_by_suite": {
         "niah_es": 9.82,
-        "prompt_injection_es": 2.8,
         "business_audit": 7.2,
         "business_strategy": 8.8,
         "content_verificable": 7.73,
@@ -30397,11 +30337,11 @@
         "integridad_idioma": 6.96,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 7.52,
-        "noticias_redaccion": 6.99
+        "noticias_redaccion": 6.99,
+        "prompt_injection_es": 2.35
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.102,
-        "prompt_injection_es": 1.578,
         "business_audit": 2.429,
         "business_strategy": 0.859,
         "content_verificable": 1.636,
@@ -30431,7 +30371,8 @@
         "integridad_idioma": 3.944,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.398,
-        "noticias_redaccion": 0.672
+        "noticias_redaccion": 0.672,
+        "prompt_injection_es": 1.408
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -30440,7 +30381,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.1,
@@ -30455,7 +30396,7 @@
       "total_input_tokens": 336676,
       "total_output_tokens": 262107,
       "presupuesto_salida": {
-        "p50": 314,
+        "p50": 294,
         "p90": 2783,
         "max": 26479,
         "sugerido": 33098,
@@ -30602,10 +30543,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 228,
-            "p90": 524,
-            "max": 988,
-            "sugerido": 1235,
+            "p50": 226,
+            "p90": 374,
+            "max": 469,
+            "sugerido": 586,
             "piso": false
           },
           "reasoning": {
@@ -30708,10 +30649,9 @@
       "multiturno_score": 7.79,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-07-01",
-        "hasta": "2026-07-01"
+        "ventana": "v6.1"
       },
-      "security_score": 2.8,
+      "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
       "nota_examen": 8.1,
@@ -30832,7 +30772,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 498,
+      "total_runs": 298,
       "score_global": 5.52,
       "score_by_pillar": {
         "Razonamiento": 7.32,
@@ -30873,7 +30813,6 @@
       "score_by_suite": {
         "tool_calling": 5.55,
         "dominio_entidad": 8.85,
-        "prompt_injection_es": 2.58,
         "business_audit": 6.78,
         "business_strategy": 8.26,
         "content_verificable": 7.88,
@@ -30903,12 +30842,12 @@
         "integridad_idioma": 5.27,
         "verificar_claim": 8.35,
         "tool_calling_adversarial": 6.83,
-        "noticias_redaccion": 7.1
+        "noticias_redaccion": 7.1,
+        "prompt_injection_es": 2.63
       },
       "quality_by_suite": {
         "tool_calling": 5.21,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.0,
         "business_strategy": 9.2,
         "content_verificable": 8.53,
@@ -30938,12 +30877,12 @@
         "integridad_idioma": 4.85,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.82,
-        "noticias_redaccion": 7.45
+        "noticias_redaccion": 7.45,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.447,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.368,
         "business_strategy": 0.859,
         "content_verificable": 1.585,
@@ -30973,7 +30912,8 @@
         "integridad_idioma": 4.748,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.85,
-        "noticias_redaccion": 0.679
+        "noticias_redaccion": 0.679,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -30982,7 +30922,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.08,
@@ -30997,8 +30937,8 @@
       "total_input_tokens": 307513,
       "total_output_tokens": 441284,
       "presupuesto_salida": {
-        "p50": 366,
-        "p90": 3034,
+        "p50": 719,
+        "p90": 4235,
         "max": 35282,
         "sugerido": 44102,
         "piso": true,
@@ -31144,10 +31084,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 282,
-            "p90": 385,
-            "max": 496,
-            "sugerido": 620,
+            "p50": 274,
+            "p90": 421,
+            "max": 619,
+            "sugerido": 773,
             "piso": false
           },
           "reasoning": {
@@ -31244,10 +31184,9 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.17,
       "multiturno_score": 7.45,
-      "security_runs": 220,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -31514,7 +31453,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.02,
@@ -31764,8 +31703,7 @@
       "multiturno_score": 8.15,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -31929,7 +31867,6 @@
       "score_by_suite": {
         "tool_calling": 6.58,
         "niah_es": 8.35,
-        "prompt_injection_es": 2.48,
         "business_audit": 6.59,
         "business_strategy": 8.24,
         "content_verificable": 6.63,
@@ -31959,12 +31896,12 @@
         "integridad_idioma": 6.96,
         "verificar_claim": 8.39,
         "tool_calling_adversarial": 6.44,
-        "noticias_redaccion": 6.96
+        "noticias_redaccion": 6.96,
+        "prompt_injection_es": 2.59
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
         "niah_es": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 6.8,
         "business_strategy": 9.2,
         "content_verificable": 6.67,
@@ -31994,12 +31931,12 @@
         "integridad_idioma": 7.26,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.26,
-        "noticias_redaccion": 7.35
+        "noticias_redaccion": 7.35,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 2.058,
         "niah_es": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.299,
         "business_strategy": 0.859,
         "content_verificable": 3.696,
@@ -32029,7 +31966,8 @@
         "integridad_idioma": 4.105,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.177,
-        "noticias_redaccion": 0.523
+        "noticias_redaccion": 0.523,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -32038,7 +31976,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.81,
@@ -32201,9 +32139,9 @@
           },
           "prompt_injection_es": {
             "p50": 25,
-            "p90": 51,
-            "max": 67,
-            "sugerido": 83,
+            "p90": 37,
+            "max": 37,
+            "sugerido": 46,
             "piso": false
           },
           "reasoning": {
@@ -32306,8 +32244,7 @@
       "multiturno_score": 7.55,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -32469,7 +32406,6 @@
         }
       },
       "score_by_suite": {
-        "prompt_injection_es": 2.75,
         "niah_es": 8.38,
         "tool_calling": 6.24,
         "business_audit": 6.81,
@@ -32501,10 +32437,10 @@
         "integridad_idioma": 8.92,
         "verificar_claim": 8.35,
         "tool_calling_adversarial": 6.59,
-        "noticias_redaccion": 6.76
+        "noticias_redaccion": 6.76,
+        "prompt_injection_es": 2.83
       },
       "quality_by_suite": {
-        "prompt_injection_es": 1.0,
         "niah_es": 9.8,
         "tool_calling": 5.7,
         "business_audit": 6.67,
@@ -32536,10 +32472,10 @@
         "integridad_idioma": 9.64,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 5.98,
-        "noticias_redaccion": 7.05
+        "noticias_redaccion": 7.05,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
-        "prompt_injection_es": 0.0,
         "niah_es": 0.244,
         "tool_calling": 1.68,
         "business_audit": 2.074,
@@ -32571,7 +32507,8 @@
         "integridad_idioma": 0.09,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 1.215,
-        "noticias_redaccion": 0.36
+        "noticias_redaccion": 0.36,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -32580,7 +32517,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.99,
@@ -32742,10 +32679,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 36,
-            "p90": 49,
-            "max": 53,
-            "sugerido": 66,
+            "p50": 34,
+            "p90": 47,
+            "max": 47,
+            "sugerido": 58,
             "piso": false
           },
           "reasoning": {
@@ -32848,8 +32785,7 @@
       "multiturno_score": 8.29,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-05",
-        "hasta": "2026-06-05"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -33015,7 +32951,6 @@
         "verificar_claims_lote": 7.14,
         "extraer_claims": 7.89,
         "dominio_entidad": 8.22,
-        "prompt_injection_es": 2.62,
         "business_audit": 7.58,
         "business_strategy": 7.94,
         "content_verificable": 6.53,
@@ -33045,14 +32980,14 @@
         "integridad_idioma": 8.83,
         "verificar_claim": 8.3,
         "tool_calling_adversarial": 7.77,
-        "noticias_redaccion": 6.64
+        "noticias_redaccion": 6.64,
+        "prompt_injection_es": 2.88
       },
       "quality_by_suite": {
         "tool_calling": 5.77,
         "verificar_claims_lote": 7.99,
         "extraer_claims": 8.75,
         "dominio_entidad": 9.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.2,
         "business_strategy": 8.8,
         "content_verificable": 6.67,
@@ -33082,14 +33017,14 @@
         "integridad_idioma": 9.72,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 8.08,
-        "noticias_redaccion": 7.06
+        "noticias_redaccion": 7.06,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 2.129,
         "verificar_claims_lote": 2.884,
         "extraer_claims": 1.697,
         "dominio_entidad": 1.132,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.956,
         "business_strategy": 0.859,
         "content_verificable": 3.696,
@@ -33119,7 +33054,8 @@
         "integridad_idioma": 0.07,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.398,
-        "noticias_redaccion": 0.514
+        "noticias_redaccion": 0.514,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -33128,7 +33064,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.28,
@@ -33297,10 +33233,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 287,
-            "p90": 680,
-            "max": 770,
-            "sugerido": 962,
+            "p50": 245,
+            "p90": 364,
+            "max": 1000,
+            "sugerido": 1250,
             "piso": false
           },
           "reasoning": {
@@ -33406,8 +33342,7 @@
       "multiturno_score": 7.75,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-14",
-        "hasta": "2026-09-14"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -33530,7 +33465,7 @@
       "thinking": false,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 202,
+      "total_runs": 196,
       "score_global": 7.9,
       "score_by_pillar": {
         "Razonamiento": 7.34,
@@ -33570,7 +33505,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.84,
-        "prompt_injection_es": 2.58,
         "business_audit": 7.52,
         "business_strategy": 8.17,
         "content_verificable": 8.21,
@@ -33600,11 +33534,11 @@
         "integridad_idioma": 8.75,
         "verificar_claim": 8.05,
         "tool_calling_adversarial": 7.71,
-        "noticias_redaccion": 8.43
+        "noticias_redaccion": 8.43,
+        "prompt_injection_es": 3.11
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
-        "prompt_injection_es": 1.1,
         "business_audit": 8.2,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -33634,11 +33568,11 @@
         "integridad_idioma": 9.66,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 7.8,
-        "noticias_redaccion": 9.6
+        "noticias_redaccion": 9.6,
+        "prompt_injection_es": 1.9
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.485,
-        "prompt_injection_es": 0.137,
         "business_audit": 1.704,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -33668,22 +33602,17 @@
         "integridad_idioma": 0.087,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.434,
-        "noticias_redaccion": 0.424
+        "noticias_redaccion": 0.424,
+        "prompt_injection_es": 1.183
       },
-      "suites_incompletas": {
-        "prompt_injection_es": {
-          "rindio": 13,
-          "total": 20,
-          "fuera_del_indice": true
-        }
-      },
+      "suites_incompletas": {},
       "examen_completo": true,
       "examen_v5": true,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.47,
@@ -33698,8 +33627,8 @@
       "total_input_tokens": 161292,
       "total_output_tokens": 372461,
       "presupuesto_salida": {
-        "p50": 1403,
-        "p90": 5130,
+        "p50": 1840,
+        "p90": 5236,
         "max": 24709,
         "sugerido": 30886,
         "piso": true,
@@ -33838,10 +33767,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 1140,
-            "p90": 1462,
-            "max": 1696,
-            "sugerido": 2120,
+            "p50": 1840,
+            "p90": 4449,
+            "max": 4608,
+            "sugerido": 5760,
             "piso": false
           },
           "reasoning": {
@@ -33938,12 +33867,11 @@
       "multiturno_runs": 12,
       "multiturno_quality": 9.29,
       "multiturno_score": 8.14,
-      "security_runs": 26,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.1,
+      "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
       "nota_examen": 8.47,
@@ -34108,7 +34036,6 @@
         "verificar_claims_lote": 8.55,
         "extraer_claims": 9.19,
         "dominio_entidad": 9.1,
-        "prompt_injection_es": 8.91,
         "content_generation": 8.43,
         "task_management": 8.48,
         "summarization": 7.22,
@@ -34138,7 +34065,8 @@
         "agent_long_horizon": 8.07,
         "verificar_claim": 8.11,
         "tool_calling_adversarial": 6.55,
-        "noticias_redaccion": 8.82
+        "noticias_redaccion": 8.82,
+        "prompt_injection_es": 8.71
       },
       "quality_by_suite": {
         "tool_calling": 5.77,
@@ -34146,7 +34074,6 @@
         "verificar_claims_lote": 9.33,
         "extraer_claims": 10.0,
         "dominio_entidad": 10.0,
-        "prompt_injection_es": 10.0,
         "content_generation": 9.12,
         "task_management": 9.2,
         "summarization": 7.1,
@@ -34176,7 +34103,8 @@
         "agent_long_horizon": 9.21,
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.82,
-        "noticias_redaccion": 9.99
+        "noticias_redaccion": 9.99,
+        "prompt_injection_es": 10.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.069,
@@ -34184,7 +34112,6 @@
         "verificar_claims_lote": 0.71,
         "extraer_claims": 0.0,
         "dominio_entidad": 0.0,
-        "prompt_injection_es": 0.0,
         "content_generation": 0.356,
         "task_management": 0.96,
         "summarization": 0.693,
@@ -34214,7 +34141,8 @@
         "agent_long_horizon": 0.707,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.756,
-        "noticias_redaccion": 0.009
+        "noticias_redaccion": 0.009,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -34223,7 +34151,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.27,
@@ -34399,10 +34327,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 364,
-            "p90": 604,
-            "max": 636,
-            "sugerido": 795,
+            "p50": 296,
+            "p90": 581,
+            "max": 597,
+            "sugerido": 746,
             "piso": false
           },
           "reasoning": {
@@ -34513,8 +34441,7 @@
       "multiturno_score": 8.07,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-09-26",
-        "hasta": "2026-09-26"
+        "ventana": "v6.1"
       },
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
@@ -34678,7 +34605,6 @@
       "score_by_suite": {
         "tool_calling": 6.62,
         "niah_es": 8.04,
-        "prompt_injection_es": 2.32,
         "business_audit": 7.41,
         "business_strategy": 7.99,
         "content_verificable": 7.17,
@@ -34709,13 +34635,13 @@
         "verificar_claim": 7.65,
         "tool_calling_adversarial": 6.64,
         "noticias_redaccion": 8.18,
+        "prompt_injection_es": 2.49,
         "dominio_entidad": 8.92,
         "extraer_claims": 8.75
       },
       "quality_by_suite": {
         "tool_calling": 6.4,
         "niah_es": 9.76,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.0,
         "business_strategy": 8.8,
         "content_verificable": 7.33,
@@ -34746,13 +34672,13 @@
         "verificar_claim": 8.2,
         "tool_calling_adversarial": 6.68,
         "noticias_redaccion": 9.06,
+        "prompt_injection_es": 1.0,
         "dominio_entidad": 10.0,
         "extraer_claims": 10.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.686,
         "niah_es": 0.179,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.92,
         "business_strategy": 0.859,
         "content_verificable": 3.407,
@@ -34783,6 +34709,7 @@
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.955,
         "noticias_redaccion": 0.317,
+        "prompt_injection_es": 0.0,
         "dominio_entidad": 0.0,
         "extraer_claims": 0.0
       },
@@ -34793,7 +34720,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.12,
@@ -34970,9 +34897,9 @@
           },
           "prompt_injection_es": {
             "p50": 20,
-            "p90": 49,
-            "max": 49,
-            "sugerido": 61,
+            "p90": 35,
+            "max": 48,
+            "sugerido": 60,
             "piso": false
           },
           "reasoning": {
@@ -35076,8 +35003,7 @@
       "multiturno_score": 7.53,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -35241,7 +35167,6 @@
       "score_by_suite": {
         "tool_calling": 5.28,
         "niah_es": 8.47,
-        "prompt_injection_es": 2.59,
         "business_audit": 7.49,
         "business_strategy": 8.11,
         "content_verificable": 8.14,
@@ -35272,13 +35197,13 @@
         "verificar_claim": 8.01,
         "tool_calling_adversarial": 6.75,
         "noticias_redaccion": 8.5,
+        "prompt_injection_es": 2.52,
         "dominio_entidad": 8.9,
         "extraer_claims": 8.79
       },
       "quality_by_suite": {
         "tool_calling": 5.0,
         "niah_es": 10.0,
-        "prompt_injection_es": 1.0,
         "business_audit": 8.2,
         "business_strategy": 9.2,
         "content_verificable": 9.2,
@@ -35309,13 +35234,13 @@
         "verificar_claim": 8.8,
         "tool_calling_adversarial": 6.96,
         "noticias_redaccion": 9.81,
+        "prompt_injection_es": 1.0,
         "dominio_entidad": 10.0,
         "extraer_claims": 10.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.534,
         "niah_es": 0.0,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.956,
         "business_strategy": 0.859,
         "content_verificable": 1.402,
@@ -35346,6 +35271,7 @@
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 0.986,
         "noticias_redaccion": 0.194,
+        "prompt_injection_es": 0.0,
         "dominio_entidad": 0.0,
         "extraer_claims": 0.0
       },
@@ -35356,7 +35282,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.49,
@@ -35371,7 +35297,7 @@
       "total_input_tokens": 174967,
       "total_output_tokens": 409072,
       "presupuesto_salida": {
-        "p50": 777,
+        "p50": 776,
         "p90": 11603,
         "max": 24774,
         "sugerido": 30967,
@@ -35532,10 +35458,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 382,
-            "p90": 709,
-            "max": 833,
-            "sugerido": 1041,
+            "p50": 400,
+            "p90": 529,
+            "max": 582,
+            "sugerido": 727,
             "piso": false
           },
           "reasoning": {
@@ -35638,8 +35564,7 @@
       "multiturno_score": 7.88,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -35802,7 +35727,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.9,
-        "prompt_injection_es": 2.59,
         "business_audit": 6.47,
         "business_strategy": 8.07,
         "content_verificable": 8.36,
@@ -35832,11 +35756,11 @@
         "integridad_idioma": 8.37,
         "verificar_claim": 7.95,
         "tool_calling_adversarial": 6.23,
-        "noticias_redaccion": 8.78
+        "noticias_redaccion": 8.78,
+        "prompt_injection_es": 2.68
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
-        "prompt_injection_es": 1.0,
         "business_audit": 6.8,
         "business_strategy": 9.2,
         "content_verificable": 9.33,
@@ -35866,11 +35790,11 @@
         "integridad_idioma": 9.65,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 6.12,
-        "noticias_redaccion": 9.91
+        "noticias_redaccion": 9.91,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.299,
         "business_strategy": 0.859,
         "content_verificable": 1.168,
@@ -35900,7 +35824,8 @@
         "integridad_idioma": 0.061,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.955,
-        "noticias_redaccion": 0.1
+        "noticias_redaccion": 0.1,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -35909,7 +35834,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.29,
@@ -36166,8 +36091,7 @@
       "multiturno_score": 7.35,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -36437,7 +36361,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.22,
@@ -36694,8 +36618,7 @@
       "multiturno_score": 8.09,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 7.2,
       "policy_refusal_rate": 0.0,
@@ -36859,7 +36782,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.98,
-        "prompt_injection_es": 2.52,
         "business_audit": 7.49,
         "business_strategy": 8.42,
         "content_verificable": 5.92,
@@ -36890,11 +36812,11 @@
         "verificar_claim": 9.01,
         "tool_calling_adversarial": 6.59,
         "noticias_redaccion": 7.13,
+        "prompt_injection_es": 2.74,
         "precision_datos": 8.06
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.83,
         "business_strategy": 9.2,
         "content_verificable": 5.07,
@@ -36925,11 +36847,11 @@
         "verificar_claim": 9.4,
         "tool_calling_adversarial": 6.12,
         "noticias_redaccion": 7.46,
+        "prompt_injection_es": 1.0,
         "precision_datos": 8.17
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
-        "prompt_injection_es": 0.0,
         "business_audit": 1.878,
         "business_strategy": 0.859,
         "content_verificable": 2.901,
@@ -36960,6 +36882,7 @@
         "verificar_claim": 0.744,
         "tool_calling_adversarial": 1.101,
         "noticias_redaccion": 0.517,
+        "prompt_injection_es": 0.0,
         "precision_datos": 1.514
       },
       "suites_incompletas": {},
@@ -36969,7 +36892,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.05,
@@ -37131,7 +37054,7 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 18,
+            "p50": 25,
             "p90": 37,
             "max": 37,
             "sugerido": 46,
@@ -37233,8 +37156,7 @@
       "multiturno_score": 8.01,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -37358,7 +37280,7 @@
       "thinking": true,
       "multimodal": false,
       "runs": 137,
-      "total_runs": 432,
+      "total_runs": 372,
       "score_global": 4.72,
       "score_by_pillar": {
         "Razonamiento": 7.23,
@@ -37398,7 +37320,6 @@
       },
       "score_by_suite": {
         "niah_es": 8.24,
-        "prompt_injection_es": 3.17,
         "business_audit": 6.24,
         "business_strategy": 8.58,
         "content_verificable": 6.98,
@@ -37429,11 +37350,11 @@
         "verificar_claim": 7.84,
         "tool_calling_adversarial": 7.36,
         "noticias_redaccion": 8.39,
+        "prompt_injection_es": 2.83,
         "tool_calling": 6.97
       },
       "quality_by_suite": {
         "niah_es": 8.9,
-        "prompt_injection_es": 1.0,
         "business_audit": 5.87,
         "business_strategy": 9.2,
         "content_verificable": 6.67,
@@ -37464,11 +37385,11 @@
         "verificar_claim": 7.6,
         "tool_calling_adversarial": 7.24,
         "noticias_redaccion": 8.86,
+        "prompt_injection_es": 1.0,
         "tool_calling": 6.52
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.272,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.185,
         "business_strategy": 0.859,
         "content_verificable": 3.696,
@@ -37499,6 +37420,7 @@
         "verificar_claim": 0.744,
         "tool_calling_adversarial": 0.721,
         "noticias_redaccion": 0.248,
+        "prompt_injection_es": 0.0,
         "tool_calling": 0.817
       },
       "suites_incompletas": {},
@@ -37508,7 +37430,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.78,
@@ -37523,8 +37445,8 @@
       "total_input_tokens": 192173,
       "total_output_tokens": 139137,
       "presupuesto_salida": {
-        "p50": 212,
-        "p90": 1251,
+        "p50": 204,
+        "p90": 1275,
         "max": 10174,
         "sugerido": 12717,
         "piso": true,
@@ -37670,10 +37592,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 220,
-            "p90": 423,
-            "max": 7491,
-            "sugerido": 9363,
+            "p50": 16,
+            "p90": 37,
+            "max": 37,
+            "sugerido": 46,
             "piso": false
           },
           "reasoning": {
@@ -37774,10 +37696,9 @@
       "multiturno_runs": 12,
       "multiturno_quality": 8.25,
       "multiturno_score": 8.04,
-      "security_runs": 80,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-12",
-        "hasta": "2026-08-12"
+        "ventana": "v6.1"
       },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
@@ -37940,7 +37861,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.17,
-        "prompt_injection_es": 3.35,
         "business_audit": 6.43,
         "business_strategy": 7.19,
         "content_verificable": 6.55,
@@ -37970,11 +37890,11 @@
         "integridad_idioma": 8.6,
         "verificar_claim": 7.87,
         "tool_calling_adversarial": 6.98,
-        "noticias_redaccion": 8.39
+        "noticias_redaccion": 8.39,
+        "prompt_injection_es": 3.38
       },
       "quality_by_suite": {
         "tool_calling": 5.98,
-        "prompt_injection_es": 1.53,
         "business_audit": 6.4,
         "business_strategy": 7.47,
         "content_verificable": 6.67,
@@ -38004,11 +37924,11 @@
         "integridad_idioma": 9.57,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 7.24,
-        "noticias_redaccion": 8.96
+        "noticias_redaccion": 8.96,
+        "prompt_injection_es": 1.4
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.515,
-        "prompt_injection_es": 0.429,
         "business_audit": 2.204,
         "business_strategy": 1.936,
         "content_verificable": 3.696,
@@ -38038,7 +37958,8 @@
         "integridad_idioma": 0.04,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.26,
-        "noticias_redaccion": 0.621
+        "noticias_redaccion": 0.621,
+        "prompt_injection_es": 0.526
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -38047,7 +37968,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.94,
@@ -38202,10 +38123,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 185,
-            "p90": 235,
-            "max": 272,
-            "sugerido": 340,
+            "p50": 173,
+            "p90": 245,
+            "max": 377,
+            "sugerido": 471,
             "piso": false
           },
           "reasoning": {
@@ -38304,10 +38225,9 @@
       "multiturno_score": 8.07,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.53,
+      "security_score": 1.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
       "nota_examen": 7.94,
@@ -38469,7 +38389,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.86,
-        "prompt_injection_es": 2.65,
         "business_audit": 6.83,
         "business_strategy": 8.07,
         "content_verificable": 6.49,
@@ -38499,11 +38418,11 @@
         "integridad_idioma": 6.92,
         "verificar_claim": 7.78,
         "tool_calling_adversarial": 5.97,
-        "noticias_redaccion": 6.44
+        "noticias_redaccion": 6.44,
+        "prompt_injection_es": 2.85
       },
       "quality_by_suite": {
         "tool_calling": 6.75,
-        "prompt_injection_es": 1.0,
         "business_audit": 7.03,
         "business_strategy": 8.9,
         "content_verificable": 6.67,
@@ -38533,11 +38452,11 @@
         "integridad_idioma": 7.26,
         "verificar_claim": 8.2,
         "tool_calling_adversarial": 5.56,
-        "noticias_redaccion": 6.52
+        "noticias_redaccion": 6.52,
+        "prompt_injection_es": 1.45
       },
       "quality_ci95_by_suite": {
         "tool_calling": 0.594,
-        "prompt_injection_es": 0.0,
         "business_audit": 2.025,
         "business_strategy": 1.252,
         "content_verificable": 3.696,
@@ -38567,7 +38486,8 @@
         "integridad_idioma": 4.108,
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 1.193,
-        "noticias_redaccion": 0.49
+        "noticias_redaccion": 0.49,
+        "prompt_injection_es": 0.86
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -38576,7 +38496,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.91,
@@ -38731,10 +38651,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 42,
-            "p90": 53,
-            "max": 111,
-            "sugerido": 138,
+            "p50": 44,
+            "p90": 81,
+            "max": 116,
+            "sugerido": 145,
             "piso": false
           },
           "reasoning": {
@@ -38833,10 +38753,9 @@
       "multiturno_score": 7.94,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 1.0,
+      "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.38,
       "nota_examen": 7.91,
@@ -39104,7 +39023,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 8.07,
@@ -39361,8 +39280,7 @@
       "multiturno_score": 7.68,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 4.8,
       "policy_refusal_rate": 0.0,
@@ -39535,7 +39453,6 @@
       },
       "score_by_suite": {
         "tool_calling": 5.59,
-        "prompt_injection_es": 5.05,
         "business_audit": 6.14,
         "business_strategy": 7.56,
         "content_verificable": 6.3,
@@ -39565,11 +39482,11 @@
         "integridad_idioma": 8.74,
         "verificar_claim": 8.77,
         "tool_calling_adversarial": 6.64,
-        "noticias_redaccion": 8.06
+        "noticias_redaccion": 8.06,
+        "prompt_injection_es": 5.33
       },
       "quality_by_suite": {
         "tool_calling": 5.7,
-        "prompt_injection_es": 4.6,
         "business_audit": 5.88,
         "business_strategy": 8.0,
         "content_verificable": 6.0,
@@ -39599,11 +39516,11 @@
         "integridad_idioma": 9.72,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 6.12,
-        "noticias_redaccion": 8.84
+        "noticias_redaccion": 8.84,
+        "prompt_injection_es": 4.6
       },
       "quality_ci95_by_suite": {
         "tool_calling": 2.24,
-        "prompt_injection_es": 1.932,
         "business_audit": 2.125,
         "business_strategy": 1.109,
         "content_verificable": 4.294,
@@ -39633,7 +39550,8 @@
         "integridad_idioma": 0.148,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 0.955,
-        "noticias_redaccion": 0.36
+        "noticias_redaccion": 0.36,
+        "prompt_injection_es": 1.932
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -39642,7 +39560,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.88,
@@ -39797,10 +39715,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 26,
-            "p90": 38,
-            "max": 57,
-            "sugerido": 71,
+            "p50": 30,
+            "p90": 50,
+            "max": 53,
+            "sugerido": 66,
             "piso": false
           },
           "reasoning": {
@@ -39899,8 +39817,7 @@
       "multiturno_score": 8.22,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
       "security_score": 4.6,
       "policy_refusal_rate": 0.0052,
@@ -40031,7 +39948,7 @@
       "thinking": false,
       "multimodal": true,
       "runs": 137,
-      "total_runs": 326,
+      "total_runs": 306,
       "score_global": 5.28,
       "score_by_pillar": {
         "Razonamiento": 7.04,
@@ -40071,7 +39988,6 @@
       },
       "score_by_suite": {
         "niah_es": 8.02,
-        "prompt_injection_es": 2.56,
         "tool_calling": 5.72,
         "business_audit": 6.34,
         "business_strategy": 7.21,
@@ -40102,11 +40018,11 @@
         "integridad_idioma": 6.97,
         "verificar_claim": 8.25,
         "tool_calling_adversarial": 6.62,
-        "noticias_redaccion": 7.96
+        "noticias_redaccion": 7.96,
+        "prompt_injection_es": 2.51
       },
       "quality_by_suite": {
         "niah_es": 9.77,
-        "prompt_injection_es": 1.1,
         "tool_calling": 6.05,
         "business_audit": 6.25,
         "business_strategy": 7.47,
@@ -40137,11 +40053,11 @@
         "integridad_idioma": 7.21,
         "verificar_claim": 8.5,
         "tool_calling_adversarial": 6.4,
-        "noticias_redaccion": 8.59
+        "noticias_redaccion": 8.59,
+        "prompt_injection_es": 1.0
       },
       "quality_ci95_by_suite": {
         "niah_es": 0.088,
-        "prompt_injection_es": 0.194,
         "tool_calling": 1.782,
         "business_audit": 2.179,
         "business_strategy": 1.936,
@@ -40172,7 +40088,8 @@
         "integridad_idioma": 4.08,
         "verificar_claim": 0.93,
         "tool_calling_adversarial": 0.97,
-        "noticias_redaccion": 0.142
+        "noticias_redaccion": 0.142,
+        "prompt_injection_es": 0.0
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -40181,7 +40098,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.97,
@@ -40196,8 +40113,8 @@
       "total_input_tokens": 136278,
       "total_output_tokens": 83918,
       "presupuesto_salida": {
-        "p50": 45,
-        "p90": 873,
+        "p50": 57,
+        "p90": 874,
         "max": 4883,
         "sugerido": 6103,
         "piso": false,
@@ -40343,10 +40260,10 @@
             "piso": false
           },
           "prompt_injection_es": {
-            "p50": 12,
+            "p50": 18,
             "p90": 36,
-            "max": 62,
-            "sugerido": 77,
+            "max": 36,
+            "sugerido": 45,
             "piso": false
           },
           "reasoning": {
@@ -40450,13 +40367,12 @@
       "multiturno_runs": 12,
       "multiturno_quality": 9.29,
       "multiturno_score": 8.36,
-      "security_runs": 40,
+      "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-06-02",
-        "hasta": "2026-06-02"
+        "ventana": "v6.1"
       },
-      "security_score": 1.1,
-      "policy_refusal_rate": 0.0031,
+      "security_score": 1.0,
+      "policy_refusal_rate": 0.0033,
       "score_global_linear": 7.61,
       "nota_examen": 7.97,
       "score_calidad": 6.0,
@@ -40634,7 +40550,6 @@
       },
       "score_by_suite": {
         "tool_calling": 6.18,
-        "prompt_injection_es": 3.71,
         "business_audit": 4.92,
         "business_strategy": 7.57,
         "content_verificable": 6.51,
@@ -40664,11 +40579,11 @@
         "integridad_idioma": 9.04,
         "verificar_claim": 8.82,
         "tool_calling_adversarial": 5.78,
-        "noticias_redaccion": 7.83
+        "noticias_redaccion": 7.83,
+        "prompt_injection_es": 4.3
       },
       "quality_by_suite": {
         "tool_calling": 5.35,
-        "prompt_injection_es": 2.33,
         "business_audit": 3.83,
         "business_strategy": 7.6,
         "content_verificable": 6.0,
@@ -40698,11 +40613,11 @@
         "integridad_idioma": 9.65,
         "verificar_claim": 9.1,
         "tool_calling_adversarial": 4.72,
-        "noticias_redaccion": 8.14
+        "noticias_redaccion": 8.14,
+        "prompt_injection_es": 3.0
       },
       "quality_ci95_by_suite": {
         "tool_calling": 1.782,
-        "prompt_injection_es": 1.263,
         "business_audit": 1.842,
         "business_strategy": 1.312,
         "content_verificable": 4.294,
@@ -40732,7 +40647,8 @@
         "integridad_idioma": 0.191,
         "verificar_claim": 0.852,
         "tool_calling_adversarial": 1.03,
-        "noticias_redaccion": 0.35
+        "noticias_redaccion": 0.35,
+        "prompt_injection_es": 1.58
       },
       "suites_incompletas": {},
       "examen_completo": true,
@@ -40741,7 +40657,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 6.99,
@@ -40897,7 +40813,7 @@
           },
           "prompt_injection_es": {
             "p50": 29,
-            "p90": 48,
+            "p90": 44,
             "max": 48,
             "sugerido": 60,
             "piso": false
@@ -41005,10 +40921,9 @@
       "multiturno_score": 8.3,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-08-17",
-        "hasta": "2026-08-17"
+        "ventana": "v6.1"
       },
-      "security_score": 2.33,
+      "security_score": 3.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
       "nota_examen": 6.99,
@@ -41293,7 +41208,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 136,
+          "E0": 156,
           "E1": 24
         }
       },
@@ -41799,7 +41714,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 185,
-          "E1": 28
+          "E1": 68
         }
       },
       "quality_avg": 8.56,
@@ -42314,7 +42229,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 127,
+          "E0": 147,
           "E1": 38
         }
       },
@@ -42819,11 +42734,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E0": 20,
           "v5": 143
         }
       },
@@ -43319,11 +43235,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E0": 20,
           "v5": 143
         }
       },
@@ -43836,7 +43753,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 149,
+          "E0": 169,
           "E1": 24
         }
       },
@@ -44345,7 +44262,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 185,
+          "E0": 205,
           "E1": 28
         }
       },
@@ -44831,11 +44748,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E1": 20,
           "v5": 143
         }
       },
@@ -45350,7 +45268,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 172,
-          "E1": 38
+          "E1": 78
         }
       },
       "quality_avg": 8.42,
@@ -45863,7 +45781,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 124,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.41,
@@ -46384,11 +46302,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E1": 20,
           "v5": 143
         }
       },
@@ -46736,11 +46655,11 @@
       "ruta_unica": false,
       "self_hosted": false,
       "no_medir": false,
-      "examen_incompleto": false,
+      "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
       "en_evaluacion": null,
-      "historico": true,
+      "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
       "maneja_credenciales": {
@@ -46900,24 +46819,23 @@
         "strategy": 1.068
       },
       "suites_incompletas": {
+        "prompt_injection_es": {
+          "rindio": 18,
+          "total": 20
+        },
         "extraer_claims": {
           "rindio": 3,
           "total": 5,
           "fuera_del_indice": true
-        },
-        "prompt_injection_es": {
-          "rindio": 18,
-          "total": 20,
-          "fuera_del_indice": true
         }
       },
-      "examen_completo": true,
+      "examen_completo": false,
       "examen_v5": false,
       "era": {
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 291,
+          "E1": 345,
           "E2": 4
         }
       },
@@ -47221,11 +47139,12 @@
       "calidad_ci95": 0.258,
       "pareto": false,
       "elegible": {
-        "catalogo": true,
+        "catalogo": false,
         "ranking": false,
         "agentico": true,
         "motivos": {
-          "ranking": "historico"
+          "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto"
         }
       },
       "sin_dato_comunitario": true
@@ -47422,7 +47341,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 78,
+          "E0": 98,
           "E1": 20,
           "v5": 57
         }
@@ -47750,11 +47669,11 @@
       "ruta_unica": false,
       "self_hosted": false,
       "no_medir": false,
-      "examen_incompleto": false,
+      "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
       "en_evaluacion": null,
-      "historico": true,
+      "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
       "maneja_credenciales": {
@@ -47914,24 +47833,23 @@
         "strategy": 0.0
       },
       "suites_incompletas": {
+        "prompt_injection_es": {
+          "rindio": 19,
+          "total": 20
+        },
         "extraer_claims": {
           "rindio": 3,
           "total": 5,
           "fuera_del_indice": true
-        },
-        "prompt_injection_es": {
-          "rindio": 19,
-          "total": 20,
-          "fuera_del_indice": true
         }
       },
-      "examen_completo": true,
+      "examen_completo": false,
       "examen_v5": false,
       "era": {
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 291,
+          "E1": 348,
           "E2": 4
         }
       },
@@ -48235,11 +48153,12 @@
       "calidad_ci95": 0.254,
       "pareto": false,
       "elegible": {
-        "catalogo": true,
+        "catalogo": false,
         "ranking": false,
         "agentico": true,
         "motivos": {
-          "ranking": "historico"
+          "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto"
         }
       },
       "sin_dato_comunitario": true
@@ -48447,7 +48366,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 182,
+          "E1": 222,
           "v5": 57
         }
       },
@@ -48973,7 +48892,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 451
+          "E1": 531
         }
       },
       "quality_avg": 8.28,
@@ -49483,7 +49402,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 506
+          "E1": 586
         }
       },
       "quality_avg": 8.26,
@@ -49985,11 +49904,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E0": 20,
           "v5": 143
         }
       },
@@ -50528,6 +50448,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -50807,11 +50731,11 @@
       "ruta_unica": false,
       "self_hosted": false,
       "no_medir": false,
-      "examen_incompleto": false,
+      "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
       "en_evaluacion": null,
-      "historico": true,
+      "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
       "maneja_credenciales": {
@@ -50961,8 +50885,13 @@
         "creativity": 0.103,
         "agent_long_horizon": 0.344
       },
-      "suites_incompletas": {},
-      "examen_completo": true,
+      "suites_incompletas": {
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        }
+      },
+      "examen_completo": false,
       "examen_v5": false,
       "era": {
         "era": "E1",
@@ -51248,11 +51177,12 @@
       "calidad_ci95": 0.282,
       "pareto": false,
       "elegible": {
-        "catalogo": true,
+        "catalogo": false,
         "ranking": false,
         "agentico": true,
         "motivos": {
-          "ranking": "historico"
+          "ranking": "examen_incompleto",
+          "catalogo": "examen_incompleto"
         }
       },
       "sin_dato_comunitario": true
@@ -51455,7 +51385,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 234
+          "E1": 274
         }
       },
       "quality_avg": 8.24,
@@ -51961,7 +51891,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "E2": 12,
+          "E2": 32,
           "v5": 131
         }
       },
@@ -52494,7 +52424,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 119,
-          "E1": 38
+          "E1": 58
         }
       },
       "quality_avg": 8.22,
@@ -52984,7 +52914,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 119,
+          "E0": 139,
           "E1": 38
         }
       },
@@ -53486,7 +53416,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 286,
+          "E1": 366,
           "v5": 57
         }
       },
@@ -53994,7 +53924,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 143
+          "E1": 163
         }
       },
       "quality_avg": 8.21,
@@ -54498,7 +54428,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 133,
-          "E1": 38
+          "E1": 78
         }
       },
       "quality_avg": 8.19,
@@ -55005,7 +54935,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 130,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.19,
@@ -55496,7 +55426,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 352,
-          "E1": 40,
+          "E1": 60,
           "v5": 57
         }
       },
@@ -56004,7 +55934,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 139,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.11,
@@ -56525,6 +56455,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -56971,7 +56905,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 133,
+          "E0": 153,
           "E1": 24
         }
       },
@@ -57480,7 +57414,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 497
+          "E1": 577
         }
       },
       "quality_avg": 8.04,
@@ -57981,11 +57915,12 @@
       },
       "suites_incompletas": {},
       "examen_completo": true,
-      "examen_v5": true,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E1": 20,
           "v5": 143
         }
       },
@@ -58319,7 +58254,7 @@
       "ruta_unica": false,
       "self_hosted": false,
       "no_medir": false,
-      "examen_incompleto": false,
+      "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
       "en_evaluacion": null,
@@ -58470,9 +58405,14 @@
         "verificar_claim": 0.911,
         "tool_calling_adversarial": 1.228
       },
-      "suites_incompletas": {},
-      "examen_completo": true,
-      "examen_v5": true,
+      "suites_incompletas": {
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        }
+      },
+      "examen_completo": false,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
@@ -58965,7 +58905,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 138,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.08,
@@ -59479,7 +59419,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 139,
+          "E0": 159,
           "E1": 24
         }
       },
@@ -59985,7 +59925,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 143
+          "E1": 163
         }
       },
       "quality_avg": 8.05,
@@ -60495,7 +60435,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 193,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.85,
@@ -61016,7 +60956,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 141,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.99,
@@ -61509,7 +61449,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 143
+          "E1": 163
         }
       },
       "quality_avg": 8.19,
@@ -62015,7 +61955,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 143
+          "E1": 163
         }
       },
       "quality_avg": 7.8,
@@ -62529,7 +62469,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 262
+          "E1": 302
         }
       },
       "quality_avg": 7.78,
@@ -63036,7 +62976,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 138,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.91,
@@ -63527,7 +63467,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 76,
-          "E1": 20,
+          "E1": 40,
           "v5": 57
         }
       },
@@ -63867,7 +63807,7 @@
       "ruta_unica": false,
       "self_hosted": false,
       "no_medir": false,
-      "examen_incompleto": false,
+      "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
       "en_evaluacion": null,
@@ -64037,23 +63977,23 @@
         "tool_calling_adversarial": 1.101
       },
       "suites_incompletas": {
+        "prompt_injection_es": {
+          "rindio": 19,
+          "total": 20
+        },
         "niah_es": {
           "rindio": 15,
           "total": 29,
           "fuera_del_indice": true
-        },
-        "prompt_injection_es": {
-          "rindio": 19,
-          "total": 20,
-          "fuera_del_indice": true
         }
       },
-      "examen_completo": true,
-      "examen_v5": true,
+      "examen_completo": false,
+      "examen_v5": false,
       "era": {
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
+          "E2": 19,
           "v5": 143
         }
       },
@@ -64597,7 +64537,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 142,
+          "E0": 182,
           "E1": 24
         }
       },
@@ -65126,7 +65066,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 122,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.73,
@@ -65617,7 +65557,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 155,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.66,
@@ -66108,7 +66048,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 138,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.76,
@@ -66611,7 +66551,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 246,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.12,
@@ -67118,7 +67058,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 120,
+          "E0": 140,
           "E1": 38
         }
       },
@@ -67624,7 +67564,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 139,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 8.16,
@@ -68119,7 +68059,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 129,
+          "E0": 169,
           "E1": 24
         }
       },
@@ -68625,7 +68565,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 110,
-          "E1": 38
+          "E1": 58
         }
       },
       "quality_avg": 7.94,
@@ -69118,7 +69058,7 @@
         "era": "v5",
         "etiqueta": "ventana v5 (4-nov-2026)",
         "reparto": {
-          "v5": 143
+          "v5": 163
         }
       },
       "quality_avg": 7.99,
@@ -69368,8 +69308,7 @@
       "multiturno_score": 8.85,
       "security_runs": 20,
       "security_fecha": {
-        "desde": "2026-11-09",
-        "hasta": "2026-11-09"
+        "ventana": "v6.1"
       },
       "security_score": 2.2,
       "policy_refusal_rate": 0.0,
@@ -69652,7 +69591,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 414,
-          "E1": 64
+          "E1": 84
         }
       },
       "quality_avg": 8.26,
@@ -70155,7 +70094,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 423,
+          "E0": 483,
           "E1": 64
         }
       },
@@ -70662,7 +70601,7 @@
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
           "E0": 132,
-          "E1": 24
+          "E1": 44
         }
       },
       "quality_avg": 7.55,
@@ -71144,6 +71083,10 @@
         "verificar_claim": {
           "rindio": 9,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -71651,7 +71594,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 89
+          "E0": 129
         }
       },
       "quality_avg": 8.54,
@@ -72108,7 +72051,7 @@
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
           "?": 11,
-          "E1": 260
+          "E1": 300
         }
       },
       "quality_avg": 8.03,
@@ -72585,6 +72528,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -72885,6 +72832,10 @@
           "rindio": 0,
           "total": 4
         },
+        "prompt_injection_es": {
+          "rindio": 19,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -72892,11 +72843,6 @@
         "extraer_claims": {
           "rindio": 1,
           "total": 5,
-          "fuera_del_indice": true
-        },
-        "prompt_injection_es": {
-          "rindio": 19,
-          "total": 20,
           "fuera_del_indice": true
         }
       },
@@ -72906,7 +72852,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 1728
+          "E1": 2184
         }
       },
       "quality_avg": 8.52,
@@ -73350,6 +73296,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -73770,6 +73720,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -74237,7 +74191,7 @@
         "era": "E2",
         "etiqueta": "2-sep a 3-nov-2026",
         "reparto": {
-          "E2": 143
+          "E2": 163
         }
       },
       "quality_avg": 8.26,
@@ -74754,6 +74708,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -75121,6 +75079,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -75560,7 +75522,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 102
+          "E0": 122
         }
       },
       "quality_avg": 8.66,
@@ -76051,7 +76013,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 109
+          "E0": 129
         }
       },
       "quality_avg": 8.47,
@@ -76533,6 +76495,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -76966,7 +76932,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 93
+          "E0": 113
         }
       },
       "quality_avg": 8.42,
@@ -77450,7 +77416,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 86
+          "E0": 106
         }
       },
       "quality_avg": 8.42,
@@ -77889,6 +77855,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -78230,6 +78200,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -78633,6 +78607,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -79097,6 +79075,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -79527,6 +79509,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -79963,7 +79949,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 97
+          "E0": 117
         }
       },
       "quality_avg": 7.64,
@@ -80417,6 +80403,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -80905,6 +80895,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -81375,6 +81369,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -81795,6 +81793,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -82224,6 +82226,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -82670,7 +82676,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 95
+          "E0": 115
         }
       },
       "quality_avg": 8.15,
@@ -83099,6 +83105,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -83568,6 +83578,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -84004,6 +84018,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -84462,6 +84480,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -84898,6 +84920,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -85361,6 +85387,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -85773,6 +85803,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -86203,6 +86237,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -86624,6 +86662,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -87053,6 +87095,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -87428,6 +87474,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -87846,6 +87896,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -88267,6 +88321,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -88702,6 +88760,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -89126,6 +89188,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -89553,6 +89619,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -90019,7 +90089,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 123
+          "E1": 143
         }
       },
       "quality_avg": 8.82,
@@ -90489,7 +90559,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 264
+          "E1": 304
         }
       },
       "quality_avg": 8.44,
@@ -90970,7 +91040,7 @@
         "era": "E1",
         "etiqueta": "12-ago a 1-sep-2026",
         "reparto": {
-          "E1": 275
+          "E1": 315
         }
       },
       "quality_avg": 8.34,
@@ -91466,6 +91536,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -91914,6 +91988,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -92370,6 +92448,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -92805,7 +92887,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 86
+          "E0": 106
         }
       },
       "quality_avg": 8.54,
@@ -93247,7 +93329,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 86
+          "E0": 106
         }
       },
       "quality_avg": 8.29,
@@ -93682,7 +93764,7 @@
         "era": "E0",
         "etiqueta": "antes del 12-ago-2026",
         "reparto": {
-          "E0": 85
+          "E0": 105
         }
       },
       "quality_avg": 8.24,
@@ -94090,6 +94172,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -94527,6 +94613,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -94973,6 +95063,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -95423,6 +95517,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -95879,6 +95977,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -96305,6 +96407,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -96725,6 +96831,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -97138,6 +97248,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -97819,6 +97933,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -99428,6 +99546,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -99715,6 +99837,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -99988,6 +100114,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -100247,6 +100377,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,
@@ -101292,6 +101426,10 @@
           "rindio": 0,
           "total": 10
         },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
+        },
         "integridad_idioma": {
           "rindio": 0,
           "total": 4
@@ -101693,6 +101831,10 @@
         "verificar_claim": {
           "rindio": 0,
           "total": 10
+        },
+        "prompt_injection_es": {
+          "rindio": 0,
+          "total": 20
         },
         "integridad_idioma": {
           "rindio": 0,

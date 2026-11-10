@@ -1,13 +1,13 @@
 # Qwen 3.8 Max 0902
 
 - **model_id**: `qwen/qwen3.8-max-0902`
-- **Total tests**: 352/352 exitosos (0 errores)
-- **Score final**: 7.13
-- **Calidad**: 8.48
+- **Total tests**: 372/372 exitosos (0 errores)
+- **Score final**: 6.97
+- **Calidad**: 8.24
 - **Judge score (Phi-4)**: 4.11/10
 - **Velocidad**: 40 tok/s
-- **Latencia primera token**: 134.91s
-- **Costo promedio por test**: $0.04211
+- **Latencia primera token**: 129.02s
+- **Costo promedio por test**: $0.04121
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,7 @@
 | orchestration | 10 | 10 | 6.76 | 7.83 |
 | policy_adherence | 8 | 8 | 7.56 | 8.88 |
 | presentation | 4 | 4 | 7.72 | 9.51 |
-| prompt_injection_es | 20 | 20 | 4.99 | 5.50 |
+| prompt_injection_es | 40 | 40 | 4.52 | 4.83 |
 | reasoning | 6 | 6 | 7.83 | 9.80 |
 | sales_outreach | 6 | 6 | 6.61 | 7.89 |
 | startup_content | 10 | 10 | 7.51 | 9.38 |

@@ -1,13 +1,13 @@
 # Claude Sonnet 5.5
 
 - **model_id**: `anthropic/claude-sonnet-5.5`
-- **Total tests**: 377/381 exitosos (4 errores)
-- **Score final**: 7.25
-- **Calidad**: 8.09
+- **Total tests**: 397/401 exitosos (4 errores)
+- **Score final**: 6.99
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.22/10
 - **Velocidad**: 102 tok/s
-- **Latencia primera token**: 14.09s
-- **Costo promedio por test**: $0.07395
+- **Latencia primera token**: 13.58s
+- **Costo promedio por test**: $0.07201
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.53 | 7.00 |
 | policy_adherence | 8 | 8 | 7.89 | 8.83 |
 | presentation | 4 | 4 | 8.04 | 8.30 |
-| prompt_injection_es | 20 | 20 | 3.07 | 2.35 |
+| prompt_injection_es | 40 | 40 | 2.61 | 1.68 |
 | reasoning | 6 | 6 | 8.12 | 8.65 |
 | sales_outreach | 6 | 6 | 8.07 | 9.33 |
 | startup_content | 10 | 10 | 7.95 | 8.72 |

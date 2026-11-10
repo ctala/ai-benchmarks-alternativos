@@ -1,13 +1,13 @@
 # GLM 5.2
 
 - **model_id**: `z-ai/glm-5.2`
-- **Total tests**: 405/406 exitosos (1 errores)
-- **Score final**: 7.47
-- **Calidad**: 8.41
+- **Total tests**: 425/426 exitosos (1 errores)
+- **Score final**: 7.22
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 3.97/10
-- **Velocidad**: 59 tok/s
-- **Latencia primera token**: 25.92s
-- **Costo promedio por test**: $0.02149
+- **Velocidad**: 58 tok/s
+- **Latencia primera token**: 24.91s
+- **Costo promedio por test**: $0.02083
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 6.58 | 7.00 |
 | policy_adherence | 8 | 8 | 7.89 | 8.62 |
 | presentation | 4 | 4 | 8.06 | 9.33 |
-| prompt_injection_es | 20 | 20 | 2.62 | 1.45 |
+| prompt_injection_es | 40 | 40 | 2.47 | 1.23 |
 | reasoning | 6 | 6 | 8.08 | 9.41 |
 | sales_outreach | 6 | 6 | 7.92 | 8.78 |
 | startup_content | 10 | 10 | 8.04 | 9.33 |

@@ -1,13 +1,13 @@
 # Fugu Max
 
 - **model_id**: `sakana/fugu-max`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 7.34
-- **Calidad**: 8.41
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 7.16
+- **Calidad**: 8.15
 - **Judge score (Phi-4)**: 4.32/10
-- **Velocidad**: 87 tok/s
-- **Latencia primera token**: 18.81s
-- **Costo promedio por test**: $0.06228
+- **Velocidad**: 85 tok/s
+- **Latencia primera token**: 18.09s
+- **Costo promedio por test**: $0.06025
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.38 | 6.66 |
 | policy_adherence | 8 | 8 | 7.36 | 8.00 |
 | presentation | 4 | 4 | 7.76 | 9.28 |
-| prompt_injection_es | 20 | 20 | 3.54 | 3.25 |
+| prompt_injection_es | 40 | 40 | 3.61 | 3.25 |
 | reasoning | 6 | 6 | 8.04 | 9.53 |
 | sales_outreach | 6 | 6 | 7.34 | 8.22 |
 | startup_content | 10 | 10 | 8.03 | 9.60 |

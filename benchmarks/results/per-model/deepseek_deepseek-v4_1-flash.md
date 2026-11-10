@@ -1,13 +1,13 @@
 # DeepSeek V4.1 Flash
 
 - **model_id**: `deepseek/deepseek-v4.1-flash`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 7.85
-- **Calidad**: 8.49
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 7.78
+- **Calidad**: 8.39
 - **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 94 tok/s
-- **Latencia primera token**: 26.71s
-- **Costo promedio por test**: $0.00544
+- **Velocidad**: 93 tok/s
+- **Latencia primera token**: 25.67s
+- **Costo promedio por test**: $0.00526
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.79 | 6.63 |
 | policy_adherence | 8 | 8 | 8.22 | 8.67 |
 | presentation | 4 | 4 | 8.61 | 9.59 |
-| prompt_injection_es | 20 | 20 | 6.21 | 5.95 |
+| prompt_injection_es | 40 | 40 | 6.28 | 6.17 |
 | reasoning | 6 | 6 | 8.48 | 9.70 |
 | sales_outreach | 6 | 6 | 8.20 | 9.00 |
 | startup_content | 10 | 10 | 8.65 | 9.77 |

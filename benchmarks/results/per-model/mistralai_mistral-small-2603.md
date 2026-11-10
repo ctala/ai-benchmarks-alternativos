@@ -1,13 +1,13 @@
 # Mistral Small 4
 
 - **model_id**: `mistralai/mistral-small-2603`
-- **Total tests**: 432/444 exitosos (12 errores)
-- **Score final**: 7.75
-- **Calidad**: 8.03
+- **Total tests**: 452/464 exitosos (12 errores)
+- **Score final**: 7.53
+- **Calidad**: 7.72
 - **Judge score (Phi-4)**: 3.86/10
-- **Velocidad**: 96 tok/s
-- **Latencia primera token**: 6.87s
-- **Costo promedio por test**: $0.00289
+- **Velocidad**: 93 tok/s
+- **Latencia primera token**: 6.61s
+- **Costo promedio por test**: $0.00283
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 7.74 | 7.54 |
 | policy_adherence | 8 | 8 | 7.67 | 7.29 |
 | presentation | 4 | 4 | 8.48 | 9.43 |
-| prompt_injection_es | 20 | 20 | 2.80 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.84 | 1.00 |
 | reasoning | 6 | 6 | 8.65 | 9.37 |
 | sales_outreach | 6 | 6 | 6.75 | 6.44 |
 | startup_content | 14 | 14 | 8.56 | 9.35 |

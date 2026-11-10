@@ -1,13 +1,13 @@
 # MiniMax M2.5
 
 - **model_id**: `minimax/minimax-m2.5`
-- **Total tests**: 344/344 exitosos (0 errores)
-- **Score final**: 7.55
-- **Calidad**: 7.92
+- **Total tests**: 364/364 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.62
 - **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 79 tok/s
-- **Latencia primera token**: 11.08s
-- **Costo promedio por test**: $0.00157
+- **Velocidad**: 77 tok/s
+- **Latencia primera token**: 11.57s
+- **Costo promedio por test**: $0.00172
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 10 | 10 | 6.51 | 6.24 |
 | policy_adherence | 8 | 8 | 8.02 | 8.42 |
 | presentation | 4 | 4 | 8.62 | 9.73 |
-| prompt_injection_es | 20 | 20 | 4.14 | 3.32 |
+| prompt_injection_es | 40 | 40 | 3.77 | 2.83 |
 | reasoning | 6 | 6 | 8.49 | 9.59 |
 | sales_outreach | 6 | 6 | 7.73 | 8.22 |
 | startup_content | 14 | 14 | 8.36 | 9.42 |

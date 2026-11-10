@@ -1,12 +1,12 @@
 # Step 3.5 Flash
 
 - **model_id**: `stepfun/step-3.5-flash`
-- **Total tests**: 1638/1640 exitosos (2 errores)
-- **Score final**: 7.06
-- **Calidad**: 7.16
+- **Total tests**: 1658/1660 exitosos (2 errores)
+- **Score final**: 7.01
+- **Calidad**: 7.08
 - **Judge score (Phi-4)**: 3.89/10
 - **Velocidad**: 60 tok/s
-- **Latencia primera token**: 17.01s
+- **Latencia primera token**: 16.87s
 - **Costo promedio por test**: $0.00083
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -35,7 +35,7 @@
 | orchestration | 51 | 51 | 7.46 | 7.59 |
 | policy_adherence | 48 | 48 | 7.59 | 7.77 |
 | presentation | 6 | 6 | 8.29 | 9.05 |
-| prompt_injection_es | 220 | 220 | 2.65 | 1.00 |
+| prompt_injection_es | 240 | 240 | 2.65 | 1.00 |
 | reasoning | 9 | 9 | 7.83 | 8.48 |
 | sales_outreach | 18 | 18 | 7.25 | 7.37 |
 | startup_content | 24 | 24 | 8.77 | 9.70 |

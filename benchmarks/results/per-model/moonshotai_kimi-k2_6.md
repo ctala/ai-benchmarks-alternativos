@@ -1,13 +1,13 @@
 # Kimi K2.6
 
 - **model_id**: `moonshotai/kimi-k2.6`
-- **Total tests**: 520/567 exitosos (47 errores)
-- **Score final**: 7.19
-- **Calidad**: 8.44
+- **Total tests**: 540/587 exitosos (47 errores)
+- **Score final**: 7.04
+- **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 65.62s
-- **Costo promedio por test**: $0.02771
+- **Velocidad**: 51 tok/s
+- **Latencia primera token**: 63.50s
+- **Costo promedio por test**: $0.02718
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,7 @@
 | orchestration | 10 | 10 | 7.37 | 8.39 |
 | policy_adherence | 9 | 9 | 7.29 | 8.19 |
 | presentation | 6 | 6 | 7.57 | 9.10 |
-| prompt_injection_es | 20 | 20 | 2.39 | 1.90 |
+| prompt_injection_es | 40 | 40 | 2.76 | 2.12 |
 | reasoning | 9 | 9 | 7.69 | 9.36 |
 | sales_outreach | 8 | 8 | 6.22 | 6.83 |
 | startup_content | 15 | 15 | 7.67 | 9.28 |

@@ -1,13 +1,13 @@
 # Gemma 4 26B MoE (3.8B activos)
 
 - **model_id**: `google/gemma-4-26b-a4b-it`
-- **Total tests**: 347/347 exitosos (0 errores)
-- **Score final**: 7.69
-- **Calidad**: 8.01
+- **Total tests**: 367/367 exitosos (0 errores)
+- **Score final**: 7.42
+- **Calidad**: 7.63
 - **Judge score (Phi-4)**: 4.21/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 15.37s
-- **Costo promedio por test**: $0.00047
+- **Velocidad**: 46 tok/s
+- **Latencia primera token**: 14.59s
+- **Costo promedio por test**: $0.00049
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 10 | 10 | 7.70 | 7.94 |
 | policy_adherence | 8 | 8 | 8.00 | 8.38 |
 | presentation | 4 | 4 | 8.01 | 8.54 |
-| prompt_injection_es | 20 | 20 | 2.69 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.74 | 1.00 |
 | reasoning | 6 | 6 | 8.55 | 9.45 |
 | sales_outreach | 6 | 6 | 7.48 | 7.67 |
 | startup_content | 10 | 10 | 8.51 | 9.32 |

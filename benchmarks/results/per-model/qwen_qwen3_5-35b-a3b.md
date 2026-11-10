@@ -1,13 +1,13 @@
 # Qwen 3.5 35B
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
-- **Total tests**: 486/486 exitosos (0 errores)
-- **Score final**: 7.38
-- **Calidad**: 7.82
+- **Total tests**: 506/506 exitosos (0 errores)
+- **Score final**: 7.21
+- **Calidad**: 7.59
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 139 tok/s
-- **Latencia primera token**: 18.64s
-- **Costo promedio por test**: $0.00381
+- **Latencia primera token**: 18.42s
+- **Costo promedio por test**: $0.00388
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 15 | 15 | 6.95 | 6.79 |
 | policy_adherence | 12 | 12 | 8.41 | 9.08 |
 | presentation | 6 | 6 | 7.92 | 8.66 |
-| prompt_injection_es | 26 | 26 | 2.58 | 1.10 |
+| prompt_injection_es | 46 | 46 | 2.82 | 1.45 |
 | reasoning | 13 | 13 | 7.72 | 8.63 |
 | sales_outreach | 9 | 9 | 7.90 | 8.59 |
 | startup_content | 15 | 15 | 8.05 | 8.93 |

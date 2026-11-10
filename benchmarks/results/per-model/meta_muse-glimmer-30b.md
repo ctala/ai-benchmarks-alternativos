@@ -1,13 +1,13 @@
 # Muse Glimmer 30B
 
 - **model_id**: `meta/muse-glimmer-30b`
-- **Total tests**: 365/365 exitosos (0 errores)
-- **Score final**: 7.88
-- **Calidad**: 8.62
+- **Total tests**: 385/385 exitosos (0 errores)
+- **Score final**: 7.83
+- **Calidad**: 8.55
 - **Judge score (Phi-4)**: 4.26/10
-- **Velocidad**: 112 tok/s
-- **Latencia primera token**: 15.49s
-- **Costo promedio por test**: $0.00380
+- **Velocidad**: 111 tok/s
+- **Latencia primera token**: 14.99s
+- **Costo promedio por test**: $0.00381
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 6.97 | 6.99 |
 | policy_adherence | 8 | 8 | 7.86 | 8.38 |
 | presentation | 4 | 4 | 8.17 | 9.23 |
-| prompt_injection_es | 20 | 20 | 7.78 | 8.65 |
+| prompt_injection_es | 40 | 40 | 7.35 | 7.97 |
 | reasoning | 6 | 6 | 8.29 | 9.29 |
 | sales_outreach | 6 | 6 | 7.65 | 8.22 |
 | startup_content | 10 | 10 | 8.35 | 9.48 |

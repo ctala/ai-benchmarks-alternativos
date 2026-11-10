@@ -1,13 +1,13 @@
 # Ministral 14B
 
 - **model_id**: `mistralai/ministral-14b-2512`
-- **Total tests**: 353/353 exitosos (0 errores)
-- **Score final**: 7.37
-- **Calidad**: 7.50
+- **Total tests**: 373/373 exitosos (0 errores)
+- **Score final**: 7.13
+- **Calidad**: 7.17
 - **Judge score (Phi-4)**: 4.32/10
-- **Velocidad**: 59 tok/s
-- **Latencia primera token**: 17.99s
-- **Costo promedio por test**: $0.00103
+- **Velocidad**: 57 tok/s
+- **Latencia primera token**: 17.12s
+- **Costo promedio por test**: $0.00108
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 14 | 14 | 8.08 | 8.50 |
 | policy_adherence | 8 | 8 | 8.21 | 8.58 |
 | presentation | 5 | 5 | 8.72 | 9.60 |
-| prompt_injection_es | 20 | 20 | 2.68 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.78 | 1.23 |
 | reasoning | 6 | 6 | 8.63 | 9.40 |
 | sales_outreach | 6 | 6 | 7.41 | 7.55 |
 | startup_content | 10 | 10 | 8.62 | 9.44 |

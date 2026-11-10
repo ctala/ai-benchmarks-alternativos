@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 8.43 | quality: 10.0
-- latency_total: 27.532s | tokens_per_second: 79.2
-- input_tokens: 210 | output_tokens: 2180
+- success: True  | final: 8.36 | quality: 10.0
+- latency_total: 33.122s | tokens_per_second: 92.4
+- input_tokens: 210 | output_tokens: 3061
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -35,47 +35,34 @@ MARGEN: 40%
 
 ## Respuesta completa
 
-## Primero: los números no cierran.
+## Primero: los números no cierran
 
-La suma de tus costos no da $7.400:
+Tu suma de costos está mal. El total real es:
 
-| Concepto | Monto |
-|---|---|
-| Infraestructura | $1.250 |
-| Publicidad | $3.900 |
-| SaaS | $780 |
-| Procesador | $620 |
-| Freelance | $2.600 |
-| **Total real** | **$9.150** |
+$$1.250 + 3.900 + 780 + 620 + 2.600 = \$9.150$$
 
-Hay una diferencia de **$1.750** que no sé de dónde salió. Con los números reales:
+No $7.400. Te faltaron $1.750 por sumar en algún lado.
 
-- **Utilidad: $3.250/mes** (no los $4.960 que implica el 40%)
-- **Margen real: 26%, no 40%**
+**Tu resumen corregido:**
+- Utilidad: $12.400 − $9.150 = **$3.250/mes**
+- Margen real: **26,2%**, no 40%
 
-El 40% salió de dividir contra el total mal sumado.
+## Ahora sí, ¿contratas o no?
 
-## Ahora sí, ¿contratas?
+**Si contratas a $2.500/mes como gasto adicional:**
+- Utilidad nueva: $3.250 − $2.500 = **$750/mes**
+- Margen nuevo: **6%**
+- La contratación se come el **77%** de tu utilidad actual
+- Una caída de ingresos de apenas ~6% te deja en cero
+- Y ojo: si es contratación laboral (no freelance), el costo real con cargas sociales probablemente supera los $2.500
 
-Con utilidad de $3.250:
+**Para que se pague sola**, esa persona necesita generar ~$9.500/mes de ingresos adicionales ($2.500 ÷ 26,2% de margen), es decir, un +77% de facturación. Sin un plan concreto de cómo lo logra, no es una contratación, es una apuesta.
 
-- Contratación de $2.500 → te quedan **$750/mes** (margen del 6%)
-- El sueldo consume el **77% de tu utilidad actual**
+**El escenario que sí cierra:** si esa persona **reemplaza el contenido freelance** ($2.600/mes), tus costos quedan en $9.050 y tu utilidad sube a **$3.350**. Ahí la contratación se paga sola desde el día uno.
 
-**Respuesta corta: no, no te da el número.** Cualquier mes flojo en ingresos te deja en rojo.
+## Veredicto
 
-## Pero hay un escenario donde sí cierra
+- **No** como costo adicional. Con margen de 6% no tienes colchón para ningún imprevisto.
+- **Sí** si reemplaza el gasto de freelance, o si viene con un caso de negocio que justifique $9.500/mes de ingresos extra.
 
-¿Para qué es la contratación? Fíjate que pagas **$2.600/mes en contenido freelance**, casi exactamente el sueldo que quieres ofrecer. Si esa persona reemplaza ese gasto:
-
-- Costos: 9.150 − 2.600 + 2.500 = **$9.050**
-- Utilidad: **$3.350/mes** → mejor que hoy, y con capacidad interna en vez de tercerizada
-
-En ese caso, contrata. Si es para otra función, espera a crecer ingresos o reduce publicidad primero.
-
-## Dos advertencias antes de firmar
-
-1. **¿$2.500 es costo total o solo salario?** Con cargas patronales/impuestos, el costo real puede ser 20-40% mayor ($3.000-3.500), y eso ya no cierra ni en el escenario del freelance.
-2. **No veo tu propio sueldo en los costos.** Si no te pagas, tu margen real es aún más bajo de lo que parece.
-
-Corrige primero de dónde viene ese faltante de $1.750 en tu resumen — si hay un error de suma acá, puede haberlo en otros lados.
+Un apunte extra: publicidad son $3.900, el 32% de tus ingresos. Si el ROAS no está justificando ese gasto, ahí tienes margen para liberar caja antes de tomar esta decisión.

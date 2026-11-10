@@ -1,13 +1,13 @@
 # Qwen 3.5 397B
 
 - **model_id**: `qwen/qwen3.5-397b-a17b`
-- **Total tests**: 346/346 exitosos (0 errores)
-- **Score final**: 7.04
-- **Calidad**: 7.91
+- **Total tests**: 366/366 exitosos (0 errores)
+- **Score final**: 6.82
+- **Calidad**: 7.61
 - **Judge score (Phi-4)**: 4.45/10
 - **Velocidad**: 57 tok/s
-- **Latencia primera token**: 49.96s
-- **Costo promedio por test**: $0.01050
+- **Latencia primera token**: 49.61s
+- **Costo promedio por test**: $0.01073
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -34,7 +34,7 @@
 | orchestration | 10 | 10 | 6.82 | 7.27 |
 | policy_adherence | 8 | 8 | 7.93 | 9.04 |
 | presentation | 4 | 4 | 7.79 | 8.98 |
-| prompt_injection_es | 20 | 20 | 1.70 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.36 | 1.68 |
 | reasoning | 7 | 7 | 7.60 | 8.89 |
 | sales_outreach | 6 | 6 | 7.40 | 8.22 |
 | startup_content | 14 | 14 | 7.67 | 8.90 |

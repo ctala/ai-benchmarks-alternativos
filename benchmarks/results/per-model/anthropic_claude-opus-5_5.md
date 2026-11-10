@@ -1,13 +1,13 @@
 # Claude Opus 5.5
 
 - **model_id**: `anthropic/claude-opus-5.5`
-- **Total tests**: 377/381 exitosos (4 errores)
-- **Score final**: 7.15
-- **Calidad**: 8.28
+- **Total tests**: 397/401 exitosos (4 errores)
+- **Score final**: 6.96
+- **Calidad**: 8.00
 - **Judge score (Phi-4)**: 4.28/10
 - **Velocidad**: 82 tok/s
-- **Latencia primera token**: 19.06s
-- **Costo promedio por test**: $0.15327
+- **Latencia primera token**: 18.30s
+- **Costo promedio por test**: $0.14839
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 5.99 | 6.51 |
 | policy_adherence | 8 | 8 | 7.61 | 8.88 |
 | presentation | 4 | 4 | 7.79 | 8.23 |
-| prompt_injection_es | 20 | 20 | 4.97 | 5.05 |
+| prompt_injection_es | 40 | 40 | 4.17 | 3.92 |
 | reasoning | 6 | 6 | 7.90 | 8.51 |
 | sales_outreach | 6 | 6 | 7.74 | 9.33 |
 | startup_content | 10 | 10 | 7.67 | 8.60 |

@@ -3,7 +3,9 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado] · próximo: menor
+## [No publicado]
+
+## [v6.1.0] - 2026-11-10 — siete modelos nuevos, la seguridad entra al examen y las trayectorias se publican (74 rankeados)
 
 ### Planificación (sin cambio de versión)
 - **Change `corte-v5-1`** (OpenSpec, rama `corte/v5.1`): lo que salió de v5.0.0, cada tarea con su motivo — ocasiones, recalibración (necesita OK aparte, R8), Terminal-Bench en el Spark, registro y hallazgos de la ventana, y lo anotado para 5.1. Fila del 8-nov en DECISIONES.
@@ -20,6 +22,10 @@
 - **`prompt_injection_es` pasa al examen solo con runs de la misma versión de la suite**, comprobado con un hash de prompts, scorer y juez (`huella_suite.py`, bloqueante en el QA). La suite tuvo cuatro versiones y solo los runs del 9-nov son de la actual, así que los 53 rankeados medidos con otra versión se miden en la ventana antes de activar la regla. La ficha ya muestra la fecha del run de seguridad.
 - **Las trayectorias de Harbor se publican redactadas, adjuntas al release** (`empaquetar_trayectorias.py`) y en el repo queda su manifiesto. Hay 12 archivos de la v6.1 con la clave escrita, porque el modelo corrió `env`: el escaneo busca cualquier clave y, si encuentra una, no crea nada.
 - **Gráfico y tabla de redacción para Eco**, generados de los runs: nota contra costo por punto, con la frontera y los dos redactores de Eco marcados. Lo verifica el QA.
+- **`prompt_injection_es` ya es parte del examen** (163 pruebas; sigue sin promediar). Se midió la seguridad de los 53 rankeados de otra versión (US$ 9,69): el ranking no cambia, pero su cifra de seguridad sí (Claude Opus 5.5 baja de 5,05 a 2,80) y tres modelos salen de la tabla histórico por tener la seguridad de agosto incompleta. La ficha dice «medido en la ventana v6.1», porque la fecha de la etiqueta del archivo no es la del run.
+- **Qwen 3.8 2.4T, Qwen 3.8 Max y Seed 2.1 Turbo salen de la tabla histórico:** sin la seguridad completa no se muestran (decisión de Cristian, 10-nov-2026). Su seguridad de agosto quedó a medias (por ejemplo, 18 de 20) y no se vuelve a medir un modelo del histórico.
+- **La frontera de redacción ya no corona ruido:** un modelo entra solo si supera al anterior por más de 2 errores estándar, y entre dos que empatan gana el más barato. Queda Ling 3.0 Flash y Gemma 4 26B MoE (en lugar de la 31B); 15 de 74 quedan bajo el piso de Eco y OCASIONES los nombra.
+- **Las trayectorias se escanean también con gitleaks** y con más formas de clave (Google, Groq, Hugging Face, GitHub, AWS, Bearer). Lo que gitleaks confunde con credenciales se acepta por huella de cada hallazgo revisado; una clave nueva bloquea igual. Ling 3.0 Flash queda anotado como candidato a redactor de Eco (Qwen 3.7 Flash gasta el 67 % de su salida en razonar), para después del release.
 
 ### Ventana v6.1 — construcción, sin medir (rama `ventana/v6-1`)
 - **La regla de los checks que no cuentan se ata a la versión medida de la tarea** (`task_checksum`), no al nombre del check: corregir facturación renombraba sus checks y rompía la regla antes de medir la versión corregida. Cuando la corregida se mida, la exclusión se apaga sola e I7 exige borrarla. Nueva dependencia: `dirhash==0.5.0`, la misma que usa Harbor para el checksum.

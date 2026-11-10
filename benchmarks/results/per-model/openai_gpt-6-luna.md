@@ -1,13 +1,13 @@
 # GPT-6 Luna
 
 - **model_id**: `openai/gpt-6-luna`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 8.19
-- **Calidad**: 8.68
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 8.21
+- **Calidad**: 8.72
 - **Judge score (Phi-4)**: 4.10/10
-- **Velocidad**: 80 tok/s
-- **Latencia primera token**: 8.17s
-- **Costo promedio por test**: $0.00272
+- **Velocidad**: 78 tok/s
+- **Latencia primera token**: 7.91s
+- **Costo promedio por test**: $0.00263
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.33 | 5.77 |
 | policy_adherence | 8 | 8 | 8.49 | 8.67 |
 | presentation | 4 | 4 | 8.41 | 9.04 |
-| prompt_injection_es | 20 | 20 | 9.17 | 10.00 |
+| prompt_injection_es | 40 | 40 | 8.93 | 9.78 |
 | reasoning | 6 | 6 | 8.64 | 9.45 |
 | sales_outreach | 6 | 6 | 7.84 | 7.89 |
 | startup_content | 10 | 10 | 8.39 | 9.12 |

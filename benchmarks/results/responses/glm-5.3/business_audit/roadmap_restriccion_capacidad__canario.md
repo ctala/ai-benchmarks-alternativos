@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/roadmap_restriccion_capacidad
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 6.8 | quality: 8.0
-- latency_total: 104.922s | tokens_per_second: 66.1
-- input_tokens: 263 | output_tokens: 6931
+- success: True  | final: 6.87 | quality: 8.0
+- latency_total: 61.143s | tokens_per_second: 79.8
+- input_tokens: 263 | output_tokens: 4880
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -27,33 +27,37 @@ Ordename el trimestre.
 
 ## Respuesta completa
 
-## Primero, la capacidad real
+## La cuenta primero, porque decide todo
 
-4h/día × 5 días × 8 semanas = **~160 horas de construcción** este trimestre. Todo lo demás se decide contra ese número.
+Tus 8 semanas reales son: 8 × 5 días × 4h = **~160h brutas**. Planifica ~140h (algo siempre se rompe).
 
-## El veredicto por iniciativa
+A necesita ~3 meses a tiempo completo = **260h+ incluso a tu ritmo**. No cabe ni dándole el trimestre entero. Y como C depende de A, en este escenario C también muere. A no es "prioridad baja": es un **no** para este trimestre.
 
-**A — Fuera de este trimestre. No es priorización, es aritmética.** "3 meses a tiempo completo" son 360–480h según cómo lo cuentes. Necesitas 2–3× tu trimestre entero, y las rewrites siempre se exceden (cuenta 1.5× de buffer). Además, mientras reescribes sigues manteniendo la plataforma vieja con tus 2h diarias de ops. Empezarla "en los huecos" es el peor escenario: dos plataformas, cero shipped. Decisión: próximo trimestre, y re-escópala como migración incremental (un módulo por sprint, sin dejar de shippear) en vez de rewrite de golpe.
+## El orden
 
-**C — Bloqueada por A, queda diferida automáticamente.** No la construyas sobre el stack actual: es trabajo desechable si A ocurre. Si hay clientes pidiendo métricas ya, mándales un reporte semanal a mano (2h) mientras tanto.
+**1. B — Semana 1.** El ROI más alto del trimestre por mucho. Antes de tocar código, captura el funnel actual como baseline: si pierdes 60% en el paso 2, cualquier mejora la vas a querer demostrar con número al cierre.
 
-**B — Primera. Semana 1.** El mejor ratio impacto/hora de la lista: impacto alto por ~20h. Y desbloquea todo lo demás — el contenido y cualquier adquisición futura caen en un funnel que hoy pierde al 60%. Instrumenta cada paso *antes* de tocar nada, para medir el antes/después.
+**2. B otra vez — Semana 2.** Sí, leer bien: medir el lift e iterar el paso 2 una vez más. Un funnel que pierde 60% rara vez se arregla en un solo intento. No pases a lo siguiente hasta tener el dato.
 
-**D — Segunda. Semanas 2–4.** El contenido tiene retorno retardado, así que mitad de trimestre es el último momento responsable para empezarlo. Y así aterriza sobre un funnel arreglado, no roto. Aviso: 10 videos en 2 semanas es agresivo para un fundador solo con ops encima; 6–8 bien hechos es un resultado válido. Dale criterio de corte: si en 2 semanas no genera señal, paras.
+**3. D — Semanas 3-4.** Grabar en batch y publicar 2/semana desde la semana 4. Va *después* de B a propósito: el contenido alimenta un funnel que ya no pierde 60%.
 
-## El trimestre, semana a semana
+**4. Semanas 5-8 — aquí está la decisión real.** Reto la premisa: ¿un panel de métricas para clientes *de verdad* necesita el rewrite? Casi nunca (es reporting de solo-lectura sobre datos que ya tienes). Dos caminos:
 
-- **Semana 1:** B (20h). Ship + medir.
-- **Semana 2:** iterar B con datos (10–15h) + arrancar D.
-- **Semanas 3–4:** D (40h).
-- **Semana 5:** spike de A, timeboxed a 20h con hard stop. Migra una porción real (un endpoint, un módulo) al framework nuevo y mide tu velocidad real. Esto convierte el "3 meses estimados" en un plan con datos para el próximo trimestre. Si prefieres no tocar A aún, usa la semana en B v2.
-- **Semanas 6–8:** iterar lo shipped + **la quinta iniciativa que no listaste: tus 2h/día de ops**. Son 120h este trimestre — tu partida individual más grande, más que D. Ataca los 3 mayores generadores de tickets (docs, self-serve, arreglos de producto). Cada hora que bajes de ahí es una hora de build que ganas todos los días, para siempre.
+- **Si la dependencia es rompible (mi apuesta):** C-v0 sobre el stack actual, descopeado a las 2-3 métricas que los clientes piden de verdad. ~3 semanas, cabe.
+- **Si es real:** C queda para el próximo trimestre. Usa las semanas 5-8 en pre-vender C a 3 clientes (validación casi gratis) y, si A es inevitable, a lo sumo una semana en partirlo en slices que entreguen valor por sí solas (migración incremental). **No empieces el rewrite en grande con 4 semanas left.**
 
-Son ~95h comprometidas de 160. El resto no es holgura vacía: es donde el plan absorbe la realidad.
+**Transversal:** 3h/semana matando el ticket de soporte más frecuente. Es la única inversión que compra horas para el próximo trimestre.
 
-## Dos avisos
+## Si algo se retrasa, el orden de recorte es:
 
-1. **Si B funciona, entran más usuarios → más soporte → menos de tus 4h.** Por eso las semanas 6–8 tienen aire a propósito.
-2. **No arranques A "un poco por semana".** Una rewrite al 40% a cierre de trimestre es peor que no haberla empezado.
+1. Videos: 10 → 6
+2. C-v0: menos métricas
+3. **Nunca** la iteración de B
 
-Cierre del trimestre realista: funnel arreglado y medido, contenido en marcha, la apuesta grande de-riesgada con datos, y cero plataformas a medias.
+## Cómo cierras el trimestre
+
+Con este plan: activación mejorada con número verificable, contenido alimentando un funnel que convierte, y C validado o en v0 con clientes usándolo.
+
+El escenario alternativo (empezar A): 60% de un rewrite terminado, cero cosas nuevas en producción, el funnel igual de roto mientras grabas nada y publicas nada. Ese trimestre no se puede defender ni ante ti mismo.
+
+A no desaparece: se decide en la planificación del Q+1, con datos del funnel arreglado y C validado en la mano.

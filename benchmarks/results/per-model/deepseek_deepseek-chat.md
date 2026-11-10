@@ -1,12 +1,12 @@
 # DeepSeek V3.2
 
 - **model_id**: `deepseek/deepseek-chat`
-- **Total tests**: 334/334 exitosos (0 errores)
-- **Score final**: 7.38
-- **Calidad**: 8.17
+- **Total tests**: 354/354 exitosos (0 errores)
+- **Score final**: 7.08
+- **Calidad**: 7.77
 - **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 28 tok/s
-- **Latencia primera token**: 19.53s
+- **Velocidad**: 26 tok/s
+- **Latencia primera token**: 18.71s
 - **Costo promedio por test**: $0.00290
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -36,7 +36,7 @@
 | orchestration | 6 | 6 | 7.39 | 8.06 |
 | policy_adherence | 4 | 4 | 7.49 | 8.08 |
 | presentation | 2 | 2 | 7.96 | 8.96 |
-| prompt_injection_es | 20 | 20 | 2.32 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.21 | 1.00 |
 | reasoning | 3 | 3 | 8.07 | 9.28 |
 | sales_outreach | 3 | 3 | 6.70 | 7.11 |
 | startup_content | 5 | 5 | 8.06 | 9.14 |

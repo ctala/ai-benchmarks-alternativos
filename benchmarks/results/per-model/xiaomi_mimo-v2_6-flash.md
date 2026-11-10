@@ -1,13 +1,13 @@
 # MiMo V2.6 Flash
 
 - **model_id**: `xiaomi/mimo-v2.6-flash`
-- **Total tests**: 381/381 exitosos (0 errores)
-- **Score final**: 7.77
+- **Total tests**: 401/401 exitosos (0 errores)
+- **Score final**: 7.76
 - **Calidad**: 8.59
 - **Judge score (Phi-4)**: 4.25/10
 - **Velocidad**: 30 tok/s
-- **Latencia primera token**: 51.56s
-- **Costo promedio por test**: $0.00433
+- **Latencia primera token**: 49.46s
+- **Costo promedio por test**: $0.00420
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 6.81 | 6.98 |
 | policy_adherence | 8 | 8 | 7.65 | 8.21 |
 | presentation | 4 | 4 | 8.47 | 9.62 |
-| prompt_injection_es | 20 | 20 | 7.77 | 8.65 |
+| prompt_injection_es | 40 | 40 | 7.72 | 8.65 |
 | reasoning | 6 | 6 | 8.31 | 9.62 |
 | sales_outreach | 6 | 6 | 8.35 | 9.33 |
 | startup_content | 10 | 10 | 8.38 | 9.34 |

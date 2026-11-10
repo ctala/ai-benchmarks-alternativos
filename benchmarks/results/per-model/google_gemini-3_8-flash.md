@@ -1,13 +1,13 @@
 # Gemini 3.8 Flash
 
 - **model_id**: `google/gemini-3.8-flash`
-- **Total tests**: 548/548 exitosos (0 errores)
-- **Score final**: 7.79
-- **Calidad**: 8.73
+- **Total tests**: 568/568 exitosos (0 errores)
+- **Score final**: 7.59
+- **Calidad**: 8.45
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 100 tok/s
-- **Latencia primera token**: 12.57s
-- **Costo promedio por test**: $0.01832
+- **Velocidad**: 99 tok/s
+- **Latencia primera token**: 12.34s
+- **Costo promedio por test**: $0.01799
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -42,7 +42,7 @@
 | policy_adherence | 8 | 8 | 6.88 | 7.25 |
 | precision_datos | 14 | 14 | 8.67 | 9.64 |
 | presentation | 4 | 4 | 8.33 | 9.73 |
-| prompt_injection_es | 20 | 20 | 2.33 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.32 | 1.00 |
 | reasoning | 6 | 6 | 8.37 | 9.77 |
 | sales_outreach | 6 | 6 | 8.23 | 9.33 |
 | startup_content | 10 | 10 | 8.27 | 9.66 |

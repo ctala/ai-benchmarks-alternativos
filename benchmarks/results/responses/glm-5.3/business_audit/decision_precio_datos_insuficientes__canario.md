@@ -1,9 +1,9 @@
 # GLM 5.3 — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `z-ai/glm-5.3`
-- success: True  | final: 2.91 | quality: 2.0
-- latency_total: 21.847s | tokens_per_second: 67.4
-- input_tokens: 106 | output_tokens: 1473
+- success: True  | final: 2.86 | quality: 2.0
+- latency_total: 35.186s | tokens_per_second: 54.3
+- input_tokens: 106 | output_tokens: 1909
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,15 +20,13 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-**No puedo.** Con esos dos datos no hay evidencia ni para un sí ni para un no — el precio del competidor solo es un ancla, no una señal de lo que *tus* clientes tolerarían.
+Ni sí ni no: con esos datos no puedo, y contestarte una sola palabra sería inventar.
 
-Lo único que sí puedo decirte con lo que tienes: facturas $750/mes. A $39 podrías perder hasta 10 clientes (33%) y aun así facturarías lo mismo o más. Pero eso no considera LTV ni crecimiento.
+Que un competidor cobre $39 solo demuestra que *alguien* cobra $39, no que tus 30 clientes lo pagarían. Para darte el sí o el no necesito:
 
-Para darte el sí o el no necesito:
+- **Churn y conversión actuales a $25**: ¿el precio ya es fricción o hay margen de sobra?
+- **Comparabilidad del competidor**: ¿ofrece lo mismo que tú (features, público, marca)?
+- **Alguna señal de disposición a pagar**: encuestas, tests previos, upsells que hayan funcionado.
+- **Margen por cliente y coste de reemplazar uno que se vaya.**
 
-1. Cancelación mensual actual
-2. Qué incluye el competidor a $39 (¿son realmente comparables?)
-3. Margen o costo por cliente
-4. Por qué te compran tus 30 actuales
-
-Mándame eso y te doy la palabra.
+Con dos o tres de esos datos, te respondo en una línea.

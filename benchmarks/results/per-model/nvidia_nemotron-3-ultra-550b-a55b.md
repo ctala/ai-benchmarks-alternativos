@@ -1,13 +1,13 @@
 # Nemotron 3 Ultra 550B
 
 - **model_id**: `nvidia/nemotron-3-ultra-550b-a55b`
-- **Total tests**: 443/489 exitosos (46 errores)
-- **Score final**: 7.41
-- **Calidad**: 8.11
+- **Total tests**: 463/509 exitosos (46 errores)
+- **Score final**: 7.24
+- **Calidad**: 7.86
 - **Judge score (Phi-4)**: 4.57/10
-- **Velocidad**: 95 tok/s
-- **Latencia primera token**: 15.33s
-- **Costo promedio por test**: $0.01252
+- **Velocidad**: 94 tok/s
+- **Latencia primera token**: 14.84s
+- **Costo promedio por test**: $0.01225
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -35,7 +35,7 @@
 | orchestration | 10 | 10 | 5.60 | 4.93 |
 | policy_adherence | 8 | 8 | 7.92 | 8.46 |
 | presentation | 5 | 5 | 8.14 | 9.48 |
-| prompt_injection_es | 20 | 20 | 3.72 | 2.80 |
+| prompt_injection_es | 40 | 40 | 3.55 | 2.58 |
 | reasoning | 9 | 8 | 8.27 | 9.59 |
 | sales_outreach | 6 | 6 | 6.78 | 6.78 |
 | startup_content | 11 | 11 | 8.32 | 9.71 |

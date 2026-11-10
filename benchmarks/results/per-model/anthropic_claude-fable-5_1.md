@@ -1,13 +1,13 @@
 # Claude Fable 5.1
 
 - **model_id**: `anthropic/claude-fable-5.1`
-- **Total tests**: 375/381 exitosos (6 errores)
-- **Score final**: 6.94
-- **Calidad**: 8.21
+- **Total tests**: 395/401 exitosos (6 errores)
+- **Score final**: 6.76
+- **Calidad**: 7.96
 - **Judge score (Phi-4)**: 4.29/10
 - **Velocidad**: 63 tok/s
-- **Latencia primera token**: 23.30s
-- **Costo promedio por test**: $0.37197
+- **Latencia primera token**: 22.46s
+- **Costo promedio por test**: $0.36196
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -37,7 +37,7 @@
 | orchestration | 10 | 10 | 7.06 | 8.45 |
 | policy_adherence | 8 | 8 | 7.55 | 9.08 |
 | presentation | 4 | 4 | 7.39 | 8.34 |
-| prompt_injection_es | 20 | 18 | 2.71 | 2.50 |
+| prompt_injection_es | 40 | 38 | 3.03 | 2.89 |
 | reasoning | 6 | 6 | 7.59 | 8.22 |
 | sales_outreach | 6 | 6 | 7.23 | 8.78 |
 | startup_content | 10 | 10 | 7.56 | 8.59 |

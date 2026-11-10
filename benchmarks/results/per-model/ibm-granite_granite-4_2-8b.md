@@ -1,13 +1,13 @@
 # Granite 4.2 8B
 
 - **model_id**: `ibm-granite/granite-4.2-8b`
-- **Total tests**: 352/352 exitosos (0 errores)
-- **Score final**: 7.50
-- **Calidad**: 7.82
+- **Total tests**: 372/372 exitosos (0 errores)
+- **Score final**: 7.26
+- **Calidad**: 7.45
 - **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 87 tok/s
-- **Latencia primera token**: 56.73s
-- **Costo promedio por test**: $0.00149
+- **Velocidad**: 88 tok/s
+- **Latencia primera token**: 53.83s
+- **Costo promedio por test**: $0.00145
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -36,7 +36,7 @@
 | orchestration | 10 | 10 | 7.20 | 7.10 |
 | policy_adherence | 8 | 8 | 8.78 | 9.12 |
 | presentation | 4 | 4 | 8.49 | 9.54 |
-| prompt_injection_es | 20 | 20 | 2.72 | 1.00 |
+| prompt_injection_es | 40 | 40 | 2.86 | 1.00 |
 | reasoning | 6 | 6 | 8.60 | 9.80 |
 | sales_outreach | 6 | 6 | 6.85 | 6.78 |
 | startup_content | 10 | 10 | 8.52 | 9.57 |
