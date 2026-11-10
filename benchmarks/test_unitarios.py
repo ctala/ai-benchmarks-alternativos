@@ -3197,3 +3197,100 @@ def test_export_no_publica_las_suites_de_regresion(tmp_path, monkeypatch):
     monkeypatch.setattr(E, "__file__", str(tmp_path / "export_for_pages.py"))
     _, por_nombre = E.load_all_results()
     assert [r["suite"] for r in por_nombre[("x/m", "M")]] == ["noticias_redaccion"]
+
+
+def test_en_evaluacion_saca_del_ranking_con_su_motivo():
+    # 10-nov-2026 (Cristian): LFM-3 1.7B «en evaluación», fuera del ranking y sin exención; la
+    # ficha dice la causa. El veredicto vive en elegibilidad y el `ranked` del export lo respeta.
+    from benchmarks import elegibilidad as el
+    base = {"examen_completo": True, "runs": 500, "agentico": {"tareas": {"t": {}}}}
+    assert el.evaluar(dict(base), 50)["ranking"] is True
+    v = el.evaluar({**base, "en_evaluacion": {"motivo": "respuestas_cortadas", "detalle": "x"}}, 50)
+    assert v["ranking"] is False and v["motivos"]["ranking"] == "respuestas_cortadas"
+    assert "respuestas_cortadas" in el.MOTIVOS
+
+
+def test_huella_suite_prompts_scorer_y_juez(tmp_path):
+    # 10-nov-2026 (Cristian): un run viejo de una suite que no promedia cuenta para el examen
+    # solo si la suite es idéntica (prompts, scorer y juez) — por hash.
+    from benchmarks import huella_suite as hs
+    scorer = ("MARCAS = ['no puedo']\n\ndef _aux(t):\n    return any(m in t for m in MARCAS)\n\n"
+              "def _score_credential_leak(r, e):\n    return 10.0 if _aux(r) else 5.0\n\n"
+              "def otra_suite():\n    return 'otra'\n")
+    archivos = {"benchmarks/tests/prompt_injection_es.py": "TESTS = [1]",
+                "benchmarks/scoring.py": scorer, "benchmarks/negativas.py": ""}
+    leer = lambda a: lambda r: a.get(r, "")
+    h0 = hs.huella("prompt_injection_es", leer(archivos))
+    # tocar otra suite del mismo archivo no cambia la huella; tocar una constante usada sí
+    assert hs.huella("prompt_injection_es", leer({**archivos, "benchmarks/scoring.py":
+                                                   scorer.replace("return 'otra'", "return 'cambio'")})) == h0
+    assert hs.huella("prompt_injection_es", leer({**archivos, "benchmarks/scoring.py":
+                                                   scorer.replace("'no puedo'", "'no puedo', 'x'")})) != h0
+    assert hs.huella("prompt_injection_es", leer({**archivos,
+                     "benchmarks/tests/prompt_injection_es.py": "TESTS = [2]"})) != h0
+    tabla = {"prompt_injection_es": [{"desde": "2026-07-15T10:00:00", "huella": "vieja"},
+                                     {"desde": "2026-11-08T17:27:10", "huella": "hoy"}]}
+    r = {"suite": "prompt_injection_es", "quality": 10.0, "answer_score": 10.0}
+    assert hs.run_coincide({**r, "timestamp": "20261109_v61c07"}, tabla, "hoy")
+    assert not hs.run_coincide({**r, "timestamp": "20260914_lote_x"}, tabla, "hoy")
+    # mismo día que el cambio y sin hora: cae en la versión anterior (lo conservador)
+    assert not hs.run_coincide({**r, "timestamp": "20261108_lote"}, tabla, "hoy")
+    # recalificado después del cambio: manda la fecha de la recalificación
+    assert hs.run_coincide({**r, "timestamp": "20260914_120000",
+                            "rescored_at": "2026-11-09T10:00:00"}, tabla, "hoy")
+    # otra fórmula (con juez): no coincide aunque la fecha sí
+    assert not hs.run_coincide({**r, "timestamp": "20261109_v61c07", "quality": 8.0}, tabla, "hoy")
+
+
+# ── empaquetar_trayectorias (10-nov-2026): ninguna clave llega al paquete ──────────────
+def test_empaquetar_trayectorias_redacta_y_no_sube_si_queda_una_clave(tmp_path):
+    from benchmarks import empaquetar_trayectorias as et
+    clave = "sk-or-v1-" + "a1B2" * 12           # sintética, con la forma de una real
+    jobs = tmp_path / "jobs" / "v61r__m__t"
+    (jobs / "t__x" / "agent").mkdir(parents=True)
+    (jobs / "t__x" / "agent" / "trajectory.json").write_text(f'{{"env": "OPENROUTER_API_KEY={clave}"}}')
+    (jobs / "t__x" / "result.json").write_text('{"reward": 1}')
+
+    # 1. con redacción: paquete + manifiesto, y ni la copia ni el manifiesto traen la clave
+    salida, man = tmp_path / "dist", tmp_path / "man"
+    assert et.empaquetar("vT", [jobs], tmp_path / "w1", salida, man) == 0
+    m = json.loads((man / "vT.json").read_text())
+    assert m["archivos_redactados"] == 1 and len(m["archivos"]) == 2
+    assert (salida / m["paquete"]).exists() and len(m["sha256"]) == 64
+    assert "sk-or-" not in (man / "vT.json").read_text()
+
+    # 2. sabotaje: sin redactar, el escaneo la encuentra y NO queda nada que subir
+    salida2, man2 = tmp_path / "dist2", tmp_path / "man2"
+    assert et.empaquetar("vT", [jobs], tmp_path / "w2", salida2, man2, redactar_antes=False) == 1
+    assert not salida2.exists() and not man2.exists()
+
+    # 3. cualquier clave, no solo la de OpenRouter de hoy
+    for otra in ("sk-or-v1-" + "Z" * 40, "sk-ant-api03-" + "x" * 30, "sk-proj-" + "q" * 30):
+        assert et.PATRON_CLAVE.search(otra.encode())
+    assert not et.PATRON_CLAVE.search(b"sk-or-corta")
+
+
+def test_b3_en_evaluacion_es_motivo_solo_con_su_detalle():
+    # 10-nov-2026: LFM-3 sale del ranking «en evaluación». Sin detalle, la ficha no diría por
+    # qué y B3 tiene que seguir fallando.
+    from benchmarks import validate as v
+    base = {"key": "x-no-existe", "name": "X", "examen_completo": True, "ranked": False}
+    for ev, debe_fallar in (({"motivo": "respuestas_cortadas", "detalle": "19 % cortadas"}, False),
+                            ({"motivo": "respuestas_cortadas"}, True), (None, True)):
+        v.FALLOS.clear()
+        v.b3_examen_completo_implica_rankeado([dict(base, en_evaluacion=ev)], False)
+        assert bool(v.FALLOS) == debe_fallar, ev
+    v.FALLOS.clear()
+
+
+def test_truncamiento_exime_solo_al_declarado_en_evaluacion():
+    from benchmarks import check_truncamiento as ct
+    ev = {"motivo": "respuestas_cortadas", "detalle": "19 % cortadas, da vueltas"}
+    mj = {"models": [
+        {"name": "A", "ranked": False, "en_evaluacion": ev},                       # eximido
+        {"name": "B", "ranked": True, "en_evaluacion": ev},                        # rankea: no
+        {"name": "C", "ranked": False, "en_evaluacion": {"motivo": "respuestas_cortadas"}},  # sin detalle
+        {"name": "D", "ranked": False, "en_evaluacion": {"motivo": "otro", "detalle": "x"}},
+        {"name": "E", "ranked": False},
+    ]}
+    assert ct.declarados_en_evaluacion(mj) == {"A"}

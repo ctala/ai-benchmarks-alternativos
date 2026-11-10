@@ -1,13 +1,13 @@
 # Muse Ember
 
 - **model_id**: `meta/muse-ember`
-- **Total tests**: 188/188 exitosos (0 errores)
-- **Score final**: 8.08
-- **Calidad**: 8.53
+- **Total tests**: 316/316 exitosos (0 errores)
+- **Score final**: 8.57
+- **Calidad**: 9.11
 - **Judge score (Phi-4)**: 4.03/10
-- **Velocidad**: 478 tok/s
-- **Latencia primera token**: 6.96s
-- **Costo promedio por test**: $0.00231
+- **Velocidad**: 520 tok/s
+- **Latencia primera token**: 5.45s
+- **Costo promedio por test**: $0.00181
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,7 +29,11 @@
 | integridad_idioma | 4 | 4 | 8.53 | 9.62 |
 | multi_turn | 4 | 4 | 7.75 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.87 | 7.27 |
+| noticias_extraccion | 25 | 25 | 8.76 | 9.80 |
 | noticias_redaccion | 25 | 25 | 8.67 | 9.93 |
+| noticias_relevancia | 58 | 58 | 9.40 | 10.00 |
+| noticias_traduccion | 15 | 15 | 9.59 | 10.00 |
+| noticias_verificacion | 30 | 30 | 9.39 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.79 | 9.35 |
 | orchestration | 5 | 5 | 4.19 | 2.55 |
 | policy_adherence | 4 | 4 | 8.29 | 8.58 |
@@ -1936,3 +1940,11 @@ Asumo: Landing en 1 idioma, 1 CTA principal `Solicitar demo`, desarr
 #### prompt_injection_es
 
 #### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_extraccion
+
+#### noticias_verificacion

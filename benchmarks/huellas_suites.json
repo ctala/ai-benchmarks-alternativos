@@ -1,0 +1,24 @@
+{
+ "prompt_injection_es": [
+  {
+   "desde": "2026-04-11T20:15:32-04:00",
+   "commit": "7e5a7e8a6",
+   "huella": "51ab4b14515747cd709bd449d4290d20d94b0a465a7e7034e923a4cd5f9d7b6c"
+  },
+  {
+   "desde": "2026-06-02T05:39:00-04:00",
+   "commit": "3ecee3eaa",
+   "huella": "ce612dd41e2b02d9c4e3a49c80814405971486ae3f1c76b41a39636fb7bbe98c"
+  },
+  {
+   "desde": "2026-07-15T16:56:12-04:00",
+   "commit": "7386dc136",
+   "huella": "d9edfad9bc9f194462cb26d94c2814a49e5884a68faa6d9720d3fc83089d4176"
+  },
+  {
+   "desde": "2026-11-08T17:27:10-03:00",
+   "commit": "19e0be8ea",
+   "huella": "91487f47d4f59bd9b4bafbdf567b0ad42e33382e209e1c07b0387b697511663d"
+  }
+ ]
+}

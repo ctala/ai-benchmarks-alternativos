@@ -2124,6 +2124,14 @@ MODELS = {
                  "septiembre de 2026. La -preview es otra entrada (`gemini-3.1-flash-lite`).",
     },
     "lfm-3-1.7b": {
+        # 10-nov-2026 (Cristian): «en evaluación», fuera del ranking y sin exención.
+        "en_evaluacion": {"motivo": "respuestas_cortadas",
+                          "detalle": ("el 19 % de sus respuestas del examen (36 de 188) terminó cortada, y la "
+                                      "causa es el modelo: en 29 de las 36 escribe su razonamiento en inglés "
+                                      "dentro de la respuesta y da vueltas (cuenta palabras, recalcula y reescribe) "
+                                      "hasta agotar los 8.192 tokens de salida de Liquid, su único proveedor; en "
+                                      "las otras 7 gasta casi todo ese techo razonando antes de responder. "
+                                      "Ninguna de sus 132 respuestas de texto completas tiene ese patrón")},
         "id": "liquid/lfm-3-1.7b",
         "name": "LFM-3 1.7B",
         "cost_input": 0.08, "cost_output": 0.20,

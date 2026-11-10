@@ -161,6 +161,10 @@ def main() -> int:
     # forma de DECISION y era el unico que no se regeneraba. Ya no.
     run_script("generate_recomendaciones.py", ["-i"], dry_run=args.dry_run)
 
+    # 2c'. Redacción para Eco (10-nov-2026): gráfico nota × costo por punto y tabla de la
+    # frontera en OCASIONES.md. Sale de los runs; si no se regenera, caduca con cada lote.
+    run_script("generate_eco_redaccion.py", [], dry_run=args.dry_run)
+
     # 2d. PROMPTS.md — el texto exacto de cada test, con su prompt_sha.
     # Va en el pipeline porque si un prompt cambia y el catálogo no se regenera, los
     # hashes de los runs dejan de coincidir con el archivo y nadie se entera. Es el

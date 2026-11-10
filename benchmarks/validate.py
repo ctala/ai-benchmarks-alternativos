@@ -322,6 +322,11 @@ def b3_examen_completo_implica_rankeado(models, verbose):
         cfg = _CFG.get(m.get("key") or "", {})
         if any(m.get(x) or cfg.get(x) for x in motivos):
             continue
+        # 10-nov-2026: «en evaluación» (LFM-3 1.7B) es motivo solo si declara por qué, porque
+        # la ficha muestra ese detalle: un flag vacío sería sacar a alguien sin decirlo.
+        ev = m.get("en_evaluacion") or cfg.get("en_evaluacion") or {}
+        if ev.get("motivo") and ev.get("detalle"):
+            continue
         # 9-nov-2026 (v6.0.0): sin dato agéntico no hay nota y no rankea. El motivo vale solo
         # si es verdad: el estado `sin_dato` está declarado en su `agentico`.
         if (m.get("fuera_del_ranking") == "sin_dato_agentico"

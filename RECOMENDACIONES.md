@@ -1,7 +1,7 @@
 # Recomendaciones por Caso de Uso
 
 > **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.
-> **No editar a mano.** Última regeneración: 2026-11-10 · 75 modelos con muestra sólida (≥50 runs).
+> **No editar a mano.** Última regeneración: 2026-11-10 · 74 modelos con muestra sólida (≥50 runs).
 
 ## Cómo leer esto (importante)
 
@@ -21,8 +21,8 @@ _El modelo decide y llama herramientas. Necesitas fiabilidad en tool calling._
 
 - **Usá:** **Qwen 3.7 Flash** — ≈$1/mes (calidad en Agentes 8.31/10)
 - **Lo que te ahorrás:** Qwen 3.5 397B cuesta ≈$16/mes (**26.6× más**) por apenas +0.29 de calidad — dentro del margen de error.
-- **Mejor open-source:** **LFM-3 1.7B** — ≈$1/mes (calidad en Agentes 8.36/10)
-- _7 modelos empatan en calidad en este pilar._
+- **Mejor open-source:** **Qwen 3.5 35B** — ≈$6/mes (calidad en Agentes 8.31/10)
+- _6 modelos empatan en calidad en este pilar._
 
 ### Contenido y marketing (blog, SEO, copy)
 

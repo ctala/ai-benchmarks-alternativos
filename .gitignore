@@ -46,3 +46,6 @@ jobs/
 # Permisos locales de Claude Code: son de cada máquina, no del repo (3-nov-2026)
 .claude/settings.local.json
 jobs_descartados_v5/
+
+# Trayectorias empaquetadas para el release (10-nov-2026): van adjuntas, no a git
+dist/

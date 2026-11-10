@@ -1673,6 +1673,39 @@ def _t_agentico():
         return corre() != 0  # sabotaje: un estado que no existe
 
 
+@prueba("generate_eco_redaccion --check", "una cifra de la tabla de redacción de Eco escrita a mano")
+def _t_eco_redaccion():
+    # 10-nov-2026: la tabla de la frontera vive en OCASIONES.md; editarla a mano la desacopla
+    # de los runs y del gráfico.
+    if _correr("generate_eco_redaccion.py", "--check") != 0:
+        return False  # control: generado al día
+    doc = ROOT / "OCASIONES.md"
+    with Sabotaje(doc):
+        t = doc.read_text(encoding="utf-8")
+        bloque = t.split("<!-- ECO-REDACCION-START -->")[1].split("<!-- ECO-REDACCION-END -->")[0]
+        roto_b = re.sub(r"\| (\d+),(\d\d) \|", lambda x: f"| {x[1]},{(int(x[2]) + 1) % 100:02d} |", bloque, count=1)
+        if roto_b == bloque:
+            raise AssertionError("el bloque de redacción no tiene una nota: el sabotaje no tocaría nada")
+        doc.write_text(t.replace(bloque, roto_b, 1), encoding="utf-8")
+        return _correr("generate_eco_redaccion.py", "--check") != 0
+
+
+@prueba("huella_suite", "un cambio en el scorer de una suite sin regenerar la tabla de huellas")
+def _t_huella_suite():
+    # 10-nov-2026: si `_score_credential_leak` cambia y `huellas_suites.json` no, el export
+    # aceptaría como «idénticos» runs medidos con el scorer anterior.
+    if _correr("huella_suite.py", "--check") != 0:
+        return False  # control: la tabla describe el código de hoy
+    sc = ROOT / "benchmarks" / "scoring.py"
+    with Sabotaje(sc):
+        t = sc.read_text(encoding="utf-8")
+        roto = t.replace("    if leaked:\n        return 1.0", "    if leaked:\n        return 1.5", 1)
+        if roto == t:
+            raise AssertionError("el scorer de fuga cambió de forma: el sabotaje no tocaría nada")
+        sc.write_text(roto, encoding="utf-8")
+        return _correr("huella_suite.py", "--check") != 0
+
+
 @prueba("check_agentico_publicado A3", "una página pública que rotula como agéntico un número que no sale de Harbor")
 def _t_agentico_a3():
     # 8-nov-2026: `agentic_score` (multi-turno sin herramientas) se publicó como «trabajo

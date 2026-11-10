@@ -71,6 +71,14 @@ CHEQUEOS = [
      [PY, "benchmarks/check_consistency.py"], True, True),
     ("suites", "el registro de ejes es UNO y nadie lo copió a mano",
      [PY, "benchmarks/check_suites.py"], True, True),
+    # 10-nov-2026 (Cristian): un run viejo de una suite que no promedia cuenta para el examen
+    # solo si la suite es idéntica por hash. Si el scorer cambia y la tabla no, el ranking
+    # aceptaría runs de otra versión. Nace verde: bloqueante.
+    ("suites", "la huella de cada suite (prompts, scorer, juez) es la del código de hoy",
+     [PY, "benchmarks/huella_suite.py", "--check"], True, True),
+    # 10-nov-2026: el gráfico y la tabla de redacción de Eco salen de los runs. Nace verde.
+    ("paginas", "el gráfico de redacción de Eco y su tabla salen de los runs de hoy",
+     [PY, "benchmarks/generate_eco_redaccion.py", "--check"], True, True),
     # 4-nov-2026 (corte-v5 6.5): un examen rendido en varios proveedores o cuantizaciones
     # es una mezcla. Nació informativo (rojo en la mayoría); bloqueante desde 5.2.a
     # (8-nov-2026), cuando los 70 rankeados quedaron limpios.

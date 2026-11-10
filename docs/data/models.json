@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-10T13:51:08",
+  "generated_at": "2026-11-10T14:38:24",
   "total_models": 244,
   "tested_count": 193,
-  "ranked_count": 75,
+  "ranked_count": 74,
   "grupo_cabeza": {
     "n": 31,
-    "de": 75,
-    "porcentaje": 41,
+    "de": 74,
+    "porcentaje": 42,
     "margen": 0.27,
     "mas_barato": {
       "key": "ling-3.0-flash",
@@ -73,22 +73,22 @@
     "linea_checks": "Tareas de agente: hasta que la tarea se corrija, no cuentan los checks cuya trampa el agente no podía conocer por el enunciado (en facturación, 3 de sus 8). La nota de agente y «N de 4» se calculan sin ellos."
   },
   "rasgo_credenciales": {
-    "de": 75,
-    "si": 62,
+    "de": 74,
+    "si": 61,
     "a_veces": 12,
     "se_niega": 1
   },
   "seguridad_mediana": {
-    "mediana": 1.9,
-    "de": 75
+    "mediana": 1.71,
+    "de": 74
   },
   "precio_calidad": {
-    "pearson": 0.25,
+    "pearson": 0.24,
     "r2_pct": 6,
-    "de": 75
+    "de": 74
   },
-  "total_runs_measured": 87175,
-  "total_runs_active": 82803,
+  "total_runs_measured": 87303,
+  "total_runs_active": 82931,
   "total_runs_discarded": 4372,
   "thresholds": {
     "tested_min_runs": 20,
@@ -201,44 +201,44 @@
   },
   "norm_stats_by_suite": {
     "agent_capabilities": {
-      "mean": 6.7217,
-      "std": 0.7789
+      "mean": 6.7065,
+      "std": 0.773
     },
     "agent_long_horizon": {
-      "mean": 7.6815,
-      "std": 0.4785
+      "mean": 7.6657,
+      "std": 0.462
     },
     "business_audit": {
-      "mean": 7.0239,
-      "std": 0.5215
+      "mean": 7.0351,
+      "std": 0.5159
     },
     "business_strategy": {
-      "mean": 7.8957,
-      "std": 0.3801
+      "mean": 7.8945,
+      "std": 0.3825
     },
     "code_generation": {
-      "mean": 8.0859,
-      "std": 0.388
+      "mean": 8.0899,
+      "std": 0.3891
     },
     "content_generation": {
-      "mean": 8.2571,
-      "std": 0.3547
+      "mean": 8.2542,
+      "std": 0.3562
     },
     "content_verificable": {
-      "mean": 7.6656,
-      "std": 0.787
+      "mean": 7.6801,
+      "std": 0.7823
     },
     "creativity": {
-      "mean": 7.8568,
-      "std": 0.3514
+      "mean": 7.8538,
+      "std": 0.3528
     },
     "customer_support": {
-      "mean": 7.3981,
-      "std": 0.6635
+      "mean": 7.3849,
+      "std": 0.6581
     },
     "deep_reasoning": {
-      "mean": 6.5235,
-      "std": 0.4731
+      "mean": 6.5258,
+      "std": 0.4758
     },
     "dominio_entidad": {
       "mean": 8.8204,
@@ -249,100 +249,100 @@
       "std": 0.3327
     },
     "hallucination": {
-      "mean": 6.9939,
-      "std": 0.586
+      "mean": 7.005,
+      "std": 0.582
     },
     "integridad_idioma": {
-      "mean": 7.8293,
-      "std": 1.1286
+      "mean": 7.8174,
+      "std": 1.1315
     },
     "multi_turn": {
-      "mean": 7.0107,
-      "std": 0.4832
+      "mean": 7.005,
+      "std": 0.484
     },
     "news_seo_writing": {
-      "mean": 6.7424,
-      "std": 0.3908
+      "mean": 6.7553,
+      "std": 0.3773
     },
     "niah_es": {
       "mean": 7.975,
       "std": 0.3676
     },
     "noticias_redaccion": {
-      "mean": 8.0065,
-      "std": 0.6503
+      "mean": 8.0299,
+      "std": 0.6227
     },
     "ocr_extraction": {
-      "mean": 8.4852,
-      "std": 0.3487
+      "mean": 8.4943,
+      "std": 0.342
     },
     "orchestration": {
-      "mean": 6.6016,
-      "std": 0.8442
+      "mean": 6.5943,
+      "std": 0.8475
     },
     "policy_adherence": {
-      "mean": 7.8863,
-      "std": 0.4015
+      "mean": 7.8899,
+      "std": 0.403
     },
     "precision_datos": {
       "mean": 8.5887,
       "std": 0.2356
     },
     "presentation": {
-      "mean": 8.2297,
-      "std": 0.4655
+      "mean": 8.2296,
+      "std": 0.4686
     },
     "prompt_injection_es": {
-      "mean": 3.9096,
-      "std": 2.0131
+      "mean": 3.9097,
+      "std": 2.0266
     },
     "reasoning": {
-      "mean": 8.2944,
-      "std": 0.3386
+      "mean": 8.2904,
+      "std": 0.3391
     },
     "sales_outreach": {
-      "mean": 7.1893,
-      "std": 0.8777
+      "mean": 7.197,
+      "std": 0.8811
     },
     "startup_content": {
-      "mean": 8.2371,
-      "std": 0.3926
+      "mean": 8.2346,
+      "std": 0.3946
     },
     "strategy": {
-      "mean": 7.5376,
-      "std": 0.7281
+      "mean": 7.5364,
+      "std": 0.7329
     },
     "string_precision": {
-      "mean": 8.8959,
-      "std": 0.6015
+      "mean": 8.8893,
+      "std": 0.6029
     },
     "structured_output": {
-      "mean": 8.9293,
-      "std": 0.2694
+      "mean": 8.9289,
+      "std": 0.2712
     },
     "summarization": {
-      "mean": 7.2812,
-      "std": 0.457
+      "mean": 7.2789,
+      "std": 0.4597
     },
     "task_management": {
-      "mean": 8.3879,
-      "std": 0.4281
+      "mean": 8.3864,
+      "std": 0.4308
     },
     "tool_calling": {
       "mean": 6.0092,
       "std": 0.6455
     },
     "tool_calling_adversarial": {
-      "mean": 6.7079,
-      "std": 0.5483
+      "mean": 6.6927,
+      "std": 0.5361
     },
     "translation": {
-      "mean": 7.5691,
-      "std": 0.4614
+      "mean": 7.5622,
+      "std": 0.4606
     },
     "verificar_claim": {
-      "mean": 8.1832,
-      "std": 0.31
+      "mean": 8.1823,
+      "std": 0.312
     },
     "verificar_claims_lote": {
       "mean": 8.3418,
@@ -702,6 +702,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -1176,6 +1177,10 @@
       "multiturno_quality": 8.5,
       "multiturno_score": 7.08,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-21",
+        "hasta": "2026-08-21"
+      },
       "security_score": 5.95,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
@@ -1238,8 +1243,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.236,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.235,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -1280,6 +1285,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -1716,6 +1722,10 @@
       "multiturno_quality": 9.08,
       "multiturno_score": 7.78,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-29",
+        "hasta": "2026-06-29"
+      },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
@@ -1778,8 +1788,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.249,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.248,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -1820,6 +1830,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -2295,6 +2306,10 @@
       "multiturno_quality": 8.58,
       "multiturno_score": 7.65,
       "security_runs": 140,
+      "security_fecha": {
+        "desde": "2026-09-01",
+        "hasta": "2026-09-01"
+      },
       "security_score": 5.95,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
@@ -2357,8 +2372,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.25,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.249,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -2399,6 +2414,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -2820,6 +2836,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.34,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
@@ -2882,8 +2902,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.251,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.25,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -2924,6 +2944,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -3373,6 +3394,10 @@
       "multiturno_quality": 9.71,
       "multiturno_score": 7.68,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 5.5,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
@@ -3435,7 +3460,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.277,
       "pareto": false,
       "elegible": {
@@ -3477,6 +3502,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -3886,6 +3912,10 @@
       "multiturno_quality": 9.62,
       "multiturno_score": 7.83,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0053,
       "score_global_linear": 7.38,
@@ -3948,7 +3978,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.274,
       "pareto": false,
       "elegible": {
@@ -3990,6 +4020,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -4454,6 +4485,10 @@
       "multiturno_quality": 7.92,
       "multiturno_score": 7.14,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-01",
+        "hasta": "2026-09-01"
+      },
       "security_score": 7.22,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.71,
@@ -4516,7 +4551,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.268,
       "pareto": false,
       "elegible": {
@@ -4558,6 +4593,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -5032,6 +5068,10 @@
       "multiturno_quality": 7.79,
       "multiturno_score": 6.27,
       "security_runs": 18,
+      "security_fecha": {
+        "desde": "2026-10-10",
+        "hasta": "2026-10-10"
+      },
       "security_score": 2.5,
       "policy_refusal_rate": 0.0345,
       "score_global_linear": 7.08,
@@ -5094,8 +5134,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.259,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.258,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -5136,6 +5176,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -5555,6 +5596,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.7,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
@@ -5617,8 +5662,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.287,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.286,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -5679,6 +5724,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -6122,6 +6168,10 @@
       "multiturno_quality": 8.67,
       "multiturno_score": 7.83,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.75,
@@ -6184,8 +6234,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.273,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.272,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -6226,6 +6276,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -6690,6 +6741,10 @@
       "multiturno_quality": 9.29,
       "multiturno_score": 7.88,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
@@ -6752,8 +6807,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.284,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.283,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -6794,6 +6849,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -7203,6 +7259,10 @@
       "multiturno_quality": 8.38,
       "multiturno_score": 7.16,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
@@ -7265,8 +7325,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.279,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.278,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -7307,6 +7367,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": "Medido en el endpoint de Moonshot, en MXFP4: el formato nativo en que Moonshot publica los pesos (entrenamiento con cuantización).",
       "sample_tier": "solid",
@@ -7718,6 +7779,10 @@
       "multiturno_quality": 8.83,
       "multiturno_score": 6.93,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 4.6,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.0,
@@ -7780,7 +7845,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.263,
       "pareto": false,
       "elegible": {
@@ -7822,6 +7887,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": "Medido en el endpoint de Mistral con retención cero de datos (zdr). En ese endpoint el razonamiento no se puede apagar, así que se midió a su nivel por defecto (high) en todas las suites.",
       "sample_tier": "solid",
@@ -8231,6 +8297,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 7.55,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
@@ -8335,6 +8405,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -8768,6 +8839,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 7.5,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.7,
@@ -8830,7 +8905,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.25,
-      "nota_harbor_se": 0.203,
+      "nota_harbor_se": 0.204,
       "calidad_ci95": 0.261,
       "pareto": false,
       "elegible": {
@@ -8872,6 +8947,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -9343,6 +9419,10 @@
       "multiturno_quality": 7.92,
       "multiturno_score": 6.47,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-10-10",
+        "hasta": "2026-10-10"
+      },
       "security_score": 5.05,
       "policy_refusal_rate": 0.047,
       "score_global_linear": 7.2,
@@ -9405,8 +9485,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.274,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.273,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -9447,6 +9527,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -9858,6 +9939,10 @@
       "multiturno_quality": 8.38,
       "multiturno_score": 6.71,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0106,
       "score_global_linear": 7.01,
@@ -9920,7 +10005,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.271,
       "pareto": false,
       "elegible": {
@@ -9962,6 +10047,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -10381,6 +10467,10 @@
       "multiturno_quality": 9.71,
       "multiturno_score": 8.03,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -10443,8 +10533,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.298,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.297,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -10485,6 +10575,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -10919,6 +11010,10 @@
       "multiturno_quality": 9.46,
       "multiturno_score": 8.38,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.91,
@@ -10981,8 +11076,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.63,
-      "nota_harbor_se": 0.098,
-      "calidad_ci95": 0.239,
+      "nota_harbor_se": 0.091,
+      "calidad_ci95": 0.238,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -11023,6 +11118,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -11442,6 +11538,10 @@
       "multiturno_quality": 9.71,
       "multiturno_score": 8.02,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 3.7,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
@@ -11504,8 +11604,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.301,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.3,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -11546,6 +11646,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -12018,6 +12119,10 @@
       "multiturno_quality": 8.67,
       "multiturno_score": 7.21,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-10-10",
+        "hasta": "2026-10-10"
+      },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0214,
       "score_global_linear": 7.42,
@@ -12080,8 +12185,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.278,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.277,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -12122,6 +12227,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -12596,6 +12702,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.75,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
@@ -12658,8 +12768,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.295,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.294,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -12700,6 +12810,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -13133,6 +13244,10 @@
       "multiturno_quality": 8.58,
       "multiturno_score": 8.02,
       "security_runs": 120,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 8.0,
@@ -13195,8 +13310,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.28,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.279,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -13237,6 +13352,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -13658,6 +13774,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.59,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
@@ -13720,8 +13840,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.25,
-      "nota_harbor_se": 0.206,
-      "calidad_ci95": 0.271,
+      "nota_harbor_se": 0.207,
+      "calidad_ci95": 0.272,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -13762,6 +13882,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -14181,6 +14302,10 @@
       "multiturno_quality": 9.42,
       "multiturno_score": 7.8,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
@@ -14243,8 +14368,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.29,
-      "nota_harbor_se": 0.266,
-      "calidad_ci95": 0.292,
+      "nota_harbor_se": 0.27,
+      "calidad_ci95": 0.293,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -14285,6 +14410,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -14731,6 +14857,10 @@
       "multiturno_quality": 8.96,
       "multiturno_score": 8.35,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.95,
@@ -14793,7 +14923,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.298,
       "pareto": true,
       "elegible": {
@@ -14835,6 +14965,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -15254,6 +15385,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 7.2,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
@@ -15316,8 +15451,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.293,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.292,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -15378,6 +15513,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -15827,6 +15963,10 @@
       "multiturno_quality": 9.46,
       "multiturno_score": 7.66,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.9,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
@@ -15889,7 +16029,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.67,
-      "nota_harbor_se": 0.115,
+      "nota_harbor_se": 0.11,
       "calidad_ci95": 0.285,
       "pareto": false,
       "elegible": {
@@ -15931,6 +16071,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -16350,6 +16491,10 @@
       "multiturno_quality": 9.12,
       "multiturno_score": 7.68,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 6.85,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
@@ -16412,7 +16557,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.53,
-      "nota_harbor_se": 0.127,
+      "nota_harbor_se": 0.126,
       "calidad_ci95": 0.284,
       "pareto": false,
       "elegible": {
@@ -16454,6 +16599,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": "Sin tope de salida propio; usa el del proveedor.",
       "sample_tier": "solid",
@@ -16918,6 +17064,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 7.52,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 3.25,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.42,
@@ -16980,8 +17130,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.29,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.289,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -17022,6 +17172,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -17486,6 +17637,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 8.06,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-26",
+        "hasta": "2026-09-26"
+      },
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.77,
@@ -17548,7 +17703,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.274,
       "pareto": true,
       "elegible": {
@@ -17590,6 +17745,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -18056,6 +18212,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 7.78,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-26",
+        "hasta": "2026-09-26"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.48,
@@ -18118,8 +18278,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.292,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.291,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -18160,6 +18320,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -18623,6 +18784,10 @@
       "multiturno_quality": 8.67,
       "multiturno_score": 7.82,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.89,
@@ -18685,8 +18850,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.18,
-      "nota_harbor_se": 0.195,
-      "calidad_ci95": 0.265,
+      "nota_harbor_se": 0.194,
+      "calidad_ci95": 0.264,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -18727,6 +18892,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -19136,6 +19302,10 @@
       "multiturno_quality": 9.12,
       "multiturno_score": 7.59,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
@@ -19198,8 +19368,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.306,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.305,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -19240,6 +19410,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -19649,6 +19820,10 @@
       "multiturno_quality": 9.33,
       "multiturno_score": 7.66,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
@@ -19711,8 +19886,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.315,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.314,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -19753,6 +19928,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -20192,6 +20368,10 @@
       "multiturno_quality": 8.96,
       "multiturno_score": 8.1,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.84,
@@ -20254,8 +20434,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.303,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.302,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -20296,6 +20476,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -20775,6 +20956,10 @@
       "multiturno_quality": 8.38,
       "multiturno_score": 7.74,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-10-10",
+        "hasta": "2026-10-10"
+      },
       "security_score": 5.95,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.87,
@@ -20837,8 +21022,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.29,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.289,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -20879,6 +21064,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -21288,6 +21474,10 @@
       "multiturno_quality": 9.29,
       "multiturno_score": 7.38,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.91,
@@ -21350,8 +21540,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.293,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.292,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -21392,6 +21582,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -21851,6 +22042,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 7.54,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-25",
+        "hasta": "2026-06-25"
+      },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
@@ -21913,7 +22108,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.25,
-      "nota_harbor_se": 0.203,
+      "nota_harbor_se": 0.204,
       "calidad_ci95": 0.284,
       "pareto": false,
       "elegible": {
@@ -21955,6 +22150,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -22419,6 +22615,10 @@
       "multiturno_quality": 8.12,
       "multiturno_score": 7.33,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 5.95,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
@@ -22481,8 +22681,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.311,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.31,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -22523,6 +22723,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -22932,6 +23133,10 @@
       "multiturno_quality": 8.71,
       "multiturno_score": 7.97,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.83,
@@ -22994,7 +23199,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.331,
       "pareto": true,
       "elegible": {
@@ -23036,6 +23241,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -23450,6 +23656,10 @@
       "multiturno_quality": 8.42,
       "multiturno_score": 7.03,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
@@ -23512,8 +23722,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.32,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.319,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -23554,6 +23764,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -23973,6 +24184,10 @@
       "multiturno_quality": 8.42,
       "multiturno_score": 7.13,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
@@ -24035,8 +24250,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.299,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.298,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -24077,6 +24292,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -24496,6 +24712,10 @@
       "multiturno_quality": 8.25,
       "multiturno_score": 7.26,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.44,
@@ -24558,8 +24778,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.306,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.305,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -24600,6 +24820,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -25019,6 +25240,10 @@
       "multiturno_quality": 8.08,
       "multiturno_score": 6.81,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.27,
@@ -25081,7 +25306,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.296,
       "pareto": false,
       "elegible": {
@@ -25123,6 +25348,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -25557,6 +25783,10 @@
       "multiturno_quality": 7.38,
       "multiturno_score": 6.95,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.7,
@@ -25619,7 +25849,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.57,
-      "nota_harbor_se": 0.164,
+      "nota_harbor_se": 0.165,
       "calidad_ci95": 0.312,
       "pareto": false,
       "elegible": {
@@ -25661,6 +25891,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -26097,6 +26328,10 @@
       "multiturno_quality": 8.08,
       "multiturno_score": 7.4,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.23,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.42,
@@ -26159,8 +26394,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
-      "calidad_ci95": 0.337,
+      "nota_harbor_se": 0.129,
+      "calidad_ci95": 0.336,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -26201,6 +26436,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -26622,6 +26858,10 @@
       "multiturno_quality": 8.42,
       "multiturno_score": 7.75,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 3.32,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
@@ -26746,6 +26986,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -27179,6 +27420,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 7.92,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
@@ -27299,6 +27544,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -27718,6 +27964,10 @@
       "multiturno_quality": 8.0,
       "multiturno_score": 6.95,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.35,
@@ -27822,6 +28072,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -28288,6 +28539,10 @@
       "multiturno_quality": 9.12,
       "multiturno_score": 8.27,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.41,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.96,
@@ -28392,6 +28647,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -28801,6 +29057,10 @@
       "multiturno_quality": 9.58,
       "multiturno_score": 8.55,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 4.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
@@ -28863,7 +29123,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.348,
       "pareto": false,
       "elegible": {
@@ -28905,6 +29165,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -29359,6 +29620,10 @@
       "multiturno_quality": 8.96,
       "multiturno_score": 7.73,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.2,
@@ -29421,7 +29686,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": 0.342,
       "pareto": false,
       "elegible": {
@@ -29463,6 +29728,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -29882,6 +30148,10 @@
       "multiturno_quality": 9.54,
       "multiturno_score": 8.17,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
@@ -29944,7 +30214,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 8.47,
-      "nota_harbor_se": 0.226,
+      "nota_harbor_se": 0.227,
       "calidad_ci95": 0.309,
       "pareto": false,
       "elegible": {
@@ -30006,6 +30276,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -30436,6 +30707,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 7.79,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-01",
+        "hasta": "2026-07-01"
+      },
       "security_score": 2.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -30498,7 +30773,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 8.43,
-      "nota_harbor_se": 0.228,
+      "nota_harbor_se": 0.227,
       "calidad_ci95": 0.334,
       "pareto": false,
       "elegible": {
@@ -30540,6 +30815,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -30969,6 +31245,10 @@
       "multiturno_quality": 8.17,
       "multiturno_score": 7.45,
       "security_runs": 220,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
@@ -31073,6 +31353,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -31482,6 +31763,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 8.15,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.78,
@@ -31544,7 +31829,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 8.43,
-      "nota_harbor_se": 0.226,
+      "nota_harbor_se": 0.225,
       "calidad_ci95": 0.325,
       "pareto": true,
       "elegible": {
@@ -31586,6 +31871,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -32019,6 +32305,10 @@
       "multiturno_quality": 8.38,
       "multiturno_score": 7.55,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.38,
@@ -32123,6 +32413,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -32556,6 +32847,10 @@
       "multiturno_quality": 9.08,
       "multiturno_score": 8.29,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.8,
@@ -32660,6 +32955,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -33109,6 +33405,10 @@
       "multiturno_quality": 8.71,
       "multiturno_score": 7.75,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.77,
@@ -33213,6 +33513,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -33638,6 +33939,10 @@
       "multiturno_quality": 9.29,
       "multiturno_score": 8.14,
       "security_runs": 26,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.86,
@@ -33700,7 +34005,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 5.64,
-      "nota_harbor_se": 1.651,
+      "nota_harbor_se": 1.652,
       "calidad_ci95": 0.845,
       "pareto": false,
       "elegible": {
@@ -33742,6 +34047,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -34206,6 +34512,10 @@
       "multiturno_quality": 9.21,
       "multiturno_score": 8.07,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-26",
+        "hasta": "2026-09-26"
+      },
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
@@ -34268,8 +34578,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 6.2,
-      "nota_harbor_se": 1.614,
-      "calidad_ci95": 0.834,
+      "nota_harbor_se": 1.617,
+      "calidad_ci95": 0.836,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -34310,6 +34620,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -34764,6 +35075,10 @@
       "multiturno_quality": 8.42,
       "multiturno_score": 7.53,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.52,
@@ -34826,8 +35141,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 6.4,
-      "nota_harbor_se": 1.445,
-      "calidad_ci95": 0.773,
+      "nota_harbor_se": 1.447,
+      "calidad_ci95": 0.774,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -34868,6 +35183,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -35321,6 +35637,10 @@
       "multiturno_quality": 9.08,
       "multiturno_score": 7.88,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
@@ -35383,7 +35703,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 4.58,
-      "nota_harbor_se": 0.047,
+      "nota_harbor_se": 0.043,
       "calidad_ci95": 0.259,
       "pareto": false,
       "elegible": {
@@ -35425,6 +35745,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -35844,6 +36165,10 @@
       "multiturno_quality": 7.96,
       "multiturno_score": 7.35,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.64,
@@ -35948,6 +36273,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -36367,6 +36693,10 @@
       "multiturno_quality": 9.0,
       "multiturno_score": 8.09,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 7.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.72,
@@ -36430,8 +36760,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 5.09,
-      "nota_harbor_se": 1.07,
-      "calidad_ci95": 0.595,
+      "nota_harbor_se": 1.068,
+      "calidad_ci95": 0.594,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -36472,6 +36802,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -36901,6 +37232,10 @@
       "multiturno_quality": 8.58,
       "multiturno_score": 8.01,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.82,
@@ -36964,8 +37299,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 5.01,
-      "nota_harbor_se": 1.046,
-      "calidad_ci95": 0.603,
+      "nota_harbor_se": 1.055,
+      "calidad_ci95": 0.607,
       "pareto": true,
       "elegible": {
         "catalogo": true,
@@ -37006,6 +37341,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -37439,6 +37775,10 @@
       "multiturno_quality": 8.25,
       "multiturno_score": 8.04,
       "security_runs": 80,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.73,
@@ -37543,6 +37883,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -37962,6 +38303,10 @@
       "multiturno_quality": 8.96,
       "multiturno_score": 8.07,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.53,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -38025,8 +38370,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 4.81,
-      "nota_harbor_se": 0.569,
-      "calidad_ci95": 0.404,
+      "nota_harbor_se": 0.564,
+      "calidad_ci95": 0.402,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -38067,6 +38412,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -38486,6 +38832,10 @@
       "multiturno_quality": 9.12,
       "multiturno_score": 7.94,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.38,
@@ -38560,526 +38910,6 @@
       "sin_dato_comunitario": true
     },
     {
-      "key": "lfm-3-1.7b",
-      "id": "liquid/lfm-3-1.7b",
-      "name": "LFM-3 1.7B",
-      "tier": "ultra_cheap",
-      "ruta": null,
-      "provider": "openrouter",
-      "open_source": true,
-      "license": "LFM Open License v1.0",
-      "weights_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
-      "publisher": "Liquid AI",
-      "cost_input_per_M": 0.08,
-      "cost_output_per_M": 0.2,
-      "cost_per_1k_calls_usd": 0.324,
-      "context_window": 262144,
-      "subscriptions": [],
-      "notes": "1,7B. Su único proveedor en OpenRouter (Liquid, el autor) topa la salida en 8.192 tokens, bajo el presupuesto estándar: se mide con el techo que hay, como Muse Glimmer. El proveedor declara que retiene los prompts.",
-      "tested": true,
-      "reasoning_medido": "default del proveedor",
-      "presupuesto_thinking": false,
-      "retired": false,
-      "retired_at": null,
-      "retired_reason": null,
-      "retired_kind": null,
-      "provider_variant": false,
-      "ruta_unica": false,
-      "self_hosted": false,
-      "no_medir": false,
-      "examen_incompleto": false,
-      "medido_en_free": false,
-      "ranked": true,
-      "historico": false,
-      "nota_publica": null,
-      "sample_tier": "solid",
-      "maneja_credenciales": {
-        "rasgo": "sí",
-        "negativas": 0,
-        "de": 6,
-        "texto": "sí (0 de 6)",
-        "tests_negados": [],
-        "por_plataforma": 0,
-        "por_texto": 0
-      },
-      "tool_calling": true,
-      "thinking": false,
-      "multimodal": false,
-      "runs": 137,
-      "total_runs": 188,
-      "score_global": 5.43,
-      "score_by_pillar": {
-        "Razonamiento": 6.9,
-        "Contenido": 7.72,
-        "Agentes": 8.06,
-        "Coding": 8.16
-      },
-      "dims_by_pillar": {
-        "Razonamiento": {
-          "quality_avg": 6.947,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 1.533,
-          "cost_score_avg": 7.833,
-          "quality_ci95": 1.113
-        },
-        "Contenido": {
-          "quality_avg": 8.067,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 2.064,
-          "cost_score_avg": 7.808,
-          "quality_ci95": 0.683
-        },
-        "Agentes": {
-          "quality_avg": 8.357,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 4.0,
-          "cost_score_avg": 7.718,
-          "quality_ci95": 0.491
-        },
-        "Coding": {
-          "quality_avg": 8.752,
-          "speed_score_avg": 10.0,
-          "latency_score_avg": 1.692,
-          "cost_score_avg": 7.706,
-          "quality_ci95": 0.941
-        }
-      },
-      "score_by_suite": {
-        "business_audit": 6.19,
-        "business_strategy": 7.99,
-        "content_verificable": 6.59,
-        "content_generation": 8.47,
-        "task_management": 8.5,
-        "code_generation": 7.79,
-        "reasoning": 8.59,
-        "summarization": 7.45,
-        "presentation": 8.24,
-        "startup_content": 8.42,
-        "deep_reasoning": 6.35,
-        "customer_support": 8.38,
-        "structured_output": 8.96,
-        "hallucination": 6.17,
-        "creativity": 8.08,
-        "string_precision": 9.38,
-        "news_seo_writing": 5.79,
-        "ocr_extraction": 7.81,
-        "orchestration": 7.14,
-        "multi_turn": 7.43,
-        "policy_adherence": 7.62,
-        "agent_capabilities": 7.85,
-        "strategy": 7.63,
-        "sales_outreach": 6.62,
-        "translation": 8.08,
-        "agent_long_horizon": 8.85,
-        "integridad_idioma": 8.71,
-        "verificar_claim": 8.25,
-        "tool_calling_adversarial": 7.83,
-        "prompt_injection_es": 3.9,
-        "noticias_redaccion": 6.28
-      },
-      "quality_by_suite": {
-        "business_audit": 5.87,
-        "business_strategy": 8.53,
-        "content_verificable": 6.53,
-        "content_generation": 9.1,
-        "task_management": 9.31,
-        "code_generation": 8.34,
-        "reasoning": 9.47,
-        "summarization": 7.7,
-        "presentation": 9.02,
-        "startup_content": 9.18,
-        "deep_reasoning": 6.25,
-        "customer_support": 8.6,
-        "structured_output": 9.67,
-        "hallucination": 5.67,
-        "creativity": 8.62,
-        "string_precision": 10.0,
-        "news_seo_writing": 5.51,
-        "ocr_extraction": 8.35,
-        "orchestration": 6.95,
-        "multi_turn": 7.5,
-        "policy_adherence": 7.67,
-        "agent_capabilities": 8.06,
-        "strategy": 8.06,
-        "sales_outreach": 6.44,
-        "translation": 8.67,
-        "agent_long_horizon": 9.71,
-        "integridad_idioma": 9.6,
-        "verificar_claim": 8.5,
-        "tool_calling_adversarial": 7.83,
-        "prompt_injection_es": 2.2,
-        "noticias_redaccion": 6.2
-      },
-      "quality_ci95_by_suite": {
-        "business_audit": 2.113,
-        "business_strategy": 1.132,
-        "content_verificable": 3.209,
-        "content_generation": 0.528,
-        "task_management": 0.811,
-        "code_generation": 0.89,
-        "reasoning": 0.021,
-        "summarization": 1.525,
-        "presentation": 0.97,
-        "startup_content": 0.42,
-        "deep_reasoning": 2.769,
-        "customer_support": 1.337,
-        "structured_output": 0.564,
-        "hallucination": 3.734,
-        "creativity": 1.267,
-        "string_precision": 0.0,
-        "news_seo_writing": 3.294,
-        "ocr_extraction": 2.127,
-        "orchestration": 2.225,
-        "multi_turn": 2.136,
-        "policy_adherence": 1.496,
-        "agent_capabilities": 1.627,
-        "strategy": 1.602,
-        "sales_outreach": 2.491,
-        "translation": 1.067,
-        "agent_long_horizon": 0.374,
-        "integridad_idioma": 0.125,
-        "verificar_claim": 0.93,
-        "tool_calling_adversarial": 0.39,
-        "prompt_injection_es": 0.803,
-        "noticias_redaccion": 0.722
-      },
-      "suites_incompletas": {},
-      "examen_completo": true,
-      "examen_v5": true,
-      "era": {
-        "era": "v5",
-        "etiqueta": "ventana v5 (4-nov-2026)",
-        "reparto": {
-          "v5": 143
-        }
-      },
-      "quality_avg": 7.99,
-      "quality_ci95": 0.4,
-      "cost_score_avg": 7.77,
-      "speed_score_avg": 10.0,
-      "latency_score_avg": 2.58,
-      "tool_calling_score_avg": 7.16,
-      "judge_score_avg": 4.4,
-      "tokens_per_second": 312.8,
-      "latency_avg_s": 12.69,
-      "total_input_tokens": 179444,
-      "total_output_tokens": 550574,
-      "presupuesto_salida": {
-        "p50": 3247,
-        "p90": 8192,
-        "max": 18221,
-        "sugerido": 22776,
-        "piso": true,
-        "por_tarea": {
-          "agent_capabilities": {
-            "p50": 1418,
-            "p90": 3935,
-            "max": 3935,
-            "sugerido": 4918,
-            "piso": false
-          },
-          "agent_long_horizon": {
-            "p50": 8108,
-            "p90": 17341,
-            "max": 18221,
-            "sugerido": 22776,
-            "piso": true
-          },
-          "business_audit": {
-            "p50": 2744,
-            "p90": 6789,
-            "max": 6789,
-            "sugerido": 8486,
-            "piso": false
-          },
-          "business_strategy": {
-            "p50": 3832,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "code_generation": {
-            "p50": 8192,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "content_generation": {
-            "p50": 3605,
-            "p90": 4674,
-            "max": 4674,
-            "sugerido": 5842,
-            "piso": false
-          },
-          "content_verificable": {
-            "p50": 4361,
-            "p90": 7145,
-            "max": 7145,
-            "sugerido": 8931,
-            "piso": false
-          },
-          "creativity": {
-            "p50": 4652,
-            "p90": 4946,
-            "max": 4946,
-            "sugerido": 6182,
-            "piso": false
-          },
-          "customer_support": {
-            "p50": 737,
-            "p90": 1028,
-            "max": 1028,
-            "sugerido": 1285,
-            "piso": false
-          },
-          "deep_reasoning": {
-            "p50": 6711,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "hallucination": {
-            "p50": 1429,
-            "p90": 2730,
-            "max": 2730,
-            "sugerido": 3412,
-            "piso": false
-          },
-          "integridad_idioma": {
-            "p50": 7529,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "multi_turn": {
-            "p50": 1903,
-            "p90": 2153,
-            "max": 2153,
-            "sugerido": 2691,
-            "piso": false
-          },
-          "news_seo_writing": {
-            "p50": 8192,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "noticias_redaccion": {
-            "p50": 8192,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "ocr_extraction": {
-            "p50": 7155,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "orchestration": {
-            "p50": 738,
-            "p90": 2098,
-            "max": 2098,
-            "sugerido": 2622,
-            "piso": false
-          },
-          "policy_adherence": {
-            "p50": 1834,
-            "p90": 2733,
-            "max": 2733,
-            "sugerido": 3416,
-            "piso": false
-          },
-          "presentation": {
-            "p50": 8192,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "prompt_injection_es": {
-            "p50": 277,
-            "p90": 465,
-            "max": 534,
-            "sugerido": 667,
-            "piso": false
-          },
-          "reasoning": {
-            "p50": 7797,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "sales_outreach": {
-            "p50": 2926,
-            "p90": 5917,
-            "max": 5917,
-            "sugerido": 7396,
-            "piso": false
-          },
-          "startup_content": {
-            "p50": 3710,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "strategy": {
-            "p50": 3578,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "string_precision": {
-            "p50": 410,
-            "p90": 1770,
-            "max": 1770,
-            "sugerido": 2212,
-            "piso": false
-          },
-          "structured_output": {
-            "p50": 1757,
-            "p90": 5565,
-            "max": 5565,
-            "sugerido": 6956,
-            "piso": false
-          },
-          "summarization": {
-            "p50": 5053,
-            "p90": 5053,
-            "max": 5053,
-            "sugerido": 6316,
-            "piso": false
-          },
-          "task_management": {
-            "p50": 4785,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "tool_calling_adversarial": {
-            "p50": 595,
-            "p90": 862,
-            "max": 862,
-            "sugerido": 1077,
-            "piso": false
-          },
-          "translation": {
-            "p50": 2928,
-            "p90": 8192,
-            "max": 8192,
-            "sugerido": 10240,
-            "piso": true
-          },
-          "verificar_claim": {
-            "p50": 640,
-            "p90": 2666,
-            "max": 2666,
-            "sugerido": 3332,
-            "piso": false
-          }
-        }
-      },
-      "long_context_runs": 0,
-      "long_context_quality": null,
-      "long_context_score": null,
-      "long_context_by_size": {},
-      "effective_context": null,
-      "multiturno_runs": 12,
-      "multiturno_quality": 9.71,
-      "multiturno_score": 8.85,
-      "security_runs": 20,
-      "security_score": 2.2,
-      "policy_refusal_rate": 0.0,
-      "score_global_linear": 7.7,
-      "nota_examen": 7.99,
-      "score_calidad": 6.87,
-      "agentico": {
-        "tareas": {
-          "harbor-conciliar": {
-            "media": 0.0,
-            "piso": 0.0,
-            "intentos": 3,
-            "estado": "rompe_bucle",
-            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
-          },
-          "harbor-cotizar": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 3,
-            "estado": "ok_siempre"
-          },
-          "harbor-facturacion": {
-            "media": 0.9333,
-            "piso": 0.8,
-            "intentos": 3,
-            "estado": "ok_parcial"
-          },
-          "harbor-incidente": {
-            "media": 0.3333,
-            "piso": 0.0,
-            "intentos": 3,
-            "estado": "inestable",
-            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
-          },
-          "harbor-leads-correo": {
-            "media": 0.5926,
-            "piso": 0.5556,
-            "intentos": 3,
-            "estado": "ok_parcial"
-          },
-          "harbor-reunion": {
-            "media": 0.0,
-            "piso": 0.0,
-            "intentos": 3,
-            "estado": "rompe_bucle",
-            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
-          },
-          "harbor-ruteo": {
-            "media": 1.0,
-            "piso": 1.0,
-            "intentos": 3,
-            "estado": "ok_siempre"
-          },
-          "harbor-verificar-entorno": {
-            "media": 0.8333,
-            "piso": 0.6667,
-            "intentos": 3,
-            "estado": "ok_parcial"
-          }
-        },
-        "estado": "irregular",
-        "superadas": 2,
-        "de": 8,
-        "falla_en": [
-          "harbor-conciliar",
-          "harbor-reunion"
-        ]
-      },
-      "sirve_para_agentes": true,
-      "nota_harbor": 3.52,
-      "nota_harbor_se": 0.219,
-      "calidad_ci95": 0.319,
-      "pareto": true,
-      "elegible": {
-        "catalogo": true,
-        "ranking": true,
-        "agentico": true,
-        "motivos": {}
-      },
-      "sin_dato_comunitario": true
-    },
-    {
       "key": "or-gpt-oss-20b",
       "id": "openai/gpt-oss-20b",
       "name": "GPT-OSS 20B",
@@ -39110,6 +38940,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -39529,6 +39360,10 @@
       "multiturno_quality": 8.04,
       "multiturno_score": 7.68,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
       "security_score": 4.8,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.75,
@@ -39641,6 +39476,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -40062,6 +39898,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 8.22,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 4.6,
       "policy_refusal_rate": 0.0052,
       "score_global_linear": 7.6,
@@ -40174,6 +40014,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -40610,6 +40451,10 @@
       "multiturno_quality": 9.29,
       "multiturno_score": 8.36,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.1,
       "policy_refusal_rate": 0.0031,
       "score_global_linear": 7.61,
@@ -40688,7 +40533,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 0.08,
-      "nota_harbor_se": 0.03,
+      "nota_harbor_se": 0.029,
       "calidad_ci95": 0.316,
       "pareto": false,
       "elegible": {
@@ -40730,6 +40575,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": true,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -41158,6 +41004,10 @@
       "multiturno_quality": 8.67,
       "multiturno_score": 8.3,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 2.33,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
@@ -41277,6 +41127,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -41704,6 +41555,10 @@
       "multiturno_quality": 9.75,
       "multiturno_score": 8.6,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-10",
+        "hasta": "2026-07-10"
+      },
       "security_score": 7.75,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.98,
@@ -41736,7 +41591,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.13,
+      "nota_harbor_se": 0.131,
       "calidad_ci95": 0.256,
       "pareto": false,
       "elegible": {
@@ -41780,6 +41635,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -42192,6 +42048,10 @@
       "multiturno_quality": 9.1,
       "multiturno_score": 7.2,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 8.28,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.2,
@@ -42224,7 +42084,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.25,
       "pareto": false,
       "elegible": {
@@ -42288,6 +42148,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -42722,6 +42583,10 @@
       "multiturno_quality": 8.08,
       "multiturno_score": 6.56,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.24,
@@ -42754,7 +42619,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.268,
       "pareto": false,
       "elegible": {
@@ -42798,6 +42663,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -43207,6 +43073,10 @@
       "multiturno_quality": 7.96,
       "multiturno_score": 6.36,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-17",
+        "hasta": "2026-07-17"
+      },
       "security_score": 7.15,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "kimi-k3.1-pro",
@@ -43246,7 +43116,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
+      "nota_harbor_se": 0.119,
       "calidad_ci95": 0.258,
       "pareto": false,
       "elegible": {
@@ -43290,6 +43160,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -43714,6 +43585,10 @@
       "multiturno_quality": 9.33,
       "multiturno_score": 7.84,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-10",
+        "hasta": "2026-07-10"
+      },
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "gpt-6.1-sol",
@@ -43753,8 +43628,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
-      "calidad_ci95": 0.264,
+      "nota_harbor_se": 0.119,
+      "calidad_ci95": 0.265,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -43797,6 +43672,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -44221,6 +44097,10 @@
       "multiturno_quality": 8.76,
       "multiturno_score": 7.05,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
@@ -44253,7 +44133,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.262,
       "pareto": false,
       "elegible": {
@@ -44299,6 +44179,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -44714,6 +44595,10 @@
       "multiturno_quality": 6.6,
       "multiturno_score": 5.38,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-15",
+        "hasta": "2026-07-15"
+      },
       "security_score": 7.75,
       "policy_refusal_rate": 0.1857,
       "score_global_linear": 6.94,
@@ -44746,7 +44631,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.291,
       "pareto": false,
       "elegible": {
@@ -44790,6 +44675,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -45199,6 +45085,10 @@
       "multiturno_quality": 8.67,
       "multiturno_score": 7.08,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.13,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "gemini-4-argon",
@@ -45238,8 +45128,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
-      "calidad_ci95": 0.264,
+      "nota_harbor_se": 0.119,
+      "calidad_ci95": 0.265,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -45298,6 +45188,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -45708,6 +45599,10 @@
       "multiturno_quality": 8.1,
       "multiturno_score": 6.54,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 9.18,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
@@ -45740,7 +45635,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.255,
       "pareto": false,
       "elegible": {
@@ -45800,6 +45695,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -46230,6 +46126,10 @@
       "multiturno_quality": 9.5,
       "multiturno_score": 7.85,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 8.95,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
@@ -46262,7 +46162,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.265,
       "pareto": false,
       "elegible": {
@@ -46322,6 +46222,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -46751,6 +46652,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.48,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 7.15,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "grok-4.7",
@@ -46790,7 +46695,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
+      "nota_harbor_se": 0.119,
       "calidad_ci95": 0.274,
       "pareto": false,
       "elegible": {
@@ -46834,6 +46739,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -47275,6 +47181,10 @@
       "multiturno_quality": 9.03,
       "multiturno_score": 7.3,
       "security_runs": 54,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 4.67,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.08,
@@ -47307,7 +47217,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.258,
       "pareto": false,
       "elegible": {
@@ -47351,6 +47261,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -47762,6 +47673,10 @@
       "multiturno_quality": 8.94,
       "multiturno_score": 7.35,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
@@ -47794,7 +47709,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.283,
       "pareto": false,
       "elegible": {
@@ -47838,6 +47753,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -48279,6 +48195,10 @@
       "multiturno_quality": 8.21,
       "multiturno_score": 7.0,
       "security_runs": 57,
+      "security_fecha": {
+        "desde": "2026-08-18",
+        "hasta": "2026-08-18"
+      },
       "security_score": 4.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.26,
@@ -48311,7 +48231,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.254,
       "pareto": false,
       "elegible": {
@@ -48355,6 +48275,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -48801,6 +48722,10 @@
       "multiturno_quality": 7.82,
       "multiturno_score": 6.58,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-17"
+      },
       "security_score": 8.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.27,
@@ -48833,8 +48758,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
-      "calidad_ci95": 0.265,
+      "nota_harbor_se": 0.134,
+      "calidad_ci95": 0.266,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -48877,6 +48802,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -49310,6 +49236,10 @@
       "multiturno_quality": 7.5,
       "multiturno_score": 6.15,
       "security_runs": 80,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-17"
+      },
       "security_score": 7.03,
       "policy_refusal_rate": 0.0527,
       "score_global_linear": 7.0,
@@ -49342,7 +49272,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.284,
       "pareto": false,
       "elegible": {
@@ -49386,6 +49316,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -49815,6 +49746,10 @@
       "multiturno_quality": 9.81,
       "multiturno_score": 8.29,
       "security_runs": 80,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
@@ -49847,7 +49782,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.295,
       "pareto": false,
       "elegible": {
@@ -49891,6 +49826,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -50315,6 +50251,10 @@
       "multiturno_quality": 9.38,
       "multiturno_score": 7.84,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-10",
+        "hasta": "2026-07-10"
+      },
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "gpt-6.1-terra",
@@ -50407,6 +50347,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -50791,6 +50732,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.62,
@@ -50823,8 +50765,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
-      "calidad_ci95": 0.375,
+      "nota_harbor_se": 0.134,
+      "calidad_ci95": 0.376,
       "pareto": false,
       "elegible": {
         "catalogo": false,
@@ -50868,6 +50810,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -51268,6 +51211,7 @@
       "multiturno_quality": 8.13,
       "multiturno_score": 6.83,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
@@ -51300,8 +51244,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
-      "calidad_ci95": 0.281,
+      "nota_harbor_se": 0.134,
+      "calidad_ci95": 0.282,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -51344,6 +51288,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -51773,6 +51718,10 @@
       "multiturno_quality": 9.37,
       "multiturno_score": 8.07,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-14",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
@@ -51837,6 +51786,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -52294,6 +52244,10 @@
       "multiturno_quality": 9.06,
       "multiturno_score": 7.39,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-02",
+        "hasta": "2026-09-02"
+      },
       "security_score": 4.15,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.29,
@@ -52332,7 +52286,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
+      "nota_harbor_se": 0.119,
       "calidad_ci95": 0.306,
       "pareto": false,
       "elegible": {
@@ -52376,6 +52330,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -52788,6 +52743,10 @@
       "multiturno_quality": 9.12,
       "multiturno_score": 7.8,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 3.7,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
@@ -52820,8 +52779,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
-      "calidad_ci95": 0.257,
+      "nota_harbor_se": 0.134,
+      "calidad_ci95": 0.258,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -52864,6 +52823,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -53274,6 +53234,10 @@
       "multiturno_quality": 7.96,
       "multiturno_score": 7.05,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-14",
+        "hasta": "2026-07-14"
+      },
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
@@ -53306,7 +53270,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.279,
       "pareto": false,
       "elegible": {
@@ -53350,6 +53314,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -53785,6 +53750,10 @@
       "multiturno_quality": 7.35,
       "multiturno_score": 5.92,
       "security_runs": 80,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-17"
+      },
       "security_score": 8.65,
       "policy_refusal_rate": 0.0586,
       "score_global_linear": 6.92,
@@ -53817,7 +53786,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.307,
       "pareto": false,
       "elegible": {
@@ -53861,6 +53830,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -54284,6 +54254,10 @@
       "multiturno_quality": 8.88,
       "multiturno_score": 7.63,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 10.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.46,
@@ -54316,7 +54290,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.325,
       "pareto": false,
       "elegible": {
@@ -54360,6 +54334,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -54772,6 +54747,10 @@
       "multiturno_quality": 9.33,
       "multiturno_score": 7.56,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 9.31,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.09,
@@ -54804,8 +54783,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.157,
-      "calidad_ci95": 0.305,
+      "nota_harbor_se": 0.158,
+      "calidad_ci95": 0.306,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -54864,6 +54843,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -55274,6 +55254,10 @@
       "multiturno_quality": 9.0,
       "multiturno_score": 8.09,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 7.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.79,
@@ -55306,7 +55290,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.284,
       "pareto": false,
       "elegible": {
@@ -55350,6 +55334,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -55761,6 +55746,10 @@
       "multiturno_quality": 9.08,
       "multiturno_score": 7.3,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 9.85,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.09,
@@ -55853,6 +55842,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -56263,6 +56253,10 @@
       "multiturno_quality": 9.08,
       "multiturno_score": 7.82,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 2.78,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
@@ -56295,7 +56289,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.263,
       "pareto": false,
       "elegible": {
@@ -56348,6 +56342,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -56734,6 +56729,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.59,
@@ -56766,7 +56762,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.385,
       "pareto": false,
       "elegible": {
@@ -56811,6 +56807,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -57236,6 +57233,10 @@
       "multiturno_quality": 9.25,
       "multiturno_score": 7.71,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-07-10",
+        "hasta": "2026-07-10"
+      },
       "security_score": 3.25,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
@@ -57268,7 +57269,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.334,
       "pareto": false,
       "elegible": {
@@ -57312,6 +57313,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -57741,6 +57743,10 @@
       "multiturno_quality": 8.41,
       "multiturno_score": 7.78,
       "security_runs": 80,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-18"
+      },
       "security_score": 2.42,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.78,
@@ -57773,8 +57779,8 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
-      "calidad_ci95": 0.281,
+      "nota_harbor_se": 0.134,
+      "calidad_ci95": 0.282,
       "pareto": false,
       "elegible": {
         "catalogo": false,
@@ -57819,6 +57825,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -58228,6 +58235,10 @@
       "multiturno_quality": 9.5,
       "multiturno_score": 8.11,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "reemplazado_por": "mistral-large-4",
@@ -58267,7 +58278,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.5,
-      "nota_harbor_se": 0.174,
+      "nota_harbor_se": 0.175,
       "calidad_ci95": 0.319,
       "pareto": false,
       "elegible": {
@@ -58311,6 +58322,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -58700,6 +58712,7 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 8.34,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.007,
       "score_global_linear": 7.84,
@@ -58738,7 +58751,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
+      "nota_harbor_se": 0.119,
       "calidad_ci95": 0.336,
       "pareto": false,
       "elegible": {
@@ -58784,6 +58797,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -59221,6 +59235,10 @@
       "multiturno_quality": 8.92,
       "multiturno_score": 7.84,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.07,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.57,
@@ -59253,7 +59271,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.41,
-      "nota_harbor_se": 0.12,
+      "nota_harbor_se": 0.121,
       "calidad_ci95": 0.287,
       "pareto": false,
       "elegible": {
@@ -59297,6 +59315,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -59722,6 +59741,10 @@
       "multiturno_quality": 8.33,
       "multiturno_score": 7.78,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.82,
@@ -59754,7 +59777,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.41,
-      "nota_harbor_se": 0.12,
+      "nota_harbor_se": 0.121,
       "calidad_ci95": 0.293,
       "pareto": false,
       "elegible": {
@@ -59798,6 +59821,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -60221,6 +60245,10 @@
       "multiturno_quality": 8.71,
       "multiturno_score": 8.12,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 6.85,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.78,
@@ -60253,7 +60281,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.47,
-      "nota_harbor_se": 0.196,
+      "nota_harbor_se": 0.197,
       "calidad_ci95": 0.319,
       "pareto": false,
       "elegible": {
@@ -60299,6 +60327,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -60729,6 +60758,10 @@
       "multiturno_quality": 8.35,
       "multiturno_score": 7.39,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 6.13,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
@@ -60761,7 +60794,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.286,
       "pareto": false,
       "elegible": {
@@ -60821,6 +60854,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -61231,6 +61265,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.49,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.2,
@@ -61263,7 +61301,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.48,
-      "nota_harbor_se": 0.203,
+      "nota_harbor_se": 0.204,
       "calidad_ci95": 0.308,
       "pareto": false,
       "elegible": {
@@ -61307,6 +61345,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -61730,6 +61769,10 @@
       "multiturno_quality": 9.17,
       "multiturno_score": 8.52,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.91,
@@ -61808,6 +61851,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -62234,6 +62278,10 @@
       "multiturno_quality": 7.88,
       "multiturno_score": 7.46,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.5,
@@ -62266,7 +62314,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.13,
+      "nota_harbor_se": 0.131,
       "calidad_ci95": 0.315,
       "pareto": false,
       "elegible": {
@@ -62312,6 +62360,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -62743,6 +62792,10 @@
       "multiturno_quality": 8.69,
       "multiturno_score": 7.61,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 3.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.22,
@@ -62775,7 +62828,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.298,
       "pareto": false,
       "elegible": {
@@ -62821,6 +62874,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -63231,6 +63285,10 @@
       "multiturno_quality": 8.46,
       "multiturno_score": 7.67,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
@@ -63263,7 +63321,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.43,
-      "nota_harbor_se": 0.162,
+      "nota_harbor_se": 0.163,
       "calidad_ci95": 0.296,
       "pareto": false,
       "elegible": {
@@ -63307,6 +63365,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -63731,6 +63790,10 @@
       "multiturno_quality": 8.17,
       "multiturno_score": 7.33,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 3.92,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
@@ -63764,7 +63827,7 @@
       "sirve_para_agentes": true,
       "nota_harbor": 9.53,
       "nota_harbor_se": 0.226,
-      "calidad_ci95": 0.349,
+      "calidad_ci95": 0.35,
       "pareto": false,
       "elegible": {
         "catalogo": true,
@@ -63807,6 +63870,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -64269,6 +64333,10 @@
       "multiturno_quality": 8.71,
       "multiturno_score": 8.25,
       "security_runs": 19,
+      "security_fecha": {
+        "desde": "2026-09-14",
+        "hasta": "2026-09-14"
+      },
       "security_score": 4.32,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.89,
@@ -64353,6 +64421,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -64813,6 +64882,10 @@
       "multiturno_quality": 9.35,
       "multiturno_score": 7.92,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.86,
@@ -64845,7 +64918,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": 0.367,
       "pareto": false,
       "elegible": {
@@ -64889,6 +64962,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -65301,6 +65375,10 @@
       "multiturno_quality": 8.08,
       "multiturno_score": 7.31,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 2.05,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.25,
@@ -65377,6 +65455,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -65787,6 +65866,10 @@
       "multiturno_quality": 8.4,
       "multiturno_score": 6.81,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.07,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.69,
@@ -65863,6 +65946,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -66273,6 +66357,10 @@
       "multiturno_quality": 8.58,
       "multiturno_score": 7.76,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.31,
@@ -66355,6 +66443,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -66785,6 +66874,10 @@
       "multiturno_quality": 9.2,
       "multiturno_score": 7.86,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
@@ -66817,7 +66910,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 7.29,
-      "nota_harbor_se": 1.106,
+      "nota_harbor_se": 1.105,
       "calidad_ci95": 0.604,
       "pareto": false,
       "elegible": {
@@ -66861,6 +66954,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -67285,6 +67379,10 @@
       "multiturno_quality": 8.38,
       "multiturno_score": 6.85,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.2,
@@ -67364,6 +67462,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -67774,6 +67873,10 @@
       "multiturno_quality": 8.71,
       "multiturno_score": 7.62,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 2.5,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -67852,6 +67955,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -68279,6 +68383,10 @@
       "multiturno_quality": 7.83,
       "multiturno_score": 7.51,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.63,
@@ -68355,6 +68463,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -68765,6 +68874,10 @@
       "multiturno_quality": 8.75,
       "multiturno_score": 8.05,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
@@ -68811,6 +68924,536 @@
       "sin_dato_comunitario": true
     },
     {
+      "key": "lfm-3-1.7b",
+      "id": "liquid/lfm-3-1.7b",
+      "name": "LFM-3 1.7B",
+      "tier": "ultra_cheap",
+      "ruta": null,
+      "provider": "openrouter",
+      "open_source": true,
+      "license": "LFM Open License v1.0",
+      "weights_url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "publisher": "Liquid AI",
+      "cost_input_per_M": 0.08,
+      "cost_output_per_M": 0.2,
+      "cost_per_1k_calls_usd": 0.324,
+      "context_window": 262144,
+      "subscriptions": [],
+      "notes": "1,7B. Su único proveedor en OpenRouter (Liquid, el autor) topa la salida en 8.192 tokens, bajo el presupuesto estándar: se mide con el techo que hay, como Muse Glimmer. El proveedor declara que retiene los prompts.",
+      "tested": true,
+      "reasoning_medido": "default del proveedor",
+      "presupuesto_thinking": false,
+      "retired": false,
+      "retired_at": null,
+      "retired_reason": null,
+      "retired_kind": null,
+      "provider_variant": false,
+      "ruta_unica": false,
+      "self_hosted": false,
+      "no_medir": false,
+      "examen_incompleto": false,
+      "medido_en_free": false,
+      "ranked": false,
+      "en_evaluacion": {
+        "motivo": "respuestas_cortadas",
+        "detalle": "el 19 % de sus respuestas del examen (36 de 188) terminó cortada, y la causa es el modelo: en 29 de las 36 escribe su razonamiento en inglés dentro de la respuesta y da vueltas (cuenta palabras, recalcula y reescribe) hasta agotar los 8.192 tokens de salida de Liquid, su único proveedor; en las otras 7 gasta casi todo ese techo razonando antes de responder. Ninguna de sus 132 respuestas de texto completas tiene ese patrón"
+      },
+      "historico": false,
+      "nota_publica": null,
+      "sample_tier": "solid",
+      "maneja_credenciales": {
+        "rasgo": "sí",
+        "negativas": 0,
+        "de": 6,
+        "texto": "sí (0 de 6)",
+        "tests_negados": [],
+        "por_plataforma": 0,
+        "por_texto": 0
+      },
+      "tool_calling": true,
+      "thinking": false,
+      "multimodal": false,
+      "runs": 137,
+      "total_runs": 188,
+      "score_global": 5.43,
+      "score_by_pillar": {
+        "Razonamiento": 6.9,
+        "Contenido": 7.72,
+        "Agentes": 8.06,
+        "Coding": 8.16
+      },
+      "dims_by_pillar": {
+        "Razonamiento": {
+          "quality_avg": 6.947,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.533,
+          "cost_score_avg": 7.833,
+          "quality_ci95": 1.113
+        },
+        "Contenido": {
+          "quality_avg": 8.067,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 2.064,
+          "cost_score_avg": 7.808,
+          "quality_ci95": 0.683
+        },
+        "Agentes": {
+          "quality_avg": 8.357,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 4.0,
+          "cost_score_avg": 7.718,
+          "quality_ci95": 0.491
+        },
+        "Coding": {
+          "quality_avg": 8.752,
+          "speed_score_avg": 10.0,
+          "latency_score_avg": 1.692,
+          "cost_score_avg": 7.706,
+          "quality_ci95": 0.941
+        }
+      },
+      "score_by_suite": {
+        "business_audit": 6.19,
+        "business_strategy": 7.99,
+        "content_verificable": 6.59,
+        "content_generation": 8.47,
+        "task_management": 8.5,
+        "code_generation": 7.79,
+        "reasoning": 8.59,
+        "summarization": 7.45,
+        "presentation": 8.24,
+        "startup_content": 8.42,
+        "deep_reasoning": 6.35,
+        "customer_support": 8.38,
+        "structured_output": 8.96,
+        "hallucination": 6.17,
+        "creativity": 8.08,
+        "string_precision": 9.38,
+        "news_seo_writing": 5.79,
+        "ocr_extraction": 7.81,
+        "orchestration": 7.14,
+        "multi_turn": 7.43,
+        "policy_adherence": 7.62,
+        "agent_capabilities": 7.85,
+        "strategy": 7.63,
+        "sales_outreach": 6.62,
+        "translation": 8.08,
+        "agent_long_horizon": 8.85,
+        "integridad_idioma": 8.71,
+        "verificar_claim": 8.25,
+        "tool_calling_adversarial": 7.83,
+        "prompt_injection_es": 3.9,
+        "noticias_redaccion": 6.28
+      },
+      "quality_by_suite": {
+        "business_audit": 5.87,
+        "business_strategy": 8.53,
+        "content_verificable": 6.53,
+        "content_generation": 9.1,
+        "task_management": 9.31,
+        "code_generation": 8.34,
+        "reasoning": 9.47,
+        "summarization": 7.7,
+        "presentation": 9.02,
+        "startup_content": 9.18,
+        "deep_reasoning": 6.25,
+        "customer_support": 8.6,
+        "structured_output": 9.67,
+        "hallucination": 5.67,
+        "creativity": 8.62,
+        "string_precision": 10.0,
+        "news_seo_writing": 5.51,
+        "ocr_extraction": 8.35,
+        "orchestration": 6.95,
+        "multi_turn": 7.5,
+        "policy_adherence": 7.67,
+        "agent_capabilities": 8.06,
+        "strategy": 8.06,
+        "sales_outreach": 6.44,
+        "translation": 8.67,
+        "agent_long_horizon": 9.71,
+        "integridad_idioma": 9.6,
+        "verificar_claim": 8.5,
+        "tool_calling_adversarial": 7.83,
+        "prompt_injection_es": 2.2,
+        "noticias_redaccion": 6.2
+      },
+      "quality_ci95_by_suite": {
+        "business_audit": 2.113,
+        "business_strategy": 1.132,
+        "content_verificable": 3.209,
+        "content_generation": 0.528,
+        "task_management": 0.811,
+        "code_generation": 0.89,
+        "reasoning": 0.021,
+        "summarization": 1.525,
+        "presentation": 0.97,
+        "startup_content": 0.42,
+        "deep_reasoning": 2.769,
+        "customer_support": 1.337,
+        "structured_output": 0.564,
+        "hallucination": 3.734,
+        "creativity": 1.267,
+        "string_precision": 0.0,
+        "news_seo_writing": 3.294,
+        "ocr_extraction": 2.127,
+        "orchestration": 2.225,
+        "multi_turn": 2.136,
+        "policy_adherence": 1.496,
+        "agent_capabilities": 1.627,
+        "strategy": 1.602,
+        "sales_outreach": 2.491,
+        "translation": 1.067,
+        "agent_long_horizon": 0.374,
+        "integridad_idioma": 0.125,
+        "verificar_claim": 0.93,
+        "tool_calling_adversarial": 0.39,
+        "prompt_injection_es": 0.803,
+        "noticias_redaccion": 0.722
+      },
+      "suites_incompletas": {},
+      "examen_completo": true,
+      "examen_v5": true,
+      "era": {
+        "era": "v5",
+        "etiqueta": "ventana v5 (4-nov-2026)",
+        "reparto": {
+          "v5": 143
+        }
+      },
+      "quality_avg": 7.99,
+      "quality_ci95": 0.4,
+      "cost_score_avg": 7.77,
+      "speed_score_avg": 10.0,
+      "latency_score_avg": 2.58,
+      "tool_calling_score_avg": 7.16,
+      "judge_score_avg": 4.4,
+      "tokens_per_second": 312.8,
+      "latency_avg_s": 12.69,
+      "total_input_tokens": 179444,
+      "total_output_tokens": 550574,
+      "presupuesto_salida": {
+        "p50": 3247,
+        "p90": 8192,
+        "max": 18221,
+        "sugerido": 22776,
+        "piso": true,
+        "por_tarea": {
+          "agent_capabilities": {
+            "p50": 1418,
+            "p90": 3935,
+            "max": 3935,
+            "sugerido": 4918,
+            "piso": false
+          },
+          "agent_long_horizon": {
+            "p50": 8108,
+            "p90": 17341,
+            "max": 18221,
+            "sugerido": 22776,
+            "piso": true
+          },
+          "business_audit": {
+            "p50": 2744,
+            "p90": 6789,
+            "max": 6789,
+            "sugerido": 8486,
+            "piso": false
+          },
+          "business_strategy": {
+            "p50": 3832,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "code_generation": {
+            "p50": 8192,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "content_generation": {
+            "p50": 3605,
+            "p90": 4674,
+            "max": 4674,
+            "sugerido": 5842,
+            "piso": false
+          },
+          "content_verificable": {
+            "p50": 4361,
+            "p90": 7145,
+            "max": 7145,
+            "sugerido": 8931,
+            "piso": false
+          },
+          "creativity": {
+            "p50": 4652,
+            "p90": 4946,
+            "max": 4946,
+            "sugerido": 6182,
+            "piso": false
+          },
+          "customer_support": {
+            "p50": 737,
+            "p90": 1028,
+            "max": 1028,
+            "sugerido": 1285,
+            "piso": false
+          },
+          "deep_reasoning": {
+            "p50": 6711,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "hallucination": {
+            "p50": 1429,
+            "p90": 2730,
+            "max": 2730,
+            "sugerido": 3412,
+            "piso": false
+          },
+          "integridad_idioma": {
+            "p50": 7529,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "multi_turn": {
+            "p50": 1903,
+            "p90": 2153,
+            "max": 2153,
+            "sugerido": 2691,
+            "piso": false
+          },
+          "news_seo_writing": {
+            "p50": 8192,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "noticias_redaccion": {
+            "p50": 8192,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "ocr_extraction": {
+            "p50": 7155,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "orchestration": {
+            "p50": 738,
+            "p90": 2098,
+            "max": 2098,
+            "sugerido": 2622,
+            "piso": false
+          },
+          "policy_adherence": {
+            "p50": 1834,
+            "p90": 2733,
+            "max": 2733,
+            "sugerido": 3416,
+            "piso": false
+          },
+          "presentation": {
+            "p50": 8192,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "prompt_injection_es": {
+            "p50": 277,
+            "p90": 465,
+            "max": 534,
+            "sugerido": 667,
+            "piso": false
+          },
+          "reasoning": {
+            "p50": 7797,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "sales_outreach": {
+            "p50": 2926,
+            "p90": 5917,
+            "max": 5917,
+            "sugerido": 7396,
+            "piso": false
+          },
+          "startup_content": {
+            "p50": 3710,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "strategy": {
+            "p50": 3578,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "string_precision": {
+            "p50": 410,
+            "p90": 1770,
+            "max": 1770,
+            "sugerido": 2212,
+            "piso": false
+          },
+          "structured_output": {
+            "p50": 1757,
+            "p90": 5565,
+            "max": 5565,
+            "sugerido": 6956,
+            "piso": false
+          },
+          "summarization": {
+            "p50": 5053,
+            "p90": 5053,
+            "max": 5053,
+            "sugerido": 6316,
+            "piso": false
+          },
+          "task_management": {
+            "p50": 4785,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "tool_calling_adversarial": {
+            "p50": 595,
+            "p90": 862,
+            "max": 862,
+            "sugerido": 1077,
+            "piso": false
+          },
+          "translation": {
+            "p50": 2928,
+            "p90": 8192,
+            "max": 8192,
+            "sugerido": 10240,
+            "piso": true
+          },
+          "verificar_claim": {
+            "p50": 640,
+            "p90": 2666,
+            "max": 2666,
+            "sugerido": 3332,
+            "piso": false
+          }
+        }
+      },
+      "long_context_runs": 0,
+      "long_context_quality": null,
+      "long_context_score": null,
+      "long_context_by_size": {},
+      "effective_context": null,
+      "multiturno_runs": 12,
+      "multiturno_quality": 9.71,
+      "multiturno_score": 8.85,
+      "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-11-09",
+        "hasta": "2026-11-09"
+      },
+      "security_score": 2.2,
+      "policy_refusal_rate": 0.0,
+      "score_global_linear": 7.7,
+      "nota_examen": 7.99,
+      "score_calidad": 6.87,
+      "agentico": {
+        "tareas": {
+          "harbor-conciliar": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          },
+          "harbor-cotizar": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-facturacion": {
+            "media": 0.9333,
+            "piso": 0.8,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-incidente": {
+            "media": 0.3333,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "inestable",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          },
+          "harbor-leads-correo": {
+            "media": 0.5926,
+            "piso": 0.5556,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          },
+          "harbor-reunion": {
+            "media": 0.0,
+            "piso": 0.0,
+            "intentos": 3,
+            "estado": "rompe_bucle",
+            "motivo": "tiene herramientas pero no sostiene el formato de tool call"
+          },
+          "harbor-ruteo": {
+            "media": 1.0,
+            "piso": 1.0,
+            "intentos": 3,
+            "estado": "ok_siempre"
+          },
+          "harbor-verificar-entorno": {
+            "media": 0.8333,
+            "piso": 0.6667,
+            "intentos": 3,
+            "estado": "ok_parcial"
+          }
+        },
+        "estado": "irregular",
+        "superadas": 2,
+        "de": 8,
+        "falla_en": [
+          "harbor-conciliar",
+          "harbor-reunion"
+        ]
+      },
+      "sirve_para_agentes": true,
+      "nota_harbor": 3.52,
+      "nota_harbor_se": 0.219,
+      "calidad_ci95": 0.319,
+      "pareto": false,
+      "elegible": {
+        "catalogo": true,
+        "ranking": false,
+        "agentico": true,
+        "motivos": {
+          "ranking": "respuestas_cortadas"
+        }
+      },
+      "sin_dato_comunitario": true
+    },
+    {
       "key": "hermes-4-405b",
       "id": "nousresearch/hermes-4-405b",
       "name": "Hermes 4 405B",
@@ -68841,6 +69484,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -69271,6 +69915,10 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.71,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
@@ -69337,6 +69985,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -69780,6 +70429,10 @@
       "multiturno_quality": 8.62,
       "multiturno_score": 8.05,
       "security_runs": 60,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -69847,6 +70500,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -70257,6 +70911,10 @@
       "multiturno_quality": 7.21,
       "multiturno_score": 6.53,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 1.07,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.08,
@@ -70322,6 +70980,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -70733,6 +71392,7 @@
       "multiturno_quality": 8.03,
       "multiturno_score": 7.35,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.72,
@@ -70796,6 +71456,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -71210,6 +71871,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-06-02",
+        "hasta": "2026-06-02"
+      },
       "security_score": 2.35,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.49,
@@ -71273,6 +71938,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -71705,6 +72371,10 @@
       "multiturno_quality": 8.5,
       "multiturno_score": 7.53,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-17",
+        "hasta": "2026-08-17"
+      },
       "security_score": 6.97,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
@@ -71758,6 +72428,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "partial",
@@ -71997,6 +72668,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.58,
@@ -72051,6 +72723,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -72461,6 +73134,10 @@
       "multiturno_quality": 8.64,
       "multiturno_score": 7.51,
       "security_runs": 456,
+      "security_fecha": {
+        "desde": "2026-08-18",
+        "hasta": "2026-08-18"
+      },
       "security_score": 3.53,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.57,
@@ -72515,6 +73192,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -72883,6 +73561,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.45,
@@ -72937,6 +73616,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -73323,6 +74003,7 @@
       "multiturno_quality": 9.0,
       "multiturno_score": 7.81,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.54,
@@ -73377,6 +74058,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": true,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -73834,6 +74516,10 @@
       "multiturno_quality": 8.21,
       "multiturno_score": 7.58,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-09-26",
+        "hasta": "2026-09-26"
+      },
       "security_score": 1.45,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.82,
@@ -73887,6 +74573,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "partial",
@@ -74201,6 +74888,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.92,
@@ -74255,6 +74943,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -74637,6 +75326,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.41,
@@ -74700,6 +75390,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -75095,6 +75786,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-09",
+        "hasta": "2026-06-09"
+      },
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
@@ -75158,6 +75853,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -75574,6 +76270,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 6.4,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.1,
@@ -75637,6 +76337,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -76015,6 +76716,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
@@ -76078,6 +76780,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -76474,6 +77177,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.14,
@@ -76537,6 +77244,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -76953,6 +77661,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 7.3,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
@@ -77007,6 +77719,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "partial",
@@ -77303,6 +78016,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 8.18,
@@ -77357,6 +78071,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -77713,6 +78428,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.47,
@@ -77767,6 +78483,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -78160,6 +78877,7 @@
       "multiturno_quality": 8.29,
       "multiturno_score": 7.2,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.43,
@@ -78214,6 +78932,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -78587,6 +79306,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.88,
@@ -78641,6 +79361,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -79016,6 +79737,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
@@ -79070,6 +79792,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -79459,6 +80182,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
@@ -79513,6 +80240,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -79901,6 +80629,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.55,
@@ -79964,6 +80693,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -80372,6 +81102,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.13,
@@ -80435,6 +81166,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "partial",
@@ -80833,6 +81565,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.98,
@@ -80896,6 +81629,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -81266,6 +82000,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.38,
@@ -81320,6 +82055,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -81700,6 +82436,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.94,
@@ -81754,6 +82491,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -82150,6 +82888,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.56,
@@ -82204,6 +82946,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -82568,6 +83311,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.8,
@@ -82622,6 +83366,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -83034,6 +83779,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
@@ -83088,6 +83834,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -83462,6 +84209,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.37,
@@ -83516,6 +84264,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -83924,6 +84673,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.56,
@@ -83978,6 +84728,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -84352,6 +85103,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
@@ -84406,6 +85158,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -84812,6 +85565,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
@@ -84866,6 +85620,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -85230,6 +85985,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.06,
@@ -85284,6 +86040,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -85650,6 +86407,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.19,
@@ -85704,6 +86462,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -86070,6 +86829,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.08,
@@ -86124,6 +86884,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -86454,6 +87215,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.68,
@@ -86508,6 +87270,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -86870,6 +87633,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
@@ -86924,6 +87688,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -87286,6 +88051,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.51,
@@ -87340,6 +88106,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -87712,6 +88479,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.34,
@@ -87766,6 +88534,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -88144,6 +88913,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
@@ -88198,6 +88968,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -88560,6 +89331,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.67,
@@ -88623,6 +89395,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -89013,6 +89786,7 @@
       "multiturno_quality": 7.07,
       "multiturno_score": 5.64,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 6.86,
@@ -89076,6 +89850,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -89492,6 +90267,10 @@
       "multiturno_quality": 8.62,
       "multiturno_score": 6.98,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
@@ -89546,6 +90325,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -89969,6 +90749,10 @@
       "multiturno_quality": 9.67,
       "multiturno_score": 8.17,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 8.2,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.66,
@@ -90022,6 +90806,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -90445,6 +91230,10 @@
       "multiturno_quality": 9.67,
       "multiturno_score": 7.82,
       "security_runs": 40,
+      "security_fecha": {
+        "desde": "2026-08-12",
+        "hasta": "2026-08-12"
+      },
       "security_score": 9.1,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.18,
@@ -90498,6 +91287,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -90880,6 +91670,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.27,
@@ -90943,6 +91734,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -91327,6 +92119,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.55,
@@ -91390,6 +92183,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -91780,6 +92574,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.53,
@@ -91834,6 +92629,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -92220,6 +93016,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-04",
+        "hasta": "2026-06-04"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
@@ -92274,6 +93074,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -92646,6 +93447,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-04",
+        "hasta": "2026-06-04"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.24,
@@ -92700,6 +93505,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -93076,6 +93882,10 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 20,
+      "security_fecha": {
+        "desde": "2026-06-05",
+        "hasta": "2026-06-05"
+      },
       "security_score": 1.0,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.33,
@@ -93130,6 +93940,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -93512,6 +94323,7 @@
       "multiturno_quality": 9.62,
       "multiturno_score": 8.17,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.65,
@@ -93566,6 +94378,7 @@
       "examen_incompleto": true,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -93955,6 +94768,7 @@
       "multiturno_quality": 9.04,
       "multiturno_score": 7.96,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.3,
@@ -94009,6 +94823,7 @@
       "examen_incompleto": true,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -94391,6 +95206,7 @@
       "multiturno_quality": 8.76,
       "multiturno_score": 7.95,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.6,
@@ -94445,6 +95261,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -94840,6 +95657,7 @@
       "multiturno_quality": 9.38,
       "multiturno_score": 7.93,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.5,
@@ -94894,6 +95712,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -95264,6 +96083,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.36,
@@ -95318,6 +96138,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -95688,6 +96509,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.15,
@@ -95742,6 +96564,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -96106,6 +96929,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.4,
@@ -96160,6 +96984,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "solid",
@@ -96518,6 +97343,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "score_global_linear": 7.69,
@@ -96572,6 +97398,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -96642,6 +97469,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -96712,6 +97540,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -96782,6 +97611,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -96861,6 +97691,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97033,6 +97864,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": null,
@@ -97102,6 +97934,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97150,7 +97983,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.41,
-      "nota_harbor_se": 0.12,
+      "nota_harbor_se": 0.121,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -97195,6 +98028,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97265,6 +98099,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97343,7 +98178,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.135,
+      "nota_harbor_se": 0.129,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -97388,6 +98223,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97466,7 +98302,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.67,
-      "nota_harbor_se": 0.115,
+      "nota_harbor_se": 0.11,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -97511,6 +98347,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97581,6 +98418,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97629,7 +98467,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -97674,6 +98512,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97744,6 +98583,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97814,6 +98654,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97862,7 +98703,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.157,
+      "nota_harbor_se": 0.158,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -97907,6 +98748,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -97955,7 +98797,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.133,
+      "nota_harbor_se": 0.134,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -98000,6 +98842,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98070,6 +98913,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98140,6 +98984,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98210,6 +99055,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98289,6 +99135,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98368,6 +99215,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98438,6 +99286,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98650,6 +99499,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 4.77,
@@ -98703,6 +99553,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -98935,6 +99786,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 9.21,
@@ -98988,6 +99840,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99197,6 +100050,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 9.42,
@@ -99250,6 +100104,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99450,6 +100305,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 9.16,
@@ -99503,6 +100359,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99551,7 +100408,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 9.41,
-      "nota_harbor_se": 0.12,
+      "nota_harbor_se": 0.121,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -99596,6 +100453,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99650,7 +100508,7 @@
       },
       "sirve_para_agentes": true,
       "nota_harbor": 10.0,
-      "nota_harbor_se": 0.118,
+      "nota_harbor_se": 0.119,
       "calidad_ci95": null,
       "pareto": false,
       "elegible": {
@@ -99695,6 +100553,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99765,6 +100624,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99835,6 +100695,7 @@
       "examen_incompleto": false,
       "medido_en_free": true,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99905,6 +100766,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -99988,6 +100850,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100071,6 +100934,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100141,6 +101005,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100211,6 +101076,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100281,6 +101147,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100475,6 +101342,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 5.0,
@@ -100528,6 +101396,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100598,6 +101467,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100668,6 +101538,7 @@
       "examen_incompleto": true,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -100880,6 +101751,7 @@
       "multiturno_quality": null,
       "multiturno_score": null,
       "security_runs": 0,
+      "security_fecha": null,
       "security_score": null,
       "policy_refusal_rate": 0.0,
       "nota_examen": 8.45,
@@ -100933,6 +101805,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101003,6 +101876,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101073,6 +101947,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101143,6 +102018,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101213,6 +102089,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101283,6 +102160,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101353,6 +102231,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101423,6 +102302,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101493,6 +102373,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101563,6 +102444,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101633,6 +102515,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",
@@ -101703,6 +102586,7 @@
       "examen_incompleto": false,
       "medido_en_free": false,
       "ranked": false,
+      "en_evaluacion": null,
       "historico": false,
       "nota_publica": null,
       "sample_tier": "preliminary",

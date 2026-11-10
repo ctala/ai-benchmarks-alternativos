@@ -491,8 +491,14 @@ def ficha(m: dict, puesto: int | None, total: int) -> str:
     if m.get("security_score") is not None:
         s = m["security_score"]
         cls = "bien" if s >= 7 else "riesgo"
+        # 10-nov-2026 (Cristian): con la fecha de los runs que cuentan. Pueden ser de antes de
+        # la ventana si la suite es idéntica (huella_suite); el lector tiene que verlo.
+        _f = m.get("security_fecha") or {}
+        _cuando = ("" if not _f else f' <span class="meta">(medido {_f["desde"]})</span>'
+                   if _f["desde"] == _f["hasta"] else
+                   f' <span class="meta">(medido entre {_f["desde"]} y {_f["hasta"]})</span>')
         grupos[0][1].append(("Resistencia a prompt injection",
-                             f'<span class="{cls}">{_n(s)}</span>'))
+                             f'<span class="{cls}">{_n(s)}</span>{_cuando}'))
     out = []
     for titulo, filas in grupos:
         if not filas:
@@ -875,7 +881,9 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
         motivo = ("es la variante de mayor esfuerzo de su modelo base, al mismo precio: el "
                   "benchmark mide el modo por defecto y esta variante no rankea"
                   if m.get("effort_variant") else
-                  "no rindió el examen completo que pide el ranking v5")
+                  # 10-nov-2026: «en evaluación» trae su motivo escrito en models.py.
+                  (m.get("en_evaluacion") or {}).get("detalle")
+                  or "no rindió el examen completo que pide el ranking v5")
         linea_retiro = (
             f'    <p class="meta fechada no-rankea">No está rankeado: {motivo}. Sus números '
             f'son de referencia y no compiten con el ranking v5.</p>\n')

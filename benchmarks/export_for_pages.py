@@ -65,6 +65,21 @@ MIN_RUNS_RANKED = 50
 VENTANAS_DE_MEDICION = ("benchmark_20261104_v5c", "benchmark_20261109_v61c")  # v6.1: 10-nov-2026
 
 
+from benchmarks import huella_suite as _huella  # noqa: E402
+_HUELLAS = _huella.cargar_tabla()
+_HUELLA_HOY = {s: _huella.huella_actual(s) for s in _huella.REGISTRO}
+# Suites que se rinden sin promediar: ahí, y solo ahí, un run de antes con la huella de hoy
+# cuenta para el examen v5. Las del índice siguen exigiendo la ventana.
+_SIN_PROMEDIO_EN_EXAMEN = suites_reg.del_examen() - suites_reg.del_indice()
+
+
+def _rango_fechas(runs: list[dict]) -> dict | None:
+    """{desde, hasta} (AAAA-MM-DD) de los `timestamp` de unos runs; None si no hay fechas."""
+    fs = sorted(f"{t[:4]}-{t[4:6]}-{t[6:8]}" for t in (str(r.get("timestamp") or "") for r in runs)
+                if len(t) >= 8 and t[:8].isdigit())
+    return {"desde": fs[0], "hasta": fs[-1]} if fs else None
+
+
 def es_de_ventana(nombre_archivo: str) -> bool:
     return nombre_archivo.startswith(VENTANAS_DE_MEDICION)
 
@@ -454,6 +469,12 @@ def load_all_results():
                 continue
             if es_de_ventana(fn):
                 r["_ventana"] = True
+            # 10-nov-2026 (Cristian): un run anterior a la ventana cuenta para el examen v5 en
+            # una suite que se rinde sin promediar SOLO si la suite es idéntica (prompts, scorer
+            # y juez) a la de hoy — por hash, `huella_suite`. Antes de corregir_negativa: el
+            # juez se lee de la nota tal como se midió.
+            if r.get("suite") in _huella.REGISTRO:
+                r["_huella_ok"] = _huella.run_coincide(r, _HUELLAS, _HUELLA_HOY[r["suite"]])
             corregir_negativa(r)
             mid = r.get("model_id") or "?"
             mname = r.get("model") or ""
@@ -793,7 +814,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
             continue
         if r.get("test_name"):
             tests_por_suite[suite].add(r["test_name"])
-            if r.get("_ventana"):
+            if r.get("_ventana") or (r.get("_huella_ok") and suite in _SIN_PROMEDIO_EN_EXAMEN):
                 tests_v5_por_suite[suite].add(r["test_name"])
         runs_indice.append(r)
         by_suite[suite].append(r["_final_recalc"])
@@ -1088,6 +1109,8 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
         "multiturno_score": round(sum(agentic_f) / len(agentic_f), 2) if agentic_f else None,
         # --- Dimensión seguridad (prompt_injection_es: resistencia a fuga) ---
         "security_runs": len(security),
+        # 10-nov-2026 (Cristian): la ficha muestra la fecha de los runs de seguridad que cuentan.
+        "security_fecha": _rango_fechas(security),
         "security_score": round(
             sum(r.get("quality") for r in security if r.get("quality") is not None)
             / max(1, sum(1 for r in security if r.get("quality") is not None)), 2
@@ -1570,7 +1593,11 @@ def build_export(recalibrate=False, scoring_version=None):
                 and not cfg.get("effort_variant")
                 and not cfg.get("self_hosted")
                 and not _incompletas_que_puntuan
+                # 10-nov-2026 (Cristian): un modelo declarado «en evaluación» en models.py
+                # (LFM-3 1.7B: 19 % de respuestas cortadas) no rankea; su ficha dice por qué.
+                and not cfg.get("en_evaluacion")
             ),
+            "en_evaluacion": cfg.get("en_evaluacion"),
             # Tabla «histórico» (DECISIONES, 5-nov-2026): rindió el examen completo y
             # rankearía por todo lo demás, pero no en la ventana de v5. Se publica con su
             # era y sin puesto. Mismo criterio que `ranked` salvo `examen_v5`, para que

@@ -51,7 +51,7 @@ vigentes, en [DECISIONES.md](DECISIONES.md).
 
 La calidad es **75 % el examen y 25 % cuatro tareas reales de agente** (Harbor: el modelo trabaja dentro de un agente, con herramientas, y un test verifica el resultado). **El precio y la velocidad se muestran al lado, no van dentro del número.**
 
-> **El benchmark no separa a estos 31 de 75 rankeados** (margen de error ±0,27): su diferencia de calidad cabe en el margen, así que llevan «≈» en vez de puesto. Dentro del grupo, el más barato es **Ling 3.0 Flash**.
+> **El benchmark no separa a estos 31 de 74 rankeados** (margen de error ±0,27): su diferencia de calidad cabe en el margen, así que llevan «≈» en vez de puesto. Dentro del grupo, el más barato es **Ling 3.0 Flash**.
 
 | # | Modelo | Calidad | $/1k calls | Latencia | Provider | Runs |
 |---|---|---:|---:|---:|---|---:|
@@ -66,7 +66,7 @@ La calidad es **75 % el examen y 25 % cuatro tareas reales de agente** (Harbor: 
 | ≈ | **GLM 5** | **8.87** | $3.06 | 36s | openrouter | 137 |
 | ≈ | **Ling 3.0 Flash** · el más barato del grupo | **8.85** | $0.10 | 55s | openrouter | 137 |
 
-> **La precisión literal (string_precision) no entra al índice 5.0.0.** Casi todos los modelos copian bien una API key, un JWT o un hash, así que la suite ya no separa por precisión: lo que separa es si el modelo se niega ante algo que parece un secreto. Eso es una política, no una falla, y se publica aparte como el rasgo **«¿maneja credenciales?»**, siempre con su cuenta: de 75 modelos rankeados, 62 copian las seis cadenas (sí), 12 se niegan en alguna (a veces) y 1 se niega en todas. La suite se sigue rindiendo para que cada modelo tenga su rasgo, y en 5.1 la precisión se mide con cadenas difíciles que no parezcan secretos.
+> **La precisión literal (string_precision) no entra al índice 5.0.0.** Casi todos los modelos copian bien una API key, un JWT o un hash, así que la suite ya no separa por precisión: lo que separa es si el modelo se niega ante algo que parece un secreto. Eso es una política, no una falla, y se publica aparte como el rasgo **«¿maneja credenciales?»**, siempre con su cuenta: de 74 modelos rankeados, 61 copian las seis cadenas (sí), 12 se niegan en alguna (a veces) y 1 se niega en todas. La suite se sigue rindiendo para que cada modelo tenga su rasgo, y en 5.1 la precisión se mide con cadenas difíciles que no parezcan secretos.
 
 ### Calidad por dólar — ¿cuánto rinde cada peso?
 
@@ -83,11 +83,11 @@ Calidad dividido por lo que cuesta. **Premia lo barato a propósito**: un modelo
 | 7 | **GPT-OSS 120B** | **26.5** | 7.44 | $0.28 | openrouter |
 | 8 | **Nemotron 3 Nano 30B** | **22.7** | 7.16 | $0.32 | openrouter |
 | 9 | **Nemotron 3.5 Lightning** | **22.2** | 7.18 | $0.32 | openrouter |
-| 10 | **LFM-3 1.7B** | **21.2** | 6.87 | $0.32 | openrouter |
+| 10 | **Granite 4.2 8B** | **20.2** | 7.92 | $0.39 | openrouter |
 
 ### Frontera de Pareto — ¿cuáles vale la pena siquiera considerar?
 
-Los **19 de 75** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
+Los **18 de 74** modelos que nadie domina: para el resto existe otro que es **a la vez mejor, más barato y más rápido**. No es un ranking —dentro de la frontera la elección depende de tu caso— es un descarte.
 
 | Modelo | Calidad | $/1k calls | Latencia | Provider |
 |---|---:|---:|---:|---|
@@ -107,11 +107,10 @@ Los **19 de 75** modelos que nadie domina: para el resto existe otro que es **a 
 | **Gemini 3.1 Flash Lite (GA)** | 8.12 | $2.33 | 4s | openrouter |
 | **Qwen 3-Next 80B Instruct** | 7.29 | $1.68 | 6s | openrouter |
 | **Nemotron 3.5 Lightning** | 7.18 | $0.32 | 5s | openrouter |
-| **LFM-3 1.7B** | 6.87 | $0.32 | 13s | openrouter |
 | **GPT-OSS 20B** | 6.76 | $0.22 | 13s | openrouter |
 | **Llama 3.1 8B Instant** | 5.31 | $0.14 | 4s | openrouter |
 
-> **Piso de ranking: 50 runs.** Solo compiten los 75 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
+> **Piso de ranking: 50 runs.** Solo compiten los 74 modelos con muestra sólida. Con 3-12 runs la varianza permite liderar por azar, así que los emergentes se listan aparte, en *En evaluación* de [MODELOS.md](MODELOS.md), con su score marcado como indicativo.
 
 > **Por qué la calidad va sola.** Hasta v4.0 publicábamos un número que mezclaba calidad con precio, y movía modelos sin avisar: Claude Opus 4.6 es **#5 en calidad** y salía **#18**; Poolside Laguna XS es **#29** y salía **#7**. Las dos cifras eran verdad, pero bajo un rótulo que no lo decía. Ahora el precio se muestra al lado y cada quien decide qué pesa. Es lo mismo que hace [Artificial Analysis](https://artificialanalysis.ai/) con su Intelligence Index.
 

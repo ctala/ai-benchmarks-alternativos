@@ -87,6 +87,18 @@ def recolectar() -> dict:
     return st
 
 
+def declarados_en_evaluacion(mj: dict) -> set[str]:
+    """Modelos fuera del ranking «en evaluación» POR respuestas cortadas, con su detalle.
+
+    10-nov-2026 (DECISIONES, LFM-3 1.7B). No es una exención: el modelo no rankea y su ficha
+    dice por qué. Vale solo si las tres cosas son verdad: no rankea, el motivo es este y el
+    detalle está escrito. Cualquier otra combinación sigue en rojo."""
+    return {m["name"] for m in mj.get("models", [])
+            if not m.get("ranked")
+            and (m.get("en_evaluacion") or {}).get("motivo") == "respuestas_cortadas"
+            and (m.get("en_evaluacion") or {}).get("detalle")}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--duro", action="store_true", help="exit 1 si algún rankeado cruza el umbral")
@@ -105,9 +117,10 @@ def main() -> int:
     try:
         mj = json.loads(MODELS_JSON.read_text())
         rankeados = {m["name"] for m in mj["models"] if m.get("ranked")}
+        declarados = declarados_en_evaluacion(mj)
     except Exception:
         print("⚠️  no se pudo leer models.json — se revisa todo lo que haya en disco")
-        rankeados = set(st)
+        rankeados, declarados = set(st), set()
 
     malos, ok = [], 0
     for m, c in st.items():
@@ -117,6 +130,9 @@ def main() -> int:
         if a.solo_rankeados and m not in rankeados:
             continue
         p = c.get("length", 0) / tot
+        if p >= UMBRAL and m in declarados:
+            print(f"  ℹ️  {m}: {p:.0%} cortado — fuera del ranking «en evaluación», con su motivo en la ficha")
+            continue
         if p >= UMBRAL:
             malos.append((p, m, c.get("length", 0), tot))
         else:

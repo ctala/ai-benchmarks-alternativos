@@ -71,6 +71,8 @@ MOTIVOS = {
     "self_hosted": "corre en hardware propio: su velocidad y costo no comparan con una API",
     "ruta_suscripcion": ("es el mismo modelo por una suscripción personal: el precio y el "
                          "cupo no son los que vas a pagar tú"),
+    "respuestas_cortadas": ("más del 12 % de sus respuestas del examen terminaron cortadas: "
+                            "su nota se construiría sobre respuestas a medias"),
     "sin_dato_agentico": ("no tiene dato agéntico: no rindió las tareas reales de agente, y la "
                           "nota de calidad las incluye desde v6.0.0"),
 }
@@ -166,6 +168,9 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
     # y con el motivo visible («sin dato agéntico»).
     if (m.get("agentico") or {}).get("sin_dato"):
         no("ranking", "sin_dato_agentico")
+    # 10-nov-2026 (Cristian): «en evaluación», fuera del ranking, con su motivo declarado.
+    if m.get("en_evaluacion"):
+        no("ranking", m["en_evaluacion"].get("motivo") or "en_evaluacion")
 
     # ── Agéntico: exige EVIDENCIA, no capacidad declarada ──────────────────
     #

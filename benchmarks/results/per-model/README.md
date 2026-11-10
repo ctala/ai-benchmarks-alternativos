@@ -7,15 +7,15 @@ Cada archivo contiene los 91 tests del modelo con scores, preview de respuesta y
 | # | Modelo | Final | Calidad | tok/s | OK/Total | Ver |
 |---|--------|-------|---------|-------|----------|-----|
 | 1 | [DeepSeek V4 Flash](deepseek_deepseek-v4-flash.md) | 8.61 | 9.16 | 67 | 3/3 | [ver detalles](deepseek_deepseek-v4-flash.md) |
-| 2 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 8.42 | 8.72 | 163 | 544/548 | [ver detalles](anthropic_claude-haiku-5_5.md) |
-| 3 | [Ling 3.0 Flash VL](inclusionai_ling-3_0-flash-vl.md) | 8.33 | 8.50 | 133 | 327/327 | [ver detalles](inclusionai_ling-3_0-flash-vl.md) |
-| 4 | [Ling 3.0 Flash](inclusionai_ling-3_0-flash.md) | 8.32 | 8.64 | 132 | 547/547 | [ver detalles](inclusionai_ling-3_0-flash.md) |
-| 5 | [Gemini 3.1 Flash Lite (GA)](google_gemini-3_1-flash-lite.md) | 8.20 | 8.51 | 119 | 316/316 | [ver detalles](google_gemini-3_1-flash-lite.md) |
-| 6 | [GPT-6 Luna](openai_gpt-6-luna.md) | 8.19 | 8.68 | 80 | 381/381 | [ver detalles](openai_gpt-6-luna.md) |
-| 7 | [GPT-5.6 Luna](openai_gpt-5_6-luna.md) | 8.18 | 8.97 | 70 | 288/339 | [ver detalles](openai_gpt-5_6-luna.md) |
-| 8 | [Nex-N2-Mini](nex-agi_nex-n2-mini.md) | 8.16 | 8.33 | 130 | 212/212 | [ver detalles](nex-agi_nex-n2-mini.md) |
-| 9 | [Mercury 2.5](inception_mercury-2_5.md) | 8.14 | 8.10 | 410 | 341/342 | [ver detalles](inception_mercury-2_5.md) |
-| 10 | [Muse Ember](meta_muse-ember.md) | 8.08 | 8.53 | 478 | 188/188 | [ver detalles](meta_muse-ember.md) |
+| 2 | [Muse Ember](meta_muse-ember.md) | 8.57 | 9.11 | 520 | 316/316 | [ver detalles](meta_muse-ember.md) |
+| 3 | [Claude Haiku 5.5](anthropic_claude-haiku-5_5.md) | 8.42 | 8.72 | 163 | 544/548 | [ver detalles](anthropic_claude-haiku-5_5.md) |
+| 4 | [Ling 3.0 Flash VL](inclusionai_ling-3_0-flash-vl.md) | 8.33 | 8.50 | 133 | 327/327 | [ver detalles](inclusionai_ling-3_0-flash-vl.md) |
+| 5 | [Ling 3.0 Flash](inclusionai_ling-3_0-flash.md) | 8.32 | 8.64 | 132 | 547/547 | [ver detalles](inclusionai_ling-3_0-flash.md) |
+| 6 | [Gemini 3.1 Flash Lite (GA)](google_gemini-3_1-flash-lite.md) | 8.20 | 8.51 | 119 | 316/316 | [ver detalles](google_gemini-3_1-flash-lite.md) |
+| 7 | [GPT-6 Luna](openai_gpt-6-luna.md) | 8.19 | 8.68 | 80 | 381/381 | [ver detalles](openai_gpt-6-luna.md) |
+| 8 | [GPT-5.6 Luna](openai_gpt-5_6-luna.md) | 8.18 | 8.97 | 70 | 288/339 | [ver detalles](openai_gpt-5_6-luna.md) |
+| 9 | [Nex-N2-Mini](nex-agi_nex-n2-mini.md) | 8.16 | 8.33 | 130 | 212/212 | [ver detalles](nex-agi_nex-n2-mini.md) |
+| 10 | [Mercury 2.5](inception_mercury-2_5.md) | 8.14 | 8.10 | 410 | 341/342 | [ver detalles](inception_mercury-2_5.md) |
 | 11 | [Mercury 3](inception_mercury-3.md) | 8.07 | 8.03 | 392 | 143/143 | [ver detalles](inception_mercury-3.md) |
 | 12 | [Devstral Small](mistralai_devstral-small.md) | 8.06 | 7.96 | 147 | 42/126 | [ver detalles](mistralai_devstral-small.md) |
 | 13 | [Gemma 4 31B](google_gemma-4-31b-it.md) | 8.05 | 8.51 | 49 | 549/590 | [ver detalles](google_gemma-4-31b-it.md) |

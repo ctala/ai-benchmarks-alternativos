@@ -20,6 +20,8 @@ comparables, dos de checksums distintos NO), agente, harness y costo.
 
 NO guarda las trayectorias: son el equivalente de los haystacks de `niah` — enormes,
 regenerables pagando, y sin valor comparativo. Quedan en `jobs/` mientras exista.
+Desde el 10-nov-2026 se publican fuera de git, adjuntas al release de cada versión y
+redactadas: `empaquetar_trayectorias.py` (DECISIONES, 10-nov-2026).
 
 LA CAUSA DEL CERO NO SE ESCRIBE A MANO
 --------------------------------------

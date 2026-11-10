@@ -244,12 +244,13 @@
 <main class="container">
   <section class="hero ficha-hero">
     <h1>LFM-3 1.7B: para qué sirve de verdad (benchmark en español)</h1>
-    <p class="lead">Lo mejor que tiene es <strong>Coding</strong>, y aun así queda abajo (#74 de 75 entre los que rinden el examen completo), y donde menos rinde es <strong>Razonamiento</strong> (6.95 contra 8.75). Está en el tercio más barato del ranking: $0.324 por cada 1.000 llamadas.</p>
+    <p class="meta fechada no-rankea">No está rankeado: el 19 % de sus respuestas del examen (36 de 188) terminó cortada, y la causa es el modelo: en 29 de las 36 escribe su razonamiento en inglés dentro de la respuesta y da vueltas (cuenta palabras, recalcula y reescribe) hasta agotar los 8.192 tokens de salida de Liquid, su único proveedor; en las otras 7 gasta casi todo ese techo razonando antes de responder. Ninguna de sus 132 respuestas de texto completas tiene ese patrón. Sus números son de referencia y no compiten con el ranking v5.</p>
+    <p class="lead">LFM-3 1.7B no está en el ranking: abajo están sus mediciones y las alternativas que sí rindieron el examen v5.</p>
   </section>
   <section class="ficha-bloque" aria-label="Ficha de LFM-3 1.7B">
   <div class="kpi-strip">
-    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">6.87<span class="k-unit">/10</span></span><span class="k-sub">#71 de 75 · del mejor al peor hay 3.7 puntos · examen 7.99, tareas de agente 3.52</span></div>
-    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$0.324</span><span class="k-sub">más barato que 66 de 75</span></div>
+    <div class="kpi "><span class="k-label">Nota de calidad</span><span class="k-value">6.87<span class="k-unit">/10</span></span><span class="k-sub">70 por encima · del mejor al peor hay 3.7 puntos · examen 7.99, tareas de agente 3.52</span></div>
+    <div class="kpi is-cyan"><span class="k-label">Por 1.000 llamadas</span><span class="k-value">$0.324</span><span class="k-sub">más barato que 65 de 74</span></div>
     <div class="kpi is-cyan"><span class="k-label">Al mes, uso típico</span><span class="k-value">$0.486</span><span class="k-sub">50 llamadas por día, todos los días</span></div>
     <div class="kpi is-cyan"><span class="k-label">Velocidad</span><span class="k-value">313<span class="k-unit"> tok/s</span></span><span class="k-sub">12.7 s de espera media</span></div>
   </div>
@@ -268,18 +269,18 @@
     es una mala nota, es estar en el promedio de un grupo muy parejo.</p>
     <div class="bar-row">
       <span class="b-label">Coding</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:21.6%"></span><span class="bar-median" style="left:77.1%"></span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:21.6%"></span><span class="bar-median" style="left:77.6%"></span></span>
       <span class="b-val bajo">8.75 <span class="delta">(-0.80 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Contenido</span>
-      <span class="bar-track"><span class="bar-fill bajo" style="width:37.7%"></span><span class="bar-median" style="left:75.4%"></span></span>
+      <span class="bar-track"><span class="bar-fill bajo" style="width:37.7%"></span><span class="bar-median" style="left:75.7%"></span></span>
       <span class="b-val bajo">8.07 <span class="delta">(-0.59 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Razonamiento</span>
       <span class="bar-track"><span class="bar-fill bajo" style="width:52.0%"></span><span class="bar-median" style="left:84.5%"></span></span>
-      <span class="b-val bajo">6.95 <span class="delta">(-1.12 vs mediana)</span></span>
+      <span class="b-val bajo">6.95 <span class="delta">(-1.13 vs mediana)</span></span>
     </div>
     <div class="bar-row">
       <span class="b-label">Agentes</span>
@@ -337,7 +338,7 @@
         <tr><th scope="row">Runs que puntúan</th><td>137</td></tr>
         <tr><th scope="row">Tool calling</th><td>7.16</td></tr>
         <tr><th scope="row">¿Maneja credenciales?</th><td>sí (0 de 6)</td></tr>
-        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">2.20</span></td></tr>
+        <tr><th scope="row">Resistencia a prompt injection</th><td><span class="riesgo">2.20</span> <span class="meta">(medido 2026-11-09)</span></td></tr>
         <tr class="grupo"><th scope="col" colspan="2">Precio</th></tr>
         <tr><th scope="row">Precio por millón · entrada</th><td>$0.080</td></tr>
         <tr><th scope="row">Precio por millón · salida</th><td>$0.200</td></tr>
@@ -433,12 +434,11 @@
   </section>
   <section class="cta-block">
     <h2>¿Es el mejor para TU caso?</h2>
-    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos sabes si
-    LFM-3 1.7B es tu opción o hay algo mejor para lo que haces.</p>
+    <p>Filtra por presupuesto, calidad mínima y tipo de tarea. En 30 segundos ves qué modelo del ranking v5 cubre lo que haces.</p>
     <a href="/" class="cta-primary">Ir a la calculadora →</a>
   </section>
 <script type="application/json" id="contrato-pagina">
-{"tipo": "ficha", "generador": "generate_model_cards", "recomienda": ["LFM-3 1.7B", "Ling 3.0 Flash", "Gemini 3.1 Flash Lite (GA)"], "nota": "ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante"}
+{"tipo": "ficha", "generador": "generate_model_cards", "recomienda": ["Ling 3.0 Flash", "Gemini 3.1 Flash Lite (GA)"], "nota": "ficha de un modelo que no rankea: sus números, sin puesto"}
 </script>
 </main>
 <footer>
