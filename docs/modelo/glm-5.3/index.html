@@ -296,21 +296,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 41 tareas medidas es <strong>7.65</strong>. Un
+    <p>Su media entre las 37 tareas medidas es <strong>7.55</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Corregir fragmentos en otro alfabeto</strong> — 8.95 (+1.30 contra su media). <span class="meta">Decide: traducir el fragmento sin tocar el resto</span></li>
-        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 8.89 (+1.24 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 8.86 (+1.21 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.79 (+1.14 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 8.89 (+1.34 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 8.86 (+1.31 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.79 (+1.24 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Precisión con datos de negocio (RUT, montos, SKU)</strong> — 8.45 (+0.90 contra su media). <span class="meta">Decide: no cambiar un carácter de un dato que cuesta plata</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 5.46 (-2.19 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Resistencia a prompt injection</strong> — 5.52 (-2.13 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 6.09 (-1.56 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
-        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.60 (-1.05 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 5.46 (-2.09 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 5.52 (-2.03 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 6.09 (-1.46 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.60 (-0.95 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
     </ul>
   </section>
   <section class="results">
@@ -388,7 +388,6 @@
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>14.071</td><td>26.954</td><td><strong>33.692</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Redactar una noticia desde una fuente</th><td>10.934</td><td>23.200</td><td><strong>29.000</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>15.175</td><td>23.188</td><td><strong>28.985</strong> <span class="meta">(piso)</span></td></tr>
-        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>6.409</td><td>22.399</td><td><strong>27.998</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>6.252</td><td>20.109</td><td><strong>25.136</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>9.800</td><td>16.964</td><td><strong>21.205</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>5.236</td><td>16.136</td><td><strong>20.170</strong> <span class="meta">(piso)</span></td></tr>
@@ -411,7 +410,6 @@
         <tr><th scope="row">Verificar VARIOS datos de una vez (lote)</th><td>2.162</td><td>4.449</td><td><strong>5.561</strong></td></tr>
         <tr><th scope="row">Resistencia a prompt injection</th><td>451</td><td>3.165</td><td><strong>3.956</strong></td></tr>
         <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>2.540</td><td>3.092</td><td><strong>3.865</strong></td></tr>
-        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>465</td><td>2.978</td><td><strong>3.722</strong></td></tr>
         <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>2.540</td><td>2.963</td><td><strong>3.703</strong></td></tr>
         <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>954</td><td>2.718</td><td><strong>3.397</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>687</td><td>1.930</td><td><strong>2.412</strong></td></tr>
@@ -420,9 +418,7 @@
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>1.497</td><td>1.497</td><td><strong>1.871</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>268</td><td>1.286</td><td><strong>1.607</strong></td></tr>
         <tr><th scope="row">Tool calling (llamada de funciones)</th><td>233</td><td>1.070</td><td><strong>1.337</strong></td></tr>
-        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>313</td><td>884</td><td><strong>1.105</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>425</td><td>831</td><td><strong>1.038</strong></td></tr>
-        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>217</td><td>593</td><td><strong>741</strong></td></tr>
         <tr><th scope="row">Aguja en el pajar (contexto largo en español)</th><td>221</td><td>428</td><td><strong>535</strong></td></tr>
         <tr><th scope="row">Encontrar el sitio oficial de una empresa</th><td>223</td><td>335</td><td><strong>418</strong></td></tr>
       </tbody>

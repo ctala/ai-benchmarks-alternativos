@@ -1,13 +1,13 @@
 # Ling 3.0 Flash VL
 
 - **model_id**: `inclusionai/ling-3.0-flash-vl`
-- **Total tests**: 199/199 exitosos (0 errores)
-- **Score final**: 7.61
-- **Calidad**: 7.63
+- **Total tests**: 327/327 exitosos (0 errores)
+- **Score final**: 8.33
+- **Calidad**: 8.50
 - **Judge score (Phi-4)**: 4.00/10
-- **Velocidad**: 105 tok/s
-- **Latencia primera token**: 12.47s
-- **Costo promedio por test**: $0.00043
+- **Velocidad**: 133 tok/s
+- **Latencia primera token**: 9.19s
+- **Costo promedio por test**: $0.00029
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,10 @@
 | multi_turn | 4 | 4 | 7.61 | 7.50 |
 | news_seo_writing | 5 | 5 | 7.38 | 7.25 |
 | niah_es | 15 | 15 | 6.74 | 7.67 |
+| noticias_extraccion | 25 | 25 | 8.91 | 9.33 |
+| noticias_relevancia | 58 | 58 | 9.61 | 10.00 |
+| noticias_traduccion | 15 | 15 | 9.45 | 9.85 |
+| noticias_verificacion | 30 | 30 | 9.53 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.78 | 9.35 |
 | orchestration | 5 | 5 | 5.50 | 4.38 |
 | policy_adherence | 4 | 4 | 8.10 | 8.17 |
@@ -2176,3 +2180,11 @@ Investigación → Copy → Wireframes → Diseño → Desarrollo → Testing �
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_extraccion
+
+#### noticias_verificacion

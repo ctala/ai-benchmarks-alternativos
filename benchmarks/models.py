@@ -759,14 +759,17 @@ MODELS = {
         "name": "Ling 3.0 Flash VL",
         # 6-nov-2026: pesos públicos del mismo modelo en inclusionAI/Ling-3.0-flash-VL.
         "open_source": True, "license": "MIT",
-        "cost_input": 0.021,
-        "cost_output": 0.062,
+        # 9-nov-2026: $0,021/$0,062 era el precio de Novita, que dejó de servirlo. Hoy el
+        # único endpoint es DeepInfra fp16 a $0,06/$0,18, y ese es el precio general de
+        # OpenRouter (DECISIONES, 9-nov-2026).
+        "cost_input": 0.06,
+        "cost_output": 0.18,
         "tier": "ultra_cheap",
         "context_window": 262144,
         "multimodal": True,
         "notes": (
             "MoE 124B totales / 5.5B activos sobre Ling 3.0 Flash, con visión y vídeo. "
-            "EL MÁS BARATO del catálogo con vídeo: $0.021/$0.062 por millón. Su hermano "
+            "$0.06/$0.18 por millón, solo en DeepInfra. Su hermano "
             "sin visión ya aparece recomendado para outreach; esto mide si la variante VL "
             "mantiene la calidad de texto. Cubierto por el patrón `ling-3.0`."
         ),

@@ -295,21 +295,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 37 tareas medidas es <strong>7.85</strong>. Un
+    <p>Su media entre las 33 tareas medidas es <strong>7.72</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.43 (+1.58 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.37 (+1.52 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>Verificar afirmaciones contra fuente</strong> — 9.27 (+1.42 contra su media). <span class="meta">Decide: encontrar qué requiere fuente antes de publicar</span></li>
-        <li><strong>Contenido genérico (blog, email, social)</strong> — 9.07 (+1.22 contra su media). <span class="meta">Decide: escribir un texto correcto</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.43 (+1.71 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.37 (+1.65 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>Contenido genérico (blog, email, social)</strong> — 9.07 (+1.35 contra su media). <span class="meta">Decide: escribir un texto correcto</span></li>
+        <li><strong>Verificar un dato contra su fuente</strong> — 9.01 (+1.29 contra su media). <span class="meta">Decide: decidir si una fuente respalda una afirmación</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 2.52 (-5.33 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Contenido con datos verificables (no inventar)</strong> — 5.92 (-1.93 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
-        <li><strong>Orquestación (flujos de varios pasos)</strong> — 6.15 (-1.70 contra su media). <span class="meta">Decide: coordinar un flujo de varios pasos</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.59 (-1.26 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 2.52 (-5.20 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Contenido con datos verificables (no inventar)</strong> — 5.92 (-1.80 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
+        <li><strong>Orquestación (flujos de varios pasos)</strong> — 6.15 (-1.57 contra su media). <span class="meta">Decide: coordinar un flujo de varios pasos</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.59 (-1.13 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
     </ul>
   </section>
   <section class="results">
@@ -399,7 +399,6 @@
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>1.247</td><td>1.561</td><td><strong>1.951</strong></td></tr>
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>786</td><td>1.470</td><td><strong>1.837</strong></td></tr>
         <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>223</td><td>1.343</td><td><strong>1.678</strong></td></tr>
-        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>642</td><td>1.203</td><td><strong>1.503</strong></td></tr>
         <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>103</td><td>1.001</td><td><strong>1.251</strong></td></tr>
         <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>817</td><td>930</td><td><strong>1.162</strong></td></tr>
         <tr><th scope="row">OCR / extracción desde imágenes</th><td>439</td><td>866</td><td><strong>1.082</strong></td></tr>
@@ -407,18 +406,15 @@
         <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>296</td><td>725</td><td><strong>906</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>387</td><td>645</td><td><strong>806</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>49</td><td>494</td><td><strong>617</strong></td></tr>
-        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>85</td><td>408</td><td><strong>510</strong></td></tr>
         <tr><th scope="row">Traducción (es↔en)</th><td>128</td><td>374</td><td><strong>467</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>80</td><td>373</td><td><strong>466</strong></td></tr>
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>350</td><td>350</td><td><strong>437</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>55</td><td>205</td><td><strong>256</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>106</td><td>187</td><td><strong>233</strong></td></tr>
-        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>158</td><td>183</td><td><strong>228</strong></td></tr>
         <tr><th scope="row">Tool calling (llamada de funciones)</th><td>106</td><td>136</td><td><strong>170</strong></td></tr>
         <tr><th scope="row">Precisión con datos de negocio (RUT. montos. SKU)</th><td>81</td><td>120</td><td><strong>150</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>62</td><td>76</td><td><strong>95</strong></td></tr>
         <tr><th scope="row">Resistencia a prompt injection</th><td>18</td><td>37</td><td><strong>46</strong></td></tr>
-        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>22</td><td>33</td><td><strong>41</strong></td></tr>
       </tbody>
     </table></div>
     <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>

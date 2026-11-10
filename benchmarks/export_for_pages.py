@@ -411,6 +411,9 @@ def load_all_results():
     # Un run medido con un nombre que después cambió se asigna al nombre vigente
     # (`nombres_anteriores` en models.py, 6-nov-2026): el histórico no se reescribe.
     renombre = _renombres()
+    # Las suites de regresión de Eco no se publican: sus runs son la evidencia de una
+    # recomendación, no una nota del modelo (DECISIONES, 9-nov-2026).
+    regresion = suites_reg.de_regresion()
 
     for fn in sorted(os.listdir(results_dir)):
         if not (fn.startswith("benchmark_") and fn.endswith(".json")):
@@ -422,6 +425,8 @@ def load_all_results():
         results = data if isinstance(data, list) else data.get("results", [])
         for r in results:
             if not r.get("success"):
+                continue
+            if r.get("suite") in regresion:
                 continue
             # Un run con effort PEDIDO es de un experimento: rindió otro examen. El índice
             # es el default de cada modelo (DECISIONES, 14-sep-2026), así que no se promedia

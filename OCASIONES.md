@@ -77,7 +77,7 @@ Resumir una reunión y sacar los pendientes, auditar un P&L, extraer y verificar
 - **Verificable hoy:** `business_audit`, `business_strategy`, `deep_reasoning` (σ 0,89), `hallucination` (0,84), `extraer_claims`, `verificar_claim`, `ocr_extraction`, `strategy` (1,05).
 - **Convertir:** `summarization` (hoy juez, correlación −0,20 con su propia rúbrica) con checks de datos obligatorios, pendientes con responsable y fecha, y cifra que no puede cambiar; `task_management` y `reasoning` igual.
 - **Crear:** `contract_review` (pendiente desde julio) con cláusulas plantadas de verdad objetiva.
-- **Gate de noticias de Eco:** la verificación de claims entra en «Etapas donde sirve el más barato» (casi todos aciertan sus 30 casos; ninguno dejó pasar un dato falso) y queda como regresión. La extracción de claims sí separa modelos y se mide.
+- **Gate de noticias de Eco:** la verificación de claims, la extracción de claims y la traducción de fragmentos entran en «Etapas donde sirve el más barato» y quedan como regresión: en sus casos casi todos aciertan.
 - **Restricciones que mandan:** contexto largo real (`niah_es` como filtro cuando el documento es grande), honestidad ante dato ausente, precio por documento.
 
 ### 6. Programar mi producto
@@ -138,15 +138,28 @@ en esa etapa se agrega como caso nuevo.** Fila en `DECISIONES.md`.
 |---|---|---|---|---|
 | Filtro de relevancia (`noticias_relevancia`) | 58 | 7 de 8 sacan 58/58; Qwen 3-Next 80B falla 5 (las fallas de Gemma 4 31B eran errores 429) | No: las 5 son falsos «no pasa» | Sirve el más barato disponible |
 | Verificación de claims (`noticias_verificacion`) | 30 | 98 % de runs perfectos, rango 9,82-10,00 | No: 0 de 240 decisiones del gate distintas; ningún falso RESPALDADO | Sirve el más barato disponible |
+| Extracción de claims (`noticias_extraccion`) | 25 (258 afirmaciones) | sd 0,26, rango 9,16-9,87; cada modelo omite 0 a 8 y casi siempre distintas | Condición: no omitir más que Flash Lite GA, ninguna cifra, ninguna del último párrafo | Sirve el más barato disponible |
+| Traducción de fragmentos (`noticias_traduccion`) | 15 | 94 % de runs perfectos, sd 0,15 | Condición: ninguna cifra ni unidad alterada (solo Qwen 3-Next 80B dejó «100亿 원») | Sirve el más barato disponible |
 
 **La conclusión se vuelve decisión para Eco** así: entre los modelos vigentes de `models.py`
 (rankeados o no: el ranking exige Harbor, que no tiene que ver con filtrar o verificar), del más
-barato hacia arriba, el primero que pasa la regresión de los 88 casos sin dejar pasar ninguno y
-después los 6 pings. Gemini 3.1 Flash Lite GA, la línea base de Eco, corre siempre la regresión.
+barato hacia arriba, el primero que pasa la regresión (los 88 casos de filtro y verificación sin
+dejar pasar ninguno, más las condiciones de extracción y traducción) y después los 6 pings. Gemini 3.1 Flash Lite GA, la línea base de Eco, corre siempre la regresión.
 
-Las otras etapas del pipeline siguen como ocasiones medidas mientras separen modelos: la
-extracción de claims pasó (20 % de runs perfectos, sd 0,71); redacción y traducción se deciden con
-su `validate_suite`.
+**Recomendación del 9-nov-2026** (es recomendación: el cambio en n8n lo decide Cristian, una
+etapa a la vez; el detalle está en la fila de DECISIONES):
+
+| Modelo | Precio por millón (entrada / salida) | Filtro | Verificación | Extracción (omitidas de 258) | Traducción |
+|---|---|---|---|---|---|
+| Gemini 3.1 Flash Lite GA (Eco hoy) | $0,25 / $1,50 | 58/58, 0 vetadas | 30/30, 0 falsos RESPALDADO | 7, 0 cifras, 0 finales | 0 alteradas |
+| **Ling 3.0 Flash** (`deepinfra/bf16`) | $0,06 / $0,18 | 58/58, 0 vetadas | 30/30, 0 falsos RESPALDADO | 4, 0 cifras, 0 finales | 0 alteradas |
+| Ling 3.0 Flash VL | $0,06 / $0,18 | 58/58, 0 vetadas | 30/30, 0 falsos RESPALDADO | 1, 0 cifras, 0 finales | 0 alteradas |
+
+Ling 3.0 Flash es el más barato vigente que pasa las condiciones y cuesta unas 6 veces menos que
+Flash Lite GA. Se recomienda fijado a `deepinfra/bf16`, que es donde se midió: el precio general de
+OpenRouter ($0,021 / $0,063) es Novita, que no está medido.
+
+Redacción sigue como ocasión medida: separa modelos (55 % de runs perfectos, sd 0,85).
 
 ## Lo que falta, resumido por ocasión
 

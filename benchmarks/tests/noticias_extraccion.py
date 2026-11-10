@@ -656,7 +656,12 @@ PLANTADOS["amazon_anthropic"] = [
     P(6, "Anthropic usará los chips Trainium e Inferentia", True, [T("trainium")]),
     P(7, "El anuncio fue en septiembre de 2023", True, [MES(9, 2023)]),
     P(8, "No se reveló el tamaño de la participación", False,
-      [T("no se revel", "no revel", "disclos", "sin revelar", "no divulg", "no se divulg", "no informaron", "no detall")]),
+      [T("no se revel", "no revel", "disclos", "sin revelar", "no divulg", "no se divulg", "no informaron", "no detall")],
+      # 9-nov-2026: «Ni Amazon ni Anthropic revelaron el tamaño…» / «hicieron público el
+      # porcentaje…» no tocaban el grupo de arriba; 8 de 8 modelos lo extraían y se contaba
+      # omitido. Verbo + participación juntos (DECISIONES, regresión de Eco).
+      [T("revelaron", "revelo", "hicieron publico", "dieron a conocer", "divulgaron", "informaron"),
+       T("particip", "stake", "porcentaje")]),
     P(9, "Anthropic fue fundada en 2021 por Dario y Daniela Amodei", False, [T("2021")], [T("amodei")]),
     P(10, "Anthropic dijo que su gobierno corporativo no cambia", False,
       [T("gobierno corporativo", "governance", "gobernanza")]),
@@ -766,7 +771,9 @@ El camino hasta el precio final no fue lineal. La semana anterior, Nubank había
 """}
 PLANTADOS["nubank"] = [
     P(1, "Nubank fijó su OPI en US$9 por acción", True, [N(9), T("accion", "share")]),
-    P(2, "Fue el tope del rango de US$8 a US$9", False, [T("tope", "top", "extremo superior", "parte alta", "maximo")]),
+    # 9-nov-2026: sale «Fue el tope del rango de US$8 a US$9». Es discutible como afirmación
+    # aparte: los modelos dan el precio y el rango por separado sin la palabra «tope», y eso no
+    # es omitir nada. Una verdad discutible no reprueba a un candidato (DECISIONES).
     P(3, "Vendió 289 millones de acciones", True, [N(289e6)]),
     P(4, "Recaudó unos US$2.600 millones", True, [N(2.6e9)]),
     P(5, "Empezó a cotizar el 9 de diciembre de 2021 en la NYSE con el símbolo NU", True,

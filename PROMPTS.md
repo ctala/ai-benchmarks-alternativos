@@ -3970,7 +3970,7 @@ According to Crunchbase data, the new financing brings the total Rappi has raise
 ### extraccion_nubank
 
 - `prompt_sha`: **`7c34bae99271`**
-- Fuente en español de 421 palabras con 11 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Con el rango original aspiraba a recaudar hasta US$3.180 millones».
+- Fuente en español de 421 palabras con 10 afirmaciones plantadas (5 de núcleo). Enterrada al final: «Con el rango original aspiraba a recaudar hasta US$3.180 millones».
 - verificador: `noticias_extraccion`
 
 **System:**

@@ -295,21 +295,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 41 tareas medidas es <strong>8.18</strong>. Un
+    <p>Su media entre las 37 tareas medidas es <strong>8.07</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Filtrar notas por criterio editorial</strong> — 9.33 (+1.15 contra su media). <span class="meta">Decide: distinguir si una nota es para tu medio</span></li>
-        <li><strong>Verificar afirmaciones contra fuente</strong> — 9.32 (+1.14 contra su media). <span class="meta">Decide: encontrar qué requiere fuente antes de publicar</span></li>
-        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.28 (+1.10 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.25 (+1.07 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.28 (+1.21 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.25 (+1.18 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.25 (+1.18 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>Verificar VARIOS datos de una vez (lote)</strong> — 9.09 (+1.02 contra su media). <span class="meta">Decide: devolver un juicio por cada dato, no solo por los primeros</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 6.31 (-1.87 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Capacidades de agente (delegación, skills)</strong> — 6.33 (-1.85 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.66 (-1.52 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
-        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 6.66 (-1.52 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 6.31 (-1.76 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Capacidades de agente (delegación, skills)</strong> — 6.33 (-1.74 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.66 (-1.41 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 6.66 (-1.41 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
     </ul>
   </section>
   <section class="results">
@@ -399,7 +399,6 @@
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>2.216</td><td>2.465</td><td><strong>3.081</strong></td></tr>
         <tr><th scope="row">Verificar VARIOS datos de una vez (lote)</th><td>1.424</td><td>2.403</td><td><strong>3.003</strong></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>1.456</td><td>2.392</td><td><strong>2.990</strong></td></tr>
-        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>1.752</td><td>2.319</td><td><strong>2.898</strong></td></tr>
         <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>707</td><td>1.976</td><td><strong>2.470</strong></td></tr>
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>1.309</td><td>1.742</td><td><strong>2.177</strong></td></tr>
         <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>999</td><td>1.708</td><td><strong>2.135</strong></td></tr>
@@ -416,12 +415,9 @@
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>701</td><td>701</td><td><strong>876</strong></td></tr>
         <tr><th scope="row">Resistencia a prompt injection</th><td>439</td><td>645</td><td><strong>806</strong></td></tr>
         <tr><th scope="row">Extraer los datos verificables de un texto</th><td>412</td><td>612</td><td><strong>765</strong></td></tr>
-        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>374</td><td>601</td><td><strong>751</strong></td></tr>
         <tr><th scope="row">Encontrar el sitio oficial de una empresa</th><td>128</td><td>591</td><td><strong>738</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>445</td><td>532</td><td><strong>665</strong></td></tr>
-        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>163</td><td>434</td><td><strong>542</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>352</td><td>416</td><td><strong>520</strong></td></tr>
-        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>252</td><td>385</td><td><strong>481</strong></td></tr>
         <tr><th scope="row">Tool calling (llamada de funciones)</th><td>315</td><td>322</td><td><strong>402</strong></td></tr>
         <tr><th scope="row">Aguja en el pajar (contexto largo en español)</th><td>154</td><td>317</td><td><strong>396</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>62</td><td>284</td><td><strong>355</strong></td></tr>

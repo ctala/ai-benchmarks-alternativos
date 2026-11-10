@@ -1473,6 +1473,8 @@ def test_ningun_modelo_del_catalogo_quedo_sin_sus_runs(datos):
     """
     import glob as _g
     from collections import Counter
+    from benchmarks.suites import de_regresion
+    regresion = de_regresion()   # 9-nov-2026: el export no las publica, a propósito
     en_disco = Counter()
     for f in _g.glob(str(ROOT / "benchmarks" / "results" / "benchmark_*.json")):
         try:
@@ -1480,7 +1482,8 @@ def test_ningun_modelo_del_catalogo_quedo_sin_sus_runs(datos):
         except Exception:
             continue
         for r in (d if isinstance(d, list) else d.get("results", [])):
-            if isinstance(r, dict) and r.get("model") and r.get("success"):
+            if (isinstance(r, dict) and r.get("model") and r.get("success")
+                    and r.get("suite") not in regresion):
                 en_disco[r["model"]] += 1
 
     # Huérfanos DECLARADOS: la condición se conoce y la decisión no es mía.
@@ -3048,3 +3051,20 @@ def test_validate_suite_no_cuenta_los_errores_como_respuestas():
           {"suite": "otra", "success": True, "quality": 5.0}]
     v, e = runs_validos(rs, "s")
     assert [r["quality"] for r in v] == [10.0] and e == 1
+
+
+def test_export_no_publica_las_suites_de_regresion(tmp_path, monkeypatch):
+    # 9-nov-2026: filtro, verificación, extracción y traducción de noticias salieron del
+    # benchmark y quedan como regresión de Eco. Sus runs se guardan, pero no se publican.
+    from benchmarks import export_for_pages as E, suites as S
+    assert {"noticias_relevancia", "noticias_verificacion",
+            "noticias_extraccion", "noticias_traduccion"} <= S.de_regresion()
+    assert "noticias_redaccion" not in S.de_regresion()          # sigue medida
+    (tmp_path / "results").mkdir()
+    base = {"success": True, "test_name": "t", "timestamp": "2026-11-09T00:00:00",
+            "model_id": "x/m", "model": "M"}
+    runs = [{**base, "suite": "noticias_verificacion"}, {**base, "suite": "noticias_redaccion"}]
+    (tmp_path / "results" / "benchmark_regresion_eco_m.json").write_text(json.dumps({"results": runs}))
+    monkeypatch.setattr(E, "__file__", str(tmp_path / "export_for_pages.py"))
+    _, por_nombre = E.load_all_results()
+    assert [r["suite"] for r in por_nombre[("x/m", "M")]] == ["noticias_redaccion"]

@@ -476,7 +476,7 @@ No se re-mide por: refactors del runner, mejoras cosméticas, regeneración de M
 | `sakana/sakana-namazu` | ❌  | $0.95/4.0 | **—** |  | 1584 | [per-model](benchmarks/results/per-model/sakana_sakana-namazu.md) | [responses](benchmarks/results/responses/sakana-namazu/) |
 | `prism-ml/ternary-bonsai-2-27b` | ❌  | $0.075/0.5 | **—** |  | 93 | [per-model](benchmarks/results/per-model/prism-ml_ternary-bonsai-2-27b.md) | [responses](benchmarks/results/responses/bonsai-2-27b/) |
 | `qwen/qwen3.8-omni-flash` | ❌  | $0.15/0.47 | **—** |  | 104 | [per-model](benchmarks/results/per-model/qwen_qwen3_8-omni-flash.md) | [responses](benchmarks/results/responses/qwen3.8-omni-flash/) |
-| `inclusionai/ling-3.0-flash-vl` | ✅ MIT | $0.021/0.062 | **—** |  | 137 | [per-model](benchmarks/results/per-model/inclusionai_ling-3_0-flash-vl.md) | [responses](benchmarks/results/responses/ling-3.0-flash-vl/) |
+| `inclusionai/ling-3.0-flash-vl` | ✅ MIT | $0.06/0.18 | **—** |  | 137 | [per-model](benchmarks/results/per-model/inclusionai_ling-3_0-flash-vl.md) | [responses](benchmarks/results/responses/ling-3.0-flash-vl/) |
 | `openai/gpt-5.6-luna-pro` | ❌  | $0.2/1.2 | **—** |  | 252 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-luna-pro.md) | [responses](benchmarks/results/responses/gpt-5.6-luna-pro/) |
 | `openai/gpt-5.6-terra-pro` | ❌  | $2/12 | **—** |  | 263 | [per-model](benchmarks/results/per-model/openai_gpt-5_6-terra-pro.md) | [responses](benchmarks/results/responses/gpt-5.6-terra-pro/) |
 | `openai/gpt-oss-20b` | ✅ Apache 2.0 | $0.029/0.14 | **—** |  | 137 | [per-model](benchmarks/results/per-model/openai_gpt-oss-20b.md) | [responses](benchmarks/results/responses/groq-gpt-oss-20b/) |

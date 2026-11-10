@@ -294,21 +294,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 35 tareas medidas es <strong>7.86</strong>. Un
+    <p>Su media entre las 31 tareas medidas es <strong>7.77</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 8.97 (+1.11 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.96 (+1.10 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Filtrar notas por criterio editorial</strong> — 8.78 (+0.92 contra su media). <span class="meta">Decide: distinguir si una nota es para tu medio</span></li>
-        <li><strong>OCR / extracción desde imágenes</strong> — 8.72 (+0.86 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 8.97 (+1.20 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.96 (+1.19 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>OCR / extracción desde imágenes</strong> — 8.72 (+0.95 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
+        <li><strong>Precisión con datos de negocio (RUT, montos, SKU)</strong> — 8.60 (+0.83 contra su media). <span class="meta">Decide: no cambiar un carácter de un dato que cuesta plata</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.91 (-1.95 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
-        <li><strong>Capacidades de agente (delegación, skills)</strong> — 6.00 (-1.86 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
-        <li><strong>Anti-alucinación (citas, contexto)</strong> — 6.33 (-1.53 contra su media). <span class="meta">Decide: no inventar cuando no sabe</span></li>
-        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.73 (-1.13 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>Razonamiento profundo (matemática, Fermi)</strong> — 5.91 (-1.86 contra su media). <span class="meta">Decide: resolver un problema difícil sin atajos</span></li>
+        <li><strong>Capacidades de agente (delegación, skills)</strong> — 6.00 (-1.77 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
+        <li><strong>Anti-alucinación (citas, contexto)</strong> — 6.33 (-1.44 contra su media). <span class="meta">Decide: no inventar cuando no sabe</span></li>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.73 (-1.04 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
     </ul>
   </section>
   <section class="results">
@@ -383,23 +383,19 @@
       <tbody>
         <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>25.402</td><td>71.311</td><td><strong>89.138</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Redactar una noticia desde una fuente</th><td>8.377</td><td>32.768</td><td><strong>40.960</strong> <span class="meta">(piso)</span></td></tr>
-        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>20.042</td><td>32.756</td><td><strong>40.945</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>6.937</td><td>20.001</td><td><strong>25.001</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>3.950</td><td>15.229</td><td><strong>19.036</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Estrategia (pricing. planificación)</th><td>5.704</td><td>12.779</td><td><strong>15.973</strong> <span class="meta">(piso)</span></td></tr>
-        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>2.221</td><td>11.380</td><td><strong>14.225</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>3.609</td><td>7.738</td><td><strong>9.672</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>1.030</td><td>6.981</td><td><strong>8.726</strong></td></tr>
         <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>4.073</td><td>6.812</td><td><strong>8.515</strong></td></tr>
         <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>3.469</td><td>6.791</td><td><strong>8.488</strong></td></tr>
-        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>1.747</td><td>6.422</td><td><strong>8.027</strong></td></tr>
         <tr><th scope="row">Precisión con datos de negocio (RUT. montos. SKU)</th><td>1.665</td><td>5.568</td><td><strong>6.960</strong></td></tr>
         <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>4.916</td><td>5.293</td><td><strong>6.616</strong></td></tr>
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>4.939</td><td>5.018</td><td><strong>6.272</strong></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>2.335</td><td>4.738</td><td><strong>5.922</strong></td></tr>
         <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>4.133</td><td>4.709</td><td><strong>5.886</strong></td></tr>
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>3.186</td><td>4.224</td><td><strong>5.280</strong></td></tr>
-        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>1.046</td><td>4.060</td><td><strong>5.075</strong></td></tr>
         <tr><th scope="row">Capacidades de agente (delegación. skills)</th><td>3.668</td><td>3.888</td><td><strong>4.860</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>2.106</td><td>3.714</td><td><strong>4.642</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>582</td><td>3.314</td><td><strong>4.142</strong></td></tr>

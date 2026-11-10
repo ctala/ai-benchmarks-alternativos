@@ -466,14 +466,19 @@ SUITES = {
     },
     "noticias_extraccion": {
         "pilar": "Contenido", "en_promedio": False,
-        "fuera_por": "ocasion",
+        # "regresion" (9-nov-2026): sale del benchmark; ver noticias_relevancia.
+        "fuera_por": "regresion",
         "menu": "Extraer las afirmaciones verificables de una noticia",
         "decide": "sacar todos los datos, también el del último párrafo",
         "nota": "NUEVA el 9-nov-2026 (ventana v6.1). Etapa de extracción del pipeline de "
                 "noticias, como OCASIÓN (no promedia). 25 fuentes reescritas desde hechos "
                 "públicos (13 en inglés, 12 en español) con 259 afirmaciones plantadas, una "
                 "siempre en el párrafo final. Sin juez: 8,5 × recall + 1,5 × acierto de núcleo "
-                "× recall − 1 por afirmación con una cifra que no está en la fuente (tope 3).",
+                "× recall − 1 por afirmación con una cifra que no está en la fuente (tope 3). "
+                "SALE DEL BENCHMARK el 9-nov-2026: sd 0,26 y rango 9,16-9,87; cada modelo "
+                "omite 0 a 8 afirmaciones y casi siempre distintas. Queda como prueba de "
+                "regresión de la extracción de Eco (258 afirmaciones: se corrigieron las anclas "
+                "de una verdad discutible y se sacó otra).",
     },
     "noticias_verificacion": {
         "pilar": "Agentes", "en_promedio": False,
@@ -506,14 +511,17 @@ SUITES = {
     },
     "noticias_traduccion": {
         "pilar": "Contenido", "en_promedio": False,
-        "fuera_por": "ocasion",
+        # "regresion" (9-nov-2026): sale del benchmark; ver noticias_relevancia.
+        "fuera_por": "regresion",
         "menu": "Corregir fragmentos en otro alfabeto",
         "decide": "traducir el fragmento sin tocar el resto",
         "nota": "NUEVA el 9-nov-2026 (ventana v6.1). Etapa de corrección del pipeline de "
                 "noticias, como OCASIÓN (no promedia). 15 textos en español con 26 fragmentos "
                 "en chino, japonés o coreano (4 con cifra: 10億円 = 1.000 millones de yenes). "
                 "Sin juez: 35 % sin CJK, 30 % el resto intacto, 25 % el término aceptado en su "
-                "lugar, 10 % la cifra bien convertida.",
+                "lugar, 10 % la cifra bien convertida. SALE DEL BENCHMARK el 9-nov-2026: 94 % "
+                "de runs perfectos, sd 0,15. Queda como prueba de regresión de Eco: ninguna "
+                "cifra ni unidad alterada.",
     },
     "noticias_seo_discover": {
         "pilar": "Contenido", "en_promedio": False,
@@ -607,6 +615,15 @@ def del_examen() -> set[str]:
     presentación— y los modelos nuevos se quedarían sin el rasgo.
     """
     return del_indice() | {s for s, v in SUITES.items() if v.get("en_examen")}
+
+
+def de_regresion() -> set[str]:
+    """Las suites que salieron del benchmark y quedan como prueba de regresión de Eco.
+
+    Sus runs se guardan en `results/` (son la evidencia de la decisión), pero el export no
+    los publica: ni `score_by_suite`, ni conteos, ni presupuesto (DECISIONES, 9-nov-2026,
+    «Una etapa donde casi todos aciertan»)."""
+    return {s for s, v in SUITES.items() if v.get("fuera_por") == "regresion"}
 
 
 def fuera_del_indice(suite: str) -> bool:

@@ -1,0 +1,99 @@
+# Gemini 3.1 Flash Lite (GA) — noticias_extraccion/extraccion_betterfly
+
+- model_id: `google/gemini-3.1-flash-lite`
+- success: True  | final: 8.88 | quality: 9.4
+- latency_total: 2.046s | tokens_per_second: 172.5
+- input_tokens: 992 | output_tokens: 353
+
+## Entrada exacta (lo que recibió el modelo)
+
+**system:**
+
+Eres el extractor de afirmaciones de una redacción que publica noticias de startups, inversión y tecnología en español. Recibes una FUENTE (en español o en inglés). Tu trabajo es sacar TODAS las afirmaciones verificables que la fuente hace sobre la noticia, para que un verificador las contraste una por una antes de publicar.
+
+Responde SOLO con JSON válido:
+{"claims": [{"texto": "<una afirmación, en español, autocontenida>", "nucleo": true}]}
+
+QUÉ ES UNA AFIRMACIÓN VERIFICABLE (sí se extrae):
+- cifras, montos, porcentajes, valoraciones, cantidades;
+- fechas de HECHOS relatados (cuándo se cerró, cotizó o aprobó algo);
+- entidades y quién hizo qué: quién lideró, quién participó, quién compró, quién aprobó;
+- atribuciones: si la fuente dice «según la empresa» o «según Reuters», la afirmación conserva la atribución («Según la empresa, …»).
+
+QUÉ NO SE EXTRAE:
+- conocimiento de dominio (cómo funciona una Serie B, qué es un marketplace), opiniones y adjetivos sin dato;
+- la fecha de publicación de la propia nota;
+- nada que la fuente no diga: no conviertas monedas, no sumes, no restes, no calcules.
+
+nucleo=true → el hecho de la noticia misma: qué pasó, quién, cuánto, cuándo, con quién.
+nucleo=false → contexto: rondas anteriores, historia de la empresa, tamaño de mercado, comparaciones, planes y declaraciones accesorias.
+
+Cada afirmación debe nombrar a la entidad de la que habla (nada de «la empresa» sin nombre). Una afirmación por dato. Lee la fuente COMPLETA, hasta el último párrafo: los datos del final cuentan igual que los del principio.
+
+**user:**
+
+FUENTE:
+Betterfly alcanza valoración de US$1.000 millones con una Serie C de US$125 millones
+
+Santiago — Betterfly, la insurtech chilena que combina seguros de vida con una aplicación de hábitos saludables, levantó en febrero de 2022 una ronda Serie C de US$125 millones que la valora en US$1.000 millones.
+
+La ronda fue liderada por Glade Brook Capital Partners. Entraron como nuevos inversionistas Greycroft, Lightrock y Mundi Ventures, y también participaron QED Investors, que había liderado la Serie A de la compañía, y DST Global Partners, que había encabezado la Serie B.
+
+El modelo de Betterfly se vende principalmente a empleadores. Las empresas contratan la plataforma como beneficio para su personal, y cada trabajador acumula una moneda virtual cuando camina, medita o duerme bien. Esa moneda se convierte en cobertura de un seguro de vida que crece con el tiempo o en donaciones a causas sociales. La apuesta es que la prevención reduce el riesgo del asegurado y, con ello, el costo para la aseguradora.
+
+Los seguros fueron durante años una de las industrias menos digitalizadas de la región. La venta depende de corredores, los productos son difíciles de comparar y la penetración de los seguros de vida en América Latina es baja frente a la de los países desarrollados. Las insurtech intentan cambiar eso con distribución digital y productos más simples, aunque la mayoría termina asociándose con aseguradoras tradicionales, que son las que asumen el riesgo.
+
+La compañía fue fundada en 2018 por Eduardo della Maggiora, quien antes había creado otras empresas de tecnología en Chile.
+
+Según la empresa, los fondos permitirán iniciar operaciones en siete nuevos mercados durante 2022, entre ellos México, Colombia y Argentina, y acelerar el desarrollo de su plataforma.
+
+La industria de beneficios corporativos es competitiva. Plataformas de bienestar, gimnasios con convenios y las propias aseguradoras compiten por el mismo presupuesto de recursos humanos, y la retención de clientes depende de que los trabajadores realmente usen la aplicación.
+
+Betterfly se presenta además como una empresa de impacto social, y varios medios la describieron como el primer unicornio social de América Latina, una etiqueta que la propia compañía promueve.
+
+Para las aseguradoras tradicionales, las alianzas con plataformas como esta tienen un atractivo claro: llegan a clientes jóvenes que difícilmente comprarían un seguro de vida por iniciativa propia y obtienen datos sobre sus hábitos. Para la startup, el reto está en que el valor percibido por el trabajador se mantenga en el tiempo, porque la novedad de acumular puntos por caminar se desgasta rápido si la aplicación no ofrece algo más.
+
+Con esta ronda, Betterfly se convierte en el tercer unicornio de Chile, después de Cornershop y NotCo.
+
+
+
+## Respuesta completa
+
+```json
+{
+  "claims": [
+    {
+      "texto": "Betterfly alcanzó una valoración de US$1.000 millones tras cerrar una ronda Serie C de US$125 millones en febrero de 2022.",
+      "nucleo": true
+    },
+    {
+      "texto": "La ronda Serie C de Betterfly fue liderada por Glade Brook Capital Partners.",
+      "nucleo": true
+    },
+    {
+      "texto": "Greycroft, Lightrock y Mundi Ventures participaron como nuevos inversionistas en la Serie C de Betterfly.",
+      "nucleo": true
+    },
+    {
+      "texto": "QED Investors, quien lideró la Serie A de Betterfly, participó en la ronda Serie C.",
+      "nucleo": true
+    },
+    {
+      "texto": "DST Global Partners, quien encabezó la Serie B de Betterfly, participó en la ronda Serie C.",
+      "nucleo": true
+    },
+    {
+      "texto": "Betterfly fue fundada en 2018 por Eduardo della Maggiora.",
+      "nucleo": false
+    },
+    {
+      "texto": "Según Betterfly, los fondos de la ronda permitirán iniciar operaciones en siete nuevos mercados durante 2022, incluyendo México, Colombia y Argentina.",
+      "nucleo": true
+    },
+    {
+      "texto": "Betterfly es considerada el tercer unicornio de Chile, después de Cornershop y NotCo.",
+      "nucleo": true
+    }
+  ]
+}
+```
