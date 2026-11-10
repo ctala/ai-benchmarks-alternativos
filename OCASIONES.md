@@ -175,7 +175,36 @@ eso el cambio sale de tres pasos más:
 La verificación se cambia al final, o no se cambia, salvo que en la sombra Ling no tenga ningún falso
 RESPALDADO.
 
-Redacción sigue como ocasión medida: separa modelos (55 % de runs perfectos, sd 0,85).
+**Costo/calidad, no «el más barato que pase» (10-nov-2026).** Disponibilidad y no dejar pasar nada
+siguen siendo el mínimo. Por encima, cada candidato se compara con su nota por etapa y su costo por
+punto (costo medio por llamada con tokens reales y el precio del proveedor medido, dividido por la
+nota). La diferencia contra Flash Lite GA es pareada caso a caso, con ±2 errores estándar: ≈ es
+empate, ▼ peor, ▲ mejor. **Si empatan, gana el más barato; si el barato rinde peor donde hay
+varianza, se muestra la diferencia y decide Cristian.**
+
+| Modelo | Filtro | Extracción | Traducción | Verificación | US$ por 1.000 llamadas (filtro / extr. / trad. / verif.) |
+|---|---|---|---|---|---|
+| Gemini 3.1 Flash Lite GA (Eco hoy) | 10,00 | 9,49 | 10,00 | 9,94 | 0,39 / 0,84 / 0,06 / 0,40 |
+| Ling 3.0 Flash (`deepinfra/bf16`) | 10,00 ≈ | **9,25 ▼ (−0,25 ± 0,21)** | 9,93 ≈ | 10,00 ≈ | 0,16 / 0,42 / 0,10 / 0,15 |
+| Ling 3.0 Flash VL | 10,00 ≈ | 9,40 ≈ | 9,85 ≈ | 10,00 ≈ | 0,16 / 0,45 / 0,11 / 0,15 |
+| Gemma 4 31B | 10,00 ≈ | 9,56 ≈ | 10,00 ≈ | 10,00 ≈ | 0,15 / 0,29 / 0,02 / 0,16 |
+| Claude Haiku 5.5 | 10,00 ≈ | **9,87 ▲ (+0,38 ± 0,20)** | 9,75 ≈ | 10,00 ≈ | 0,30 / 0,98 / 0,13 / 0,35 |
+
+Extracción en detalle (omitidas de 258 · núcleo mal clasificado · cifras inventadas): Flash Lite GA
+7 · 37 · 0; Ling 3.0 Flash 4 · 103 · 0; Ling VL 1 · 97 · 0; Gemma 4 31B 5 de 209 (16 casos de 25; el
+resto, errores 429) · 29 · 0; Claude Haiku 5.5 0 · 22 · 0.
+
+**Lectura:** Ling empata en filtro, traducción y verificación a menos de la mitad del costo, pero en
+extracción rinde peor por el núcleo; esa decisión es de Cristian. Gemma 4 31B y Claude Haiku 5.5 no
+estaban en la regresión porque no eran los más baratos: Gemma empata en todo y es el más barato,
+pero sus 429 en la validación lo hacen dudoso para la regla de disponibilidad; Haiku cuesta lo mismo
+que Flash Lite GA en extracción y rinde mejor. A ninguno de los dos se le han hecho los 6 pings.
+En traducción, Flash Lite GA es más barato que Ling (escribe menos).
+
+**Redacción** sigue como ocasión medida: separa modelos (55 % de runs perfectos, sd 0,85). Se decide
+con el mismo criterio después del lote, con el gráfico de nota contra costo por punto de los 68, la
+frontera marcada y los dos redactores de Eco (DeepSeek V4.1 Flash y Qwen 3.7 Flash) señalados. Ahí
+está el ahorro grande.
 
 ## Lo que falta, resumido por ocasión
 
