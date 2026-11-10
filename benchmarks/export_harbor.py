@@ -277,6 +277,33 @@ def es_de_ventana(agente_cfg: dict) -> bool:
     return "_proveedor_fijo" in json.dumps(agente_cfg.get("kwargs") or {})
 
 
+def solo_del_declarado(por_modelo: dict, declarado) -> dict:
+    """Si los intentos de ventana de un par mezclan proveedores, cuentan solo los que sirvió
+    entero el declarado (DECISIONES, 10-nov-2026: GPT-OSS pasó de DeepInfra a DekaLLM).
+    Mismo criterio que `export_for_pages.solo_del_declarado`. Un par con un solo proveedor
+    en la ventana no se toca. Función pura: `declarado(modelo)` → provider_name o None."""
+    salida = {}
+    for par, intentos in por_modelo.items():
+        ventana = [i for i in intentos if i.get("ventana")]
+        decl = (declarado(par[1]) or "").strip().lower()
+        provs = {tuple(i.get("proveedores") or []) for i in ventana}
+
+        def del_decl(i):
+            p = [x.strip().lower() for x in i.get("proveedores") or []]
+            return bool(p) and all(x == decl for x in p)
+
+        if decl and len(provs) > 1 and any(del_decl(i) for i in ventana):
+            intentos = [i for i in intentos if not i.get("ventana") or del_decl(i)]
+        salida[par] = intentos
+    return salida
+
+
+def _provider_name(modelo: str) -> str | None:
+    from benchmarks import proveedor_fijo as _pf
+    d = _pf.declarado(modelo)
+    return d.get("provider_name") if d else None
+
+
 def solo_ventana(por_modelo: dict) -> tuple[dict, dict]:
     """En un par (tarea, modelo) con intentos de la ventana, quedan solo ésos; los demás van
     al archivo con su marca de condiciones mezcladas, como el «antes» de corte-v5 6.9.
@@ -376,7 +403,7 @@ def recolectar() -> dict:
              "proveedores": _proveedores(tray),
              "ventana": es_de_ventana(agente_cfg)})
 
-    por_modelo, archivo = solo_ventana(por_modelo)
+    por_modelo, archivo = solo_ventana(solo_del_declarado(por_modelo, _provider_name))
     datos = _resumir(por_modelo, meta_tarea, descartadas)
     datos["_archivo_condiciones_mezcladas"] = archivo
     return datos

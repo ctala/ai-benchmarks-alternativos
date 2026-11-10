@@ -69,6 +69,24 @@ def es_de_ventana(nombre_archivo: str) -> bool:
     return nombre_archivo.startswith(VENTANAS_DE_MEDICION)
 
 
+def solo_del_declarado(runs: list[dict], coincide) -> list[dict]:
+    """Si los runs de ventana de un modelo mezclan proveedores, cuentan solo los del declarado.
+
+    Pasa cuando el proveedor fijo cambia entre ventanas (GPT-OSS: DeepInfra devolvía las tool
+    calls dentro del razonamiento y se reemplazó por DekaLLM; DECISIONES, 10-nov-2026): sin
+    esto, `solo_ventana` promediaría las dos. Lo del otro proveedor queda en los archivos, sin
+    promediar. Un modelo con un solo proveedor en la ventana no se toca. Función pura:
+    `coincide(model_id, upstream)` → True/False/None (None = sin proveedor fijo).
+    """
+    ventana = [r for r in runs if r.get("_ventana")]
+    if len({r.get("upstream_provider") for r in ventana}) < 2:
+        return runs
+    if not any(coincide(r.get("model_id"), r.get("upstream_provider")) for r in ventana):
+        return runs
+    return [r for r in runs if not r.get("_ventana")
+            or coincide(r.get("model_id"), r.get("upstream_provider"))]
+
+
 def solo_ventana(runs: list[dict]) -> list[dict]:
     """Por (suite, test): si hay runs de una ventana, quedan solo ésos. Función pura."""
     medidos = {(r.get("suite"), r.get("test_name")) for r in runs if r.get("_ventana")}
@@ -445,7 +463,7 @@ def load_all_results():
     vigentes = _tests_vigentes()
     for d in (by_id, by_id_and_name):
         for k in d:
-            d[k] = solo_tests_vigentes(solo_ventana(d[k]), vigentes)
+            d[k] = solo_tests_vigentes(solo_ventana(solo_del_declarado(d[k], _pf.coincide)), vigentes)
     return by_id, by_id_and_name
 
 

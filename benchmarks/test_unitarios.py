@@ -2131,6 +2131,37 @@ def test_harbor_usa_solo_los_intentos_de_la_ventana_y_archiva_los_viejos():
     assert not es_de_ventana({"kwargs": {"version": "2.4.6"}})
 
 
+def test_si_cambia_el_proveedor_fijo_cuentan_solo_los_runs_del_declarado():
+    # 10-nov-2026 (Cristian, «ok para gpt-oss»): GPT-OSS se midió en la ventana v5 por
+    # DeepInfra y en la v6.1 por DekaLLM; las dos son «ventana» y se habrían promediado.
+    from benchmarks.export_for_pages import solo_del_declarado
+    coincide = lambda mid, up: None if mid != "gpt-oss" else up == "DekaLLM"
+    viejo = {"model_id": "gpt-oss", "upstream_provider": "DeepInfra", "_ventana": True, "test_name": "a"}
+    nuevo = {"model_id": "gpt-oss", "upstream_provider": "DekaLLM", "_ventana": True, "test_name": "a"}
+    historico = {"model_id": "gpt-oss", "upstream_provider": "Groq", "test_name": "b"}
+    assert solo_del_declarado([viejo, nuevo, historico], coincide) == [nuevo, historico]
+    # Un modelo con un solo proveedor en la ventana no se toca, aunque no sea el declarado.
+    solo = [dict(viejo)]
+    assert solo_del_declarado(solo, coincide) == solo
+    # Sin proveedor fijo (None), tampoco.
+    otro = [{"model_id": "x", "upstream_provider": p, "_ventana": True} for p in ("A", "B")]
+    assert solo_del_declarado(otro, coincide) == otro
+
+
+def test_harbor_si_cambia_el_proveedor_fijo_cuentan_solo_los_intentos_del_declarado():
+    from benchmarks.export_harbor import solo_del_declarado
+    decl = lambda m: "DekaLLM" if m == "openai/gpt-oss-20b" else None
+    viejo = {"reward": 0.0, "ventana": True, "proveedores": ["DeepInfra"]}
+    nuevo = {"reward": 1.0, "ventana": True, "proveedores": ["DekaLLM"]}
+    mezcla = {"reward": 1.0, "ventana": True, "proveedores": ["DeepInfra", "DekaLLM"]}
+    otro = {"reward": 0.5, "ventana": True, "proveedores": ["X"]}
+    otro2 = {"reward": 0.5, "ventana": True, "proveedores": ["Y"]}
+    f = solo_del_declarado({("t", "openai/gpt-oss-20b"): [viejo, nuevo, mezcla],
+                            ("t", "z"): [otro, otro2]}, decl)
+    assert f[("t", "openai/gpt-oss-20b")] == [nuevo]
+    assert f[("t", "z")] == [otro, otro2]
+
+
 def test_ningun_fixture_con_forma_de_secreto_se_redacta_en_lo_guardado():
     # 5-nov-2026 · el fixture de copy_api_key/write_config_file (una clave FALSA `sk-proj-…`)
     # coincide con un patrón de redacción: el `.md` guardaba `REDACTED-SECRET` y
