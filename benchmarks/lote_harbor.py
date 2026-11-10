@@ -19,7 +19,7 @@ proveedor fijo (`jobs/_proveedor_fijo/`, de `proveedor_fijo.py --harbor`) y k = 
 
 Uso:
     python benchmarks/lote_harbor.py --prefijo v61 --modelos z-ai/glm-5.3 openai/gpt-oss-20b \\
-        --tareas harbor-conciliar harbor-incidente [--k 3] [--tope 2] [--paralelo 4]
+        --tareas harbor-conciliar harbor-incidente [--k 3] [--tope 4] [--paralelo 4]
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ from benchmarks import export_harbor as eh  # noqa: E402
 
 HARBOR = str(Path.home() / ".local" / "bin" / "harbor")
 VERSION_AGENTE = "2.4.6"
-TOPE_REINTENTOS = 2
+TOPE_REINTENTOS = 4  # 2 hasta el 10-nov-2026; DECISIONES, 10-nov (caídas de Docker por red agotada)
 
 
 def _clave() -> str:
@@ -54,13 +54,32 @@ def fallo_de_infra(trial: Path) -> bool:
     (`AgentSetupTimeoutError`: con 12 contenedores instalando a la vez con apt-get, ninguno
     llegaba a los 360 s) o Docker no pudo levantar el entorno («Docker compose command
     failed»: el pool de redes se agotó). Un timeout del agente MIENTRAS trabaja no entra:
-    eso sí puede ser el modelo dando vueltas."""
+    eso sí puede ser el modelo dando vueltas.
+
+    Tercera firma (10-nov-2026, Llama 3.1 8B en leads-correo): el agente murió por SIGKILL
+    (`exit 137`) sin trayectoria y sin que el modelo diera un solo paso. El kernel no registró
+    OOM: los tres contenedores los borró un `docker rm -f` nuestro a los 5 s de arrancar. Si
+    el modelo alcanzó a dar pasos, un 137 puede venir de lo que ejecutó y no se repone."""
     try:
         e = json.loads((trial / "result.json").read_text()).get("exception_info") or {}
     except Exception:
         return False
+    msg = e.get("exception_message") or ""
     return (e.get("exception_type") == "AgentSetupTimeoutError"
-            or "Docker compose command failed" in (e.get("exception_message") or ""))
+            or "Docker compose command failed" in msg
+            or (e.get("exception_type") == "NonZeroAgentExitCodeError" and "exit 137" in msg
+                and not _modelo_dio_un_paso(trial)))
+
+
+def _modelo_dio_un_paso(trial: Path) -> bool:
+    """mini-swe-agent cierra cada mensaje con una línea de «─»: la primera cierra el prompt;
+    una segunda significa que el modelo ya respondió algo."""
+    if (trial / "agent" / "mini-swe-agent.trajectory.json").exists():
+        return True
+    log = trial / "agent" / "mini-swe-agent.txt"
+    if not log.exists():
+        return False
+    return sum(1 for ln in log.read_text(errors="replace").splitlines() if ln.startswith("────")) > 1
 
 
 def contar(job_dir: Path) -> tuple[int, int, int]:
@@ -96,12 +115,36 @@ def _correr(modelo: str, tarea: str, k: int, job: str, clave: str, jobs: Path) -
                    cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+def terminado(job_dir: Path) -> bool:
+    """¿El job de Harbor TERMINÓ? Harbor escribe `result.json` al EMPEZAR (10-nov-2026): su
+    existencia no prueba nada. Terminado = `finished_at` no nulo. Saltar por existencia dio
+    por hechos 4 pares cortados a mitad (gemma-4-31b leads-correo, qwen3.8-max ×3)."""
+    try:
+        return bool(json.loads((job_dir / "result.json").read_text()).get("finished_at"))
+    except Exception:
+        return False
+
+
+def _reanudar(job_dir: Path, clave: str) -> None:
+    """`harbor jobs resume` conserva los intentos terminados y repite solo los cortados."""
+    subprocess.run([HARBOR, "jobs", "resume", "-p", str(job_dir)],
+                   env={**os.environ, "OPENROUTER_API_KEY": clave},
+                   cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def _asegurar(modelo, tarea, k, job, clave, jobs, correr, reanudar) -> None:
+    """Corre el job si no existe; lo REANUDA si quedó a mitad; no lo toca si terminó."""
+    if not (jobs / job / "result.json").exists():
+        correr(modelo, tarea, k, job, clave, jobs)
+    elif not terminado(jobs / job):
+        reanudar(jobs / job, clave)
+
+
 def par(modelo: str, tarea: str, prefijo: str, k: int, tope: int, clave: str, jobs: Path,
-        correr=_correr) -> dict:
+        correr=_correr, reanudar=_reanudar) -> dict:
     """Corre k intentos de (modelo, tarea) y repite los cortados por el proveedor hasta `tope`."""
     base = f"{prefijo}__{modelo.split('/')[-1]}__{tarea}"
-    if not (jobs / base / "result.json").exists():
-        correr(modelo, tarea, k, base, clave, jobs)
+    _asegurar(modelo, tarea, k, base, clave, jobs, correr, reanudar)
     validos, cortados, infra = contar(jobs / base)
     repetidos, ronda, ultimos = 0, 0, cortados + infra
     # Se repite lo que cortó el proveedor o tumbó nuestra infraestructura en la ronda
@@ -110,8 +153,7 @@ def par(modelo: str, tarea: str, prefijo: str, k: int, tope: int, clave: str, jo
         ronda += 1
         falta = min(k - validos, ultimos)
         job = f"{base}__r{ronda}"
-        if not (jobs / job / "result.json").exists():
-            correr(modelo, tarea, falta, job, clave, jobs)
+        _asegurar(modelo, tarea, falta, job, clave, jobs, correr, reanudar)
         repetidos += falta
         v, c, i = contar(jobs / job)
         validos += v

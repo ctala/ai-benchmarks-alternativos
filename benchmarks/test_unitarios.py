@@ -3114,6 +3114,50 @@ def test_lote_harbor_repone_lo_que_tumbo_la_infraestructura_y_no_un_cero(tmp_pat
     assert len(ll) == 3 and f["rondas"] == 2
 
 
+def test_lote_harbor_reanuda_el_job_cortado_y_no_lo_da_por_hecho(tmp_path):
+    # 10-nov-2026 (Cristian: «no tenemos que partir de cero cada vez»). Harbor escribe
+    # result.json al EMPEZAR: saltar por existencia dio por hechos 4 pares cortados a mitad.
+    # Terminado = finished_at; a medias = `harbor jobs resume`; ausente = correr.
+    import json as _j
+    from benchmarks import lote_harbor as lh
+    vistos = []
+    correr = lambda m, t, k, job, c, jobs: vistos.append(("correr", job))
+    reanudar = lambda d, c: vistos.append(("reanudar", d.name))
+    jobs = tmp_path / "jobs"
+    for job, res in (("a_medias", {"finished_at": None}), ("hecho", {"finished_at": "2026-11-10T10:00:00Z"})):
+        (jobs / job).mkdir(parents=True); (jobs / job / "result.json").write_text(_j.dumps(res))
+    for job in ("a_medias", "hecho", "nuevo"):
+        lh._asegurar("x/m", "t", 3, job, "", jobs, correr, reanudar)
+    assert vistos == [("reanudar", "a_medias"), ("correr", "nuevo")]
+    assert not lh.terminado(jobs / "a_medias") and lh.terminado(jobs / "hecho")
+
+
+def test_lote_harbor_sigkill_antes_del_primer_paso_es_infraestructura(tmp_path):
+    # 10-nov-2026 (Cristian: «un exit 137 es SIGKILL, no timeout; confírmalo con el log»).
+    # Llama 3.1 8B leads-correo: los 3 contenedores los borró un `docker rm -f` nuestro a los
+    # 5 s, sin OOM en el kernel y sin que el modelo respondiera. Eso se repone; un 137 DESPUÉS
+    # de que el modelo dio pasos puede ser lo que el modelo ejecutó, y no se repone.
+    import json as _j
+    from benchmarks import lote_harbor as lh
+    sep = "─" * 80
+    exc = {"exception_type": "NonZeroAgentExitCodeError",
+           "exception_message": "Command failed (exit 137): mini-swe-agent ..."}
+
+    def intento(nombre, separadores, tray=False, e=exc):
+        t = tmp_path / nombre; (t / "agent").mkdir(parents=True)
+        (t / "result.json").write_text(_j.dumps({"exception_info": e}))
+        (t / "agent" / "mini-swe-agent.txt").write_text("\n".join(["prompt"] + [sep, "x"] * separadores))
+        if tray:
+            (t / "agent" / "mini-swe-agent.trajectory.json").write_text("{}")
+        return t
+
+    assert lh.fallo_de_infra(intento("sin_paso", 1))
+    assert not lh.fallo_de_infra(intento("con_pasos", 3))
+    assert not lh.fallo_de_infra(intento("con_tray", 1, tray=True))
+    otro = dict(exc, exception_message="Command failed (exit 1): mini-swe-agent ...")
+    assert not lh.fallo_de_infra(intento("exit_1", 1, e=otro))
+
+
 def test_lote_harbor_no_pone_la_clave_en_los_argumentos(tmp_path, monkeypatch):
     # 10-nov-2026: `--agent-env OPENROUTER_API_KEY=…` dejaba la clave visible en `ps` y un
     # `pgrep -fl` la imprimió en una sesión. Va por el entorno del proceso.

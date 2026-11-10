@@ -1680,19 +1680,21 @@ def _t_agentico_a3():
     # Control sobre las páginas reales; después siete sabotajes, uno por cada forma (a–f).
     pag = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
     app = ROOT / "docs" / "app.js"
-    celda = '<td data-agentico="harbor"><strong>4 de 4</strong></td>'
+    # La celda es «N de N» con N = las tareas Harbor vigentes (4 hasta v6.0.0; 8 desde la v6.1).
     rotulo = 'multiturno_quality: "Multiturno sin herramientas"'
     if _correr("check_agentico_publicado.py") != 0:
         return False  # control: lo publicado hoy está en verde
     original = pag.read_text(encoding="utf-8")
-    if celda not in original:
-        raise AssertionError("la landing ya no tiene una celda «4 de 4» marcada: el sabotaje no tocaría nada")
+    hallada = re.search(r'<td data-agentico="harbor"><strong>(\d+) de \1</strong></td>', original)
+    if not hallada:
+        raise AssertionError("la landing ya no tiene una celda «N de N» marcada: el sabotaje no tocaría nada")
+    celda, n_tareas = hallada[0], hallada[1]
     if rotulo not in app.read_text(encoding="utf-8"):
         raise AssertionError("app.js ya no rotula multiturno_quality así: el sabotaje d no tocaría nada")
     with Sabotaje(pag), Sabotaje(app):
         for roto in (original.replace(celda, '<td data-agentico="harbor"><strong>9.20</strong></td>', 1),  # b: un decimal
-                     original.replace(celda, '<td><strong>4 de 4</strong></td>', 1),                       # a: sin marca
-                     original.replace(celda, '<td data-agentico="harbor"><strong>1 de 4</strong></td>', 1),  # b: no es lo de Harbor
+                     original.replace(celda, f'<td><strong>{n_tareas} de {n_tareas}</strong></td>', 1),     # a: sin marca
+                     original.replace(celda, f'<td data-agentico="harbor"><strong>1 de {n_tareas}</strong></td>', 1),  # b: no es lo de Harbor
                      original.replace("</main>", "<p>Su calidad agéntica es 8,38.</p></main>", 1),             # c: prosa
                      # e: la segunda tabla de antes del 8-nov, un compuesto al lado de Harbor
                      original.replace("</main>", '<table><thead><tr><th>Modelo</th><th>Calidad×precio</th>'
@@ -2119,8 +2121,17 @@ def _t_indice_calidad():
         return False
     rk = [m for m in data["models"] if m.get("ranked")]
     sin = [m for m in data["models"] if (m.get("agentico") or {}).get("sin_dato")]
-    if not rk or not sin:
-        return False  # sin un sin-dato real, I5 no tendría a quién mirar
+    if not rk:
+        return False
+    if not sin:
+        # 10-nov-2026: desde la v6.1 ningún modelo tiene «sin dato agéntico» (GPT-OSS, los únicos,
+        # se midieron por DekaLLM). I5 se sabotea sobre una copia con uno sintético, no real.
+        data = copy.deepcopy(data)
+        x = next(m for m in data["models"] if not m.get("ranked") and m.get("score_calidad") is None)
+        x["agentico"] = {**(x.get("agentico") or {}), "sin_dato": "formato_endpoint"}
+        if ci.i5_sin_dato(data, readme, {}):
+            return False  # control del sintético: sin rankear ni nota, tiene que dar verde
+        sin = [x]
     # De punta a punta, por el script real que corre qa.py: control verde y un README con el
     # N del grupo escrito a mano (el fallo más probable al editar texto) tiene que salir rojo.
     if _correr("check_indice_calidad.py") != 0:

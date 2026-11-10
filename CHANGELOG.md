@@ -3,12 +3,20 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado]
+## [No publicado] · próximo: menor
 
 ### Planificación (sin cambio de versión)
 - **Change `corte-v5-1`** (OpenSpec, rama `corte/v5.1`): lo que salió de v5.0.0, cada tarea con su motivo — ocasiones, recalibración (necesita OK aparte, R8), Terminal-Bench en el Spark, registro y hallazgos de la ventana, y lo anotado para 5.1. Fila del 8-nov en DECISIONES.
 - **5.7: «≈» en la calculadora, después de resolver el grupo de cabeza** (hoy 31 de 70, 44 %, sobre el tope de 20 %): con la banda actual marcaría casi la mitad del ranking como empate. Fila del 9-nov en DECISIONES. La reescritura de AGENTS.md ya estaba como 5.6.
 - **5.7 reemplazada el mismo día y 2.3 nueva**: Cristian decidió que el «≈» llega con el índice v6.0.0 (change `indice-calidad-harbor`), y que Harbor entre al compuesto como componente propio en la recalibración; mientras tanto «ajustado a mis pesos» no ve lo agéntico y lo declara.
+
+### Ventana v6.1 — cierre del lote (10-nov-2026)
+- **Siete modelos nuevos entran al ranking (68 → 75):** Gemini 3.1 Flash Lite GA, Qwen 3.7 Flash, LFM-3 1.7B, GPT-OSS 20B y 120B (por DekaLLM, ya con dato agéntico), Muse Ember y Claude Fable 5.2. La ventana `benchmark_20261109_v61c` entra a `VENTANAS_DE_MEDICION`, así que sus runs reemplazan a los anteriores en los tests que midió. Ningún rankeado sale.
+- **Muse Ember y Fable 5.2 se agregaron a mitad del lote** (publicados el 9-nov) porque la versión iba a salir sin ellos. Muse Ember va a `THINKING_MODELS`: sin eso, el examen habría salido en blanco.
+- **El tope de gasto se juntó en uno solo y no cortó a tiempo.** Los dos nuevos gastaron ~$39,86 contra su tope de $35; el lote base, ~$88 de $126. La regla nueva: juntar topes necesita su propio OK, y el vigilante corta por el margen más chico, no por la suma. Fila en DECISIONES.
+- **`lote_harbor` reanuda un job cortado en vez de darlo por hecho**, porque Harbor escribe `result.json` al empezar y así se perdieron 4 pares sin aviso. **El tope de reintentos sube de 2 a 4**, porque Docker se quedó sin redes en el Spark. **Un SIGKILL antes del primer paso del modelo cuenta como infraestructura**, porque un `docker rm -f` nuestro mató a Llama 3.1 8B y quedaba como un 0/3 suyo. Cada regla lleva su prueba y sus sabotajes.
+- **Dos sabotajes de `test_guardrails` se ataban a datos que la ventana cambió**: A3 buscaba la celda «4 de 4» (ahora son 8 tareas) e I5 necesitaba un «sin dato agéntico» real (GPT-OSS era el único). Ahora leen el N de la página y usan un sintético.
+- **Quedan dos pendientes para Cristian, sin aplicar:** `prompt_injection_es` en el examen dejaba 22 rankeados en vez de 68, y LFM-3 tiene el 19 % de sus respuestas cortadas por el techo de su proveedor.
 
 ### Ventana v6.1 — construcción, sin medir (rama `ventana/v6-1`)
 - **La regla de los checks que no cuentan se ata a la versión medida de la tarea** (`task_checksum`), no al nombre del check: corregir facturación renombraba sus checks y rompía la regla antes de medir la versión corregida. Cuando la corregida se mida, la exclusión se apaga sola e I7 exige borrarla. Nueva dependencia: `dirhash==0.5.0`, la misma que usa Harbor para el checksum.
