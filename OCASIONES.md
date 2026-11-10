@@ -146,8 +146,9 @@ en esa etapa se agrega como caso nuevo.** Fila en `DECISIONES.md`.
 barato hacia arriba, el primero que pasa la regresión (los 88 casos de filtro y verificación sin
 dejar pasar ninguno, más las condiciones de extracción y traducción) y después los 6 pings. Gemini 3.1 Flash Lite GA, la línea base de Eco, corre siempre la regresión.
 
-**Recomendación del 9-nov-2026** (es recomendación: el cambio en n8n lo decide Cristian, una
-etapa a la vez; el detalle está en la fila de DECISIONES):
+**Candidato del 9-nov-2026** (la regresión elige al candidato, no decide el cambio: ver más abajo;
+el cambio en n8n lo decide Cristian, una etapa a la vez; el detalle está en las filas del 9 y el
+10-nov de DECISIONES):
 
 | Modelo | Precio por millón (entrada / salida) | Filtro | Verificación | Extracción (omitidas de 258) | Traducción |
 |---|---|---|---|---|---|
@@ -156,8 +157,23 @@ etapa a la vez; el detalle está en la fila de DECISIONES):
 | Ling 3.0 Flash VL | $0,06 / $0,18 | 58/58, 0 vetadas | 30/30, 0 falsos RESPALDADO | 1, 0 cifras, 0 finales | 0 alteradas |
 
 Ling 3.0 Flash es el más barato vigente que pasa las condiciones y cuesta unas 6 veces menos que
-Flash Lite GA. Se recomienda fijado a `deepinfra/bf16`, que es donde se midió: el precio general de
+Flash Lite GA. El candidato es fijado a `deepinfra/bf16`, que es donde se midió: el precio general de
 OpenRouter ($0,021 / $0,063) es Novita, que no está medido.
+
+**Del candidato al cambio en producción (10-nov-2026).** La regresión no alcanza para decidir: son
+casos armados con lo que ya conocíamos, corridos una vez cada uno. Cero fallos en 30 casos deja el
+error real hasta cerca del 10 % sin verlo (regla del tres); en 58, hasta cerca del 5 %. Tampoco mide
+todo lo que Eco usa: Ling marca «núcleo» en 103 de 258 afirmaciones contra 37 de Flash Lite GA. Por
+eso el cambio sale de tres pasos más:
+
+1. **El ahorro en dólares por mes**, con el gasto real de Eco en estas etapas. Si es chico, se queda
+   Flash Lite GA y el tema se cierra.
+2. **Una semana en sombra:** Ling corre en paralelo sobre el tráfico real sin decidir nada y se
+   comparan sus decisiones con las de Flash Lite GA, etapa por etapa.
+3. **Un proveedor de respaldo en n8n:** fijar DeepInfra quita el respaldo automático de OpenRouter.
+
+La verificación se cambia al final, o no se cambia, salvo que en la sombra Ling no tenga ningún falso
+RESPALDADO.
 
 Redacción sigue como ocasión medida: separa modelos (55 % de runs perfectos, sd 0,85).
 
