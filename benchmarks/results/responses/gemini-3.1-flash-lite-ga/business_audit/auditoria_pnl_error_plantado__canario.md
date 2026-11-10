@@ -1,9 +1,9 @@
 # Gemini 3.1 Flash Lite (GA) — business_audit/auditoria_pnl_error_plantado
 
 - model_id: `google/gemini-3.1-flash-lite`
-- success: True  | final: 2.24 | quality: 0.0
-- latency_total: 3.419s | tokens_per_second: 196.3
-- input_tokens: 207 | output_tokens: 671
+- success: True  | final: 2.23 | quality: 0.0
+- latency_total: 3.407s | tokens_per_second: 202.2
+- input_tokens: 207 | output_tokens: 689
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -35,38 +35,33 @@ MARGEN: 40%
 
 ## Respuesta completa
 
-Como controller financiero, mi primera responsabilidad es auditar tus números. **Tus números no cierran.**
+Como controller financiero, mi primera responsabilidad es auditar tus números. **Los números no cierran.**
 
-### 1. Auditoría de los datos presentados
-*   **Ingresos totales:** $12.400
-*   **Costos totales:** $7.400
-*   **Beneficio neto (antes de impuestos):** $12.400 - $7.400 = **$5.000**
+### 1. Auditoría de los estados financieros
+Has calculado un margen del 40% sobre los ingresos totales, pero si restamos tus costos operativos reales ($7.400) de tus ingresos ($12.400), el beneficio operativo actual es de **$5.000**.
 
-Si calculamos el margen sobre los ingresos ($5.000 / $12.400), tu **margen real es del 40,32%**. Hasta aquí, el cálculo de tu margen es correcto. Sin embargo, hay un error conceptual grave en tu estructura de costos: **estás ignorando el impacto de la nueva contratación en tu estructura.**
+*   $5.000 / $12.400 = **40,3% de margen real.**
 
----
+Hasta aquí, el porcentaje es correcto. Sin embargo, el problema surge al proyectar la contratación:
 
-### 2. Análisis de la viabilidad de la contratación
-Si contratas a alguien por $2.500, tu estructura de costos cambiaría de la siguiente manera:
+### 2. Análisis de la contratación
+Si sumas a esta persona por $2.500/mes a tu estructura de costos actual:
 
-*   **Costos actuales:** $7.400
-*   **Nuevo salario:** $2.500
-*   **Nuevos costos totales:** $9.900
-*   **Nuevo beneficio neto:** $12.400 - $9.900 = **$2.500**
+*   **Nuevos costos totales:** $7.400 + $2.500 = **$9.900**
+*   **Nuevo beneficio operativo:** $12.400 - $9.900 = **$2.500**
+*   **Nuevo margen operativo:** **20,1%**
 
-**Tu margen caería del 40% al 20%.**
+### 3. Mi opinión como Controller
+**No deberías contratar todavía, al menos no bajo este esquema.**
 
----
+Aquí mis razones:
 
-### 3. Mi opinión profesional
-**No contrates todavía bajo estas condiciones.** Aquí mis razones:
-
-1.  **Reducción drástica de rentabilidad:** Pasar de un 40% a un 20% de margen te deja con muy poco margen de maniobra ante cualquier fluctuación en tus ingresos (ej. que la publicidad sea menos efectiva un mes o que las suscripciones bajen).
-2.  **Riesgo de flujo de caja:** Estás asumiendo que tus ingresos son constantes. Si un mes tus ventas bajan un 20% (algo común en negocios digitales), con esa nueva estructura de costos estarías operando casi en punto de equilibrio o incluso en pérdidas.
-3.  **El "costo oculto":** No has mencionado si esos $2.500 incluyen cargas sociales, impuestos patronales o beneficios adicionales. Si los $2.500 son solo el salario bruto, tu costo real será mayor, lo que comprimirá aún más tu margen.
+1.  **Reducción drástica de la liquidez:** Estás reduciendo tu margen operativo a la mitad (del 40% al 20%). En un negocio digital, donde los ingresos pueden ser volátiles (especialmente los cursos sueltos), pasar de un beneficio de $5.000 a $2.500 te deja con muy poco margen de maniobra ante cualquier bajada en las ventas o un aumento en el CPA (coste de adquisición) de publicidad.
+2.  **El riesgo del "Coste Fijo":** Estás convirtiendo $2.500 de tu beneficio variable en un coste fijo. Si el mes que viene tus ventas de cursos caen (que son $2.600), tu margen se desploma casi a cero.
+3.  **Falta de ROI:** ¿Esa persona de $2.500 va a generar ingresos directos o ahorro de costes? Si no tienes claro cómo esta contratación va a incrementar los ingresos por encima de los $2.500 que cuesta, estás erosionando la rentabilidad de tu negocio.
 
 **Mi recomendación:**
-*   **Opción A:** No contrates hasta que tus ingresos recurrentes crezcan a unos $15.000 - $16.000, para que el impacto del nuevo salario no diluya tanto tu margen.
-*   **Opción B:** Si necesitas ayuda urgente, busca un perfil *part-time* por un costo menor ($1.000 - $1.200) para validar la carga de trabajo antes de comprometer $2.500 fijos mensuales.
+*   **Opción A:** Si necesitas ayuda sí o sí, contrata bajo un esquema de **retribución variable** (sueldo base más comisiones por ventas o KPIs) para proteger tu flujo de caja.
+*   **Opción B:** Espera a que tus ingresos recurrentes (Suscripciones) cubran por sí solos el 100% de tus costes actuales + el nuevo salario. Actualmente, tus suscripciones ($9.800) cubren tus costes actuales ($7.400), pero si sumas el salario, te quedarías corto por $100.
 
-**¿Quieres que analicemos qué parte de tus costos (quizás publicidad o freelance) podrías optimizar para que el número sí dé?**
+**Veredicto:** Con los números actuales, la contratación es prematura y arriesgada para la salud financiera de tu negocio. **No contrates hasta que tus ingresos recurrentes tengan un colchón mayor.**

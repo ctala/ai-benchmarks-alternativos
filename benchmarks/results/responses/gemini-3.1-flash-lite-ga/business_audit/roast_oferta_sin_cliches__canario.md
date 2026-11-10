@@ -1,9 +1,9 @@
 # Gemini 3.1 Flash Lite (GA) — business_audit/roast_oferta_sin_cliches
 
 - model_id: `google/gemini-3.1-flash-lite`
-- success: True  | final: 7.63 | quality: 8.0
-- latency_total: 5.547s | tokens_per_second: 164.6
-- input_tokens: 163 | output_tokens: 913
+- success: True  | final: 7.77 | quality: 8.0
+- latency_total: 4.209s | tokens_per_second: 236.6
+- input_tokens: 163 | output_tokens: 996
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -36,46 +36,50 @@ Botón: EMPIEZA HOY
 
 ## Respuesta completa
 
-Esta oferta es un desastre. Es genérica, aburrida y huele a "vendedor de humo" de manual. Si alguien entra aquí, es por accidente o porque tiene dinero de sobra para tirar.
+Tu oferta es un **desierto de valor**. Es genérica, aburrida y, sinceramente, insulta la inteligencia de cualquier emprendedor que valore su tiempo. Si yo fuera un cliente potencial, pasaría de largo en 0.5 segundos. 
 
-Aquí tienes la autopsia de por qué esto no le vende ni un café a un sediento:
+Aquí tienes la autopsia de tu fracaso:
 
-### 1. El pecado capital: Vendes "características", no "resultados"
-"Acceso a la comunidad", "Cursos", "Sesiones en vivo"... **A nadie le importa tu producto.** A los emprendedores les importa su tiempo, su dinero y su estrés. Tu oferta es una lista de la compra, no una solución a un dolor.
-*   **El problema:** Estás vendiendo el *medio* (la IA) y el *formato* (cursos/comunidad), pero no el *fin* (qué carajo voy a lograr).
-*   **La solución:** Cambia el enfoque. No vendas "acceso a la comunidad", vende "ahorrarte 20 horas de trabajo operativo a la semana mediante automatizaciones que ya hemos probado".
+### 1. El título es una declaración de intenciones, no una propuesta de valor
+*"Transforma tu negocio con el poder de la IA"* es lo que dicen todos los vendehumos de LinkedIn. Es ruido. No prometes un resultado específico, solo prometes "más trabajo" (aprender IA).
+*   **El problema:** No atacas un dolor ni ofreces un beneficio tangible. La gente no quiere "IA", quiere más ventas, menos horas operativas o costes reducidos.
+*   **Qué hacer:** Cámbialo por un resultado cuantificable. 
+    *   *Ejemplo:* "Automatiza tus ventas y ahorra 10 horas semanales usando IA sin saber programar".
 
-### 2. El título es un somnífero
-"Transforma tu negocio con el poder de la IA" es la frase más usada en LinkedIn en los últimos dos años. Si yo leo eso, mi cerebro se desconecta automáticamente porque ya lo he visto mil veces.
-*   **El problema:** Es abstracto. No dice quién eres, qué haces ni qué beneficio obtengo.
-*   **La solución:** Sé específico y agresivo. Usa un beneficio tangible. Ejemplo: *"Cómo automatizar el 70% de tu captación de clientes con IA, sin contratar a nadie más."*
+### 2. Vendes "acceso", no "resultados"
+Tu lista de beneficios es una lista de la compra de un curso de 2015. "Acceso a la comunidad" y "sesiones en vivo" no son beneficios, son **cargas de trabajo**. Para un emprendedor, entrar a un grupo de Slack a ver gente hablando de GPT-4 es una pérdida de tiempo, no un activo.
+*   **El problema:** Estás vendiendo el proceso (el cómo), no el destino (el qué). A nadie le importa tu comunidad si no le resuelve un problema urgente.
+*   **Qué hacer:** Reemplaza la lista por "Transformaciones".
+    *   *En lugar de "Cursos":* "Sistema paso a paso para implementar tu primer agente de atención al cliente".
+    *   *En lugar de "Plantillas":* "Copia y pega los prompts que me han ahorrado $2,000 en copywriters este mes".
 
-### 3. Falta de "Prueba de Valor" (o Autoridad)
-¿Por qué debería pagarte $49 al mes? ¿Quién eres tú? ¿Qué resultados has conseguido? ¿Por qué tu comunidad no es un grupo de Telegram lleno de bots y gente preguntando "¿cómo instalo ChatGPT?"?
-*   **El problema:** No hay autoridad. Estás pidiendo dinero por una "caja negra".
-*   **La solución:** Añade un "estudio de caso" o una promesa clara. *"Únete a 500+ dueños de negocio que ya han facturado X cantidad extra usando nuestras automatizaciones"*.
+### 3. Falta de autoridad y escasez
+¿Por qué debería pagarte $49/mes? ¿Quién eres? ¿Qué resultados has conseguido tú con la IA? Tu oferta actual carece de cualquier rastro de prueba social o autoridad.
+*   **El problema:** Es una oferta ciega. No hay riesgo para ti, pero hay mucho riesgo para el cliente (perder dinero y tiempo).
+*   **Qué hacer:** Añade una "Prueba de Valor". Incluye un estudio de caso rápido: "Cómo ayudamos a [Tipo de cliente] a [Resultado] en [Tiempo] usando [Herramienta]".
 
-### 4. La propuesta de valor es demasiado amplia
-"Emprendedores como tú" es una frase que mata conversiones. Si le hablas a todo el mundo, no le hablas a nadie.
-*   **El problema:** El nicho es invisible.
-*   **La solución:** Segmenta. *"Para agencias de marketing que quieren escalar sin aumentar su equipo"* o *"Para dueños de eCommerce que quieren recuperar carritos abandonados con IA"*.
-
----
-
-### Cómo debería quedar tu nueva oferta (El arreglo):
-
-**TÍTULO: Deja de perder 15 horas a la semana en tareas repetitivas.**
-*Subtítulo: Aprende a implementar sistemas de IA que cierran ventas y responden clientes mientras duermes. Sin código, sin ser experto técnico.*
-
-**LO QUE TE LLEVAS (El Valor):**
-*   **El "Framework de Automatización" (No "Cursos"):** Aprende a clonar tu proceso de ventas con nuestra metodología paso a paso.
-*   **Biblioteca de Prompts Pro:** Copia y pega las instrucciones que ya están generando +$X en ingresos para nuestros miembros.
-*   **Consultoría de Implementación:** Sesiones en vivo donde resolvemos TUS problemas técnicos, no clases teóricas.
-*   **Comunidad de Ejecutores:** Acceso a un grupo de dueños de negocio que ya están escalando (prohibido el spam y el humo).
-
-**PRECIO:** $49/mes (Menos de lo que cuesta un software que vas a dejar de usar).
-**BOTÓN:** [Quiero automatizar mi negocio ahora]
+### 4. El precio es una apuesta, no una inversión
+$49/mes suena a membresía de gimnasio a la que te apuntas y nunca vas. Si tu oferta es buena, debería ser una inversión obvia que se paga sola en el primer mes.
+*   **El problema:** No hay un incentivo para empezar hoy.
+*   **Qué hacer:** Cambia el ángulo. "Si esta herramienta no te ahorra al menos 5 horas de trabajo en tu primer mes, te devuelvo el dinero". Haz que el riesgo sea tuyo, no del cliente.
 
 ---
 
-**Mi consejo final:** Deja de actuar como una academia y empieza a actuar como un socio de crecimiento. Si no puedes decirme exactamente qué problema de dinero o tiempo le resuelves a alguien en menos de 5 segundos, tu oferta no existe. **Vuelve a escribirla y haz que duela menos leerla.**
+### Cómo debería verse tu nueva oferta (Borrador rápido):
+
+**TÍTULO:** Deja de perder tiempo en tareas manuales: Automatiza tu negocio con IA en 30 días.
+
+**SUBTÍTULO:** Únete a +[Número] fundadores que han eliminado el 30% de sus tareas operativas usando mis sistemas de IA probados.
+
+**LO QUE RECIBES (El valor real):**
+*   **El Framework de Automatización:** Acceso a los 3 sistemas exactos que uso para gestionar mis ventas y soporte (Valor: $X).
+*   **Librería de Prompts "Copy-Paste":** 50+ plantillas validadas para marketing, email y atención al cliente (Valor: $Y).
+*   **Acceso Directo a Expertos:** Sesiones de consultoría grupal para desbloquear tus implementaciones técnicas (No es un grupo de chat, es una sesión de resolución de problemas).
+
+**PRECIO:** $49/mes. *Garantía de implementación: Si no logras automatizar al menos una tarea crítica en tus primeros 15 días, te devuelvo el dinero.*
+
+**BOTÓN:** [Quiero automatizar mi negocio hoy]
+
+---
+
+**Ahora, deja de vender "comunidad" y empieza a vender "tiempo ganado". ¿Te atreves a cambiarlo o vas a seguir siendo uno más del montón?**

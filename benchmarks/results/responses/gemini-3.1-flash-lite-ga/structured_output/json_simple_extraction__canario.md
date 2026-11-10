@@ -2,7 +2,7 @@
 
 - model_id: `google/gemini-3.1-flash-lite`
 - success: True  | final: 9.4 | quality: 10.0
-- latency_total: 1.218s | tokens_per_second: 41.0
+- latency_total: 1.253s | tokens_per_second: 39.9
 - input_tokens: 103 | output_tokens: 50
 
 ## Entrada exacta (lo que recibió el modelo)

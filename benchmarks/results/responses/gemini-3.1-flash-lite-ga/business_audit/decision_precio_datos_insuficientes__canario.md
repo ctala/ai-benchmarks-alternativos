@@ -1,9 +1,9 @@
 # Gemini 3.1 Flash Lite (GA) — business_audit/decision_precio_datos_insuficientes
 
 - model_id: `google/gemini-3.1-flash-lite`
-- success: True  | final: 3.42 | quality: 2.0
-- latency_total: 1.701s | tokens_per_second: 1.2
-- input_tokens: 94 | output_tokens: 2
+- success: True  | final: 3.58 | quality: 2.0
+- latency_total: 0.98s | tokens_per_second: 4.1
+- input_tokens: 94 | output_tokens: 4
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -20,4 +20,4 @@ Lo único que sé es que tengo 30 clientes de pago y que un competidor cobra $39
 
 ## Respuesta completa
 
-No.
+Insuficiente.

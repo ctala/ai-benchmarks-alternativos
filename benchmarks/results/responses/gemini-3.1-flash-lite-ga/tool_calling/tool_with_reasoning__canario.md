@@ -2,8 +2,8 @@
 
 - model_id: `google/gemini-3.1-flash-lite`
 - success: True  | final: 6.05 | quality: 5.0
-- latency_total: 1.666s | tokens_per_second: 55.2
-- input_tokens: 282 | output_tokens: 92
+- latency_total: 1.193s | tokens_per_second: 78.8
+- input_tokens: 282 | output_tokens: 94
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -18,5 +18,5 @@ Manana tengo una presentacion importante a las 3 PM. Necesito prepararme. Crea u
 
 ## Respuesta completa
 
-[tool_call] create_calendar_event({"description":"Repasar las slides para la presentación de mañana.","title":"Repasar slides presentación","date":"2025-07-20","duration_minutes":60,"time":"17:00"})
+[tool_call] create_calendar_event({"description":"Repasar las slides para la presentación de mañana.","title":"Repaso de slides para presentación","time":"17:00","duration_minutes":60,"date":"2025-07-20"})
 [tool_call] search_web({"query":"mejores practicas para presentaciones ejecutivas"})

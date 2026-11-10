@@ -1,9 +1,9 @@
 # Gemini 3.1 Flash Lite (GA) — business_audit/atribucion_correlacion_temporal
 
 - model_id: `google/gemini-3.1-flash-lite`
-- success: True  | final: 9.22 | quality: 10.0
-- latency_total: 4.517s | tokens_per_second: 164.7
-- input_tokens: 221 | output_tokens: 744
+- success: True  | final: 9.23 | quality: 10.0
+- latency_total: 3.602s | tokens_per_second: 197.4
+- input_tokens: 221 | output_tokens: 711
 
 ## Entrada exacta (lo que recibió el modelo)
 
@@ -30,30 +30,25 @@ Contexto adicional: también el 3 de marzo empecé a pagar publicidad ($400 en e
 
 Como analista, mi respuesta corta es: **No se puede saber.**
 
-Atribuir el crecimiento del 29% en el MRR exclusivamente a la secuencia de emails sería un error metodológico grave. Tenemos lo que en análisis de datos llamamos "variables de confusión" (confounding variables) que impiden aislar el impacto de tu secuencia.
+Si te dijera que la secuencia funcionó basándome solo en el incremento del 29% del MRR, estaría cometiendo un error técnico grave: estoy atribuyendo un efecto a una causa específica cuando existen, al menos, otras dos variables de alto impacto que ocurrieron simultáneamente.
 
-Aquí te explico por qué tus datos actuales son insuficientes para validar la efectividad de la campaña:
+### Por qué no podemos concluir nada todavía:
 
-### El problema de la atribución
-Tienes tres eventos ocurriendo en paralelo que afectan el embudo de ventas:
-1.  **La secuencia de emails:** (Tu variable de estudio).
-2.  **Publicidad pagada ($400):** Introdujiste tráfico nuevo que probablemente no estaba en tu lista de espera ni recibió la secuencia de la misma forma que los usuarios antiguos.
-3.  **Mención del creador (12 de marzo):** Este es un evento externo de gran magnitud. Es muy probable que el aumento en altas (de 9 a 14) sea una consecuencia directa del efecto de autoridad y el tráfico masivo de ese video, lo cual es difícil de separar del flujo orgánico de tus emails.
-
-### ¿Por qué no podemos concluir nada todavía?
-*   **Correlación no es causalidad:** El MRR subió, pero no sabemos *quién* pagó. ¿Fueron los usuarios que recibieron los emails o fueron los usuarios que llegaron por el video del creador? Sin datos de atribución (UTMs o fuentes de conversión), estamos adivinando.
-*   **Efecto de red/autoridad:** La mención del creador pudo haber generado un "efecto halo" que hizo que incluso personas que ignoraron tus emails decidieran comprar por confianza externa.
-*   **Falta de tasa de conversión por canal:** No sabemos cuántos de los 14 nuevos suscriptores de marzo interactuaron con la secuencia de emails.
-
----
+1.  **El problema de la atribución múltiple:** Tienes tres variables que cambiaron en el mismo periodo (secuencia de emails, publicidad pagada y mención de un creador). Los datos actuales son una "mezcla" (un *bundle*). No hay forma de separar cuánto del crecimiento proviene de los emails, cuánto de la publicidad y cuánto del efecto viral del creador.
+2.  **Correlación vs. Causalidad:** Es tentador asumir que los 5 nuevos suscriptores adicionales (14 en marzo vs. 9 en febrero) son fruto de los emails, pero bien podrían ser el resultado directo de la mención del creador o del tráfico cualificado que trajo la publicidad.
+3.  **Falta de granularidad:** No sabemos cuántos de los 14 nuevos suscriptores de marzo pasaron por la secuencia de emails. Un suscriptor pudo haberse registrado tras ver el video del creador y saltarse los emails, o haber hecho clic en un anuncio y haber ignorado la secuencia.
 
 ### ¿Qué necesitamos para estar seguros?
 
-Si quieres medir la efectividad real, necesitamos datos más granulares:
+Para aislar el impacto de tu secuencia de emails, necesitaríamos implementar lo siguiente:
 
-1.  **Datos de atribución (UTMs):** Necesitamos saber de dónde vino cada uno de los 14 suscriptores de marzo. ¿Cuántos hicieron clic en un link del email? ¿Cuántos llegaron directo desde el link del video?
-2.  **Análisis de cohorte:** Necesitamos comparar a un grupo de usuarios que recibió la secuencia contra un grupo de control (usuarios que no la recibieron, si es posible) para ver si la tasa de conversión es significativamente mayor en el grupo expuesto.
-3.  **Tasa de apertura y clic (CTR) de la secuencia:** Si los emails tienen una tasa de apertura baja o nadie hace clic en el botón de compra, la secuencia no puede ser la causa del aumento, independientemente de que el MRR haya subido.
-4.  **Costo de Adquisición (CAC):** Para saber si la publicidad fue rentable, necesitamos cruzar los $400 invertidos con el valor de vida (LTV) de esos usuarios captados.
+1.  **Datos de atribución por fuente:** Necesitamos saber exactamente por qué canal llegó cada uno de los 14 suscriptores de marzo. ¿Cuántos llegaron vía "referral" (creador), cuántos vía "paid" (anuncio) y cuántos vía "organic" (donde la secuencia de emails tiene más peso)?
+2.  **Análisis de clics y conversiones (Funnel):** Necesitamos métricas de la secuencia:
+    *   ¿Cuál fue la tasa de apertura y, más importante, la tasa de clics (CTR) de esos 5 emails?
+    *   ¿Cuántos suscriptores hicieron clic en el enlace de compra dentro de esos emails?
+    *   De los que hicieron clic, ¿cuántos compraron realmente?
+3.  **Grupo de control (o test A/B):** Si queremos rigor científico, lo ideal sería que un grupo de usuarios nuevos recibiera la secuencia y otro grupo no (o una secuencia distinta). Si el grupo con emails convierte significativamente más que el grupo sin ellos, entonces tendríamos evidencia sólida.
+4.  **Datos históricos de estacionalidad:** ¿Marzo es un mes naturalmente mejor para tu sector? Sin saber si el crecimiento es estacional, no podemos atribuir el éxito a ninguna de tus acciones.
 
-**Mi recomendación:** No tomes decisiones basadas en este resultado. El crecimiento es positivo, pero no sabemos si es sostenible o si es un "pico" provocado por el creador. Para la próxima iteración, asegúrate de que cada canal de captación tenga su propio enlace rastreable. Solo entonces podremos decir si tu secuencia de emails está convirtiendo o si solo estás surfeando una ola externa.
+**Mi recomendación:**
+No tomes decisiones de inversión basadas en este 29% de crecimiento. Por ahora, el dato es una **"correlación positiva general"**, pero no una prueba de eficacia de los emails. Deja que el sistema corra un mes más sin introducir cambios, pero esta vez añade **parámetros UTM** a los enlaces de tus emails. Solo así podremos ver si el tráfico que convierte viene de tu secuencia o de otras fuentes.
