@@ -135,8 +135,6 @@ def r4_suites_registradas():
 # exención sin motivo, una que ya no corre en ningún lado o una que ya tiene prueba ponen R5
 # en rojo: la lista solo puede achicarse con razón, nunca crecer en silencio.
 EXENTOS_R5 = {
-    "test_unitarios.py":
-        "es un conjunto de pruebas: cada assert es el sabotaje de su propia función",
     "test_guardrails.py":
         "es la prueba de los demás; la cuidan la trampa de argparse de `_correr` y el "
         "control verde antes de cada sabotaje",

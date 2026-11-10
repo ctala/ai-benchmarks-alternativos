@@ -295,21 +295,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 32 tareas medidas es <strong>7.68</strong>. Un
+    <p>Su media entre las 38 tareas medidas es <strong>7.86</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.17 (+1.49 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.04 (+1.36 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>OCR / extracción desde imágenes</strong> — 8.67 (+0.99 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
-        <li><strong>Aguja en el pajar (contexto largo en español)</strong> — 8.57 (+0.89 contra su media). <span class="meta">Decide: encontrar un dato dentro de un contexto enorme</span></li>
+        <li><strong>Verificar afirmaciones contra fuente</strong> — 9.24 (+1.38 contra su media). <span class="meta">Decide: encontrar qué requiere fuente antes de publicar</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.17 (+1.31 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>Corregir fragmentos en otro alfabeto</strong> — 9.07 (+1.21 contra su media). <span class="meta">Decide: traducir el fragmento sin tocar el resto</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.04 (+1.18 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 3.91 (-3.77 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 5.07 (-2.61 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.68 (-1.00 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
-        <li><strong>Contenido con datos verificables (no inventar)</strong> — 6.79 (-0.89 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 3.91 (-3.95 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 5.07 (-2.79 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.68 (-1.18 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Contenido con datos verificables (no inventar)</strong> — 6.79 (-1.07 contra su media). <span class="meta">Decide: escribir sin caer en la trampa del brief</span></li>
     </ul>
   </section>
   <section class="results">
@@ -388,12 +388,14 @@
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>2.709</td><td>6.794</td><td><strong>8.492</strong></td></tr>
         <tr><th scope="row">Estrategia (pricing. planificación)</th><td>4.656</td><td>6.402</td><td><strong>8.002</strong></td></tr>
         <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>6.199</td><td>6.308</td><td><strong>7.885</strong></td></tr>
+        <tr><th scope="row">Redactar una noticia desde una fuente</th><td>2.035</td><td>5.215</td><td><strong>6.518</strong></td></tr>
         <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>2.535</td><td>4.976</td><td><strong>6.220</strong></td></tr>
         <tr><th scope="row">Presentaciones (slides. reportes)</th><td>4.839</td><td>4.839</td><td><strong>6.048</strong></td></tr>
         <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>2.145</td><td>4.443</td><td><strong>5.553</strong></td></tr>
         <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>1.791</td><td>3.909</td><td><strong>4.886</strong></td></tr>
         <tr><th scope="row">Gestión de tareas (action items. planes)</th><td>1.684</td><td>3.908</td><td><strong>4.885</strong></td></tr>
         <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>1.271</td><td>2.936</td><td><strong>3.670</strong></td></tr>
+        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>1.907</td><td>2.679</td><td><strong>3.348</strong></td></tr>
         <tr><th scope="row">Ventas en frío (cold email. campañas)</th><td>921</td><td>2.531</td><td><strong>3.163</strong></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>1.097</td><td>2.214</td><td><strong>2.767</strong></td></tr>
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>1.588</td><td>1.853</td><td><strong>2.316</strong></td></tr>
@@ -401,12 +403,16 @@
         <tr><th scope="row">OCR / extracción desde imágenes</th><td>453</td><td>1.507</td><td><strong>1.883</strong></td></tr>
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>841</td><td>1.440</td><td><strong>1.800</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>197</td><td>1.384</td><td><strong>1.730</strong></td></tr>
+        <tr><th scope="row">Precisión con datos de negocio (RUT. montos. SKU)</th><td>520</td><td>1.356</td><td><strong>1.695</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>587</td><td>1.154</td><td><strong>1.442</strong></td></tr>
         <tr><th scope="row">JSON estructurado (extracción. schemas)</th><td>105</td><td>1.080</td><td><strong>1.350</strong></td></tr>
         <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>211</td><td>1.078</td><td><strong>1.347</strong></td></tr>
         <tr><th scope="row">Contenido genérico (blog. email. social)</th><td>959</td><td>971</td><td><strong>1.213</strong></td></tr>
+        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>553</td><td>818</td><td><strong>1.022</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>319</td><td>784</td><td><strong>980</strong></td></tr>
         <tr><th scope="row">Resistencia a prompt injection</th><td>107</td><td>770</td><td><strong>962</strong></td></tr>
+        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>377</td><td>685</td><td><strong>856</strong></td></tr>
+        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>450</td><td>685</td><td><strong>856</strong></td></tr>
         <tr><th scope="row">Aguja en el pajar (contexto largo en español)</th><td>237</td><td>649</td><td><strong>811</strong></td></tr>
         <tr><th scope="row">Traducción (es↔en)</th><td>114</td><td>621</td><td><strong>776</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>395</td><td>541</td><td><strong>676</strong></td></tr>

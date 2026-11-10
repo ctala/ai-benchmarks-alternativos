@@ -1,0 +1,20 @@
+# Gemini 3.1 Flash Lite (GA) — tool_calling/multi_tool_sequential
+
+- model_id: `google/gemini-3.1-flash-lite`
+- success: True  | final: 6.04 | quality: 5.0
+- latency_total: 1.59s | tokens_per_second: 64.8
+- input_tokens: 289 | output_tokens: 103
+
+## Entrada exacta (lo que recibió el modelo)
+
+**user:**
+
+Necesito que hagas lo siguiente:
+1. Crea una tarea urgente titulada 'Revisar contrato cliente ABC' con fecha limite 2026-05-10
+2. Envia un email a legal@empresa.com con asunto 'Contrato ABC - Revision urgente' explicando que necesitamos revision antes del 10 de mayo
+
+
+## Respuesta completa
+
+[tool_call] create_task({"title":"Revisar contrato cliente ABC","priority":"urgent","due_date":"2026-05-10"})
+[tool_call] send_email({"subject":"Contrato ABC - Revision urgente","body":"Hola, necesitamos que el contrato del cliente ABC sea revisado antes del 10 de mayo. Gracias.","to":"legal@empresa.com"})

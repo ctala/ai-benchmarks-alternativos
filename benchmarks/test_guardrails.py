@@ -1912,8 +1912,9 @@ def _t_cobertura_r5():
     with Sabotaje(cc):
         t = cc.read_text(encoding="utf-8")
         import re as _re
-        # Vacía el motivo de `test_unitarios.py`: una exención sin porqué.
-        roto = _re.sub(r'("test_unitarios\.py":\s*)"[^"]*"', r'\1""', t, count=1)
+        # Vacía el motivo de `test_guardrails.py`: una exención sin porqué. (Hasta el 9-nov era
+        # la de `test_unitarios.py`, que salió de la lista: `_t_error_del_proveedor` la prueba.)
+        roto = _re.sub(r'("test_guardrails\.py":\s*)\n?\s*"[^"]*"\s*\n?\s*"[^"]*"', r'\1""', t, count=1)
         if roto == t:
             raise AssertionError("EXENTOS_R5 ya no tiene la forma esperada")
         cc.write_text(roto, encoding="utf-8")
@@ -2208,6 +2209,76 @@ def main() -> int:
     print("\n".join(lineas))
     return code
 
+
+
+@prueba("export_harbor · error_del_proveedor",
+        "la firma lee los logs del entorno (el 429 de Postmark de incidente), una tarea sin dato "
+        "entra como 0, los reintentos no tienen tope, o validate_suite cuenta un error como respuesta")
+def _t_error_del_proveedor():
+    # 9-nov-2026 (Cristian). Dos condiciones, dos sabotajes, con control verde antes de cada uno.
+    pyc = tempfile.mkdtemp()   # bytecode aparte: un sabotaje del mismo tamaño no reusa el .pyc viejo
+
+    def pytest_rc(filtro: str) -> int:
+        return subprocess.run([PY, "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider",
+                               str(ROOT / "benchmarks" / "test_unitarios.py"), "-k", filtro],
+                              cwd=ROOT, capture_output=True, text=True,
+                              env={**os.environ, "PYTHONPYCACHEPREFIX": pyc}).returncode
+
+    k1, k2 = "error_del_proveedor_lee_solo", "sin_dato_del_proveedor_no_entra"
+    if pytest_rc(k1) != 0 or pytest_rc(k2) != 0:
+        return False   # control: las dos tienen que estar en verde antes de romper
+    eh = ROOT / "benchmarks" / "export_harbor.py"
+    with Sabotaje(eh):
+        t = eh.read_text(encoding="utf-8")
+        # La firma ingenua: busca el nombre de la excepción o el código en TODA la trayectoria,
+        # que incluye la salida de los comandos del entorno.
+        roto = t.replace(
+            "    status, texto = salida_del_agente(trayectoria)\n    if status in TRANSITORIOS:",
+            "    status, texto = salida_del_agente(trayectoria)\n"
+            "    if any(x in trayectoria for x in TRANSITORIOS) or _CODIGO_PROVEEDOR.search(trayectoria):\n"
+            "        return \"leído de la traza\"\n    if status in TRANSITORIOS:", 1)
+        if roto == t:
+            raise AssertionError("error_del_proveedor cambió de forma: el sabotaje no tocaría nada")
+        eh.write_text(roto, encoding="utf-8")
+        if pytest_rc(k1) == 0:
+            return False
+    ef = ROOT / "benchmarks" / "export_for_pages.py"
+    with Sabotaje(ef):
+        t = ef.read_text(encoding="utf-8")
+        roto = t.replace('if fila.get("estado") == "sin_dato_proveedor":\n                        continue',
+                         'if False:\n                        continue', 1)
+        if roto == t:
+            raise AssertionError("_cargar_agentico cambió de forma: el sabotaje no tocaría nada")
+        ef.write_text(roto, encoding="utf-8")
+        if pytest_rc(k2) == 0:
+            return False
+    k3 = "lote_harbor_repite"
+    if pytest_rc(k3) != 0:
+        return False
+    lh = ROOT / "benchmarks" / "lote_harbor.py"
+    with Sabotaje(lh):
+        t = lh.read_text(encoding="utf-8")
+        roto = t.replace("while validos < k and ultimos and ronda < tope:",
+                         "while validos < k and ultimos:", 1)   # sin tope
+        if roto == t:
+            raise AssertionError("lote_harbor cambió de forma: el sabotaje no tocaría nada")
+        lh.write_text(roto, encoding="utf-8")
+        if pytest_rc(k3) == 0:
+            return False
+    k4 = "validate_suite_no_cuenta_los_errores"
+    if pytest_rc(k4) != 0:
+        return False
+    vs = ROOT / "benchmarks" / "validate_suite.py"
+    with Sabotaje(vs):
+        t = vs.read_text(encoding="utf-8")
+        roto = t.replace('if r.get("success") and r.get("quality") is not None]',
+                         'if r.get("quality") is not None]', 1)   # vuelve a contar los errores
+        if roto == t:
+            raise AssertionError("runs_validos cambió de forma: el sabotaje no tocaría nada")
+        vs.write_text(roto, encoding="utf-8")
+        if pytest_rc(k4) == 0:
+            return False
+    return all(pytest_rc(k) == 0 for k in (k1, k2, k3, k4))   # restaurado: verde otra vez
 
 if __name__ == "__main__":
     sys.exit(main())

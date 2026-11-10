@@ -199,6 +199,11 @@ def _cargar_agentico() -> dict:
             d = json.loads(p.read_text(encoding="utf-8"))
             for tarea, dt in d.get("tareas", {}).items():
                 for mid, fila in dt.get("modelos", {}).items():
+                    # Una tarea que el proveedor dejó sin ningún intento válido (tras el
+                    # tope de reintentos) es SIN DATO, no 0: no entra a la nota, ni a
+                    # «N de M», ni al piso (DECISIONES, 9-nov-2026, error_del_proveedor).
+                    if fila.get("estado") == "sin_dato_proveedor":
+                        continue
                     out.setdefault(mid, {})[tarea] = fila
         except Exception as e:
             print(f"  ⚠️  no se pudo leer resultados agénticos: {e}")

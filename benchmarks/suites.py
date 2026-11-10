@@ -424,10 +424,11 @@ SUITES = {
     # Diseño aprobado: benchmark-pack-noticias_e470.md
     "noticias_relevancia": {
         "pilar": "Contenido", "en_promedio": False,
-        # "ocasion" (9-nov-2026): se publica como una ocasión de uso con su propio grupo,
-        # no promedia. Decisión de Cristian para la ventana v6.1; no caduca con la
-        # cobertura. Sumarla al índice se simula aparte (parada D), con su peso en la nota.
-        "fuera_por": "ocasion",
+        # "regresion" (9-nov-2026): SALE DEL BENCHMARK. En sus casos casi todos aciertan, así
+        # que sirve el más barato disponible (DECISIONES, 9-nov). No se mide en lotes ni se
+        # publica como ocasión; sus casos se corren con `--fuera-del-examen` como prueba de
+        # regresión del filtro de Eco. Sigue en el registro porque tiene runs medidos (S1).
+        "fuera_por": "regresion",
         "menu": "Filtrar notas por criterio editorial",
         "decide": "distinguir si una nota es para tu medio",
         "nota": "REESCRITA el 9-nov-2026 (ventana v6.1). 58 notas, una por test (29 pasan): ~20 que "
@@ -437,7 +438,10 @@ SUITES = {
                 "cada caso cae de un lado de una regla escrita del criterio A-Filtro, sin "
                 "etiqueta a ojo. Las notas se reescribieron desde hechos públicos; ningún "
                 "texto de Eco. Absorbe la detección de duplicados a escala chica. Es una "
-                "OCASIÓN (etapa del pipeline de noticias), no entra al índice en esta ventana.",
+                "OCASIÓN (etapa del pipeline de noticias), no entra al índice en esta ventana. "
+                "SALE DEL BENCHMARK el 9-nov-2026: validate_suite con 8 modelos, 99 % de runs "
+                "perfectos sin contar 19 errores 429; queda como prueba de regresión del filtro "
+                "de Eco (sirve el más barato disponible que no deje pasar una nota vetada).",
     },
     "noticias_repetidas": {
         "pilar": "Agentes", "en_promedio": False,
@@ -473,7 +477,8 @@ SUITES = {
     },
     "noticias_verificacion": {
         "pilar": "Agentes", "en_promedio": False,
-        "fuera_por": "ocasion",
+        # "regresion" (9-nov-2026): sale del benchmark; ver noticias_relevancia.
+        "fuera_por": "regresion",
         "menu": "Verificar afirmaciones contra fuente",
         "decide": "encontrar qué requiere fuente antes de publicar",
         "nota": "REESCRITA el 9-nov-2026 (ventana v6.1). Etapa de verificación del pipeline "
@@ -482,7 +487,9 @@ SUITES = {
                 "cifras alteradas, magnitud, atribución, datos ausentes y fuente cortada por "
                 "muro de pago. Nota = media geométrica entre el acierto en lo respaldado y el "
                 "acierto exacto en lo que no (confundir CONTRADICE con NO_RESPALDADO es "
-                "error): respaldar todo saca 1,7 y bloquear todo, 0.",
+                "error): respaldar todo saca 1,7 y bloquear todo, 0. SALE DEL BENCHMARK el "
+                "9-nov-2026: 98 % de runs perfectos y 0 de 240 decisiones del gate distintas; "
+                "queda como prueba de regresión del gate de Eco.",
     },
     "noticias_redaccion": {
         "pilar": "Contenido", "en_promedio": False,

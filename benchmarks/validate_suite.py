@@ -70,6 +70,18 @@ def muestra_diversa(n: int) -> list[str]:
     return [m["key"] for m in rank[::paso]][:n]
 
 
+def runs_validos(results: list[dict], suite: str) -> tuple[list[dict], int]:
+    """(runs que son respuestas, cuántos se descartaron por error).
+
+    9-nov-2026 · Un run con `success=False` (429, timeout, error del proveedor) no es una
+    respuesta del modelo. Contarlo como nota baja hacía que el filtro de relevancia pareciera
+    tener rango 6,72-10 por 19 errores 429 de Gemma 4 31B: un proveedor caído puede hacer que
+    una suite saturada parezca discriminar. El export del índice ya los descarta igual."""
+    de_la_suite = [r for r in results if r.get("suite") == suite]
+    validos = [r for r in de_la_suite if r.get("success") and r.get("quality") is not None]
+    return validos, sum(1 for r in de_la_suite if not r.get("success"))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--suite", required=True)
@@ -88,16 +100,26 @@ def main() -> int:
         print(f"Midiendo «{args.suite}» en {len(keys)} modelos repartidos por el rango…\n")
         salida.write_text(json.dumps({"metadata": {"timestamp": f"validacion_{args.suite}",
                                                    "partial": True}, "results": []}))
-        subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"), "--quick", "--judge",
-                        "--judge-model", "phi4-or", "--models", *keys,
-                        "--tests", args.suite, "--resume", str(salida), "--sin-canario"],
-                       cwd=ROOT, capture_output=True, text=True)
+        # 9-nov-2026 · `--fuera-del-examen`: validar una suite nueva es, por definición,
+        # correr algo que no es el examen v5, y desde el 6-nov el runner se niega a hacerlo
+        # sin el flag. Como la salida se capturaba, la validación terminaba en «no hay
+        # resultados» sin decir por qué. Ahora el error del runner se muestra.
+        corrida = subprocess.run([PY, str(ROOT / "benchmarks" / "runner.py"), "--quick", "--judge",
+                                  "--judge-model", "phi4-or", "--models", *keys,
+                                  "--tests", args.suite, "--resume", str(salida), "--sin-canario",
+                                  "--fuera-del-examen"],
+                                 cwd=ROOT, capture_output=True, text=True)
+        if corrida.returncode != 0:
+            print(f"✗ el runner terminó con código {corrida.returncode}:\n"
+                  f"{(corrida.stderr or corrida.stdout)[-2000:]}")
+            return 1
 
     if not salida.exists():
         print(f"✗ no hay resultados en {salida.name}")
         return 1
-    runs = [r for r in json.loads(salida.read_text()).get("results", [])
-            if r.get("suite") == args.suite and r.get("quality") is not None]
+    runs, errores = runs_validos(json.loads(salida.read_text()).get("results", []), args.suite)
+    if errores:
+        print(f"  ({errores} runs con error del proveedor o del runner no cuentan: no son respuestas)")
     if not runs:
         print("✗ la suite no produjo runs con nota")
         return 1

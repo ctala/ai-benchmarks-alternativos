@@ -1,7 +1,7 @@
 {
-  "cuando": "2026-11-07T07:57:08",
+  "cuando": "2026-11-09T13:08:43",
   "modelos": [
-    "gpt-6.1-sol"
+    "gemini-3.1-flash-lite-ga"
   ],
   "suites": [
     "tool_calling",

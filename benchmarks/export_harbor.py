@@ -189,6 +189,87 @@ def _proveedores(trayectoria: str) -> list[str]:
     return sorted(set(_PROVEEDOR.findall(trayectoria)))
 
 
+# ── ERROR DEL PROVEEDOR (DECISIONES, 9-nov-2026, ventana v6.1) ────────────────────
+# Un intento que el PROVEEDOR corta (429 o 5xx que sobrevive a los reintentos de litellm)
+# no es una nota del modelo: se descarta entero, sin nota parcial, y se repite con tope
+# (`lote_harbor.py`). Si tras el tope no queda ningún intento válido, la tarea queda
+# `sin_dato_proveedor`, nunca 0. Es lo mismo que hace el examen con `success=False`.
+#
+# SOLO SE LEE LA LLAMADA AL MODELO. La fuente es el mensaje `role: "exit"` de la
+# trayectoria, que mini-swe-agent escribe con la excepción de litellm cuando la llamada
+# falla después de sus reintentos. NO se lee la traza de texto: ahí está también la
+# salida de los comandos, y `harbor-incidente` trae un 429 de Postmark como SEÑUELO en
+# sus logs. Si la firma lo tomara, excluiría justo los intentos donde el modelo cayó en
+# la trampa (Cristian, 9-nov). Un 429 que litellm reintentó y superó tampoco cuenta: el
+# intento siguió y terminó `Submitted`.
+TRANSITORIOS = {"RateLimitError", "APIConnectionError", "ServiceUnavailableError",
+                "InternalServerError", "Timeout", "APITimeoutError", "APIError"}
+_CODIGO_PROVEEDOR = re.compile(r'"code"\s*:\s*(429|5\d\d)\b')
+
+
+def salida_del_agente(trayectoria: str) -> tuple[str | None, str]:
+    """(exit_status, texto del mensaje de salida) de la trayectoria de mini-swe-agent."""
+    try:
+        d = json.loads(trayectoria)
+    except Exception:
+        return None, ""
+    msgs = d.get("messages") or []
+    ultimo = msgs[-1] if msgs and isinstance(msgs[-1], dict) else {}
+    texto = str(ultimo.get("content") or "") if ultimo.get("role") == "exit" else ""
+    status = (d.get("info") or {}).get("exit_status")
+    if status is None:
+        status = (ultimo.get("extra") or {}).get("exit_status")
+    return status, texto
+
+
+def error_del_proveedor(trayectoria: str) -> str | None:
+    """El motivo si la LLAMADA AL MODELO fue cortada por el proveedor; None si no."""
+    status, texto = salida_del_agente(trayectoria)
+    if status in TRANSITORIOS:
+        return status
+    if status == "BadRequestError":
+        m = _CODIGO_PROVEEDOR.search(texto)
+        if m:
+            return f"BadRequestError {m.group(1)}"
+    return None
+
+
+def _tray(status: str, salida: str = "", herramienta: str = "") -> str:
+    msgs = [{"role": "user", "content": "tarea"}]
+    if herramienta:
+        msgs.append({"role": "tool", "content": herramienta})
+    msgs.append({"role": "exit", "content": salida, "extra": {"exit_status": status}})
+    return json.dumps({"info": {"exit_status": status}, "messages": msgs})
+
+
+# Casos fijos de la firma: (nombre, trayectoria, ¿es corte del proveedor?). El señuelo de
+# `harbor-incidente` (el 429 de Postmark en los logs, más un JSON con `"code": 429` y el
+# nombre de una excepción en la salida de un comando) es el que no puede marcarse nunca.
+CASOS_FIRMA = [
+    ("rate limit que agotó los reintentos",
+     _tray("RateLimitError", 'litellm.RateLimitError: OpenrouterException - {"error":{"code":429}}'), True),
+    ("proveedor caído (503)",
+     _tray("ServiceUnavailableError", 'litellm.ServiceUnavailableError: {"error":{"code":503}}'), True),
+    ("BadRequest que envuelve un 429 del proveedor",
+     _tray("BadRequestError", 'litellm.BadRequestError: {"error":{"message":"Provider returned error","code":429}}'), True),
+    ("señuelo de incidente: 429 de Postmark en los logs, el modelo terminó",
+     _tray("Submitted", "", "2026-11-06T10:00:06-03:00 WARN postmark: 429 Too Many Requests en 1 de 4 envíos; "
+           'reintento OK\n{"error":{"code":429,"message":"Too Many Requests"}} RateLimitError'), False),
+    ("429 que litellm reintentó y superó",
+     _tray("Submitted", "", "Retrying in 4 seconds as it raised RateLimitError"), False),
+    ("400 del endpoint: solo una tool call a la vez (es del modelo)",
+     _tray("BadRequestError", 'litellm.BadRequestError: {"error":{"message":"single tool-calls","code":400}}'), False),
+    ("contexto excedido (es del modelo)",
+     _tray("BadRequestError", 'litellm.BadRequestError: {"error":{"message":"maximum context length","code":400}}'), False),
+    ("rompe el bucle de formato (es del modelo)", _tray("RepeatedFormatError", "RepeatedFormatError"), False),
+]
+
+
+def autoprueba_firma() -> list[str]:
+    """Los casos de `CASOS_FIRMA` que la firma clasifica mal ([] = todo bien)."""
+    return [n for n, tray, esperado in CASOS_FIRMA if bool(error_del_proveedor(tray)) != esperado]
+
+
 def es_de_ventana(agente_cfg: dict) -> bool:
     """¿El intento corrió en la ventana de v5, con proveedor fijo? (DECISIONES, 5-nov-2026)
 
@@ -274,6 +355,13 @@ def recolectar() -> dict:
         # promedia 0,62 y el suyo fue JSON malformado. Misma etiqueta, causas opuestas.
         causa, detalle = _causa(traza) if (reward in (None, 0.0)) else (None, None)
 
+        tray_p = trial / "agent" / "mini-swe-agent.trajectory.json"
+        tray = tray_p.read_text(errors="replace") if tray_p.exists() else ""
+        cortado = error_del_proveedor(tray)
+        if cortado:
+            # Se descarta entero: ni el reward parcial ni el cero cuentan.
+            reward, causa, detalle = None, "error_del_proveedor", cortado
+
         if checksum and vigente.get(tarea) and checksum != vigente[tarea]:
             descartadas[tarea] += 1
             continue
@@ -281,8 +369,6 @@ def recolectar() -> dict:
         if tarea not in meta_tarea and checksum:
             meta_tarea[tarea] = {"task_checksum": checksum, "agente": agente}
 
-        tray_p = trial / "agent" / "mini-swe-agent.trajectory.json"
-        tray = tray_p.read_text(errors="replace") if tray_p.exists() else ""
         costo, fuente = _costo(tray, modelo)
         por_modelo[(tarea, modelo)].append(
             {"reward": reward, "reward_verificador": reward_verificador, "causa": causa, "detalle": detalle,
@@ -306,7 +392,11 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
         # El estado NO sale del promedio: sale de la causa cuando la hay, y del piso
         # cuando no. Un modelo que promedia 0,56 con un piso en 0 es INESTABLE, y eso
         # es información distinta de "saca 0,56 siempre".
-        if causas and all(r == 0.0 for r in rewards or [0.0]):
+        cortados = sum(1 for i in intentos if i["causa"] == "error_del_proveedor")
+        causas = [c for c in causas if c != "error_del_proveedor"]
+        if cortados and not rewards:
+            estado = "sin_dato_proveedor"
+        elif causas and all(r == 0.0 for r in rewards or [0.0]):
             estado = max(set(causas), key=causas.count)
         elif not rewards:
             estado = "sin_datos"
@@ -321,7 +411,9 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             "media": round(sum(rewards) / len(rewards), 4) if rewards else None,
             "piso": min(rewards) if rewards else None,
             "techo": max(rewards) if rewards else None,
-            "intentos": len(intentos),
+            # Intentos VÁLIDOS: los cortados por el proveedor no son intentos del modelo.
+            "intentos": len(intentos) - cortados,
+            "cortados_por_proveedor": cortados,
             "rewards": rewards,
             "estado": estado,
             "costo_usd": round(sum(costos), 4) if costos else None,
@@ -330,7 +422,10 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             # Proveedores que sirvieron los intentos. Más de uno = examen mezclado (6.5).
             "proveedores": sorted({p for i in intentos for p in i.get("proveedores") or []}),
         }
-        detalle = next((i["detalle"] for i in intentos if i["detalle"]), None)
+        # El motivo de un corte del proveedor solo se publica si dejó la tarea sin dato.
+        detalle = next((i["detalle"] for i in intentos if i["detalle"]
+                        and (i["causa"] != "error_del_proveedor" or estado == "sin_dato_proveedor")),
+                       None)
         if detalle:
             fila["motivo"] = detalle
         # Causas de las corridas en cero de un modelo que NO es uniformemente cero.
@@ -355,6 +450,7 @@ def _resumir(por_modelo, meta_tarea, descartadas) -> dict:
             "media_global": round(sum(medias) / len(medias), 4) if medias else None,
             "costo_usd": round(sum(m["costo_usd"] or 0 for m in mods.values()), 2),
             "descartadas_por_checksum": descartadas.get(tarea, 0),
+            "cortados_por_proveedor": sum(m.get("cortados_por_proveedor", 0) for m in mods.values()),
         }
     return {
         "generado": datetime.now().isoformat(timespec="seconds"),

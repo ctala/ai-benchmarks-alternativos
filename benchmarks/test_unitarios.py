@@ -2961,3 +2961,90 @@ def test_noticias_verificacion_scorer_y_lineas_base():
     assert _st.mean(nota(ea, lambda v: "RESPALDADO") for ea in eas) < 3.0
     assert _st.mean(nota(ea, lambda v: "CONTRADICE") for ea in eas) < 3.0
     assert _st.mean(nota(ea, lambda v: "NO_RESPALDADO") for ea in eas) < 3.0
+
+
+def test_error_del_proveedor_lee_solo_la_llamada_al_modelo_y_no_el_senuelo():
+    # 9-nov-2026 (Cristian): la firma lee el mensaje de salida del agente, nunca los logs del
+    # entorno. `harbor-incidente` trae un 429 de Postmark como señuelo: si la firma lo tomara,
+    # excluiría justo los intentos donde el modelo cayó en la trampa.
+    from benchmarks import export_harbor as eh
+    assert eh.autoprueba_firma() == []
+    senuelo = next(t for n, t, _ in eh.CASOS_FIRMA if n.startswith("señuelo"))
+    assert "postmark: 429" in senuelo and eh.error_del_proveedor(senuelo) is None
+    # El señuelo es el del entorno real de la tarea, no uno inventado que nunca aparece.
+    log = (ROOT / "tareas-agente" / "harbor-incidente" / "environment" / "n8n" / "ejecuciones.log")
+    assert "postmark: 429 Too Many Requests" in log.read_text(encoding="utf-8")
+
+
+def test_intento_cortado_se_descarta_entero_y_sin_intentos_validos_es_sin_dato():
+    # 9-nov-2026 (Cristian): sin nota parcial; tras el tope, sin dato en la tarea y no 0.
+    from benchmarks import export_harbor as eh
+    corte = {"reward": None, "causa": "error_del_proveedor", "detalle": "RateLimitError",
+             "costo_usd": None, "proveedores": [], "ventana": True}
+    bueno = {"reward": 0.5, "causa": None, "detalle": None, "costo_usd": 0.01,
+             "proveedores": ["X"], "ventana": True}
+    d = eh._resumir({("t", "m"): [corte, corte, bueno], ("t", "n"): [corte, corte]}, {}, {})
+    m, n = d["tareas"]["t"]["modelos"]["m"], d["tareas"]["t"]["modelos"]["n"]
+    assert m["rewards"] == [0.5] and m["intentos"] == 1 and m["cortados_por_proveedor"] == 2
+    assert m["estado"] == "ok_parcial" and "motivo" not in m
+    assert n["estado"] == "sin_dato_proveedor" and n["media"] is None and n["piso"] is None
+    assert n["rewards"] == [] and n["motivo"] == "RateLimitError"
+    assert d["tareas"]["t"]["resumen"]["cortados_por_proveedor"] == 4
+
+
+def test_tarea_sin_dato_del_proveedor_no_entra_a_la_nota(tmp_path, monkeypatch):
+    from benchmarks import export_for_pages as ef, indice as ix
+    raiz = tmp_path / "r"; (raiz / "tareas-agente").mkdir(parents=True); (raiz / "benchmarks").mkdir()
+    (raiz / "tareas-agente" / "resultados.json").write_text(json.dumps({"tareas": {
+        "a": {"modelos": {"m": {"rewards": [1.0, 1.0, 1.0], "media": 1.0, "piso": 1.0, "estado": "ok_siempre"}}},
+        "b": {"modelos": {"m": {"rewards": [], "media": None, "piso": None, "estado": "sin_dato_proveedor"}}},
+    }}), encoding="utf-8")
+    monkeypatch.setattr(ef, "__file__", str(raiz / "benchmarks" / "export_for_pages.py"))
+    ag = ef._cargar_agentico()
+    assert set(ag["m"]) == {"a"}                 # «b» no está: ni 0, ni en «N de M»
+    assert ix.nota_harbor(ag["m"]) == 10.0       # con un 0 en «b», el piso daría 6,0
+
+
+def test_lote_harbor_repite_los_cortados_con_tope_y_no_los_demas(tmp_path):
+    # 9-nov-2026 (Cristian): un intento cortado se repite con tope; tras el tope, sin dato.
+    from benchmarks import export_harbor as eh, lote_harbor as lh
+    corte = eh._tray("RateLimitError", 'litellm.RateLimitError: {"error":{"code":429}}')
+    bien = eh._tray("Submitted")
+
+    def falso(guion):
+        llamadas = []
+
+        def correr(modelo, tarea, k, job, clave, jobs):
+            llamadas.append((job, k))
+            ronda = guion[len(llamadas) - 1]
+            for i, tipo in enumerate(ronda[:k]):
+                t = jobs / job / f"{tarea}__{i}"; (t / "agent").mkdir(parents=True)
+                (t / "agent" / "mini-swe-agent.trajectory.json").write_text(corte if tipo == "c" else bien)
+                if tipo == "v":
+                    (t / "verifier").mkdir(); (t / "verifier" / "reward.txt").write_text("1.0")
+            (jobs / job / "result.json").write_text("{}")
+        return correr, llamadas
+
+    # 1 cortado en la primera ronda, se repite y queda completo
+    c, ll = falso(["vvc", "v"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "a", correr=c)
+    assert f["validos"] == 3 and f["repetidos"] == 1 and f["estado"] == "completo"
+    assert ll == [("p__m__t", 3), ("p__m__t__r1", 1)]
+    # todo cortado siempre: se detiene en el tope y queda sin dato, no 0
+    c, ll = falso(["ccc", "ccc", "ccc", "ccc"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "b", correr=c)
+    assert len(ll) == 3 and f["rondas"] == 2 and f["estado"] == "sin_dato_proveedor"
+    # un faltante que NO es corte (timeout: sin reward ni corte) no se repite
+    c, ll = falso(["vvt"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "c", correr=c)
+    assert len(ll) == 1 and f["repetidos"] == 0 and f["estado"] == "incompleto"
+
+
+def test_validate_suite_no_cuenta_los_errores_como_respuestas():
+    # 9-nov-2026: 19 errores 429 de Gemma 4 31B bajaban el rango del filtro a 6,72.
+    from benchmarks.validate_suite import runs_validos
+    rs = [{"suite": "s", "success": True, "quality": 10.0},
+          {"suite": "s", "success": False, "quality": 0.0, "error": "429"},
+          {"suite": "otra", "success": True, "quality": 5.0}]
+    v, e = runs_validos(rs, "s")
+    assert [r["quality"] for r in v] == [10.0] and e == 1

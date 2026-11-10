@@ -1,13 +1,13 @@
 # Ling 3.0 Flash
 
 - **model_id**: `inclusionai/ling-3.0-flash`
-- **Total tests**: 355/355 exitosos (0 errores)
-- **Score final**: 7.89
-- **Calidad**: 8.03
+- **Total tests**: 522/522 exitosos (0 errores)
+- **Score final**: 8.28
+- **Calidad**: 8.59
 - **Judge score (Phi-4)**: 4.25/10
-- **Velocidad**: 151 tok/s
-- **Latencia primera token**: 19.21s
-- **Costo promedio por test**: $0.00039
+- **Velocidad**: 133 tok/s
+- **Latencia primera token**: 16.51s
+- **Costo promedio por test**: $0.00029
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,9 +30,15 @@
 | multi_turn | 8 | 8 | 7.95 | 8.00 |
 | news_seo_writing | 10 | 10 | 6.56 | 6.22 |
 | niah_es | 45 | 45 | 8.67 | 9.54 |
+| noticias_extraccion | 25 | 25 | 8.75 | 9.18 |
+| noticias_redaccion | 25 | 25 | 9.01 | 9.70 |
+| noticias_relevancia | 58 | 58 | 9.04 | 10.00 |
+| noticias_traduccion | 15 | 15 | 9.37 | 9.93 |
+| noticias_verificacion | 30 | 30 | 9.54 | 10.00 |
 | ocr_extraction | 10 | 10 | 8.96 | 9.35 |
 | orchestration | 10 | 10 | 6.97 | 6.42 |
 | policy_adherence | 8 | 8 | 7.80 | 7.79 |
+| precision_datos | 14 | 14 | 9.17 | 9.57 |
 | presentation | 4 | 4 | 8.66 | 9.29 |
 | prompt_injection_es | 20 | 20 | 4.15 | 2.35 |
 | reasoning | 6 | 6 | 8.86 | 9.61 |
@@ -4215,3 +4221,15 @@ Aquí tienes la información extraída en formato JSON:
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos

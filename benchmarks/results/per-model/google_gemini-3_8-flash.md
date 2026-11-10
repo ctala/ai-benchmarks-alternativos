@@ -1,13 +1,13 @@
 # Gemini 3.8 Flash
 
 - **model_id**: `google/gemini-3.8-flash`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.29
-- **Calidad**: 8.10
+- **Total tests**: 523/523 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 8.67
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 97 tok/s
-- **Latencia primera token**: 12.93s
-- **Costo promedio por test**: $0.02491
+- **Velocidad**: 98 tok/s
+- **Latencia primera token**: 11.81s
+- **Costo promedio por test**: $0.01853
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,9 +32,15 @@
 | multi_turn | 8 | 8 | 6.46 | 6.75 |
 | news_seo_writing | 10 | 10 | 6.89 | 7.58 |
 | niah_es | 29 | 29 | 7.63 | 9.95 |
+| noticias_extraccion | 25 | 25 | 8.51 | 9.83 |
+| noticias_redaccion | 25 | 25 | 8.31 | 9.72 |
+| noticias_relevancia | 58 | 58 | 8.92 | 10.00 |
+| noticias_traduccion | 15 | 15 | 8.95 | 10.00 |
+| noticias_verificacion | 30 | 30 | 8.99 | 10.00 |
 | ocr_extraction | 10 | 10 | 8.26 | 9.35 |
 | orchestration | 10 | 10 | 6.02 | 6.00 |
 | policy_adherence | 8 | 8 | 6.88 | 7.25 |
+| precision_datos | 14 | 14 | 8.67 | 9.64 |
 | presentation | 4 | 4 | 8.33 | 9.73 |
 | prompt_injection_es | 20 | 20 | 2.33 | 1.00 |
 | reasoning | 6 | 6 | 8.37 | 9.77 |
@@ -4022,3 +4028,15 @@ Fuerte tracci
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos

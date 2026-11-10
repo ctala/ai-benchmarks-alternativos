@@ -1,13 +1,13 @@
 # Claude Haiku 5.5
 
 - **model_id**: `anthropic/claude-haiku-5.5`
-- **Total tests**: 352/356 exitosos (4 errores)
-- **Score final**: 8.00
-- **Calidad**: 8.12
+- **Total tests**: 519/523 exitosos (4 errores)
+- **Score final**: 8.41
+- **Calidad**: 8.67
 - **Judge score (Phi-4)**: 4.20/10
-- **Velocidad**: 158 tok/s
-- **Latencia primera token**: 7.87s
-- **Costo promedio por test**: $0.00367
+- **Velocidad**: 160 tok/s
+- **Latencia primera token**: 6.87s
+- **Costo promedio por test**: $0.00269
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,9 +32,15 @@
 | multi_turn | 8 | 8 | 7.40 | 7.50 |
 | news_seo_writing | 10 | 10 | 7.22 | 6.73 |
 | niah_es | 29 | 25 | 7.84 | 9.60 |
+| noticias_extraccion | 25 | 25 | 9.05 | 9.87 |
+| noticias_redaccion | 25 | 25 | 8.50 | 9.43 |
+| noticias_relevancia | 58 | 58 | 9.56 | 10.00 |
+| noticias_traduccion | 15 | 15 | 9.44 | 9.75 |
+| noticias_verificacion | 30 | 30 | 9.53 | 10.00 |
 | ocr_extraction | 10 | 10 | 8.92 | 9.43 |
 | orchestration | 10 | 10 | 6.79 | 6.24 |
 | policy_adherence | 8 | 8 | 8.09 | 8.00 |
+| precision_datos | 14 | 14 | 9.05 | 9.29 |
 | presentation | 4 | 4 | 8.54 | 8.35 |
 | prompt_injection_es | 20 | 20 | 6.33 | 5.95 |
 | reasoning | 6 | 6 | 8.67 | 8.25 |
@@ -3849,3 +3855,15 @@ Aquí tienes un plan de proyecto para la landing page de tu SaaS de gestión de 
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos

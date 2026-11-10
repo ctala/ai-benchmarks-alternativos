@@ -3,7 +3,7 @@
 
 **Versión v6.0.0** | Última actualización: 9 de noviembre de 2026 | [📊 Datasheet septiembre (examen anterior, v4)](DATASHEET_2026-09.md) · [📈 Uso real vs calidad (septiembre, examen anterior)](USO_VS_CALIDAD.md)
 
-> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->82,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
+> **Encuentra alternativas a Claude, GPT-5 y Gemini** comparadas con <!-- AUTO:tests_marketing -->83,000+<!-- /AUTO --> tests reales: calidad, costo, velocidad, latencia y tool calling. Pensado para emprendedores latinoamericanos que construyen agentes en N8N o Hermes con presupuestos reales.
 
 > 📍 **Qué es este benchmark (y qué NO es)**: este benchmark **NO sustituye** a los benchmarks académicos validados (HumanEval, MMLU, GSM8K, SWE-bench Verified, NIAH original en inglés, MT-Bench, LMSYS Arena). Es un **complemento** diseñado específicamente para **emprendedores hispanohablantes** que necesitan decidir qué modelo usar en situaciones reales (N8N, Hermes, blogs de actualidad, soporte cliente, agentes, contenido en español neutro). Para investigación académica o capacidades fundamentales del modelo, prioriza los benchmarks oficiales — citados en [BENCHMARKS_EXTERNOS.md](BENCHMARKS_EXTERNOS.md). Para **decidir qué modelo poner en producción para un caso de uso aplicado en español**, esto suma información que los benchmarks oficiales no cubren: costo en provider real, latencia desde Latam, español neutro, agentes multi-turno, y debugging real (que medimos vía cross-ref con SWE-bench/Hermes-Eval, NO replicamos).
 
@@ -138,7 +138,7 @@ Para responder *"qué modelo usar para mi agente N8N / qué tan bueno es Kimi K2
 | Modelos con cobertura completa (≥20 runs) | **<!-- AUTO:tested_count -->189<!-- /AUTO -->** |
 | Modelos con datos parciales (1-19 runs) | **17** (incluye variantes thinking de modelos hybrid) |
 | Tests por modelo | **186 tests en 31 suites** (incluye multi-turno) |
-| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->82,000+<!-- /AUTO -->** (con éxito) |
+| Runs preservados en JSON | **<!-- AUTO:tests_marketing -->83,000+<!-- /AUTO -->** (con éxito) |
 | Tokens consumidos (preservados) | ~2.5M input + ~7M output |
 | **Costo APIs** | **Más de US$580 solo en OpenRouter** (al 21-sep-2026) y sigue con cada actualización, más lo gastado en APIs directas (OpenAI, MiniMax) |
 | **Suscripciones** (Claude, MiniMax, Kimi, ChatGPT: varias a la vez para poder probar, y también las uso para mi trabajo) | **~US$300/mes** |

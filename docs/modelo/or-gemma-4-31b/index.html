@@ -296,21 +296,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 33 tareas medidas es <strong>7.95</strong>. Un
+    <p>Su media entre las 39 tareas medidas es <strong>8.09</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.25 (+1.30 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.09 (+1.14 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.08 (+1.13 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>Extraer los datos verificables de un texto</strong> — 9.00 (+1.05 contra su media). <span class="meta">Decide: sacar TODOS los datos, no solo los fáciles</span></li>
+        <li><strong>Verificar afirmaciones contra fuente</strong> — 9.30 (+1.21 contra su media). <span class="meta">Decide: encontrar qué requiere fuente antes de publicar</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 9.25 (+1.16 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Corregir fragmentos en otro alfabeto</strong> — 9.14 (+1.05 contra su media). <span class="meta">Decide: traducir el fragmento sin tocar el resto</span></li>
+        <li><strong>Encontrar el sitio oficial de una empresa</strong> — 9.09 (+1.00 contra su media). <span class="meta">Decide: elegir el dominio real, o abstenerse</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Resistencia a prompt injection</strong> — 2.57 (-5.38 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.46 (-1.49 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
-        <li><strong>Tool calling (llamada de funciones)</strong> — 6.79 (-1.16 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
-        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.82 (-1.13 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
+        <li><strong>Resistencia a prompt injection</strong> — 2.57 (-5.52 contra su media). <span class="meta">Decide: resistir una fuga de datos</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.46 (-1.63 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Tool calling (llamada de funciones)</strong> — 6.79 (-1.30 contra su media). <span class="meta">Decide: llamar bien las funciones</span></li>
+        <li><strong>Noticias + SEO (artículos completos)</strong> — 6.82 (-1.27 contra su media). <span class="meta">Decide: escribir un artículo publicable</span></li>
     </ul>
   </section>
   <section class="results">
@@ -388,6 +388,7 @@
         <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>866</td><td>2.094</td><td><strong>2.617</strong></td></tr>
         <tr><th scope="row">Presentaciones (slides. reportes)</th><td>1.824</td><td>1.824</td><td><strong>2.280</strong></td></tr>
         <tr><th scope="row">Contenido startup (newsletter. actualidad)</th><td>1.291</td><td>1.663</td><td><strong>2.078</strong></td></tr>
+        <tr><th scope="row">Redactar una noticia desde una fuente</th><td>1.314</td><td>1.443</td><td><strong>1.803</strong></td></tr>
         <tr><th scope="row">Razonamiento general (lógica. decisiones)</th><td>1.002</td><td>1.404</td><td><strong>1.755</strong></td></tr>
         <tr><th scope="row">Noticias + SEO (artículos completos)</th><td>785</td><td>1.364</td><td><strong>1.705</strong></td></tr>
         <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>949</td><td>1.337</td><td><strong>1.671</strong></td></tr>
@@ -402,6 +403,7 @@
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>806</td><td>865</td><td><strong>1.081</strong></td></tr>
         <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>409</td><td>863</td><td><strong>1.078</strong></td></tr>
         <tr><th scope="row">OCR / extracción desde imágenes</th><td>438</td><td>836</td><td><strong>1.045</strong></td></tr>
+        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>532</td><td>721</td><td><strong>901</strong></td></tr>
         <tr><th scope="row">Extraer los datos verificables de un texto</th><td>128</td><td>668</td><td><strong>835</strong></td></tr>
         <tr><th scope="row">Contenido con datos verificables (no inventar)</th><td>262</td><td>664</td><td><strong>830</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>396</td><td>632</td><td><strong>790</strong></td></tr>
@@ -412,12 +414,16 @@
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>379</td><td>379</td><td><strong>473</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>237</td><td>279</td><td><strong>348</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>56</td><td>217</td><td><strong>271</strong></td></tr>
+        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>180</td><td>206</td><td><strong>257</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>117</td><td>132</td><td><strong>165</strong></td></tr>
+        <tr><th scope="row">Precisión con datos de negocio (RUT. montos. SKU)</th><td>80</td><td>120</td><td><strong>150</strong></td></tr>
         <tr><th scope="row">Tool calling (llamada de funciones)</th><td>52</td><td>101</td><td><strong>126</strong></td></tr>
+        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>43</td><td>55</td><td><strong>68</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>49</td><td>55</td><td><strong>68</strong></td></tr>
         <tr><th scope="row">Resistencia a prompt injection</th><td>24</td><td>46</td><td><strong>57</strong></td></tr>
         <tr><th scope="row">Encontrar el sitio oficial de una empresa</th><td>40</td><td>45</td><td><strong>56</strong></td></tr>
         <tr><th scope="row">Aguja en el pajar (contexto largo en español)</th><td>38</td><td>43</td><td><strong>53</strong></td></tr>
+        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>20</td><td>29</td><td><strong>36</strong></td></tr>
       </tbody>
     </table></div>
     <p class="meta">Las marcadas <strong>(piso)</strong> tocaron el techo del propio examen (8.192): ahí la respuesta se cortó, así que el número dice «al menos esto», no «esto exactamente». Dar más aire en esas.</p>

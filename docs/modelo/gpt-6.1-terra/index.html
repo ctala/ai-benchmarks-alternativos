@@ -294,21 +294,21 @@
   </section>
   <section>
     <h2>Qué hace bien y qué no</h2>
-    <p>Su media entre las 29 tareas medidas es <strong>7.56</strong>. Un
+    <p>Su media entre las 35 tareas medidas es <strong>7.74</strong>. Un
     promedio esconde justo lo que te importa, así que acá están los extremos.</p>
     <h3>Donde rinde por encima de sí mismo</h3>
     <ul>
-        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.00 (+1.44 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
-        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.93 (+1.37 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.45 (+0.89 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
-        <li><strong>OCR / extracción desde imágenes</strong> — 8.37 (+0.81 contra su media). <span class="meta">Decide: leer datos de una imagen</span></li>
+        <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.00 (+1.26 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
+        <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.93 (+1.19 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
+        <li><strong>Filtrar notas por criterio editorial</strong> — 8.86 (+1.12 contra su media). <span class="meta">Decide: distinguir si una nota es para tu medio</span></li>
+        <li><strong>Verificar afirmaciones contra fuente</strong> — 8.85 (+1.11 contra su media). <span class="meta">Decide: encontrar qué requiere fuente antes de publicar</span></li>
     </ul>
     <h3>Donde se cae</h3>
     <ul>
-        <li><strong>Capacidades de agente (delegación, skills)</strong> — 5.16 (-2.40 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
-        <li><strong>Orquestación (flujos de varios pasos)</strong> — 5.55 (-2.01 contra su media). <span class="meta">Decide: coordinar un flujo de varios pasos</span></li>
-        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.05 (-1.51 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
-        <li><strong>Estrategia (pricing, planificación)</strong> — 6.26 (-1.30 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
+        <li><strong>Capacidades de agente (delegación, skills)</strong> — 5.16 (-2.58 contra su media). <span class="meta">Decide: delegar y usar lo que tiene a mano</span></li>
+        <li><strong>Orquestación (flujos de varios pasos)</strong> — 5.55 (-2.19 contra su media). <span class="meta">Decide: coordinar un flujo de varios pasos</span></li>
+        <li><strong>No inventar herramientas (abstenerse cuando no hay)</strong> — 6.05 (-1.69 contra su media). <span class="meta">Decide: no inventar herramientas que no existen</span></li>
+        <li><strong>Estrategia (pricing, planificación)</strong> — 6.26 (-1.48 contra su media). <span class="meta">Decide: elegir entre opciones de negocio</span></li>
     </ul>
   </section>
   <section class="results">
@@ -390,8 +390,10 @@
         <tr><th scope="row">Estrategia (pricing. planificación)</th><td>2.269</td><td>2.332</td><td><strong>2.915</strong></td></tr>
         <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>1.056</td><td>2.308</td><td><strong>2.885</strong></td></tr>
         <tr><th scope="row">Presentaciones (slides. reportes)</th><td>1.826</td><td>1.826</td><td><strong>2.282</strong></td></tr>
+        <tr><th scope="row">Redactar una noticia desde una fuente</th><td>1.480</td><td>1.621</td><td><strong>2.026</strong></td></tr>
         <tr><th scope="row">Auditar números (detectar el error plantado)</th><td>779</td><td>1.578</td><td><strong>1.972</strong></td></tr>
         <tr><th scope="row">Creatividad (hooks. analogías. narrativa)</th><td>672</td><td>1.458</td><td><strong>1.822</strong></td></tr>
+        <tr><th scope="row">Extraer las afirmaciones verificables de una noticia</th><td>963</td><td>1.432</td><td><strong>1.790</strong></td></tr>
         <tr><th scope="row">Multi-turno (debugging. requisitos)</th><td>1.216</td><td>1.284</td><td><strong>1.605</strong></td></tr>
         <tr><th scope="row">Integridad de idioma (no mezclar idiomas)</th><td>573</td><td>1.185</td><td><strong>1.481</strong></td></tr>
         <tr><th scope="row">OCR / extracción desde imágenes</th><td>368</td><td>937</td><td><strong>1.171</strong></td></tr>
@@ -405,11 +407,15 @@
         <tr><th scope="row">Resúmenes y extracción de datos</th><td>322</td><td>322</td><td><strong>402</strong></td></tr>
         <tr><th scope="row">Anti-alucinación (citas. contexto)</th><td>167</td><td>301</td><td><strong>376</strong></td></tr>
         <tr><th scope="row">Orquestación (flujos de varios pasos)</th><td>214</td><td>264</td><td><strong>330</strong></td></tr>
+        <tr><th scope="row">Verificar afirmaciones contra fuente</th><td>90</td><td>256</td><td><strong>320</strong></td></tr>
+        <tr><th scope="row">Corregir fragmentos en otro alfabeto</th><td>68</td><td>230</td><td><strong>287</strong></td></tr>
+        <tr><th scope="row">Precisión con datos de negocio (RUT. montos. SKU)</th><td>117</td><td>227</td><td><strong>283</strong></td></tr>
         <tr><th scope="row">Precisión literal (hex. JWT. configs)</th><td>44</td><td>189</td><td><strong>236</strong></td></tr>
         <tr><th scope="row">Verificar un dato contra su fuente</th><td>96</td><td>170</td><td><strong>212</strong></td></tr>
         <tr><th scope="row">Soporte al cliente (clasificar y responder)</th><td>147</td><td>152</td><td><strong>190</strong></td></tr>
         <tr><th scope="row">No inventar herramientas (abstenerse cuando no hay)</th><td>66</td><td>144</td><td><strong>180</strong></td></tr>
         <tr><th scope="row">Seguir instrucciones al pie de la letra</th><td>120</td><td>132</td><td><strong>165</strong></td></tr>
+        <tr><th scope="row">Filtrar notas por criterio editorial</th><td>37</td><td>48</td><td><strong>60</strong></td></tr>
       </tbody>
     </table></div>
     

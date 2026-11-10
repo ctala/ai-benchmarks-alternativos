@@ -1,13 +1,13 @@
 # GLM 5.3
 
 - **model_id**: `z-ai/glm-5.3`
-- **Total tests**: 406/406 exitosos (0 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.50
+- **Total tests**: 573/573 exitosos (0 errores)
+- **Score final**: 7.66
+- **Calidad**: 8.91
 - **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 66 tok/s
-- **Latencia primera token**: 52.36s
-- **Costo promedio por test**: $0.05250
+- **Velocidad**: 69 tok/s
+- **Latencia primera token**: 48.10s
+- **Costo promedio por test**: $0.04180
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,9 +32,15 @@
 | multi_turn | 8 | 8 | 6.70 | 7.67 |
 | news_seo_writing | 10 | 10 | 6.64 | 7.68 |
 | niah_es | 29 | 29 | 7.75 | 10.00 |
+| noticias_extraccion | 25 | 25 | 8.06 | 9.76 |
+| noticias_redaccion | 25 | 25 | 8.06 | 9.86 |
+| noticias_relevancia | 58 | 58 | 8.72 | 10.00 |
+| noticias_traduccion | 15 | 15 | 8.97 | 10.00 |
+| noticias_verificacion | 30 | 30 | 8.78 | 10.00 |
 | ocr_extraction | 10 | 10 | 7.93 | 9.35 |
 | orchestration | 10 | 10 | 7.21 | 8.37 |
 | policy_adherence | 8 | 8 | 7.46 | 8.33 |
+| precision_datos | 14 | 14 | 8.45 | 9.55 |
 | presentation | 4 | 4 | 7.92 | 9.66 |
 | prompt_injection_es | 20 | 20 | 5.52 | 5.95 |
 | reasoning | 6 | 6 | 8.00 | 9.63 |
@@ -4032,3 +4038,15 @@ Asumo jornada de ~9:00 a 18:00 con almuerzo de 12:00 a 13:00 (ajusta los bloques
 #### verificar_claims_lote
 
 #### dominio_entidad
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos

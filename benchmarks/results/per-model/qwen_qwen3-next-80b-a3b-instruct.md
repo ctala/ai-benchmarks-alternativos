@@ -1,13 +1,13 @@
 # Qwen 3-Next 80B Instruct
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-instruct`
-- **Total tests**: 324/324 exitosos (0 errores)
-- **Score final**: 7.55
-- **Calidad**: 7.60
+- **Total tests**: 491/491 exitosos (0 errores)
+- **Score final**: 7.97
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 4.39/10
-- **Velocidad**: 131 tok/s
-- **Latencia primera token**: 5.60s
-- **Costo promedio por test**: $0.00147
+- **Velocidad**: 130 tok/s
+- **Latencia primera token**: 4.47s
+- **Costo promedio por test**: $0.00115
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,9 +29,15 @@
 | integridad_idioma | 8 | 8 | 7.29 | 7.30 |
 | multi_turn | 8 | 8 | 8.22 | 8.50 |
 | news_seo_writing | 14 | 14 | 6.67 | 6.65 |
+| noticias_extraccion | 25 | 25 | 8.68 | 9.16 |
+| noticias_redaccion | 25 | 25 | 7.22 | 7.47 |
+| noticias_relevancia | 58 | 58 | 9.10 | 9.14 |
+| noticias_traduccion | 15 | 15 | 9.21 | 9.53 |
+| noticias_verificacion | 30 | 30 | 9.53 | 9.82 |
 | ocr_extraction | 10 | 10 | 8.93 | 9.35 |
 | orchestration | 10 | 10 | 6.35 | 5.39 |
 | policy_adherence | 8 | 8 | 7.62 | 7.46 |
+| precision_datos | 14 | 14 | 8.36 | 8.17 |
 | presentation | 4 | 4 | 8.75 | 9.83 |
 | prompt_injection_es | 20 | 20 | 2.60 | 1.00 |
 | reasoning | 8 | 8 | 8.51 | 9.51 |
@@ -4559,3 +4565,15 @@ Ventas alcanzaron $2.3M (+18% qoq), impulsadas por crecimiento del 32% en enterp
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos

@@ -40,6 +40,7 @@ Post de LinkedIn, newsletter, noticia SEO, copy de landing, guion corto.
 - **Verificable hoy:** `content_verificable` (σ entre modelos 1,18), `integridad_idioma` (1,64), `verificar_claim`, `creativity` (0,32: separa poco).
 - **Convertir:** `content_generation` (σ 0,40), `startup_content` (0,42), `presentation` (0,76), `news_seo_writing` (mixta). Trampa: dato plantado que debe aparecer, cifra que debe cuadrar, hecho que NO debe afirmarse, largo dentro de rango, cero voseo, cero CJK, llamada a la acción presente.
 - **Crear:** nada nuevo hasta convertir. `video_script` (pendiente en `CASOS_DE_USO`) solo si un miembro lo pide.
+- **Filtro de relevancia de Eco:** en sus 58 casos casi todos aciertan; sirve el más barato disponible que no deje pasar una nota vetada (§ «Etapas donde sirve el más barato»). No se mide en el ranking; queda como regresión.
 - **Restricciones que mandan:** US$ por millón de tokens de **salida** (es output-heavy), razonamiento apagado (sube costo sin mejorar prosa, medido en Eco), integridad de idioma como filtro duro.
 
 ### 2. Responder a clientes y a la comunidad
@@ -76,6 +77,7 @@ Resumir una reunión y sacar los pendientes, auditar un P&L, extraer y verificar
 - **Verificable hoy:** `business_audit`, `business_strategy`, `deep_reasoning` (σ 0,89), `hallucination` (0,84), `extraer_claims`, `verificar_claim`, `ocr_extraction`, `strategy` (1,05).
 - **Convertir:** `summarization` (hoy juez, correlación −0,20 con su propia rúbrica) con checks de datos obligatorios, pendientes con responsable y fecha, y cifra que no puede cambiar; `task_management` y `reasoning` igual.
 - **Crear:** `contract_review` (pendiente desde julio) con cláusulas plantadas de verdad objetiva.
+- **Gate de noticias de Eco:** la verificación de claims entra en «Etapas donde sirve el más barato» (casi todos aciertan sus 30 casos; ninguno dejó pasar un dato falso) y queda como regresión. La extracción de claims sí separa modelos y se mide.
 - **Restricciones que mandan:** contexto largo real (`niah_es` como filtro cuando el documento es grande), honestidad ante dato ausente, precio por documento.
 
 ### 6. Programar mi producto
@@ -115,6 +117,36 @@ Privacidad, costo cero marginal, Spark o Mac.
 5. La recomendación es la banda, ordenada por precio. Nunca «el mejor es X».
 
 El paso 1 del asistente pasa de pilares a estas siete ocasiones; los pasos 2 y 3 ya hacen el resto.
+
+## Etapas donde sirve el más barato (9-nov-2026)
+
+Cuando en los casos de una etapa casi todos los modelos aciertan, la conclusión es **«en estos casos
+casi todos aciertan, así que sirve el más barato disponible»**. No es «cualquier modelo sirve en
+producción»: los casos cubren lo que conocemos, no todo lo que puede llegar. La etapa no se mide en
+todo el ranking (gasta sin aportar decisión) y sus casos quedan en `benchmarks/tests/` como
+**prueba de regresión** (`fuera_por: "regresion"` en `suites.py`: no se miden en lotes ni se
+publican), con `--fuera-del-examen`. **Cada fallo real de Eco
+en esa etapa se agrega como caso nuevo.** Fila en `DECISIONES.md`.
+
+**«El más barato» cumple dos condiciones:**
+1. Pasa la regla de disponibilidad de «el más barato» (DECISIONES, fila del 9-nov): 6 pings de
+   `check_endpoints.py` separados 10 minutos, al menos 5 VIVO y ningún MUERTO.
+2. No deja pasar **ningún** caso que había que bloquear o vetar. Bloquear de más es tolerable;
+   dejar pasar un dato falso o una nota vetada, no.
+
+| Etapa de Eco | Casos | Validación (8 modelos) | ¿Dejó pasar algo? | Conclusión |
+|---|---|---|---|---|
+| Filtro de relevancia (`noticias_relevancia`) | 58 | 7 de 8 sacan 58/58; Qwen 3-Next 80B falla 5 (las fallas de Gemma 4 31B eran errores 429) | No: las 5 son falsos «no pasa» | Sirve el más barato disponible |
+| Verificación de claims (`noticias_verificacion`) | 30 | 98 % de runs perfectos, rango 9,82-10,00 | No: 0 de 240 decisiones del gate distintas; ningún falso RESPALDADO | Sirve el más barato disponible |
+
+**La conclusión se vuelve decisión para Eco** así: entre los modelos vigentes de `models.py`
+(rankeados o no: el ranking exige Harbor, que no tiene que ver con filtrar o verificar), del más
+barato hacia arriba, el primero que pasa la regresión de los 88 casos sin dejar pasar ninguno y
+después los 6 pings. Gemini 3.1 Flash Lite GA, la línea base de Eco, corre siempre la regresión.
+
+Las otras etapas del pipeline siguen como ocasiones medidas mientras separen modelos: la
+extracción de claims pasó (20 % de runs perfectos, sd 0,71); redacción y traducción se deciden con
+su `validate_suite`.
 
 ## Lo que falta, resumido por ocasión
 

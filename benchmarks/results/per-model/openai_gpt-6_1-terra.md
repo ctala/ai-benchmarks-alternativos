@@ -1,13 +1,13 @@
 # GPT-6.1 Terra
 
 - **model_id**: `openai/gpt-6.1-terra`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.53
-- **Calidad**: 8.20
+- **Total tests**: 300/310 exitosos (10 errores)
+- **Score final**: 8.14
+- **Calidad**: 9.07
 - **Judge score (Phi-4)**: 4.12/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 8.98s
-- **Costo promedio por test**: $0.00421
+- **Velocidad**: 50 tok/s
+- **Latencia primera token**: 7.37s
+- **Costo promedio por test**: $0.00346
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,9 +29,15 @@
 | integridad_idioma | 4 | 4 | 8.45 | 9.67 |
 | multi_turn | 4 | 4 | 7.28 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.67 | 7.38 |
+| noticias_extraccion | 25 | 25 | 8.28 | 9.62 |
+| noticias_redaccion | 25 | 18 | 8.40 | 9.90 |
+| noticias_relevancia | 58 | 58 | 8.86 | 10.00 |
+| noticias_traduccion | 15 | 12 | 8.88 | 9.90 |
+| noticias_verificacion | 30 | 30 | 8.85 | 9.90 |
 | ocr_extraction | 5 | 5 | 8.37 | 9.35 |
 | orchestration | 5 | 5 | 5.55 | 5.22 |
 | policy_adherence | 4 | 4 | 8.23 | 8.67 |
+| precision_datos | 14 | 14 | 8.78 | 9.64 |
 | presentation | 2 | 2 | 7.51 | 8.54 |
 | reasoning | 3 | 3 | 8.05 | 9.31 |
 | sales_outreach | 3 | 3 | 6.40 | 6.44 |
@@ -2006,3 +2012,15 @@ El plazo es viable para una **landing de alcance acotado**: una página responsi
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### noticias_extraccion
+
+#### noticias_redaccion
+
+#### noticias_relevancia
+
+#### noticias_traduccion
+
+#### noticias_verificacion
+
+#### precision_datos
