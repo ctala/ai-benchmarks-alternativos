@@ -2265,6 +2265,24 @@ def _t_error_del_proveedor():
         lh.write_text(roto, encoding="utf-8")
         if pytest_rc(k3) == 0:
             return False
+    # 10-nov-2026: lo que tumbó la infraestructura se repone; la clave no va en los argumentos.
+    k5 = "lote_harbor_repone_lo_que_tumbo"
+    k6 = "lote_harbor_no_pone_la_clave"
+    if pytest_rc(k5) != 0 or pytest_rc(k6) != 0:
+        return False
+    for k, viejo, nuevo in (
+            (k5, "repetidos, ronda, ultimos = 0, 0, cortados + infra",
+             "repetidos, ronda, ultimos = 0, 0, cortados"),                  # no repone la infra
+            (k6, '"-o", str(jobs), "--job-name", job, "-q"],',
+             '"-o", str(jobs), "--job-name", job, "-q", "--agent-env", f"OPENROUTER_API_KEY={clave}"],')):
+        with Sabotaje(lh):
+            t = lh.read_text(encoding="utf-8")
+            roto = t.replace(viejo, nuevo, 1)
+            if roto == t:
+                raise AssertionError("lote_harbor cambió de forma: el sabotaje no tocaría nada")
+            lh.write_text(roto, encoding="utf-8")
+            if pytest_rc(k) == 0:
+                return False
     k4 = "validate_suite_no_cuenta_los_errores"
     if pytest_rc(k4) != 0:
         return False

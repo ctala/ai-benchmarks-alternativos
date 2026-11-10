@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -46,12 +47,28 @@ def _clave() -> str:
     raise SystemExit("falta OPENROUTER_API_KEY en .env")
 
 
-def contar(job_dir: Path) -> tuple[int, int]:
-    """(intentos válidos, intentos cortados por el proveedor) de un job de Harbor.
+def fallo_de_infra(trial: Path) -> bool:
+    """¿El intento cayó ANTES de que el modelo hiciera nada? (10-nov-2026, ventana v6.1)
+
+    Dos firmas, las dos de nuestra máquina y no del modelo: el setup del agente no terminó
+    (`AgentSetupTimeoutError`: con 12 contenedores instalando a la vez con apt-get, ninguno
+    llegaba a los 360 s) o Docker no pudo levantar el entorno («Docker compose command
+    failed»: el pool de redes se agotó). Un timeout del agente MIENTRAS trabaja no entra:
+    eso sí puede ser el modelo dando vueltas."""
+    try:
+        e = json.loads((trial / "result.json").read_text()).get("exception_info") or {}
+    except Exception:
+        return False
+    return (e.get("exception_type") == "AgentSetupTimeoutError"
+            or "Docker compose command failed" in (e.get("exception_message") or ""))
+
+
+def contar(job_dir: Path) -> tuple[int, int, int]:
+    """(válidos, cortados por el proveedor, caídos por infraestructura) de un job de Harbor.
 
     Válido = terminó con reward y no lo cortó el proveedor. Un intento sin reward por otra
-    causa (timeout del harness) no es válido ni se cuenta como corte: no se repite acá."""
-    validos = cortados = 0
+    causa (timeout del agente trabajando) no es válido ni se repite acá."""
+    validos = cortados = infra = 0
     for trial in job_dir.glob("*__*"):
         tray = trial / "agent" / "mini-swe-agent.trajectory.json"
         texto = tray.read_text(errors="replace") if tray.exists() else ""
@@ -59,7 +76,9 @@ def contar(job_dir: Path) -> tuple[int, int]:
             cortados += 1
         elif (trial / "verifier" / "reward.txt").exists():
             validos += 1
-    return validos, cortados
+        elif fallo_de_infra(trial):
+            infra += 1
+    return validos, cortados, infra
 
 
 def _correr(modelo: str, tarea: str, k: int, job: str, clave: str, jobs: Path) -> None:
@@ -69,8 +88,11 @@ def _correr(modelo: str, tarea: str, k: int, job: str, clave: str, jobs: Path) -
     subprocess.run([HARBOR, "run", "-p", str(ROOT / "tareas-agente" / tarea), "-a", "mini-swe-agent",
                     "-m", f"openrouter/{modelo}", "--ak", f"version={VERSION_AGENTE}",
                     "--ak", f"config_file={yaml}", "-k", str(k), "-n", str(k),
-                    "--agent-env", f"OPENROUTER_API_KEY={clave}", "-o", str(jobs),
-                    "--job-name", job, "-q"],
+                    "-o", str(jobs), "--job-name", job, "-q"],
+                   # La clave va por el ENTORNO del proceso, nunca en los argumentos: ahí la ve
+                   # cualquier `ps` de la máquina, y el 10-nov un `pgrep -fl` la imprimió en
+                   # una sesión. Harbor la resuelve de `os.environ` (agents/base.py).
+                   env={**os.environ, "OPENROUTER_API_KEY": clave},
                    cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
@@ -80,10 +102,10 @@ def par(modelo: str, tarea: str, prefijo: str, k: int, tope: int, clave: str, jo
     base = f"{prefijo}__{modelo.split('/')[-1]}__{tarea}"
     if not (jobs / base / "result.json").exists():
         correr(modelo, tarea, k, base, clave, jobs)
-    validos, cortados = contar(jobs / base)
-    repetidos, ronda, ultimos = 0, 0, cortados
-    # Solo se repite lo que cortó el proveedor en la ronda anterior: un faltante por otra
-    # causa (timeout del harness) no se repite acá.
+    validos, cortados, infra = contar(jobs / base)
+    repetidos, ronda, ultimos = 0, 0, cortados + infra
+    # Se repite lo que cortó el proveedor o tumbó nuestra infraestructura en la ronda
+    # anterior; un faltante por otra causa (el agente agotó su tiempo trabajando) no.
     while validos < k and ultimos and ronda < tope:
         ronda += 1
         falta = min(k - validos, ultimos)
@@ -91,11 +113,13 @@ def par(modelo: str, tarea: str, prefijo: str, k: int, tope: int, clave: str, jo
         if not (jobs / job / "result.json").exists():
             correr(modelo, tarea, falta, job, clave, jobs)
         repetidos += falta
-        v, ultimos = contar(jobs / job)
+        v, c, i = contar(jobs / job)
         validos += v
-        cortados += ultimos
+        cortados += c
+        infra += i
+        ultimos = c + i
     return {"modelo": modelo, "tarea": tarea, "validos": validos, "cortados": cortados,
-            "repetidos": repetidos, "rondas": ronda,
+            "infra": infra, "repetidos": repetidos, "rondas": ronda,
             "estado": "sin_dato_proveedor" if validos == 0 and cortados else
                       "completo" if validos >= k else "incompleto"}
 
@@ -117,13 +141,15 @@ def main() -> int:
         filas = list(ex.map(lambda p: par(p[0], p[1], a.prefijo, a.k, a.tope, clave, jobs), pares))
     for f in filas:
         print(f"  {f['modelo']:<40} {f['tarea']:<26} válidos {f['validos']}/{a.k}"
-              + (f" · cortados {f['cortados']}, repetidos {f['repetidos']}" if f["cortados"] else "")
+              + (f" · cortados {f['cortados']}, infra {f['infra']}, repetidos {f['repetidos']}"
+                 if f["cortados"] or f["infra"] else "")
               + ("" if f["estado"] == "completo" else f"  ⚠️ {f['estado']}"))
     rep = [f for f in filas if f["repetidos"]]
     por_modelo: dict[str, int] = {}
     for f in rep:
         por_modelo[f["modelo"]] = por_modelo.get(f["modelo"], 0) + f["repetidos"]
-    print(f"\n  REINTENTOS POR CORTE DEL PROVEEDOR: {sum(por_modelo.values())} intentos en "
+    print(f"\n  CAÍDOS POR INFRAESTRUCTURA: {sum(f['infra'] for f in filas)} intentos (setup o Docker; se repiten)")
+    print(f"  REINTENTOS (proveedor o infraestructura): {sum(por_modelo.values())} intentos en "
           f"{len(por_modelo)} modelos" + "".join(f"\n    {m}: {n}" for m, n in sorted(por_modelo.items())))
     sin = [f for f in filas if f["estado"] == "sin_dato_proveedor"]
     if sin:

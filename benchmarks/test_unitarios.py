@@ -3074,6 +3074,60 @@ def test_lote_harbor_repite_los_cortados_con_tope_y_no_los_demas(tmp_path):
     assert len(ll) == 1 and f["repetidos"] == 0 and f["estado"] == "incompleto"
 
 
+def test_lote_harbor_repone_lo_que_tumbo_la_infraestructura_y_no_un_cero(tmp_path):
+    # 10-nov-2026 (Cristian, «ok»): 57 intentos del lote v6.1 cayeron porque el setup del agente
+    # no terminó en 360 s y 26 porque Docker no levantó la red. No son notas del modelo: se
+    # reponen con el mismo tope. Un cero del modelo y un timeout trabajando NO se reponen.
+    import json as _j
+    from benchmarks import export_harbor as eh, lote_harbor as lh
+    bien = eh._tray("Submitted")
+    exc = {"s": {"exception_type": "AgentSetupTimeoutError", "exception_message": "Agent setup timed out"},
+           "d": {"exception_type": "RuntimeError", "exception_message": "Docker compose command failed for x"},
+           "a": {"exception_type": "AgentTimeoutError", "exception_message": "Agent timed out after 1800 s"}}
+
+    def falso(guion):
+        llamadas = []
+
+        def correr(modelo, tarea, k, job, clave, jobs):
+            llamadas.append((job, k))
+            for i, tipo in enumerate(guion[len(llamadas) - 1][:k]):
+                t = jobs / job / f"{tarea}__{i}"; (t / "agent").mkdir(parents=True)
+                (t / "result.json").write_text(_j.dumps({"exception_info": exc.get(tipo)}))
+                if tipo in "v0":
+                    (t / "agent" / "mini-swe-agent.trajectory.json").write_text(bien)
+                    (t / "verifier").mkdir(); (t / "verifier" / "reward.txt").write_text("1.0" if tipo == "v" else "0.0")
+            (jobs / job / "result.json").write_text("{}")
+        return correr, llamadas
+
+    # setup y Docker caídos: se reponen y el par queda completo
+    c, ll = falso(["vsd", "vv"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "a", correr=c)
+    assert f["validos"] == 3 and f["infra"] == 2 and f["estado"] == "completo"
+    assert ll == [("p__m__t", 3), ("p__m__t__r1", 2)]
+    # un cero del modelo es una nota válida y un timeout trabajando no se repone
+    c, ll = falso(["v0a"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "b", correr=c)
+    assert len(ll) == 1 and f["validos"] == 2 and f["infra"] == 0 and f["estado"] == "incompleto"
+    # infraestructura caída siempre: se detiene en el tope
+    c, ll = falso(["sss", "sss", "sss", "sss"])
+    f = lh.par("x/m", "t", "p", 3, 2, "", tmp_path / "c", correr=c)
+    assert len(ll) == 3 and f["rondas"] == 2
+
+
+def test_lote_harbor_no_pone_la_clave_en_los_argumentos(tmp_path, monkeypatch):
+    # 10-nov-2026: `--agent-env OPENROUTER_API_KEY=…` dejaba la clave visible en `ps` y un
+    # `pgrep -fl` la imprimió en una sesión. Va por el entorno del proceso.
+    from benchmarks import lote_harbor as lh
+    (tmp_path / "jobs" / "_proveedor_fijo").mkdir(parents=True)
+    (tmp_path / "jobs" / "_proveedor_fijo" / "x__m.yaml").write_text("{}")
+    monkeypatch.setattr(lh, "ROOT", tmp_path)
+    visto = {}
+    monkeypatch.setattr(lh.subprocess, "run", lambda argv, **kw: visto.update(argv=argv, env=kw.get("env")))
+    lh._correr("x/m", "t", 3, "job", "sk-or-FALSA-123", tmp_path / "jobs")
+    assert not any("sk-or-FALSA-123" in a for a in visto["argv"])
+    assert (visto["env"] or {}).get("OPENROUTER_API_KEY") == "sk-or-FALSA-123"
+
+
 def test_validate_suite_no_cuenta_los_errores_como_respuestas():
     # 9-nov-2026: 19 errores 429 de Gemma 4 31B bajaban el rango del filtro a 6,72.
     from benchmarks.validate_suite import runs_validos
