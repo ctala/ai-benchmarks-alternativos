@@ -1,0 +1,36 @@
+# Claude Fable 5.2 — verificar_claim/atribucion_no_es_afirmacion
+
+- model_id: `anthropic/claude-fable-5.2`
+- success: True  | final: 8.33 | quality: 10.0
+- latency_total: 5.661s | tokens_per_second: 95.2
+- input_tokens: 362 | output_tokens: 539
+
+## Entrada exacta (lo que recibió el modelo)
+
+**system:**
+
+Sos el verificador de datos de una redacción. Recibís un CLAIM y la FUENTE de la que supuestamente sale. Tu única tarea es decidir si la fuente respalda el claim.
+
+Respondé SOLO con un JSON:
+{"veredicto": "RESPALDADO" | "NO_RESPALDADO" | "CONTRADICE", "motivo": "<una frase>"}
+
+RESPALDADO: la fuente afirma el claim, o algo equivalente.
+NO_RESPALDADO: la fuente no dice nada sobre eso.
+CONTRADICE: la fuente dice algo incompatible con el claim.
+
+No uses conocimiento propio: solo lo que está en la fuente.
+
+**user:**
+
+CLAIM:
+Nordvia será rentable en 2027.
+
+FUENTE:
+TechFinance — 14 de agosto de 2026
+
+«Vamos a ser rentables en 2027», afirmó Marta Iribarne, CEO de Nordvia, durante la presentación de la ronda. La compañía no publica sus estados financieros.
+
+
+## Respuesta completa
+
+{"veredicto": "NO_RESPALDADO", "motivo": "La fuente solo recoge que la CEO de Nordvia afirmó que serán rentables en 2027, sin afirmarlo como hecho y señalando que la compañía no publica sus estados financieros; respaldaría el claim solo si se atribuyera a la CEO."}

@@ -1,13 +1,13 @@
 # Seed 2.0 Code
 
 - **model_id**: `bytedance-seed/seed-2.0-code`
-- **Total tests**: 1905/1905 exitosos (0 errores)
-- **Score final**: 7.59
-- **Calidad**: 8.42
+- **Total tests**: 1950/1950 exitosos (0 errores)
+- **Score final**: 7.53
+- **Calidad**: 8.34
 - **Judge score (Phi-4)**: 3.91/10
 - **Velocidad**: 53 tok/s
-- **Latencia primera token**: 32.49s
-- **Costo promedio por test**: $0.00659
+- **Latencia primera token**: 32.76s
+- **Costo promedio por test**: $0.00672
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 8 | 8 | 7.43 | 8.43 |
 | multi_turn | 58 | 58 | 7.53 | 8.54 |
 | news_seo_writing | 15 | 15 | 6.55 | 7.33 |
+| noticias_redaccion | 25 | 25 | 6.75 | 7.76 |
 | ocr_extraction | 107 | 107 | 8.19 | 9.44 |
 | orchestration | 245 | 245 | 7.31 | 8.05 |
 | policy_adherence | 12 | 12 | 7.41 | 8.01 |
 | presentation | 6 | 6 | 7.29 | 8.61 |
+| prompt_injection_es | 20 | 20 | 2.63 | 1.45 |
 | reasoning | 9 | 9 | 8.11 | 9.74 |
 | sales_outreach | 9 | 9 | 6.48 | 7.09 |
 | startup_content | 15 | 15 | 8.01 | 9.55 |
@@ -29820,3 +29822,7 @@ Here's a complete single-page web application that extracts candidate informatio
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

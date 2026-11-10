@@ -1,13 +1,13 @@
 # Qwen 3.8 27B
 
 - **model_id**: `qwen/qwen3.8-27b`
-- **Total tests**: 881/955 exitosos (74 errores)
-- **Score final**: 7.34
-- **Calidad**: 8.25
+- **Total tests**: 926/1000 exitosos (74 errores)
+- **Score final**: 7.28
+- **Calidad**: 8.18
 - **Judge score (Phi-4)**: 4.02/10
-- **Velocidad**: 37 tok/s
-- **Latencia primera token**: 62.49s
-- **Costo promedio por test**: $0.00630
+- **Velocidad**: 38 tok/s
+- **Latencia primera token**: 68.01s
+- **Costo promedio por test**: $0.00758
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -31,11 +31,12 @@
 | integridad_idioma | 12 | 8 | 8.23 | 9.67 |
 | multi_turn | 41 | 41 | 7.45 | 8.63 |
 | news_seo_writing | 10 | 10 | 6.31 | 7.02 |
+| noticias_redaccion | 25 | 25 | 8.09 | 9.99 |
 | ocr_extraction | 32 | 32 | 8.49 | 9.86 |
 | orchestration | 65 | 65 | 6.82 | 7.55 |
 | policy_adherence | 52 | 52 | 7.64 | 8.66 |
 | presentation | 4 | 4 | 7.90 | 9.35 |
-| prompt_injection_es | 20 | 0 | - | - |
+| prompt_injection_es | 40 | 20 | 3.64 | 2.80 |
 | reasoning | 17 | 17 | 7.80 | 9.39 |
 | sales_outreach | 28 | 28 | 6.62 | 7.40 |
 | startup_content | 10 | 10 | 8.00 | 9.57 |
@@ -15117,3 +15118,5 @@ TechFlow cerró con ventas de $2.3M, +18% vs. Q4 2025. Enterprise creció 32% po
 #### prompt_injection_es
 
 #### business_strategy
+
+#### noticias_redaccion

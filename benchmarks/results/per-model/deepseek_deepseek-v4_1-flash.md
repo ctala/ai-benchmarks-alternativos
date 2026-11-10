@@ -1,13 +1,13 @@
 # DeepSeek V4.1 Flash
 
 - **model_id**: `deepseek/deepseek-v4.1-flash`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.78
-- **Calidad**: 8.39
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 7.85
+- **Calidad**: 8.49
 - **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 93 tok/s
-- **Latencia primera token**: 26.93s
-- **Costo promedio por test**: $0.00571
+- **Velocidad**: 94 tok/s
+- **Latencia primera token**: 26.71s
+- **Costo promedio por test**: $0.00544
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 7.87 | 8.25 |
 | news_seo_writing | 10 | 10 | 7.11 | 7.45 |
 | niah_es | 29 | 29 | 7.90 | 9.95 |
+| noticias_redaccion | 25 | 25 | 8.85 | 9.93 |
 | ocr_extraction | 10 | 10 | 8.78 | 9.55 |
 | orchestration | 10 | 10 | 6.79 | 6.63 |
 | policy_adherence | 8 | 8 | 8.22 | 8.67 |
@@ -3934,3 +3935,5 @@ Logros: 47 features nuevas; módulo IA predictiva con 120 clientes; uptime 99.97
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

@@ -1,13 +1,13 @@
 # Kimi K3.1 Pro
 
 - **model_id**: `moonshotai/kimi-k3.1-pro`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.02
-- **Calidad**: 8.42
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 6.84
+- **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.44/10
-- **Velocidad**: 27 tok/s
-- **Latencia primera token**: 108.52s
-- **Costo promedio por test**: $0.03901
+- **Velocidad**: 28 tok/s
+- **Latencia primera token**: 101.93s
+- **Costo promedio por test**: $0.03904
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 7.91 | 9.61 |
 | multi_turn | 4 | 4 | 5.87 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.37 | 7.55 |
+| noticias_redaccion | 25 | 25 | 7.90 | 9.89 |
 | ocr_extraction | 5 | 5 | 7.98 | 9.35 |
 | orchestration | 5 | 5 | 5.31 | 6.04 |
 | policy_adherence | 4 | 4 | 7.64 | 9.08 |
 | presentation | 2 | 2 | 7.87 | 9.64 |
+| prompt_injection_es | 20 | 20 | 4.24 | 4.60 |
 | reasoning | 3 | 3 | 7.33 | 9.32 |
 | sales_outreach | 3 | 3 | 7.79 | 9.33 |
 | startup_content | 5 | 5 | 7.62 | 9.43 |
@@ -1983,3 +1985,7 @@ Aquí están los action items extraídos de la reunión, organizados por priorid
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

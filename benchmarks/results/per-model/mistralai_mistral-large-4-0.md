@@ -1,13 +1,13 @@
 # Mistral Large 4.0
 
 - **model_id**: `mistralai/mistral-large-4-0`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.69
-- **Calidad**: 8.65
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 7.80
+- **Calidad**: 8.82
 - **Judge score (Phi-4)**: 4.52/10
-- **Velocidad**: 86 tok/s
-- **Latencia primera token**: 35.40s
-- **Costo promedio por test**: $0.00798
+- **Velocidad**: 93 tok/s
+- **Latencia primera token**: 33.23s
+- **Costo promedio por test**: $0.00853
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 8.19 | 9.50 |
 | multi_turn | 4 | 4 | 6.81 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.61 | 7.28 |
+| noticias_redaccion | 25 | 25 | 8.48 | 9.93 |
 | ocr_extraction | 5 | 5 | 7.98 | 9.10 |
 | orchestration | 5 | 5 | 7.18 | 7.80 |
 | policy_adherence | 4 | 4 | 7.99 | 8.67 |
 | presentation | 2 | 2 | 8.49 | 9.90 |
+| prompt_injection_es | 20 | 20 | 7.75 | 8.65 |
 | reasoning | 3 | 3 | 8.30 | 9.75 |
 | sales_outreach | 3 | 3 | 7.76 | 8.67 |
 | startup_content | 5 | 5 | 8.31 | 9.70 |
@@ -1987,3 +1989,7 @@ TechFlow cerró el trimestre con ventas de **$2.3M (+18% QoQ)**, impulsadas por 
 #### tool_calling_adversarial
 
 #### integridad_idioma
+
+#### prompt_injection_es
+
+#### noticias_redaccion

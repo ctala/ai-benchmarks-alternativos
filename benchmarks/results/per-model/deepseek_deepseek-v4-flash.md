@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash (OpenRouter)
 
 - **model_id**: `deepseek/deepseek-v4-flash`
-- **Total tests**: 470/474 exitosos (4 errores)
-- **Score final**: 7.47
-- **Calidad**: 7.98
+- **Total tests**: 495/499 exitosos (4 errores)
+- **Score final**: 7.52
+- **Calidad**: 8.06
 - **Judge score (Phi-4)**: 3.63/10
-- **Velocidad**: 47 tok/s
-- **Latencia primera token**: 19.14s
-- **Costo promedio por test**: $0.00360
+- **Velocidad**: 46 tok/s
+- **Latencia primera token**: 20.97s
+- **Costo promedio por test**: $0.00344
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.38 | 7.50 |
 | news_seo_writing | 10 | 10 | 7.22 | 7.35 |
 | niah_es | 118 | 114 | 8.37 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.54 | 9.49 |
 | ocr_extraction | 10 | 10 | 9.09 | 9.80 |
 | orchestration | 10 | 10 | 6.81 | 6.59 |
 | policy_adherence | 8 | 8 | 8.28 | 8.83 |
@@ -4729,3 +4730,5 @@ Aquí tienes un plan de acción detallado para lanzar tu landing page de SaaS en
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

@@ -62,7 +62,7 @@ MIN_RUNS_RANKED = 50
 # test que la ventana midió; los anteriores no se borran (el historial queda como está) pero
 # no se promedian: se midieron en otras condiciones (proveedor sin fijar, otro effort) y
 # quedan para las tablas de antes/después (corte-v5 6.8 y 6.9). Se reconoce por el archivo.
-VENTANAS_DE_MEDICION = ("benchmark_20261104_v5c",)
+VENTANAS_DE_MEDICION = ("benchmark_20261104_v5c", "benchmark_20261109_v61c")  # v6.1: 10-nov-2026
 
 
 def es_de_ventana(nombre_archivo: str) -> bool:

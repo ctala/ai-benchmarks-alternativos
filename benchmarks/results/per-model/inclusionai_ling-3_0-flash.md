@@ -1,13 +1,13 @@
 # Ling 3.0 Flash
 
 - **model_id**: `inclusionai/ling-3.0-flash`
-- **Total tests**: 522/522 exitosos (0 errores)
-- **Score final**: 8.28
-- **Calidad**: 8.59
+- **Total tests**: 547/547 exitosos (0 errores)
+- **Score final**: 8.32
+- **Calidad**: 8.64
 - **Judge score (Phi-4)**: 4.25/10
-- **Velocidad**: 133 tok/s
-- **Latencia primera token**: 16.51s
-- **Costo promedio por test**: $0.00029
+- **Velocidad**: 132 tok/s
+- **Latencia primera token**: 16.65s
+- **Costo promedio por test**: $0.00028
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -31,7 +31,7 @@
 | news_seo_writing | 10 | 10 | 6.56 | 6.22 |
 | niah_es | 45 | 45 | 8.67 | 9.54 |
 | noticias_extraccion | 25 | 25 | 8.75 | 9.18 |
-| noticias_redaccion | 25 | 25 | 9.01 | 9.70 |
+| noticias_redaccion | 50 | 50 | 8.99 | 9.65 |
 | noticias_relevancia | 58 | 58 | 9.04 | 10.00 |
 | noticias_traduccion | 15 | 15 | 9.37 | 9.93 |
 | noticias_verificacion | 30 | 30 | 9.54 | 10.00 |
@@ -4222,9 +4222,9 @@ Aquí tienes la información extraída en formato JSON:
 
 #### verificar_claim
 
-#### noticias_extraccion
-
 #### noticias_redaccion
+
+#### noticias_extraccion
 
 #### noticias_relevancia
 

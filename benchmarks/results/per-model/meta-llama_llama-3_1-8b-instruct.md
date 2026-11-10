@@ -1,12 +1,12 @@
 # Llama 3.1 8B Instant
 
 - **model_id**: `meta-llama/llama-3.1-8b-instruct`
-- **Total tests**: 340/340 exitosos (0 errores)
-- **Score final**: 7.20
-- **Calidad**: 6.80
+- **Total tests**: 365/365 exitosos (0 errores)
+- **Score final**: 7.26
+- **Calidad**: 6.89
 - **Judge score (Phi-4)**: 3.62/10
-- **Velocidad**: 98 tok/s
-- **Latencia primera token**: 7.21s
+- **Velocidad**: 101 tok/s
+- **Latencia primera token**: 7.10s
 - **Costo promedio por test**: $0.00013
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 9.20 | 9.63 |
 | multi_turn | 8 | 8 | 7.26 | 6.88 |
 | news_seo_writing | 10 | 10 | 7.11 | 6.95 |
+| noticias_redaccion | 25 | 25 | 8.13 | 8.14 |
 | ocr_extraction | 10 | 10 | 8.52 | 8.90 |
 | orchestration | 10 | 10 | 5.99 | 4.72 |
 | policy_adherence | 8 | 8 | 6.38 | 5.50 |
@@ -4100,3 +4101,5 @@ Aquí te dejo los perfiles de candidatos en formato JSON:
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

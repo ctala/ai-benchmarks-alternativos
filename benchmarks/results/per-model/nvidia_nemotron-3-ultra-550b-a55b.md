@@ -1,13 +1,13 @@
 # Nemotron 3 Ultra 550B
 
 - **model_id**: `nvidia/nemotron-3-ultra-550b-a55b`
-- **Total tests**: 418/464 exitosos (46 errores)
-- **Score final**: 7.46
-- **Calidad**: 8.18
+- **Total tests**: 443/489 exitosos (46 errores)
+- **Score final**: 7.41
+- **Calidad**: 8.11
 - **Judge score (Phi-4)**: 4.57/10
-- **Velocidad**: 93 tok/s
-- **Latencia primera token**: 15.29s
-- **Costo promedio por test**: $0.01291
+- **Velocidad**: 95 tok/s
+- **Latencia primera token**: 15.33s
+- **Costo promedio por test**: $0.01252
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.34 | 7.75 |
 | news_seo_writing | 14 | 14 | 6.55 | 6.87 |
 | niah_es | 135 | 90 | 8.14 | 9.82 |
+| noticias_redaccion | 25 | 25 | 6.57 | 6.99 |
 | ocr_extraction | 10 | 10 | 8.58 | 9.28 |
 | orchestration | 10 | 10 | 5.60 | 4.93 |
 | policy_adherence | 8 | 8 | 7.92 | 8.46 |
@@ -4343,3 +4344,5 @@ Este es un plan de ejecución **realista y agresivo** para 4 semanas (20 días l
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

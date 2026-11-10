@@ -1,13 +1,13 @@
 # Claude Sonnet 5.5
 
 - **model_id**: `anthropic/claude-sonnet-5.5`
-- **Total tests**: 352/356 exitosos (4 errores)
-- **Score final**: 7.18
-- **Calidad**: 7.96
+- **Total tests**: 377/381 exitosos (4 errores)
+- **Score final**: 7.25
+- **Calidad**: 8.09
 - **Judge score (Phi-4)**: 4.22/10
-- **Velocidad**: 100 tok/s
-- **Latencia primera token**: 13.36s
-- **Costo promedio por test**: $0.07661
+- **Velocidad**: 102 tok/s
+- **Latencia primera token**: 14.09s
+- **Costo promedio por test**: $0.07395
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.95 | 7.75 |
 | news_seo_writing | 10 | 10 | 6.51 | 7.22 |
 | niah_es | 29 | 25 | 7.34 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.22 | 9.86 |
 | ocr_extraction | 10 | 10 | 8.32 | 9.55 |
 | orchestration | 10 | 10 | 6.53 | 7.00 |
 | policy_adherence | 8 | 8 | 7.89 | 8.83 |
@@ -3880,3 +3881,5 @@ Voy a empezar por buscar el artículo y, en paralelo, escalar la aprobación del
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

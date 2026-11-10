@@ -1,13 +1,13 @@
 # GLM 5
 
 - **model_id**: `z-ai/glm-5`
-- **Total tests**: 321/321 exitosos (0 errores)
-- **Score final**: 7.30
-- **Calidad**: 8.07
+- **Total tests**: 346/346 exitosos (0 errores)
+- **Score final**: 7.37
+- **Calidad**: 8.19
 - **Judge score (Phi-4)**: 4.39/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 42.86s
-- **Costo promedio por test**: $0.00493
+- **Velocidad**: 52 tok/s
+- **Latencia primera token**: 44.65s
+- **Costo promedio por test**: $0.00534
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 7.42 | 8.44 |
 | multi_turn | 8 | 8 | 6.88 | 7.56 |
 | news_seo_writing | 10 | 10 | 6.63 | 7.39 |
+| noticias_redaccion | 25 | 25 | 8.26 | 9.75 |
 | ocr_extraction | 10 | 10 | 8.38 | 9.47 |
 | orchestration | 10 | 10 | 7.10 | 7.67 |
 | policy_adherence | 8 | 8 | 7.68 | 8.42 |
@@ -4428,3 +4429,5 @@ La clave para cumplir el plazo en 4 semanas es **trabajar en paralelo** (diseño
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

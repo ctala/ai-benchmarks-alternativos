@@ -1,13 +1,13 @@
 # Gemini 4 Argon
 
 - **model_id**: `google/gemini-4-argon`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.44
-- **Calidad**: 8.59
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 6.87
+- **Calidad**: 7.89
 - **Judge score (Phi-4)**: 4.23/10
-- **Velocidad**: 40 tok/s
-- **Latencia primera token**: 16.18s
-- **Costo promedio por test**: $0.01334
+- **Velocidad**: 38 tok/s
+- **Latencia primera token**: 18.06s
+- **Costo promedio por test**: $0.01484
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 8.09 | 9.59 |
 | multi_turn | 4 | 4 | 6.33 | 6.88 |
 | news_seo_writing | 5 | 5 | 6.33 | 7.30 |
+| noticias_redaccion | 25 | 25 | 7.81 | 9.41 |
 | ocr_extraction | 5 | 5 | 7.99 | 9.35 |
 | orchestration | 5 | 5 | 7.58 | 8.92 |
 | policy_adherence | 4 | 4 | 7.57 | 8.67 |
 | presentation | 2 | 2 | 7.75 | 9.37 |
+| prompt_injection_es | 20 | 20 | 1.63 | 1.00 |
 | reasoning | 3 | 3 | 8.11 | 9.68 |
 | sales_outreach | 3 | 3 | 7.41 | 8.67 |
 | startup_content | 5 | 5 | 7.74 | 9.28 |
@@ -1922,3 +1924,7 @@ Aquí tienes la información extraída en el formato JSON solicitado:
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

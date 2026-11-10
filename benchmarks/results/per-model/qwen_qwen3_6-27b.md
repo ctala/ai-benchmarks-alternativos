@@ -1,13 +1,13 @@
 # Qwen 3.6 27B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-27b`
-- **Total tests**: 398/404 exitosos (6 errores)
-- **Score final**: 7.17
-- **Calidad**: 8.03
+- **Total tests**: 423/429 exitosos (6 errores)
+- **Score final**: 7.23
+- **Calidad**: 8.13
 - **Judge score (Phi-4)**: 4.10/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 36.30s
-- **Costo promedio por test**: $0.00758
+- **Velocidad**: 51 tok/s
+- **Latencia primera token**: 39.06s
+- **Costo promedio por test**: $0.00775
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 6.75 | 7.44 |
 | news_seo_writing | 10 | 10 | 5.49 | 5.70 |
 | niah_es | 51 | 45 | 8.04 | 9.87 |
+| noticias_redaccion | 25 | 25 | 8.22 | 9.70 |
 | ocr_extraction | 10 | 10 | 8.43 | 9.60 |
 | orchestration | 10 | 10 | 6.95 | 7.55 |
 | policy_adherence | 8 | 8 | 7.81 | 8.62 |
@@ -4815,3 +4816,5 @@ Las ventas totales alcanzaron $2.3M (+18% vs Q4), impulsadas por un crecimiento 
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

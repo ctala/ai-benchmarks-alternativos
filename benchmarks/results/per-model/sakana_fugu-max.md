@@ -1,13 +1,13 @@
 # Fugu Max
 
 - **model_id**: `sakana/fugu-max`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.26
-- **Calidad**: 8.30
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 7.34
+- **Calidad**: 8.41
 - **Judge score (Phi-4)**: 4.32/10
-- **Velocidad**: 79 tok/s
-- **Latencia primera token**: 19.18s
-- **Costo promedio por test**: $0.06535
+- **Velocidad**: 87 tok/s
+- **Latencia primera token**: 18.81s
+- **Costo promedio por test**: $0.06228
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.68 | 7.25 |
 | news_seo_writing | 10 | 10 | 6.75 | 7.64 |
 | niah_es | 29 | 29 | 7.42 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.45 | 9.99 |
 | ocr_extraction | 10 | 10 | 8.25 | 9.60 |
 | orchestration | 10 | 10 | 6.38 | 6.66 |
 | policy_adherence | 8 | 8 | 7.36 | 8.00 |
@@ -3959,3 +3960,5 @@ Asumo una jornada de **9:00 a 17:00** con comida de **13:00 a 14:00** (el lunes 
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

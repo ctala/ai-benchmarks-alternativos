@@ -1,13 +1,13 @@
 # Granite 4.2 8B
 
 - **model_id**: `ibm-granite/granite-4.2-8b`
-- **Total tests**: 327/327 exitosos (0 errores)
-- **Score final**: 7.56
-- **Calidad**: 7.88
+- **Total tests**: 352/352 exitosos (0 errores)
+- **Score final**: 7.50
+- **Calidad**: 7.82
 - **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 89 tok/s
-- **Latencia primera token**: 48.73s
-- **Costo promedio por test**: $0.00142
+- **Velocidad**: 87 tok/s
+- **Latencia primera token**: 56.73s
+- **Costo promedio por test**: $0.00149
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -31,6 +31,7 @@
 | integridad_idioma | 8 | 8 | 8.82 | 9.71 |
 | multi_turn | 8 | 8 | 8.07 | 8.50 |
 | news_seo_writing | 10 | 10 | 7.12 | 7.32 |
+| noticias_redaccion | 25 | 25 | 6.65 | 7.06 |
 | ocr_extraction | 10 | 10 | 7.90 | 8.20 |
 | orchestration | 10 | 10 | 7.20 | 7.10 |
 | policy_adherence | 8 | 8 | 8.78 | 9.12 |
@@ -3649,3 +3650,5 @@ Las ventas totales alcanzaron $2.3M, un aumento del 18% respecto a Q4 2025 ($1.9
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

@@ -1,13 +1,13 @@
 # Tencent Hy3
 
 - **model_id**: `tencent/hy3`
-- **Total tests**: 366/366 exitosos (0 errores)
-- **Score final**: 7.61
-- **Calidad**: 8.30
+- **Total tests**: 391/391 exitosos (0 errores)
+- **Score final**: 7.67
+- **Calidad**: 8.40
 - **Judge score (Phi-4)**: 4.34/10
-- **Velocidad**: 58 tok/s
-- **Latencia primera token**: 38.22s
-- **Costo promedio por test**: $0.00296
+- **Velocidad**: 62 tok/s
+- **Latencia primera token**: 43.24s
+- **Costo promedio por test**: $0.00324
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 7.58 | 8.25 |
 | news_seo_writing | 10 | 10 | 6.46 | 6.75 |
 | niah_es | 45 | 45 | 8.47 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.50 | 9.81 |
 | ocr_extraction | 10 | 10 | 8.33 | 9.18 |
 | orchestration | 10 | 10 | 7.57 | 8.11 |
 | policy_adherence | 8 | 8 | 8.19 | 8.88 |
@@ -3836,6 +3837,8 @@ Aquí tienes un plan de proyecto estructurado para lanzar la landing page en 4 s
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### noticias_redaccion
 
 #### dominio_entidad
 

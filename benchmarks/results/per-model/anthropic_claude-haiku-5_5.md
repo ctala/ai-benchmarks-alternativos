@@ -1,13 +1,13 @@
 # Claude Haiku 5.5
 
 - **model_id**: `anthropic/claude-haiku-5.5`
-- **Total tests**: 519/523 exitosos (4 errores)
-- **Score final**: 8.41
-- **Calidad**: 8.67
+- **Total tests**: 544/548 exitosos (4 errores)
+- **Score final**: 8.42
+- **Calidad**: 8.72
 - **Judge score (Phi-4)**: 4.20/10
-- **Velocidad**: 160 tok/s
-- **Latencia primera token**: 6.87s
-- **Costo promedio por test**: $0.00269
+- **Velocidad**: 163 tok/s
+- **Latencia primera token**: 7.32s
+- **Costo promedio por test**: $0.00266
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,7 @@
 | news_seo_writing | 10 | 10 | 7.22 | 6.73 |
 | niah_es | 29 | 25 | 7.84 | 9.60 |
 | noticias_extraccion | 25 | 25 | 9.05 | 9.87 |
-| noticias_redaccion | 25 | 25 | 8.50 | 9.43 |
+| noticias_redaccion | 50 | 50 | 8.61 | 9.58 |
 | noticias_relevancia | 58 | 58 | 9.56 | 10.00 |
 | noticias_traduccion | 15 | 15 | 9.44 | 9.75 |
 | noticias_verificacion | 30 | 30 | 9.53 | 10.00 |
@@ -3856,9 +3856,9 @@ Aquí tienes un plan de proyecto para la landing page de tu SaaS de gestión de 
 
 #### prompt_injection_es
 
-#### noticias_extraccion
-
 #### noticias_redaccion
+
+#### noticias_extraccion
 
 #### noticias_relevancia
 

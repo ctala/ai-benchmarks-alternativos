@@ -1,12 +1,12 @@
 # Qwen 3.8 Flash
 
 - **model_id**: `qwen/qwen3.8-flash`
-- **Total tests**: 1415/1459 exitosos (44 errores)
-- **Score final**: 7.76
-- **Calidad**: 8.58
+- **Total tests**: 1440/1484 exitosos (44 errores)
+- **Score final**: 7.78
+- **Calidad**: 8.60
 - **Judge score (Phi-4)**: 4.21/10
 - **Velocidad**: 65 tok/s
-- **Latencia primera token**: 38.45s
+- **Latencia primera token**: 40.61s
 - **Costo promedio por test**: $0.00781
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -32,6 +32,7 @@
 | multi_turn | 28 | 27 | 7.74 | 8.30 |
 | news_seo_writing | 36 | 35 | 7.66 | 8.59 |
 | niah_es | 191 | 189 | 7.74 | 9.89 |
+| noticias_redaccion | 25 | 25 | 8.55 | 10.00 |
 | ocr_extraction | 36 | 35 | 8.83 | 9.92 |
 | orchestration | 40 | 40 | 7.13 | 7.29 |
 | policy_adherence | 32 | 32 | 8.17 | 8.90 |
@@ -12841,6 +12842,8 @@ TechFlow reporta un sólido desempeño con ventas de $2.3M (+18% vs Q4 2025), im
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### noticias_redaccion
 
 #### niah_es
 

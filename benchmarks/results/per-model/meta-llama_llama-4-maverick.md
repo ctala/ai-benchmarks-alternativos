@@ -1,13 +1,13 @@
 # Llama 4 Maverick
 
 - **model_id**: `meta-llama/llama-4-maverick`
-- **Total tests**: 458/462 exitosos (4 errores)
-- **Score final**: 7.34
-- **Calidad**: 7.85
+- **Total tests**: 483/487 exitosos (4 errores)
+- **Score final**: 7.38
+- **Calidad**: 7.89
 - **Judge score (Phi-4)**: 3.60/10
-- **Velocidad**: 42 tok/s
-- **Latencia primera token**: 8.74s
-- **Costo promedio por test**: $0.00716
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 8.73s
+- **Costo promedio por test**: $0.00683
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.00 | 6.81 |
 | news_seo_writing | 12 | 12 | 6.51 | 6.46 |
 | niah_es | 118 | 114 | 8.05 | 9.78 |
+| noticias_redaccion | 25 | 25 | 8.04 | 8.59 |
 | ocr_extraction | 10 | 10 | 8.62 | 9.42 |
 | orchestration | 10 | 10 | 7.44 | 7.84 |
 | policy_adherence | 8 | 8 | 7.84 | 8.12 |
@@ -3969,3 +3970,5 @@ Aquí te dejo la información de los 3 candidatos en formato JSON:
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

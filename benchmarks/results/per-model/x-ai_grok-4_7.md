@@ -1,13 +1,13 @@
 # Grok 4.7
 
 - **model_id**: `x-ai/grok-4.7`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.08
-- **Calidad**: 8.07
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 7.18
+- **Calidad**: 8.30
 - **Judge score (Phi-4)**: 4.16/10
-- **Velocidad**: 60 tok/s
-- **Latencia primera token**: 29.56s
-- **Costo promedio por test**: $0.01696
+- **Velocidad**: 62 tok/s
+- **Latencia primera token**: 46.16s
+- **Costo promedio por test**: $0.02653
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 7.94 | 9.55 |
 | multi_turn | 4 | 4 | 6.41 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.41 | 7.55 |
+| noticias_redaccion | 25 | 25 | 7.33 | 8.94 |
 | ocr_extraction | 5 | 5 | 8.19 | 9.60 |
 | orchestration | 5 | 5 | 5.04 | 4.95 |
 | policy_adherence | 4 | 4 | 8.00 | 9.08 |
 | presentation | 2 | 2 | 7.99 | 9.53 |
+| prompt_injection_es | 20 | 20 | 7.68 | 9.10 |
 | reasoning | 3 | 3 | 7.87 | 9.37 |
 | sales_outreach | 3 | 3 | 6.44 | 7.11 |
 | startup_content | 5 | 5 | 7.93 | 9.68 |
@@ -1917,3 +1919,7 @@ Plan semanal propuesto (bloques concretos, asumiendo jornada 9:00–18:00 y foco
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

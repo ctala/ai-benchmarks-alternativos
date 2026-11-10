@@ -1,13 +1,13 @@
 # Claude Fable 5.1
 
 - **model_id**: `anthropic/claude-fable-5.1`
-- **Total tests**: 350/356 exitosos (6 errores)
-- **Score final**: 6.88
-- **Calidad**: 8.09
+- **Total tests**: 375/381 exitosos (6 errores)
+- **Score final**: 6.94
+- **Calidad**: 8.21
 - **Judge score (Phi-4)**: 4.29/10
-- **Velocidad**: 62 tok/s
-- **Latencia primera token**: 21.95s
-- **Costo promedio por test**: $0.38593
+- **Velocidad**: 63 tok/s
+- **Latencia primera token**: 23.30s
+- **Costo promedio por test**: $0.37197
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.56 | 7.75 |
 | news_seo_writing | 10 | 10 | 6.06 | 6.91 |
 | niah_es | 29 | 25 | 7.45 | 10.00 |
+| noticias_redaccion | 25 | 25 | 7.83 | 9.95 |
 | ocr_extraction | 10 | 10 | 7.74 | 9.35 |
 | orchestration | 10 | 10 | 7.06 | 8.45 |
 | policy_adherence | 8 | 8 | 7.55 | 9.08 |
@@ -3814,3 +3815,5 @@ Resumen de carga: 16.5 horas de tareas + 10 horas de compromisos fijos. Hay marg
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

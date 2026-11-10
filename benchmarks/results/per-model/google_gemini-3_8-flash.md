@@ -1,13 +1,13 @@
 # Gemini 3.8 Flash
 
 - **model_id**: `google/gemini-3.8-flash`
-- **Total tests**: 523/523 exitosos (0 errores)
-- **Score final**: 7.76
-- **Calidad**: 8.67
+- **Total tests**: 548/548 exitosos (0 errores)
+- **Score final**: 7.79
+- **Calidad**: 8.73
 - **Judge score (Phi-4)**: 4.18/10
-- **Velocidad**: 98 tok/s
-- **Latencia primera token**: 11.81s
-- **Costo promedio por test**: $0.01853
+- **Velocidad**: 100 tok/s
+- **Latencia primera token**: 12.57s
+- **Costo promedio por test**: $0.01832
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -33,7 +33,7 @@
 | news_seo_writing | 10 | 10 | 6.89 | 7.58 |
 | niah_es | 29 | 29 | 7.63 | 9.95 |
 | noticias_extraccion | 25 | 25 | 8.51 | 9.83 |
-| noticias_redaccion | 25 | 25 | 8.31 | 9.72 |
+| noticias_redaccion | 50 | 50 | 8.36 | 9.79 |
 | noticias_relevancia | 58 | 58 | 8.92 | 10.00 |
 | noticias_traduccion | 15 | 15 | 8.95 | 10.00 |
 | noticias_verificacion | 30 | 30 | 8.99 | 10.00 |
@@ -4029,9 +4029,9 @@ Fuerte tracci
 
 #### prompt_injection_es
 
-#### noticias_extraccion
-
 #### noticias_redaccion
+
+#### noticias_extraccion
 
 #### noticias_relevancia
 

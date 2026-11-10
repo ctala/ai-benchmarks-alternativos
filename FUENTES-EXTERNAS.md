@@ -35,7 +35,7 @@ verdad), seguridad en español. Ahí la capa propia no es complemento: es la ún
 
 El **conjunto base** son los modelos rankeados vigentes en `models.py` (sin `retired`, `unavailable` ni
 `pendiente_proveedor`) menos los que el último ping de `check_endpoints.py --ranked --guardar` dio MUERTOS.
-Hoy son **<!-- AUTO:conjunto_base -->68<!-- /AUTO --> modelos**, con el ping del
+Hoy son **<!-- AUTO:conjunto_base -->75<!-- /AUTO --> modelos**, con el ping del
 <!-- AUTO:conjunto_base_ping -->2026-11-03<!-- /AUTO -->. El número lo calcula `fuentes_externas.py` desde `models.py`,
 `models.json` y el ping guardado en `externos/endpoints/`, sin red; `sync_doc_counts.py` lo escribe acá.
 Un modelo intermitente o sin credencial no sale del conjunto: existe, y un mal momento no es un retiro.

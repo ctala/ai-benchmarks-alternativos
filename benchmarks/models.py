@@ -2603,9 +2603,7 @@ MODELS = {
     },
     "or-gpt-oss-20b": {
         "id": "openai/gpt-oss-20b",
-        # 6-nov-2026: sin dato agéntico a nivel de modelo. Ninguna página muestra su 0.
-        "agentico_sin_dato": {"estado": "formato_endpoint",
-                              "motivo": "DeepInfra, su proveedor fijo, devuelve la llamada a la herramienta dentro del canal de razonamiento (reasoning_content) y no como tool_calls: el agente no la ve. 65 de 66 respuestas vacías de Harbor son eso. Es el formato del endpoint, no el modelo (DECISIONES, 6-nov-2026)."},
+        # 10-nov-2026: sin `agentico_sin_dato`: medido en la v6.1 por DekaLLM, que entrega tool_calls.
         "name": "GPT-OSS 20B",
         "cost_input": 0.029, "cost_output": 0.14,
         "tier": "ultra_cheap", "provider": "openrouter",
@@ -2613,9 +2611,7 @@ MODELS = {
     },
     "or-gpt-oss-120b": {
         "id": "openai/gpt-oss-120b",
-        # 6-nov-2026: sin dato agéntico a nivel de modelo. Ninguna página muestra su 0.
-        "agentico_sin_dato": {"estado": "formato_endpoint",
-                              "motivo": "DeepInfra, su proveedor fijo, devuelve la llamada a la herramienta dentro del canal de razonamiento (reasoning_content) y no como tool_calls: el agente no la ve. 65 de 66 respuestas vacías de Harbor son eso. Es el formato del endpoint, no el modelo (DECISIONES, 6-nov-2026)."},
+        # 10-nov-2026: sin `agentico_sin_dato`: medido en la v6.1 por DekaLLM, que entrega tool_calls.
         "name": "GPT-OSS 120B",
         "cost_input": 0.036, "cost_output": 0.18,
         "tier": "cloud_ollama", "provider": "openrouter",
@@ -3089,6 +3085,31 @@ MODELS = {
         "multimodal": True,
         "open_source": False, "license": "Proprietary",
         "notes": "Publicado 12-oct-2026. Modelo de razonamiento frontier de Meta. Candidato nuevo: no reemplaza a nadie (Muse Spark 1.3 sigue vigente).",
+    },
+    # ── 10-nov-2026: los dos publicados el 9-nov, el día que abrió la ventana v6.1 ──
+    # Cristian: «salieron un par de modelos que sería bueno revisar antes de sacar la nueva
+    # versión». Entran a la ventana con su propio tope de gasto ($35), aparte del lote.
+    "muse-ember": {
+        "id": "meta/muse-ember",
+        "name": "Muse Ember",
+        "cost_input": 0.10, "cost_output": 0.50,
+        "tier": "ultra_cheap",
+        "context_window": 1048576,
+        "publisher": "Meta",
+        "open_source": False, "license": "Proprietary",
+        "notes": "Publicado 9-nov-2026. El más chico de la familia Muse, pensado para tool calls, subagentes y ruteo. Solo lo sirve Meta. Pre-vuelo del 10-nov: con max_tokens=300 devolvió content=\"\" y 298 reasoning tokens (finish=length) → THINKING_MODELS. Sin pesos publicados al 10-nov.",
+    },
+    "claude-fable-5.2": {
+        "id": "anthropic/claude-fable-5.2",
+        "name": "Claude Fable 5.2",
+        "cost_input": 8.00,
+        "cost_output": 40.00,
+        "tier": "premium",
+        "context_window": 1000000,
+        "publisher": "Anthropic",
+        "open_source": False,
+        "license": "Proprietary",
+        "notes": "Publicado 9-nov-2026. Sucesor de Fable 5.1, 20% más barato ($8/$40 contra $10/$50). Fable 5.1 sigue vigente hasta que este tenga examen completo.",
     },
     "minimax-m3.1-flash": {
         "id": "minimax/minimax-m3.1-flash",

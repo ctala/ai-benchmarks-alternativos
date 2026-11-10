@@ -1,13 +1,13 @@
 # Qwen 3.8 Max 0902
 
 - **model_id**: `qwen/qwen3.8-max-0902`
-- **Total tests**: 327/327 exitosos (0 errores)
-- **Score final**: 7.08
-- **Calidad**: 8.36
+- **Total tests**: 352/352 exitosos (0 errores)
+- **Score final**: 7.13
+- **Calidad**: 8.48
 - **Judge score (Phi-4)**: 4.11/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 119.78s
-- **Costo promedio por test**: $0.03768
+- **Velocidad**: 40 tok/s
+- **Latencia primera token**: 134.91s
+- **Costo promedio por test**: $0.04211
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -31,6 +31,7 @@
 | integridad_idioma | 8 | 8 | 7.82 | 9.64 |
 | multi_turn | 8 | 8 | 6.64 | 7.75 |
 | news_seo_writing | 10 | 10 | 6.01 | 7.24 |
+| noticias_redaccion | 25 | 25 | 7.88 | 10.00 |
 | ocr_extraction | 10 | 10 | 7.87 | 9.55 |
 | orchestration | 10 | 10 | 6.76 | 7.83 |
 | policy_adherence | 8 | 8 | 7.56 | 8.88 |
@@ -4095,3 +4096,5 @@ Aquí tienes un plan realista para lanzar la landing en **4 semanas** con **1 di
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

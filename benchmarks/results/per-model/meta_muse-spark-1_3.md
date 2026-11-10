@@ -1,13 +1,13 @@
 # Muse Spark 1.3
 
 - **model_id**: `meta/muse-spark-1.3`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.59
-- **Calidad**: 8.55
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 7.60
+- **Calidad**: 8.60
 - **Judge score (Phi-4)**: 4.05/10
-- **Velocidad**: 139 tok/s
-- **Latencia primera token**: 14.17s
-- **Costo promedio por test**: $0.03920
+- **Velocidad**: 136 tok/s
+- **Latencia primera token**: 16.46s
+- **Costo promedio por test**: $0.03787
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 7.10 | 7.75 |
 | news_seo_writing | 10 | 10 | 6.59 | 7.33 |
 | niah_es | 29 | 29 | 7.63 | 9.84 |
+| noticias_redaccion | 25 | 25 | 7.76 | 9.21 |
 | ocr_extraction | 10 | 10 | 8.51 | 9.80 |
 | orchestration | 10 | 10 | 5.64 | 5.53 |
 | policy_adherence | 8 | 8 | 8.04 | 9.08 |
@@ -3904,3 +3905,5 @@ Perfecto, con 4 semanas y ese equipo sí llegas, pero tienes que trabajar en par
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

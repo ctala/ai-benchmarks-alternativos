@@ -1,13 +1,13 @@
 # Claude Opus 5.5
 
 - **model_id**: `anthropic/claude-opus-5.5`
-- **Total tests**: 352/356 exitosos (4 errores)
-- **Score final**: 7.10
-- **Calidad**: 8.17
+- **Total tests**: 377/381 exitosos (4 errores)
+- **Score final**: 7.15
+- **Calidad**: 8.28
 - **Judge score (Phi-4)**: 4.28/10
-- **Velocidad**: 81 tok/s
-- **Latencia primera token**: 18.15s
-- **Costo promedio por test**: $0.15889
+- **Velocidad**: 82 tok/s
+- **Latencia primera token**: 19.06s
+- **Costo promedio por test**: $0.15327
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.85 | 8.00 |
 | news_seo_writing | 10 | 10 | 6.37 | 7.09 |
 | niah_es | 29 | 25 | 7.47 | 10.00 |
+| noticias_redaccion | 25 | 25 | 7.97 | 9.70 |
 | ocr_extraction | 10 | 10 | 8.25 | 9.80 |
 | orchestration | 10 | 10 | 5.99 | 6.51 |
 | policy_adherence | 8 | 8 | 7.61 | 8.88 |
@@ -3901,3 +3902,5 @@ Conviene validar estos supuestos antes del kickoff, porque cambian el plan:
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

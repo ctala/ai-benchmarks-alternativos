@@ -1,13 +1,13 @@
 # GPT-6.1 Sol
 
 - **model_id**: `openai/gpt-6.1-sol`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.42
-- **Calidad**: 8.32
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 6.94
+- **Calidad**: 7.76
 - **Judge score (Phi-4)**: 4.24/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 12.69s
-- **Costo promedio por test**: $0.01310
+- **Velocidad**: 45 tok/s
+- **Latencia primera token**: 14.23s
+- **Costo promedio por test**: $0.01415
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 8.08 | 9.59 |
 | multi_turn | 4 | 4 | 7.17 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.44 | 7.38 |
+| noticias_redaccion | 25 | 25 | 8.19 | 10.00 |
 | ocr_extraction | 5 | 5 | 8.37 | 9.60 |
 | orchestration | 5 | 5 | 6.21 | 6.51 |
 | policy_adherence | 4 | 4 | 7.87 | 8.67 |
 | presentation | 2 | 2 | 7.85 | 9.39 |
+| prompt_injection_es | 20 | 20 | 1.97 | 1.00 |
 | reasoning | 3 | 3 | 8.01 | 9.47 |
 | sales_outreach | 3 | 3 | 6.12 | 6.44 |
 | startup_content | 5 | 5 | 7.52 | 9.01 |
@@ -1982,3 +1984,7 @@ El plazo es viable si se limita el alcance desde el inicio, se trabaja en parale
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

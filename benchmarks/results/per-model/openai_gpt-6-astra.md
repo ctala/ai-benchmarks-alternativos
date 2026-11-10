@@ -1,13 +1,13 @@
 # GPT-6 Astra
 
 - **model_id**: `openai/gpt-6-astra`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 6.99
-- **Calidad**: 8.29
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 6.52
+- **Calidad**: 7.73
 - **Judge score (Phi-4)**: 4.25/10
-- **Velocidad**: 38 tok/s
-- **Latencia primera token**: 18.28s
-- **Costo promedio por test**: $0.05420
+- **Velocidad**: 35 tok/s
+- **Latencia primera token**: 19.59s
+- **Costo promedio por test**: $0.06227
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 7.76 | 9.68 |
 | multi_turn | 4 | 4 | 7.08 | 8.50 |
 | news_seo_writing | 5 | 5 | 6.00 | 7.32 |
+| noticias_redaccion | 25 | 25 | 7.83 | 9.95 |
 | ocr_extraction | 5 | 5 | 8.00 | 9.60 |
 | orchestration | 5 | 5 | 5.24 | 5.76 |
 | policy_adherence | 4 | 4 | 7.45 | 8.67 |
 | presentation | 2 | 2 | 7.39 | 9.25 |
+| prompt_injection_es | 20 | 20 | 1.56 | 1.00 |
 | reasoning | 3 | 3 | 7.61 | 9.55 |
 | sales_outreach | 3 | 3 | 4.79 | 5.33 |
 | startup_content | 5 | 5 | 6.98 | 8.84 |
@@ -1975,3 +1977,7 @@ El plazo es viable si se mantiene un alcance acotado y se trabaja en paralelo: *
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

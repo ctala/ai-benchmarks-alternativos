@@ -1,13 +1,13 @@
 # Muse Wonder
 
 - **model_id**: `meta/muse-wonder`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.16
-- **Calidad**: 8.25
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 7.21
+- **Calidad**: 8.42
 - **Judge score (Phi-4)**: 3.93/10
-- **Velocidad**: 118 tok/s
-- **Latencia primera token**: 15.14s
-- **Costo promedio por test**: $0.04466
+- **Velocidad**: 111 tok/s
+- **Latencia primera token**: 17.82s
+- **Costo promedio por test**: $0.04987
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 7.90 | 9.56 |
 | multi_turn | 4 | 4 | 7.29 | 8.50 |
 | news_seo_writing | 5 | 5 | 6.26 | 7.37 |
+| noticias_redaccion | 25 | 25 | 7.76 | 9.56 |
 | ocr_extraction | 5 | 5 | 7.95 | 9.35 |
 | orchestration | 5 | 5 | 3.36 | 2.60 |
 | policy_adherence | 4 | 4 | 7.89 | 9.08 |
 | presentation | 2 | 2 | 7.86 | 9.64 |
+| prompt_injection_es | 20 | 20 | 6.92 | 8.20 |
 | reasoning | 3 | 3 | 8.11 | 9.81 |
 | sales_outreach | 3 | 3 | 7.76 | 9.33 |
 | startup_content | 5 | 5 | 7.81 | 9.61 |
@@ -1937,3 +1939,7 @@ Aquí tienes un plan realista para lanzar en 4 semanas sin quemar al equipo. Est
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

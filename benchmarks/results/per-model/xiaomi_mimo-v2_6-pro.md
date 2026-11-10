@@ -1,13 +1,13 @@
 # MiMo V2.6 Pro
 
 - **model_id**: `xiaomi/mimo-v2.6-pro`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.69
-- **Calidad**: 8.52
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 8.69
 - **Judge score (Phi-4)**: 4.23/10
-- **Velocidad**: 37 tok/s
-- **Latencia primera token**: 52.18s
-- **Costo promedio por test**: $0.00309
+- **Velocidad**: 38 tok/s
+- **Latencia primera token**: 47.76s
+- **Costo promedio por test**: $0.00321
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 8.47 | 9.62 |
 | multi_turn | 4 | 4 | 7.03 | 7.50 |
 | news_seo_writing | 5 | 5 | 6.84 | 7.42 |
+| noticias_redaccion | 25 | 25 | 8.40 | 9.70 |
 | ocr_extraction | 5 | 5 | 8.82 | 9.75 |
 | orchestration | 5 | 5 | 7.41 | 8.03 |
 | policy_adherence | 4 | 4 | 7.22 | 7.75 |
 | presentation | 2 | 2 | 8.03 | 8.96 |
+| prompt_injection_es | 20 | 20 | 7.43 | 8.65 |
 | reasoning | 3 | 3 | 8.05 | 9.33 |
 | sales_outreach | 3 | 3 | 7.85 | 8.67 |
 | startup_content | 5 | 5 | 8.33 | 9.68 |
@@ -2104,3 +2106,7 @@ Aquí tienes un desglose completo del proyecto en fases, tareas, dependencias, r
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

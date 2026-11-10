@@ -1,13 +1,13 @@
 # Solar Pro 4
 
 - **model_id**: `upstage/solar-pro4`
-- **Total tests**: 372/376 exitosos (4 errores)
-- **Score final**: 7.51
-- **Calidad**: 8.00
+- **Total tests**: 397/401 exitosos (4 errores)
+- **Score final**: 7.56
+- **Calidad**: 8.07
 - **Judge score (Phi-4)**: 4.31/10
-- **Velocidad**: 39 tok/s
-- **Latencia primera token**: 15.06s
-- **Costo promedio por test**: $0.00172
+- **Velocidad**: 40 tok/s
+- **Latencia primera token**: 15.78s
+- **Costo promedio por test**: $0.00165
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.76 | 6.69 |
 | news_seo_writing | 10 | 10 | 7.09 | 7.51 |
 | niah_es | 55 | 51 | 8.05 | 9.76 |
+| noticias_redaccion | 25 | 25 | 8.29 | 9.06 |
 | ocr_extraction | 10 | 10 | 8.85 | 9.75 |
 | orchestration | 10 | 10 | 6.41 | 6.26 |
 | policy_adherence | 8 | 8 | 8.43 | 9.08 |
@@ -3887,6 +3888,8 @@ Aquí tien
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### noticias_redaccion
 
 #### dominio_entidad
 

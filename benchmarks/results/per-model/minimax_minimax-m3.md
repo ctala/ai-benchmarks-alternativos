@@ -1,13 +1,13 @@
 # MiniMax M3
 
 - **model_id**: `minimax/minimax-m3`
-- **Total tests**: 530/547 exitosos (17 errores)
-- **Score final**: 7.35
-- **Calidad**: 8.14
+- **Total tests**: 555/572 exitosos (17 errores)
+- **Score final**: 7.32
+- **Calidad**: 8.10
 - **Judge score (Phi-4)**: 4.38/10
-- **Velocidad**: 61 tok/s
-- **Latencia primera token**: 33.81s
-- **Costo promedio por test**: $0.00852
+- **Velocidad**: 62 tok/s
+- **Latencia primera token**: 34.99s
+- **Costo promedio por test**: $0.00851
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.78 | 7.25 |
 | news_seo_writing | 10 | 10 | 6.09 | 6.35 |
 | niah_es | 118 | 102 | 8.21 | 10.00 |
+| noticias_redaccion | 25 | 25 | 6.62 | 7.23 |
 | ocr_extraction | 10 | 10 | 8.42 | 9.35 |
 | orchestration | 10 | 10 | 6.61 | 6.68 |
 | policy_adherence | 8 | 8 | 7.78 | 8.38 |
@@ -4495,6 +4496,8 @@ Con un equipo pequeño y un plazo de 4 semanas, la clave es **paralelizar desde 
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion
 
 #### dominio_entidad
 

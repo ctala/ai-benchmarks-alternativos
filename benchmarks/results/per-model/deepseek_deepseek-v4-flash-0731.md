@@ -1,13 +1,13 @@
 # DeepSeek V4 Flash 0731
 
 - **model_id**: `deepseek/deepseek-v4-flash-0731`
-- **Total tests**: 375/375 exitosos (0 errores)
-- **Score final**: 7.75
-- **Calidad**: 8.13
+- **Total tests**: 400/400 exitosos (0 errores)
+- **Score final**: 7.83
+- **Calidad**: 8.22
 - **Judge score (Phi-4)**: 4.15/10
-- **Velocidad**: 83 tok/s
-- **Latencia primera token**: 29.87s
-- **Costo promedio por test**: $0.00199
+- **Velocidad**: 92 tok/s
+- **Latencia primera token**: 28.97s
+- **Costo promedio por test**: $0.00189
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.54 | 7.50 |
 | news_seo_writing | 10 | 10 | 7.34 | 7.49 |
 | niah_es | 59 | 59 | 8.42 | 9.97 |
+| noticias_redaccion | 25 | 25 | 8.92 | 9.56 |
 | ocr_extraction | 10 | 10 | 9.03 | 9.55 |
 | orchestration | 10 | 10 | 7.17 | 6.90 |
 | policy_adherence | 8 | 8 | 8.51 | 8.88 |
@@ -3901,3 +3902,5 @@ Aquí tienes el desglose del proyecto, optimizado para eficiencia y cero friccio
 #### verificar_claims_lote
 
 #### verificar_claim
+
+#### noticias_redaccion

@@ -1,13 +1,13 @@
 # Qwen 3.5 35B
 
 - **model_id**: `qwen/qwen3.5-35b-a3b`
-- **Total tests**: 461/461 exitosos (0 errores)
-- **Score final**: 7.32
-- **Calidad**: 7.72
+- **Total tests**: 486/486 exitosos (0 errores)
+- **Score final**: 7.38
+- **Calidad**: 7.82
 - **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 138 tok/s
-- **Latencia primera token**: 18.27s
-- **Costo promedio por test**: $0.00374
+- **Velocidad**: 139 tok/s
+- **Latencia primera token**: 18.64s
+- **Costo promedio por test**: $0.00381
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 8.61 | 9.70 |
 | multi_turn | 12 | 12 | 6.17 | 6.08 |
 | news_seo_writing | 23 | 23 | 5.71 | 5.62 |
+| noticias_redaccion | 25 | 25 | 8.43 | 9.60 |
 | ocr_extraction | 15 | 15 | 8.08 | 8.77 |
 | orchestration | 15 | 15 | 6.95 | 6.79 |
 | policy_adherence | 12 | 12 | 8.41 | 9.08 |
@@ -6466,3 +6467,5 @@ TechFlow registró un crecimiento sólido con ventas de **$2.3M (+18%)**, impuls
 #### verificar_claim
 
 #### integridad_idioma
+
+#### noticias_redaccion

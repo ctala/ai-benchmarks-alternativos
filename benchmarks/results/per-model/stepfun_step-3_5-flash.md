@@ -1,12 +1,12 @@
 # Step 3.5 Flash
 
 - **model_id**: `stepfun/step-3.5-flash`
-- **Total tests**: 1613/1615 exitosos (2 errores)
+- **Total tests**: 1638/1640 exitosos (2 errores)
 - **Score final**: 7.06
-- **Calidad**: 7.15
+- **Calidad**: 7.16
 - **Judge score (Phi-4)**: 3.89/10
 - **Velocidad**: 60 tok/s
-- **Latencia primera token**: 16.77s
+- **Latencia primera token**: 17.01s
 - **Costo promedio por test**: $0.00083
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -30,6 +30,7 @@
 | integridad_idioma | 38 | 38 | 7.12 | 7.29 |
 | multi_turn | 39 | 39 | 7.85 | 8.26 |
 | news_seo_writing | 33 | 33 | 5.08 | 4.42 |
+| noticias_redaccion | 25 | 25 | 7.11 | 7.45 |
 | ocr_extraction | 24 | 24 | 8.55 | 9.49 |
 | orchestration | 51 | 51 | 7.46 | 7.59 |
 | policy_adherence | 48 | 48 | 7.59 | 7.77 |
@@ -15279,3 +15280,5 @@ Perfecto. Con un equipo de 4 personas y 4 semanas (20 días hábiles), el enfoqu
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

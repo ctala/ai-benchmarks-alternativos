@@ -1,13 +1,13 @@
 # Mistral Small 4
 
 - **model_id**: `mistralai/mistral-small-2603`
-- **Total tests**: 407/419 exitosos (12 errores)
-- **Score final**: 7.81
-- **Calidad**: 8.09
+- **Total tests**: 432/444 exitosos (12 errores)
+- **Score final**: 7.75
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 3.86/10
 - **Velocidad**: 96 tok/s
-- **Latencia primera token**: 5.94s
-- **Costo promedio por test**: $0.00300
+- **Latencia primera token**: 6.87s
+- **Costo promedio por test**: $0.00289
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.24 | 6.88 |
 | news_seo_writing | 10 | 10 | 6.65 | 6.55 |
 | niah_es | 102 | 90 | 8.38 | 9.80 |
+| noticias_redaccion | 25 | 25 | 6.77 | 7.05 |
 | ocr_extraction | 10 | 10 | 8.92 | 9.19 |
 | orchestration | 10 | 10 | 7.74 | 7.54 |
 | policy_adherence | 8 | 8 | 7.67 | 7.29 |
@@ -4146,3 +4147,5 @@ Aquí tienes un **plan detallado** para lanzar tu landing page en **4 semanas**,
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

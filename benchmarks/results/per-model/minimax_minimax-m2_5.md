@@ -1,12 +1,12 @@
 # MiniMax M2.5
 
 - **model_id**: `minimax/minimax-m2.5`
-- **Total tests**: 319/319 exitosos (0 errores)
-- **Score final**: 7.53
-- **Calidad**: 7.89
+- **Total tests**: 344/344 exitosos (0 errores)
+- **Score final**: 7.55
+- **Calidad**: 7.92
 - **Judge score (Phi-4)**: 4.37/10
-- **Velocidad**: 77 tok/s
-- **Latencia primera token**: 10.99s
+- **Velocidad**: 79 tok/s
+- **Latencia primera token**: 11.08s
 - **Costo promedio por test**: $0.00157
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 6.47 | 6.45 |
 | multi_turn | 8 | 8 | 7.46 | 7.62 |
 | news_seo_writing | 10 | 10 | 6.92 | 7.23 |
+| noticias_redaccion | 25 | 25 | 7.75 | 8.34 |
 | ocr_extraction | 10 | 10 | 8.55 | 9.35 |
 | orchestration | 10 | 10 | 6.51 | 6.24 |
 | policy_adherence | 8 | 8 | 8.02 | 8.42 |
@@ -4556,3 +4557,5 @@ Crecimiento fuerte en enterprise (+32%) c
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

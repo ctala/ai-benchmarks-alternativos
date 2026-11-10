@@ -1,13 +1,13 @@
 # MiniMax M3.1 Flash
 
 - **model_id**: `minimax/minimax-m3.1-flash`
-- **Total tests**: 143/143 exitosos (0 errores)
-- **Score final**: 7.67
-- **Calidad**: 7.90
+- **Total tests**: 188/188 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 7.46
 - **Judge score (Phi-4)**: 3.94/10
-- **Velocidad**: 134 tok/s
-- **Latencia primera token**: 40.49s
-- **Costo promedio por test**: $0.00191
+- **Velocidad**: 119 tok/s
+- **Latencia primera token**: 37.58s
+- **Costo promedio por test**: $0.00171
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 4 | 4 | 3.75 | 2.49 |
 | multi_turn | 4 | 4 | 6.97 | 7.00 |
 | news_seo_writing | 5 | 5 | 6.83 | 7.01 |
+| noticias_redaccion | 25 | 25 | 7.11 | 7.45 |
 | ocr_extraction | 5 | 5 | 8.77 | 9.35 |
 | orchestration | 5 | 5 | 6.29 | 5.42 |
 | policy_adherence | 4 | 4 | 8.32 | 8.58 |
 | presentation | 2 | 2 | 8.37 | 9.30 |
+| prompt_injection_es | 20 | 20 | 5.12 | 4.35 |
 | reasoning | 3 | 3 | 8.35 | 9.26 |
 | sales_outreach | 3 | 3 | 6.67 | 6.44 |
 | startup_content | 5 | 5 | 8.03 | 8.96 |
@@ -2024,3 +2026,7 @@ Techflow cerró el trimestre con ventas de **$2.3M (+18% vs. Q4 2025)**. Enterpr
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

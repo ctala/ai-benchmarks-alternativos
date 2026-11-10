@@ -1,13 +1,13 @@
 # GLM 5.3 Flash
 
 - **model_id**: `z-ai/glm-5.3-flash`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.71
-- **Calidad**: 8.58
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 7.75
+- **Calidad**: 8.66
 - **Judge score (Phi-4)**: 4.39/10
-- **Velocidad**: 50 tok/s
-- **Latencia primera token**: 61.33s
-- **Costo promedio por test**: $0.00592
+- **Velocidad**: 51 tok/s
+- **Latencia primera token**: 70.03s
+- **Costo promedio por test**: $0.00593
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.96 | 7.42 |
 | news_seo_writing | 10 | 10 | 6.96 | 7.68 |
 | niah_es | 29 | 29 | 7.73 | 9.68 |
+| noticias_redaccion | 25 | 25 | 8.40 | 9.81 |
 | ocr_extraction | 10 | 10 | 8.36 | 9.39 |
 | orchestration | 10 | 10 | 7.04 | 7.46 |
 | policy_adherence | 8 | 8 | 7.96 | 8.58 |
@@ -4030,6 +4031,8 @@ Aquí tienes la información extraída en formato JSON:
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### noticias_redaccion
 
 #### niah_es
 

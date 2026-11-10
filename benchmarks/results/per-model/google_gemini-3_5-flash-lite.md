@@ -1,13 +1,13 @@
 # Gemini 3.5 Flash Lite
 
 - **model_id**: `google/gemini-3.5-flash-lite`
-- **Total tests**: 321/321 exitosos (0 errores)
-- **Score final**: 7.69
-- **Calidad**: 7.84
+- **Total tests**: 346/346 exitosos (0 errores)
+- **Score final**: 7.76
+- **Calidad**: 7.97
 - **Judge score (Phi-4)**: 4.16/10
-- **Velocidad**: 141 tok/s
-- **Latencia primera token**: 2.97s
-- **Costo promedio por test**: $0.00226
+- **Velocidad**: 148 tok/s
+- **Latencia primera token**: 3.10s
+- **Costo promedio por test**: $0.00232
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -31,6 +31,7 @@
 | integridad_idioma | 8 | 8 | 8.79 | 9.57 |
 | multi_turn | 8 | 8 | 7.65 | 7.67 |
 | news_seo_writing | 10 | 10 | 7.06 | 7.16 |
+| noticias_redaccion | 25 | 25 | 8.70 | 9.57 |
 | ocr_extraction | 10 | 10 | 9.03 | 9.62 |
 | orchestration | 10 | 10 | 6.44 | 5.83 |
 | policy_adherence | 8 | 8 | 8.73 | 9.01 |
@@ -3917,3 +3918,5 @@ Aquí tienes el plan de proyecto detallado, optimizado para tu equipo (1 Diseña
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

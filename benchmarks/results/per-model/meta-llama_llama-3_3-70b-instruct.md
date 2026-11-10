@@ -1,13 +1,13 @@
 # Llama 3.3 70B
 
 - **model_id**: `meta-llama/llama-3.3-70b-instruct`
-- **Total tests**: 327/327 exitosos (0 errores)
-- **Score final**: 7.55
-- **Calidad**: 7.74
+- **Total tests**: 352/352 exitosos (0 errores)
+- **Score final**: 7.59
+- **Calidad**: 7.82
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 51 tok/s
-- **Latencia primera token**: 13.58s
-- **Costo promedio por test**: $0.00036
+- **Velocidad**: 54 tok/s
+- **Latencia primera token**: 13.49s
+- **Costo promedio por test**: $0.00037
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 8.79 | 9.68 |
 | multi_turn | 8 | 8 | 7.71 | 7.88 |
 | news_seo_writing | 10 | 10 | 7.04 | 7.17 |
+| noticias_redaccion | 25 | 25 | 8.23 | 8.84 |
 | ocr_extraction | 10 | 10 | 8.30 | 8.62 |
 | orchestration | 10 | 10 | 7.25 | 7.32 |
 | policy_adherence | 8 | 8 | 7.95 | 8.08 |
@@ -4024,3 +4025,5 @@ Aquí te dejo la información de los 3 candidatos en formato JSON:
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

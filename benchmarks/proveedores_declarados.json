@@ -8,6 +8,14 @@
    "tag": "anthropic",
    "verificado": "2026-11-05: ping con tools, tool_choice y allow_fallbacks false responde este proveedor"
   },
+  "claude-fable-5.2": {
+   "cuantizacion": "unknown",
+   "id": "anthropic/claude-fable-5.2",
+   "motivo": "API de su creador (DECISIONES, 6-nov-2026: los cerrados se miden en la API de su creador cuando existe)",
+   "provider_name": "Anthropic",
+   "tag": "anthropic",
+   "verificado": "2026-11-10: pre-vuelo con allow_fallbacks false responde este proveedor"
+  },
   "claude-haiku-5.5": {
    "cuantizacion": "unknown",
    "id": "anthropic/claude-haiku-5.5",
@@ -294,6 +302,14 @@
    "tag": "mistral/zdr",
    "techo_salida": 262144,
    "verificado": "2026-11-07: ping con tools, tool_choice, require_parameters y allow_fallbacks false responde este proveedor y emite tool calls"
+  },
+  "muse-ember": {
+   "cuantizacion": "unknown",
+   "id": "meta/muse-ember",
+   "motivo": "API de su creador (DECISIONES, 6-nov-2026: los cerrados se miden en la API de su creador cuando existe)",
+   "provider_name": "Meta",
+   "tag": "meta",
+   "verificado": "2026-11-10: pre-vuelo con allow_fallbacks false responde este proveedor"
   },
   "muse-spark-1.3": {
    "cuantizacion": "unknown",

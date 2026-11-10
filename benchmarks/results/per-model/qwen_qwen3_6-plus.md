@@ -1,13 +1,13 @@
 # Qwen 3.6 Plus
 
 - **model_id**: `qwen/qwen3.6-plus`
-- **Total tests**: 335/340 exitosos (5 errores)
-- **Score final**: 7.15
-- **Calidad**: 7.92
+- **Total tests**: 360/365 exitosos (5 errores)
+- **Score final**: 7.22
+- **Calidad**: 8.04
 - **Judge score (Phi-4)**: 4.52/10
-- **Velocidad**: 52 tok/s
-- **Latencia primera token**: 41.04s
-- **Costo promedio por test**: $0.00748
+- **Velocidad**: 53 tok/s
+- **Latencia primera token**: 44.45s
+- **Costo promedio por test**: $0.00769
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 5.80 | 5.87 |
 | multi_turn | 8 | 8 | 7.01 | 7.75 |
 | news_seo_writing | 16 | 12 | 6.04 | 6.47 |
+| noticias_redaccion | 25 | 25 | 8.21 | 9.71 |
 | ocr_extraction | 10 | 10 | 8.59 | 9.88 |
 | orchestration | 12 | 12 | 6.99 | 7.69 |
 | policy_adherence | 8 | 8 | 7.96 | 8.83 |
@@ -4073,3 +4074,5 @@ TechFlow reporta un sólido crecimiento con ventas de $2.3M (+18% QoQ), impulsad
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

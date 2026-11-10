@@ -61,6 +61,17 @@
     "low"
    ]
   },
+  "anthropic/claude-fable-5.2": {
+   "default_effort": "high",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low"
+   ]
+  },
   "anthropic/claude-haiku-4.5": {
    "mandatory": false
   },
@@ -347,6 +358,18 @@
   "meta-llama/llama-3.3-70b-instruct": null,
   "meta-llama/llama-4-maverick": null,
   "meta-llama/llama-4-scout": null,
+  "meta/muse-ember": {
+   "default_effort": "max",
+   "mandatory": true,
+   "supported_efforts": [
+    "max",
+    "xhigh",
+    "high",
+    "medium",
+    "low",
+    "minimal"
+   ]
+  },
   "meta/muse-glimmer-30b": {
    "default_effort": "medium",
    "mandatory": true,
@@ -946,6 +969,19 @@
    "verbosity"
   ],
   "anthropic/claude-fable-5.1": [
+   "include_reasoning",
+   "max_completion_tokens",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "response_format",
+   "stop",
+   "structured_outputs",
+   "tool_choice",
+   "tools",
+   "verbosity"
+  ],
+  "anthropic/claude-fable-5.2": [
    "include_reasoning",
    "max_completion_tokens",
    "max_tokens",
@@ -1611,6 +1647,20 @@
    "top_k",
    "top_p"
   ],
+  "meta/muse-ember": [
+   "include_reasoning",
+   "max_tokens",
+   "reasoning",
+   "reasoning_effort",
+   "repetition_penalty",
+   "response_format",
+   "structured_outputs",
+   "temperature",
+   "tool_choice",
+   "tools",
+   "top_k",
+   "top_p"
+  ],
   "meta/muse-glimmer-30b": [
    "frequency_penalty",
    "include_reasoning",
@@ -1695,19 +1745,15 @@
    "top_p"
   ],
   "minimax/minimax-m2.7": [
-   "frequency_penalty",
    "include_reasoning",
    "max_tokens",
-   "presence_penalty",
    "reasoning",
-   "repetition_penalty",
    "response_format",
    "seed",
    "stop",
    "temperature",
    "tool_choice",
    "tools",
-   "top_k",
    "top_p"
   ],
   "minimax/minimax-m3": [
@@ -2709,7 +2755,6 @@
    "max_completion_tokens",
    "max_tokens",
    "min_p",
-   "parallel_tool_calls",
    "presence_penalty",
    "reasoning",
    "reasoning_effort",
@@ -2870,7 +2915,6 @@
    "max_tokens",
    "reasoning",
    "response_format",
-   "seed",
    "structured_outputs",
    "temperature",
    "tool_choice",
@@ -3031,5 +3075,5 @@
    "top_p"
   ]
  },
- "tomada": "2026-11-09"
+ "tomada": "2026-11-10"
 }

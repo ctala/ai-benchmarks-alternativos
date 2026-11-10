@@ -1,13 +1,13 @@
 # Qwen 3.6 35B base (OpenRouter FP8)
 
 - **model_id**: `qwen/qwen3.6-35b-a3b`
-- **Total tests**: 369/375 exitosos (6 errores)
-- **Score final**: 7.47
-- **Calidad**: 7.93
+- **Total tests**: 394/400 exitosos (6 errores)
+- **Score final**: 7.54
+- **Calidad**: 8.05
 - **Judge score (Phi-4)**: 4.04/10
-- **Velocidad**: 116 tok/s
-- **Latencia primera token**: 17.98s
-- **Costo promedio por test**: $0.00355
+- **Velocidad**: 118 tok/s
+- **Latencia primera token**: 19.96s
+- **Costo promedio por test**: $0.00360
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.42 | 7.69 |
 | news_seo_writing | 10 | 10 | 5.96 | 5.74 |
 | niah_es | 51 | 45 | 8.45 | 9.70 |
+| noticias_redaccion | 25 | 25 | 8.56 | 9.87 |
 | ocr_extraction | 10 | 10 | 8.85 | 9.68 |
 | orchestration | 10 | 10 | 7.50 | 7.69 |
 | policy_adherence | 8 | 8 | 7.97 | 8.21 |
@@ -4110,3 +4111,5 @@ TechFlow mostró un crecimiento sólido con ventas de $2.3M (+18% vs Q4 2025), i
 #### integridad_idioma
 
 #### verificar_claim
+
+#### noticias_redaccion

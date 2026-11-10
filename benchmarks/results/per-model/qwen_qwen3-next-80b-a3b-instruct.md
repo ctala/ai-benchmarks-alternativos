@@ -1,13 +1,13 @@
 # Qwen 3-Next 80B Instruct
 
 - **model_id**: `qwen/qwen3-next-80b-a3b-instruct`
-- **Total tests**: 491/491 exitosos (0 errores)
-- **Score final**: 7.97
-- **Calidad**: 8.06
+- **Total tests**: 516/516 exitosos (0 errores)
+- **Score final**: 7.93
+- **Calidad**: 8.03
 - **Judge score (Phi-4)**: 4.39/10
 - **Velocidad**: 130 tok/s
-- **Latencia primera token**: 4.47s
-- **Costo promedio por test**: $0.00115
+- **Latencia primera token**: 4.86s
+- **Costo promedio por test**: $0.00118
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,7 +30,7 @@
 | multi_turn | 8 | 8 | 8.22 | 8.50 |
 | news_seo_writing | 14 | 14 | 6.67 | 6.65 |
 | noticias_extraccion | 25 | 25 | 8.68 | 9.16 |
-| noticias_redaccion | 25 | 25 | 7.22 | 7.47 |
+| noticias_redaccion | 50 | 50 | 7.18 | 7.46 |
 | noticias_relevancia | 58 | 58 | 9.10 | 9.14 |
 | noticias_traduccion | 15 | 15 | 9.21 | 9.53 |
 | noticias_verificacion | 30 | 30 | 9.53 | 9.82 |
@@ -4566,9 +4566,9 @@ Ventas alcanzaron $2.3M (+18% qoq), impulsadas por crecimiento del 32% en enterp
 
 #### verificar_claim
 
-#### noticias_extraccion
-
 #### noticias_redaccion
+
+#### noticias_extraccion
 
 #### noticias_relevancia
 

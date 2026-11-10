@@ -1,13 +1,13 @@
 # DeepSeek V4 Pro (0813)
 
 - **model_id**: `deepseek/deepseek-v4-pro-0813`
-- **Total tests**: 594/594 exitosos (0 errores)
-- **Score final**: 7.39
-- **Calidad**: 8.38
+- **Total tests**: 639/639 exitosos (0 errores)
+- **Score final**: 7.32
+- **Calidad**: 8.29
 - **Judge score (Phi-4)**: 4.26/10
 - **Velocidad**: 56 tok/s
-- **Latencia primera token**: 48.04s
-- **Costo promedio por test**: $0.01145
+- **Latencia primera token**: 47.74s
+- **Costo promedio por test**: $0.01163
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,10 +29,12 @@
 | integridad_idioma | 8 | 8 | 7.34 | 8.44 |
 | multi_turn | 20 | 20 | 6.39 | 7.03 |
 | news_seo_writing | 22 | 22 | 6.17 | 6.89 |
+| noticias_redaccion | 25 | 25 | 8.22 | 9.83 |
 | ocr_extraction | 19 | 19 | 8.38 | 9.68 |
 | orchestration | 25 | 25 | 6.64 | 7.40 |
 | policy_adherence | 20 | 20 | 7.69 | 8.56 |
 | presentation | 7 | 7 | 8.00 | 9.60 |
+| prompt_injection_es | 20 | 20 | 4.04 | 3.70 |
 | reasoning | 12 | 12 | 7.97 | 9.53 |
 | sales_outreach | 12 | 12 | 6.78 | 7.41 |
 | startup_content | 19 | 19 | 8.01 | 9.50 |
@@ -8489,3 +8491,7 @@ Resumen ejecutivo Q1 2026 – TechFlow
 #### verificar_claim
 
 #### tool_calling_adversarial
+
+#### prompt_injection_es
+
+#### noticias_redaccion

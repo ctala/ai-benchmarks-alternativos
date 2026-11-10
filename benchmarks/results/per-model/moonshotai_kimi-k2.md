@@ -1,13 +1,13 @@
 # Kimi K2
 
 - **model_id**: `moonshotai/kimi-k2`
-- **Total tests**: 350/372 exitosos (22 errores)
-- **Score final**: 7.09
-- **Calidad**: 7.73
+- **Total tests**: 375/397 exitosos (22 errores)
+- **Score final**: 7.12
+- **Calidad**: 7.80
 - **Judge score (Phi-4)**: 4.30/10
 - **Velocidad**: 33 tok/s
-- **Latencia primera token**: 17.43s
-- **Costo promedio por test**: $0.00321
+- **Latencia primera token**: 18.94s
+- **Costo promedio por test**: $0.00328
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 8.28 | 9.63 |
 | multi_turn | 14 | 12 | 7.31 | 7.92 |
 | news_seo_writing | 17 | 12 | 6.09 | 6.63 |
+| noticias_redaccion | 25 | 25 | 7.62 | 8.81 |
 | ocr_extraction | 16 | 15 | 8.34 | 9.53 |
 | orchestration | 14 | 10 | 6.94 | 7.42 |
 | policy_adherence | 15 | 12 | 7.63 | 8.31 |
@@ -5007,3 +5008,5 @@ Aquí están los action items extraídos de la reunión:
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

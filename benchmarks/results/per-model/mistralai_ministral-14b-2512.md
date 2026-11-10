@@ -1,13 +1,13 @@
 # Ministral 14B
 
 - **model_id**: `mistralai/ministral-14b-2512`
-- **Total tests**: 328/328 exitosos (0 errores)
-- **Score final**: 7.43
-- **Calidad**: 7.57
+- **Total tests**: 353/353 exitosos (0 errores)
+- **Score final**: 7.37
+- **Calidad**: 7.50
 - **Judge score (Phi-4)**: 4.32/10
-- **Velocidad**: 57 tok/s
-- **Latencia primera token**: 17.35s
-- **Costo promedio por test**: $0.00106
+- **Velocidad**: 59 tok/s
+- **Latencia primera token**: 17.99s
+- **Costo promedio por test**: $0.00103
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 7.15 | 7.24 |
 | multi_turn | 8 | 8 | 7.76 | 8.00 |
 | news_seo_writing | 14 | 14 | 5.83 | 5.50 |
+| noticias_redaccion | 25 | 25 | 6.54 | 6.52 |
 | ocr_extraction | 10 | 10 | 8.51 | 9.10 |
 | orchestration | 14 | 14 | 8.08 | 8.50 |
 | policy_adherence | 8 | 8 | 8.21 | 8.58 |
@@ -4612,3 +4613,5 @@ Aquí tienes la información en formato JSON según el formato solicitado:
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

@@ -1,13 +1,13 @@
 # GPT-6 Luna Pro
 
 - **model_id**: `openai/gpt-6-luna-pro`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.94
-- **Calidad**: 8.59
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 8.00
+- **Calidad**: 8.68
 - **Judge score (Phi-4)**: 4.17/10
-- **Velocidad**: 107 tok/s
-- **Latencia primera token**: 14.12s
-- **Costo promedio por test**: $0.00869
+- **Velocidad**: 113 tok/s
+- **Latencia primera token**: 14.66s
+- **Costo promedio por test**: $0.00830
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 7.01 | 7.25 |
 | news_seo_writing | 10 | 10 | 7.02 | 7.35 |
 | niah_es | 29 | 29 | 8.02 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.82 | 9.99 |
 | ocr_extraction | 10 | 10 | 8.95 | 9.80 |
 | orchestration | 10 | 10 | 6.16 | 5.90 |
 | policy_adherence | 8 | 8 | 7.74 | 8.00 |
@@ -3839,3 +3840,5 @@ Asumo una jornada de **9:00 a. m. a 5:00 p. m.** y que los bloques de emails deb
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion

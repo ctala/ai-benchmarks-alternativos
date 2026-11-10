@@ -1,13 +1,13 @@
 # Tencent Hy4
 
 - **model_id**: `tencent/hy4`
-- **Total tests**: 310/310 exitosos (0 errores)
-- **Score final**: 8.11
-- **Calidad**: 9.14
+- **Total tests**: 355/355 exitosos (0 errores)
+- **Score final**: 7.98
+- **Calidad**: 9.00
 - **Judge score (Phi-4)**: 4.55/10
-- **Velocidad**: 91 tok/s
-- **Latencia primera token**: 44.33s
-- **Costo promedio por test**: $0.00770
+- **Velocidad**: 93 tok/s
+- **Latencia primera token**: 49.35s
+- **Costo promedio por test**: $0.00863
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,7 +30,7 @@
 | multi_turn | 4 | 4 | 7.20 | 8.00 |
 | news_seo_writing | 5 | 5 | 6.73 | 7.29 |
 | noticias_extraccion | 25 | 25 | 8.23 | 9.76 |
-| noticias_redaccion | 25 | 25 | 7.28 | 8.28 |
+| noticias_redaccion | 50 | 50 | 7.52 | 8.64 |
 | noticias_relevancia | 58 | 58 | 8.78 | 10.00 |
 | noticias_traduccion | 15 | 15 | 8.72 | 9.85 |
 | noticias_verificacion | 30 | 30 | 8.68 | 10.00 |
@@ -39,6 +39,7 @@
 | policy_adherence | 4 | 4 | 8.13 | 8.58 |
 | precision_datos | 14 | 14 | 8.62 | 9.64 |
 | presentation | 2 | 2 | 8.54 | 9.80 |
+| prompt_injection_es | 20 | 20 | 6.31 | 6.85 |
 | reasoning | 3 | 3 | 8.42 | 9.75 |
 | sales_outreach | 3 | 3 | 8.47 | 9.33 |
 | startup_content | 5 | 5 | 8.50 | 9.83 |
@@ -1957,9 +1958,11 @@ Te lo estructuro en **fases → tareas → dependencias → responsables → t
 
 #### tool_calling_adversarial
 
-#### noticias_extraccion
+#### prompt_injection_es
 
 #### noticias_redaccion
+
+#### noticias_extraccion
 
 #### noticias_relevancia
 

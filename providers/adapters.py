@@ -110,6 +110,9 @@ THINKING_MODELS = (
                                             # con max_tokens=300 los dos devolvieron content="" y 299/298
                                             # reasoning tokens (finish=length). Grok 4.7 razona 216 y
                                             # responde, igual que Grok 4.6: queda como su predecesor.
+    "muse-ember",                           # 10-nov-2026, pre-vuelo: content="" y 298 reasoning tokens
+                                            # con max_tokens=300 (finish=length). Fable 5.2 razonó 43 y
+                                            # respondió; ya lo cubre el patrón "fable-5".
     # ── 17-ago-2026: los cuatro que truncaban, y que ningún detector veía ───────
     # Este modo de falla es DISTINTO al de arriba, y por eso sobrevivió meses. Los
     # anteriores devuelven content="" — ruidoso, contable, con un guardrail que lo

@@ -317,6 +317,50 @@
     }
    ]
   },
+  "harbor-cotizar::qwen/qwen3.7-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000672,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001029,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 0.8889,
+     "reward_verificador": 0.8889,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.000942,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "fdc1ea2c7618346d796fe5390d252a63554b66f522919db5f8a284c49b88feb1",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
   "harbor-cotizar::thinkingmachines/inkling-small": {
    "marca": "condiciones_mezcladas",
    "intentos": [
@@ -2295,6 +2339,50 @@
     }
    ]
   },
+  "harbor-reunion::qwen/qwen3.7-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00127,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001663,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.001709,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "44a06d87eeba4341da0bc882dd0424d489d02dfc047de296b89cab5a0c91eb16",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    }
+   ]
+  },
   "harbor-reunion::moonshotai/kimi-k2.6": {
    "marca": "condiciones_mezcladas",
    "intentos": [
@@ -4114,6 +4202,50 @@
      "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
      "proveedores": [
       "Mistral"
+     ],
+     "ventana": false
+    }
+   ]
+  },
+  "harbor-ruteo::qwen/qwen3.7-flash": {
+   "marca": "condiciones_mezcladas",
+   "intentos": [
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.00493,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.005403,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
+     ],
+     "ventana": false
+    },
+    {
+     "reward": 1.0,
+     "reward_verificador": 1.0,
+     "causa": null,
+     "detalle": null,
+     "costo_usd": 0.004194,
+     "costo_fuente": "tokens_x_precio",
+     "checksum": "49d0bd1607be93c52ac6e043ee8fe849d6ba50288c0024fb64fbad73a7761c4f",
+     "proveedores": [
+      "Alibaba"
      ],
      "ventana": false
     }

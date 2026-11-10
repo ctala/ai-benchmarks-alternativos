@@ -1,13 +1,13 @@
 # Muse Glimmer 30B
 
 - **model_id**: `meta/muse-glimmer-30b`
-- **Total tests**: 340/340 exitosos (0 errores)
-- **Score final**: 7.83
-- **Calidad**: 8.52
+- **Total tests**: 365/365 exitosos (0 errores)
+- **Score final**: 7.88
+- **Calidad**: 8.62
 - **Judge score (Phi-4)**: 4.26/10
-- **Velocidad**: 111 tok/s
-- **Latencia primera token**: 14.16s
-- **Costo promedio por test**: $0.00374
+- **Velocidad**: 112 tok/s
+- **Latencia primera token**: 15.49s
+- **Costo promedio por test**: $0.00380
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -30,6 +30,7 @@
 | multi_turn | 8 | 8 | 7.29 | 6.94 |
 | news_seo_writing | 10 | 10 | 6.06 | 6.25 |
 | niah_es | 30 | 30 | 8.45 | 10.00 |
+| noticias_redaccion | 25 | 25 | 8.61 | 9.96 |
 | ocr_extraction | 10 | 10 | 8.55 | 9.60 |
 | orchestration | 10 | 10 | 6.97 | 6.99 |
 | policy_adherence | 8 | 8 | 7.86 | 8.38 |
@@ -4183,3 +4184,5 @@ Lanzamiento en 4 semanas es ajustado pero viable para una landing page de 1 pág
 #### tool_calling_adversarial
 
 #### verificar_claim
+
+#### noticias_redaccion

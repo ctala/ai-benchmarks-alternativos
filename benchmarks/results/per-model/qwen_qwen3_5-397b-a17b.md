@@ -1,13 +1,13 @@
 # Qwen 3.5 397B
 
 - **model_id**: `qwen/qwen3.5-397b-a17b`
-- **Total tests**: 321/321 exitosos (0 errores)
-- **Score final**: 6.95
-- **Calidad**: 7.76
+- **Total tests**: 346/346 exitosos (0 errores)
+- **Score final**: 7.04
+- **Calidad**: 7.91
 - **Judge score (Phi-4)**: 4.45/10
-- **Velocidad**: 56 tok/s
-- **Latencia primera token**: 48.66s
-- **Costo promedio por test**: $0.01017
+- **Velocidad**: 57 tok/s
+- **Latencia primera token**: 49.96s
+- **Costo promedio por test**: $0.01050
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -29,6 +29,7 @@
 | integridad_idioma | 8 | 8 | 5.18 | 5.29 |
 | multi_turn | 8 | 8 | 7.50 | 8.56 |
 | news_seo_writing | 10 | 10 | 6.12 | 6.53 |
+| noticias_redaccion | 25 | 25 | 8.23 | 9.83 |
 | ocr_extraction | 10 | 10 | 8.25 | 9.55 |
 | orchestration | 10 | 10 | 6.82 | 7.27 |
 | policy_adherence | 8 | 8 | 7.93 | 9.04 |
@@ -4381,3 +4382,5 @@ TechFlow cerró el trimestre con ventas de $2.3M (+18% QoQ), impulsadas por un c
 #### prompt_injection_es
 
 #### verificar_claim
+
+#### noticias_redaccion

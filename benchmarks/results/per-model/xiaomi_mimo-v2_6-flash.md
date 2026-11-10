@@ -1,13 +1,13 @@
 # MiMo V2.6 Flash
 
 - **model_id**: `xiaomi/mimo-v2.6-flash`
-- **Total tests**: 356/356 exitosos (0 errores)
-- **Score final**: 7.71
-- **Calidad**: 8.50
+- **Total tests**: 381/381 exitosos (0 errores)
+- **Score final**: 7.77
+- **Calidad**: 8.59
 - **Judge score (Phi-4)**: 4.25/10
 - **Velocidad**: 30 tok/s
-- **Latencia primera token**: 51.52s
-- **Costo promedio por test**: $0.00460
+- **Latencia primera token**: 51.56s
+- **Costo promedio por test**: $0.00433
 
 > Tests evaluados con Phi-4 (Microsoft, 14B, MIT) via Ollama local — scoring 30% auto + 70% juez.
 
@@ -32,6 +32,7 @@
 | multi_turn | 8 | 8 | 6.74 | 6.94 |
 | news_seo_writing | 10 | 10 | 6.87 | 7.24 |
 | niah_es | 29 | 29 | 7.33 | 9.48 |
+| noticias_redaccion | 25 | 25 | 8.61 | 9.76 |
 | ocr_extraction | 10 | 10 | 8.51 | 9.55 |
 | orchestration | 10 | 10 | 6.81 | 6.98 |
 | policy_adherence | 8 | 8 | 7.65 | 8.21 |
@@ -4131,3 +4132,5 @@ Aquí tienes los action items extraídos de las notas de la reunión, organizado
 #### tool_calling_adversarial
 
 #### prompt_injection_es
+
+#### noticias_redaccion
