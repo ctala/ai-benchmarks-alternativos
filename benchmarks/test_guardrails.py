@@ -574,6 +574,41 @@ def _t_paridad_sitio():
     return ok
 
 
+@prueba("check_espanol_neutro", "voseo en una ficha (dos niveles abajo), un árbol que no se lee y uno al que le faltan páginas")
+def _t_espanol_neutro():
+    # 11-nov-2026 (motor-sitio 2.3). Buscaba en `docs/*/index.html`, un nivel: las 132 fichas de
+    # `docs/modelo/` nunca se revisaron, y el «mirá» de /glm-5.2-explicado/ estuvo publicado sin
+    # que el QA lo corriera. Ahora lee todo el árbol y falla si lee menos páginas que el registro.
+    base = Path(tempfile.mkdtemp()) / "docs"
+    for f in (ROOT / "docs").rglob("index.html"):
+        d = base / f.relative_to(ROOT / "docs")
+        d.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(f, d)
+
+    def correr(raiz):
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_espanol_neutro.py"), "--dist", str(raiz)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr(base)[0] == 0                                  # control: las páginas de hoy
+    ficha = next((base / "modelo").rglob("index.html"))
+    antes = ficha.read_text(encoding="utf-8")
+    ficha.write_text(antes.replace("</body>", "<p>Si querés probarlo, pedile una cotización.</p></body>"),
+                     encoding="utf-8")
+    rc, out = correr(base)
+    ok = ok and rc != 0 and "querés" in out and "modelo/" in out
+    ficha.write_text(antes, encoding="utf-8")
+    vacio = base.parent / "vacio"
+    vacio.mkdir()
+    rc, out = correr(vacio)                                    # lee cero páginas → rojo
+    ok = ok and rc != 0 and "leyó 0 de" in out
+    shutil.rmtree(base / "modelo")                             # le faltan las fichas → rojo
+    rc, out = correr(base)
+    ok = ok and rc != 0 and "no revisó" in out and "/modelo/" in out
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_paleta P5", "un color inventado en lo compilado, también escrito corto por el minificador")
 def _t_paleta_dist():
     # 11-nov-2026 (motor-sitio 2.2). `dist` lleva lo de Astro y el legado copiado de docs/: lo que

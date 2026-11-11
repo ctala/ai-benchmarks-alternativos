@@ -31,4 +31,4 @@ Fuera de este change, uno a la vez: el **1b** (fichas, landings y home con la ca
 - Generadores: `generate_comparison.py`, y en la sesión 2 `generate_rankings.py` y `generate_variants.py`, emiten un JSON por página además del HTML hasta el corte.
 - Guardrails que leen `docs/`: pasan a leer lo compilado.
 - `regenerate_all.py` y el Action suman la compilación con Node.
-- Cuatro sesiones o más (eran dos; se amplió dos veces el 11-nov: la prosa de rankings sale del dato y el legado pasa a claro; ver DECISIONES). La publicación necesita un OK aparte.
+- Cinco sesiones más el corte (eran dos; se amplió tres veces el 11-nov: la prosa de rankings sale del dato, el legado pasa a claro y los guardrails estaban atados al HTML de Python; ver DECISIONES). El alcance quedó cerrado: lo nuevo va al 1b, salvo un error en vivo. La publicación necesita un OK aparte.

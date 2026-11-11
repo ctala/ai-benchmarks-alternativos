@@ -1539,7 +1539,7 @@ def gen_glm_5_2_explicado(data):
     </div>
     {table_alt(familia, c)}
     <p class="meta">La familia se movió: hay versiones más nuevas que GLM 5.2 midiendo mejor.
-    Si vas a integrar hoy, mirá primero las de arriba de esta tabla.</p>
+    Si vas a integrar hoy, mira primero las de arriba de esta tabla.</p>
   </section>
 
   <section>

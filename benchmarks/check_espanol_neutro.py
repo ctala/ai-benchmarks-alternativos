@@ -24,7 +24,12 @@ agregando el término a `PERMITIDAS` con su razón — por ejemplo, citar textua
 alguien que vosea.
 
 Uso:
-    python benchmarks/check_espanol_neutro.py
+    python benchmarks/check_espanol_neutro.py                     # docs/ y los generadores
+    python benchmarks/check_espanol_neutro.py --dist sitio/dist   # lo compilado
+
+PÁGINAS LEÍDAS (11-nov-2026, motor-sitio 2.3): lee cada `index.html` del árbol, a cualquier
+profundidad, y falla si no leyó todas las páginas que el registro publica. Antes buscaba en
+`docs/*/index.html`, un solo nivel: las 132 fichas de `docs/modelo/` nunca se revisaron.
 """
 
 import argparse
@@ -51,33 +56,55 @@ PERMITIDAS: dict[str, str] = {}
 # Dónde mirar: lo que se publica y lo que lo genera. Los comentarios de código quedan
 # fuera —no los lee nadie de la audiencia— pero el texto dentro de generadores SÍ entra,
 # porque termina en decenas de páginas.
-OBJETIVOS = ["docs/index.html", "docs/app.js", "benchmarks/generate_*.py",
-             "docs/*/index.html"]
+GENERADORES = ["benchmarks/generate_*.py"]
+
+
+def archivos(base: Path, con_generadores: bool) -> list[Path]:
+    """Las páginas (todo `index.html`, a cualquier profundidad), `app.js` y, si se revisa la
+    fuente, los generadores."""
+    fs = sorted(base.rglob("index.html"))
+    if (base / "app.js").exists():
+        fs.append(base / "app.js")
+    if con_generadores:
+        fs += [f for pat in GENERADORES for f in sorted(ROOT.glob(pat))]
+    return fs
 
 
 def main() -> int:
-    argparse.ArgumentParser().parse_args()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, help="revisar lo compilado en vez de docs/")
+    ap.add_argument("--docs", type=Path, default=ROOT / "docs", help="otro docs/ (para el sabotaje)")
+    a = ap.parse_args()
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import paginas_leidas as pl
+    base = (a.dist or a.docs).resolve()
     patron = re.compile(r"\b(" + "|".join(VOSEO + LOCALISMOS) + r")\b", re.I)
-    hallazgos = []
-    vistos = 0
-    for pat in OBJETIVOS:
-        for f in sorted(ROOT.glob(pat)):
-            txt = f.read_text(errors="ignore")
-            if f.suffix in (".py", ".js"):
-                # fuera comentarios y docstrings: son notas internas, no audiencia
-                txt = re.sub(r'"""[\s\S]*?"""', "", txt)
-                txt = re.sub(r"^\s*(#|//).*$", "", txt, flags=re.M)
-            vistos += 1
-            for m in patron.finditer(txt):
-                t = m.group(1).lower()
-                if t in PERMITIDAS:
-                    continue
-                linea = txt[:m.start()].count("\n") + 1
-                ctx = re.sub(r"\s+", " ", txt[max(0, m.start() - 45):m.end() + 35]).strip()
-                hallazgos.append((f.relative_to(ROOT), linea, t, ctx))
+    hallazgos, leidas = [], set()
+    fs = archivos(base, con_generadores=not a.dist)
+    for f in fs:
+        txt = f.read_text(errors="ignore")
+        if f.name == "index.html":
+            leidas.add(pl.url_de(base, f))
+        if f.suffix in (".py", ".js"):
+            # fuera comentarios y docstrings: son notas internas, no audiencia
+            txt = re.sub(r'"""[\s\S]*?"""', "", txt)
+            txt = re.sub(r"^\s*(#|//).*$", "", txt, flags=re.M)
+        for m in patron.finditer(txt):
+            t = m.group(1).lower()
+            if t in PERMITIDAS:
+                continue
+            linea = txt[:m.start()].count("\n") + 1
+            ctx = re.sub(r"\s+", " ", txt[max(0, m.start() - 45):m.end() + 35]).strip()
+            donde = f.relative_to(base) if base in f.parents else f.relative_to(ROOT)
+            hallazgos.append((donde, linea, t, ctx))
 
-    print(f"ESPAÑOL NEUTRO — {vistos} archivo(s) publicables revisados\n")
+    print(f"ESPAÑOL NEUTRO — {len(fs)} archivo(s) publicables revisados en {base.name}/\n")
+    ciego = pl.exigir("check_espanol_neutro", leidas, pl.esperadas())
+    for c in ciego:
+        print(f"  ❌ {c}")
     if not hallazgos:
+        if ciego:
+            return 1
         print("  ✅ sin voseo ni localismos: se lee igual en México, Chile, España o Perú.")
         return 0
     print(f"  ❌ {len(hallazgos)} uso(s) que excluyen a parte de la audiencia:\n")

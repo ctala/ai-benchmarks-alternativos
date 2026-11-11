@@ -196,6 +196,11 @@ CHEQUEOS = [
      [PY, "benchmarks/check_blog_consistency.py"], True, False),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
+    # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
+    # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
+    # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.
+    ("paginas", "lo publicado está en español neutro, sin voseo ni localismos",
+     [PY, "benchmarks/check_espanol_neutro.py"], True, True),
     # 11-nov-2026 (motor-sitio 1.4): cada URL publicada está declarada en el registro. Sin
     # build corren R0 y R3 contra docs/; R1, R2 y R4 miran lo compilado dentro de
     # `npm run build`. Nace verde: bloqueante.

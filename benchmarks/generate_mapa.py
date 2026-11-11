@@ -166,7 +166,7 @@ def construir() -> tuple[str, list[str]]:
            "> equivocados y, en el intento fallido, **concluí que faltaban 95 fichas cuando",
            "> estaban las 100**. El dato ya vivía en el código (`check_fichas_alcanzables.py`",
            "> sabe la ruta); lo que faltaba era poder leerlo sin leer el código.\n",
-           "**Regla de uso:** antes de buscar dónde está algo, mirá acá. Antes de crear un",
+           "**Regla de uso:** antes de buscar dónde está algo, mira acá. Antes de crear un",
            "artefacto nuevo, agregá su fila **en el mismo commit** — si no, no existe para",
            "el próximo que lo busque.\n"]
     for g in ("Dato", "Páginas", "Docs", "Release"):

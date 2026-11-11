@@ -10,7 +10,7 @@
     "datos": "../.venv/bin/python ../benchmarks/tokens_sitio.py && ../.venv/bin/python ../benchmarks/exportar_sitio.py",
     "prebuild": "npm run datos && ../.venv/bin/python ../benchmarks/check_registro.py",
     "build": "astro build",
-    "postbuild": "../.venv/bin/python ../benchmarks/copiar_legado.py --dist dist && ../.venv/bin/python ../benchmarks/check_registro.py --dist dist && ../.venv/bin/python ../benchmarks/check_paleta.py --dist dist && ../.venv/bin/python ../benchmarks/paridad_sitio.py --dist dist && node pruebas/movil.mjs --dist dist",
+    "postbuild": "../.venv/bin/python ../benchmarks/copiar_legado.py --dist dist && ../.venv/bin/python ../benchmarks/check_registro.py --dist dist && ../.venv/bin/python ../benchmarks/check_paleta.py --dist dist && ../.venv/bin/python ../benchmarks/check_espanol_neutro.py --dist dist && ../.venv/bin/python ../benchmarks/paridad_sitio.py --dist dist && node pruebas/movil.mjs --dist dist",
     "dev": "npm run datos && astro dev",
     "preview": "astro preview"
   },
