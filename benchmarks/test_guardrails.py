@@ -30,6 +30,7 @@ Uso:
 """
 
 import contextlib
+import html
 import json
 import os
 import re
@@ -414,6 +415,81 @@ def _t_ganadores_grupo():
         return _correr("check_ganadores.py") != 0
 
 
+@prueba("check_ganadores --dist", "un lector que no reconoce el HTML (G2, G3 y G5 leen cero páginas), "
+                                  "y una corona o una carta con la forma de Astro que nombra a un modelo del histórico")
+def _t_ganadores_dist():
+    # 11-nov-2026 (motor-sitio 2.3). Frente al HTML de Astro, check_ganadores leyó cero filas y
+    # reportó contradicciones falsas sin saber que no leía. Ahora cuenta páginas contra el
+    # registro. Sin Node en el CI, el árbol es una copia de docs/ (el control) y las formas de
+    # Astro se inyectan: `data-corona` en Modelo, `veredicto-tag` + enlace, el grupo sin valor.
+    import re as _re
+    base = Path(tempfile.mkdtemp()) / "dist"
+    for f in (ROOT / "docs").glob("*/index.html"):
+        d = base / f.parent.name / "index.html"
+        d.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(f, d)
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_ganadores.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0                                     # control
+    # Cada lector, roto en todas sus páginas a la vez: tiene que decir que leyó cero.
+    for regla, de, a in (("G3", "data-grupo-cabeza", "data-otro-grupo"),
+                         ("G5", "gana <strong>", "gana <b>"),
+                         ("G2", "Empatan", "Igualan")):
+        guardadas = {}
+        for f in base.glob("*/index.html"):
+            t = f.read_text(encoding="utf-8")
+            if de in t:
+                guardadas[f] = t
+                t2 = t.replace(de, a)
+                if regla == "G5":   # las otras formas de coronar también se rompen
+                    t2 = t2.replace("Empate técnico en calidad:", "Parejos:").replace("Resumen: quién gana", "Resumen")
+                if regla == "G2":
+                    t2 = _re.sub(r"(<td class=\"lad-verdict\">)Gana ", r"\1Sale ", t2)
+                f.write_text(t2, encoding="utf-8")
+        rc, out = correr()
+        ok = ok and bool(guardadas) and rc != 0 and f"{regla} leyó 0 de" in out
+        for f, t in guardadas.items():
+            f.write_text(t, encoding="utf-8")
+    ok = ok and correr()[0] == 0                              # restaurado
+
+    # Las formas de Astro: el grupo vacío sin valor se lee (sigue verde) y quitarlo es rojo.
+    rk = base / "mejor-llm-barato" / "index.html"
+    t = rk.read_text(encoding="utf-8")
+    if 'data-grupo-cabeza=""' not in t:
+        raise AssertionError("mejor-llm-barato ya no tiene grupo vacío: el control de Astro no probaría nada")
+    rk.write_text(t.replace('data-grupo-cabeza=""', "data-grupo-cabeza", 1), encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    rk.write_text(t.replace('data-grupo-cabeza=""', "", 1), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "mejor-llm-barato: no publica su grupo" in out
+    rk.write_text(t, encoding="utf-8")
+
+    # Una corona de Astro (`data-corona`) y una carta de Astro que nombran al histórico.
+    comp = next(base / e for e in ("claude-vs-chatgpt",) if (base / e / "index.html").exists()) / "index.html"
+    tc = comp.read_text(encoding="utf-8")
+    comp.write_text(tc.replace("</body>", '<p>En calidad gana <a class="a-ficha" data-modelo="claude-fable-5" '
+                                          'data-corona href="#"><strong>Claude Fable 5</strong></a>.</p></body>', 1),
+                    encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "corona a «Claude Fable 5»" in out
+    comp.write_text(tc, encoding="utf-8")
+    ag = base / "mejor-llm-para-agentes" / "index.html"
+    ta = ag.read_text(encoding="utf-8")
+    ag.write_text(ta.replace("</body>", '<div><span class="veredicto-tag">Lo que te ahorras</span>\n'
+                                        '<a class="a-ficha" data-modelo="claude-fable-5" href="#"><strong>Claude Fable 5</strong></a></div></body>', 1),
+                  encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "nombra a «Claude Fable 5», que no está rankeado" in out
+    ag.write_text(ta, encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_release_mensual", "un reporte del mes que le atribuye a un modelo una cifra que no es suya")
 def _t_release():
     # El caso real: cifras escritas a mano dentro de un generador data-driven. El PDF
@@ -505,6 +581,32 @@ def _t_paridad_sitio():
         f.write_text(f"<html><body>{contrato}</body></html>", encoding="utf-8")
         return f
 
+    def marcas(tipo, d):
+        """Las marcas `data-afirmacion` con la forma que emiten Ranking.astro y Variantes.astro (2.3)."""
+        if not d:
+            return ""
+        a = d.get("afirmaciones") or {}
+        mod = lambda k, n: f'<a data-modelo="{k}" href="#"><strong>{html.escape(n)}</strong></a>'
+        if tipo == "ranking":
+            h = f'<section class="results" data-grupo-cabeza="{",".join(a.get("grupo_cabeza") or [])}"></section><section>'
+            if a.get("mejor_compra"):
+                h += f'<div data-afirmacion="mejor_compra">{mod("x", a["mejor_compra"])}</div>'
+            h += "".join(f'<h3 data-afirmacion="top3">#1 {mod("x", n)}</h3>' for n in a.get("top3") or [])
+            h += "".join(f'<li data-afirmacion="frontera">{mod("x", n)}</li>' for n in a.get("frontera") or [])
+            return h + "</section>"
+        v = d.get("veredicto")
+        if not v:
+            return ""
+        texto = {"empatan_todos": "Empatan: el precio no compra nada", "empatan_arriba": "Empatan A y B",
+                 "compra": "El precio compra algo", "al_reves": "Va al revés: gana el barato", "gana": "Gana A"}
+        h = (f'<section><p class="lead" data-afirmacion="veredicto">{"Los tiers empatan en calidad" if v["empatan_todos"] else "Gana uno"}</p>'
+             f'<div data-afirmacion="empiece">{mod(v["empiece"]["key"], v["empiece"]["name"])}</div>')
+        if v["caro"]["key"] != v["empiece"]["key"]:
+            h += f'<div data-afirmacion="caro">{mod(v["caro"]["key"], v["caro"]["name"])}</div>'
+        h += "".join(f'<tr data-afirmacion="escalera"><td><strong>{html.escape(lab)}</strong></td>'
+                     f'<td><span data-nombre>{texto[t]}</span></td></tr>' for lab, t in (a.get("escalera") or {}).items())
+        return h + "</section>"
+
     paginas = {}
     for e in regs:
         if e["redirect_a"]:
@@ -512,8 +614,12 @@ def _t_paridad_sitio():
             continue
         c = contrato_pagina.leer((ROOT / "docs" / e["slug"] / "index.html").read_text(encoding="utf-8"))
         if e["tipo"] != "comparacion":   # rankings y variantes: el contrato no cambia (sesión 2)
+            sub = "rankings" if e["tipo"] == "ranking" else "variantes"
+            jf = ROOT / "sitio" / "src" / "datos" / sub / f"{e['slug']}.json"
+            d = json.loads(jf.read_text(encoding="utf-8")) if jf.exists() else None
             paginas[e["slug"]] = escribir(e, contrato_pagina.emitir(c["tipo"], "x", c["recomienda"],
-                                                                    c.get("ordena_por"), c.get("tablas")))
+                                                                    c.get("ordena_por"), c.get("tablas"))
+                                          + ("" if e["congelada"] else marcas(e["tipo"], d)))
             continue
         fuera = {m["name"] for m in json.loads((datos / f"{e['slug']}.json").read_text(encoding="utf-8"))["fuera"]}
         rec = [n for n in c["recomienda"] if n not in fuera]
@@ -563,8 +669,27 @@ def _t_paridad_sitio():
     ok = ok and rc != 0 and rk["url"] in out and "«mejor_compra» cambia sin motivo declarado" in out
     jr.write_text(orig, encoding="utf-8")
 
+    # Sesión 4 (2.3): las afirmaciones se leen del HTML de dist. Una página que publica otra
+    # mejor compra que su JSON falla, y un dist que no trae las marcas no se da por leído.
     f = paginas[rk["slug"]]
     antes = f.read_text(encoding="utf-8")
+    mc = json.loads(orig)["afirmaciones"]["mejor_compra"] or json.loads(orig)["afirmaciones"]["top3"][0]
+    clave = "mejor_compra" if json.loads(orig)["afirmaciones"]["mejor_compra"] else "top3"
+    f.write_text(antes.replace(f"<strong>{html.escape(mc)}</strong>", "<strong>Otro modelo</strong>", 1), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and f"dist publica «{clave}»" in out and rk["url"] in out
+    f.write_text(antes, encoding="utf-8")
+    sin_marcas = {}
+    for e in regs:
+        if e["tipo"] in ("ranking", "variantes") and not e["redirect_a"] and not e["congelada"]:
+            g = paginas[e["slug"]]
+            sin_marcas[g] = g.read_text(encoding="utf-8")
+            g.write_text(sin_marcas[g].replace("data-afirmacion=", "data-otra="), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "paridad de afirmaciones en dist leyó 0 de" in out
+    for g, t in sin_marcas.items():
+        g.write_text(t, encoding="utf-8")
+
     f.write_text(antes.replace("<body>", "<body><p>Entrar es gratis.</p>"), encoding="utf-8")
     rc, out = correr()
     ok = ok and rc != 0 and "«Entrar es gratis»: sigue en dist" in out and rk["url"] in out

@@ -47,6 +47,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "benchmarks"))
 import contrato_pagina  # noqa: E402
+import paginas_leidas as pl  # noqa: E402
 import registro_paginas as rp  # noqa: E402
 
 
@@ -149,6 +150,87 @@ def afirmaciones_publicadas(html: str, tipo: str) -> dict:
     return {}
 
 
+_MARCA = re.compile(r'data-afirmacion="(\w+)"(.*?)(?=data-afirmacion=|</section>)', re.S)
+_MODELO = re.compile(r'data-modelo="([^"]*)"[^>]*>(?:<strong>)?([^<]*)')
+
+
+def _marcas(html: str) -> list[tuple[str, str]]:
+    """(afirmación, trozo de HTML que la sigue) en orden de aparición."""
+    return [(m.group(1), m.group(2)) for m in _MARCA.finditer(html)]
+
+
+def _modelo_en(trozo: str) -> tuple[str, str] | None:
+    """(key, nombre visible) del primer modelo enlazado dentro de una afirmación."""
+    m = _MODELO.search(trozo)
+    return (m.group(1), _h.unescape(m.group(2)).strip()) if m else None
+
+
+def _tipo_escalera(texto: str) -> str:
+    """El tipo de una fila de la escalera, leído del veredicto que muestra (Variantes.astro)."""
+    return ("empatan_todos" if texto.startswith("Empatan:") else
+            "empatan_arriba" if texto.startswith("Empatan") else
+            "compra" if texto.startswith("El precio compra") else
+            "al_reves" if texto.startswith("Va al revés") else "gana")
+
+
+def afirmaciones_dist(html: str, tipo: str) -> dict:
+    """Lo que afirma una página de Astro, leído de su HTML compilado (las marcas `data-afirmacion`).
+
+    En ranking devuelve nombres, como el JSON exportado; en variantes devuelve las keys de las
+    cartas del veredicto (el JSON afirma nombres cortos, que la página no muestra en la carta)."""
+    marcas = _marcas(html)
+    if tipo == "ranking":
+        # Astro compila el grupo vacío sin valor (`data-grupo-cabeza`); sin el atributo, no se leyó.
+        g = re.search(r'data-grupo-cabeza(?:="([^"]*)")?[\s>]', html)
+        mc = [_modelo_en(t) for k, t in marcas if k == "mejor_compra"]
+        return {"grupo_cabeza": sorted(k for k in (g.group(1) or "").split(",") if k) if g else None,
+                "mejor_compra": mc[0][1] if mc and mc[0] else None,
+                "top3": [x[1] for k, t in marcas if k == "top3" and (x := _modelo_en(t))],
+                "frontera": [x[1] for k, t in marcas if k == "frontera" and (x := _modelo_en(t))]}
+    if tipo == "variantes":
+        emp = [_modelo_en(t) for k, t in marcas if k == "empiece"]
+        caro = [_modelo_en(t) for k, t in marcas if k == "caro"]
+        lead = [t for k, t in marcas if k == "veredicto"]
+        esc = {}
+        for k, t in marcas:
+            if k != "escalera":
+                continue
+            lab = re.search(r"<strong>([^<]*)</strong>", t)
+            ver = re.search(r"<span data-nombre[^>]*>([^<]*)</span>\s*</td>\s*</tr>", t)
+            if lab and ver:
+                esc[_h.unescape(lab.group(1))] = _tipo_escalera(_h.unescape(ver.group(1)))
+        e0 = emp[0][0] if emp and emp[0] else None
+        return {"veredicto": ({"empiece": e0, "caro": caro[0][0] if caro and caro[0] else e0,
+                               "empatan_todos": bool(lead and "empatan en calidad" in lead[0])}
+                              if e0 else None),
+                "escalera": esc}
+    return {}
+
+
+def esperado_dist(tipo: str, d: dict) -> dict:
+    """Lo que el JSON exportado dice que la página de `dist` tiene que afirmar, en la forma de
+    `afirmaciones_dist`."""
+    af = d.get("afirmaciones") or {}
+    if tipo != "variantes":
+        return af
+    v = d.get("veredicto")
+    return {"veredicto": ({"empiece": v["empiece"]["key"], "caro": v["caro"]["key"],
+                           "empatan_todos": bool(v["empatan_todos"])} if v else None),
+            "escalera": af.get("escalera") or {}}
+
+
+def revisar_dist(url: str, tipo: str, html: str, d: dict) -> list[str]:
+    """Fallos: cada afirmación que el HTML compilado no publica igual que el JSON. Sin motivos
+    posibles: entre el JSON y su propia página no hay decisión que declarar, solo errores."""
+    pub, esp = afirmaciones_dist(html, tipo), esperado_dist(tipo, d)
+    fallos = [f"{url}: dist publica «{k}» = {pub.get(k)!r} y el JSON dice {esp.get(k)!r}"
+              for k in sorted(set(pub) | set(esp)) if pub.get(k) != esp.get(k)]
+    vacias = [k for k, x in esp.items() if x and not pub.get(k)]
+    if vacias:
+        fallos.append(f"{url}: dist no publica {', '.join(vacias)}: ¿cambió la plantilla y nadie leyó sus marcas?")
+    return fallos
+
+
 def comparar_afirmaciones(url: str, tipo: str, antes: dict, ahora: dict):
     """(declaradas, fallos) de una página: cada afirmación que cambia, con su motivo o en rojo."""
     declaradas, fallos = [], []
@@ -201,6 +283,7 @@ def _html(base: Path, url: str) -> Path:
 
 def revisar(dist: Path, docs: Path, datos: Path, regs: list[dict], ranked_por_nombre: dict[str, bool]):
     fallos, declaradas = [], []
+    leidas_dist: set[str] = set()
     por_url = {e["url"]: e for e in regs}
     for url in sorted(rp.urls_en_docs(docs)):
         e = por_url.get(url)
@@ -249,6 +332,10 @@ def revisar(dist: Path, docs: Path, datos: Path, regs: list[dict], ranked_por_no
                                              d.get("afirmaciones") or {})
             declaradas += dec
             fallos += fal
+            html_dist = fa.read_text(encoding="utf-8")
+            fallos += revisar_dist(e["url"], e["tipo"], html_dist, d)
+            if _marcas(html_dist):   # leída = encontró marcas; una página sin ellas no se leyó
+                leidas_dist.add(e["url"])
             if ra != rd:
                 fallos.append(f"{e['url']}: recomienda cambió ({rd} → {ra})")
             if filas_a != filas_d:
@@ -274,6 +361,12 @@ def revisar(dist: Path, docs: Path, datos: Path, regs: list[dict], ranked_por_no
             fallos.append(f"{e['url']}: cambió el número de tablas ({len(filas_d)} → {len(filas_a)})")
         elif filas_a and filas_a[0] != len(ra):
             fallos.append(f"{e['url']}: la tabla declara {filas_a[0]} filas y recomienda {len(ra)}")
+    # Regla de páginas leídas: las afirmaciones se leen del HTML de dist en cada ranking y
+    # variante viva (no congelada ni redirect). Si la plantilla deja de emitir sus marcas, o la
+    # página falta, esto no queda en verde por no haber leído nada.
+    esperadas = {e["url"] for e in regs if e["motor"] == "astro" and e["tipo"] in ("ranking", "variantes")
+                 and not e["redirect_a"] and not e["congelada"]}
+    fallos += pl.exigir("paridad de afirmaciones en dist", leidas_dist, esperadas)
     dec, fal = revisar_retiradas(dist, docs, regs)
     return fallos + fal, declaradas + dec
 

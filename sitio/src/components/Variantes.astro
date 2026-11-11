@@ -68,19 +68,19 @@ const veredictoFila = (f: any) => {
       <section class="veredicto">
         <Kicker>la respuesta corta</Kicker>
         <Titulo texto="La respuesta corta">La respuesta corta</Titulo>
-        <p class="lead">{v.empatan_todos
+        <p class="lead" data-afirmacion="veredicto">{v.empatan_todos
           ? <>Los <Cifra v={v.n} /> tiers <strong>empatan en calidad</strong>: la diferencia entre ellos es más chica que el margen de error de la medición. Pagar más no compra calidad que se pueda medir.</>
           : <>El tier de más calidad es <Modelo m={v.mejor} fuerte />{v.banda > 1 ? <>, y <Cifra v={v.banda - 1} /> {v.banda - 1 === 1 ? 'tier no se separa' : 'tiers no se separan'} de él dentro del margen de error</> : <>, y se separa de los demás por más que el margen de error</>}.</>}
           {v.veces >= 2 && <> El más caro cuesta <strong><Cifra v={v.veces} suf="×" /></strong> lo que el más barato.</>}</p>
         <div class="veredicto-grid">
-          <div class="card card-destacada veredicto-carta">
+          <div class="card card-destacada veredicto-carta" data-afirmacion="empiece">
             <span class="veredicto-tag">Empieza por este</span>
             <Modelo m={v.empiece} fuerte />
             <span class="veredicto-costo"><Cifra v={v.empiece.mes} pre="≈$" suf="/mes" /></span>
             <span class="meta">calidad <Cifra v={v.empiece.calidad} d={2} suf="/10" /> · <Cifra v={v.empiece.latencia} d={1} suf=" s" /> de respuesta · {v.empiece_es_barato ? 'el más barato' : 'el más barato de los que no se separan del mejor'}</span>
           </div>
           {v.caro.key !== v.empiece.key && (
-            <div class="card veredicto-carta">
+            <div class="card veredicto-carta" data-afirmacion="caro">
               <span class="veredicto-tag">El más caro</span>
               <Modelo m={v.caro} fuerte />
               <span class="veredicto-costo"><Cifra v={v.caro.mes} pre="≈$" suf="/mes" /></span>
@@ -126,7 +126,7 @@ const veredictoFila = (f: any) => {
             <th scope="col">¿El precio compra algo?</th></tr></thead>
           <tbody>
             {e.filas.map((f: any) => (
-              <tr><td><strong>{f.label}</strong><small class="eje-desc">{f.desc}</small></td>
+              <tr data-afirmacion="escalera"><td><strong>{f.label}</strong><small class="eje-desc">{f.desc}</small></td>
                 {f.celdas.map((c: any) => <td class:list={['num', { gana: c.arriba && f.veredicto.tipo !== 'empatan_todos' }]}><Cifra v={c.v} d={2} /></td>)}
                 <td><span data-nombre>{veredictoFila(f)}</span></td></tr>
             ))}

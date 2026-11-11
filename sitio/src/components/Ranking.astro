@@ -87,7 +87,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
       {v.inconcluso ? (
         <>
           <p class="lead">Acá el benchmark <strong>no logra separar a los modelos</strong>: <Cifra v={v.n} /> de <Cifra v={v.pool} /> (<Cifra v={v.pct} suf=" %" /> del catálogo) quedan dentro del margen de error en esta tarea. Cuando la medición no distingue, lo honesto es decirlo, no inventar un ganador.</p>
-          <p class="lead">Con esa salvedad, dentro del grupo elige por precio: el más barato es <Modelo m={v.mejor} fuerte />, por <strong>≈<Cifra v={v.mejor.mes} d={v.mejor.mes < 10 ? 2 : 0} pre="$" suf="/mes" /></strong>. Ninguno del grupo le saca una diferencia demostrable. <strong>Prueba con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
+          <p class="lead">Con esa salvedad, dentro del grupo elige por precio: el más barato es <span data-afirmacion="mejor_compra"><Modelo m={v.mejor} fuerte /></span>, por <strong>≈<Cifra v={v.mejor.mes} d={v.mejor.mes < 10 ? 2 : 0} pre="$" suf="/mes" /></strong>. Ninguno del grupo le saca una diferencia demostrable. <strong>Prueba con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
         </>
       ) : (
         <>
@@ -99,7 +99,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
                 ? <><Modelo m={v.lider} fuerte /> encabeza la tabla y <strong>nadie empata con él</strong>: la diferencia con el siguiente es mayor que el margen de error de la medición.</>
                 : <><strong>El benchmark no separa a <Cifra v={v.n} /> modelos de la cima</strong> en esta tarea: la diferencia entre ellos es más chica que el margen de error de la medición. <strong>Dentro del grupo, elige por precio</strong>.</>)}</p>
           <div class="veredicto-grid">
-            <div class="card card-destacada veredicto-carta">
+            <div class="card card-destacada veredicto-carta" data-afirmacion="mejor_compra">
               <span class="veredicto-tag">{v.n <= 1 ? (ag ? 'El único del grupo' : (v.mismo ? 'El mejor, y además el más barato' : 'La mejor compra del grupo')) : 'La mejor compra del grupo'}</span>
               <Modelo m={v.mejor} fuerte />
               <span class="veredicto-costo">≈<Cifra v={v.mejor.mes} d={v.mejor.mes < 10 ? 2 : 0} pre="$" suf="/mes" /></span>
@@ -136,7 +136,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
     </section>
   )}
 
-  <section class="results">
+  <section class="results" data-grupo-cabeza={g ? g.keys.join(',') : ''}>
     <Kicker>tabla</Kicker>
     <Titulo texto={`Ranking: ${r.h1}`}>Ranking: <span data-nombre>{r.h1}</span></Titulo>
     <p class="meta">{ag ? <>Ordenado por <strong>lo que el modelo logró haciendo el trabajo</strong>: tareas reales de negocio ejecutadas dentro de un agente, con herramientas, en Docker. Cuenta el peor de los intentos, no el promedio: para algo que corre solo, «a veces falla» y «no falla» no son lo mismo. La columna «Agentes» de más a la derecha es otra cosa: mide escribir <em>sobre</em> agentes, y por eso puede ir al revés.</>
@@ -243,7 +243,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
       : <>Con la regla del ruido: dentro del margen de error se marca «≈» y va primero el más barato; un modelo que se separa de los demás conserva su puesto.{g && <> {porQueEmpatan.charAt(0).toUpperCase() + porQueEmpatan.slice(1)}: la decisión es de precio.</>}</>}</p>
     {r.top3.map((x: any) => (
       <>
-        <h3>{x.marca === '≈' ? '≈' : <Cifra v={x.marca} pre="#" />} <Modelo m={x} /> · <Eje x={x} ag={ag} largo /></h3>
+        <h3 data-afirmacion="top3">{x.marca === '≈' ? '≈' : <Cifra v={x.marca} pre="#" />} <Modelo m={x} /> · <Eje x={x} ag={ag} largo /></h3>
         <p><Modelo m={x} /> (<Nombre>{x.proveedor}</Nombre>, {x.abierto ? 'open source' : 'propietario'}) cuesta <span data-cifra>{precio(x)}</span> por millón de tokens y rinde a <Cifra v={x.tps} suf=" tok/s" />. {x.en_grupo
           ? (ag ? 'Está en el grupo de cabeza: supera las mismas tareas que el resto del grupo.' : 'Está en el grupo de cabeza: su nota no se distingue de la del resto del grupo.')
           : x.marca === '≈' ? 'Empata dentro del margen de error con los de su banda.'
@@ -286,7 +286,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
       <p>Mucha gente llega buscando a los laboratorios grandes. De cada familia, su modelo mejor ubicado <strong>en esta tarea concreta</strong>, por su lugar en esta tabla y no por lo que cuesta{g && ' (dentro del grupo de cabeza no hay puesto: el benchmark no los separa)'}:</p>
       <ul class="frontera">
         {fam.map((f: any) => (
-          <li><span class="frontera-familia" data-nombre>{f.etiqueta}</span>
+          <li data-afirmacion="frontera"><span class="frontera-familia" data-nombre>{f.etiqueta}</span>
             <Modelo m={f.m} fuerte />
             {f.m.en_grupo
               ? <span class="frontera-pos frontera-top">≈ grupo de cabeza</span>

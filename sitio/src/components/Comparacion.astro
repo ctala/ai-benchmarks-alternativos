@@ -139,7 +139,7 @@ const faqLd = JSON.stringify({
         <p>
           {g.empate
             ? <>En calidad el benchmark <strong>no separa</strong> a <Modelo m={g.gana} /> (<Cifra v={g.gana.nota} d={2} vacio="sin nota" />) de <Modelo m={g.pierde} /> (<Cifra v={g.pierde.nota} d={2} vacio="sin nota" />): la diferencia cabe en el margen de error.</>
-            : <>En calidad gana <Modelo m={g.gana} fuerte /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
+            : <>En calidad gana <Modelo m={g.gana} fuerte corona /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
           {' '}La calidad suma el examen y tareas reales de agente. Pero <strong>no hay ganador universal</strong>: cambia por tipo de trabajo.
         </p>
       </section>
@@ -152,8 +152,8 @@ const faqLd = JSON.stringify({
             <h3 class="titulo-corto">{v.label}</h3>
             <p><em>Qué medimos: {v.que_mide}.</em><br />
               {v.empate
-                ? <>Empate técnico en calidad: <Modelo m={v.a} fuerte /> y <Modelo m={v.b} fuerte /> rinden casi igual (<Cifra v={v.nota_max} d={1} pre="≈" />). Acá no decidimos por ti: si te importa el costo, <Modelo m={v.barato} fuerte /> sale <span data-cifra>{costo(v.barato)}</span> por millón; si ya tienes <Modelo m={v.otro} /> en tu stack, no hay razón para cambiar.</>
-                : <>En calidad pura de este pilar gana <Modelo m={v.gana} fuerte /> {v.fuerza}: <Cifra v={v.gana.nota} d={1} /> contra <Cifra v={v.pierde.nota} d={1} /> de <Modelo m={v.pierde} /> (Δ <Cifra v={v.margen} d={1} />), a <span data-cifra>{costo(v.gana)}</span> por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar: ajústalo en la calculadora.</>}
+                ? <>Empate técnico en calidad: <Modelo m={v.a} fuerte corona /> y <Modelo m={v.b} fuerte corona /> rinden casi igual (<Cifra v={v.nota_max} d={1} pre="≈" />). Acá no decidimos por ti: si te importa el costo, <Modelo m={v.barato} fuerte /> sale <span data-cifra>{costo(v.barato)}</span> por millón; si ya tienes <Modelo m={v.otro} /> en tu stack, no hay razón para cambiar.</>
+                : <>En calidad pura de este pilar gana <Modelo m={v.gana} fuerte corona /> {v.fuerza}: <Cifra v={v.gana.nota} d={1} /> contra <Cifra v={v.pierde.nota} d={1} /> de <Modelo m={v.pierde} /> (Δ <Cifra v={v.margen} d={1} />), a <span data-cifra>{costo(v.gana)}</span> por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar: ajústalo en la calculadora.</>}
             </p>
           </>
         ))}
@@ -167,8 +167,8 @@ const faqLd = JSON.stringify({
           <tbody>
             {c.pilares.map((v: any) => (
               <tr><td>{v.label}</td><td>{v.empate
-                ? <>Empate: <Modelo m={v.a} /> o <Modelo m={v.b} /></>
-                : <><Modelo m={v.gana} fuerte /> (por calidad)</>}</td></tr>
+                ? <>Empate: <Modelo m={v.a} corona /> o <Modelo m={v.b} corona /></>
+                : <><Modelo m={v.gana} fuerte corona /> (por calidad)</>}</td></tr>
             ))}
             <tr><td>Costo más bajo</td><td><Modelo m={c.extremos.barato} fuerte /> (<span data-cifra>{costo(c.extremos.barato)}</span>)</td></tr>
             <tr><td>Más rápido</td><td><Modelo m={c.extremos.rapido} fuerte /> (<Cifra v={c.extremos.rapido.tps} suf=" tok/s" />)</td></tr>

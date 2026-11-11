@@ -1,9 +1,11 @@
 ---
 // El nombre de un modelo, enlazado a su ficha y marcado con `data-modelo` (check_registro R1).
 // Sin ficha, el nombre va sin enlace: enlazar sin ficha siembra 404 (generate_comparison.enlace_ficha).
-interface Props { m: { key: string; name: string; ficha?: string | null }; fuerte?: boolean }
-const { m, fuerte = false } = Astro.props;
+// `corona` marca al que la página da por ganador (`data-corona`): check_ganadores G5/G6 lo lee.
+interface Props { m: { key: string; name: string; ficha?: string | null }; fuerte?: boolean; corona?: boolean }
+const { m, fuerte = false, corona = false } = Astro.props;
+const c = corona ? '' : undefined;
 ---
 {m.ficha
-  ? <a class="a-ficha" data-modelo={m.key} href={m.ficha}>{fuerte ? <strong>{m.name}</strong> : m.name}</a>
-  : <span data-modelo={m.key}>{fuerte ? <strong>{m.name}</strong> : m.name}</span>}
+  ? <a class="a-ficha" data-modelo={m.key} data-corona={c} href={m.ficha}>{fuerte ? <strong>{m.name}</strong> : m.name}</a>
+  : <span data-modelo={m.key} data-corona={c}>{fuerte ? <strong>{m.name}</strong> : m.name}</span>}

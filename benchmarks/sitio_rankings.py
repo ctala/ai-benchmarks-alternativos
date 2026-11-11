@@ -295,7 +295,7 @@ def ranking(cfg: dict, models: list[dict]) -> dict:
 
     if len(grupo) > 1:
         primeros = [m.get("key") for m in all_ranked[:len(grupo)]] == [m.get("key") for m in grupo]
-        cabeza = {"n": len(grupo), "primeros": primeros, "margen": gr.margen_grupo(grupo, cfg),
+        cabeza = {"n": len(grupo), "keys": sorted(m.get("key") for m in grupo), "primeros": primeros, "margen": gr.margen_grupo(grupo, cfg),
                   "barato": {**_modelo(barato), **_precio(barato)},
                   "nombres": [_modelo(m) for m in grupo[:8]], "mas": max(0, len(grupo) - 8),
                   "eje_lider": _eje(all_ranked[0], cfg)}

@@ -46,8 +46,18 @@ páginas de ranking publican el GRUPO que el benchmark no separa del mejor
       nadie. El 8-nov-2026 las páginas de Fable 5 coronaban a Fable 5.1, porque el
       generador elegía por familia («fable») y no por key
 
+LEE LOS DOS MOTORES (11-nov-2026, motor-sitio 2.3)
+-------------------------------------------------
+Con `--dist sitio/dist` lee el HTML de Astro. Sus regexes estaban atadas al HTML de Python y,
+puestas frente a `dist`, leyeron cero filas y reportaron 19 contradicciones falsas sin saber que
+no leían. Ahora Astro marca lo que corona (`data-corona` en `Modelo.astro`), las cartas del
+veredicto llevan `veredicto-tag`, y el chequeo cuenta las páginas que leyó en G2, G3, G5 y G6
+contra el registro (`paginas_leidas.py`): un lector que deja de reconocer el HTML falla solo.
+Hasta el corte (2.6) lee los dos formatos; después, el de Python sobra en rankings y comparaciones.
+
 Uso:
-    python benchmarks/check_ganadores.py
+    python benchmarks/check_ganadores.py                    # docs/
+    python benchmarks/check_ganadores.py --dist sitio/dist  # lo que compila Astro
 """
 
 import argparse
@@ -61,7 +71,8 @@ DOCS = ROOT / "docs"
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
-GRUPO = re.compile(r'data-grupo-cabeza="([^"]*)"')
+# Astro compila el atributo vacío sin valor (`data-grupo-cabeza`): grupo de uno o ninguno.
+GRUPO = re.compile(r'data-grupo-cabeza(?:="([^"]*)")?[\s>]')
 # Lo que corona a uno solo. Con un grupo de más de uno, ninguna de estas puede aparecer.
 CORONAS = ("lidera", "encabeza la tabla", "la opción a vencer", "#1:")
 
@@ -70,7 +81,12 @@ CORONAS = ("lidera", "encabeza la tabla", "la opción a vencer", "#1:")
 TOL = 0.005
 
 FILA_1 = re.compile(r"<tr><td>(?:1|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
-CARD = re.compile(r'<span class="verdict-tag">([^<]*)</span>\s*<strong>([^<]*)</strong>', re.S)
+# La carta del veredicto: `verdict-tag` + <strong> (Python) o `veredicto-tag` + Modelo enlazado (Astro).
+CARD = re.compile(r'<span class="(?:verdict|veredicto)-tag">([^<]*)</span>\s*(?:<(?:a|span)[^>]*>)?<strong>([^<]*)</strong>', re.S)
+# Lo que Astro marca como ganador (`Modelo corona`).
+CORONA = re.compile(r'<(?:a|span)\b[^>]*\bdata-corona\b[^>]*>(?:<strong>)?([^<]*)')
+# Una fila de escalera: la última celda dice qué compra el precio.
+VEREDICTO_FILA = ("Gana ", "Empatan", "El precio compra", "Va al revés")
 FILA = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
 CELDA = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
 _limpio = lambda x: re.sub(r"<[^>]+>", "", x).strip()
@@ -87,7 +103,7 @@ def g5_coronados(h: str, permitidos: set, catalogo: set) -> tuple[list, int]:
     un lado SIN ningún rankeado (ahí la página corona al mejor medido y lo dice con
     `_nota_campeon`). Un nombre que no está en el catálogo no se juzga."""
     import html as _html
-    nombres = [n for n in _GANA.findall(h)]
+    nombres = [n for n in _GANA.findall(h)] + CORONA.findall(h)
     for a, b in _EMPATE.findall(h):
         nombres += [a, b]
     res = _RESUMEN.search(h)
@@ -134,6 +150,9 @@ def g6_fuera_del_titulo(h: str, catalogo: set) -> tuple[list, int]:
         for celda in _FILA_MODELO.findall(tabla.group(1)):
             celda = re.sub(r'<span class="row-badge[^"]*"[^>]*>.*?</span>', "", celda)
             nombres.append(_html.unescape(re.sub(r"<[^>]+>", "", celda)).strip())
+        if not nombres:   # Astro: cada modelo de la tabla va con `data-modelo`
+            nombres = [_html.unescape(n).strip() for n in
+                       re.findall(r'data-modelo="[^"]*"[^>]*>(?:<strong>)?([^<]*)', tabla.group(1))]
     coronados_fuera, n_cor = g5_coronados(h, set(), catalogo)  # todos los coronados del catálogo
     problemas = [f"compara a «{n}», que no está en el título «{titulo}»"
                  for n in dict.fromkeys(nombres) if not nombrado_en_titulo(n, etiquetas)]
@@ -145,14 +164,26 @@ def g6_fuera_del_titulo(h: str, catalogo: set) -> tuple[list, int]:
 
 
 def main() -> int:
-    argparse.ArgumentParser().parse_args()
+    global DOCS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="leer lo que compila Astro (sitio/dist) en vez de docs/")
+    a = ap.parse_args()
+    import paginas_leidas as pl
+    import registro_paginas as rp
+    datos = DOCS / "data" / "models.json"   # los datos siempre de docs/: dist los copia de ahí
+    if a.dist:
+        DOCS = a.dist
+    regs = rp.paginas()
+    viva = lambda e, tipo: e["tipo"] == tipo and not e["redirect_a"] and not e["congelada"]
+    leidas = {"G2": set(), "G3": set(), "G5": set(), "G6": set()}
     fallos = []
     g1 = g2 = 0
 
     import json as _json
     import html as _html
     from generate_rankings import RANKINGS, rank_models, cabeza
-    modelos = _json.loads((DOCS / "data" / "models.json").read_text())["models"]
+    modelos = _json.loads(datos.read_text())["models"]
     por_nombre = {m["name"]: m for m in modelos}
     rankeados = {m["name"] for m in modelos if m.get("ranked")}
     if not rankeados:
@@ -172,7 +203,8 @@ def main() -> int:
             fallos.append(f"{cfg['slug']}: no publica su grupo de cabeza (`data-grupo-cabeza`)")
             continue
         g3 += 1
-        publicado = [k for k in _html.unescape(g.group(1)).split(",") if k]
+        leidas["G3"].add(f"/{cfg['slug']}/")
+        publicado = [k for k in _html.unescape(g.group(1) or "").split(",") if k]
         esperado = [m["key"] for m in cabeza(cfg, rank_models(modelos, cfg))]
         grupos[cfg["slug"]] = set(publicado)
         if set(publicado) != set(esperado):
@@ -208,10 +240,12 @@ def main() -> int:
     # ── G2 · «Gana X» sobre un empate visible ────────────────────────────────
     for f in sorted(DOCS.glob("*/index.html")):
         h = f.read_text(errors="ignore")
-        if "Gana " not in h:
+        if "Gana " not in h and "Empatan" not in h:
             continue
         for fila in FILA.findall(h):
             celdas = [_limpio(c) for c in CELDA.findall(fila)]
+            if celdas and celdas[-1].startswith(VEREDICTO_FILA):
+                leidas["G2"].add(pl.url_de(DOCS, f))
             gana = [c for c in celdas if c.startswith("Gana ")]
             nums = [float(c) for c in celdas if re.fullmatch(r"\d+\.\d+", c)]
             if not gana or len(nums) < 2:
@@ -238,20 +272,29 @@ def main() -> int:
                 permitidos |= {m["name"] for m in fam}
         malos, n = g5_coronados(f.read_text(errors="ignore"), permitidos, catalogo)
         g5 += n
+        if n:
+            leidas["G5"].add(f"/{cfg['slug']}/")
         for nom in malos:
             fallos.append(f"{cfg['slug']}: corona a «{nom}», que no está rankeado")
     if g5 == 0:
         fallos.append("G5 no leyó ningún coronado en las comparaciones: el chequeo está ciego")
 
     # ── G6 · la comparación muestra a los modelos de SU título ───────────────
+    from generate_comparison import titulo_con_version
     g6 = g6_paginas = 0
+    con_version: set[str] = set()
     for cfg in COMPARISONS:
         f = DOCS / cfg["slug"] / "index.html"
         if not f.exists():
             continue
-        problemas, n = g6_fuera_del_titulo(f.read_text(errors="ignore"), catalogo)
+        h6 = f.read_text(errors="ignore")
+        problemas, n = g6_fuera_del_titulo(h6, catalogo)
         if n:
             g6_paginas += 1
+            leidas["G6"].add(f"/{cfg['slug']}/")
+        t6 = _TITLE.search(h6)
+        if t6 and titulo_con_version(_html.unescape(t6.group(1))):
+            con_version.add(f"/{cfg['slug']}/")
         g6 += n
         fallos += [f"{cfg['slug']}: {x}" for x in problemas]
     if g6 == 0:
@@ -266,6 +309,13 @@ def main() -> int:
     print(f"  G6 · modelos de comparaciones con versión, contra su título: {g6} en {g6_paginas} página(s)")
     if g3 == 0:
         fallos.append("G3 no leyó ninguna página de ranking: el chequeo está ciego")
+    # Regla de páginas leídas: cada regla dice cuántas de las suyas leyó, y falla si son menos.
+    # G5 deja fuera las comparaciones congeladas (una foto histórica no corona a nadie) y G6
+    # exige las que llevan versión en el título.
+    fallos += pl.exigir("G2", leidas["G2"], {e["url"] for e in regs if viva(e, "variantes")})
+    fallos += pl.exigir("G3", leidas["G3"], {e["url"] for e in regs if viva(e, "ranking")})
+    fallos += pl.exigir("G5", leidas["G5"], {e["url"] for e in regs if viva(e, "comparacion")})
+    fallos += pl.exigir("G6", leidas["G6"], con_version)
     if not fallos:
         print(f"\n  ✅ los {g1 + g2} coinciden con lo que muestra su propia tabla.")
         return 0
