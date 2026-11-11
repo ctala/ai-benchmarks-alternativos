@@ -53,15 +53,16 @@ CONGELADAS = {
         "nemotron-3-ultra-vs-deepseek-v4-flash", "diffusiongemma-vs-gemma-4",
     )
 }
-# Páginas de variantes con menos de dos tiers en el ranking vigente (sesión 2, 11-nov-2026): no
-# hay escalera que auditar y la página solo puede mostrar el histórico. Mismo mecanismo que las
-# comparaciones sin familia; pendiente del OK de Cristian (DECISIONES, 11-nov-2026).
-_MOTIVO_VARIANTES_HISTORICO = ("Página de variantes con menos de dos versiones en el ranking vigente: "
-                               "no hay escalera de precios que auditar, solo el histórico de la familia.")
-CONGELADAS.update({
-    slug: {"fecha": "2026-11-11", "motivo": _MOTIVO_VARIANTES_HISTORICO}
-    for slug in ("gpt-5.6-luna-terra-sol", "grok-4-1-vs-4-5")
-})
+# Páginas de variantes con menos de dos tiers en el ranking vigente: no hay escalera que generar.
+# Cristian (11-nov-2026) no las congela: «congelar es para conservar a propósito algo que vale la
+# pena». Search Console, 16 meses: gpt-5.6-luna-terra-sol 1 clic y 15 impresiones; grok-4-1-vs-4-5,
+# 0 y 10. Pasan a la comparación por familia (DECISIONES, 11-nov-2026).
+REDIRECTS_VARIANTES = {
+    "gpt-5.6-luna-terra-sol": "claude-vs-chatgpt",
+    "grok-4-1-vs-4-5": "grok-vs-chatgpt",
+}
+MOTIVO_REDIRECT_VARIANTES = ("Página de variantes sin dos versiones en el ranking vigente: no hay "
+                             "escalera que generar y pasa a su comparación por familia (DECISIONES 11-nov-2026).")
 
 # Aprobadas por Cristian el 11-nov-2026 (design.md del change). Search Console, 16 meses:
 # ninguna pasa de 6 clics; la que más, gpt-5.6-vs-claude-opus-4-8 (6 clics, 372 impresiones).
@@ -133,6 +134,9 @@ def paginas() -> list[dict]:
         if e["slug"] in REDIRECTS_VERSION:
             e["tipo"], e["redirect_a"] = "redirect", REDIRECTS_VERSION[e["slug"]]
             e["motivo"] = MOTIVO_REDIRECT_VERSION
+        if e["slug"] in REDIRECTS_VARIANTES:
+            e["tipo"], e["redirect_a"] = "redirect", REDIRECTS_VARIANTES[e["slug"]]
+            e["motivo"] = MOTIVO_REDIRECT_VARIANTES
         if e["slug"] in CONGELADAS:
             e["congelada"] = dict(CONGELADAS[e["slug"]])
         e["motor"] = "astro" if e["tipo"] in MOTOR_ASTRO else "legado"
@@ -171,7 +175,7 @@ def errores(regs: list[dict]) -> list[str]:
                 fallos.append(f"{e['url']}: no puede ser redirect y congelada a la vez")
         if e["congelada"] and not (e["congelada"].get("fecha") and e["congelada"].get("motivo")):
             fallos.append(f"{e['url']}: congelada sin fecha o sin motivo")
-    for slug in list(CONGELADAS) + list(REDIRECTS_VERSION):
+    for slug in list(CONGELADAS) + list(REDIRECTS_VERSION) + list(REDIRECTS_VARIANTES):
         if slug not in slugs:
             fallos.append(f"/{slug}/: declarada (congelada o redirect) pero ningún generador la crea")
     return fallos

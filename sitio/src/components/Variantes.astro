@@ -69,7 +69,7 @@ const veredictoFila = (f: any) => {
         <Kicker>la respuesta corta</Kicker>
         <Titulo texto="La respuesta corta">La respuesta corta</Titulo>
         <p class="lead">{v.empatan_todos
-          ? <>Los <Cifra v={v.n} /> tiers <strong>empatan en calidad</strong>: la diferencia entre ellos es más chica que el margen de error de la medición.</>
+          ? <>Los <Cifra v={v.n} /> tiers <strong>empatan en calidad</strong>: la diferencia entre ellos es más chica que el margen de error de la medición. Pagar más no compra calidad que se pueda medir.</>
           : <>El tier de más calidad es <Modelo m={v.mejor} fuerte />{v.banda > 1 ? <>, y <Cifra v={v.banda - 1} /> {v.banda - 1 === 1 ? 'tier no se separa' : 'tiers no se separan'} de él dentro del margen de error</> : <>, y se separa de los demás por más que el margen de error</>}.</>}
           {v.veces >= 2 && <> El más caro cuesta <strong><Cifra v={v.veces} suf="×" /></strong> lo que el más barato.</>}</p>
         <div class="veredicto-grid">
@@ -119,7 +119,7 @@ const veredictoFila = (f: any) => {
         <Titulo texto="¿Dónde compra algo el precio?">¿Dónde compra algo el precio?</Titulo>
         <p class="lead">{e.gana_caro.length > 0
           ? <><strong><Nombre>{e.caro}</Nombre>{e.veces >= 2 ? <> cuesta <Cifra v={e.veces} /> veces más que <Nombre>{e.barato}</Nombre></> : ''}</strong> y compra algo solo en <strong><Cifra v={e.gana_caro.length} /> de <Cifra v={e.n} /></strong> categorías: {e.gana_caro.join(', ').toLowerCase()}. En las otras, o empatan o gana otro tier.</>
-          : <><strong><Nombre>{e.caro}</Nombre>{e.veces >= 2 ? <> cuesta <Cifra v={e.veces} /> veces más que <Nombre>{e.barato}</Nombre></> : ''} y no se separa arriba en ninguna de las <Cifra v={e.n} /> categorías.</strong> {e.empatan_todos === e.n ? 'En todas, la diferencia entre tiers cabe en el margen de error de la suite.' : <>En <Cifra v={e.empatan_todos} /> empatan todos los tiers; en el resto, arriba queda más de uno o gana un tier que no es el más caro.</>}</>}</p>
+          : <><strong><Nombre>{e.caro}</Nombre>{e.veces >= 2 ? <> cuesta <Cifra v={e.veces} /> veces más que <Nombre>{e.barato}</Nombre></> : ''} y no se separa arriba en ninguna de las <Cifra v={e.n} /> categorías.</strong> {e.empatan_todos === e.n ? <>En estas <Cifra v={e.n} /> suites, <strong>pagar más no compra calidad que se pueda medir</strong>: en cada una, la diferencia entre tiers cabe en su margen de error.</> : <><strong>Pagar más no compra calidad que se pueda medir en ninguna:</strong> en <Cifra v={e.empatan_todos} /> empatan todos los tiers, y en el resto arriba queda más de uno o gana un tier que no es el más caro.</>}</>}</p>
         <div class="tabla-scroll"><table class="results-table escalera">
           <thead><tr><th scope="col">Qué le pides</th>
             {e.columnas.map((c: any) => <th scope="col" class="num"><Modelo m={{ ...c, name: c.corto }} /><br /><Cifra v={c.c1k} d={2} pre="$" /></th>)}
