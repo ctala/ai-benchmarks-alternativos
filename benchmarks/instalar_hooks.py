@@ -36,8 +36,12 @@ HOOK = """#!/bin/sh
 #
 # Antes del QA, S1 de OpenSpec sobre lo que se empuja a main (11-nov-2026): el QA mira la
 # rama local, y un `git push origin HEAD:main` desde otra rama se lo saltaba.
+#
+# Git manda las refs por la entrada estándar del hook. Se leen y se guardan COMPLETAS antes que
+# nada (11-nov-2026): así ningún paso las consume a medias, y S1 falla si llegan cero.
+REFS="$(cat)"
 R="$(git rev-parse --show-toplevel)"
-"$R/.venv/bin/python" "$R/benchmarks/check_specs.py" --empuje || exit 1
+printf '%s\\n' "$REFS" | "$R/.venv/bin/python" "$R/benchmarks/check_specs.py" --empuje || exit 1
 exec "$R/.venv/bin/python" "$R/benchmarks/qa.py" --pre-merge
 """
 

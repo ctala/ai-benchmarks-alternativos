@@ -2399,7 +2399,7 @@ def _t_specs_sin_decisiones():
     return control == 0 and roto != 0
 
 
-@prueba("check_specs --empuje", "un push a main que lleva un change activo, aunque salga de otra rama (S1)")
+@prueba("check_specs --empuje", "un push a main que lleva un change activo, aunque salga de otra rama, y un push sin refs (S1)")
 def _t_specs_empuje_a_main():
     # 11-nov-2026. El release v6.1.0 se empujó con `HEAD:main` desde `ventana/v6-1` y llevó a
     # main un change activo: S1 miraba el nombre de la rama local. Repo DESECHABLE y variables
@@ -2438,12 +2438,18 @@ def _t_specs_empuje_a_main():
         # el fallo: el commit con un change activo va a main desde otra rama
         if empuje(f"refs/heads/ventana {activo} refs/heads/main {limpio}") == 0:
             return False
+        # 11-nov-2026: un push sin refs (o con líneas que no son refs) es un push que S1 no vio
+        if empuje("") == 0 or empuje("   ") == 0:
+            return False
     finally:
         shutil.rmtree(d, ignore_errors=True)
     # y el hook que se instala lo corre ANTES del QA (si alguien lo saca, esto cae)
     from benchmarks import instalar_hooks as ih
     h = ih.HOOK
-    return "check_specs.py\" --empuje || exit 1" in h and h.index("--empuje") < h.index("qa.py")
+    # y lee la entrada completa antes que nada, y se la pasa a S1
+    return ("check_specs.py\" --empuje || exit 1" in h and h.index("--empuje") < h.index("qa.py")
+            and 'REFS="$(cat)"' in h and h.index('REFS="$(cat)"') < h.index("--empuje")
+            and 'printf \'%s\\n\' "$REFS" |' in h)
 
 
 def resumen(res: list[tuple[str, str, str]]) -> tuple[list[str], int]:

@@ -100,11 +100,23 @@ def activos_en_commit(sha: str, repo: Path) -> list[str] | None:
     return sorted(n for n in r.stdout.split() if n != "archive")
 
 
+def refs_leidas(texto: str) -> int:
+    """Cuántas líneas de refs bien formadas trae la entrada del hook (cuatro campos cada una)."""
+    return sum(1 for ln in texto.splitlines() if len(ln.split()) == 4)
+
+
 def revisar_empuje(texto: str, repo: Path) -> list[str]:
     """S1 sobre lo que se empuja a main (11-nov-2026). Hasta acá S1 miraba el nombre de la rama
     local: el release v6.1.0 se empujó desde `ventana/v6-1` con `HEAD:main` y llevó a main un
     change activo (`corte-v5-1`, 1 de 34 tareas) sin que nada fallara."""
     fallas = []
+    if refs_leidas(texto) == 0:
+        # 11-nov-2026: S1 daba el mismo verde con refs y sin ellas. Un push sin refs que leer es
+        # un push que S1 no vio, y eso no puede pasar como «nada activo llega a main». (Git
+        # llama al hook con cero refs cuando no hay nada nuevo que empujar: ahí fallar no cuesta.)
+        fallas.append("S1 · el push llegó sin refs en la entrada del hook: S1 no puede ver qué va a "
+                      "`main`. Si no había nada nuevo que empujar, no hace falta empujar.")
+        return fallas
     for sha in refs_a_main(texto):
         activos = activos_en_commit(sha, repo) or []
         if activos:
@@ -174,14 +186,16 @@ def main() -> int:
     a = ap.parse_args()
 
     if a.empuje:
-        fallas = revisar_empuje(sys.stdin.read(), a.repo)
+        texto = sys.stdin.read()
+        fallas = revisar_empuje(texto, a.repo)
         if fallas:
             print("\n  ❌ OpenSpec · el push no puede llegar a main así:\n")
             for f in fallas:
                 print(f"  · {f}")
             print("\n  Lo que llega a main llega archivado: se completa, se archiva o se descarta.")
             return 1
-        print("  ✅ OpenSpec · nada activo llega a main con este push.")
+        print(f"  ✅ OpenSpec · {refs_leidas(texto)} ref(s) leídas, {len(refs_a_main(texto))} a main: "
+              "nada activo llega a main con este push.")
         return 0
 
     if not a.raiz.is_dir():
