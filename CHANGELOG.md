@@ -5,6 +5,9 @@
 
 ## [No publicado]
 
+### CI
+- **El Action instala desde `requirements.txt` (más pytest) en vez de una lista escrita a mano.** El primer run de v6.1.0 salió rojo en dos sabotajes, pero el código estaba bien: lo que faltaba era el entorno. `check_indice_calidad` importa `dirhash` (declarado en requirements desde el 9-nov) y el CI no lo instalaba. `test_guardrails` corre pytest y pytest se instalaba un paso después. Reproducido en un checkout limpio de `main`; con el arreglo, los 15 pasos del Action dan 0 en un venv nuevo.
+
 ## [v6.1.0] - 2026-11-10 — siete modelos nuevos, la seguridad entra al examen y las trayectorias se publican (74 rankeados)
 
 ### Planificación (sin cambio de versión)

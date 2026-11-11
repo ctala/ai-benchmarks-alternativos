@@ -59,9 +59,14 @@ jobs:
       # cabecera. O sea que leer una CONSTANTE de configuración arrastra el SDK entero.
       # Acá se instala; lo correcto de fondo es que esas constantes vivan en un módulo
       # sin dependencias, y queda anotado como deuda.
-      - name: Instalar dependencias mínimas
+      #
+      # 11-nov-2026: la lista dejó de escribirse a mano. Con la v6.1, `check_indice_calidad`
+      # pasó a importar `dirhash` (declarado en requirements.txt) y el CI no lo instalaba;
+      # `test_guardrails` además corre pytest y pytest se instalaba DESPUÉS. Dos sabotajes
+      # salieron rojos por el entorno, no por el código. Una autoridad: requirements.txt.
+      - name: Instalar dependencias (requirements.txt + pytest)
         run: |
-          pip install python-dotenv openai httpx rich
+          pip install -r requirements.txt pytest
 
       # 3-nov-2026 (corte-v5 1.7). Lo que tiene FORMA de credencial lo busca gitleaks, con la
       # versión fijada (la misma que pide `check_gitleaks.py` al instalarlo). Va antes de
@@ -128,9 +133,7 @@ jobs:
       # 16-ago cuando la cobertura medida daba 4%. Existian y **el CI no las corria**:
       # una suite de pruebas que nadie ejecuta es documentacion, no una red.
       - name: Probar el nucleo (unitarios)
-        run: |
-          pip install pytest
-          python benchmarks/test_unitarios.py
+        run: python benchmarks/test_unitarios.py
 
       # 17-ago-2026: Claude Opus 5 publicado #79 de 83 con el 31% de su examen cortado
       # por nuestro techo de tokens. Ningun detector lo veia: los seis cazan AUSENCIA
