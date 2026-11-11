@@ -112,7 +112,7 @@ def build(data: dict) -> str:
         {intro} Ninguno compite por un puesto, así que van en orden alfabético.
       </p>
     </div>
-    <div id="historico-wrap">
+    <div id="historico-wrap" class="table-scroll">
     <table class="results-table historico-table">
       <thead><tr><th scope="col">Modelo</th><th scope="col">Por qué está acá</th><th scope="col">Era</th>
         <th scope="col">Calidad (su era)</th><th scope="col">Pruebas por era</th></tr></thead>

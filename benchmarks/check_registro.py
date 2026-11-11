@@ -34,8 +34,8 @@ LO QUE LAS PLANTILLAS DEBEN EMITIR (el contrato con Astro):
 Se mira lo COMPILADO y no la fuente: una cifra escrita en el código de una plantilla también sale.
 
 Las páginas `legado` (el HTML de Python) siguen bajo los guardrails de hoy hasta que su sesión las
-migre. Mientras `COPIA_LEGADO` sea False (hasta la tarea 2.2), R3 las busca en `docs/`, donde se
-publican, y no en `dist`.
+migre. Desde la tarea 2.2 (`COPIA_LEGADO`), `copiar_legado.py` las lleva a `dist` y R3 las busca
+ahí: lo que no esté en `dist` el corte lo borraría. Sin `--dist`, R3 sigue mirando `docs/`.
 
 Uso:
     python benchmarks/check_registro.py --dist sitio/dist   # dentro de `npm run build`
@@ -55,7 +55,7 @@ sys.path.insert(0, str(ROOT / "benchmarks"))
 import registro_paginas as rp  # noqa: E402
 
 SITE = "https://benchmarks.cristiantala.com"
-COPIA_LEGADO = False   # pasa a True en la tarea 2.2, cuando `dist` lleve también lo legado
+COPIA_LEGADO = True    # tarea 2.2: `dist` lleva también lo legado (copiar_legado.py)
 
 # Texto con dígitos que no es una cifra del benchmark. Cada uno con su motivo.
 EXENTAS: dict[str, str] = {}

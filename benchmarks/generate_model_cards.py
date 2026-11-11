@@ -67,16 +67,16 @@ BRAND_CSS = """<style>
   .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 12% 8%, rgba(122,0,223,.28) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 92% 95%, rgba(0,212,255,.10) 0%, transparent 55%);
+      radial-gradient(ellipse 70% 60% at 12% 8%, color-mix(in srgb, var(--purple) 28%, transparent) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 92% 95%, color-mix(in srgb, var(--cyan) 10%, transparent) 0%, transparent 55%);
     -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 30%);
     mask-image: linear-gradient(to top, transparent 0%, #000 30%);
   }
   .hero::after {
     content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background-image:
-      linear-gradient(rgba(122,0,223,.18) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(122,0,223,.18) 1px, transparent 1px);
+      linear-gradient(color-mix(in srgb, var(--purple) 18%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--purple) 18%, transparent) 1px, transparent 1px);
     background-size: 64px 64px;
     /* 19-ago-2026 · la máscara se desvanecía hacia arriba y quedaba SÓLIDA abajo, así
        que el `overflow: hidden` del hero la cortaba en línea recta: se veía un rectángulo
@@ -140,10 +140,10 @@ BRAND_CSS = """<style>
   .badges { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 2rem; }
   .badge { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .04em;
            padding: .32rem .65rem; border-radius: 999px; border: 1px solid var(--border);
-           color: var(--gray-dark); background: rgba(255,255,255,.02); }
-  .badge.on { color: var(--green); border-color: rgba(57,255,20,.34); background: rgba(57,255,20,.07); }
-  .badge.info { color: var(--cyan); border-color: rgba(0,212,255,.30); background: rgba(0,212,255,.06); }
-  .badge.warn { color: var(--magenta); border-color: rgba(255,0,110,.34); background: rgba(255,0,110,.07); }
+           color: var(--gray-dark); background: color-mix(in srgb, var(--white) 2%, transparent); }
+  .badge.on { color: var(--green); border-color: color-mix(in srgb, var(--green) 34%, transparent); background: color-mix(in srgb, var(--green) 7%, transparent); }
+  .badge.info { color: var(--cyan); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); background: color-mix(in srgb, var(--cyan) 6%, transparent); }
+  .badge.warn { color: var(--magenta); border-color: color-mix(in srgb, var(--magenta) 34%, transparent); background: color-mix(in srgb, var(--magenta) 7%, transparent); }
 
   /* ── Perfil por pilar: una nota suelta no dice nada sin la población al lado.
      La marca vertical es la MEDIANA de los rankeados en ese pilar, así que la
@@ -154,7 +154,7 @@ BRAND_CSS = """<style>
   @media (min-width: 720px) { .bar-row { grid-template-columns: 10.5rem 1fr auto; } }
   .bar-row .b-label { font-family: 'JetBrains Mono', monospace; font-size: .78rem;
                       color: var(--white); }
-  .bar-track { position: relative; height: 10px; background: rgba(255,255,255,.06);
+  .bar-track { position: relative; height: 10px; background: color-mix(in srgb, var(--white) 6%, transparent);
                border-radius: 999px; grid-column: 1 / -1; }
   @media (min-width: 720px) { .bar-track { grid-column: auto; } }
   .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;

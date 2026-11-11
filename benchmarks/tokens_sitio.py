@@ -13,6 +13,12 @@ inventados (`check_paleta.py`). Por eso este script ESCRIBE `sitio/src/styles/to
 Lo que sale: cada rol de `themes.light` como `--color-<rol>`; las familias de `typography`;
 `radius`, `spacing` y `motion`; y la sombra destacada en claro de `extensions.sombras`.
 
+LEGADO (motor-sitio 2.2, 11-nov-2026; Cristian eligió «claro ya»): las páginas que todavía salen de
+Python (fichas, landings, home, proveedores) usan `docs/style.css` con sus propias variables
+(`--bg`, `--green`, `--white`…). Su `:root` también se genera acá, entre marcadores, mapeando
+cada variable a un rol del mismo tema (`MAPEO_LEGADO`). Así el claro llega al sitio entero el
+día del corte y ningún color del legado queda escrito a mano. `--check` verifica los dos.
+
 El repo es público y `brand.json` vive fuera de él. Si no está (en el CI, por ejemplo), se usa
 la copia versionada `sitio/brand.json`. `--sincronizar` la refresca y P4 avisa si difieren.
 
@@ -34,6 +40,26 @@ MANUAL = Path.home() / "Playground" / "brand-manuals" / "cristian-tala" / "token
 COPIA = ROOT / "sitio" / "brand.json"
 SALIDA = ROOT / "sitio" / "src" / "styles" / "tokens.css"
 TEMA = "light"     # nivel Cercano, claro por defecto (DECISIONES 11-nov-2026); el oscuro, en el 1b
+LEGADO = ROOT / "docs" / "style.css"
+INICIO_LEGADO = "/* AUTO-TOKENS-LEGADO-START · generado por benchmarks/tokens_sitio.py desde brand.json; no se edita a mano */"
+FIN_LEGADO = "/* AUTO-TOKENS-LEGADO-END */"
+# Variable del legado → rol del tema. Los nombres vienen del tema oscuro (`--green` era el primario,
+# `--white` el texto fuerte); lo que se conserva es el ROL, no el color.
+MAPEO_LEGADO = {
+    "bg": "base-100",            # fondo de página
+    "bg-grid": "base-200",       # inset: code blocks y fondos alternativos
+    "bg-card": "base-200",       # cards y superficies de lectura
+    "green": "primary",          # primario: headings, CTAs
+    "cyan": "link",              # secundario: links y badges
+    "purple": "accent",          # acento: glow y grid
+    "magenta": "warning",        # alertas, uso escaso
+    "white": "titulo",           # texto fuerte
+    "prose": "base-content",     # prosa
+    "gray": "muted",             # captions
+    "gray-dark": "muted",        # UI apagada
+    "muted": "muted",            # se usaba sin declararse (caía al color heredado)
+    "border": "decorative-line", # bordes y líneas
+}
 
 
 def fuente() -> Path:
@@ -60,6 +86,23 @@ def generar(marca: dict) -> str:
     return "\n".join(lin) + "\n"
 
 
+def generar_legado(marca: dict) -> str:
+    """El bloque `:root` de `docs/style.css`, con sus marcadores."""
+    tema = marca["themes"][TEMA]
+    lin = [INICIO_LEGADO, ":root {"]
+    lin += [f"  --{var}: {tema[rol].lower()};   /* {rol} */" for var, rol in MAPEO_LEGADO.items()]
+    lin += ["}", FIN_LEGADO]
+    return "\n".join(lin)
+
+
+def con_legado(css: str, bloque: str) -> str:
+    """`docs/style.css` con su bloque de tokens reemplazado. Falla si faltan los marcadores."""
+    if INICIO_LEGADO not in css or FIN_LEGADO not in css:
+        raise SystemExit(f"❌ faltan los marcadores de tokens en {LEGADO.relative_to(ROOT)}")
+    i, j = css.index(INICIO_LEGADO), css.index(FIN_LEGADO) + len(FIN_LEGADO)
+    return css[:i] + bloque + css[j:]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -77,6 +120,10 @@ def main() -> int:
         fallos = []
         if not SALIDA.exists() or SALIDA.read_text(encoding="utf-8") != css:
             fallos.append(f"{SALIDA.relative_to(ROOT)} no sale de brand.json: correr tokens_sitio.py")
+        if LEGADO.exists():
+            actual = LEGADO.read_text(encoding="utf-8")
+            if INICIO_LEGADO not in actual or con_legado(actual, generar_legado(marca)) != actual:
+                fallos.append(f"{LEGADO.relative_to(ROOT)}: su :root no sale de brand.json: correr tokens_sitio.py")
         if MANUAL.exists() and COPIA.exists() and MANUAL.read_bytes() != COPIA.read_bytes():
             fallos.append("sitio/brand.json difiere del manual: correr tokens_sitio.py --sincronizar")
         for f in fallos:
@@ -86,6 +133,12 @@ def main() -> int:
         return 1 if fallos else 0
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(css, encoding="utf-8")
+    if LEGADO.exists():
+        actual = LEGADO.read_text(encoding="utf-8")
+        nuevo = con_legado(actual, generar_legado(marca))
+        if nuevo != actual:
+            LEGADO.write_text(nuevo, encoding="utf-8")
+            print(f"✓ {LEGADO.relative_to(ROOT)} · :root del legado regenerado (correr sync_cachebust.py)")
     print(f"✓ {SALIDA.relative_to(ROOT)} · {len(css.splitlines()) - 3} tokens · fuente {fuente()}")
     return 0
 

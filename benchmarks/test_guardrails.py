@@ -574,7 +574,39 @@ def _t_paridad_sitio():
     return ok
 
 
-@prueba("check_paleta P3/P4", "un color literal en el motor nuevo y un token editado a mano")
+@prueba("check_paleta P5", "un color inventado en lo compilado, también escrito corto por el minificador")
+def _t_paleta_dist():
+    # 11-nov-2026 (motor-sitio 2.2). `dist` lleva lo de Astro y el legado copiado de docs/: lo que
+    # se publica es lo compilado, no la fuente. El minificador escribe `#fff`; un color inventado
+    # escrito corto (`#fa0`) tiene que caer igual que uno largo. Un color citado en un comentario
+    # (cómo murió un color) no cuenta.
+    base = Path(tempfile.mkdtemp())
+    (base / "a").mkdir()
+    (base / "a" / "index.html").write_text(
+        '<style>.x{color:#fff;background:#7A00DF}</style><!-- antes era #ffd700 --><a href="#top">.</a>',
+        encoding="utf-8")
+    (base / "s.css").write_text(":root{--c:#006080}/* #b478ff murió el 19-ago */", encoding="utf-8")
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_paleta.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0   # control: colores del manual y de brand.json, y uno citado en comentario
+    for archivo, color, esperado in (("a/index.html", "#ffd700", "#ffd700"), ("s.css", "#fa0", "#ffaa00")):
+        f = base / archivo
+        antes = f.read_text(encoding="utf-8")
+        f.write_text(antes + f"<i style='color:{color}'></i>" if f.suffix == ".html"
+                     else antes + f".y{{color:{color}}}", encoding="utf-8")
+        rc, out = correr()
+        ok = ok and rc != 0 and "P5" in out and esperado in out
+        f.write_text(antes, encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    shutil.rmtree(base, ignore_errors=True)
+    return ok
+
+
+@prueba("check_paleta P3/P4", "un color literal en el motor nuevo y un token editado a mano, también en el :root del legado")
 def _t_paleta_sitio():
     # 11-nov-2026 (motor-sitio 1.2). En `sitio/` ningún color se escribe: sale de tokens.css,
     # y tokens.css sale de brand.json. P3 caza el literal aunque sea un color DEL manual
@@ -594,7 +626,15 @@ def _t_paleta_sitio():
         linea = next(l for l in t.splitlines() if l.strip().startswith("--color-primary:"))
         tokens.write_text(t.replace(linea, "  --color-primary: #7a00e0;"), encoding="utf-8")
         p4 = _correr("check_paleta.py") != 0
-    return p3 and p4 and not nuevo.exists() and _correr("check_paleta.py") == 0
+    # 2.2: el :root del legado (docs/style.css) también sale de brand.json; retocarlo a mano cae.
+    css = ROOT / "docs" / "style.css"
+    with Sabotaje(css):
+        t = css.read_text(encoding="utf-8")
+        linea = next(l for l in t.splitlines() if l.strip().startswith("--green:"))
+        # un color DE la marca en el rol equivocado: P1 no lo ve, solo P4 (sale de brand.json o no)
+        css.write_text(t.replace(linea, "  --green: #006080;   /* primary */"), encoding="utf-8")
+        p4_legado = _correr("check_paleta.py") != 0
+    return p3 and p4 and p4_legado and not nuevo.exists() and _correr("check_paleta.py") == 0
 
 
 @prueba("check_movil", "una página que desborda a 390 px, una sin viewport de móvil y un dist sin nada que medir")
@@ -679,8 +719,17 @@ def _t_registro():
 
     for e in regs:
         escribir(e, pagina(e))
+    # 2.2: `dist` lleva también el legado (fichas, landings, home), copiado de docs/ como en el build.
+    copia = [PY, str(ROOT / "benchmarks" / "copiar_legado.py"), "--dist", str(base)]
+    if subprocess.run(copia, cwd=ROOT, capture_output=True, text=True).returncode != 0:
+        return False
     if correr()[0] != 0:
         return False  # control: el dist bien hecho tiene que pasar
+    # Copiar dos veces es un choque: dos motores escriben la misma ruta y tiene que fallar.
+    r = subprocess.run(copia, cwd=ROOT, capture_output=True, text=True)
+    if r.returncode == 0 or "chocan" not in r.stdout:
+        return False
+    ficha = next(e for e in rp.paginas() if e["tipo"] == "ficha")
     viva = next(e for e in regs if not e["redirect_a"] and not e["congelada"])
     cong = next(e for e in regs if e["congelada"])
     redi = next(e for e in regs if e["redirect_a"])
@@ -691,6 +740,7 @@ def _t_registro():
         ("R2", viva, pagina(viva, extra="<p>Gana por 0,45 puntos.</p>")),
         ("R3", redi, pagina(redi).replace(redi["redirect_a"], "otra-parte")),
         ("R3", viva, None),
+        ("R3", ficha, None),   # una página del legado que no llega a dist: el corte la borraría
         ("R4", {"url": "/inventada-vs-otra/", "redirect_a": None, "congelada": None}, pagina(viva)),
     ]
     ok = True

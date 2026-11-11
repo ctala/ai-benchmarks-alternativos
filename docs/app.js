@@ -1869,7 +1869,7 @@ function wizResult() {
         </div>
       </div>
       ${cheap ? `
-      <div class="wiz-deeper" style="border-color:rgba(0,212,255,.28)">
+      <div class="wiz-deeper" style="border-color:color-mix(in srgb, var(--cyan) 28%, transparent)">
         <div class="dh" style="color:var(--cyan)">💡 Si quieres gastar menos (misma tesis: la calidad top no cuesta caro)</div>
         <a href="#results"><b>${cheap.name}</b> — calidad ${cheap.score_calidad}/10 a ${price(cheap)} <span class="ar">→</span></a>
       </div>` : ""}

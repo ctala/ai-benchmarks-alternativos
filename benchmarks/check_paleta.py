@@ -24,11 +24,17 @@ Tres desvíos que solo aparecen cuando se compara contra la fuente:
 
 QUÉ VERIFICA
 ------------
-  P1  Todo hex en CSS/HTML/generadores pertenece a la paleta del manual.
-  P2  El `:root` declara los valores del manual, sin desviarse.
+  P1  Todo hex en CSS/HTML/generadores pertenece a la paleta del manual o a un tema de `brand.json`
+      (desde el 11-nov-2026 el legado usa el tema claro: motor-sitio 2.2).
+  P2  El `:root` de `docs/style.css` no se escribe: lo genera `tokens_sitio.py` desde `brand.json`
+      entre marcadores, y P4 exige que sea igual a lo generado.
   P3  En el motor nuevo (`sitio/src`, 11-nov-2026), NINGÚN color literal: ni hex, ni rgb(), ni
       hsl(). Todo color es `var(--color-…)` de `tokens.css`, que se genera desde `brand.json`.
   P4  `tokens.css` es exactamente lo que `tokens_sitio.py` genera desde `brand.json`.
+  P5  Con `--dist` (motor-sitio 2.2, 11-nov-2026): todo hex de lo COMPILADO (Astro y el legado
+      copiado) está en el manual, en los grises de UI o en un tema de `brand.json`. Mira lo que
+      sale y no la fuente: el minificador escribe `#fff` por `#ffffff`, así que los de 3 dígitos
+      se expanden antes de comparar.
 
 LO QUE NO PUEDE VERIFICAR
 -------------------------
@@ -97,10 +103,50 @@ def literales_sitio(raiz: Path) -> list[str]:
     return hallados
 
 
+HEX_COMPILADO = re.compile(r"#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b(?![\w-])")
+
+
+def permitidos_dist() -> set[str]:
+    """P5: el manual, los grises de UI y los dos temas de `brand.json` (claro del motor, oscuro del legado)."""
+    import json
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import tokens_sitio
+    d = json.loads(tokens_sitio.fuente().read_text(encoding="utf-8"))
+    temas = {v.lower() for tema in d["themes"].values() for v in tema.values()
+             if isinstance(v, str) and v.startswith("#")}
+    return set(MANUAL) | UI | temas
+
+
+def hex_dist(dist: Path, permitidos: set[str]) -> dict[str, set[str]]:
+    """P5: {hex fuera de lo permitido: archivos de `dist` donde aparece}."""
+    fuera: dict[str, set[str]] = {}
+    for f in sorted(dist.rglob("*")):
+        if not f.is_file() or f.suffix not in (".html", ".css", ".js"):
+            continue
+        txt = re.sub(r"/\*.*?\*/|<!--.*?-->", "", f.read_text(errors="ignore"), flags=re.S)
+        for m in HEX_COMPILADO.finditer(txt):
+            h = m.group(0).lower()
+            if len(h) == 4:
+                h = "#" + "".join(c * 2 for c in h[1:])
+            if h not in permitidos:
+                fuera.setdefault(h, set()).add(str(f.relative_to(dist)))
+    return fuera
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--raiz", type=Path, default=ROOT, help="otra raíz (para el sabotaje)")
+    ap.add_argument("--dist", type=Path, help="P5: revisa lo compilado (sitio/dist) en vez de la fuente")
     a = ap.parse_args()
+    if a.dist:
+        fuera_dist = hex_dist(a.dist, permitidos_dist())
+        if fuera_dist:
+            print("  ❌ P5 · colores en lo compilado que no salen del manual ni de brand.json:")
+            for h, fs in sorted(fuera_dist.items()):
+                print(f"     {h}   en {', '.join(sorted(fs)[:5])}{' …' if len(fs) > 5 else ''}")
+            return 1
+        print("  ✅ P5 · todo color de lo compilado sale del manual o de brand.json")
+        return 0
     fallo_sitio = 0
     lits = literales_sitio(a.raiz)
     if lits:
@@ -116,6 +162,7 @@ def main() -> int:
                 print("  ❌ P4 ·" + r.stdout.strip().replace("  ❌", ""))
                 fallo_sitio = 1
     fuera, archivos = Counter(), {}
+    permitidos = permitidos_dist()
     for patron in DONDE:
         for f in sorted(glob.glob(str(ROOT / patron))):
             if any(x in f for x in SALTAR):
@@ -126,7 +173,7 @@ def main() -> int:
             txt = re.sub(r"/\*.*?\*/", "", txt, flags=re.S)
             txt = re.sub(r"^\s*#.*$", "", txt, flags=re.M)
             for h in {x.lower() for x in re.findall(r"#[0-9a-fA-F]{6}\b", txt)}:
-                if h not in MANUAL and h not in UI:
+                if h not in permitidos:
                     fuera[h] += 1
                     archivos.setdefault(h, []).append(Path(f).name)
 
