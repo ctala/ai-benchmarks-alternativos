@@ -20,10 +20,27 @@
 ## 3. Sesión 3: legado, guardrails, «medido en» y el Action
 
 - [ ] 2.2 Legado: las páginas `motor: legado` se copian a `dist`, y `style.css` se genera desde los tokens. Verificar: R3 y R4 en verde, y `check_paleta` sobre `dist`.
-- [ ] 2.3 Guardrails portados para leer lo compilado: `auditar_paginas`, `check_ganadores`, `check_paleta`, `check_espanol_neutro`, `check_fichas_alcanzables`, `check_agentico_publicado` A3, `check_indice_calidad` I3/I8, `check_calculator`, `check_version`, `check_cortes`, `check_consistency`, `check_cobertura`, `check_version_en_nombre`, y el sitemap y `llms.txt`. Verificar: cada sabotaje adaptado, con control verde.
-- [ ] 2.4 Desde `corte-v5-1`: la línea «medido en» en la comparación (1.4.c), un CTA único al go-link sin `skool.com` ni «gratis» (1.4.d) y `dateModified`/`lastmod` solo con cambio de contenido (5.4). Verificar: un guardrail con su sabotaje por cada uno.
+- [ ] 2.3 Guardrails portados para leer lo compilado: `auditar_paginas`, `check_ganadores`, `check_paleta`, `check_espanol_neutro`, `check_fichas_alcanzables`, `check_agentico_publicado` A3, `check_indice_calidad` I3/I8, `check_calculator`, `check_version`, `check_cortes`, `check_consistency`, `check_cobertura`, `check_version_en_nombre`, y el sitemap y `llms.txt`. Suma (11-nov, Cristian): (a) el sitemap lleva solo destinos: ningún redirect (hoy `/fable-5-vs-deepseek-r1/` es meta refresh y está en el sitemap); (b) un validador del JSON-LD que ya sale (Dataset, Article, FAQPage solo si la FAQ se ve en la página); (c) la frontera de `/mejor-llm-open-source/` sale de los modelos de pesos abiertos que rankean, y un check falla si una sección de ranking sale vacía. Verificar: cada sabotaje adaptado o nuevo, con control verde.
+- [ ] 2.4 Desde `corte-v5-1`: la línea «medido en» en la comparación (1.4.c), un CTA único al go-link sin `skool.com` ni «gratis» (1.4.d) y `dateModified`/`lastmod` solo con cambio de contenido (5.4). Suma (11-nov): si un título lleva mes o año, sale de la fecha de la medición, nunca fijo. Verificar: un guardrail con su sabotaje por cada uno.
 - [ ] 2.5 `regenerate_all.py` y el Action: Node, `npm ci`, el build y el sha de `models.json` embebido y verificado. El Action también necesita Chrome para `movil.mjs` (`channel: "chrome"`; viene en los runners de Ubuntu) y `npm ci` antes de `test_guardrails`, cuya prueba «check_movil» lo usa. Verificar: todos los pasos del Action en un venv limpio.
 ## 4. Corte (con OK aparte de Cristian)
 
-- [ ] 2.6 Vista previa en móvil y escritorio, y OK de Cristian. Después, el commit del corte (`dist` → `docs/`), el push con OK y la verificación del sitio en vivo. Verificar: 204 URLs en vivo y la reversa probada en una rama.
+- [ ] 2.6 Antes del corte: congelar la línea base de Search Console por tipo de página (hoy, 15 clics y 571 impresiones en 90 días en el subdominio); Cristian agenda en Calendar las revisiones a las 4 y a las 8 semanas. No se atribuye nada antes. Vista previa en móvil y escritorio, y OK de Cristian. Después, el commit del corte (`dist` → `docs/`), el push con OK y la verificación del sitio en vivo. Verificar: 204 URLs en vivo y la reversa probada en una rama.
 - [ ] 2.7 Archivar el change sin tareas abiertas.
+
+## Fuera de este change: dónde va cada punto (aprobado por Cristian, 11-nov)
+
+No son tareas de este change; quedan acá para que el change que las recibe las encuentre. Detalle en DECISIONES («SEO del motor», 11-nov-2026).
+
+- **1b** (fichas, landings, home y proveedores):
+  - una ficha que sale del ranking sigue indexable, con un aviso generado: «salió del ranking el X; su reemplazo en su familia es Y», con enlace;
+  - las notas de los modelos locales de las landings salen del dato;
+  - una consulta objetivo por página en el registro, obligatoria; el volumen es opcional; en las fichas se deriva del nombre del modelo. Un check falla si dos páginas indexables apuntan a la misma consulta;
+  - la palabra buscada va en el título;
+  - un check exige que el primer párrafo sea el veredicto generado, en todos los tipos;
+  - se generan `ItemList` (rankings) y `BreadcrumbList` (todas), y `Dataset` en la home apunta al JSON público;
+  - un check falla si una página indexable no recibe enlaces;
+  - peso de página y cero JS salvo la calculadora, con Core Web Vitals de laboratorio.
+- **Ocasiones** (change siguiente al motor): las páginas, con su orden y demanda en `OCASIONES.md`, `ItemList`, y los enlaces ficha ↔ ocasión donde el modelo está en la frontera.
+- **Después:** una imagen OG generada por página, con el veredicto y la fecha. El 301 vía Cloudflare queda como opción, no como plan.
+

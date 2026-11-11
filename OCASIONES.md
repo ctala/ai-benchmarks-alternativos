@@ -118,6 +118,26 @@ Privacidad, costo cero marginal, Spark o Mac.
 
 El paso 1 del asistente pasa de pilares a estas siete ocasiones; los pasos 2 y 3 ya hacen el resto.
 
+## Páginas por ocasión: demanda de búsqueda y orden (Cristian, 11-nov-2026)
+
+Las páginas por ocasión son el change siguiente al motor del sitio (`motor-sitio`). **Una página
+sale solo si hay suites verificables que la respalden.** Si no las hay, no se publica, aunque haya
+demanda. Las cifras son de DataForSEO del 11-nov-2026, **solo México y España**, en búsquedas al
+mes. Son demanda, no tráfico esperado.
+
+| Orden | Página | Demanda | Qué la respalda hoy |
+|---|---|---|---|
+| 1 | Programar («mejor ia para programar») | 2.020 | Banco de código real en Harbor (ocasión 6); `code_generation` es juez y no la sostiene sola |
+| 2 | Escribir en español: textos, correos, noticias, SEO y libros | ~1.000 sumadas | `content_verificable`, `integridad_idioma` y la redacción de noticias. El voseo (`espanol_neutro`) y escribir largo (`escribir_largo`) entran con la próxima ventana |
+| 3 | Entender documentos y resumir | ~940 | **Revisar antes de abrirla.** `summarization` se decide por juez (correlación −0,20 con su rúbrica). Las verificables cercanas son `extraer_claims`, `verificar_claim`, `hallucination` y `business_audit`. Hay que confirmar que respaldan «resumir» y no solo «verificar» |
+| 4 | Responder, Vender, Local, Automatizar | según volumen | Cada una con su fila de arriba |
+| — | Excel | 870 | **Fuera mientras no se mida.** Ninguna suite lo respalda |
+
+Cada página por ocasión lleva su consulta objetivo en el registro (la regla del change 1b). Su
+primer párrafo es el veredicto generado del dato, con «≈» cuando hay empate. Lleva `ItemList` y
+enlaces generados ocasión ↔ ranking ↔ ficha ↔ comparación por familia: cada ficha enlaza a las
+ocasiones donde está en la frontera (DECISIONES, 11-nov-2026, «SEO del motor»).
+
 ## Etapas donde sirve el más barato (9-nov-2026)
 
 Cuando en los casos de una etapa casi todos los modelos aciertan, la conclusión es **«en estos casos
