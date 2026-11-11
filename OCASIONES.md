@@ -220,14 +220,14 @@ Un modelo fuera de la frontera tiene a otro que escribe igual o mejor por menos.
 | Ling 3.0 Flash | 9,59 | 0,15 | 0,016 | +1,46 ± 0,36 contra Llama 3.1 8B Instant | frontera |
 | Gemma 4 26B MoE (3.8B activos) | 9,91 | 0,44 | 0,045 | +0,32 ± 0,38 contra Ling 3.0 Flash | frontera, en lugar de Gemma 4 31B (que supera a Ling 3.0 Flash y empata con este, más barato) |
 | Gemma 4 31B | 9,93 | 0,52 | 0,052 | +0,02 ± 0,18 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
-| Qwen 3.7 Flash | 9,40 | 0,62 | 0,066 | — | redactor de Eco |
+| Qwen 3.7 Flash | 9,40 | 0,62 | 0,066 | — | respaldo de Eco |
 | GPT-6 Luna | 9,99 | 0,92 | 0,092 | +0,08 ± 0,11 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
-| DeepSeek V4.1 Flash | 9,93 | 1,59 | 0,160 | — | redactor de Eco |
+| DeepSeek V4.1 Flash | 9,93 | 1,59 | 0,160 | — | redactor principal de Eco |
 | Qwen 3.8 Flash | 10,00 | 7,72 | 0,772 | +0,09 ± 0,10 contra Gemma 4 26B MoE (3.8B activos) | ≈ Gemma 4 26B MoE (3.8B activos): gana el más barato |
 
 **Margen de ruido:** la diferencia pareada test a test en los 25 tests de `noticias_redaccion` (un run por test), con un margen de 2 errores estándar. Un modelo entra a la frontera solo si supera al anterior por más que ese margen; si no, es «≈» y gana el más barato. Lo mismo dentro de la frontera: si el que supera al anterior empata con uno más barato que también está por encima en nota, el lugar es del más barato.
 
-**Bajo el piso de Eco** (rinde peor que Qwen 3.7 Flash, el redactor actual, por más del ruido): 15 de 74 — Llama 4 Maverick (8,59), MiniMax M2.5 (8,34), Llama 3.1 8B Instant (8,14), Seed 2.0 Code (7,76), GPT-OSS 120B (7,70), Qwen 3-Next 80B Instruct (7,46), Step 3.5 Flash (7,45), MiniMax M3.1 Flash (7,45), Qwen3-Coder-Next (OpenRouter FP8) (7,35), MiniMax M3 (7,23), GPT-OSS 20B (7,22), Granite 4.2 8B (7,06), Mistral Small 4 (7,05), Nemotron 3 Ultra 550B (6,99), Ministral 14B (6,52).
+**Bajo el piso de Eco** (rinde peor que DeepSeek V4.1 Flash, el redactor principal, por más del ruido): 32 de 74 — Gemini 3.5 Flash Lite (9,57), DeepSeek V4 Flash 0731 (9,56), Muse Wonder (9,56), DeepSeek V3.2 (9,55), DeepSeek V4 Flash (OpenRouter) (9,49), Gemini 4 Argon (9,41), Kimi K2.6 (9,36), Kimi K2.7 Code (9,31), Muse Spark 1.3 (9,21), DeepSeek V4 Pro (9,19), Solar Pro 4 (9,06), Tencent Hy4 (9,00), Nemotron 3 Nano 30B (8,96), Grok 4.7 (8,94), Nemotron 3.5 Lightning (8,86), Llama 3.3 70B (8,84), Kimi K2 (8,81), Llama 4 Maverick (8,59), MiniMax M2.5 (8,34), Llama 3.1 8B Instant (8,14), Seed 2.0 Code (7,76), GPT-OSS 120B (7,70), Qwen 3-Next 80B Instruct (7,46), Step 3.5 Flash (7,45), MiniMax M3.1 Flash (7,45), Qwen3-Coder-Next (OpenRouter FP8) (7,35), MiniMax M3 (7,23), GPT-OSS 20B (7,22), Granite 4.2 8B (7,06), Mistral Small 4 (7,05), Nemotron 3 Ultra 550B (6,99), Ministral 14B (6,52).
 
 Generado por `generate_eco_redaccion.py` sobre 74 rankeados, runs de la ventana v6.1. No se edita a mano.
 

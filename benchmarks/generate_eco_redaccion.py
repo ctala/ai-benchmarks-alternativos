@@ -20,8 +20,8 @@ QUÉ CALCULA
   entra solo si supera al último de la frontera por MÁS del ruido: diferencia pareada test a
   test mayor que 2 errores estándar. Si no, es «≈» y gana el más barato. Antes bastaba con una
   nota mayor, y la frontera coronaba diferencias de 0,02 que eran ruido.
-- **piso de Eco**: un modelo queda bajo el piso si rinde peor que el redactor actual de Eco
-  (`PISO_REF`) por más del ruido, con la misma prueba pareada.
+- **piso de Eco**: un modelo queda bajo el piso si rinde peor que el redactor principal de Eco
+  (`PISO_REF`, DeepSeek V4.1 Flash) por más del ruido, con la misma prueba pareada.
 
 Escribe `docs/img/eco-redaccion.svg` y la tabla de la frontera dentro de OCASIONES.md, entre
 `<!-- ECO-REDACCION-START -->` y `<!-- ECO-REDACCION-END -->`. Nada de esto se edita a mano.
@@ -47,10 +47,12 @@ DOC = ROOT / "OCASIONES.md"
 INI, FIN = "<!-- ECO-REDACCION-START -->", "<!-- ECO-REDACCION-END -->"
 SUITE = "noticias_redaccion"
 VENTANA = "benchmark_20261109_v61c"
-# Los redactores de Eco hoy (OCASIONES, «Redacción»): se señalan siempre.
+# Los redactores de Eco hoy (inventario de Eco, 9-nov-2026): se señalan siempre, con su rol.
 ECO = {"deepseek-v4.1-flash": "DeepSeek V4.1 Flash", "qwen3.7-flash": "Qwen 3.7 Flash"}
-# El piso: no rendir peor que el redactor de Eco en producción por más del ruido.
-PISO_REF = "qwen3.7-flash"
+ROL_ECO = {"deepseek-v4.1-flash": "redactor principal de Eco", "qwen3.7-flash": "respaldo de Eco"}
+# El piso: no rendir peor que el redactor PRINCIPAL de Eco por más del ruido. Hasta el 11-nov se
+# calculó contra Qwen 3.7 Flash, que es el respaldo (DECISIONES, 11-nov-2026: corrección).
+PISO_REF = "deepseek-v4.1-flash"
 
 # Colores del Manual de Marca v2 (check_paleta): nada inventado. Verde neón para la frontera y
 # cian para Eco: validate_palette.js da PASS en daltonismo (ΔE 27), visión normal (30) y contraste
@@ -154,7 +156,7 @@ def svg(ps: list[dict]) -> str:
          '<title id="t">Redacción de noticias: nota contra costo por punto</title>',
          f'<desc id="d">{len(ps)} modelos rankeados, ventana v6.1. Frontera costo/calidad en verde '
          f'(entra solo quien supera al anterior por más del ruido); redactores de Eco en cian; '
-         f'los que rinden peor que el redactor actual de Eco, como anillo vacío.</desc>',
+         f'los que rinden peor que el redactor principal de Eco, como anillo vacío.</desc>',
          f'<rect width="{W}" height="{H}" fill="{FONDO}"/>',
          f'<text x="{ml}" y="22" font-size="15" font-weight="700" font-family="JetBrains Mono, ui-monospace, monospace" fill="{TINTA}">Redacción de noticias: '
          f'nota contra costo por punto</text>',
@@ -227,7 +229,7 @@ def svg(ps: list[dict]) -> str:
         e.append(f'<text x="{b[0]:.1f}" y="{y + dy + 4:.1f}" font-size="11" fill="{TINTA}"{peso}>'
                  f'{escape(p["name"])}</text>')
     lx = W - mr - 190
-    leyenda = ((AZUL, "Frontera costo/calidad", False), (NARANJA, "Redactor de Eco hoy", False),
+    leyenda = ((AZUL, "Frontera costo/calidad", False), (NARANJA, "Redactor de Eco (principal y respaldo)", False),
                (GRIS, "Resto de los rankeados", False),
                (GRIS, f"Bajo el piso (peor que {ECO[PISO_REF]})", True))
     for i, (c, t, anillo) in enumerate(leyenda):
@@ -256,7 +258,7 @@ def bloque(ps: list[dict]) -> str:
                            " y empata con este, más barato)" if p["en_lugar_de"] else ""))
             if p["frontera"] else "",
             f"≈ {p['empata_con']}: gana el más barato" if p["empata_con"] else "",
-            "redactor de Eco" if p["key"] in ECO else "",
+            ROL_ECO.get(p["key"], ""),
             "bajo el piso de Eco" if p["bajo_piso"] else "") if x)
         lin.append(f"| {p['name']} | {f(p['nota'])} | {f(p['costo_1k'])} | {f3(p['cpp'])} | {dif} "
                    f"| {marca} |")
@@ -266,7 +268,7 @@ def bloque(ps: list[dict]) -> str:
             "entra a la frontera solo si supera al anterior por más que ese margen; si no, es «≈» y "
             "gana el más barato. Lo mismo dentro de la frontera: si el que supera al anterior empata "
             "con uno más barato que también está por encima en nota, el lugar es del más barato.", "",
-            f"**Bajo el piso de Eco** (rinde peor que {ECO[PISO_REF]}, el redactor actual, por más "
+            f"**Bajo el piso de Eco** (rinde peor que {ECO[PISO_REF]}, el redactor principal, por más "
             f"del ruido): {len(bajo)} de {len(ps)} — "
             + ", ".join(f"{p['name']} ({f(p['nota'])})" for p in bajo) + ".",
             "", f"Generado por `generate_eco_redaccion.py` sobre {len(ps)} rankeados, runs de la "

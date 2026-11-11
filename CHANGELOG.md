@@ -5,6 +5,9 @@
 
 ## [No publicado]
 
+### Corregido
+- **El piso de redacción de Eco ahora se calcula contra su redactor principal, DeepSeek V4.1 Flash (nota 9,93), en vez de Qwen 3.7 Flash (9,40).** Según el inventario de Eco del 9-nov, Qwen 3.7 Flash es el respaldo; el dato que se dio el 10-nov estaba mal. Con el piso corregido, 32 de 74 rinden peor que el principal por más del ruido (antes eran 15). El respaldo no queda bajo el piso: −0,54 ± 0,57, dentro del ruido. Ling 3.0 Flash empata con el principal (−0,34 ± 0,38) y cuesta unas 10 veces menos. El gráfico, la tabla de OCASIONES y las filas de DECISIONES se regeneraron o corrigieron. La integridad de idioma de DeepSeek (7,21) queda aparte, como filtro.
+
 ### Planificación (sin cambio de versión)
 - **OCASIONES: «Próxima ventana: dolores de negocio».** Son seis suites nuevas, ordenadas por demanda medida y verificables sin juez, con un costo estimado de ~US$ 102. Todavía no se mide nada. El voseo pasa a ser filtro duro de «Escribir». Lo motiva el ebook que Cristian hizo con MiniMax M3.1 Flash: salió con chino y voseo, aunque el benchmark ya le daba 2,49 en integridad de idioma. DeepSeek V4.1 Flash, con 7,21, se suma a la evaluación del redactor de Eco. Fila del 11-nov en DECISIONES.
 
