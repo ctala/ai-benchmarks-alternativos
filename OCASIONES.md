@@ -357,3 +357,160 @@ OpenRouter, y `sin_dato_comunitario` es la norma. La dirección aguanta porque s
 cambiar el set de tareas, no montar infraestructura nueva.
 
 **Qué fuentes externas entran y cuáles no → `FUENTES-EXTERNAS.md`** (criterio de cinco puntos y veredicto por fuente, 3-nov-2026).
+
+## Próxima ventana: dolores de negocio (propuesta del 11-nov-2026, sin medir)
+
+**Qué la motiva.** Cristian escribió un ebook para un funnel con MiniMax M3.1 Flash y salió con mucho texto
+en chino y voseo. El benchmark ya lo sabía: `integridad_idioma` 2,49, el segundo peor de 74 en v6.1.0. El
+dato existía y no llegó al momento de decidir. Esta sección hace dos cosas: medir los dolores de negocio
+que hoy cubrimos mal y lograr que un filtro duro se vea en el momento de elegir (ver «En el sitio» al
+final).
+
+**Reglas comunes.**
+- Cada propuesta es una **suite nueva**; no se edita ninguna de las actuales (las suites se agregan, nunca
+  se editan).
+- Todo se verifica **sin juez**: conteo, cifra exacta o id elegido.
+- Antes del lote completo, cada suite pasa por `validate_suite.py` en 6 modelos (Regla 0.7: menos del 60 %
+  de respuestas perfectas).
+- Entran como **ocasión** (`fuera_por: "ocasion"`) y su entrada al índice se decide después, con los datos.
+- Los costos usan el costo medio por run de suites parecidas en la ventana v6.1 sobre los 74 rankeados.
+
+**Ordenadas por demanda medida** (n = 1.959, `personas.dolor_categoria`, 10-ago-2026; estudio de dolores
+del 16-jun-2026):
+
+| # | Suite propuesta | Demanda medida | Runs | Costo estimado |
+|---|---|---|---:|---:|
+| 1 | `numeros_negocio` | «no sé cobrar»: 94 de 186 «no consigo clientes» (16-jun), cinco fuentes | 1.480 | ~US$ 18 (15-25) |
+| 2 | `prospectar_sin_inventar` | «no consigo clientes» 19,4 %: el resto de ese grupo | 1.480 | ~US$ 13 |
+| 3 | `escribir_largo` | Escribir: la demanda es inferida (el 19,4 % «pasa por publicar») + el caso del ebook | 888 | ~US$ 31 (25-45) |
+| 4 | `espanol_neutro` (voseo) | la de Escribir | 1.110 | ~US$ 9 |
+| 5 | `decidir_con_restriccion` | «escalar-crecer» 5,9 % | 888 | ~US$ 18 |
+| 6 | `validar_idea` | «no validé la idea» 4,8 % | 1.110 | ~US$ 13 |
+| 7 | `contract_review` | queda después | — | — |
+
+Total de las seis: **~US$ 102** (rango 85-130), más ~US$ 8 de pilotos. Sale de la ventana con OK de gasto,
+y la ventana puede tomar solo las primeras.
+
+### 1. Números del negocio (`numeros_negocio`)
+- **Quién lo resolvió antes:**
+  - [FinanceBench](https://arxiv.org/abs/2311.11944) (Patronus AI, 2023): la respuesta es una cifra que
+    sale del documento dado.
+  - [TAT-QA](https://arxiv.org/abs/2105.07624) (2021): tabla más texto, con la escala y la unidad como
+    parte de la respuesta.
+- **Qué adoptamos:** verdad = cifra exacta con tolerancia declarada, más unidad y moneda obligatorias.
+  Respuesta en JSON con campo numérico. Es la misma línea de `business_audit`, que ya es nuestra.
+- **Diseño (20 pruebas):**
+  - unit economics: CAC, LTV y payback con churn mensual;
+  - precio desde costo y margen, con IVA (19 % CL, 16 % MX) y comisión de pasarela sobre el precio con IVA;
+  - dilución en una ronda: pre y post-money, con el pool de opciones antes o después;
+  - flujo de caja: cobro a 60 días contra pago a 30.
+- **Trampa verificable:**
+  - un margen pedido sobre el precio, donde el markup sobre el costo es la respuesta tentadora;
+  - un pool de opciones creado pre-money.
+- **Hallazgo que nadie publica:** cuántos modelos confunden margen con markup o aplican mal el IVA, en
+  pesos y monedas de LATAM. FinanceBench trabaja sobre reportes 10-K en inglés.
+
+### 2. Prospectar sin inventar (`prospectar_sin_inventar`)
+- **Quién lo resolvió antes:** [CRMArena-Pro](https://arxiv.org/abs/2505.18878) (Salesforce, 2025).
+  - Incluye *lead qualification* con respuesta verificable en un CRM simulado.
+  - Los mejores agentes llegan a ~58 % en un turno y ~35 % en varios.
+  - La conciencia de confidencialidad es casi nula en todos.
+- **Qué adoptamos:** el veredicto verificable (califica / no califica, más el criterio que decide) y la
+  idea de «no divulgar lo que no corresponde». **No** adoptamos el CRM simulado: si hace falta un entorno,
+  es una tarea de Harbor.
+- **Diseño (20 pruebas):**
+  - **12 de calificación:** lead con datos parciales y un criterio decisivo plantado, presente o ausente.
+    Salida `{califica, criterio, falta}`.
+  - **8 de primer contacto:** la ficha real del prospecto (rol, empresa, publicación reciente). El mensaje
+    usa al menos 2 datos de la ficha, mide 120 palabras o menos y no trae voseo ni CJK.
+- **Trampa verificable:** un hecho plausible que no está en los datos («felicitaciones por la ronda»,
+  un cargo anterior, la ciudad). Se busca con una lista de patrones por prueba; afirmarlo descarta el
+  mensaje.
+- **Hallazgo que nadie publica:** la tasa de «personalización inventada» en español, es decir, cuántos
+  primeros contactos afirman algo que el modelo no sabe.
+
+### 3. Escribir largo: ebook, lead magnet, lección (`escribir_largo`)
+- **Quién lo resolvió antes:**
+  - [Language Confusion Benchmark](https://arxiv.org/abs/2406.20052) (Marchisio et al., Cohere, 2024):
+    *line-level pass rate*, una respuesta pasa si todas sus líneas están en el idioma pedido, según fastText.
+  - [LongWriter / LongBench-Write](https://arxiv.org/abs/2408.07055) (2024): adherencia al largo pedido.
+- **Qué adoptamos:** el LPR por línea y la medida de adherencia al largo. Lo propio: CJK y voseo como
+  categorías de deriva.
+- **Diseño (12 pruebas):**
+  - 4 encargos (capítulo de ebook, lead magnet, lección, guía) × 3 largos (800, 2.500 y 6.000 palabras).
+  - Por encargo, la consigna es idéntica y solo cambia el largo. Eso da una curva de deriva por modelo.
+  - Requiere su entrada en `PRESUPUESTO_SALIDA` (49.152): 6.000 palabras son ~8.000 tokens más el
+    razonamiento.
+- **Puntaje, todo por conteo:**
+  - filtro duro: un carácter CJK o una forma voseante deja la pieza en 0;
+  - LPR por línea;
+  - largo dentro de ±20 %;
+  - **deriva** = nota a 800 palabras − nota a 6.000.
+- **Trampa verificable:** el largo mismo. La pregunta es si la deriva aparece recién después de cierto
+  punto.
+- **Hallazgo que nadie publica:** si la deriva de idioma crece con el largo, en español. El LCB mide
+  respuestas cortas y LongWriter mide largo, no idioma; nadie cruza los dos.
+
+### 4. Voseo como filtro duro de «Escribir» (`espanol_neutro`)
+- **Quién lo resolvió antes:** no conocemos un benchmark publicado que trate el voseo o el localismo como
+  falla de un texto para publicar. Lo cercano son las tareas de identificación de variedad dialectal (DSL),
+  que clasifican y no castigan.
+- **Qué adoptamos:** los detectores que ya tiene el repo (`check_espanol_neutro.py` y el 10 % de
+  `noticias_redaccion`), con una lista declarada de formas.
+- **Diseño (15 pruebas):** entradas que empujan al voseo:
+  - una fuente rioplatense para reescribir para todo LATAM;
+  - una persona de Buenos Aires que pide un post;
+  - «escribe cercano, como habla la gente»;
+  - un hilo de WhatsApp en voseo para responder.
+- **Puntaje:** 0 si aparece una forma voseante (*vos* + verbo agudo, «tenés», «podés», «mirá») o un
+  localismo de la lista negra. Si no, 10 por cada elemento pedido que aparece.
+- **Relación con lo actual:** `noticias_redaccion` no se toca y su 10 % sigue. En la ocasión «Escribir»,
+  el voseo pasa a **filtro duro, igual que CJK**, y lo aplica esta suite.
+- **Hallazgo que nadie publica:** la tasa de voseo de cada modelo cuando se le pide español neutro.
+
+### 5. Estrategia (`decidir_con_restriccion`)
+- **Lo que se revisó:** `strategy` y `business_strategy` **no** las decide el juez Phi-4. Tienen
+  `expected_answer` y el runner no llama al juez cuando hay verdad (regla adoptada de LiveBench). Pero de
+  sus 8 pruebas, **solo 1 tiene verdad exacta** (numérica):
+  - 4 las califica el verificador semántico, un LLM que responde sí o no por cada idea esperada;
+  - 3 las califican heurísticas de profundidad y creatividad, que castigan clichés y no verifican una
+    decisión.
+
+  Siete de ocho, sin verdad objetiva: se convierten.
+- **Quién lo resolvió antes:** [TravelPlanner](https://arxiv.org/abs/2402.01622) (2024): restricciones
+  duras que se verifican por código, y una tasa final baja incluso en modelos fuertes.
+- **Qué adoptamos:** el pass rate sobre restricciones duras.
+- **Diseño (12 pruebas):**
+  - Decisiones con 3 o 4 opciones. La atractiva (más ingreso o más visibilidad) viola una restricción
+    plantada en el enunciado: 3 meses de caja contra un ciclo de venta de 6, un cliente que es el 60 %
+    del ingreso, una regulación.
+  - Salida `{opcion, restriccion_que_descarta}` con ids.
+- **Trampa verificable:** la opción atractiva.
+- **Hallazgo que nadie publica:** cuántos modelos eligen la opción que no se puede ejecutar.
+- **Después:** si la suite separa, jubilar `strategy` y `business_strategy` del índice es una decisión
+  aparte, que no cuesta nada.
+
+### 6. Validar la idea (`validar_idea`)
+- **Quién lo resolvió antes:**
+  - [SQuAD 2.0](https://arxiv.org/abs/1806.03822): abstenerse ante lo que el texto no sostiene.
+  - Los estudios de complacencia ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)).
+  - *The Mom Test* (Fitzpatrick) como fuente de qué es una pregunta sesgada. Es un método, no un
+    benchmark.
+- **Qué adoptamos:** abstención verificable y una lista cerrada de preguntas sesgadas por prueba.
+- **Diseño (15 pruebas):**
+  - **5 síntesis** de 8 entrevistas con señal tibia plantada (2 de 8 pagarían). Salida
+    `{pagarian: 2, senal: "debil"}`.
+  - **5 listas** de 10 preguntas con 4 sesgadas (hipotéticas o inductoras). Hay que devolver los ids
+    exactos.
+  - **5 dimensionamientos** con los datos dados y un supuesto que falta. Hay que declararlo y no
+    inventarlo.
+- **Trampa verificable:** un supuesto que los datos no sostienen.
+- **Hallazgo que nadie publica:** cuánto infla cada modelo la señal de un cliente.
+
+### 7. Contratos (`contract_review`)
+Queda después, por decisión de Cristian del 11-nov-2026.
+
+### En el sitio (change 2 en adelante, no ahora)
+En «Escribir» y en cada ficha, un filtro duro se muestra como **descarte visible arriba**, no como una
+columna más. Por ejemplo: «mete texto en otro idioma: descartado para publicar». Es la respuesta directa
+al caso del ebook: la cifra estaba publicada y no se vio.

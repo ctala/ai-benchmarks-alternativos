@@ -5,6 +5,9 @@
 
 ## [No publicado]
 
+### Planificación (sin cambio de versión)
+- **OCASIONES: «Próxima ventana: dolores de negocio».** Son seis suites nuevas, ordenadas por demanda medida y verificables sin juez, con un costo estimado de ~US$ 102. Todavía no se mide nada. El voseo pasa a ser filtro duro de «Escribir». Lo motiva el ebook que Cristian hizo con MiniMax M3.1 Flash: salió con chino y voseo, aunque el benchmark ya le daba 2,49 en integridad de idioma. DeepSeek V4.1 Flash, con 7,21, se suma a la evaluación del redactor de Eco. Fila del 11-nov en DECISIONES.
+
 ### CI
 - **El Action instala desde `requirements.txt` (más pytest) en vez de una lista escrita a mano.** El primer run de v6.1.0 salió rojo en dos sabotajes, pero el código estaba bien: lo que faltaba era el entorno. `check_indice_calidad` importa `dirhash` (declarado en requirements desde el 9-nov) y el CI no lo instalaba. `test_guardrails` corre pytest y pytest se instalaba un paso después. Reproducido en un checkout limpio de `main`; con el arreglo, los 15 pasos del Action dan 0 en un venv nuevo.
 
