@@ -3581,3 +3581,26 @@ def test_los_turnos_de_tareas_largas_salen_del_guion():
     assert mx == max(len(t["script"]) for t in alh.TESTS) and mn <= mx
     lead = sr_sitio._lead_sitio({"slug": "mejor-llm-para-tareas-largas", "lead": "x"})
     assert {"cifra": mx} in lead
+
+
+def test_home_jsonld_sale_de_la_faq_visible_y_de_models_json(monkeypatch):
+    # motor-sitio, 11-nov. La FAQPage de la home era otra versión de la FAQ visible, y sus
+    # cifras («191 modelos», «82 con muestra», «29.000+ tests») estaban escritas a mano.
+    from benchmarks import generate_home_jsonld as gh
+    pagina = ('<meta name="description" content="x"><meta property="og:description" content="x">'
+              '<meta name="twitter:description" content="x">'
+              '<script type="application/ld+json">\n{"@graph": [{"@type": "Dataset", "description": "Benchmark abierto de 191 modelos"},'
+              ' {"@type": "SoftwareApplication", "description": "x"}]}\n</script>'
+              '<section class="faq" id="faq"><details><summary><strong>¿Qué &gt; mide?</strong></summary>'
+              '<p>Mide <strong>calidad</strong> , no precio.</p></details></section>'
+              '<script type="application/ld+json">\n{"@type": "FAQPage", "mainEntity": []}\n</script>')
+    d = {"tested_count": 193, "ranked_count": 74, "total_models": 244,
+         "models": [{"runs": 88363}]}
+    monkeypatch.setattr(gh, "cifras", lambda _d: {"modelos": 193, "rankeados": 74, "tests": gh._miles(88363)})
+    out = gh.generar(pagina, d)
+    assert gh._miles(88363) == "88.000+" and gh._miles(999) == "0+"
+    assert '"name": "¿Qué > mide?"' in out and '"text": "Mide calidad, no precio."' in out
+    assert "191" not in out and "Benchmark abierto de 193 modelos de IA (LLMs) con 88.000+ tests" in out
+    assert "(74 con muestra suficiente para rankear)" in out
+    assert out.count('content="Compara 193 modelos') == 3
+    assert gh.generar(out, d) == out   # idempotente: regenerar no cambia nada

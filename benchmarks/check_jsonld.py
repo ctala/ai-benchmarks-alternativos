@@ -19,14 +19,15 @@ contenido de una FAQPage sea visible en la página; una FAQ invisible es una acc
   J6  toda página con contenido del registro publica al menos un bloque (regla de páginas
       leídas: un árbol que no se lee no tiene JSON-LD que objetar).
 
-J4 EN EL LEGADO ES AVISO, CON DESTINO
--------------------------------------
-Al nacer, J4 encontró 8 casos, todos en páginas del legado: la home, escrita a mano, trae en
-su JSON-LD otra versión de 6 respuestas y una pregunta que la página ya no muestra, y
-`/alternativas-gemini/` muestra `&gt;` por un doble escape. Un chequeo que nace en rojo no
-puede ser bloqueante (se aprende a ignorarlo). Por eso J4 bloquea en las páginas de Astro,
-donde nace en verde, y en el legado avisa con cada caso a la vista hasta que el 1b las migre.
-J1, J2, J3, J5 y J6 nacen en verde en todo el sitio y bloquean en todo el sitio.
+J4 BLOQUEA EN TODO EL SITIO DESDE EL 11-NOV
+-------------------------------------------
+Al nacer, J4 encontró 8 casos, todos del legado: la home, escrita a mano, traía en su JSON-LD
+otra versión de 6 respuestas y una pregunta que la página ya no mostraba, y
+`/alternativas-gemini/` mostraba `&amp;gt;` por un doble escape. Como un chequeo que nace en
+rojo no puede ser bloqueante, J4 avisaba en el legado. Se arreglaron en la fuente el mismo día
+(la FAQPage de la home la genera `generate_home_jsonld.py` desde la FAQ visible; el doble
+escape, en `generate_manual_landings.py`) y J4 quedó en verde en todo el sitio: desde
+entonces bloquea en todo el sitio, igual que J1, J2, J3, J5 y J6.
 
 Uso:
     python benchmarks/check_jsonld.py                    # docs/
@@ -121,10 +122,8 @@ def main() -> int:
     a = ap.parse_args()
     base = a.dist or ROOT / "docs"
     import paginas_leidas as pl
-    import registro_paginas as rp
-    motor = {e["url"]: e["motor"] for e in rp.paginas()}
 
-    fallos, avisos, leidas, bloques = [], [], set(), 0
+    fallos, leidas, bloques = [], set(), 0
     for f in sorted(base.rglob("index.html")):
         h = f.read_text(encoding="utf-8", errors="ignore")
         if 'http-equiv="refresh"' in h:
@@ -134,21 +133,15 @@ def main() -> int:
         if n:
             leidas.add(url)
         bloques += n
-        for x in fs:
-            (avisos if x.startswith("J4") and motor.get(url) == "legado" else fallos).append(f"{url}: {x}")
+        fallos += [f"{url}: {x}" for x in fs]
     print(f"JSON-LD — {bloques} bloque(s) en {len(leidas)} página(s) de {base}")
     fallos += pl.exigir("J6", leidas, pl.esperadas())
-    if avisos:
-        print(f"  ⚠️  J4 en el legado ({len(avisos)}): la FAQ del JSON-LD no coincide con la página. Va al 1b:")
-        for x in avisos:
-            print(f"     · {x}")
     if fallos:
         for x in fallos[:40]:
             print(f"  ❌ {x}")
         print(f"\n  ❌ {len(fallos)} problema(s) en el JSON-LD: es lo que leen Google y los buscadores con IA.")
         return 1
-    print("  ✅ cada bloque parsea, trae sus campos y fecha bien; en las páginas de Astro, su FAQ se ve en la página"
-          + (f" (el legado tiene {len(avisos)} aviso(s) J4, arriba)" if avisos else ""))
+    print("  ✅ cada bloque parsea, trae sus campos y fecha bien, y su FAQ se ve en la página")
     return 0
 
 

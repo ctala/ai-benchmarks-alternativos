@@ -123,6 +123,93 @@ def _a_texto(html: str) -> str:
     html = html.replace("&nbsp;", " ").replace("&amp;", "&")
     return re.sub(r"[ \t]+", " ", html)
 
+# ── Lo que la página declara y no se ve: JSON-LD y meta descriptions ─────────────
+#
+# POR QUÉ (11-nov-2026, motor-sitio). `_a_texto` tira los <script> y las <meta>, así que este
+# chequeo no leía lo que leen Google y los buscadores con IA. La home declaraba en su JSON-LD
+# «191 modelos», «82 con muestra suficiente» y «29.000+ tests» cuando eran 193, 74 y 88.000+,
+# y estaba en verde. Lo encontró `check_jsonld`, no este chequeo: ese era el hueco.
+JSONLD_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+META_RE = re.compile(r'<meta (?:name|property)="(?:description|og:description|twitter:description)" '
+                     r'content="([^"]*)"')
+
+
+def textos_declarados(html: str) -> list[str]:
+    """Cada texto del JSON-LD (todos los strings, a cualquier profundidad) y de las meta
+    descriptions. Un bloque que no parsea no se lee acá: eso es J1 de `check_jsonld`."""
+    import html as _h
+    out = [_h.unescape(m) for m in META_RE.findall(html)]
+
+    def strs(x):
+        if isinstance(x, dict):
+            for v in x.values():
+                yield from strs(v)
+        elif isinstance(x, list):
+            for v in x:
+                yield from strs(v)
+        elif isinstance(x, str):
+            yield x
+    for b in JSONLD_RE.findall(html):
+        try:
+            out += list(strs(json.loads(b)))
+        except json.JSONDecodeError:
+            pass
+    return out
+
+
+# Las cifras GLOBALES del benchmark tal como se publican. Cada patrón es una frase que solo
+# puede referirse al total (las cifras de una página —«10 modelos», «137 runs»— no entran).
+TESTS_RE = re.compile(r"(\d{1,3}(?:[.,]\d{3})+)\+\s+(?:tests|runs|ejecuciones)\b")
+MUESTRA_RE = re.compile(r"\b(\d+)\s+con muestra suficiente")
+TESTEADOS_RE = re.compile(r"\b(\d+)\s+testeados\b")
+MODELOS_RE = re.compile(r"(?:\bCompara\s+|\bBenchmark abierto de\s+)(\d+)\s+modelos\b"
+                        r"|\b(\d+)\s+modelos\s+benchmarkeados\b|\b(\d+)\s+modelos,\s+\d+\s+testeados\b")
+
+
+def cifras_globales(textos: list[str], data: dict, ejecuciones: int) -> list[str]:
+    """Fallos: cada cifra global declarada que no es la de `models.json`. Función pura."""
+    piso = (ejecuciones // 1000) * 1000
+    totales = {data["total_models"], data["tested_count"], data["ranked_count"]}
+    fallos = []
+    for t in textos:
+        for m in TESTS_RE.finditer(t):
+            v = int(re.sub(r"[.,]", "", m.group(1)))
+            if v != piso:
+                fallos.append(f"declara «{m.group(0)}» y hoy son {piso:,}+ ejecuciones".replace(",", "."))
+        for m in MUESTRA_RE.finditer(t):
+            if int(m.group(1)) != data["ranked_count"]:
+                fallos.append(f"declara «{m.group(0)}» y hoy rankean {data['ranked_count']}")
+        for m in TESTEADOS_RE.finditer(t):
+            if int(m.group(1)) != data["tested_count"]:
+                fallos.append(f"declara «{m.group(0)}» y hoy hay {data['tested_count']} testeados")
+        for m in MODELOS_RE.finditer(t):
+            v = int(next(g for g in m.groups() if g))
+            if v not in totales:
+                fallos.append(f"declara «{m.group(0)}» y hoy son {data['total_models']} modelos, "
+                              f"{data['tested_count']} testeados y {data['ranked_count']} rankeados")
+    return sorted(set(fallos))
+
+
+def revisar_declarado(base: Path) -> tuple[list[str], set[str]]:
+    """(fallos, páginas leídas): las cifras globales del JSON-LD y las meta de cada página."""
+    try:
+        from conteos import ejecuciones
+    except ImportError:
+        from benchmarks.conteos import ejecuciones
+    data = json.loads(MODELS_JSON.read_text())
+    n_ejec = ejecuciones(data)
+    fallos, leidas = [], set()
+    for p in sorted(base.rglob("index.html")):
+        t = p.read_text(errors="replace")
+        if 'http-equiv="refresh"' in t:
+            continue
+        rel = p.parent.relative_to(base).as_posix()
+        url = "/" if rel == "." else f"/{rel}/"
+        leidas.add(url)
+        fallos += [f"{url} (JSON-LD o meta): {x}" for x in cifras_globales(textos_declarados(t), data, n_ejec)]
+    return fallos, leidas
+
+
 # Tolerancia: los docs redondean (8.1 vs 8.14). Solo marcamos drift real.
 TOLERANCE = 0.05
 
@@ -218,7 +305,9 @@ def check_pagina(pg: Path, models: dict) -> list[str]:
         # bien" — que es exactamente el modo de falla que este chequeo vino a matar.
         # Medido: `diffusiongemma-vs-gemma-4` y `minimax-vs-kimi` caían acá.
         return [f"__SIN_SUJETO__{pg.parent.name}"]
-    texto = _a_texto(pg.read_text(errors="replace"))
+    crudo = pg.read_text(errors="replace")
+    # El JSON-LD y las meta también: un score escrito ahí lo lee Google aunque no se vea.
+    texto = _a_texto(crudo) + "\n" + "\n".join(textos_declarados(crudo))
     # QUÉ CUENTA COMO VALOR VÁLIDO — y por qué NO son todos.
     #
     # La primera versión aceptaba `plausible_values` + seguridad + **las 20 y pico de
@@ -397,6 +486,8 @@ def main():
     # Regla de páginas leídas: cada página del registro queda clasificada (redirect, generada,
     # calculadora o verificada contra su modelo). Un árbol que no se lee no da verde.
     no_leidas = pl.exigir("check_consistency (páginas)", CLASIFICADAS, pl.esperadas())
+    declarado, leidas_decl = revisar_declarado(args.dist or ROOT / "docs")
+    all_findings += declarado + pl.exigir("check_consistency (JSON-LD y meta)", leidas_decl, pl.esperadas())
 
     sin_sujeto = [f[len("__SIN_SUJETO__"):] for f in all_findings
                   if f.startswith("__SIN_SUJETO__")]

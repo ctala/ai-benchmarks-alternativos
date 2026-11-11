@@ -1480,8 +1480,8 @@ def _t_paleta_dist_cero():
     return _dist_lee_cero("check_paleta.py", "P5 leyó 0 de")
 
 
-@prueba("check_jsonld", "un bloque que no parsea, un Article sin fecha, una fecha al revés, una FAQ de Astro que la "
-                        "página no muestra (en el legado es aviso) y un árbol que no se lee")
+@prueba("check_jsonld", "un bloque que no parsea, un Article sin fecha, una fecha al revés, una FAQ que la "
+                        "página no muestra (en Astro y en la home) y un árbol que no se lee")
 def _t_jsonld():
     # 11-nov-2026 (motor-sitio 2.3). Nadie validaba el JSON-LD, que es lo que leen los buscadores.
     # Sin Node en el CI, el árbol es una copia de docs/: las páginas que el registro declara de
@@ -1516,15 +1516,18 @@ def _t_jsonld():
         rc, out = correr()
         ok = ok and rc != 0 and marca in out and "/claude-vs-chatgpt/" in out
     pg.write_text(t, encoding="utf-8")
-    # La misma FAQ invisible en una página del legado: aviso, no rojo.
-    leg = base / "alternativas-claude" / "index.html"
+    # La home (legado): desde el 11-nov J4 bloquea en todo el sitio. Una FAQ visible que cambia
+    # sin regenerar su JSON-LD es rojo, igual que en Astro.
+    leg = base / "index.html"
     tl = leg.read_text(encoding="utf-8")
     fq = json.loads(next(b for b in _re.findall(r'<script type="application/ld\+json">(.*?)</script>', tl, _re.S)
                          if '"FAQPage"' in b))
     pl_ = fq["mainEntity"][0]["name"]
-    leg.write_text(tl.replace(f">{pl_}<", ">Otra pregunta<"), encoding="utf-8")
+    if f"<strong>{pl_}</strong>" not in tl:
+        raise AssertionError("la pregunta de la home no está en su FAQ visible: el sabotaje no tocaría nada")
+    leg.write_text(tl.replace(f"<strong>{pl_}</strong>", "<strong>Otra pregunta</strong>"), encoding="utf-8")
     rc, out = correr()
-    ok = ok and rc == 0 and "J4 en el legado" in out and "/alternativas-claude/" in out
+    ok = ok and rc != 0 and "J4 · la FAQ declara" in out and "/: J4" in out
     leg.write_text(tl, encoding="utf-8")
     vacio = tmp / "vacio"
     vacio.mkdir()
@@ -1570,6 +1573,83 @@ def _t_consistency_dist():
     rc, out = correr()
     ok = ok and rc != 0 and "check_consistency (páginas) leyó 0 de" in out
     shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
+@prueba("check_consistency JSON-LD", "una cifra global falsa en el JSON-LD de la home y de una página generada, "
+                                      "una en una meta description y un score falso en el JSON-LD de una página a mano")
+def _t_consistency_jsonld():
+    # 11-nov-2026 (motor-sitio). La home declaraba «191 modelos» y «29.000+ tests» en su JSON-LD
+    # y este chequeo estaba en verde: tiraba los <script> y las <meta>. Se rompe una copia de docs/.
+    import re as _re
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "docs"
+    shutil.copytree(ROOT / "docs", base)
+    r = lambda: subprocess.run([PY, str(ROOT / "benchmarks" / "check_consistency.py"), "--dist", str(base)],
+                               cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0                                              # control
+    home, gen = base / "index.html", base / "mejor-llm-barato" / "index.html"
+    th, tg = home.read_text(encoding="utf-8"), gen.read_text(encoding="utf-8")
+    bloque_home = _re.search(r'<script type="application/ld\+json">(.*?)</script>', th, _re.S).group(1)
+    for f, original, roto, marca in (
+            (home, th, th.replace(bloque_home, _re.sub(r"Filtra entre \d+ modelos", "Filtra entre 191 modelos",
+                                                       bloque_home)), "/ (JSON-LD o meta): declara «191 modelos benchmarkeados»"),
+            (home, th, th.replace(bloque_home, _re.sub(r"\(\d+ con muestra", "(82 con muestra", bloque_home)),
+             "declara «82 con muestra suficiente»"),
+            (home, th, _re.sub(r'(<meta name="description" content="Compara )\d+', r"\g<1>191", th, count=1),
+             "/ (JSON-LD o meta): declara «Compara 191 modelos»"),
+            (gen, tg, _re.sub(r"basado en [\d.]+\+ runs", "basado en 29.000+ runs", tg, count=1),
+             "/mejor-llm-barato/ (JSON-LD o meta): declara «29.000+ runs»")):
+        if roto == original:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió la página")
+        f.write_text(roto, encoding="utf-8")
+        out = r()
+        ok = ok and out.returncode != 0 and marca in out.stdout
+        f.write_text(original, encoding="utf-8")
+    # Una página a mano (sin marca de origen) con un score que no es de su modelo, solo en el JSON-LD.
+    mano = base / "glm-5.2-explicado" / "index.html"
+    tm = mano.read_text(encoding="utf-8")
+    sin_marca = tm.replace("generado-por: benchmarks/", "escrita-a-mano")
+    mano.write_text(sin_marca, encoding="utf-8")
+    ok = ok and r().returncode == 0                                       # control a mano
+    bl = _re.search(r'<script type="application/ld\+json">(.*?)</script>', sin_marca, _re.S).group(1)
+    roto = sin_marca.replace(bl, bl.replace('"description": "', '"description": "Score global 1.23. ', 1))
+    if roto == sin_marca:
+        raise AssertionError("el sabotaje del score en el JSON-LD no cambió la página")
+    mano.write_text(roto, encoding="utf-8")
+    out = r()
+    ok = ok and out.returncode != 0 and "glm-5.2-explicado/index.html: publica 1.23" in out.stdout
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
+@prueba("check_escapes", "una entidad escapada dos veces en el texto visible, una entidad en el JSON-LD "
+                         "y un árbol que no se lee")
+def _t_escapes():
+    # 11-nov-2026 (motor-sitio). /alternativas-gemini/ mostraba «contexto &gt;128K» por un doble
+    # escape en el generador, y su JSON-LD publicaba la entidad como texto. Se rompe una copia de docs/.
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "docs"
+    shutil.copytree(ROOT / "docs", base)
+    r = lambda raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "check_escapes.py"), "--dist", str(raiz)],
+                                         cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0                                              # control
+    pg = base / "alternativas-gemini" / "index.html"
+    t = pg.read_text(encoding="utf-8")
+    for roto, marca in ((t.replace("contexto &gt;128K", "contexto &amp;gt;128K", 1), "E1 · muestra «&gt;»"),
+                        (t.replace("contexto >128K", "contexto &gt;128K", 1), "E2 · el JSON-LD trae la entidad «&gt;»"),
+                        (t.replace("</p>", " R&amp;amp;D</p>", 1), "E1 · muestra «&amp;»")):
+        if roto == t:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió la página")
+        pg.write_text(roto, encoding="utf-8")
+        out = r()
+        ok = ok and out.returncode != 0 and marca in out.stdout and "/alternativas-gemini/" in out.stdout
+        pg.write_text(t, encoding="utf-8")
+    vacio = tmp / "vacio"
+    vacio.mkdir()
+    out = r(vacio)
+    ok = ok and out.returncode != 0 and "E3 leyó 0 de" in out.stdout
+    shutil.rmtree(tmp, ignore_errors=True)
     return ok
 
 

@@ -203,6 +203,9 @@ def main() -> int:
         run_script("generate_home_explore.py", [], dry_run=args.dry_run)
         # La tabla histórico de la home, estática y desde el export (7-nov-2026).
         run_script("generate_historico.py", [], dry_run=args.dry_run)
+        # El JSON-LD y las meta de la home: la FAQPage desde la FAQ visible y las cifras desde
+        # models.json, después de todo lo que escribe en la home (11-nov-2026, motor-sitio).
+        run_script("generate_home_jsonld.py", [], dry_run=args.dry_run)
 
     # 6. Sitemap y llms.txt
     if not args.skip_sitemap:

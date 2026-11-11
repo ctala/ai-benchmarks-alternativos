@@ -670,7 +670,7 @@ def gen_alternativas_gemini(data):
         ("¿Gemini 3.1 Flash Lite vale más que las alternativas?",
          "Gemini 3.1 Flash Lite ranquea alto. Pero DeepSeek V4 Flash, Mistral Small 4 y Llama 3.3 70B lo superan en score absoluto para text-only. Si tu caso es contenido o coding estándar, las alternativas ganan. Si necesitas contexto >100K tokens o multimodal, Gemini sigue."),
         ("¿Las alternativas a Gemini soportan contexto largo?",
-         "Gemini sigue dominando contexto largo (1M+ tokens). Alternativas con contexto &gt;128K viables: Claude Opus 4.8 (1M), GPT-5.5 (256K+), Llama 4 (1M). Para context típico (8K-32K) casi todas las alternativas listadas son válidas."),
+         "Gemini sigue dominando contexto largo (1M+ tokens). Alternativas con contexto >128K viables: Claude Opus 4.8 (1M), GPT-5.5 (256K+), Llama 4 (1M). Para context típico (8K-32K) casi todas las alternativas listadas son válidas."),
         ("¿Vale la pena migrar de Gemini API a alternativas?",
          "Depende del volumen y caso. Para >5,000 calls/mes en text-only, sí — el ahorro a Mistral Small 4 o Devstral es de 60-90% manteniendo calidad similar. Para <1,000 calls/mes o casos multimodales, no vale el costo del switch."),
     ]

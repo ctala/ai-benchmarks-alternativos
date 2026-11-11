@@ -197,9 +197,11 @@ CHEQUEOS = [
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3): el JSON-LD es lo que leen los buscadores y nadie lo validaba.
-    # J4 (la FAQ se ve en la página) avisa en el legado, donde nació en rojo, y bloquea en Astro.
+    # J4 (la FAQ se ve en la página) bloquea en todo el sitio desde que el legado quedó en verde.
     ("paginas", "el JSON-LD de cada página parsea, trae sus campos y su FAQ se ve",
      [PY, "benchmarks/check_jsonld.py"], True, True),
+    ("paginas", "ninguna página muestra una entidad HTML como texto (&amp;gt;, o &gt; en el JSON-LD)",
+     [PY, "benchmarks/check_escapes.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
     # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
     # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.
