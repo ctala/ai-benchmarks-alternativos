@@ -196,6 +196,11 @@ CHEQUEOS = [
      [PY, "benchmarks/check_blog_consistency.py"], True, False),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
+    # 11-nov-2026 (motor-sitio 1.4): cada URL publicada está declarada en el registro. Sin
+    # build corren R0 y R3 contra docs/; R1, R2 y R4 miran lo compilado dentro de
+    # `npm run build`. Nace verde: bloqueante.
+    ("paginas", "cada URL publicada está en el registro de páginas (R0-R4)",
+     [PY, "benchmarks/check_registro.py"], True, True),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",
      [PY, "benchmarks/check_fichas_alcanzables.py"], True, True),
     ("datos", "cobertura del núcleo sobre el piso",

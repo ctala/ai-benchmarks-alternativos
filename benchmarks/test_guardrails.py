@@ -488,6 +488,74 @@ def _t_paleta_sitio():
     return p3 and p4 and not nuevo.exists() and _correr("check_paleta.py") == 0
 
 
+@prueba("check_registro R1-R4", "un modelo fuera del ranking, una cifra a mano, una URL perdida y una página sin registro")
+def _t_registro():
+    # 11-nov-2026 (motor-sitio 1.4). Al 11-nov, 24 de 27 comparaciones de versión exacta
+    # mostraban modelos que ya no rankeaban y nada lo veía. Se arma un `dist` sintético con
+    # las páginas Astro del registro tal como deben salir de las plantillas, se exige verde
+    # y después se rompe UNA regla por vez: cada rojo tiene que venir de SU regla.
+    import registro_paginas as rp
+    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    dentro = next(m["key"] for m in d["models"] if m.get("ranked"))
+    fuera = next(m["key"] for m in d["models"] if not m.get("ranked"))
+    regs = [e for e in rp.paginas() if e["motor"] == "astro"]
+    sitio = "https://benchmarks.cristiantala.com"
+    base = Path(tempfile.mkdtemp()) / "dist"
+
+    def pagina(e, modelo=dentro, extra=""):
+        if e["redirect_a"]:
+            u = f"{sitio}/{e['redirect_a']}/"
+            return (f'<html><head><link rel="canonical" href="{u}"><meta name="robots" '
+                    f'content="noindex, follow"><meta http-equiv="refresh" content="0; url={u}">'
+                    f'</head><body><p>Se movió a <a href="{u}">la comparación</a>.</p></body></html>')
+        aviso = '<div data-congelada>Foto del 11-nov-2026</div>' if e["congelada"] else ""
+        return (f'<html><head><title>X vs Y en 2026</title></head><body>{aviso}<table><tr>'
+                f'<td data-modelo="{modelo}">Modelo 4.5</td><td data-cifra>7,21</td></tr></table>'
+                f'<p>Medido el 11-nov-2026.</p>{extra}</body></html>')
+
+    def escribir(e, html):
+        f = base / e["url"].strip("/") / "index.html"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(html, encoding="utf-8")
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    for e in regs:
+        escribir(e, pagina(e))
+    if correr()[0] != 0:
+        return False  # control: el dist bien hecho tiene que pasar
+    viva = next(e for e in regs if not e["redirect_a"] and not e["congelada"])
+    cong = next(e for e in regs if e["congelada"])
+    redi = next(e for e in regs if e["redirect_a"])
+    casos = [
+        ("R1", viva, pagina(viva, modelo=fuera)),
+        ("R1", cong, pagina(cong).replace("<div data-congelada>", "<div>")),
+        ("R2", viva, pagina(viva, extra="<p>Gana por 0,45 puntos.</p>")),
+        ("R3", redi, pagina(redi).replace(redi["redirect_a"], "otra-parte")),
+        ("R3", viva, None),
+        ("R4", {"url": "/inventada-vs-otra/", "redirect_a": None, "congelada": None}, pagina(viva)),
+    ]
+    ok = True
+    for regla, e, html in casos:
+        f = base / e["url"].strip("/") / "index.html"
+        antes = f.read_text(encoding="utf-8") if f.exists() else None
+        if html is None:
+            f.unlink()
+        else:
+            escribir(e, html)
+        rc, out = correr()
+        ok = ok and rc != 0 and f"{regla} · {e['url']}" in out
+        if antes is None:
+            f.unlink(missing_ok=True)
+        else:
+            f.write_text(antes, encoding="utf-8")
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_fichas_alcanzables", "una página que lista modelos sin dejar llegar a su ficha")
 def _t_fichas():
     # Se le quita el enlace a la ficha a UNA página de ranking, dejando el nombre pelado.

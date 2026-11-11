@@ -6,7 +6,7 @@
   "engines": { "node": ">=22 <23" },
   "scripts": {
     "datos": "../.venv/bin/python ../benchmarks/exportar_sitio.py",
-    "prebuild": "npm run datos",
+    "prebuild": "npm run datos && ../.venv/bin/python ../benchmarks/check_registro.py",
     "build": "astro build",
     "postbuild": "../.venv/bin/python ../benchmarks/check_registro.py --dist dist",
     "dev": "npm run datos && astro dev",
