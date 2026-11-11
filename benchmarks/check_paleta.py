@@ -26,6 +26,9 @@ QUÉ VERIFICA
 ------------
   P1  Todo hex en CSS/HTML/generadores pertenece a la paleta del manual.
   P2  El `:root` declara los valores del manual, sin desviarse.
+  P3  En el motor nuevo (`sitio/src`, 11-nov-2026), NINGÚN color literal: ni hex, ni rgb(), ni
+      hsl(). Todo color es `var(--color-…)` de `tokens.css`, que se genera desde `brand.json`.
+  P4  `tokens.css` es exactamente lo que `tokens_sitio.py` genera desde `brand.json`.
 
 LO QUE NO PUEDE VERIFICAR
 -------------------------
@@ -69,8 +72,49 @@ DONDE = ["docs/style.css", "docs/index.html", "docs/app.js",
 SALTAR = ("generate_og_image.py",)
 
 
+COLOR_LITERAL = re.compile(r"#[0-9a-fA-F]{3,8}\b|\b(?:rgba?|hsla?)\(")
+
+
+def literales_sitio(raiz: Path) -> list[str]:
+    """P3: colores literales en `sitio/src` fuera de `tokens.css`. Se ignoran los comentarios."""
+    hallados = []
+    src = raiz / "sitio" / "src"
+    if not src.is_dir():
+        return hallados
+    for f in sorted(src.rglob("*")):
+        if not f.is_file() or f.name == "tokens.css" or "datos" in f.relative_to(src).parts:
+            continue
+        if f.suffix not in (".astro", ".css", ".ts", ".js", ".mjs", ".md", ".mdx", ".svg", ".html"):
+            continue
+        txt = f.read_text(errors="ignore")
+        txt = re.sub(r"/\*.*?\*/|<!--.*?-->", "", txt, flags=re.S)
+        txt = re.sub(r"^\s*//.*$", "", txt, flags=re.M)
+        for m in COLOR_LITERAL.finditer(txt):
+            # un ancla `#id` en un href no es un color: solo cuentan los que parecen hex de color
+            if m.group(0).startswith("#") and len(m.group(0)) - 1 not in (3, 4, 6, 8):
+                continue
+            hallados.append(f"{f.relative_to(raiz)}: {m.group(0)}")
+    return hallados
+
+
 def main() -> int:
-    argparse.ArgumentParser().parse_args()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--raiz", type=Path, default=ROOT, help="otra raíz (para el sabotaje)")
+    a = ap.parse_args()
+    fallo_sitio = 0
+    lits = literales_sitio(a.raiz)
+    if lits:
+        print("  ❌ P3 · colores literales en el motor nuevo (todo color sale de tokens.css):")
+        for x in lits:
+            print(f"     {x}")
+        fallo_sitio = 1
+    if (a.raiz / "sitio").is_dir():
+        if a.raiz == ROOT and (ROOT / "sitio" / "src" / "styles" / "tokens.css").exists():
+            r = __import__("subprocess").run([sys.executable, str(ROOT / "benchmarks" / "tokens_sitio.py"),
+                                              "--check"], capture_output=True, text=True)
+            if r.returncode != 0:
+                print("  ❌ P4 ·" + r.stdout.strip().replace("  ❌", ""))
+                fallo_sitio = 1
     fuera, archivos = Counter(), {}
     for patron in DONDE:
         for f in sorted(glob.glob(str(ROOT / patron))):
@@ -91,7 +135,9 @@ def main() -> int:
     print(f"  P2 · colores inventados: {len(fuera)}")
     if not fuera:
         print("\n  ✅ ningún color fuera del manual. «NUNCA inventar colores ni fuentes».")
-        return 0
+        if not fallo_sitio and (a.raiz / "sitio").is_dir():
+            print("  ✅ P3/P4 · el motor nuevo no tiene colores literales y sus tokens salen de brand.json")
+        return fallo_sitio
     print("\n  ❌ estos no existen en el manual de marca:\n")
     for h, _ in fuera.most_common():
         print(f"     {h}   en {', '.join(sorted(set(archivos[h])))}")

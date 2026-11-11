@@ -1,6 +1,6 @@
 ## Context
 
-Hoy el sitio son 205 URLs que escriben a mano 9 generadores de Python. Se publican con GitHub Pages en modo legacy, desde `main:/docs`.
+Hoy el sitio son 204 URLs que escriben a mano 9 generadores de Python. Se publican con GitHub Pages en modo legacy, desde `main:/docs`.
 
 | Tipo | Cuántas | Generador | Sesión |
 |---|---|---|---|

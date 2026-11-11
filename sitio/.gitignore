@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.astro/
+# Generados en `prebuild` por Python (design.md D2 y D4): la autoridad es Python.
+src/datos/
+src/styles/tokens.css

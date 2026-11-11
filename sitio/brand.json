@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "id": "cristian-tala",
+    "name": "Cristian Tala · Neo Brutalism Synthwave Terminal",
+    "version": "2.3.0"
+  },
+  "palette": {
+    "negro-profundo": "#0A0A1A",
+    "surface": "#1A1A2E",
+    "purpura-grid": "#1A0A2E",
+    "verde-electrico": "#39FF14",
+    "cyan-neon": "#00D4FF",
+    "purpura-glow": "#7A00DF",
+    "magenta-accent": "#FF006E",
+    "blanco": "#FFFFFF",
+    "body": "#DBDBE5",
+    "gris-claro": "#B0B0B0",
+    "superficie-clara": "#F4F4F8",
+    "muted-claro": "#5A5A6A",
+    "teal": "#006080",
+    "borde-claro": "#E2E2EA",
+    "derivado-borde-oscuro": "#222231",
+    "derivado-sombra-verde": "#123619",
+    "derivado-sombra-cyan": "#082E43",
+    "derivado-sombra-purpura": "#E7D1F9",
+    "derivado-sombra-teal": "#D1E2E8"
+  },
+  "themes": {
+    "light": {
+      "base-100": "#FFFFFF",
+      "base-200": "#F4F4F8",
+      "base-300": "#E2E2EA",
+      "base-content": "#0A0A1A",
+      "primary": "#7A00DF",
+      "primary-content": "#FFFFFF",
+      "secondary": "#006080",
+      "secondary-content": "#FFFFFF",
+      "accent": "#7A00DF",
+      "accent-content": "#FFFFFF",
+      "neutral": "#0A0A1A",
+      "neutral-content": "#FFFFFF",
+      "info": "#006080",
+      "info-content": "#FFFFFF",
+      "success": "#39FF14",
+      "success-content": "#0A0A1A",
+      "warning": "#FF006E",
+      "warning-content": "#0A0A1A",
+      "error": "#FF006E",
+      "error-content": "#0A0A1A",
+      "focus": "#7A00DF",
+      "titulo": "#0A0A1A",
+      "muted": "#5A5A6A",
+      "link": "#006080",
+      "decorative-line": "#E2E2EA",
+      "decorative-offset": "#E7D1F9",
+      "decorative-offset-alt": "#D1E2E8",
+      "decorative-cursor": "#39FF14"
+    },
+    "dark": {
+      "base-100": "#0A0A1A",
+      "base-200": "#1A1A2E",
+      "base-300": "#1A0A2E",
+      "base-content": "#DBDBE5",
+      "primary": "#39FF14",
+      "primary-content": "#0A0A1A",
+      "secondary": "#00D4FF",
+      "secondary-content": "#0A0A1A",
+      "accent": "#7A00DF",
+      "accent-content": "#FFFFFF",
+      "neutral": "#1A1A2E",
+      "neutral-content": "#DBDBE5",
+      "info": "#00D4FF",
+      "info-content": "#0A0A1A",
+      "success": "#39FF14",
+      "success-content": "#0A0A1A",
+      "warning": "#FF006E",
+      "warning-content": "#0A0A1A",
+      "error": "#FF006E",
+      "error-content": "#0A0A1A",
+      "focus": "#00D4FF",
+      "titulo": "#FFFFFF",
+      "muted": "#B0B0B0",
+      "link": "#00D4FF",
+      "decorative-line": "#222231",
+      "decorative-offset": "#123619",
+      "decorative-offset-alt": "#082E43",
+      "decorative-cursor": "#39FF14"
+    }
+  },
+  "decorative_roles": {
+    "decorative-line": "Filete de 2px de paneles, tablas y separadores en reposo; el manual lo define como --color-border rgba(255,255,255,.1) en oscuro y --color-border-light #e2e2ea en claro. Nunca lleva texto ni identifica un control.",
+    "decorative-offset": "Color de la sombra dura destacada (shadow-destacada, manual v2.2): el rgba(...,.18) del manual ya mezclado sobre el fondo, porque los roles son hex sólido. Nunca lleva texto.",
+    "decorative-offset-alt": "Color de la variante shadow-destacada-2 (cyan en oscuro, teal en claro), mezclado igual que decorative-offset. Nunca lleva texto.",
+    "decorative-cursor": "Verde Eléctrico del cursor _ del wordmark, que el manual mantiene en verde también sobre claro (§ 4). Se dibuja como barra de fondo, nunca como texto de lectura."
+  },
+  "typography": {
+    "body": {
+      "family": "Inter",
+      "fallback": "system-ui, sans-serif",
+      "weights": [
+        400,
+        600,
+        700
+      ],
+      "use": "Toda la prosa (400), el énfasis (600) y los títulos de más de 6 palabras (700). La prosa nunca va en mono."
+    },
+    "display": {
+      "family": "JetBrains Mono",
+      "fallback": "ui-monospace, SFMono-Regular, Menlo, monospace",
+      "weights": [
+        700,
+        800
+      ],
+      "use": "Titulares de hasta 6 palabras, kickers //, metadatos y wordmark. Más de 6 palabras pasa a body en 700."
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "fallback": "ui-monospace, SFMono-Regular, Menlo, monospace",
+      "weights": [
+        400,
+        700
+      ],
+      "use": "Código, ids, tiempos, rutas y datos tabulares."
+    }
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "radius": {
+    "field": "2px",
+    "box": "2px",
+    "selector": "2px",
+    "action": "2px"
+  },
+  "motion": {
+    "fast": 150,
+    "normal": 200
+  },
+  "logos": [
+    {
+      "id": "monograma-ct",
+      "path": "assets/ctala-watermark-150.png",
+      "use": "Monograma ct_ con glow verde (marca de agua de video, avatar chico). Lleva su propio fondo Negro Profundo; no se redibuja ni se recolorea. Por debajo de su tamaño nativo se usa el favicon que corresponda.",
+      "min_width_px": 150,
+      "themes": [
+        "dark"
+      ]
+    },
+    {
+      "id": "favicon-512",
+      "path": "assets/favicon/ctala-favicon-512.png",
+      "use": "Monograma ct_ para PWA y avatar chico, con glow.",
+      "min_width_px": 512,
+      "themes": [
+        "dark"
+      ]
+    },
+    {
+      "id": "favicon-180",
+      "path": "assets/favicon/ctala-favicon-180.png",
+      "use": "Monograma ct_ sin glow (apple-touch-icon); sirve también sobre fondo claro.",
+      "min_width_px": 180,
+      "themes": [
+        "dark",
+        "light"
+      ]
+    },
+    {
+      "id": "favicon-32",
+      "path": "assets/favicon/ctala-favicon-32.png",
+      "use": "Monograma ct_ sin glow para la pestaña del navegador y encabezados chicos; sirve sobre fondo claro.",
+      "min_width_px": 32,
+      "themes": [
+        "dark",
+        "light"
+      ]
+    },
+    {
+      "id": "favicon-16",
+      "path": "assets/favicon/ctala-favicon-16.png",
+      "use": "Monograma ct_ sin glow para la pestaña del navegador a 16px.",
+      "min_width_px": 16,
+      "themes": [
+        "dark",
+        "light"
+      ]
+    }
+  ],
+  "audience": {
+    "summary": "Emprendedores hispanohablantes que quieren aplicar IA a negocios que ya venden, vistos por un founder que opera con código. La firma se dosifica según quién mira (dial de intensidad, manual § 3c).",
+    "segments": [
+      "quien ya sigue a Cristian (Señal)",
+      "primera visita, futuros miembros y emprendedores no técnicos (Cercano)",
+      "clientes, socios y procesos formales (Papel)"
+    ]
+  },
+  "style_policy": {
+    "mode": "allowed",
+    "styles": [
+      "neubrutalism"
+    ]
+  },
+  "contrast_pairs": [
+    ["titulo", "base-100"],
+    ["titulo", "base-200"],
+    ["titulo", "base-300"],
+    ["muted", "base-100"],
+    ["muted", "base-200"],
+    ["muted", "base-300"],
+    ["link", "base-100"],
+    ["link", "base-200"],
+    ["link", "base-300"],
+    ["primary", "base-100"],
+    ["primary", "base-200"],
+    ["secondary", "base-100"],
+    ["secondary", "base-200"],
+    ["focus", "base-100"],
+    ["focus", "base-200"]
+  ],
+  "extensions": {
+    "fuente": {
+      "manual": "cristian-tala/manual.md",
+      "version_manual": "2.3.0",
+      "regla": "Cada hex sale del manual o de una mezcla declarada en `derivados`; lo que el manual no define está en `decisiones`."
+    },
+    "intensidad_ui": "Las interfaces de producto (tableros, herramientas internas) siguen el nivel Cercano del dial (manual § 3c): tema claro por defecto y oscuro disponible (Cristian, 29-oct-2026: «Tendría el tema claro por defecto»), un kicker por sección, una highlight-box por pantalla, verde como texto solo en CTA y cursor, sin grid de perspectiva, cards con borde sutil y una sola destacada con borde de color y sombra dura, esquinas de 2px. Te pasaste de volumen con más de dos neones en la misma pantalla.",
+    "sombras": {
+      "destacada": {
+        "oscuro": "4px 4px 0 rgba(57,255,20,.18)",
+        "claro": "5px 5px 0 rgba(122,0,223,.18)",
+        "rol": "decorative-offset",
+        "hover_oscuro": "6px 6px 0 rgba(57,255,20,.28) con translate(-2px,-2px)"
+      },
+      "destacada-2": {
+        "oscuro": "4px 4px 0 rgba(0,212,255,.18)",
+        "claro": "5px 5px 0 rgba(0,96,128,.18)",
+        "rol": "decorative-offset-alt"
+      },
+      "nota": "El esquema solo admite roles de color en hex sólido y un estilo no puede cambiar la geometría por tema: el rgba(...,.18) se guarda mezclado en los roles decorative-offset y el offset de 4px/6px viene del estilo. Los valores de esta tabla son los del manual y no los lee ningún generador."
+    },
+    "derivados": {
+      "formula": "canal = round(alfa * color_tinta + (1 - alfa) * color_fondo), por canal sRGB",
+      "redondeo": "round() de Python (half-even: un .5 exacto va al par); por eso decorative-line oscuro es #222231 y no #232331",
+      "decorative-line (oscuro)": "rgba(255,255,255,.1) sobre #0A0A1A = #222231",
+      "decorative-offset (oscuro)": "rgba(57,255,20,.18) sobre #0A0A1A = #123619",
+      "decorative-offset-alt (oscuro)": "rgba(0,212,255,.18) sobre #0A0A1A = #082E43",
+      "decorative-offset (claro)": "rgba(122,0,223,.18) sobre #FFFFFF = #E7D1F9",
+      "decorative-offset-alt (claro)": "rgba(0,96,128,.18) sobre #FFFFFF = #D1E2E8"
+    },
+    "wordmark": {
+      "texto": "Cristian Tala_",
+      "fuente": "JetBrains Mono 700",
+      "color_texto": "titulo (blanco en oscuro, Negro Profundo en claro)",
+      "color_cursor": "decorative-cursor, siempre verde, como barra de fondo",
+      "ancho_minimo_px": 120,
+      "nota": "No existe un SVG del wordmark en el repo: en interfaz se compone con texto vivo. Solo el cursor va en verde; el nombre nunca."
+    },
+    "titulos": "Regla de las 6 palabras (manual § 2): hasta 6 palabras en display (mono), más largo en body 700. Documentos (Papel): siempre mono. La prosa nunca va en mono.",
+    "focus_ring": {
+      "width_px": 2,
+      "offset_px": 2
+    },
+    "sites": {
+      "public": "https://cristiantala.com",
+      "linkedin": "https://www.linkedin.com/in/ctala"
+    },
+    "decisiones": [
+      "base-300 oscuro = Púrpura Grid #1A0A2E (--color-inset): pozo para código, cabeceras de tabla y campos; el borde en reposo es decorative-line.",
+      "accent = Púrpura Glow en ambos temas: el manual lo llama --color-accent-light y es el único neón que sobrevive en claro.",
+      "warning y error comparten el Magenta Accent (#FF006E): el manual define una sola señal de alerta. Se distinguen por forma (contorno vs sólido), ícono y palabra, nunca solo por color.",
+      "success en claro conserva el verde como relleno chico con texto Negro Profundo; nunca como texto sobre claro (1,36:1).",
+      "error, warning, success y accent no se usan como color de texto sobre superficies (en claro: magenta 3,83:1, verde 1,36:1; en oscuro: Púrpura Glow 2,78:1); son rellenos con su -content, bordes e íconos.",
+      "neutral = Surface (oscuro) y Negro Profundo (claro); focus = Cyan Neón en oscuro y Púrpura Glow en claro, sobre el mismo criterio que primary/secondary.",
+      "spacing = escala base 4 de la casa: el manual no define una (solo el margen de 64px de las piezas).",
+      "motion.fast = 150 ms (transition .15s del manual-v2.html); motion.normal = 200 ms es del estándar de la casa: el manual no define una segunda duración."
+    ]
+  }
+}

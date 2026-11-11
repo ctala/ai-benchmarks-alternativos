@@ -1,6 +1,6 @@
 ## Why
 
-El sitio (benchmarks.cristiantala.com, 205 URLs) se arma con generadores de Python que escriben el HTML a mano. Una página que nadie regenera queda mostrando modelos que ya salieron del ranking: hoy 24 de las 27 comparaciones de versión exacta están así. Además, posicionan búsquedas que casi nadie hace: en 16 meses, ninguna pasa de 6 clics. La demanda está en las familias: «claude vs chatgpt» tiene 2.900 búsquedas al mes y «comparador de ia», 160. Antes de construir comparaciones por familia, fichas nuevas o la entrada por ocasión, hace falta un motor que no se desactualice. Decisión y motivo en `DECISIONES.md` (fila del 11-nov-2026, «Motor del sitio»).
+El sitio (benchmarks.cristiantala.com, 204 URLs) se arma con generadores de Python que escriben el HTML a mano. Una página que nadie regenera queda mostrando modelos que ya salieron del ranking: hoy 24 de las 27 comparaciones de versión exacta están así. Además, posicionan búsquedas que casi nadie hace: en 16 meses, ninguna pasa de 6 clics. La demanda está en las familias: «claude vs chatgpt» tiene 2.900 búsquedas al mes y «comparador de ia», 160. Antes de construir comparaciones por familia, fichas nuevas o la entrada por ocasión, hace falta un motor que no se desactualice. Decisión y motivo en `DECISIONES.md` (fila del 11-nov-2026, «Motor del sitio»).
 
 ## What Changes
 

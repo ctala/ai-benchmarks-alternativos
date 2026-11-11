@@ -465,6 +465,29 @@ def _t_paleta():
         return _correr("check_paleta.py") != 0
 
 
+@prueba("check_paleta P3/P4", "un color literal en el motor nuevo y un token editado a mano")
+def _t_paleta_sitio():
+    # 11-nov-2026 (motor-sitio 1.2). En `sitio/` ningún color se escribe: sale de tokens.css,
+    # y tokens.css sale de brand.json. P3 caza el literal aunque sea un color DEL manual
+    # (el verde neón escrito a mano se desvía igual cuando el manual cambia); P4 caza el
+    # token retocado en el archivo generado en vez de en brand.json.
+    tokens = ROOT / "sitio" / "src" / "styles" / "tokens.css"
+    if not tokens.exists():   # es generado y está en .gitignore: en el CI no viene
+        _correr("tokens_sitio.py")
+    if not tokens.exists() or _correr("check_paleta.py") != 0:
+        return False  # control: el estado actual tiene que pasar
+    nuevo = ROOT / "sitio" / "src" / "styles" / "_sabotaje.css"
+    with Sabotaje(nuevo):
+        nuevo.write_text(".cta { color: #39ff14; }\n", encoding="utf-8")
+        p3 = _correr("check_paleta.py") != 0
+    with Sabotaje(tokens):
+        t = tokens.read_text(encoding="utf-8")
+        linea = next(l for l in t.splitlines() if l.strip().startswith("--color-primary:"))
+        tokens.write_text(t.replace(linea, "  --color-primary: #7a00e0;"), encoding="utf-8")
+        p4 = _correr("check_paleta.py") != 0
+    return p3 and p4 and not nuevo.exists() and _correr("check_paleta.py") == 0
+
+
 @prueba("check_fichas_alcanzables", "una página que lista modelos sin dejar llegar a su ficha")
 def _t_fichas():
     # Se le quita el enlace a la ficha a UNA página de ranking, dejando el nombre pelado.
