@@ -467,11 +467,20 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--solo", help="una clase (P1..P6)")
     ap.add_argument("--duro", action="store_true", help="exit 1 si hay severidad alta")
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="auditar lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
     a = ap.parse_args()
+    global DOCS
+    if a.dist:
+        DOCS = a.dist
 
     d, por_nombre, real = cargar()
     pgs = paginas()
     print(f"\nAuditando {len(pgs)} páginas publicadas contra los datos que las sostienen…")
+    # Regla de páginas leídas (motor-sitio 2.3). Un auditor que no encuentra páginas no tiene
+    # hallazgos: falla siempre, con o sin --duro, porque ceguera no es una severidad.
+    import paginas_leidas as pl
+    ciego = pl.exigir("auditar_paginas", {f"/{s}/" for s in pgs}, pl.esperadas() - {"/"})
 
     todo = {}
     for cid, (titulo, fn) in CLASES.items():
@@ -504,7 +513,9 @@ def main() -> int:
     if altas:
         print(f"  Ninguno rompe una página: todas cargan. Por eso hacía falta preguntarles"
               f"\n  si lo que publican lo sostiene la data.")
-    return 1 if (a.duro and altas) else 0
+    for x in ciego:
+        print(f"  ❌ {x}")
+    return 1 if (ciego or (a.duro and altas)) else 0
 
 
 if __name__ == "__main__":

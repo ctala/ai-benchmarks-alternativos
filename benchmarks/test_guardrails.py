@@ -1352,6 +1352,82 @@ def _t_landings_sin_muertos():
     ])
 
 
+def _dist_lee_cero(script: str, marca: str, args: tuple = ()) -> bool:
+    """Regla de páginas leídas (motor-sitio 2.3) para un guardrail con `--dist`: sobre una copia
+    de docs/ da verde (el control: `--dist` lee de verdad), y sobre un árbol vacío da rojo
+    diciendo que leyó cero. Sin el conteo, un árbol que no se lee no tiene nada que objetar."""
+    tmp = Path(tempfile.mkdtemp())
+    copia, vacio = tmp / "copia", tmp / "vacio"
+    shutil.copytree(ROOT / "docs", copia)
+    vacio.mkdir()
+
+    def correr(base):
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / script), *args, "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout + r.stderr
+
+    rc0, out0 = correr(copia)
+    rc1, out1 = correr(vacio)
+    shutil.rmtree(tmp, ignore_errors=True)
+    if rc0 != 0:
+        raise AssertionError(f"{script} --dist sobre una copia de docs/ ya está en rojo: {out0[-300:]}")
+    return rc1 != 0 and marca in out1
+
+
+@prueba("auditar_paginas --dist", "un árbol que no se lee (cero páginas)")
+def _t_auditar_dist():
+    return _dist_lee_cero("auditar_paginas.py", "auditar_paginas leyó 0 de", ("--duro",))
+
+
+@prueba("check_fichas_alcanzables --dist", "las fichas intactas y los listados que F2 no lee (cero páginas)")
+def _t_fichas_dist():
+    # En un árbol vacío F1 ya falla (no hay fichas): ese rojo no probaría F2. Acá las fichas
+    # están y cada listado se salta (lleva `http-equiv="refresh"`): solo el conteo de F2 lo caza.
+    import fnmatch
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "dist"
+    shutil.copytree(ROOT / "docs", base)
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_fichas_alcanzables.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0                                   # control
+    for f in base.glob("*/index.html"):
+        if any(fnmatch.fnmatch(f.parent.name, x) for x in ("mejor-llm-*", "*-vs-*", "alternativas-*")):
+            f.write_text(f.read_text(encoding="utf-8").replace("<head>", '<head><meta http-equiv="refresh" content="0">', 1),
+                         encoding="utf-8")
+    rc, out = correr()
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok and rc != 0 and "F2 leyó 0 de" in out
+
+
+@prueba("check_indice_calidad --dist", "un árbol que no se lee (ni la home, ni las páginas, ni las fichas)")
+def _t_indice_dist():
+    return _dist_lee_cero("check_indice_calidad.py", "check_indice_calidad leyó 0 de")
+
+
+@prueba("check_calculator --dist", "un árbol sin la calculadora")
+def _t_calculator_dist():
+    return _dist_lee_cero("check_calculator.py", "check_calculator leyó 0 de")
+
+
+@prueba("check_cobertura --dist", "un árbol que no se lee (R7 revisa el contrato de cero páginas)")
+def _t_cobertura_dist():
+    return _dist_lee_cero("check_cobertura.py", "R7 leyó 0 de")
+
+
+@prueba("check_version --dist", "la home ausente: sus tres superficies se saltaban en silencio y las demás «coincidían»")
+def _t_version_dist():
+    return _dist_lee_cero("check_version.py", "V0 · 3 superficie(s) sin archivo")
+
+
+@prueba("check_paleta P5 --dist", "un árbol que no se lee (P5 sin páginas no es P5 sin colores inventados)")
+def _t_paleta_dist_cero():
+    return _dist_lee_cero("check_paleta.py", "P5 leyó 0 de")
+
+
 @prueba("check_consistency --dist", "la marca de origen de Astro no reconocida, una página sin sujeto "
                                     "que quedaba «sin verificar» en verde, y un árbol que no se lee")
 def _t_consistency_dist():

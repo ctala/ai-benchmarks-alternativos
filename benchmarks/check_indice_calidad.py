@@ -233,9 +233,19 @@ def i8_linea_checks(data: dict, html: str, app_js: str, fichas: dict[str, str]) 
     return fallos
 
 
+# Lo publicado se lee de `docs/` o, con `--dist`, de lo que compila Astro (motor-sitio 2.3).
+# Los datos (models.json) siguen saliendo de docs/.
+SITIO = ROOT / "docs"
+
+
+def _leer(p: Path) -> str:
+    """Un archivo publicado, o vacío si no está: su ausencia la cuenta la regla de páginas leídas."""
+    return p.read_text(encoding="utf-8") if p.exists() else ""
+
+
 def leer_fichas() -> dict[str, str]:
     return {p.parent.name: p.read_text(encoding="utf-8")
-            for p in sorted((ROOT / "docs" / "modelo").glob("*/index.html"))}
+            for p in sorted((SITIO / "modelo").glob("*/index.html"))}
 
 
 def leer_harbor() -> tuple[dict, dict, dict]:
@@ -258,20 +268,35 @@ def revisar(data, readme, html, fuentes, paginas) -> list[str]:
 def leer_todo():
     data = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+    html = _leer(SITIO / "index.html")
     fuentes = {str(p.relative_to(ROOT)): p.read_text(encoding="utf-8")
                for p in sorted((ROOT / "benchmarks").glob("*.py"))}
-    fuentes["docs/app.js"] = (ROOT / "docs" / "app.js").read_text(encoding="utf-8")
-    paginas = {str(p.relative_to(ROOT)): p.read_text(encoding="utf-8")
-               for p in sorted((ROOT / "docs").glob("*/index.html"))}
+    fuentes["docs/app.js"] = _leer(SITIO / "app.js")
+    paginas = {"docs/" + str(p.relative_to(SITIO)): p.read_text(encoding="utf-8")
+               for p in sorted(SITIO.glob("*/index.html"))}
     return data, readme, html, fuentes, paginas
 
 
 def main() -> int:
+    global SITIO
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="leer lo publicado de lo que compila Astro (sitio/dist); los datos, de docs/")
+    a = ap.parse_args()
+    if a.dist:
+        SITIO = a.dist
+    import paginas_leidas as pl
     data, readme, html, fuentes, paginas = leer_todo()
+    fichas = leer_fichas()
+    # Regla de páginas leídas: I3 lee la home, I5 las páginas de primer nivel e I8 las fichas.
+    leidas = ({"/"} if html else set()) | {f"/{Path(k).parent.name}/" for k in paginas} \
+        | {f"/modelo/{k}/" for k in fichas}
+    ciego = pl.exigir("check_indice_calidad", leidas, pl.esperadas())
     fallos = revisar(data, readme, html, fuentes, paginas)
     fallos += i7_checks_sin_contar(indice.CHECKS_SIN_CONTAR, *leer_harbor())
-    fallos += i8_linea_checks(data, html, fuentes["docs/app.js"], leer_fichas())
+    fallos += i8_linea_checks(data, html, fuentes["docs/app.js"], fichas)
+    fallos += ciego
     leidos = sum(1 for m in data["models"] if m.get("score_calidad") is not None)
     print(f"  {leidos} notas de calidad leídas · {len(paginas)} páginas · {len(fuentes)} fuentes")
     if not leidos:

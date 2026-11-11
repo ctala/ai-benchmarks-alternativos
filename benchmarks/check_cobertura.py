@@ -224,14 +224,18 @@ def r7_contrato_de_pagina():
     import sys as _s
     _s.path.insert(0, str(ROOT / "benchmarks"))
     from contrato_pagina import leer
-    sin = []
+    import paginas_leidas as pl
+    sin, leidas = [], set()
     for pg in sorted(DOCS.rglob("index.html")):
         if pg.parent == DOCS:
             continue
+        leidas.add(pl.url_de(DOCS, pg))
         if leer(pg.read_text(errors="replace")) is None:
             sin.append(pg.parent.name)
+    # Regla de páginas leídas (motor-sitio 2.3): todas las del registro salvo la home.
     return [f"docs/{s}/ no declara su contrato: el auditor tiene que adivinar su "
-            f"estructura, y ahí es donde nacen los puntos ciegos" for s in sin]
+            f"estructura, y ahí es donde nacen los puntos ciegos" for s in sin] \
+        + pl.exigir("R7", leidas, pl.esperadas() - {"/"})
 
 
 # ── R8 · ningún guardrail se debilita desde el último tag ─────────────────────
@@ -382,6 +386,14 @@ REGLAS = [
 
 
 def main() -> int:
+    global DOCS
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="revisar lo que compila Astro (sitio/dist); los datos, de docs/")
+    a = ap.parse_args()
+    if a.dist:
+        DOCS = a.dist
     print("\nVerificando que cada regla esté aplicada DONDE CORRESPONDE, no solo donde se hizo…\n")
     total = 0
     for cid, titulo, fn in REGLAS:

@@ -59,7 +59,16 @@ def main() -> int:
     # engañosa: `qa.py` lo declara bloqueante y lo invoca sin el flag, o sea que habría
     # dicho «bloqueante» y devuelto 0 para siempre. Es la misma clase de falso verde que
     # el `--todos` muerto en test_guardrails, encontrado el mismo día.
-    argparse.ArgumentParser().parse_args()
+    global DOCS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="revisar lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
+    a = ap.parse_args()
+    if a.dist:
+        DOCS = a.dist
+    import fnmatch
+    import paginas_leidas as pl
+    leidas: set[str] = set()
 
     d = json.loads(MODELS_JSON.read_text())
     rankeados = [m for m in d["models"] if m.get("ranked")]
@@ -74,6 +83,7 @@ def main() -> int:
             s = Path(f).read_text(errors="ignore")
             if 'http-equiv="refresh"' in s:      # redirects: no listan nada
                 continue
+            leidas.add(pl.url_de(DOCS, Path(f)))
             # ¿lista modelos rankeados?
             listados = sum(1 for m in rankeados if m["name"] and m["name"] in s)
             if listados < 3:
@@ -81,6 +91,10 @@ def main() -> int:
             if 'href="/modelo/' not in s:
                 huerfanas.append((Path(f).parent.name, listados))
 
+    # Regla de páginas leídas (motor-sitio 2.3): F2 lee todas las páginas que el registro tiene
+    # con forma de listado.
+    esperadas = {u for u in pl.esperadas() if any(fnmatch.fnmatch(u.strip("/"), x) for x in LISTADOS)}
+    ciego = pl.exigir("F2", leidas, esperadas)
     print("FICHAS ALCANZABLES\n")
     print(f"  F1 · rankeados con ficha en disco: {len(rankeados) - len(sin_ficha)}/{len(rankeados)}")
     print(f"  F2 · páginas que listan y NO enlazan: {len(huerfanas)}")
@@ -92,7 +106,9 @@ def main() -> int:
             print(f"     {pg:<44} lista {n} modelos rankeados")
         print("\n     Usá `enlace_ficha(m)` de generate_comparison — es el helper que")
         print("     resuelve el enlace y omite a los que no tienen ficha.")
-    if not sin_ficha and not huerfanas:
+    for x in ciego:
+        print(f"\n  ❌ {x}")
+    if not sin_ficha and not huerfanas and not ciego:
         print("\n  ✅ toda ficha existe y toda página que lista modelos deja llegar a ella.")
         return 0
     return 1

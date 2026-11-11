@@ -127,7 +127,18 @@ def c6_tabla_historico(html: str, models: list[dict]) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--verbose", action="store_true")
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="revisar la calculadora de lo que compila Astro (sitio/dist); los datos, de docs/")
     args = ap.parse_args()
+    global APP_JS, INDEX
+    if args.dist:
+        APP_JS, INDEX = args.dist / "app.js", args.dist / "index.html"
+    # Regla de páginas leídas (motor-sitio 2.3): la calculadora es la home y su app.js.
+    import paginas_leidas as pl
+    ciego = pl.exigir("check_calculator", {"/"} if INDEX.exists() and APP_JS.exists() else set(), {"/"})
+    if ciego:
+        print(f"✗ {ciego[0]}")
+        return 1
 
     if not MODELS_JSON.exists():
         print(f"✗ falta {MODELS_JSON}. Corré export_for_pages.py primero.")

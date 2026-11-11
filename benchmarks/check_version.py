@@ -117,12 +117,22 @@ SUPERFICIES = [
 ]
 
 
-def _leer() -> dict:
+FALTANTES: list[str] = []   # superficies cuyo archivo no está (regla de páginas leídas, 2.3)
+
+
+def _leer(sitio: Path | None = None) -> dict:
+    """Cada superficie. Con `sitio` (lo que compila Astro), `docs/index.html` se lee de ahí; los
+    datos (`docs/data/`) siguen saliendo de docs/. Un archivo que falta queda en FALTANTES:
+    hasta el 11-nov-2026 se saltaba en silencio y las superficies que quedaban «coincidían»."""
     fuentes: dict[str, str | None] = {}
+    FALTANTES.clear()
     for s in SUPERFICIES:
         p = ROOT / s["archivo"]
+        if sitio is not None and s["archivo"] == "docs/index.html":
+            p = sitio / "index.html"
         etiqueta = s.get("etiqueta") or s["archivo"].split("/")[-1]
         if not p.exists():
+            FALTANTES.append(etiqueta)
             continue
         if "json_key" in s:
             try:
@@ -139,9 +149,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", action="store_true",
                     help="crear el git tag faltante para la versión declarada")
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="leer la home de lo que compila Astro (sitio/dist) en vez de docs/")
     args = ap.parse_args()
 
-    fuentes = _leer()
+    fuentes = _leer(args.dist)
     if not fuentes:
         print("✗ no encontré ninguna fuente de versión")
         return 1
@@ -154,6 +166,14 @@ def main() -> int:
         print(f"     {k:<26} {v or '(no declara)'}")
 
     fallos = []
+    # ── V0 · se leyeron todas (motor-sitio 2.3) ─────────────────────────────
+    if FALTANTES:
+        fallos.append(f"V0 · {len(FALTANTES)} superficie(s) sin archivo: {', '.join(FALTANTES)}. "
+                      f"Una superficie que no se lee no puede contradecir a las demás.")
+    import paginas_leidas as pl
+    home = {"/"} if not any(s["archivo"] == "docs/index.html" and (s.get("etiqueta") or "index.html") in FALTANTES
+                            for s in SUPERFICIES) else set()
+    fallos += pl.exigir("check_version", home, {"/"})
 
     # ── V1 · todas coinciden ────────────────────────────────────────────────
     if len(distintas) > 1:

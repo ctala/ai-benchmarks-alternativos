@@ -140,6 +140,13 @@ def main() -> int:
     a = ap.parse_args()
     if a.dist:
         fuera_dist = hex_dist(a.dist, permitidos_dist())
+        # Regla de páginas leídas (motor-sitio 2.3): P5 lee todo `dist`; un árbol sin las páginas
+        # del registro no es un árbol sin colores inventados.
+        import paginas_leidas as pl
+        ciego = pl.exigir("P5", {pl.url_de(a.dist, f) for f in a.dist.rglob("index.html")}, pl.esperadas())
+        if ciego:
+            print(f"  ❌ {ciego[0]}")
+            return 1
         if fuera_dist:
             print("  ❌ P5 · colores en lo compilado que no salen del manual ni de brand.json:")
             for h, fs in sorted(fuera_dist.items()):
