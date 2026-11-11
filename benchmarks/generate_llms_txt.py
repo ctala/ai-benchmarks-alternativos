@@ -29,11 +29,17 @@ def _fmt_pct(w):
 
 
 def main():
+    # 11-nov-2026 (motor-sitio 2.3): las páginas salen del registro y solo los destinos. Antes
+    # recorría docs/ y listaba 20 URLs que el registro declara redirect.
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import registro_paginas as rp
     comparisons, rankings, others = [], [], []
-    for f in sorted(DOCS.rglob("index.html")):
-        rel = f.parent.relative_to(DOCS).as_posix()
-        if rel == ".":
+    for e in sorted(rp.paginas(), key=lambda e: e["url"]):
+        if e["redirect_a"] or e["url"] == "/":
             continue
+        rel = e["url"].strip("/")
+        f = DOCS / rel / "index.html"
         title, desc = meta(f)
         url = f"{SITE}/{rel}/"
         line = f"- [{title}]({url}): {desc}" if desc else f"- [{title}]({url})"

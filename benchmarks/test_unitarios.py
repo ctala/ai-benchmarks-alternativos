@@ -3533,10 +3533,33 @@ def test_frontera_lee_la_familia_y_solo_rankeados():
           _m_rk("claude-viejo", 8.9, 0.01, 1, 1, familia="claude", ranked=False),
           _m_rk("gpt-oss", 8.8, 0.01, 1, 1, familia="gpt-oss"),
           _m_rk("grok-x", 8.0, 0.01, 1, 1, familia="grok")]
-    f = {x["familia"]: x["m"] for x in sr_sitio.frontera({"criterion": "open_source", "slug": "x"}, ms)}
+    f = {x["familia"]: x["m"] for x in sr_sitio.frontera({"criterion": "quality", "slug": "x"}, ms)}
     assert f["gpt"]["key"] == "gpt-bueno" and f["gpt"]["pos"] == 1
     assert f["claude"] is None and f["gemini"] is None
     assert f["grok"]["pos"] == 4
+
+
+def test_frontera_open_source_usa_las_familias_de_pesos_abiertos():
+    # motor-sitio 2.3. Con las familias cerradas, /mejor-llm-open-source/ publicaba la sección
+    # vacía (la plantilla la ocultaba). En esa página la frontera es la de los laboratorios que
+    # publican pesos, y enlaza a una comparación de pesos abiertos.
+    ms = [_m_rk("qwen-a", 9.0, 0.01, 1, 1, familia="qwen"),
+          _m_rk("glm-a", 8.9, 0.01, 1, 1, familia="glm"),
+          _m_rk("qwen-b", 8.8, 0.01, 1, 1, familia="qwen")]
+    cfg = {"criterion": "open_source", "slug": "x"}
+    fr = sr_sitio.frontera(cfg, ms)
+    f = {x["familia"]: x["m"] for x in fr}
+    assert set(f) == set(sr_sitio.FAMILIAS_FRONTERA_ABIERTA) and "gpt" not in f
+    assert f["qwen"]["key"] == "qwen-a" and f["glm"]["key"] == "glm-a" and f["llama"] is None
+    assert sr_sitio.familias_frontera({"criterion": "quality"}) is sr_sitio.FAMILIAS_FRONTERA
+
+
+def test_seccion_de_ranking_vacia_es_un_fallo():
+    from benchmarks import paridad_sitio as ps
+    assert ps.secciones_vacias("ranking", {"top3": ["a"], "frontera": []}) == [
+        "la sección «frontera» sale vacía: una sección de ranking no se publica vacía"]
+    assert ps.secciones_vacias("ranking", {"top3": ["a"], "frontera": ["b"]}) == []
+    assert ps.secciones_vacias("variantes", {}) == []
 
 
 def test_escalera_usa_el_margen_de_la_suite_y_no_un_umbral_fijo():

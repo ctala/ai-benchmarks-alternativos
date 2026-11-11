@@ -606,6 +606,42 @@ def _t_registro_motivo():
     return out.returncode != 0 and f"R5 · {m['key']}" in out.stdout
 
 
+@prueba("check_registro R6", "un redirect en el sitemap, un destino que falta en el sitemap y un redirect en llms.txt")
+def _t_registro_indices():
+    # 11-nov-2026 (motor-sitio 2.3). El sitemap listaba 19 redirects que la página misma marca
+    # `noindex`: Google los rastreaba para descartarlos. Hoy el sitemap y llms.txt salen del
+    # registro; R6 exige que digan exactamente sus destinos. Se rompe una copia de docs/.
+    import registro_paginas as _rp
+    regs = _rp.paginas()
+    redirect = next(e["url"] for e in regs if e["redirect_a"])
+    destino = next(e["url"] for e in regs if not e["redirect_a"] and e["url"] != "/")
+    site = "https://benchmarks.cristiantala.com"
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "docs"
+    shutil.copytree(ROOT / "docs", base)
+    r = lambda: subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--docs", str(base)],
+                               cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0                                       # control
+    sm, ll = base / "sitemap.xml", base / "llms.txt"
+    tsm, tll = sm.read_text(encoding="utf-8"), ll.read_text(encoding="utf-8")
+    loc = f"<loc>{site}{destino}</loc>"
+    for f, roto, marca in (
+            (sm, tsm.replace("</urlset>", f"<url><loc>{site}{redirect}</loc></url></urlset>"),
+             f"R6 · sitemap.xml lista {redirect}, que el registro declara redirect"),
+            (sm, tsm.replace(loc, ""), f"R6 · sitemap.xml no lista {destino}"),
+            (ll, tll + f"\n- [Redirect]({site}{redirect})\n",
+             f"R6 · llms.txt lista {redirect}, que el registro declara redirect")):
+        original = f.read_text(encoding="utf-8")
+        if roto == original:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió el archivo")
+        f.write_text(roto, encoding="utf-8")
+        out = r()
+        ok = ok and out.returncode != 0 and marca in out.stdout
+        f.write_text(original, encoding="utf-8")
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
 @prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida, una congelada que cambia, "
                          "una afirmación que cambia sin motivo y una frase retirada que vuelve")
 def _t_paridad_sitio():
@@ -734,6 +770,19 @@ def _t_paridad_sitio():
     ok = ok and rc != 0 and "paridad de afirmaciones en dist leyó 0 de" in out
     for g, t in sin_marcas.items():
         g.write_text(t, encoding="utf-8")
+
+    # Una sección vacía en el dato Y en la página: la paridad entre los dos no ve nada, y la
+    # plantilla oculta la sección. Pasó con la frontera de /mejor-llm-open-source/ (2.3).
+    d = json.loads(orig)
+    d["afirmaciones"]["frontera"] = []
+    jr.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    f.write_text(re.sub(r'<li data-afirmacion="frontera">.*?</li>', "", antes), encoding="utf-8")
+    if f.read_text(encoding="utf-8") == antes:
+        raise AssertionError("el sabotaje de la frontera vacía no cambió la página")
+    rc, out = correr()
+    ok = ok and rc != 0 and "la sección «frontera» sale vacía" in out and rk["url"] in out
+    jr.write_text(orig, encoding="utf-8")
+    f.write_text(antes, encoding="utf-8")
 
     f.write_text(antes.replace("<body>", "<body><p>Entrar es gratis.</p>"), encoding="utf-8")
     rc, out = correr()
@@ -1429,6 +1478,60 @@ def _t_version_dist():
 @prueba("check_paleta P5 --dist", "un árbol que no se lee (P5 sin páginas no es P5 sin colores inventados)")
 def _t_paleta_dist_cero():
     return _dist_lee_cero("check_paleta.py", "P5 leyó 0 de")
+
+
+@prueba("check_jsonld", "un bloque que no parsea, un Article sin fecha, una fecha al revés, una FAQ de Astro que la "
+                        "página no muestra (en el legado es aviso) y un árbol que no se lee")
+def _t_jsonld():
+    # 11-nov-2026 (motor-sitio 2.3). Nadie validaba el JSON-LD, que es lo que leen los buscadores.
+    # Sin Node en el CI, el árbol es una copia de docs/: las páginas que el registro declara de
+    # Astro valen como tales (J4 bloquea ahí) y las del legado, como legado (J4 avisa).
+    import re as _re
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "dist"
+    shutil.copytree(ROOT / "docs", base)
+
+    def correr(raiz=base):
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_jsonld.py"), "--dist", str(raiz)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0                                         # control
+    pg = base / "claude-vs-chatgpt" / "index.html"                # motor astro en el registro
+    t = pg.read_text(encoding="utf-8")
+    bloque = _re.search(r'<script type="application/ld\+json">(.*?)</script>', t, _re.S)
+    if not bloque or '"dateModified"' not in t or '"FAQPage"' not in t:
+        raise AssertionError("claude-vs-chatgpt ya no trae Article con fecha y FAQ: el sabotaje no tocaría nada")
+    faq = json.loads(next(b for b in _re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, _re.S)
+                          if '"FAQPage"' in b))
+    pregunta = faq["mainEntity"][0]["name"]
+    for roto, marca in (
+            (t.replace(bloque.group(1), bloque.group(1).rstrip()[:-1], 1), "J1 ·"),          # sin la llave final
+            (_re.sub(r'"dateModified":\s*"[^"]*",?', "", t, count=1), "J2 · Article sin `dateModified`"),
+            (_re.sub(r'"dateModified":\s*"[^"]*"', '"dateModified": "2001-01-01"', t, count=1), "J3 ·"),
+            (t.replace(f">{pregunta}<", ">Otra pregunta que el JSON-LD no declara<"), "J4 · la FAQ declara")):
+        if roto == t:
+            raise AssertionError(f"el sabotaje {marca} no cambió la página")
+        pg.write_text(roto, encoding="utf-8")
+        rc, out = correr()
+        ok = ok and rc != 0 and marca in out and "/claude-vs-chatgpt/" in out
+    pg.write_text(t, encoding="utf-8")
+    # La misma FAQ invisible en una página del legado: aviso, no rojo.
+    leg = base / "alternativas-claude" / "index.html"
+    tl = leg.read_text(encoding="utf-8")
+    fq = json.loads(next(b for b in _re.findall(r'<script type="application/ld\+json">(.*?)</script>', tl, _re.S)
+                         if '"FAQPage"' in b))
+    pl_ = fq["mainEntity"][0]["name"]
+    leg.write_text(tl.replace(f">{pl_}<", ">Otra pregunta<"), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc == 0 and "J4 en el legado" in out and "/alternativas-claude/" in out
+    leg.write_text(tl, encoding="utf-8")
+    vacio = tmp / "vacio"
+    vacio.mkdir()
+    rc, out = correr(vacio)
+    ok = ok and rc != 0 and "J6 leyó 0 de" in out
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
 
 
 @prueba("check_consistency --dist", "la marca de origen de Astro no reconocida, una página sin sujeto "

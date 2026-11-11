@@ -54,9 +54,24 @@ DOCS = ROOT / "docs"
 FAMILIAS_FRONTERA = {"gpt": "GPT (OpenAI)", "claude": "Claude (Anthropic)",
                      "gemini": "Gemini (Google)", "grok": "Grok (xAI)"}
 
+# En una página que solo admite pesos abiertos, ninguna familia de arriba puede aparecer: la
+# frontera es la de los laboratorios que publican pesos. Mismo campo `familia`, mismo criterio
+# (el mejor rankeado de cada una en esta página). (motor-sitio 2.3: una sección no sale vacía)
+FAMILIAS_FRONTERA_ABIERTA = {"qwen": "Qwen (Alibaba)", "deepseek": "DeepSeek", "glm": "GLM (Z.ai)",
+                             "kimi": "Kimi (Moonshot)", "minimax": "MiniMax", "llama": "Llama (Meta)",
+                             "gemma": "Gemma (Google)", "gpt-oss": "gpt-oss (OpenAI)",
+                             "mistral": "Mistral"}
+
+
+def familias_frontera(cfg) -> dict:
+    return FAMILIAS_FRONTERA_ABIERTA if cfg.get("criterion") == "open_source" else FAMILIAS_FRONTERA
+
+
 # Dónde enlaza «comparativas específicas»: la comparación por familia de las dos más buscadas
 # (la de versión exacta que enlazaba antes ahora redirige aquí).
 COMPARATIVA_FRONTERA = "claude-vs-chatgpt"
+COMPARATIVAS_FRONTERA = {"cerrada": {"href": f"/{COMPARATIVA_FRONTERA}/", "texto": "Claude vs ChatGPT"},
+                         "abierta": {"href": "/qwen-vs-llama/", "texto": "Qwen vs Llama"}}
 
 
 # ── Piezas comunes ────────────────────────────────────────────────────────────
@@ -150,13 +165,13 @@ def top3_ruido(cfg, all_ranked) -> list[dict]:
 
 
 def frontera(cfg, all_ranked) -> list[dict]:
-    """De cada familia de `FAMILIAS_FRONTERA`, su modelo mejor ubicado en esta página. Si está en
+    """De cada familia de `familias_frontera(cfg)`, su modelo mejor ubicado en esta página. Si está en
     el grupo de cabeza no lleva puesto (`en_grupo`): ahí el puesto es ruido, igual que en la tabla."""
     pos = {m.get("key"): i for i, m in enumerate(all_ranked, 1)}
     grupo = gr.cabeza(cfg, all_ranked)
     en_grupo = {g.get("key") for g in grupo} if len(grupo) > 1 else set()
     out = []
-    for fam, etiqueta in FAMILIAS_FRONTERA.items():
+    for fam, etiqueta in familias_frontera(cfg).items():
         m = next((x for x in all_ranked if x.get("familia") == fam and x.get("ranked")), None)
         out.append({"familia": fam, "etiqueta": etiqueta,
                     "m": ({**_modelo(m), **_eje(m, cfg), **_precio(m), "pos": pos[m["key"]],
@@ -330,7 +345,9 @@ def ranking(cfg: dict, models: list[dict]) -> dict:
         "filas": filas, "veredicto": ver[0] if ver else None,
         "segunda": _segunda_tabla(cfg, all_ranked),
         "cabeza": cabeza, "solo": solo, "top3": top3, "frontera": frontera(cfg, all_ranked),
-        "comparativa_frontera": f"/{COMPARATIVA_FRONTERA}/",
+        "comparativa_frontera": COMPARATIVAS_FRONTERA[
+            "abierta" if familias_frontera(cfg) is FAMILIAS_FRONTERA_ABIERTA else "cerrada"],
+        "frontera_abierta": familias_frontera(cfg) is FAMILIAS_FRONTERA_ABIERTA,
         "relacionadas": [{"href": f"/{s}/", "texto": gr.RELATED_TITLES.get(s, s.replace("-", " ").title())}
                          for s in cfg.get("related", [])],
         "afirmaciones": afirm, "contrato_html": contrato,

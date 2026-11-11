@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Los validadores del registro de páginas: R0-R4. (11-nov-2026, change `motor-sitio`)
+"""Los validadores del registro de páginas: R0-R6. (11-nov-2026, change `motor-sitio`)
 
 POR QUÉ EXISTE
 --------------
@@ -17,6 +17,9 @@ este script hace que esa declaración no sea una promesa.
   R3  una URL publicada (directorios de `docs/` y `docs/sitemap.xml`) no tiene entrada en el
       registro, o no existe en `dist` ni como página ni como redirect correcto.
   R4  un `index.html` de `dist` no tiene entrada en el registro.
+  R6  `sitemap.xml` y `llms.txt` listan exactamente los destinos del registro: ningún redirect
+      (Google no indexa lo que la página misma marca `noindex`) y ningún destino afuera. Se
+      revisan los de `docs/` y, con `--dist`, también los copiados a `dist`. (motor-sitio 2.3)
   R5  un modelo fuera del ranking no tiene motivo registrado (o `ranked` contradice a su
       elegibilidad). Sin motivo, una página no puede decir por qué un modelo no está; es un
       error de datos (Cristian, 11-nov-2026). Corre siempre, con o sin build.
@@ -214,6 +217,31 @@ def revisar(dist: Path | None, docs: Path, regs: list[dict], ranked: dict[str, b
     return fallos
 
 
+def revisar_indices(base: Path, regs: list[dict]) -> list[str]:
+    """R6: el sitemap y llms.txt de `base` listan exactamente los destinos del registro."""
+    destinos = {e["url"] for e in regs if not e["redirect_a"]}
+    redirects = {e["url"] for e in regs if e["redirect_a"]}
+    fallos = []
+    for nombre, patron in (("sitemap.xml", r"<loc>([^<]+)</loc>"),
+                           ("llms.txt", r"\((https://benchmarks\.cristiantala\.com[^)\s]*)\)")):
+        f = base / nombre
+        if not f.exists():
+            fallos.append(f"R6 · falta {base.name}/{nombre}")
+            continue
+        urls = {u.replace(SITE, "") or "/" for u in re.findall(patron, f.read_text(encoding="utf-8"))}
+        urls = {u for u in urls if u.endswith("/")}
+        if not urls:
+            fallos.append(f"R6 · {nombre}: no leí ninguna URL (¿cambió el formato?)")
+            continue
+        for u in sorted(urls & redirects):
+            fallos.append(f"R6 · {nombre} lista {u}, que el registro declara redirect")
+        for u in sorted(urls - destinos - redirects):
+            fallos.append(f"R6 · {nombre} lista {u}, que no está en el registro")
+        for u in sorted(destinos - urls):
+            fallos.append(f"R6 · {nombre} no lista {u}, que es un destino del registro")
+    return fallos
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, help="el sitio compilado (sitio/dist)")
@@ -228,7 +256,10 @@ def main() -> int:
     fallos = revisar(a.dist, a.docs, rp.paginas(), ranked)
     import elegibilidad
     fallos += [f"R5 · {x}" for x in elegibilidad.contradicciones(d["models"])]
-    print("REGISTRO DE PÁGINAS — R0-R5\n")
+    fallos += revisar_indices(a.docs, rp.paginas())
+    if a.dist is not None:
+        fallos += revisar_indices(a.dist, rp.paginas())
+    print("REGISTRO DE PÁGINAS — R0-R6\n")
     if a.dist is None:
         print("  ⚠️  sin --dist: corrieron R0 y R3 contra docs/. R1, R2 y R4 miran lo compilado "
               "y corren dentro de `npm run build`.")

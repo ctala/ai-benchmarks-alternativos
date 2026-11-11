@@ -99,31 +99,31 @@ def file_lastmod(path: Path, fechas: dict[str, str], sucias: set[str]) -> str:
     return fechas[rel]
 
 
-# Paginas que NO van al sitemap: son redirects/noindex, no contenido.
-# grok-4.3-vs-gpt-5.5 (con punto) es un huerfano de una version vieja del
-# generador — el slug vivo es "-5-5". Las dos servian el MISMO contenido con
-# canonical self-referencial: duplicado puro. La de punto quedo como redirect.
-SITEMAP_EXCLUDE = {"grok-4.3-vs-gpt-5.5"}
-
-
 def docs_pages():
-    """Itera sobre todos los index.html bajo docs/, devuelve (url, file_path, priority)."""
+    """(url, archivo, priority) de cada DESTINO del registro de páginas.
+
+    11-nov-2026 (motor-sitio 2.3): antes recorría los `index.html` de docs/, con una lista a
+    mano de exclusiones. Así entraban al sitemap páginas que el registro ya declara redirect:
+    19, entre ellas `/fable-5-vs-deepseek-r1/`, que en vivo ya es un meta refresh. Un sitemap
+    que lista redirects le pide a Google indexar lo que la página misma marca `noindex`. Ahora
+    la lista sale del registro y solo lleva destinos; el archivo se usa para la fecha.
+    """
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import registro_paginas as rp
     pages = []
-    for f in sorted(DOCS.rglob("index.html")):
-        rel_dir = f.parent.relative_to(DOCS).as_posix()
-        if rel_dir in SITEMAP_EXCLUDE:
+    for e in sorted(rp.paginas(), key=lambda e: e["url"]):
+        if e["redirect_a"]:
             continue
-        if rel_dir == ".":
-            url = f"{SITE_BASE}/"
+        url = e["url"]
+        f = DOCS / "index.html" if url == "/" else DOCS / url.strip("/") / "index.html"
+        if url == "/":
             priority = PRIORITY_OVERRIDES.get("/", 1.0)
+        elif url.startswith(("/alternativas-", "/modelos-")):
+            priority = 0.9
         else:
-            url = f"{SITE_BASE}/{rel_dir}/"
-            # Landing pages priority
-            if rel_dir.startswith("alternativas-") or rel_dir.startswith("modelos-"):
-                priority = 0.9
-            else:
-                priority = 0.7
-        pages.append((url, f, priority))
+            priority = 0.7
+        pages.append((f"{SITE_BASE}{url}", f, priority))
     return pages
 
 

@@ -283,7 +283,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
     <section>
       <Kicker>frontier</Kicker>
       <Titulo texto="¿Dónde quedan los modelos frontier?">¿Dónde quedan los modelos frontier?</Titulo>
-      <p>Mucha gente llega buscando a los laboratorios grandes. De cada familia, su modelo mejor ubicado <strong>en esta tarea concreta</strong>, por su lugar en esta tabla y no por lo que cuesta{g && ' (dentro del grupo de cabeza no hay puesto: el benchmark no los separa)'}:</p>
+      <p>Mucha gente llega buscando a los laboratorios grandes{r.frontera_abierta && ' que publican pesos abiertos'}. De cada familia, su modelo mejor ubicado <strong>en esta tarea concreta</strong>, por su lugar en esta tabla y no por lo que cuesta{g && ' (dentro del grupo de cabeza no hay puesto: el benchmark no los separa)'}:</p>
       <ul class="frontera">
         {fam.map((f: any) => (
           <li data-afirmacion="frontera"><span class="frontera-familia" data-nombre>{f.etiqueta}</span>
@@ -296,7 +296,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
         ))}
       </ul>
       {sinFam.length > 0 && <p class="meta">Sin modelo en este ranking: {sinFam.map((f: any, i: number) => <>{i > 0 && ', '}<span data-nombre>{f.etiqueta}</span></>)}.</p>}
-      <p class="meta">Para una comparación cara a cara, mira <a href={r.comparativa_frontera}>Claude vs ChatGPT</a> o ajusta los pesos en la <a href="/">calculadora</a>.</p>
+      <p class="meta">Para una comparación cara a cara, mira <a href={r.comparativa_frontera.href}>{r.comparativa_frontera.texto}</a> o ajusta los pesos en la <a href="/">calculadora</a>.</p>
     </section>
   )}
 

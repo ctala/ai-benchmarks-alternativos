@@ -228,7 +228,20 @@ def revisar_dist(url: str, tipo: str, html: str, d: dict) -> list[str]:
     vacias = [k for k, x in esp.items() if x and not pub.get(k)]
     if vacias:
         fallos.append(f"{url}: dist no publica {', '.join(vacias)}: ¿cambió la plantilla y nadie leyó sus marcas?")
+    fallos += [f"{url}: {x}" for x in secciones_vacias(tipo, pub)]
     return fallos
+
+
+# Lo que toda página de ranking publica. Si el dato y la página coinciden en vacío, la paridad
+# no ve nada: la plantilla oculta la sección y la página sale sin ella. Pasó con la frontera de
+# /mejor-llm-open-source/ (ninguna familia cerrada publica pesos). (motor-sitio 2.3, DECISIONES 11-nov)
+SECCIONES_OBLIGATORIAS = {"ranking": ("top3", "frontera")}
+
+
+def secciones_vacias(tipo: str, pub: dict) -> list[str]:
+    """Las secciones obligatorias que la página compilada publica vacías. Función pura."""
+    return [f"la sección «{k}» sale vacía: una sección de ranking no se publica vacía"
+            for k in SECCIONES_OBLIGATORIAS.get(tipo, ()) if not pub.get(k)]
 
 
 def comparar_afirmaciones(url: str, tipo: str, antes: dict, ahora: dict):

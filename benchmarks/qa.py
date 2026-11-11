@@ -196,6 +196,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_blog_consistency.py"], True, False),
     ("paginas", "ningún color inventado fuera del manual de marca",
      [PY, "benchmarks/check_paleta.py"], True, True),
+    # 11-nov-2026 (motor-sitio 2.3): el JSON-LD es lo que leen los buscadores y nadie lo validaba.
+    # J4 (la FAQ se ve en la página) avisa en el legado, donde nació en rojo, y bloquea en Astro.
+    ("paginas", "el JSON-LD de cada página parsea, trae sus campos y su FAQ se ve",
+     [PY, "benchmarks/check_jsonld.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
     # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
     # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.
@@ -204,7 +208,7 @@ CHEQUEOS = [
     # 11-nov-2026 (motor-sitio 1.4): cada URL publicada está declarada en el registro. Sin
     # build corren R0 y R3 contra docs/; R1, R2 y R4 miran lo compilado dentro de
     # `npm run build`. Nace verde: bloqueante.
-    ("paginas", "cada URL publicada está en el registro de páginas (R0-R4)",
+    ("paginas", "cada URL publicada está en el registro de páginas, y el sitemap y llms.txt solo sus destinos (R0-R6)",
      [PY, "benchmarks/check_registro.py"], True, True),
     # 11-nov-2026 (motor-sitio): la vista de teléfono, emulada con Playwright (390×844,
     # isMobile). Compila antes si el build es más viejo que las fuentes. Nace verde: bloqueante.
