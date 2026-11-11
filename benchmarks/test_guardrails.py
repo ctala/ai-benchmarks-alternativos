@@ -566,6 +566,50 @@ def _t_paleta_sitio():
     return p3 and p4 and not nuevo.exists() and _correr("check_paleta.py") == 0
 
 
+@prueba("check_movil", "una página que desborda a 390 px, una sin viewport de móvil y un dist sin nada que medir")
+def _t_movil():
+    # 11-nov-2026 (motor-sitio). La revisión a 390 px era a mano y mintió: Chrome sin interfaz
+    # dibuja a ~500 px. Se emula un teléfono de verdad sobre un `dist` sintético: control verde
+    # (una tabla ancha DENTRO de su caja con desplazamiento, y un redirect ancho que no se
+    # mide), y después un rojo por regla, cada uno con su etiqueta.
+    base = Path(tempfile.mkdtemp()) / "dist"
+    vp = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+
+    def escribir(url, cuerpo, head=vp):
+        f = base / url.strip("/") / "index.html" if url != "/" else base / "index.html"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"<!doctype html><html><head>{head}<title>x</title></head>"
+                     f"<body style=\"margin:0\">{cuerpo}</body></html>", encoding="utf-8")
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_movil.py"), "--dist", str(base),
+                            "--sin-compilar"], cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout + r.stderr
+
+    try:
+        escribir("/", '<p>inicio</p><div style="overflow-x:auto"><table><tr>'
+                 + "".join(f"<td>columna-larga-{i}</td>" for i in range(30)) + "</tr></table></div>")
+        escribir("/se-movio/", '<div style="width:2000px">ancho</div>',
+                 head=vp + '<meta http-equiv="refresh" content="0; url=/">')
+        codigo, salida = correr()
+        if codigo != 0 or "2 páginas" in salida:
+            raise AssertionError(f"control en rojo o midió el redirect: {salida[-400:]}")
+        escribir("/ancha/", '<div style="width:600px">empuja la página</div>')
+        codigo, salida = correr()
+        if codigo == 0 or "M2" not in salida or "/ancha/" not in salida:
+            return False
+        escribir("/ancha/", "<p>ya no empuja</p>", head="")  # sin viewport de móvil: 980 px
+        codigo, salida = correr()
+        if codigo == 0 or "M1" not in salida:
+            return False
+        shutil.rmtree(base)
+        escribir("/se-movio/", "<p>solo un redirect</p>", head=vp + '<meta http-equiv="refresh" content="0; url=/">')
+        codigo, salida = correr()
+        return codigo != 0 and "no se pudo medir" in salida
+    finally:
+        shutil.rmtree(base.parent, ignore_errors=True)
+
+
 @prueba("check_registro R1-R4", "un modelo fuera del ranking, una cifra a mano, una URL perdida y una página sin registro")
 def _t_registro():
     # 11-nov-2026 (motor-sitio 1.4). Al 11-nov, 24 de 27 comparaciones de versión exacta

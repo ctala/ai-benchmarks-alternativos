@@ -201,6 +201,10 @@ CHEQUEOS = [
     # `npm run build`. Nace verde: bloqueante.
     ("paginas", "cada URL publicada está en el registro de páginas (R0-R4)",
      [PY, "benchmarks/check_registro.py"], True, True),
+    # 11-nov-2026 (motor-sitio): la vista de teléfono, emulada con Playwright (390×844,
+    # isMobile). Compila antes si el build es más viejo que las fuentes. Nace verde: bloqueante.
+    ("paginas", "ninguna página del sitio nuevo desborda en un teléfono de 390 px",
+     [PY, "benchmarks/check_movil.py"], True, False),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",
      [PY, "benchmarks/check_fichas_alcanzables.py"], True, True),
     ("datos", "cobertura del núcleo sobre el piso",
