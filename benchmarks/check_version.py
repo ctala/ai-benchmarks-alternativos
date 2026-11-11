@@ -170,10 +170,14 @@ def main() -> int:
     if FALTANTES:
         fallos.append(f"V0 · {len(FALTANTES)} superficie(s) sin archivo: {', '.join(FALTANTES)}. "
                       f"Una superficie que no se lee no puede contradecir a las demás.")
-    import paginas_leidas as pl
-    home = {"/"} if not any(s["archivo"] == "docs/index.html" and (s.get("etiqueta") or "index.html") in FALTANTES
-                            for s in SUPERFICIES) else set()
-    fallos += pl.exigir("check_version", home, {"/"})
+    # La home es la única página que lee; se cuenta sin el registro, porque este chequeo también
+    # corre copiado solo en un repo desechable (la prueba del tag huérfano).
+    home = not any(s["archivo"] == "docs/index.html" and (s.get("etiqueta") or "index.html") in FALTANTES
+                   for s in SUPERFICIES)
+    print(f"  · check_version: {int(home)} de 1 página(s) que le asigna el registro")
+    if not home:
+        fallos.append("check_version leyó 0 de 1 páginas: no revisó / (la home). "
+                      "Un guardrail que no lee no encuentra nada que objetar.")
 
     # ── V1 · todas coinciden ────────────────────────────────────────────────
     if len(distintas) > 1:

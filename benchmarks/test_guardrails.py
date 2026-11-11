@@ -785,7 +785,10 @@ def _t_paleta_dist():
     # se publica es lo compilado, no la fuente. El minificador escribe `#fff`; un color inventado
     # escrito corto (`#fa0`) tiene que caer igual que uno largo. Un color citado en un comentario
     # (cómo murió un color) no cuenta.
-    base = Path(tempfile.mkdtemp())
+    # 2.3: P5 exige leer todas las páginas del registro, así que el árbol es una copia de docs/
+    # (verde por sí sola) con los archivos de la prueba agregados.
+    base = Path(tempfile.mkdtemp()) / "dist"
+    shutil.copytree(ROOT / "docs", base)
     (base / "a").mkdir()
     (base / "a" / "index.html").write_text(
         '<style>.x{color:#fff;background:#7A00DF}</style><!-- antes era #ffd700 --><a href="#top">.</a>',
@@ -807,7 +810,7 @@ def _t_paleta_dist():
         ok = ok and rc != 0 and "P5" in out and esperado in out
         f.write_text(antes, encoding="utf-8")
     ok = ok and correr()[0] == 0
-    shutil.rmtree(base, ignore_errors=True)
+    shutil.rmtree(base.parent, ignore_errors=True)
     return ok
 
 
