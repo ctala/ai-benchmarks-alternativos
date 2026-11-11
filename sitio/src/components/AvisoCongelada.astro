@@ -1,0 +1,12 @@
+---
+// Página congelada (design.md D7): se compila con los datos de hoy y arriba dice desde cuándo,
+// por qué y dónde está lo vigente. `data-congelada` es lo que verifica check_registro R1.
+interface Props { c: { fecha: string; motivo: string; enlaces: { href: string; texto: string }[] } }
+const { c } = Astro.props;
+---
+<aside class="aviso aviso-congelada" data-congelada>
+  <p><strong>Página congelada desde el {c.fecha}.</strong> {c.motivo}</p>
+  <p>Para elegir hoy, mira {c.enlaces.map((e, i) => (
+    <>{i > 0 && ' o '}<a href={e.href}>{e.texto}</a></>
+  ))}.</p>
+</aside>

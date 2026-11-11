@@ -1,0 +1,22 @@
+---
+// Las páginas que compila Astro, desde el registro (`registro_paginas.py`, exportado por
+// `exportar_sitio.py`). Una URL que no está en el registro no se genera (check_registro R4).
+import Comparacion from '../../components/Comparacion.astro';
+import Redirect from '../../components/Redirect.astro';
+import registro from '../../datos/registro.json';
+import meta from '../../datos/meta.json';
+
+const datos = import.meta.glob('../../datos/comparaciones/*.json', { eager: true, import: 'default' });
+
+export function getStaticPaths() {
+  return registro
+    .filter((e: any) => e.tipo === 'comparacion' || e.redirect_a)
+    .map((e: any) => ({ params: { slug: e.slug }, props: { e } }));
+}
+const { e } = Astro.props as any;
+const c = e.redirect_a ? null : datos[`../../datos/comparaciones/${e.slug}.json`];
+if (!e.redirect_a && !c) throw new Error(`sin datos para /${e.slug}/: correr exportar_sitio.py`);
+---
+{e.redirect_a
+  ? <Redirect destino={e.destino} motivo={e.motivo} contrato={e.contrato_html} />
+  : <Comparacion c={c} meta={meta} />}

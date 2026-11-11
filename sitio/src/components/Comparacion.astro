@@ -1,0 +1,242 @@
+---
+// Una comparación «A vs B». Todo lo que decide (filas, ganadores, empates, el eje por eje, los
+// que salen del ranking) llega calculado de `exportar_sitio.py`, que usa el mismo código que
+// `generate_comparison.py` (design.md D2). Acá solo se dibuja.
+//
+// Contrato con check_registro: un modelo va por <Modelo> (data-modelo, R1), una cifra por
+// <Cifra> (data-cifra, R2), un nombre con dígitos que no es un modelo por <Nombre>, y los que
+// salen de la tabla, en el pie, con data-anterior.
+import Base from '../layouts/Base.astro';
+import Cifra from './Cifra.astro';
+import Modelo from './Modelo.astro';
+import Nombre from './Nombre.astro';
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+import AvisoCongelada from './AvisoCongelada.astro';
+
+interface Props { c: any; meta: any }
+const { c, meta } = Astro.props;
+const COMUNIDAD = 'https://go.aprenderepite.com/benchmark';
+const P = meta.pilares as string[];
+const h1 = c.foto ? `${c.a} vs ${c.b}: foto histórica de su comparación`
+                  : `${c.a} vs ${c.b}: cuál elegir en 2026 (benchmark real)`;
+const descripcion = `${c.a} vs ${c.b} comparados con ${meta.runs_k.toLocaleString('es-CL')}+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.`;
+const costo = (x: any) => `$${x.costo_in.toFixed(2)} / $${x.costo_out.toFixed(2)}`;
+const g = c.ganador;
+const e = c.eje;
+const faq = [
+  {
+    q: `¿${c.a} o ${c.b} es mejor en 2026?`,
+    a: c.foto
+      ? 'Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la calculadora con el ranking vigente.'
+      : g.empate
+        ? 'Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».'
+        : `Depende de la tarea. En calidad nuestro benchmark da arriba a ${g.gana.name}, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».`,
+  },
+  {
+    q: '¿Estos datos de dónde salen?',
+    a: `De un benchmark abierto con ${meta.runs_k.toLocaleString('es-CL')}+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en GitHub.`,
+  },
+  {
+    q: '¿Cuál es más barato para agentes con volumen?',
+    a: 'Mira la columna de costo en la tabla. Con volumen alto, el costo por millón de tokens pesa más en el retorno que una diferencia chica de calidad. Fíltralo por tu presupuesto en la calculadora.',
+  },
+];
+// El pie agrupa por motivo: con 19 versiones, repetir el mismo motivo en cada una no se lee.
+const porMotivo: [string, any[]][] = [];
+for (const m of c.fuera) {
+  const g = porMotivo.find(([t]) => t === m.motivo_texto);
+  g ? g[1].push(m) : porMotivo.push([m.motivo_texto, [m]]);
+}
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
+}, null, 2);
+---
+<Base titulo={c.titulo} descripcion={descripcion} keywords={c.keywords} url={c.url}
+      publicada={c.fecha_publicada} modificada={meta.hoy} contrato={c.contrato_html}>
+
+  <section class="hero">
+    {c.congelada && <AvisoCongelada c={c.congelada} />}
+    <Kicker>comparación</Kicker>
+    <Titulo nivel={1} texto={h1}><Nombre>{c.a}</Nombre> vs <Nombre>{c.b}</Nombre>: {c.foto ? 'foto histórica de su comparación' : 'cuál elegir en 2026 (benchmark real)'}</Titulo>
+    {c.foto
+      ? <p class="lead">Cómo rindieron <strong><Nombre>{c.a}</Nombre></strong> y <strong><Nombre>{c.b}</Nombre></strong> cuando se midieron, en los <Cifra v={P.length} /> pilares del emprendedor (coding, contenido, razonamiento, agentes), con costo y velocidad. Evaluados con LLM-as-Judge <Nombre>Phi-4</Nombre> vía OpenRouter.</p>
+      : <p class="lead">Comparamos las familias <strong><Nombre>{c.a}</Nombre></strong> y <strong><Nombre>{c.b}</Nombre></strong> con datos, no opiniones: <strong><Cifra v={meta.runs_k} suf="+" /> runs reales</strong> evaluados con LLM-as-Judge <Nombre>Phi-4</Nombre> vía OpenRouter, en los <Cifra v={P.length} /> pilares del emprendedor (coding, contenido, razonamiento, agentes), más costo y velocidad reales.</p>}
+    <div class="card versiones">
+      <span class="versiones-label">Versiones que entran en esta comparación</span>
+      <span><Nombre>{c.a}</Nombre>: {c.versiones.a.map((n: string, i: number) => <>{i > 0 && ', '}<strong data-nombre>{n}</strong></>)}{c.versiones.a_mas > 0 && <em> y <Cifra v={c.versiones.a_mas} /> más</em>}</span>
+      <span><Nombre>{c.b}</Nombre>: {c.versiones.b.map((n: string, i: number) => <>{i > 0 && ', '}<strong data-nombre>{n}</strong></>)}{c.versiones.b_mas > 0 && <em> y <Cifra v={c.versiones.b_mas} /> más</em>}</span>
+      <span class="meta">{c.congelada ? 'Página congelada: entran los modelos medidos de cada familia, con su etiqueta si no rankean.' : 'Solo entran modelos del ranking vigente.'} Ordenados por <strong>calidad</strong>, no por precio.</span>
+    </div>
+    <p class="meta">Última actualización: {meta.hoy} · <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+
+  <section class="results">
+    <Kicker>tabla</Kicker>
+    <Titulo texto={`${c.a} vs ${c.b}: tabla comparativa`}><Nombre>{c.a}</Nombre> vs <Nombre>{c.b}</Nombre>: tabla comparativa</Titulo>
+    <p class="meta"><strong>Calidad</strong> es la nota publicada (examen más tareas reales de agente) y ordena la tabla. Los pilares van al lado, en la misma escala. Costo y velocidad, en sus propias columnas.</p>
+    <div class="tabla-scroll"><table class="results-table">
+      <thead><tr>
+        <th scope="col" class="num">#</th><th scope="col">Modelo</th><th scope="col" class="num">Calidad</th>
+        {P.map((p) => <th scope="col" class="num">{p === 'Razonamiento' ? 'Razon.' : p}</th>)}
+        <th scope="col" class="num">US$ in / out por M</th><th scope="col" class="num">Velocidad</th>
+      </tr></thead>
+      <tbody>
+        {c.filas.map((f: any) => (
+          <tr>
+            <td class="num"><Cifra v={f.rank} /></td>
+            <td><Modelo m={f} fuerte={f.top} />{f.no_rankea && <span class="no-rankea" title={f.no_rankea}>no rankea</span>}</td>
+            <td class="num"><strong><Cifra v={f.calidad} d={2} /></strong></td>
+            {P.map((p) => <td class="num"><Cifra v={f.pilares[p]} d={1} /></td>)}
+            <td class="num" data-cifra>{costo(f)}</td>
+            <td class="num"><Cifra v={f.tps} suf=" tok/s" /></td>
+          </tr>
+        ))}
+      </tbody>
+    </table></div>
+    <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
+  </section>
+
+  {e && (
+    <section class="eje-eje">
+      <Kicker>eje por eje</Kicker>
+      <Titulo texto={`Eje por eje: ${c.campeones.a.name} vs ${c.campeones.b.name}`}>Eje por eje: <Modelo m={c.campeones.a} /> vs <Modelo m={c.campeones.b} /></Titulo>
+      <p class="meta">El mejor de cada familia, comparados en cada cosa que se mide por separado. Un promedio esconde el eje que te importa: un modelo puede ir arriba en uno y abajo en el índice general. Nota sobre diez, calidad pura.</p>
+      {e.solo_a === 0 && e.solo_b === 0
+        ? <p class="aviso"><strong>Mismo examen completo.</strong> Los dos rindieron los <Cifra v={e.comunes} /> ejes: cada fila de abajo es comparable.</p>
+        : <p class="aviso"><strong>El examen no está parejo.</strong> Solo los <Cifra v={e.comunes} /> ejes que rindieron los dos son comparables; los demás salen marcados «sin comparar» y no cuentan para el resultado.</p>}
+      <div class="tabla-scroll"><table class="results-table eje-tabla">
+        <thead><tr>
+          <th scope="col">Qué decide</th><th scope="col" class="num"><span data-modelo={c.campeones.a.key}>{c.campeones.a.name}</span></th>
+          <th scope="col" class="num"><span data-modelo={c.campeones.b.key}>{c.campeones.b.name}</span></th><th scope="col" class="num">Gana</th>
+        </tr></thead>
+        <tbody>
+          {e.grupos.map((gr: any) => (
+            <>
+              <tr class="eje-pilar"><td colspan="4">{gr.pilar}</td></tr>
+              {gr.filas.map((f: any) => (
+                <tr>
+                  <td class="eje-nombre">{f.decide}<small data-nombre>{f.suite}</small></td>
+                  <td class:list={['num', { gana: f.gana === 'a', 'sin-dato': f.a === null }]}><Cifra v={f.a} d={2} /></td>
+                  <td class:list={['num', { gana: f.gana === 'b', 'sin-dato': f.b === null }]}><Cifra v={f.b} d={2} /></td>
+                  <td class:list={['num', { 'sin-dato': f.gana === null || f.gana === 'sin_comparar' }]}>
+                    {f.gana === null ? '—' : f.gana === 'sin_comparar' ? 'sin comparar' : f.gana === 'empate' ? 'empate' : f.gana === 'a' ? '←' : '→'}
+                  </td>
+                </tr>
+              ))}
+            </>
+          ))}
+        </tbody>
+      </table></div>
+      <p class="meta"><Modelo m={c.campeones.a} fuerte /> gana <Cifra v={e.gana_a} /> ejes, <Modelo m={c.campeones.b} fuerte /> gana <Cifra v={e.gana_b} />{e.empates > 0 && <>, empatan <Cifra v={e.empates} /></>}, de <Cifra v={e.comunes} /> que ambos rindieron.</p>
+    </section>
+  )}
+
+  <section>
+    <Kicker>metodología</Kicker>
+    <Titulo texto="¿Qué mide este benchmark?">¿Qué mide este benchmark?</Titulo>
+    <p>No es un benchmark académico. Es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren: costo en un proveedor real, velocidad, español neutro y agentes de varios turnos.</p>
+    <p>Hay <strong><Cifra v={meta.modelos_catalogados} /> modelos catalogados</strong>, <strong><Cifra v={meta.modelos_testeados} /> medidos</strong> y <strong><Cifra v={meta.runs_k} suf="+" /> runs reales</strong> evaluados por un LLM-as-Judge (<Nombre>Phi-4</Nombre>, de Microsoft, vía OpenRouter, sin conflicto de interés), en <Cifra v={P.length} /> pilares:</p>
+    <ul>
+      {P.map((p) => <li><strong>{meta.pilar_desc[p].titulo}</strong>: {meta.pilar_desc[p].que}.</li>)}
+    </ul>
+    <p><strong>Dos números distintos.</strong> La tabla se ordena por <strong>calidad</strong>, sin mezclar precio: responde «¿quién lo hace mejor?». El <strong>score global</strong> de la calculadora pondera calidad (<Cifra v={meta.pesos.quality} suf=" %" />), costo (<Cifra v={meta.pesos.cost} suf=" %" />), velocidad (<Cifra v={meta.pesos.speed} suf=" %" />) y latencia (<Cifra v={meta.pesos.latency} suf=" %" />): responde «¿qué conviene poner en producción?».</p>
+    <p><strong>Límite conocido:</strong> el juez es un modelo chico y varios evaluados son más capaces que él. Ordena bien, pero comprime las diferencias en la cima: un empate quiere decir que el juez no los distingue, no que sean idénticos. <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+  </section>
+
+  {!c.foto && (
+    <>
+      <section class="card card-destacada">
+        <Kicker>veredicto</Kicker>
+        <Titulo texto="Veredicto rápido">Veredicto rápido</Titulo>
+        <p>
+          {g.empate
+            ? <>En calidad el benchmark <strong>no separa</strong> a <Modelo m={g.gana} /> (<Cifra v={g.gana.nota} d={2} vacio="sin nota" />) de <Modelo m={g.pierde} /> (<Cifra v={g.pierde.nota} d={2} vacio="sin nota" />): la diferencia cabe en el margen de error.</>
+            : <>En calidad gana <Modelo m={g.gana} fuerte /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
+          {' '}La calidad suma el examen y tareas reales de agente. Pero <strong>no hay ganador universal</strong>: cambia por tipo de trabajo.
+        </p>
+      </section>
+
+      <section>
+        <Kicker>por tipo de trabajo</Kicker>
+        <Titulo texto={`${c.a} vs ${c.b} por tipo de trabajo`}><Nombre>{c.a}</Nombre> vs <Nombre>{c.b}</Nombre> por tipo de trabajo</Titulo>
+        {c.pilares.map((v: any) => (
+          <>
+            <h3 class="titulo-corto">{v.label}</h3>
+            <p><em>Qué medimos: {v.que_mide}.</em><br />
+              {v.empate
+                ? <>Empate técnico en calidad: <Modelo m={v.a} fuerte /> y <Modelo m={v.b} fuerte /> rinden casi igual (<Cifra v={v.nota_max} d={1} pre="≈" />). Acá no decidimos por ti: si te importa el costo, <Modelo m={v.barato} fuerte /> sale <span data-cifra>{costo(v.barato)}</span> por millón; si ya tienes <Modelo m={v.otro} /> en tu stack, no hay razón para cambiar.</>
+                : <>En calidad pura de este pilar gana <Modelo m={v.gana} fuerte /> {v.fuerza}: <Cifra v={v.gana.nota} d={1} /> contra <Cifra v={v.pierde.nota} d={1} /> de <Modelo m={v.pierde} /> (Δ <Cifra v={v.margen} d={1} />), a <span data-cifra>{costo(v.gana)}</span> por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar: ajústalo en la calculadora.</>}
+            </p>
+          </>
+        ))}
+      </section>
+
+      <section class="results">
+        <Kicker>resumen</Kicker>
+        <Titulo texto="Resumen: quién gana según tu caso">Resumen: quién gana según tu caso</Titulo>
+        <div class="tabla-scroll"><table class="results-table">
+          <thead><tr><th scope="col">Tu caso</th><th scope="col">Ganador</th></tr></thead>
+          <tbody>
+            {c.pilares.map((v: any) => (
+              <tr><td>{v.label}</td><td>{v.empate
+                ? <>Empate: <Modelo m={v.a} /> o <Modelo m={v.b} /></>
+                : <><Modelo m={v.gana} fuerte /> (por calidad)</>}</td></tr>
+            ))}
+            <tr><td>Costo más bajo</td><td><Modelo m={c.extremos.barato} fuerte /> (<span data-cifra>{costo(c.extremos.barato)}</span>)</td></tr>
+            <tr><td>Más rápido</td><td><Modelo m={c.extremos.rapido} fuerte /> (<Cifra v={c.extremos.rapido.tps} suf=" tok/s" />)</td></tr>
+          </tbody>
+        </table></div>
+        <p class="meta">El ganador real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. Ajusta esos pesos en la <a href="/">calculadora</a>.</p>
+      </section>
+    </>
+  )}
+
+  {c.fuera.length > 0 && (
+    <section id="versiones-anteriores">
+      <Kicker>versiones anteriores</Kicker>
+      <Titulo texto="Las que no están en el ranking vigente">Las que no están en el ranking vigente</Titulo>
+      <p class="meta">Esta tabla compara solo modelos del ranking vigente. Estas <Cifra v={c.fuera.length} /> versiones de las dos familias se midieron, pero no compiten hoy; cada una tiene su motivo.</p>
+      <ul class="anteriores">
+        {porMotivo.map(([texto, ms]: [string, any[]]) => (
+          <li><span class="motivo">Porque {texto}:</span>{' '}{ms.map((m: any, i: number) => (
+            <>{i > 0 && ', '}{m.ficha
+              ? <a data-anterior={m.key} href={m.ficha}>{m.name}</a>
+              : <span data-anterior={m.key}>{m.name}</span>}</>
+          ))}.</li>
+        ))}
+      </ul>
+      <p><a class="enlace-flecha" href="/#historico">Versiones anteriores →</a></p>
+    </section>
+  )}
+
+  <section class="funnel">
+    <Kicker>antes de migrar</Kicker>
+    <Titulo texto="Antes de migrar, haz esto">Antes de migrar, haz esto</Titulo>
+    <p>No cambies de modelo a ciegas: toma <strong>el mejor de cada familia</strong> y pásales unos cuantos <strong>prompts reales tuyos</strong>, de los que ya corres en producción. Una comparación general dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</p>
+    <p class="meta">Este resultado se recalcula con cada lote de modelos nuevos: el ganador de hoy puede no serlo el mes que viene.</p>
+    <p><a href={COMUNIDAD} target="_blank" rel="noopener" class="cta">Ver la comunidad →</a></p>
+  </section>
+
+  <section class="faq">
+    <script type="application/ld+json" set:html={faqLd} />
+    <Kicker>preguntas</Kicker>
+    <Titulo texto="Preguntas frecuentes">Preguntas frecuentes</Titulo>
+    <details><summary><strong>¿<Nombre>{c.a}</Nombre> o <Nombre>{c.b}</Nombre> es mejor en 2026?</strong></summary>
+      <p>{c.foto ? <>Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la <a href="/">calculadora</a> con el ranking vigente.</>
+        : g.empate ? <>Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».</>
+        : <>Depende de la tarea. En calidad nuestro benchmark da arriba a <Modelo m={g.gana} fuerte />, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».</>}</p></details>
+    <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
+      <p>De un benchmark abierto con <Cifra v={meta.runs_k} suf="+" /> runs reales y LLM-as-Judge (<Nombre>Phi-4</Nombre>, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
+    <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
+      <p>Mira la columna de costo en la tabla. Con volumen alto, el costo por millón de tokens pesa más en el retorno que una diferencia chica de calidad. Fíltralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
+  </section>
+
+  <section class="cta-block">
+    <Kicker>calculadora</Kicker>
+    <Titulo texto="Prueba la calculadora con tu caso real">Prueba la calculadora con tu caso real</Titulo>
+    <p>Filtra <Nombre>{c.a}</Nombre>, <Nombre>{c.b}</Nombre> y <Cifra v={meta.modelos_testeados} /> modelos más por presupuesto, calidad y tipo de tarea.</p>
+    <a href="/" class="enlace-flecha">Ir a la calculadora →</a>
+  </section>
+</Base>

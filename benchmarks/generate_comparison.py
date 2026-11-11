@@ -714,52 +714,70 @@ def _nota_campeon(m):
             f'<a href="/">Ver el ranking completo</a>.</p>')
 
 
-def eje_por_eje(a, b):
-    """Tabla fila-por-eje entre los dos campeones, agrupada por pilar.
+def _gana(va, vb):
+    """Quién gana un eje: 'a', 'b', 'empate', 'sin_comparar' (solo uno lo rindió) o None.
+    La tolerancia es 0,005: la resolución de los dos decimales que se publican. Sin ella,
+    con 9,201 vs 9,199 la columna decía «empate» y la celda salía resaltada como ganadora."""
+    if va is None and vb is None:
+        return None
+    if va is None or vb is None:
+        return "sin_comparar"
+    if abs(va - vb) < 0.005:
+        return "empate"
+    return "a" if va > vb else "b"
 
-    Incluye a propósito las suites que NO suman al promedio del pilar
-    (`agent_long_horizon`, `tool_calling_adversarial`, `content_verificable`): acá cada
-    eje se lee solo, así que excluirlas escondería justo lo que más decide en un agente.
-    """
+
+def datos_eje(a, b):
+    """El cálculo del eje por eje, sin HTML (motor-sitio 1.5): lo leen esta página y el
+    export del sitio nuevo. Incluye a propósito las suites que NO suman al promedio del
+    pilar: acá cada eje se lee solo."""
     reg = (get_meta().get("suites") or {})
     if not reg:
-        return ""
-
+        return None
     por_pilar = {}
     for sid, s in reg.items():
         if s.get("pilar"):
             por_pilar.setdefault(s["pilar"], []).append((sid, s))
     aparte = [(sid, s) for sid, s in reg.items() if not s.get("pilar")]
 
-    gana_a = gana_b = comunes = solo_a = solo_b = 0
-    filas = []
+    def fila(sid, s):
+        va, vb = _suite_val(a, sid), _suite_val(b, sid)
+        return {"suite": sid, "decide": s["decide"], "a": va, "b": vb, "gana": _gana(va, vb)}
+
+    grupos = []
     for pil in PILLARS:
         ejes = sorted(por_pilar.get(pil, []), key=lambda x: x[1]["decide"])
-        if not ejes:
-            continue
-        filas.append(f'<tr class="eje-pilar"><td colspan="4">{esc(pil)}</td></tr>')
-        for sid, s in ejes:
-            va, vb = _suite_val(a, sid), _suite_val(b, sid)
-            if va is not None and vb is not None:
-                comunes += 1
-                if va > vb:
-                    gana_a += 1
-                elif vb > va:
-                    gana_b += 1
-            elif va is not None:
-                solo_a += 1
-            elif vb is not None:
-                solo_b += 1
-            filas.append(_fila_eje(sid, s, va, vb))
-
+        if ejes:
+            grupos.append({"pilar": pil, "aparte": False, "filas": [fila(sid, s) for sid, s in ejes]})
+    en_pilar = [f for g in grupos for f in g["filas"]]
     if aparte:
-        filas.append('<tr class="eje-pilar"><td colspan="4">Se reportan aparte '
-                     '(no entran a ningún promedio)</td></tr>')
-        for sid, s in sorted(aparte, key=lambda x: x[1]["decide"]):
-            filas.append(_fila_eje(sid, s, _suite_val(a, sid), _suite_val(b, sid)))
+        grupos.append({"pilar": "Se reportan aparte (no entran a ningún promedio)", "aparte": True,
+                       "filas": [fila(sid, s) for sid, s in sorted(aparte, key=lambda x: x[1]["decide"])]})
+    gana_a = sum(1 for f in en_pilar if f["gana"] == "a")
+    gana_b = sum(1 for f in en_pilar if f["gana"] == "b")
+    comunes = sum(1 for f in en_pilar if f["a"] is not None and f["b"] is not None)
+    solo_a = sum(1 for f in en_pilar if f["a"] is not None and f["b"] is None)
+    solo_b = sum(1 for f in en_pilar if f["b"] is not None and f["a"] is None)
+    return {"grupos": grupos, "gana_a": gana_a, "gana_b": gana_b, "comunes": comunes,
+            "solo_a": solo_a, "solo_b": solo_b, "empates": comunes - gana_a - gana_b}
+
+
+def eje_por_eje(a, b):
+    """Tabla fila-por-eje entre los dos campeones, agrupada por pilar."""
+    d = datos_eje(a, b)
+    if d is None:
+        return ""
+    filas = []
+    for g in d["grupos"]:
+        if g["aparte"]:
+            filas.append('<tr class="eje-pilar"><td colspan="4">Se reportan aparte '
+                         '(no entran a ningún promedio)</td></tr>')
+        else:
+            filas.append(f'<tr class="eje-pilar"><td colspan="4">{esc(g["pilar"])}</td></tr>')
+        filas += [_fila_eje(f["suite"], {"decide": f["decide"]}, f["a"], f["b"]) for f in g["filas"]]
 
     na, nb = esc(a["name"]), esc(b["name"])
-    empates = comunes - gana_a - gana_b
+    gana_a, gana_b, comunes, empates = d["gana_a"], d["gana_b"], d["comunes"], d["empates"]
     veredicto = (f"<strong>{na}</strong> gana {gana_a} ejes, <strong>{nb}</strong> gana "
                  f"{gana_b}" + (f", empatan {empates}" if empates else "") +
                  f" — de {comunes} que ambos rindieron.")
@@ -768,7 +786,7 @@ def eje_por_eje(a, b):
   <p class="meta">Los dos mejores de cada familia, comparados en cada cosa que se mide por separado.
   Un promedio de 29 ejes esconde el que te importa: hay modelos que son <strong>#3 en multi-turno
   sin herramientas y #76 en el índice general</strong>. Nota /10, calidad pura.</p>
-  {_cobertura(na, nb, comunes, solo_a, solo_b)}
+  {_cobertura(na, nb, comunes, d["solo_a"], d["solo_b"])}
   {_nota_campeon(a)}{_nota_campeon(b)}
   <div class="table-scroll"><table class="results-table eje-tabla">
     <thead><tr>
@@ -785,27 +803,24 @@ def eje_por_eje(a, b):
 
 def _fila_eje(sid, s, va, vb):
     """Fila de dos líneas: qué decide (humano) arriba, el id técnico abajo."""
-    def cel(v, otro):
+    g = _gana(va, vb)
+
+    def cel(v, gana):
         if v is None:
             return '<td class="num sin-dato" title="No rindió este eje">—</td>'
-        # La misma tolerancia que decide la columna «Gana» (0,005 = la resolución de los
-        # dos decimales que se publican). Sin ella, con 9,201 vs 9,199 la columna decía
-        # «empate» y la celda igual salía resaltada como ganadora: dos partes de la misma
-        # fila afirmando cosas distintas.
-        gana = otro is not None and v > otro and abs(v - otro) >= 0.005
         return f'<td class="num{" gana" if gana else ""}">{v:.2f}</td>'
 
-    if va is None and vb is None:
+    if g is None:
         quien = '<td class="num sin-dato">—</td>'
-    elif va is None or vb is None:
+    elif g == "sin_comparar":
         quien = '<td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td>'
-    elif abs(va - vb) < 0.005:
+    elif g == "empate":
         quien = '<td class="num">empate</td>'
     else:
-        quien = f'<td class="num">{"←" if va > vb else "→"}</td>'
+        quien = f'<td class="num">{"←" if g == "a" else "→"}</td>'
     return (f'<tr><td class="eje-nombre">{esc(s["decide"])}'
             f'<small>{esc(sid)}</small></td>'
-            f'{cel(va, vb)}{cel(vb, va)}{quien}</tr>')
+            f'{cel(va, g == "a")}{cel(vb, g == "b")}{quien}</tr>')
 
 
 def _cobertura(na, nb, comunes, solo_a, solo_b):
@@ -887,6 +902,39 @@ def ganador_calidad(a, b):
     return w, l, _indistinguishable(a, b, None)
 
 
+def datos_pilares(A, B):
+    """El ganador de cada pilar entre los mejores de cada familia, sin HTML (motor-sitio 1.5).
+    Empate técnico si la calidad difiere en menos de 0,1: ahí no decide el benchmark, decide
+    la prioridad del lector, y se nombra al más barato."""
+    out = []
+    for pil in PILLARS:
+        label, what, _ = PILLAR_DESC[pil]
+        ba, bb = best_in(A, pil), best_in(B, pil)
+        if not ba or not bb:
+            continue
+        diff = pillar(ba, pil) - pillar(bb, pil)
+        v = {"pilar": pil, "label": label, "what": what, "ba": ba, "bb": bb,
+             "empate": abs(diff) < 0.1}
+        if v["empate"]:
+            cheaper = ba if (ba.get("cost_input_per_M") or 99) <= (bb.get("cost_input_per_M") or 99) else bb
+            v["cheaper"], v["other"] = cheaper, (bb if cheaper is ba else ba)
+        else:
+            w = ba if diff > 0 else bb
+            v["w"], v["l"] = w, (bb if w is ba else ba)
+            v["margin"] = abs(diff)
+            v["strength"] = "claramente" if v["margin"] >= 0.5 else "por poco"
+        out.append(v)
+    return out
+
+
+def extremos(A, B):
+    """(el más barato, el más rápido) entre los rankeados de las dos familias."""
+    pool = _rankeados_o_todos(A) + _rankeados_o_todos(B)
+    cheap = min(pool, key=lambda m: (m.get("cost_input_per_M") or 99) + (m.get("cost_output_per_M") or 99))
+    fast = max(pool, key=lambda m: m.get("tokens_per_second") or 0)
+    return cheap, fast
+
+
 def analysis(a_name, b_name, A, B):
     """V/S real por tipo de trabajo (data-driven, cero invención: todo sale de los scores)."""
     a0, b0 = A[0], B[0]
@@ -907,25 +955,18 @@ def analysis(a_name, b_name, A, B):
 
     secs.append(f"<section>\n  <h2>{esc(a_name)} vs {esc(b_name)} por tipo de trabajo</h2>")
     verdict_rows = []
-    for pil in PILLARS:
-        label, what, _ = PILLAR_DESC[pil]
-        ba, bb = best_in(A, pil), best_in(B, pil)
-        if not ba or not bb:
-            continue
-        diff = pillar(ba, pil) - pillar(bb, pil)
-        if abs(diff) < 0.1:  # empate técnico en CALIDAD — la prioridad del lector desempata, no nosotros
-            cheaper = ba if (ba.get("cost_input_per_M") or 99) <= (bb.get("cost_input_per_M") or 99) else bb
-            other = bb if cheaper is ba else ba
+    for v in datos_pilares(A, B):
+        pil, label, what = v["pilar"], v["label"], v["what"]
+        ba, bb = v["ba"], v["bb"]
+        if v["empate"]:  # empate técnico en CALIDAD — la prioridad del lector desempata, no nosotros
+            cheaper, other = v["cheaper"], v["other"]
             win_name = f"Empate — {esc(ba.get('name'))} o {esc(bb.get('name'))}"
             body = (f"Empate técnico en calidad: <strong>{esc(ba.get('name'))}</strong> y <strong>{esc(bb.get('name'))}</strong> "
                     f"rinden casi igual (≈{max(pillar(ba,pil),pillar(bb,pil)):.1f}/10). Acá no decidimos por ti: "
                     f"si te importa el costo, <strong>{esc(cheaper.get('name'))}</strong> sale {fmt_cost(cheaper)} por millón; "
                     f"si ya tienes {esc(other.get('name'))} en tu stack, no hay razón para cambiar — la calidad es la misma.")
         else:
-            w = ba if diff > 0 else bb
-            l = bb if w is ba else ba
-            margin = abs(diff)
-            strength = "claramente" if margin >= 0.5 else "por poco"
+            w, l, margin, strength = v["w"], v["l"], v["margin"], v["strength"]
             win_name = f"{esc(w.get('name'))} (por calidad)"
             body = (f"En calidad pura de este pilar gana <strong>{esc(w.get('name'))}</strong> {strength}: {pillar(w,pil):.1f}/10 "
                     f"contra {pillar(l,pil):.1f}/10 de {esc(l.get('name'))} (Δ {margin:.1f}). A {fmt_cost(w)} por millón. "
@@ -936,8 +977,7 @@ def analysis(a_name, b_name, A, B):
     secs.append("</section>")
 
     # cost / speed
-    cheap = min(_rankeados_o_todos(A) + _rankeados_o_todos(B), key=lambda m: (m.get("cost_input_per_M") or 99) + (m.get("cost_output_per_M") or 99))
-    fast = max(_rankeados_o_todos(A) + _rankeados_o_todos(B), key=lambda m: m.get("tokens_per_second") or 0)
+    cheap, fast = extremos(A, B)
     verdict_rows.append(f"<tr><td>Costo más bajo</td><td><strong>{esc(cheap.get('name'))}</strong> ({fmt_cost(cheap)})</td></tr>")
     verdict_rows.append(f"<tr><td>Más rápido</td><td><strong>{esc(fast.get('name'))}</strong> ({round(fast.get('tokens_per_second') or 0)} tok/s)</td></tr>")
 

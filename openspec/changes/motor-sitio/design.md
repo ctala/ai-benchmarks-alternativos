@@ -69,6 +69,9 @@ Corren dentro de `npm run build` (en `prebuild` y `postbuild`) y como bloqueante
 - **R2** · una cifra visible del HTML compilado no viene de un componente que la marque (`data-cifra`). Las celdas de tabla, `<Cifra>` y los conteos la emiten. Quedan exentos los años, las fechas y una lista con motivo. Se mira lo compilado y no la fuente: así también se caza la cifra escrita en el código de una plantilla.
 - **R3** · una URL del sitio publicado (`docs/sitemap.xml` y los directorios de `docs/`) no existe en `dist` ni como página ni como redirect.
 - **R4** · un `index.html` de `dist` no tiene entrada en el registro.
+- **R5** · un modelo fuera del ranking no tiene motivo registrado, o `ranked` contradice su elegibilidad. Es un error de datos: el export tampoco publica (decisión de Cristian, 11-nov-2026).
+
+**R1 estricta en las comparaciones por familia** (Cristian, 11-nov-2026, opción A). Al 11-nov, las 10 comparaciones por familia mostraban 44 modelos que no rankean, con la etiqueta «no rankea»: 35 del histórico, 4 con examen incompleto, 2 de esfuerzo, 2 en hardware propio y 1 sin motivo (corregido, R5). La tabla lleva solo los rankeados. Al pie de cada comparación va un enlace «Versiones anteriores →» a las fichas de los que salen, así que ninguno queda sin camino.
 
 ### D6. Redirects con plantilla propia
 `Redirect.astro` escribe meta refresh 0, canonical, `noindex, follow` y el `contrato-pagina` de tipo redirect. Es el patrón que ya usa el sitio, y así `auditar_paginas` los sigue leyendo. No se usa `redirects` de Astro porque no emite el contrato.
@@ -81,7 +84,7 @@ Las páginas `motor: legado` se copian tal cual desde `docs/` a `dist`. `style.c
 
 ### D9. Paridad: `benchmarks/paridad_sitio.py`
 - **URLs:** las mismas de `docs/`, o un redirect declarado.
-- **Contenido:** por cada página migrada, el mismo contrato que publica hoy (`recomienda`, `ordena_por`, `filas` por tabla). Las diferencias a propósito (las 16 que redirigen) se declaran con su motivo en el registro.
+- **Contenido:** por cada página migrada, el mismo contrato que publica hoy (`recomienda`, `ordena_por`, `filas` por tabla). Las diferencias a propósito se declaran con su motivo: las 16 que redirigen, en el registro, y las filas que salen por R1, con el motivo de elegibilidad de cada modelo.
 
 ## Páginas de versión exacta (aprobadas por Cristian el 11-nov-2026)
 Redirigen a su comparación por familia (16):

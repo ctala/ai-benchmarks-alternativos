@@ -1,0 +1,8 @@
+---
+// Cercano: un título de más de seis palabras va en Inter 700; uno corto, en JetBrains Mono.
+interface Props { nivel?: 1 | 2 | 3; texto: string; id?: string }
+const { nivel = 2, texto, id } = Astro.props;
+const Tag = `h${nivel}`;
+const largo = texto.trim().split(/\s+/).length > 6;
+---
+<Tag id={id} class={largo ? 'titulo-largo' : 'titulo-corto'}><slot /></Tag>

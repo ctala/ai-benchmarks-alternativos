@@ -24,6 +24,10 @@ este script hace que esa declaración no sea una promesa.
 LO QUE LAS PLANTILLAS DEBEN EMITIR (el contrato con Astro):
   - `data-modelo="<key>"` en todo elemento que nombra a un modelo;
   - `data-cifra` en todo elemento cuyo texto es una cifra (celdas, `<Cifra>`, conteos);
+  - `data-nombre` en un nombre que no es un solo modelo (la etiqueta de una familia, el id de
+    una suite, «Phi-4»): R2 no lo lee como cifra;
+  - `data-anterior="<key>"` en el pie «Versiones anteriores»: los modelos que salen de la tabla
+    por R1, con su ficha. Ahí R1 exige lo contrario: que NO rankeen;
   - `data-congelada` en el aviso de una página congelada;
   - en un redirect, meta refresh 0 y canonical al destino, y `noindex, follow`.
 
@@ -55,6 +59,12 @@ COPIA_LEGADO = False   # pasa a True en la tarea 2.2, cuando `dist` lleve tambi�
 
 # Texto con dígitos que no es una cifra del benchmark. Cada uno con su motivo.
 EXENTAS: dict[str, str] = {}
+# Términos con dígitos que son nombres, no cifras. Llegan en textos de los datos (la
+# descripción de un pilar, el motivo de elegibilidad), donde no hay un componente que marcar.
+TERMINOS: dict[str, str] = {
+    "N8N": "nombre de producto (la descripción del pilar Agentes)",
+    "v5": "nombre de la versión del examen (el motivo «histórico» de elegibilidad)",
+}
 
 _MESES = "ene|feb|mar|abr|may|jun|jul|ago|sep|sept|oct|nov|dic"
 _EXENTO_RE = re.compile(
@@ -74,6 +84,7 @@ class _Lector(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.pila: list[tuple[str, bool, bool]] = []   # (tag, marcado, oculto)
         self.modelos: list[str] = []
+        self.anteriores: list[str] = []
         self.congelada = False
         self.sueltos: list[str] = []
         self.refresh = self.canonical = self.robots = None
@@ -82,6 +93,8 @@ class _Lector(HTMLParser):
         a = dict(attrs)
         if "data-modelo" in a:
             self.modelos.append(a["data-modelo"] or "")
+        if "data-anterior" in a:
+            self.anteriores.append(a["data-anterior"] or "")
         if "data-congelada" in a:
             self.congelada = True
         if tag == "meta" and (a.get("http-equiv") or "").lower() == "refresh":
@@ -94,7 +107,8 @@ class _Lector(HTMLParser):
             return
         padre_m = self.pila[-1][1] if self.pila else False
         padre_o = self.pila[-1][2] if self.pila else False
-        self.pila.append((tag, padre_m or "data-cifra" in a or "data-modelo" in a,
+        marca = any(k in a for k in ("data-cifra", "data-modelo", "data-nombre", "data-anterior"))
+        self.pila.append((tag, padre_m or marca,
                           padre_o or tag in _OCULTOS))
 
     def handle_endtag(self, tag):
@@ -121,7 +135,10 @@ def cifras_sueltas(textos: list[str]) -> list[str]:
     for t in textos:
         if t in EXENTAS:
             continue
-        if re.search(r"\d", _EXENTO_RE.sub("", t)):
+        limpio = _EXENTO_RE.sub("", t)
+        for term in TERMINOS:
+            limpio = re.sub(rf"\b{re.escape(term)}\b", "", limpio)
+        if re.search(r"\d", limpio):
             out.append(t[:90])
     return out
 
@@ -178,6 +195,10 @@ def revisar(dist: Path | None, docs: Path, regs: list[dict], ranked: dict[str, b
         if fuera and not e["congelada"]:
             fallos.append(f"R1 · {e['url']}: muestra modelos fuera del ranking vigente sin estar "
                           f"congelada: {', '.join(fuera)}")
+        vigentes = sorted({k for k in p.anteriores if ranked.get(k, False)})
+        if vigentes:
+            fallos.append(f"R1 · {e['url']}: lista como versión anterior a modelos que rankean: "
+                          f"{', '.join(vigentes)}")
         if e["congelada"] and not p.congelada:
             fallos.append(f"R1 · {e['url']}: está congelada y no muestra el aviso (data-congelada)")
         for c in cifras_sueltas(p.sueltos):

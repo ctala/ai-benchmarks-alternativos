@@ -485,6 +485,64 @@ def _t_registro_motivo():
     return out.returncode != 0 and f"R5 · {m['key']}" in out.stdout
 
 
+@prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida y una congelada que cambia")
+def _t_paridad_sitio():
+    # 11-nov-2026 (motor-sitio 1.7). El corte reemplaza docs/ por lo que compila Astro: una
+    # diferencia sin declarar se publicaría en silencio. Sin Node en el CI (llega en la 2.5),
+    # el `dist` se arma desde los contratos de docs/ tal como Astro debe publicarlos —sin los
+    # modelos de `fuera` y con los redirects del registro—, se exige verde y se rompe.
+    import contrato_pagina, registro_paginas as rp
+    if _correr("exportar_sitio.py") != 0:
+        return False
+    datos = ROOT / "sitio" / "src" / "datos" / "comparaciones"
+    base = Path(tempfile.mkdtemp()) / "dist"
+    regs = [e for e in rp.paginas() if e["motor"] == "astro"]
+
+    def escribir(e, contrato):
+        f = base / e["url"].strip("/") / "index.html"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"<html><body>{contrato}</body></html>", encoding="utf-8")
+        return f
+
+    paginas = {}
+    for e in regs:
+        if e["redirect_a"]:
+            paginas[e["slug"]] = escribir(e, contrato_pagina.emitir("redirect", "x", []))
+            continue
+        c = contrato_pagina.leer((ROOT / "docs" / e["slug"] / "index.html").read_text(encoding="utf-8"))
+        fuera = {m["name"] for m in json.loads((datos / f"{e['slug']}.json").read_text(encoding="utf-8"))["fuera"]}
+        rec = [n for n in c["recomienda"] if n not in fuera]
+        tablas = [dict(t, filas=len(rec)) for t in c.get("tablas") or []] if fuera & set(c["recomienda"]) else c.get("tablas")
+        paginas[e["slug"]] = escribir(e, contrato_pagina.emitir(c["tipo"], "x", rec, c.get("ordena_por"), tablas))
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "paridad_sitio.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0  # control
+    viva = next(e for e in regs if not e["redirect_a"] and not e["congelada"])
+    cong = next(e for e in regs if e["congelada"])
+    for e, cambio, marca in (
+            (viva, lambda c: c.update(recomienda=c["recomienda"][1:]), "sin estar declarado"),
+            (cong, lambda c: c.update(ordena_por="Precio"), "ordena_por cambió"),
+            (viva, None, "se perdió")):
+        f = paginas[e["slug"]]
+        antes = f.read_text(encoding="utf-8")
+        if cambio is None:
+            f.unlink()
+        else:
+            c = contrato_pagina.leer(antes)
+            cambio(c)
+            f.write_text(f"<html><body>{contrato_pagina.emitir(c['tipo'], 'x', c['recomienda'], c.get('ordena_por'), c.get('tablas'))}</body></html>",
+                         encoding="utf-8")
+        rc, out = correr()
+        ok = ok and rc != 0 and f"{e['url']}" in out and marca in out
+        f.write_text(antes, encoding="utf-8")
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_paleta P3/P4", "un color literal en el motor nuevo y un token editado a mano")
 def _t_paleta_sitio():
     # 11-nov-2026 (motor-sitio 1.2). En `sitio/` ningún color se escribe: sale de tokens.css,
@@ -531,7 +589,8 @@ def _t_registro():
         aviso = '<div data-congelada>Foto del 11-nov-2026</div>' if e["congelada"] else ""
         return (f'<html><head><title>X vs Y en 2026</title></head><body>{aviso}<table><tr>'
                 f'<td data-modelo="{modelo}">Modelo 4.5</td><td data-cifra>7,21</td></tr></table>'
-                f'<p>Medido el 11-nov-2026.</p>{extra}</body></html>')
+                f'<p>Medido el 11-nov-2026 con <span data-nombre>Phi-4</span>.</p>'
+                f'<a data-anterior="{fuera}" href="#">Versión 4.1</a>{extra}</body></html>')
 
     def escribir(e, html):
         f = base / e["url"].strip("/") / "index.html"
@@ -553,6 +612,7 @@ def _t_registro():
     casos = [
         ("R1", viva, pagina(viva, modelo=fuera)),
         ("R1", cong, pagina(cong).replace("<div data-congelada>", "<div>")),
+        ("R1", viva, pagina(viva, extra=f'<a data-anterior="{dentro}" href="#">Anterior</a>')),
         ("R2", viva, pagina(viva, extra="<p>Gana por 0,45 puntos.</p>")),
         ("R3", redi, pagina(redi).replace(redi["redirect_a"], "otra-parte")),
         ("R3", viva, None),

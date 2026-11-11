@@ -1,0 +1,8 @@
+---
+// Toda cifra visible pasa por acá y sale marcada con `data-cifra` (check_registro R2).
+// Una cifra escrita en una plantilla, fuera de este componente, rompe el build.
+interface Props { v: number | null | undefined; d?: number; pre?: string; suf?: string; vacio?: string }
+const { v, d = 0, pre = '', suf = '', vacio = '—' } = Astro.props;
+const texto = v === null || v === undefined ? vacio : `${pre}${d > 0 ? v.toFixed(d) : Math.round(v).toLocaleString('es-CL')}${suf}`;
+---
+<span data-cifra>{texto}</span>

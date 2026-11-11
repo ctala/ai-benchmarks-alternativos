@@ -18,6 +18,14 @@ Una página SHALL mostrar modelos con `ranked` falso solo si está congelada, co
 - **WHEN** una página no congelada muestra un modelo con `ranked` falso
 - **THEN** el build falla (R1)
 
+#### Scenario: Comparación por familia con versiones fuera del ranking
+- **WHEN** una familia tiene modelos con `ranked` falso
+- **THEN** la tabla lleva solo los rankeados y el pie enlaza a las fichas de los demás («Versiones anteriores →»)
+
+#### Scenario: Un modelo fuera del ranking sin motivo
+- **WHEN** un modelo tiene `ranked` falso y su elegibilidad no registra motivo
+- **THEN** el export no publica y `check_registro` falla (R5)
+
 #### Scenario: Página congelada
 - **WHEN** la página está congelada con fecha y motivo
 - **THEN** compila y muestra arriba el aviso con la fecha, el motivo y el enlace a lo vigente

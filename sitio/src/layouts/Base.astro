@@ -1,0 +1,127 @@
+---
+// El layout de toda página del motor nuevo. Lo que hacía `generate_comparison.page_shell`:
+// metadatos, JSON-LD, GTM diferido, eventos del funnel, header y footer. Los colores salen de
+// tokens.css (check_paleta P3/P4) y el CTA va al go-link, no a skool.com (motor-sitio 2.4).
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/700.css';
+import '../styles/tokens.css';
+import '../styles/fuentes.css';
+import '../styles/sitio.css';
+
+interface Props {
+  titulo: string; descripcion: string; keywords?: string; url: string;
+  publicada: string; modificada: string; contrato?: string;
+}
+const { titulo, descripcion, keywords = '', url, publicada, modificada, contrato = '' } = Astro.props;
+const OG = 'https://benchmarks.cristiantala.com/og-benchmark.png';
+const LOGO = 'https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png';
+const COMUNIDAD = 'https://go.aprenderepite.com/benchmark';
+const ld = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'Article', headline: titulo, description: descripcion,
+  author: { '@type': 'Person', name: 'Cristian Tala', url: 'https://cristiantala.com' },
+  datePublished: publicada, dateModified: modificada, inLanguage: 'es', url, mainEntityOfPage: url,
+  publisher: { '@type': 'Person', name: 'Cristian Tala', url: 'https://cristiantala.com' },
+}, null, 2);
+---
+<!DOCTYPE html>
+<!-- generado-por: sitio/ (Astro, motor-sitio) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{titulo}</title>
+<meta name="description" content={descripcion}>
+<meta name="keywords" content={keywords}>
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href={url}>
+<meta property="og:title" content={titulo}>
+<meta property="og:description" content={descripcion}>
+<meta property="og:url" content={url}>
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content={OG}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={titulo}>
+<meta name="twitter:description" content={descripcion}>
+<meta name="twitter:image" content={OG}>
+<link rel="icon" type="image/png" href={LOGO}>
+<script type="application/ld+json" set:html={ld} />
+<script is:inline>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+</head>
+<body>
+<script is:inline>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header class="sitio-header">
+  <div class="contenedor header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href={COMUNIDAD} target="_blank" rel="noopener">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="contenedor">
+<slot />
+<Fragment set:html={contrato} />
+</main>
+<footer class="sitio-footer">
+  <div class="contenedor">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href={COMUNIDAD} target="_blank" rel="noopener">Comunidad</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+---
+// Un redirect (design.md D6): meta refresh 0, canonical, noindex y el contrato de tipo
+// redirect, igual que `generate_comparison.escribir_redirects`. No se usa `redirects` de Astro
+// porque no emite el contrato, y `auditar_paginas` lo lee.
+interface Props { destino: string; motivo: string; contrato: string }
+const { destino, motivo, contrato } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Esta comparación se movió</title>
+<link rel="canonical" href={destino}>
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content={`0; url=${destino}`}>
+</head>
+<body>
+<p>Esta comparación se movió a <a href={destino}>la comparación vigente</a>.</p>
+<Fragment set:html={contrato} />
+<Fragment set:html={`<!-- redirect · ${motivo.replace(/--/g, '—')} -->`} />
+</body>
+</html>
