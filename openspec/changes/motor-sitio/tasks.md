@@ -10,12 +10,19 @@
 - [x] 1.7 `paridad_sitio.py`: las URLs y el contrato de las 37 comparaciones contra `docs/`. Verificar: un sabotaje que cambia una fila o pierde una URL sale en rojo. Hecha: 30 diferencias declaradas (16 redirects, 14 filas que salen por R1, ninguna que entre). Corre en `postbuild`; sabotaje en `test_guardrails` con tres reglas, y anulando cada una la prueba cae.
 - [x] 1.8 Antes de la sesión 2 (pedido de Cristian, 11-nov): (a) la prueba de la carrera de gitleaks, determinista; (b) la familia de cada modelo, de un campo declarado y no del nombre; (c) la vista a 390×844 repetible en el QA. Hecha: (a) señales entre las dos copias en vez de un `sleep`, 5 de 5 solas y 2 de 2 bajo carga, y sabotaje del candado en rojo (`fd86d8146`). (b) `familia` en los 244 modelos de `models.py`, exportada y obligatoria; solo cambia `/qwen-vs-llama/` (salen las dos Gemma 12B del Spark) y las variantes quedan idénticas; pruebas con «Gemma 4 12B (Spark llama-server)» y sabotaje a subcadena en rojo (`be08c5401`). (c) `sitio/pruebas/movil.mjs` (Playwright, 390×844, `isMobile`, DPR 3) en `postbuild` y `check_movil.py` bloqueante en `qa.py`: M0 la emulación corre, M1 viewport de móvil, M2 sin desborde; 21 páginas en verde; sabotaje en `test_guardrails` y, anulando M1 o M2, la prueba cae.
 
-## 2. Sesión 2: rankings, legado, guardrails y corte
+## 2. Sesión 2: rankings y variantes (solo la 2.1)
 
-- [ ] 2.1 Rankings (16) y variantes (6) por el mismo camino (JSON y plantilla). Verificar: paridad de contratos.
+> El change pasa de 2 a 3 sesiones (11-nov, Cristian; fila en DECISIONES). La 2.1 sola llena una sesión: la prosa de los rankings y las variantes no se copia a la plantilla, se genera del dato. La sesión 3 hace la 2.2 a la 2.5; la 2.6 necesita un OK aparte. Los ids no cambian, para no romper las referencias.
+
+- [ ] 2.1 Rankings (16) y variantes (6) por el mismo camino (JSON y plantilla). El veredicto, el top 3, la frontera y la guía de lectura se generan del dato, con `data-cifra` en cada cifra; el top 3 aplica la regla del ruido (dentro del margen, «≈» y gana el más barato). Una frase publicada que el dato ya no respalda se declara en la paridad como diferencia con su motivo. Verificar: paridad de contratos y R1-R5; al cerrar, reporte de la paridad a Cristian y parada.
+
+## 3. Sesión 3: legado, guardrails, «medido en» y el Action
+
 - [ ] 2.2 Legado: las páginas `motor: legado` se copian a `dist`, y `style.css` se genera desde los tokens. Verificar: R3 y R4 en verde, y `check_paleta` sobre `dist`.
 - [ ] 2.3 Guardrails portados para leer lo compilado: `auditar_paginas`, `check_ganadores`, `check_paleta`, `check_espanol_neutro`, `check_fichas_alcanzables`, `check_agentico_publicado` A3, `check_indice_calidad` I3/I8, `check_calculator`, `check_version`, `check_cortes`, `check_consistency`, `check_cobertura`, `check_version_en_nombre`, y el sitemap y `llms.txt`. Verificar: cada sabotaje adaptado, con control verde.
 - [ ] 2.4 Desde `corte-v5-1`: la línea «medido en» en la comparación (1.4.c), un CTA único al go-link sin `skool.com` ni «gratis» (1.4.d) y `dateModified`/`lastmod` solo con cambio de contenido (5.4). Verificar: un guardrail con su sabotaje por cada uno.
 - [ ] 2.5 `regenerate_all.py` y el Action: Node, `npm ci`, el build y el sha de `models.json` embebido y verificado. El Action también necesita Chrome para `movil.mjs` (`channel: "chrome"`; viene en los runners de Ubuntu) y `npm ci` antes de `test_guardrails`, cuya prueba «check_movil» lo usa. Verificar: todos los pasos del Action en un venv limpio.
+## 4. Corte (con OK aparte de Cristian)
+
 - [ ] 2.6 Vista previa en móvil y escritorio, y OK de Cristian. Después, el commit del corte (`dist` → `docs/`), el push con OK y la verificación del sitio en vivo. Verificar: 204 URLs en vivo y la reversa probada en una rama.
 - [ ] 2.7 Archivar el change sin tareas abiertas.

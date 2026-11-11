@@ -31,4 +31,4 @@ Fuera de este change, uno a la vez: el **1b** (fichas, landings y home con la ca
 - Generadores: `generate_comparison.py`, y en la sesión 2 `generate_rankings.py` y `generate_variants.py`, emiten un JSON por página además del HTML hasta el corte.
 - Guardrails que leen `docs/`: pasan a leer lo compilado.
 - `regenerate_all.py` y el Action suman la compilación con Node.
-- Dos sesiones. La publicación necesita un OK aparte.
+- Tres sesiones (eran dos; se amplió el 11-nov, ver DECISIONES). La publicación necesita un OK aparte.
