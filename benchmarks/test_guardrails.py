@@ -293,6 +293,51 @@ def _cortes_cfg():
     return RANKINGS
 
 
+@prueba("check_cortes --dist", "filas con la forma de Astro y un #1 cambiado, y un lector que no reconoce las filas (C3 y C4 leen cero)")
+def _t_cortes_dist():
+    # 11-nov-2026 (motor-sitio 2.3). Frente a `dist`, FILA_1 no leía nada. Sin Node en el CI, el
+    # árbol es una copia de docs/ y las filas se reescriben con la forma que compila Astro.
+    import re as _re
+    base = Path(tempfile.mkdtemp()) / "dist"
+    for f in (ROOT / "docs").glob("*/index.html"):
+        d = base / f.parent.name / "index.html"
+        d.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(f, d)
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_cortes.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    def a_astro(t):
+        return _re.sub(r"<tr><td>(\d+|≈)</td><td>",
+                       lambda m: '<tr>\n  <td class="num">' + (m.group(1) if m.group(1) == "≈" else
+                                 f'<span data-cifra>{m.group(1)}</span>') + "</td>\n  <td>", t)
+
+    for f in base.glob("*/index.html"):
+        f.write_text(a_astro(f.read_text(encoding="utf-8")), encoding="utf-8")
+    ok = correr()[0] == 0                                     # control con la forma de Astro
+    pg = base / "mejor-llm-para-json" / "index.html"
+    t = pg.read_text(encoding="utf-8")
+    m = _re.search(r'<td class="num">(?:<span data-cifra>1</span>|≈)</td>\s*<td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)', t)
+    if not m:
+        raise AssertionError("mejor-llm-para-json no tiene #1 con la forma de Astro: el sabotaje no tocaría nada")
+    pg.write_text(t[:m.start(1)] + "Un modelo que no encabeza" + t[m.end(1):], encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "`structured_output`" in out and "desincronizada" in out
+    pg.write_text(t, encoding="utf-8")
+    guardadas = {f: f.read_text(encoding="utf-8") for f in base.glob("*/index.html")}
+    for f, x in guardadas.items():
+        f.write_text(x.replace("<tr>", '<tr class="otra">'), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "C3 leyó 0 de" in out and "C4 leyó 0 de" in out
+    for f, x in guardadas.items():
+        f.write_text(x, encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_cortes C3", "un corte agéntico que recomienda a un modelo que no corre en un agente")
 def _t_cortes_c3():
     datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
@@ -1307,6 +1352,45 @@ def _t_landings_sin_muertos():
     ])
 
 
+@prueba("check_consistency --dist", "la marca de origen de Astro no reconocida, una página sin sujeto "
+                                    "que quedaba «sin verificar» en verde, y un árbol que no se lee")
+def _t_consistency_dist():
+    # 11-nov-2026 (motor-sitio 2.3). Frente a `dist`, las páginas de Astro (`generado-por: sitio/`)
+    # no se reconocían como generadas, caían como «SIN VERIFICAR» y el chequeo seguía en verde.
+    base = Path(tempfile.mkdtemp()) / "dist"
+    for f in (ROOT / "docs").rglob("index.html"):
+        d = base / f.relative_to(ROOT / "docs")
+        d.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(f, d)
+
+    def correr():
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_consistency.py"), "--dist", str(base)],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout
+
+    ok = correr()[0] == 0                                       # control
+    rk = [base / x / "index.html" for x in ("mejor-llm-barato", "claude-vs-chatgpt", "gemini-flash-o-pro")]
+    antes = {f: f.read_text(encoding="utf-8") for f in rk}
+    if not all("generado-por: benchmarks/" in t for t in antes.values()):
+        raise AssertionError("una de las páginas ya no declara su generador: el sabotaje no probaría nada")
+    for f, t in antes.items():                                  # la marca de Astro se reconoce
+        f.write_text(t.replace("generado-por: benchmarks/", "generado-por: sitio/"), encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    f0 = rk[0]                                                  # sin marca y sin sujeto: rojo
+    f0.write_text(antes[f0].replace("generado-por: benchmarks/", "hecho a mano"), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "mejor-llm-barato: SIN VERIFICAR" in out
+    for f, t in antes.items():
+        f.write_text(t, encoding="utf-8")
+    ok = ok and correr()[0] == 0
+    shutil.rmtree(base)                                         # un árbol vacío no es «sin drift»
+    base.mkdir()
+    rc, out = correr()
+    ok = ok and rc != 0 and "check_consistency (páginas) leyó 0 de" in out
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
+
+
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")
 def _t_consistency():
     rm = ROOT / "MODELOS.md"
@@ -2156,6 +2240,42 @@ def _t_huella_suite():
             raise AssertionError("el scorer de fuga cambió de forma: el sabotaje no tocaría nada")
         sc.write_text(roto, encoding="utf-8")
         return _correr("huella_suite.py", "--check") != 0
+
+
+@prueba("check_agentico_publicado A3 --dist", "una celda de Harbor con la forma de Astro (marca en el span) que no "
+                                              "coincide con Harbor o que pierde la marca, y un árbol que no se lee")
+def _t_agentico_a3_dist():
+    # 11-nov-2026 (motor-sitio 2.3). Astro pone `data-agentico` en el <span> de la cifra, no en el
+    # <td>: A3 tomaba las 20 celdas «8 de 8» de /mejor-llm-para-agentes/ y /mejor-llm-para-n8n/ por
+    # cifras sin marca. Ahora la celda cuenta como marcada si ella o algo dentro lleva la marca.
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("_cap_a3", ROOT / "benchmarks" / "check_agentico_publicado.py")
+    cap = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cap)
+    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    por_key = {m["key"]: m for m in d["models"]}
+    m = next(x for x in d["models"] if x.get("ranked") and (x.get("agentico") or {}).get("de"))
+    ag = m["agentico"]
+
+    def pagina(cifra, marca=' data-agentico="harbor"'):
+        return ('<table><thead><tr><th scope="col">Modelo</th><th scope="col">Tareas agénticas</th></tr></thead><tbody>'
+                f'<tr>\n  <td><a class="a-ficha" data-modelo="{m["key"]}" href="/modelo/{m["key"]}/"><strong>{m["name"]}</strong></a></td>\n'
+                f'  <td class="num"><strong><span data-cifra{marca}>{cifra}</span></strong></td></tr></tbody></table>')
+
+    bien = f"{ag['superadas']} de {ag['de']}"
+    otra = f"{(ag['superadas'] + 1) % (ag['de'] + 1)} de {ag['de']}"
+    ok = cap.a3_pagina(pagina(bien), por_key) == []                               # control: forma de Astro
+    ok = ok and any(x.startswith("b ·") for x in cap.a3_pagina(pagina(otra), por_key))   # no es lo de Harbor
+    ok = ok and any(x.startswith("a ·") for x in cap.a3_pagina(pagina(bien, marca=""), por_key))  # sin marca
+    # Un árbol sin páginas (solo la calculadora) no se da por revisado.
+    base = Path(tempfile.mkdtemp()) / "dist"
+    base.mkdir(parents=True)
+    shutil.copyfile(ROOT / "docs" / "app.js", base / "app.js")
+    r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_agentico_publicado.py"), "--dist", str(base)],
+                       cwd=ROOT, capture_output=True, text=True)
+    ok = ok and r.returncode != 0 and "A3 leyó 0 de" in r.stdout
+    shutil.rmtree(base.parent, ignore_errors=True)
+    return ok
 
 
 @prueba("check_agentico_publicado A3", "una página pública que rotula como agéntico un número que no sale de Harbor")

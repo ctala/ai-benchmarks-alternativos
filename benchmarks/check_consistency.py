@@ -73,13 +73,23 @@ HISTORICAL_DOCS = ["CHANGELOG.md", "DATASHEET_", "INSIGHTS.md", "ESTADO_SESION.m
 # consistente por construcción, así que no debería reportar nada — y si reporta, es un
 # bug del generador, que también quiero saber. Nada de listar a mano cuáles son "las de
 # a mano": esa lista sería otra superficie que se desincroniza.
-def _paginas_del_sitio() -> list[Path]:
-    docs = ROOT / "docs"
+# Los generadores que declaran origen en la página. 11-nov-2026 (motor-sitio 2.3): Astro marca
+# `generado-por: sitio/`; con solo `benchmarks/` en la lista, sus 29 páginas caían como «SIN
+# VERIFICAR» y el chequeo seguía en verde.
+GENERADORES = ("generado-por: benchmarks/", "generado-por: sitio/")
+CLASIFICADAS: set[str] = set()   # URLs que este chequeo clasificó (regla de páginas leídas)
+
+
+def _paginas_del_sitio(docs: Path | None = None) -> list[Path]:
+    import paginas_leidas as pl
+    docs = docs or ROOT / "docs"
+    CLASIFICADAS.clear()
     if not docs.exists():
         return []
     out = []
     for p in sorted(docs.rglob("index.html")):
         t = p.read_text(errors="replace")
+        CLASIFICADAS.add(pl.url_de(docs, p))
         # Los stubs de redirección (noindex + meta refresh) no publican cifras.
         if 'http-equiv="refresh"' in t and "noindex" in t:
             continue
@@ -88,12 +98,12 @@ def _paginas_del_sitio() -> list[Path]:
         # aviso de "sin verificar" señale SOLO lo que de verdad hay que vigilar — las
         # hechas a mano. Sin este filtro salían 42 avisos y el ruido tapaba a las 3 que
         # importaban.
-        if "generado-por: benchmarks/" in t:
+        if any(g in t for g in GENERADORES):
             continue
         # La calculadora (docs/index.html) no trata de UN modelo: los sirve a todos desde
         # models.json. No hay sujeto que atribuir, y su consistencia la cubre
         # `check_calculator.py` + el QA funcional.
-        if p.parent == (ROOT / "docs"):
+        if p.parent == docs:
             continue
         out.append(p)
     return out
@@ -362,7 +372,11 @@ def _chequear_retirados(root) -> list[str]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--verbose", action="store_true")
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="revisar las páginas de lo que compila Astro (sitio/dist) en vez de docs/")
     args = ap.parse_args()
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import paginas_leidas as pl
 
     if not MODELS_JSON.exists():
         sys.exit(f"ERROR: falta {MODELS_JSON}. Corré export_for_pages.py primero.")
@@ -377,9 +391,12 @@ def main():
     # no debería reportar nada; si reporta, es un bug del generador y también quiero
     # saberlo. Listar a mano cuáles son "las de a mano" sería otra superficie que se
     # desincroniza.
-    paginas = _paginas_del_sitio()
+    paginas = _paginas_del_sitio(args.dist)
     for pg in paginas:
         all_findings += check_pagina(pg, models)
+    # Regla de páginas leídas: cada página del registro queda clasificada (redirect, generada,
+    # calculadora o verificada contra su modelo). Un árbol que no se lee no da verde.
+    no_leidas = pl.exigir("check_consistency (páginas)", CLASIFICADAS, pl.esperadas())
 
     sin_sujeto = [f[len("__SIN_SUJETO__"):] for f in all_findings
                   if f.startswith("__SIN_SUJETO__")]
@@ -392,8 +409,12 @@ def main():
               f"modelo tratan a partir del slug:")
         for x in sin_sujeto:
             print(f"    · {x}")
-        print("    No es que estén bien: es que nadie las miró. Renombrá el slug para que "
-              "contenga\n    el nombre del modelo, o agregá la atribución a mano.")
+        print("    No es que estén bien: es que nadie las miró. Renombra el slug para que "
+              "contenga\n    el nombre del modelo, o agrega la atribución a mano.")
+        # 11-nov-2026 (motor-sitio 2.3): «sin verificar» era un aviso y el chequeo seguía en
+        # verde con 29 páginas sin leer. Nace en verde (0 en docs/), así que es bloqueante.
+        all_findings += [f"{x}: SIN VERIFICAR (no se sabe de qué modelo trata)" for x in sin_sujeto]
+    all_findings += no_leidas
     print(f"(Ignorados por diseño — son snapshots con fecha: {', '.join(HISTORICAL_DOCS)})\n")
 
     # AVISO, no bloqueo: un doc que recomienda un modelo retirado es un problema real

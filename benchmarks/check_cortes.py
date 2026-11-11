@@ -20,7 +20,15 @@ C3. Un corte AGÉNTICO recomienda un modelo que **no corre dentro de un agente**
     verdad: `Llama 3.1 8B Instant` salía #4 en «tareas largas» y rompe el bucle de
     herramientas — la suite mide sostener el hilo SIN herramientas.
 
-Uso:  python benchmarks/check_cortes.py
+LEE LOS DOS MOTORES (11-nov-2026, motor-sitio 2.3)
+-------------------------------------------------
+Frente al HTML de Astro, FILA_1 no leía nada («no se pudo leer el #1») porque las filas llevan
+clases, saltos de línea y el puesto dentro de `data-cifra`. Ahora las dos formas entran en la
+misma regex, `--dist` lee lo compilado y C2, C3 y C4 cuentan las páginas que leyeron contra el
+registro (`paginas_leidas.py`).
+
+Uso:  python benchmarks/check_cortes.py                    # docs/
+      python benchmarks/check_cortes.py --dist sitio/dist  # lo que compila Astro
 """
 
 import json
@@ -45,8 +53,13 @@ ROOT = Path(__file__).resolve().parent.parent
 # 9-nov-2026 (v6.0.0): el grupo de cabeza lleva «≈» en vez de puesto. La primera fila de la
 # tabla es «1» o «≈»; con el patrón viejo, FILA_1 saltaba el grupo y leía el «1» de la
 # segunda tabla, y FILA_N dejaba de ver justo a los del grupo (C3 quedaba ciego arriba).
-FILA_1 = re.compile(r"<tr><td>(?:1|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
-FILA_N = re.compile(r"<tr><td>(?:\d+|≈)</td><td>(?:<a[^>]*>)?(?:<strong>)?([^<]+)")
+#
+# 11-nov-2026 (motor-sitio 2.3): Astro escribe `<tr>\n  <td class="num"><span data-cifra>1</span></td>
+# <td><a … data-modelo=…><strong>`. La misma regex lee las dos formas.
+_CELDA_PUESTO = r'<tr>\s*<td(?: class="num")?>(?:<span data-cifra>)?(?:{p})(?:</span>)?</td>\s*<td>'
+_NOMBRE = r"(?:<(?:a|span)[^>]*>)?(?:<strong>)?([^<]+)"
+FILA_1 = re.compile(_CELDA_PUESTO.format(p="1|≈") + _NOMBRE)
+FILA_N = re.compile(_CELDA_PUESTO.format(p=r"\d+|≈") + _NOMBRE)
 sys.path.insert(0, str(ROOT))
 
 MODELS_JSON = ROOT / "docs" / "data" / "models.json"
@@ -92,6 +105,18 @@ def _paginas_con_veredicto() -> dict[str, Path]:
 
 
 def main() -> int:
+    global DOCS
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dist", type=Path, default=None, help="leer lo que compila Astro (sitio/dist)")
+    a = ap.parse_args()
+    if a.dist:
+        DOCS = a.dist          # los datos siguen saliendo de docs/data: dist los copia de ahí
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import paginas_leidas as pl
+    import registro_paginas as rp
+    vivas = {e["url"] for e in rp.paginas() if e["tipo"] == "ranking" and not e["redirect_a"] and not e["congelada"]}
+    leidas = {"C2": set(), "C3": set(), "C4": set()}
     d = json.loads(MODELS_JSON.read_text())
     ranked = [m for m in d["models"] if m.get("ranked")]
     try:
@@ -135,6 +160,7 @@ def main() -> int:
                           f"HTML cambió de forma y este chequeo quedó ciego. Actualizar "
                           f"FILA_1, no ignorar.")
             continue
+        leidas["C2"].add(pl.url_de(DOCS, path))
         publicado = m1.group(1).strip()
         if publicado and esperado not in publicado and publicado not in esperado:
             # puede diferir legítimamente si el #1 quedó excluido por el filtro agéntico
@@ -153,6 +179,8 @@ def main() -> int:
             continue
         html = path.read_text(errors="replace")
         filas = FILA_N.findall(html)
+        if filas:
+            leidas["C3"].add(pl.url_de(DOCS, path))
         colados = [f.strip() for f in filas if f.strip() in no_aptos]
         if colados:
             fallos.append(f"`{suite}`: el corte recomienda a {', '.join(colados)}, que NO "
@@ -175,9 +203,9 @@ def main() -> int:
         if not path.exists():
             continue
         html = path.read_text(errors="replace")
-        if "verdict-lead" not in html:
-            continue
-        lead = re.search(r'<p class="verdict-lead">(.*?)</p>', html, re.S)
+        # Python: `verdict-lead`; Astro: el `lead` de la respuesta corta.
+        lead = next((x for x in re.finditer(r'<p class="(?:verdict-lead|lead)"[^>]*>(.*?)</p>', html, re.S)
+                     if "encabeza la tabla" in x.group(1)), None)
         m1 = FILA_1.search(html)
         if not lead or not m1:
             continue
@@ -215,7 +243,10 @@ def main() -> int:
             if not pg.exists():
                 continue
             debe = _lleva_segunda_tabla(c, rank_models(_d["models"], c))
-            tiene = "La misma capacidad, por lo que cuesta" in pg.read_text(errors="replace")
+            _h = pg.read_text(errors="replace")
+            if FILA_1.search(_h):   # leída: se reconoce su tabla principal
+                leidas["C4"].add(pl.url_de(DOCS, pg))
+            tiene = "La misma capacidad, por lo que cuesta" in _h
             if debe != tiene:
                 fallos.append(
                     f"`{c['slug']}`: {'le falta' if debe else 'le sobra'} la segunda tabla "
@@ -224,6 +255,12 @@ def main() -> int:
     except Exception as e:
         avisos.append(f"no se pudo verificar la segunda tabla: {e}")
 
+    # Regla de páginas leídas: C2 y C3 sobre los cortes por suite (C3, los agénticos), C4 sobre
+    # todas las páginas de ranking vivas.
+    cortes_url = {pl.url_de(DOCS, p): s for s, p in cortes.items()}
+    fallos += pl.exigir("C2", leidas["C2"], {u for u in cortes_url if u in vivas})
+    fallos += pl.exigir("C3", leidas["C3"], {u for u, s in cortes_url.items() if u in vivas and s in SUITES_AGENTICAS})
+    fallos += pl.exigir("C4", leidas["C4"], vivas)
     print(f"\nVerificando {len(cortes)} cortes por eje contra models.json…\n")
     for a in avisos:
         print(f"  ⚠️  {a}")

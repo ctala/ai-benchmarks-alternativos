@@ -143,7 +143,10 @@ class _Tablas(HTMLParser):
         elif tag == "tr" and self._t is not None:
             self._fila = {"celdas": [], "ficha": None}
         elif tag in ("td", "th") and self._fila is not None:
-            self._celda = {"tag": tag, "attrs": a, "txt": ""}
+            self._celda = {"tag": tag, "attrs": a, "txt": "", "harbor": a.get("data-agentico") == "harbor"}
+        elif self._celda is not None and a.get("data-agentico") == "harbor":
+            # Astro marca el `<span>` de la cifra dentro de la celda (Eje.astro); Python, el `<td>`.
+            self._celda["harbor"] = True
         elif tag == "a" and self._fila is not None:
             m = re.match(r"^/modelo/([^/]+)/", a.get("href") or "")
             if m and self._fila["ficha"] is None:
@@ -183,7 +186,7 @@ def a3_pagina(html: str, por_key: dict) -> list[str]:
         cols = [i for i, h in enumerate(tb["head"]) if _ROTULO.search(h)]
         for f in tb["rows"]:
             for i, c in enumerate(f["celdas"]):
-                marcada = c["attrs"].get("data-agentico") == "harbor"
+                marcada = c["harbor"]
                 if i in cols and not marcada:
                     malos.append(f"a · columna «{tb['head'][i]}» con una celda que no sale de Harbor: «{c['txt']}»")
                 if not marcada:
@@ -202,12 +205,10 @@ def a3_pagina(html: str, por_key: dict) -> list[str]:
     texto = " ".join(" ".join(p.texto).split())
     for mm in _PROSA.finditer(texto):
         malos.append(f"c · «{texto[max(0, mm.start() - 30):mm.end() + 10]}»")
-    agentica = any(c["attrs"].get("data-agentico") == "harbor"
-                   for tb in p.tablas for f in tb["rows"] for c in f["celdas"])
+    agentica = any(c["harbor"] for tb in p.tablas for f in tb["rows"] for c in f["celdas"])
     if agentica:
         for tb in p.tablas:
-            if not any(c["attrs"].get("data-agentico") == "harbor"
-                       for f in tb["rows"] for c in f["celdas"]):
+            if not any(c["harbor"] for f in tb["rows"] for c in f["celdas"]):
                 continue
             for i, h in enumerate(tb["head"]):
                 if not _COMPUESTO.search(h):
@@ -234,18 +235,29 @@ def a3_app(js: str) -> list[str]:
 
 
 def a3(d: dict) -> tuple[list[str], int]:
+    import paginas_leidas as pl
     por_key = {m["key"]: m for m in d["models"]}
-    malos, paginas = [], 0
+    malos, paginas, leidas = [], 0, set()
     for f in sorted(DOCS.rglob("*.html")):
         paginas += 1
+        if f.name == "index.html":
+            leidas.add(pl.url_de(DOCS, f))
         for x in a3_pagina(f.read_text(encoding="utf-8", errors="ignore"), por_key):
             malos.append(f"{f.relative_to(DOCS)}: {x}")
     malos += a3_app(APP_JS.read_text(encoding="utf-8"))
+    # Regla de páginas leídas (motor-sitio 2.3): todas las páginas con contenido del registro.
+    malos += pl.exigir("A3", leidas, pl.esperadas())
     return malos, paginas
 
 
 def main() -> int:
-    argparse.ArgumentParser(description=__doc__.splitlines()[0]).parse_args()
+    global DOCS, APP_JS
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--dist", type=Path, default=None,
+                    help="leer lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
+    a = ap.parse_args()
+    if a.dist:
+        DOCS, APP_JS = a.dist, a.dist / "app.js"
 
     sys.path.insert(0, str(ROOT / "benchmarks"))
     from models import MODELS
