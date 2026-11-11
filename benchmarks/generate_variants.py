@@ -37,7 +37,7 @@ FAMILIES = [
     {
         "slug": "gpt-5.6-luna-terra-sol",
         "family": "GPT-5.6",
-        "match": ["gpt-5.6"],
+        "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-terra", "gpt-5.6-terra-pro", "gpt-5.6-sol"],
         "title": "GPT-5.6: Luna, Terra o Sol — cuál elegir en 2026 (benchmark real)",
         "h1": "GPT-5.6: ¿Luna, Terra o Sol?",
         "intent_kw": ("gpt 5.6 luna terra sol, cual gpt 5.6 usar, gpt 5.6 luna o sol, "
@@ -52,7 +52,7 @@ FAMILIES = [
     {
         "slug": "claude-haiku-sonnet-opus",
         "family": "Claude",
-        "match": ["claude", "opus", "sonnet", "haiku", "fable"],
+        "familia": "claude",
         "title": "Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)",
         "h1": "Claude: ¿Haiku, Sonnet, Opus o Fable?",
         # Volumen real (DataForSEO, ES+MX, jul-2026): "claude sonnet vs opus" + su
@@ -68,7 +68,7 @@ FAMILIES = [
         # de precio que auditar — el que gana, gana gratis.
         "slug": "minimax-m2-7-o-m3",
         "family": "MiniMax",
-        "match": ["minimax"],
+        "familia": "minimax",
         "title": "MiniMax M2.7 o M3: cuál usar en 2026 (benchmark real)",
         "h1": "MiniMax: ¿M2.7 o M3?",
         # "minimax m3" hace ~530/mes (ES+MX) y NO tiene pagina propia. Es el head:
@@ -81,7 +81,7 @@ FAMILIES = [
     {
         "slug": "gemini-flash-o-pro",
         "family": "Gemini",
-        "match": ["gemini"],
+        "familia": "gemini",
         "title": "Gemini Flash o Pro: cuál conviene en 2026 (benchmark real)",
         "h1": "Gemini: ¿Flash o Pro?",
         "intent_kw": ("gemini flash vs pro, gemini 2.5 pro vale la pena, cual gemini usar, "
@@ -92,7 +92,7 @@ FAMILIES = [
     {
         "slug": "grok-4-1-vs-4-5",
         "family": "Grok",
-        "match": ["grok"],
+        "familia": "grok",
         # El título prometía «Grok 4.1, 4.20, 4.3 o 4.5» y la página NO compara 4.1 Fast:
         # está retirado y el generador lo excluye, con razón —recomendar un endpoint
         # apagado manda a alguien a estrellarse—. Pero la búsqueda «grok 4.1 fast» existe
@@ -111,7 +111,7 @@ FAMILIES = [
     {
         "slug": "deepseek-v4-flash-o-r1",
         "family": "DeepSeek",
-        "match": ["deepseek"],
+        "familia": "deepseek",
         "title": "DeepSeek V4 Flash, R1 o Pro: cuál usar en 2026 (benchmark real)",
         "h1": "DeepSeek: ¿V4 Flash, R1 o Pro?",
         "intent_kw": ("deepseek v4 flash vs r1, cual deepseek usar, deepseek r1 vale la pena, "
@@ -151,10 +151,12 @@ def variants_of(models, cfg):
     """Variantes de la familia con muestra sólida, deduplicadas, por precio ascendente."""
     cand = []
     for m in models:
-        blob = f"{m.get('name','')} {m.get('key','')} {m.get('id','')}".lower()
-        if not any(p in blob for p in cfg["match"]):
-            continue
-        if any(x in blob for x in cfg.get("exclude", [])):
+        # 11-nov-2026: la familia declarada en models.py (o las keys, para una generación
+        # como GPT-5.6), nunca subcadenas del nombre: ver `generate_comparison.family`.
+        if "keys" in cfg:
+            if m.get("key") not in cfg["keys"]:
+                continue
+        elif m.get("familia") != cfg["familia"]:
             continue
         if (m.get("runs") or 0) < 50 or not m.get("score_global"):
             continue

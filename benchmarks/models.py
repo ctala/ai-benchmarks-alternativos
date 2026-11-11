@@ -5,6 +5,9 @@ Este archivo es la fuente unica de verdad para los modelos. Lo importan
 config.py, runner.py y los scripts de auto-generacion. Versionado en git.
 
 Para agregar un modelo nuevo:
+- Toda entry declara "familia" (minúsculas: "gpt", "claude", "gemma", "llama"...). Las páginas
+  por familia la leen tal cual y el export no publica un modelo sin ella. No se deduce del
+  nombre: «Gemma 4 12B (Spark llama-server)» es gemma aunque diga «llama» (11-nov-2026).
 - OpenRouter: agregar entry al dict MODELS con id provider/model
 - Provider directo: agregar entry con campo "provider": "<provider_key>"
 - Local Ollama: agregar a OLLAMA_MODELS
@@ -81,6 +84,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "deepseek/deepseek-r1:free",
         "name": "DeepSeek R1 (free)",
+        "familia": "deepseek",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "free",
@@ -88,6 +92,7 @@ MODELS = {
     "llama-3.3-70b-free": {
         "id": "meta-llama/llama-3.3-70b-instruct:free",
         "name": "Llama 3.3 70B (free)",
+        "familia": "llama",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "free",
@@ -96,6 +101,7 @@ MODELS = {
     "qwen3-coder-free": {
         "id": "qwen/qwen3-coder-480b:free",
         "name": "Qwen3 Coder 480B (free)",
+        "familia": "qwen",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "free",
@@ -112,6 +118,7 @@ MODELS = {
         # El endpoint gratis defiende con 429 -> correr con 1 runner (RUNBOOK).
         "id": "recursive/flint-v1.0:free",
         "name": "Flint v1.0 40B-A2.5B (free)",
+        "familia": "flint",
         "nombres_anteriores": ["Flint 40B-A2.5B (free)"],  # 6-nov-2026: el nombre no traía la versión del id
         "cost_input": 0.0,
         "cost_output": 0.0,
@@ -128,6 +135,7 @@ MODELS = {
     "mistral-nemo": {
         "id": "mistralai/mistral-nemo",
         "name": "Mistral Nemo",
+        "familia": "mistral",
         "cost_input": 0.02,
         "cost_output": 0.02,
         # Salió en jul-2024: más de un año sin medir. Regla vigente
@@ -146,6 +154,7 @@ MODELS = {
         # 6-nov-2026: `deepseek-chat` es un ALIAS que DeepSeek mueve a su modelo vigente; la
         # versión pudo cambiar entre runs (V3 → V3.1 → V3.2). El nombre ya no promete una.
         "name": "DeepSeek (alias deepseek-chat)",
+        "familia": "deepseek",
         "nombres_anteriores": ["DeepSeek V3.2"],
         "notes": "Alias deepseek-chat: DeepSeek lo apunta a su modelo vigente, así que la versión pudo cambiar entre runs.",
         # 6-nov-2026: pesos públicos del mismo modelo en deepseek-ai/DeepSeek-V3, el que OpenRouter asocia a deepseek/deepseek-chat.
@@ -157,6 +166,7 @@ MODELS = {
     "minimax-m2.7": {
         "id": "minimax/minimax-m2.7",
         "name": "MiniMax M2.7",
+        "familia": "minimax",
         # 6-nov-2026: pesos públicos del mismo modelo en MiniMaxAI/MiniMax-M2.7.
         "open_source": True, "license": "Licencia propia de MiniMax",
         "cost_input": 0.30,
@@ -166,6 +176,7 @@ MODELS = {
     "minimax-m3": {
         "id": "minimax/minimax-m3",
         "name": "MiniMax M3",
+        "familia": "minimax",
         # 6-nov-2026: pesos públicos del mismo modelo en MiniMaxAI/MiniMax-M3.
         "open_source": True, "license": "MiniMax Community License (propia de MiniMax, no MIT)",
         "cost_input": 0.30,
@@ -180,6 +191,7 @@ MODELS = {
         "provider_variant": True,
         "id": "MiniMax-M3",
         "name": "MiniMax M3 (directo / sub)",
+        "familia": "minimax",
         "cost_input": 0.30,
         "cost_output": 1.20,
         "tier": "subscription",
@@ -196,6 +208,7 @@ MODELS = {
         "provider_variant": True,
         "id": "MiniMax-M2.7",
         "name": "MiniMax M2.7 (directo)",
+        "familia": "minimax",
         "cost_input": 0.30,
         "cost_output": 1.20,
         "tier": "cheap",
@@ -209,6 +222,7 @@ MODELS = {
         "provider_variant": True,
         "id": "MiniMax-M2.7-highspeed",
         "name": "MiniMax M2.7 Highspeed",
+        "familia": "minimax",
         "cost_input": 0.30,
         "cost_output": 1.20,
         "tier": "cheap",
@@ -219,6 +233,7 @@ MODELS = {
     "gemini-3.6-flash": {
         "id": "google/gemini-3.6-flash",
         "name": "Gemini 3.6 Flash",
+        "familia": "gemini",
         "cost_input": 0.75,
         "cost_output": 3.75,
         "tier": "cheap",
@@ -231,6 +246,7 @@ MODELS = {
     "gemini-3.5-flash": {
         "id": "google/gemini-3.5-flash",
         "name": "Gemini 3.5 Flash",
+        "familia": "gemini",
         "cost_input": 1.50,
         "cost_output": 9.00,
         "tier": "medium",
@@ -241,6 +257,7 @@ MODELS = {
     "gemini-flash": {
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash",
+        "familia": "gemini",
         "cost_input": 0.30,
         "cost_output": 2.50,
         "tier": "cheap",
@@ -256,6 +273,7 @@ MODELS = {
         "no_medir": True,
         "id": "google/gemini-2.5-flash",
         "name": "Gemini 2.5 Flash (thinking)",
+        "familia": "gemini",
         "cost_input": 0.30,
         "cost_output": 2.50,
         "tier": "cheap",
@@ -278,6 +296,7 @@ MODELS = {
         # si nos tocó bf16 o fp8, y eso sólo se puede saber después si quedó registrado.
         "id": "qwen/qwen3.8-27b",
         "name": "Qwen 3.8 27B",
+        "familia": "qwen",
         "cost_input": 0.214, "cost_output": 2.55,
         "tier": "cheap",
         "open_source": True,
@@ -305,6 +324,7 @@ MODELS = {
     "gemini-3.7-flash": {
         "id": "google/gemini-3.7-flash",
         "name": "Gemini 3.7 Flash",
+        "familia": "gemini",
         "cost_input": 0.75, "cost_output": 3.75,
         "tier": "cheap", "context_window": 1048576, "multimodal": True,
         "publisher": "Google", "license": "Proprietary",
@@ -313,6 +333,7 @@ MODELS = {
     "gemini-3.5-flash-lite": {
         "id": "google/gemini-3.5-flash-lite",
         "name": "Gemini 3.5 Flash Lite",
+        "familia": "gemini",
         "cost_input": 0.30, "cost_output": 2.50,
         "tier": "cheap", "context_window": 1048576, "multimodal": True,
         "publisher": "Google", "license": "Proprietary",
@@ -320,6 +341,7 @@ MODELS = {
     "grok-4.6": {
         "id": "x-ai/grok-4.6",
         "name": "Grok 4.6",
+        "familia": "grok",
         "cost_input": 2.00, "cost_output": 6.00,
         "tier": "medium", "context_window": 500000, "multimodal": True,
         "publisher": "xAI", "license": "Proprietary",
@@ -328,6 +350,7 @@ MODELS = {
     "qwen-3.8-max": {
         "id": "qwen/qwen3.8-max",
         "name": "Qwen 3.8 Max",
+        "familia": "qwen",
         "cost_input": 2.00, "cost_output": 6.00,
         "tier": "medium", "context_window": 1000000, "multimodal": True,
         "publisher": "Alibaba (Qwen)", "open_source": False, "license": "Proprietary",
@@ -336,6 +359,7 @@ MODELS = {
     "qwen-3.8-2.4t": {
         "id": "qwen/qwen3.8-2.4t-a95b",
         "name": "Qwen 3.8 2.4T (A95B)",
+        "familia": "qwen",
         # 6-nov-2026: pesos públicos del mismo modelo en Qwen/Qwen3.8-2.4T-A95B.
         "open_source": True, "license": "Licencia Qwen 3.8 Max (propia de Alibaba)",
         "cost_input": 2.00, "cost_output": 6.00,
@@ -350,6 +374,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "kwaipilot/kat-coder-air-v2.5",
         "name": "KAT Coder Air v2.5",
+        "familia": "kat-coder",
         "cost_input": 0.15, "cost_output": 0.60,
         "tier": "ultra_cheap", "context_window": 256000,
         "publisher": "Kwaipilot",
@@ -362,6 +387,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "kwaipilot/kat-coder-pro-v2.5",
         "name": "KAT Coder Pro v2.5",
+        "familia": "kat-coder",
         "cost_input": 0.74, "cost_output": 2.96,
         "tier": "cheap", "context_window": 256000,
         "publisher": "Kwaipilot",
@@ -379,6 +405,7 @@ MODELS = {
         # próxima vuelta si sigue habiendo interés.
         "id": "meituan/longcat-2.0",
         "name": "LongCat 2.0",
+        "familia": "longcat",
         "cost_input": 0.30, "cost_output": 1.20,
         "tier": "cheap", "context_window": 1048756,
         "publisher": "Meituan",
@@ -387,6 +414,7 @@ MODELS = {
     "deepseek-v4-pro-0813": {
         "id": "deepseek/deepseek-v4-pro-0813",
         "name": "DeepSeek V4 Pro (0813)",
+        "familia": "deepseek",
         "cost_input": 0.9834, "cost_output": 2.9502,
         "tier": "cheap", "context_window": 1048576,
         "publisher": "DeepSeek",
@@ -399,6 +427,7 @@ MODELS = {
     "seed-2-1-turbo": {
         "id": "bytedance-seed/seed-2-1-turbo",
         "name": "Seed 2.1 Turbo",
+        "familia": "seed",
         "cost_input": 0.50, "cost_output": 2.50,
         "tier": "cheap", "context_window": 262144, "multimodal": True,
         "publisher": "ByteDance Seed",
@@ -407,6 +436,7 @@ MODELS = {
     "seed-2.0-code": {
         "id": "bytedance-seed/seed-2.0-code",
         "name": "Seed 2.0 Code",
+        "familia": "seed",
         "cost_input": 0.50, "cost_output": 3.00,
         "tier": "cheap", "context_window": 262144, "multimodal": True,
         "publisher": "ByteDance Seed",
@@ -428,6 +458,7 @@ MODELS = {
         "sirve_para_agentes": False,
         "id": "sakana/sakana-namazu",
         "name": "Sakana Namazu",
+        "familia": "sakana",
         "cost_input": 0.95, "cost_output": 4.00,
         "tier": "cheap", "context_window": 262144, "multimodal": True,
         "publisher": "Sakana AI",
@@ -440,6 +471,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "qwen/qwen3.6-max-preview",
         "name": "Qwen 3.6 Max",
+        "familia": "qwen",
         "cost_input": 1.027,
         "cost_output": 6.162,
         "tier": "medium",
@@ -450,6 +482,7 @@ MODELS = {
     "qwen-3.7-max": {
         "id": "qwen/qwen3.7-max",
         "name": "Qwen 3.7 Max",
+        "familia": "qwen",
         "cost_input": 1.475,
         "cost_output": 4.425,
         "tier": "premium",
@@ -462,6 +495,7 @@ MODELS = {
     "qwen-3.6-plus": {
         "id": "qwen/qwen3.6-plus",
         "name": "Qwen 3.6 Plus",
+        "familia": "qwen",
         "cost_input": 0.325,
         "cost_output": 1.95,
         "tier": "cheap",
@@ -479,6 +513,7 @@ MODELS = {
         "unavailable": "Plus es API-only de Alibaba (DashScope); no hay ruta configurada",
         "id": "qwen/qwen3.5-plus",
         "name": "Qwen 3.5 Plus",
+        "familia": "qwen",
         "cost_input": 1.20,
         "cost_output": 2.00,
         "tier": "cheap",
@@ -491,6 +526,7 @@ MODELS = {
     "kimi-k2": {
         "id": "moonshotai/kimi-k2",
         "name": "Kimi K2",
+        "familia": "kimi",
         "cost_input": 0.57,
         "cost_output": 2.3,
         "tier": "cheap",
@@ -512,6 +548,7 @@ MODELS = {
         "no_medir": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (thinking)",
+        "familia": "kimi",
         "cost_input": 0.45,
         "cost_output": 2.25,
         "tier": "cheap",
@@ -525,6 +562,7 @@ MODELS = {
     "kimi-k2.6": {
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6",
+        "familia": "kimi",
         "cost_input": 0.95,
         "cost_output": 4,
         "tier": "cheap",
@@ -543,6 +581,7 @@ MODELS = {
         "no_medir": True,
         "id": "moonshotai/kimi-k2.6",
         "name": "Kimi K2.6 (thinking)",
+        "familia": "kimi",
         "cost_input": 0.95,
         "cost_output": 4,
         "tier": "cheap",
@@ -555,6 +594,7 @@ MODELS = {
     "kimi-k2.7-code": {
         "id": "moonshotai/kimi-k2.7-code",
         "name": "Kimi K2.7 Code",
+        "familia": "kimi",
         "cost_input": 0.7,
         "cost_output": 3.5,
         "tier": "medium",
@@ -567,6 +607,7 @@ MODELS = {
     "kimi-k3": {
         "id": "moonshotai/kimi-k3",
         "name": "Kimi K3",
+        "familia": "kimi",
         "cost_input": 2.64814,
         "cost_output": 13.2827,
         "tier": "premium",
@@ -581,6 +622,7 @@ MODELS = {
     "glm-5.1": {
         "id": "z-ai/glm-5.1",
         "name": "GLM-5.1",
+        "familia": "glm",
         "cost_input": 0.966,
         "cost_output": 3.036,
         "tier": "cheap",
@@ -604,6 +646,7 @@ MODELS = {
         # «lo tenemos?»: la respuesta es «sí, y esto es lo que falta para medirlo».
         "id": "liquid/lfm-2-24b-a2b",
         "name": "LFM2 24B A2B",
+        "familia": "lfm",
         "cost_input": 0.0, "cost_output": 0.0,   # sin precio conocido en el plano común
         "tier": "cheap",
         "open_source": True,
@@ -626,6 +669,7 @@ MODELS = {
         # THINKING_MODELS: sin eso agotaría el presupuesto pensando y devolvería vacío.
         "id": "tencent/hy4-preview",
         "name": "Tencent Hy4 preview",
+        "familia": "hunyuan",
         # 6-nov-2026: pesos públicos del mismo modelo en tencent/Hy4-preview.
         "open_source": True, "license": "Apache 2.0",
         "cost_input": 0.83,
@@ -646,6 +690,7 @@ MODELS = {
         # THINKING_MODELS.
         "id": "tencent/hy4",
         "name": "Tencent Hy4",
+        "familia": "hunyuan",
         "cost_input": 0.417,
         "cost_output": 1.2505,
         "tier": "cheap",
@@ -666,6 +711,7 @@ MODELS = {
         # del Spark, no comparable—. Este sí entra al plano común.
         "id": "qwen/qwen3.8-flash",
         "name": "Qwen 3.8 Flash",
+        "familia": "qwen",
         "cost_input": 0.15,
         "cost_output": 0.47,
         "tier": "ultra_cheap",
@@ -681,6 +727,7 @@ MODELS = {
     "gpt-6-luna": {
         "id": "openai/gpt-6-luna",
         "name": "GPT-6 Luna",
+        "familia": "gpt",
         "cost_input": 0.10,
         "cost_output": 0.50,
         "tier": "ultra_cheap",
@@ -697,6 +744,7 @@ MODELS = {
     "gpt-6-luna-pro": {
         "id": "openai/gpt-6-luna-pro",
         "name": "GPT-6 Luna Pro",
+        "familia": "gpt",
         "cost_input": 0.10,
         "cost_output": 0.50,
         "tier": "ultra_cheap",
@@ -712,6 +760,7 @@ MODELS = {
     "bonsai-2-27b": {
         "id": "prism-ml/ternary-bonsai-2-27b",
         "name": "Bonsai 2 27B",
+        "familia": "bonsai",
         "cost_input": 0.075,
         "cost_output": 0.50,
         "tier": "ultra_cheap",
@@ -727,6 +776,7 @@ MODELS = {
     "qwen3.8-omni-flash": {
         "id": "qwen/qwen3.8-omni-flash",
         "name": "Qwen 3.8 Omni Flash",
+        "familia": "qwen",
         "cost_input": 0.15,
         "cost_output": 0.47,
         "tier": "ultra_cheap",
@@ -741,6 +791,7 @@ MODELS = {
     "mimo-v2.6-flash": {
         "id": "xiaomi/mimo-v2.6-flash",
         "name": "MiMo V2.6 Flash",
+        "familia": "mimo",
         "cost_input": 0.14,
         "cost_output": 0.28,
         "tier": "ultra_cheap",
@@ -757,6 +808,7 @@ MODELS = {
     "ling-3.0-flash-vl": {
         "id": "inclusionai/ling-3.0-flash-vl",
         "name": "Ling 3.0 Flash VL",
+        "familia": "ling",
         # 6-nov-2026: pesos públicos del mismo modelo en inclusionAI/Ling-3.0-flash-VL.
         "open_source": True, "license": "MIT",
         # 9-nov-2026: $0,021/$0,062 era el precio de Novita, que dejó de servirlo. Hoy el
@@ -781,6 +833,7 @@ MODELS = {
         # mostrar. También razona (`glm-5` ya está en THINKING_MODELS).
         "id": "z-ai/glm-5.3-flash",
         "name": "GLM 5.3 Flash",
+        "familia": "glm",
         "cost_input": 0.15,
         "cost_output": 0.5,
         "tier": "ultra_cheap",
@@ -796,6 +849,7 @@ MODELS = {
         # ya lo cubre: sin eso agotaría el presupuesto razonando y devolvería vacío.
         "id": "z-ai/glm-5.3",
         "name": "GLM 5.3",
+        "familia": "glm",
         "cost_input": 1.40,
         "cost_output": 4.40,
         "tier": "medium",
@@ -812,6 +866,7 @@ MODELS = {
     "glm-5.2": {
         "id": "z-ai/glm-5.2",
         "name": "GLM 5.2",
+        "familia": "glm",
         "cost_input": 0.6832,
         "cost_output": 2.1472,
         "tier": "cheap",
@@ -835,6 +890,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-flash",
         "name": "MiMo-V2-Flash",
+        "familia": "mimo",
         "cost_input": 0.09,
         "cost_output": 0.29,
         "tier": "ultra_cheap",
@@ -851,6 +907,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-pro",
         "name": "MiMo-V2-Pro",
+        "familia": "mimo",
         "cost_input": 1.00,
         "cost_output": 3.00,
         "tier": "medium",
@@ -863,6 +920,7 @@ MODELS = {
     "nemotron-super": {
         "id": "nvidia/nemotron-3-super-120b-a12b",
         "name": "Nemotron 3 Super",
+        "familia": "nemotron",
         "cost_input": 0.085,
         "cost_output": 0.4,
         "tier": "ultra_cheap",
@@ -874,6 +932,7 @@ MODELS = {
     "claude-opus-4.7": {
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7",
+        "familia": "claude",
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
@@ -882,6 +941,7 @@ MODELS = {
     "claude-opus-4.8": {
         "id": "anthropic/claude-opus-4.8",
         "name": "Claude Opus 4.8",
+        "familia": "claude",
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
@@ -899,6 +959,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-fable-5",
         "name": "Claude Fable 5 (suscripción)",
+        "familia": "claude",
         "cost_input": 10.00, "cost_output": 50.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -911,6 +972,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-opus-4-8",
         "name": "Claude Opus 4.8 (suscripción)",
+        "familia": "claude",
         "cost_input": 5.00, "cost_output": 25.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -923,6 +985,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-opus-4-7",
         "name": "Claude Opus 4.7 (suscripción)",
+        "familia": "claude",
         "cost_input": 5.00, "cost_output": 25.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -935,6 +998,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6 (suscripción)",
+        "familia": "claude",
         "cost_input": 3.00, "cost_output": 15.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -948,6 +1012,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-haiku-4-5",
         "name": "Claude Haiku 4.5 (suscripción)",
+        "familia": "claude",
         "cost_input": 1.00, "cost_output": 5.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -965,6 +1030,7 @@ MODELS = {
         "no_medir": True,
         "id": "anthropic/claude-opus-4-7",
         "name": "Claude Opus 4.7 (thinking)",
+        "familia": "claude",
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
@@ -976,6 +1042,7 @@ MODELS = {
     "mistral-large": {
         "id": "mistralai/mistral-large",
         "name": "Mistral Large",
+        "familia": "mistral",
         "cost_input": 2.00,
         "cost_output": 6.00,
         "tier": "medium",
@@ -992,6 +1059,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "mistralai/devstral-small",
         "name": "Devstral Small",
+        "familia": "mistral",
         "cost_input": 0.10,
         "cost_output": 0.30,
         "tier": "ultra_cheap",
@@ -1008,6 +1076,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "mistralai/devstral-medium",
         "name": "Devstral Medium",
+        "familia": "mistral",
         "cost_input": 0.40,
         "cost_output": 2.00,
         "tier": "cheap",
@@ -1024,6 +1093,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "mistralai/devstral-2512",
         "name": "Devstral 2 (Dic 2025)",
+        "familia": "mistral",
         "cost_input": 0.40,
         "cost_output": 2.00,
         "tier": "cheap",
@@ -1038,6 +1108,7 @@ MODELS = {
         # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-4.1",
         "name": "GPT-4.1",
+        "familia": "gpt",
         "cost_input": 2.00,
         "cost_output": 8.00,
         "tier": "medium",
@@ -1049,6 +1120,7 @@ MODELS = {
         # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-4.1-mini",
         "name": "GPT-4.1 Mini",
+        "familia": "gpt",
         "cost_input": 0.40,
         "cost_output": 1.60,
         "tier": "cheap",
@@ -1059,6 +1131,7 @@ MODELS = {
     "gemini-pro": {
         "id": "google/gemini-2.5-pro",
         "name": "Gemini 2.5 Pro",
+        "familia": "gemini",
         "cost_input": 1.25,
         "cost_output": 10.00,
         "tier": "medium",
@@ -1071,6 +1144,7 @@ MODELS = {
         "no_medir": True,
         "id": "openai/gpt-4o",
         "name": "GPT-4o",
+        "familia": "gpt",
         "cost_input": 2.50,
         "cost_output": 10.00,
         "tier": "medium",
@@ -1083,6 +1157,7 @@ MODELS = {
         "no_medir": True,
         "id": "anthropic/claude-sonnet-4",
         "name": "Claude Sonnet 4",
+        "familia": "claude",
         "cost_input": 3.00,
         "cost_output": 15.00,
         "tier": "medium",
@@ -1096,6 +1171,7 @@ MODELS = {
     "gemma-4-26b": {
         "id": "google/gemma-4-26b-a4b-it",
         "name": "Gemma 4 26B MoE (3.8B activos)",
+        "familia": "gemma",
         "cost_input": 0.09,
         "cost_output": 0.3,
         "tier": "cheap",
@@ -1105,6 +1181,7 @@ MODELS = {
     "llama-4-maverick": {
         "id": "meta-llama/llama-4-maverick",
         "name": "Llama 4 Maverick",
+        "familia": "llama",
         "cost_input": 0.2,
         "cost_output": 0.696,
         "tier": "cheap",
@@ -1114,6 +1191,7 @@ MODELS = {
     "qwen3-coder": {
         "id": "qwen/qwen3-coder",
         "name": "Qwen3 Coder",
+        "familia": "qwen",
         "cost_input": 0.3,
         "cost_output": 1,
         "tier": "cheap",
@@ -1127,6 +1205,7 @@ MODELS = {
     "qwen3.6-27b": {
         "id": "qwen/qwen3.6-27b",
         "name": "Qwen 3.6 27B base (OpenRouter FP8)",
+        "familia": "qwen",
         "cost_input": 0.3,
         "cost_output": 2,
         "tier": "cheap",
@@ -1137,6 +1216,7 @@ MODELS = {
     "qwen3.6-35b": {
         "id": "qwen/qwen3.6-35b-a3b",
         "name": "Qwen 3.6 35B base (OpenRouter FP8)",
+        "familia": "qwen",
         "cost_input": 0.1,
         "cost_output": 0.9,
         "tier": "cheap",
@@ -1147,6 +1227,7 @@ MODELS = {
     "qwen3-coder-next": {
         "id": "qwen/qwen3-coder-next",
         "name": "Qwen3-Coder-Next (OpenRouter FP8)",
+        "familia": "qwen",
         "cost_input": 0.11,
         "cost_output": 0.80,
         "tier": "cheap",
@@ -1159,6 +1240,7 @@ MODELS = {
     "claude-opus-4.6": {
         "id": "anthropic/claude-opus-4-6",
         "name": "Claude Opus 4.6",
+        "familia": "claude",
         "cost_input": 5.00,
         "cost_output": 25.00,
         "tier": "premium",
@@ -1174,6 +1256,7 @@ MODELS = {
         # Regla que queda: el `name` describe QUÉ es el modelo, nunca su posición ni su
         # novedad. Eso lo dicen los datos, que se regeneran.
         "name": "Claude Sonnet 4.6",
+        "familia": "claude",
         "cost_input": 3.00,
         "cost_output": 15.00,
         "tier": "medium",
@@ -1189,6 +1272,7 @@ MODELS = {
         "no_medir": True,
         "id": "anthropic/claude-sonnet-4-6",
         "name": "Claude Sonnet 4.6 (thinking)",
+        "familia": "claude",
         "cost_input": 3.00,
         "cost_output": 15.00,
         "tier": "medium",
@@ -1199,6 +1283,7 @@ MODELS = {
     "claude-haiku-4.5": {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5",
+        "familia": "claude",
         "cost_input": 1.00,
         "cost_output": 5.00,
         "tier": "cheap",
@@ -1215,6 +1300,7 @@ MODELS = {
         "no_medir": True,
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5 (thinking)",
+        "familia": "claude",
         "cost_input": 1.00,
         "cost_output": 5.00,
         "tier": "cheap",
@@ -1225,6 +1311,7 @@ MODELS = {
     "gemini-flash-lite": {
         "id": "google/gemini-2.5-flash-lite",
         "name": "Gemini 2.5 Flash Lite",
+        "familia": "gemini",
         "cost_input": 0.10,
         "cost_output": 0.40,
         "tier": "ultra_cheap",
@@ -1241,6 +1328,7 @@ MODELS = {
         "unavailable": "en OpenRouter sólo existe como :free (prohibido medir ahí); falta key de Cohere",
         "id": "cohere/north-mini-code",
         "name": "North Mini Code",
+        "familia": "north",
         "cost_input": 0.2,
         "cost_output": 0.6,
         "tier": "cheap",
@@ -1258,6 +1346,7 @@ MODELS = {
         # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.4",
         "name": "GPT-5.4",
+        "familia": "gpt",
         "cost_input": 5.00,
         "cost_output": 15.00,
         "tier": "premium",
@@ -1269,6 +1358,7 @@ MODELS = {
         # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.4-mini",
         "name": "GPT-5.4 Mini",
+        "familia": "gpt",
         "cost_input": 0.50,
         "cost_output": 1.50,
         "tier": "cheap",
@@ -1277,6 +1367,7 @@ MODELS = {
     "gpt-5.6-luna": {
         "id": "openai/gpt-5.6-luna",
         "name": "GPT-5.6 Luna",
+        "familia": "gpt",
         "cost_input": 0.2,
         "cost_output": 1.2,
         "tier": "cheap",
@@ -1289,6 +1380,7 @@ MODELS = {
         # así que esta medición cuenta en el ranking (no es provider_variant). (14-jul-2026)
         "id": "gpt-5.5",
         "name": "GPT-5.5",
+        "familia": "gpt",
         "cost_input": 5.00,
         "cost_output": 30.00,
         "tier": "premium",
@@ -1297,6 +1389,7 @@ MODELS = {
     "gpt-5.6-terra": {
         "id": "openai/gpt-5.6-terra",
         "name": "GPT-5.6 Terra",
+        "familia": "gpt",
         "cost_input": 2,
         "cost_output": 12,
         "tier": "medium",
@@ -1306,6 +1399,7 @@ MODELS = {
     "gpt-5.6-sol": {
         "id": "openai/gpt-5.6-sol",
         "name": "GPT-5.6 Sol",
+        "familia": "gpt",
         "cost_input": 2,
         "cost_output": 10,
         "tier": "premium",
@@ -1318,6 +1412,7 @@ MODELS = {
         "provider_variant": True,
         "id": "gpt-5.5-pro",
         "name": "GPT-5.5 Pro",
+        "familia": "gpt",
         "cost_input": 30.00,
         "cost_output": 180.00,
         "tier": "premium",
@@ -1342,6 +1437,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "llama-3.3-70b-versatile",
         "name": "Llama 3.3 70B (Groq)",
+        "familia": "llama",
         "cost_input": 0.59, "cost_output": 0.79,
         "tier": "cheap", "provider": "groq_direct",
         "open_source": True, "license": "Llama Community",
@@ -1359,6 +1455,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "llama-3.1-8b-instant",
         "name": "Llama 3.1 8B Instant (Groq)",
+        "familia": "llama",
         "cost_input": 0.05, "cost_output": 0.08,
         "tier": "ultra_cheap", "provider": "groq_direct",
         "open_source": True, "license": "Llama Community",
@@ -1369,6 +1466,7 @@ MODELS = {
         "provider_variant": True,
         "id": "meta-llama/llama-4-scout-17b-16e-instruct",
         "name": "Llama 4 Scout 17B (Groq preview)",
+        "familia": "llama",
         "cost_input": 0.11, "cost_output": 0.34,
         "tier": "cheap", "provider": "groq_direct",
         "open_source": True, "license": "Llama Community",
@@ -1379,6 +1477,7 @@ MODELS = {
         "provider_variant": True,
         "id": "openai/gpt-oss-120b",
         "name": "GPT-OSS 120B (Groq)",
+        "familia": "gpt-oss",
         "cost_input": 0.037, "cost_output": 0.17,
         "tier": "cheap", "provider": "groq_direct",
         "open_source": True, "license": "Apache 2.0",
@@ -1389,6 +1488,7 @@ MODELS = {
         "provider_variant": True,
         "id": "openai/gpt-oss-20b",
         "name": "GPT-OSS 20B (Groq)",
+        "familia": "gpt-oss",
         "cost_input": 0.03, "cost_output": 0.13,
         "tier": "ultra_cheap", "provider": "groq_direct",
         "open_source": True, "license": "Apache 2.0",
@@ -1396,6 +1496,7 @@ MODELS = {
     "gpt-4o-high": {
         "id": "openai/gpt-4o:high",
         "name": "GPT-4o High",
+        "familia": "gpt",
         "cost_input": 5.00,
         "cost_output": 15.00,
         "tier": "premium",
@@ -1408,6 +1509,7 @@ MODELS = {
         "provider_variant": True,
         "id": "deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (Ollama Cloud)",
+        "familia": "deepseek",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
@@ -1422,6 +1524,7 @@ MODELS = {
         "provider_variant": True,
         "id": "deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (Ollama Cloud)",
+        "familia": "deepseek",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_ollama",
         "provider": "ollama_cloud",
@@ -1436,6 +1539,7 @@ MODELS = {
         "provider_variant": True,
         "id": "qwen3.5:397b-cloud",
         "name": "Qwen 3.5 397B (Ollama Cloud)",
+        "familia": "qwen",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "cloud_ollama",
@@ -1454,6 +1558,7 @@ MODELS = {
         "unavailable": "id ambiguo (`qwen3.5:cloud`): Ollama no documenta qué tamaño sirve",
         "id": "qwen3.5:cloud",
         "name": "Qwen 3.5 (Ollama Cloud default)",
+        "familia": "qwen",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "cloud_ollama",
@@ -1468,6 +1573,7 @@ MODELS = {
         "provider_variant": True,
         "id": "gpt-oss:120b-cloud",
         "name": "GPT-OSS 120B (Ollama Cloud)",
+        "familia": "gpt-oss",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "cloud_ollama",
@@ -1497,6 +1603,7 @@ MODELS = {
         "ruta_unica": True,
         "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "name": "Nemotron 3.5 Lightning (NIM)",
+        "familia": "nemotron",
         # NIM corre gratis con 40 RPM; se costea al precio de OpenRouter del MISMO modelo
         # para que la comparación sea justa (regla dura: nunca $0 en el ranking).
         "cost_input": 0.10, "cost_output": 0.25,
@@ -1515,6 +1622,7 @@ MODELS = {
         "provider_variant": True,
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5 (NIM)",
+        "familia": "nemotron",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1524,6 +1632,7 @@ MODELS = {
     "openrouter-nemotron-3-ultra-550b": {
         "id": "nvidia/nemotron-3-ultra-550b-a55b",
         "name": "Nemotron 3 Ultra 550B",
+        "familia": "nemotron",
         "cost_input": 0.6, "cost_output": 2.4,
         "tier": "cloud",
         "provider": "openrouter",
@@ -1536,6 +1645,7 @@ MODELS = {
         "provider_variant": True,
         "id": "qwen/qwen3-next-80b-a3b-instruct",
         "name": "Qwen 3-Next 80B Instruct (NIM)",
+        "familia": "qwen",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1556,6 +1666,7 @@ MODELS = {
         "provider_variant": True,
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking (NIM)",
+        "familia": "qwen",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1569,6 +1680,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mistralai/mistral-nemotron",
         "name": "Mistral-Nemotron (NIM)",
+        "familia": "mistral",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1589,6 +1701,7 @@ MODELS = {
         "provider_variant": True,
         "id": "moonshotai/kimi-k2-thinking",
         "name": "Kimi K2 Thinking (NIM)",
+        "familia": "kimi",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1601,6 +1714,7 @@ MODELS = {
         "provider_variant": True,
         "id": "deepseek-ai/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (NIM)",
+        "familia": "deepseek",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1613,6 +1727,7 @@ MODELS = {
         "provider_variant": True,
         "id": "deepseek-ai/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (NIM)",
+        "familia": "deepseek",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1627,6 +1742,7 @@ MODELS = {
         "provider_variant": True,
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5 (NIM)",
+        "familia": "kimi",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1639,6 +1755,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mistralai/mistral-large-3-675b-instruct-2512",
         "name": "Mistral Large 3 675B (NIM)",
+        "familia": "mistral",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1651,6 +1768,7 @@ MODELS = {
         "provider_variant": True,
         "id": "stepfun-ai/step-3.5-flash",
         "name": "Step 3.5 Flash (NIM)",
+        "familia": "step",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1663,6 +1781,7 @@ MODELS = {
         "provider_variant": True,
         "id": "z-ai/glm-5.1",
         "name": "GLM 5.1 (NIM)",
+        "familia": "glm",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1675,6 +1794,7 @@ MODELS = {
         "provider_variant": True,
         "id": "z-ai/glm5",
         "name": "GLM 5 (NIM)",
+        "familia": "glm",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1688,6 +1808,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mistralai/magistral-small-2506",
         "name": "Mistral Magistral Small (NIM)",
+        "familia": "mistral",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1700,6 +1821,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mistralai/ministral-14b-instruct-2512",
         "name": "Ministral 14B (NIM)",
+        "familia": "mistral",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1712,6 +1834,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mistralai/devstral-2-123b-instruct-2512",
         "name": "Devstral 2 123B (NIM)",
+        "familia": "mistral",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1724,6 +1847,7 @@ MODELS = {
         "provider_variant": True,
         "id": "nvidia/nvidia-nemotron-nano-9b-v2",
         "name": "Nemotron Nano 9B v2 (NIM)",
+        "familia": "nemotron",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1736,6 +1860,7 @@ MODELS = {
         "provider_variant": True,
         "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning (NIM)",
+        "familia": "nemotron",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1750,6 +1875,7 @@ MODELS = {
         "provider_variant": True,
         "id": "google/gemma-4-31b-it",
         "name": "Gemma 4 31B (NIM)",
+        "familia": "gemma",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1762,6 +1888,7 @@ MODELS = {
         "provider_variant": True,
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B (NIM)",
+        "familia": "qwen",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "cloud_nim",
         "provider": "nvidia_nim",
@@ -1773,6 +1900,7 @@ MODELS = {
     "deepseek-v4-flash": {
         "id": "deepseek/deepseek-v4-flash",
         "name": "DeepSeek V4 Flash (OpenRouter)",
+        "familia": "deepseek",
         "cost_input": 0.088606, "cost_output": 0.177212,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
@@ -1785,6 +1913,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "deepseek/deepseek-r1",
         "name": "DeepSeek R1 (reasoning)",
+        "familia": "deepseek",
         "cost_input": 0.70, "cost_output": 2.50,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
@@ -1794,6 +1923,7 @@ MODELS = {
     "deepseek-v4-pro": {
         "id": "deepseek/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro",
+        "familia": "deepseek",
         "cost_input": 1.6, "cost_output": 3.2,
         "tier": "cheap",
         "open_source": True, "license": "MIT",
@@ -1804,6 +1934,7 @@ MODELS = {
     "gemini-3.1-flash-lite": {
         "id": "google/gemini-3.1-flash-lite-preview",
         "name": "Gemini 3.1 Flash Lite",
+        "familia": "gemini",
         "cost_input": 0.25, "cost_output": 1.50,
         "tier": "cheap",
     },
@@ -1818,6 +1949,7 @@ MODELS = {
         "no_medir": True,
         "id": "google/gemini-3.1-flash-lite-preview",
         "name": "Gemini 3.1 Flash Lite (thinking)",
+        "familia": "gemini",
         "cost_input": 0.25, "cost_output": 1.50,
         "tier": "cheap",
         "thinking": True,
@@ -1827,6 +1959,7 @@ MODELS = {
     "gemini-3.1-pro": {
         "id": "google/gemini-3.1-pro-preview",
         "name": "Gemini 3.1 Pro",
+        "familia": "gemini",
         "cost_input": 2.00, "cost_output": 12.00,
         "tier": "medium",
     },
@@ -1841,6 +1974,7 @@ MODELS = {
         "no_medir": True,
         "id": "google/gemini-3.1-pro-preview",
         "name": "Gemini 3.1 Pro (thinking)",
+        "familia": "gemini",
         "cost_input": 2.00, "cost_output": 12.00,
         "tier": "medium",
         "thinking": True,
@@ -1858,12 +1992,14 @@ MODELS = {
         "retired_kind": "provider",
         "id": "x-ai/grok-4.1-fast",
         "name": "Grok 4.1 Fast",
+        "familia": "grok",
         "cost_input": 0.20, "cost_output": 0.50,
         "tier": "cheap",
     },
     "grok-4.20": {
         "id": "x-ai/grok-4.20",
         "name": "Grok 4.20",
+        "familia": "grok",
         "cost_input": 1.25, "cost_output": 2.50,
         "tier": "medium",
         "notes": "Precio corregido may 2026 vía OpenRouter API ($1.25/$2.50, antes $2/$6).",
@@ -1871,6 +2007,7 @@ MODELS = {
     "grok-4.3": {
         "id": "x-ai/grok-4.3",
         "name": "Grok 4.3",
+        "familia": "grok",
         "cost_input": 1.25, "cost_output": 2.50,
         "tier": "medium",
         "notes": "Flagship xAI (30 abr 2026), contexto 1M. Precio vía OpenRouter API may 2026.",
@@ -1878,6 +2015,7 @@ MODELS = {
     "grok-4.5": {
         "id": "x-ai/grok-4.5",
         "name": "Grok 4.5",
+        "familia": "grok",
         "cost_input": 2.00, "cost_output": 6.00,
         "tier": "medium",
         "niah_max_context": 262144,
@@ -1886,6 +2024,7 @@ MODELS = {
     "grok-4.20-multi-agent": {
         "id": "x-ai/grok-4.20-multi-agent",
         "name": "Grok 4.20 Multi-Agent",
+        "familia": "grok",
         "cost_input": 1.25, "cost_output": 2.5,
         "tier": "premium",
         "notes": "Variante multi-agente (Heavy) de Grok 4.20, contexto 2M. Precio vía OpenRouter API may 2026.",
@@ -1895,6 +2034,7 @@ MODELS = {
     "mistral-small-4": {
         "id": "mistralai/mistral-small-2603",
         "name": "Mistral Small 4",
+        "familia": "mistral",
         "cost_input": 0.15, "cost_output": 0.60,
         "tier": "cheap",
         "open_source": True, "license": "Apache 2.0",
@@ -1904,6 +2044,7 @@ MODELS = {
     "nemotron-nano": {
         "id": "nvidia/nemotron-3-nano-30b-a3b",
         "name": "Nemotron 3 Nano 30B",
+        "familia": "nemotron",
         "cost_input": 0.05, "cost_output": 0.20,
         "tier": "ultra_cheap",
         "open_source": True, "license": "NVIDIA Open",
@@ -1915,6 +2056,7 @@ MODELS = {
     "claude-sonnet-5": {
         "id": "anthropic/claude-sonnet-5",
         "name": "Claude Sonnet 5",
+        "familia": "claude",
         "cost_input": 2.00, "cost_output": 10.00,
         "tier": "medium",
         "context_window": 1000000,
@@ -1925,6 +2067,7 @@ MODELS = {
     "claude-opus-5": {
         "id": "anthropic/claude-opus-5",
         "name": "Claude Opus 5",
+        "familia": "claude",
         "cost_input": 5.00, "cost_output": 25.00,
         "tier": "premium",
         "context_window": 1000000,
@@ -1935,6 +2078,7 @@ MODELS = {
     "claude-opus-5-fast": {
         "id": "anthropic/claude-opus-5-fast",
         "name": "Claude Opus 5 Fast",
+        "familia": "claude",
         "cost_input": 10.00, "cost_output": 50.00,
         "tier": "premium",
         "context_window": 1000000,
@@ -1953,6 +2097,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-opus-5",
         "name": "Claude Opus 5 (suscripción)",
+        "familia": "claude",
         "cost_input": 5.00, "cost_output": 25.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -1963,6 +2108,7 @@ MODELS = {
         "provider_variant": True,
         "id": "claude-sonnet-5",
         "name": "Claude Sonnet 5 (suscripción)",
+        "familia": "claude",
         "cost_input": 2.00, "cost_output": 10.00,
         "tier": "subscription", "provider": "claude_code",
         "subscriptions": ["anthropic_pro"], "free_runtime": True,
@@ -1972,6 +2118,7 @@ MODELS = {
     "gpt-5.6-luna-pro": {
         "id": "openai/gpt-5.6-luna-pro",
         "name": "GPT-5.6 Luna Pro",
+        "familia": "gpt",
         "cost_input": 0.2, "cost_output": 1.2,
         "tier": "cheap",
         "context_window": 1050000,
@@ -1997,6 +2144,7 @@ MODELS = {
     "gpt-5.6-terra-pro": {
         "id": "openai/gpt-5.6-terra-pro",
         "name": "GPT-5.6 Terra Pro",
+        "familia": "gpt",
         "cost_input": 2, "cost_output": 12,
         "tier": "medium",
         "context_window": 1050000,
@@ -2013,6 +2161,7 @@ MODELS = {
     "muse-spark-1.2": {
         "id": "meta/muse-spark-1.2",
         "name": "Muse Spark 1.2",
+        "familia": "muse",
         "cost_input": 1.25, "cost_output": 4.25,
         "tier": "medium",
         "context_window": 1048576,
@@ -2036,6 +2185,7 @@ MODELS = {
     "nemotron-3.5-lightning": {
         "id": "nvidia/nemotron-3.5-lightning",
         "name": "Nemotron 3.5 Lightning",
+        "familia": "nemotron",
         "cost_input": 0.08, "cost_output": 0.2,
         "tier": "ultra_cheap",
         "context_window": 262144,
@@ -2058,6 +2208,7 @@ MODELS = {
     "muse-glimmer-30b": {
         "id": "meta/muse-glimmer-30b",
         "name": "Muse Glimmer 30B",
+        "familia": "muse",
         "cost_input": 0.35, "cost_output": 1.50,
         "tier": "cheap",
         # Open-weight CONFIRMADO por pesos descargables, no por el nombre del modelo:
@@ -2088,6 +2239,7 @@ MODELS = {
     "ling-3.0-flash": {
         "id": "inclusionai/ling-3.0-flash",
         "name": "Ling 3.0 Flash",
+        "familia": "ling",
         "cost_input": 0.021, "cost_output": 0.063,
         "tier": "ultra_cheap",
         "context_window": 262144,
@@ -2104,6 +2256,7 @@ MODELS = {
     "solar-pro4": {
         "id": "upstage/solar-pro4",
         "name": "Solar Pro 4",
+        "familia": "solar",
         "cost_input": 0.09, "cost_output": 0.36,
         "tier": "ultra_cheap",
         "context_window": 524288,
@@ -2117,6 +2270,7 @@ MODELS = {
     "gemini-3.1-flash-lite-ga": {
         "id": "google/gemini-3.1-flash-lite",
         "name": "Gemini 3.1 Flash Lite (GA)",
+        "familia": "gemini",
         "cost_input": 0.25, "cost_output": 1.50,
         "tier": "cheap", "context_window": 1048576, "multimodal": True,
         "publisher": "Google", "license": "Proprietary",
@@ -2134,6 +2288,7 @@ MODELS = {
                                       "Ninguna de sus 132 respuestas de texto completas tiene ese patrón")},
         "id": "liquid/lfm-3-1.7b",
         "name": "LFM-3 1.7B",
+        "familia": "lfm",
         "cost_input": 0.08, "cost_output": 0.20,
         "tier": "ultra_cheap", "context_window": 262144,
         "publisher": "Liquid AI", "open_source": True, "license": "LFM Open License v1.0",
@@ -2145,6 +2300,7 @@ MODELS = {
     "qwen3.7-flash": {
         "id": "qwen/qwen3.7-flash",
         "name": "Qwen 3.7 Flash",
+        "familia": "qwen",
         "cost_input": 0.03, "cost_output": 0.13,
         "tier": "ultra_cheap",
         "context_window": 1000000,
@@ -2158,6 +2314,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "nex-agi/nex-n2-mini",
         "name": "Nex-N2-Mini",
+        "familia": "nex",
         "cost_input": 0.025, "cost_output": 0.10,
         "tier": "ultra_cheap",
         "context_window": 262144,
@@ -2173,6 +2330,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "poolside/laguna-xs-2.1",
         "name": "Poolside Laguna XS 2.1",
+        "familia": "laguna",
         "cost_input": 0.06, "cost_output": 0.12,
         "tier": "ultra_cheap",
         "context_window": 262144,
@@ -2185,6 +2343,7 @@ MODELS = {
     "deepseek-v4-flash-0731": {
         "id": "deepseek/deepseek-v4-flash-0731",
         "name": "DeepSeek V4 Flash 0731",
+        "familia": "deepseek",
         "cost_input": 0.06, "cost_output": 0.12,
         "tier": "ultra_cheap",
         "context_window": 1048576,
@@ -2199,6 +2358,7 @@ MODELS = {
     "tencent-hy3": {
         "id": "tencent/hy3",
         "name": "Tencent Hy3",
+        "familia": "hunyuan",
         "cost_input": 0.132, "cost_output": 0.528,
         "tier": "cheap",
         "context_window": 262144,
@@ -2214,6 +2374,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "poolside/laguna-s-2.1",
         "name": "Poolside Laguna S 2.1",
+        "familia": "laguna",
         "cost_input": 0.09, "cost_output": 0.18,
         "tier": "ultra_cheap",
         # Pesos abiertos según la tabla del post de NVIDIA (11-ago-2026), que además dice
@@ -2228,6 +2389,7 @@ MODELS = {
     "inkling-small": {
         "id": "thinkingmachines/inkling-small",
         "name": "Inkling Small",
+        "familia": "inkling",
         "cost_input": 0.45, "cost_output": 1.20,
         "tier": "cheap",
         # Pesos abiertos según el post de NVIDIA. ⚠️ Pero ahí mismo dice que necesita un
@@ -2248,6 +2410,7 @@ MODELS = {
     "mimo-v2-flash-free": {
         "id": "xiaomi/mimo-v2-flash:free",
         "name": "MiMo-V2-Flash (free)",
+        "familia": "mimo",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "free",
         "open_source": True, "license": "MIT",
@@ -2261,6 +2424,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "xiaomi/mimo-v2-omni",
         "name": "MiMo-V2-Omni (multimodal)",
+        "familia": "mimo",
         "cost_input": 0.40, "cost_output": 2.00,
         "tier": "cheap",
     },
@@ -2269,6 +2433,7 @@ MODELS = {
     "qwen-3.6-plus-free": {
         "id": "qwen/qwen3.6-plus:free",
         "name": "Qwen 3.6 Plus (free)",
+        "familia": "qwen",
         "cost_input": 0.0, "cost_output": 0.0,
         "tier": "free",
     },
@@ -2295,6 +2460,7 @@ MODELS = {
         "prompt_tools": True,  # Hermes hace function calling prompt-based (formato <tool_call>), no param nativo
         "id": "nousresearch/hermes-4-70b",
         "name": "Hermes 4 70B",
+        "familia": "hermes",
         "cost_input": 0.13, "cost_output": 0.40,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
@@ -2321,6 +2487,7 @@ MODELS = {
         "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
         "id": "nousresearch/hermes-4-70b",
         "name": "Hermes 4 70B (thinking)",
+        "familia": "hermes",
         "cost_input": 0.13, "cost_output": 0.40,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
@@ -2345,6 +2512,7 @@ MODELS = {
         "prompt_tools": True,  # Hermes hace function calling prompt-based (formato <tool_call>), no param nativo
         "id": "nousresearch/hermes-4-405b",
         "name": "Hermes 4 405B",
+        "familia": "hermes",
         "cost_input": 1.00, "cost_output": 3.00,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
@@ -2367,6 +2535,7 @@ MODELS = {
         "notes": "Modelo de Nous Research (fine-tune de Llama 3.1). No confundir con el Hermes Agent. ⚠️ No soporta tool calling en OpenRouter: no sirve para agentes.",
         "id": "nousresearch/hermes-4-405b",
         "name": "Hermes 4 405B (thinking)",
+        "familia": "hermes",
         "cost_input": 1.00, "cost_output": 3.00,
         "tier": "cheap",
         "open_source": True, "license": "Llama 3 community",
@@ -2389,6 +2558,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "stepfun-ai/step3",
         "name": "Step3 (StepFun)",
+        "familia": "step",
         "cost_input": 1.00, "cost_output": 3.00,  # estimado, verificar
         "tier": "cheap",
         "open_source": True, "license": "Apache 2.0",
@@ -2399,6 +2569,7 @@ MODELS = {
     "mimo-v2.5-or": {
         "id": "xiaomi/mimo-v2.5",
         "name": "MiMo-V2.5 (omnimodal)",
+        "familia": "mimo",
         # 6-nov-2026: pesos públicos del mismo modelo en XiaomiMiMo/MiMo-V2.5.
         "open_source": True, "license": "MIT",
         "cost_input": 0.14, "cost_output": 0.28,
@@ -2408,6 +2579,7 @@ MODELS = {
     "mimo-v2.5-pro-or": {
         "id": "xiaomi/mimo-v2.5-pro",
         "name": "MiMo-V2.5 Pro",
+        "familia": "mimo",
         # 6-nov-2026: pesos públicos del mismo modelo en XiaomiMiMo/MiMo-V2.5-Pro.
         "open_source": True, "license": "MIT",
         "cost_input": 0.435, "cost_output": 0.87,
@@ -2427,6 +2599,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "bytedance/seed-oss-36b-instruct",
         "name": "Seed-OSS 36B Instruct",
+        "familia": "seed",
         "cost_input": 0.20, "cost_output": 0.60,  # estimado, verificar
         "tier": "cheap",
         "open_source": True, "license": "Apache 2.0",
@@ -2443,6 +2616,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mimo-v2.5",
         "name": "MiMo V2.5 (Xiaomi)",
+        "familia": "mimo",
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
@@ -2456,6 +2630,7 @@ MODELS = {
         "provider_variant": True,
         "id": "mimo-v2.5-pro",
         "name": "MiMo V2.5-Pro (Xiaomi)",
+        "familia": "mimo",
         "cost_input": 0.14, "cost_output": 0.14,
         "tier": "subscription",
         "provider": "xiaomi_direct",
@@ -2473,6 +2648,7 @@ MODELS = {
         "retired_kind": "unknown",
         "id": "mimo-v2-pro",
         "name": "MiMo V2-Pro (Xiaomi direct)",
+        "familia": "mimo",
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
@@ -2490,6 +2666,7 @@ MODELS = {
         "retired_kind": "unknown",
         "id": "mimo-v2-omni",
         "name": "MiMo V2-Omni (Xiaomi direct)",
+        "familia": "mimo",
         "cost_input": 0.07, "cost_output": 0.07,
         "tier": "subscription",
         "provider": "xiaomi_direct",
@@ -2506,6 +2683,7 @@ MODELS = {
         "id": "gemma-4-12b-it-Q4_K_M.gguf",
         "context_window": 131072,
         "name": "Gemma 4 12B (Spark llama-server Q4_K_M)",
+        "familia": "gemma",
         "cost_input": 0.05,        # OR-equivalente (~12B dense); free_runtime real
         "cost_output": 0.20,
         "tier": "local",
@@ -2526,6 +2704,7 @@ MODELS = {
         "id": "gemma-4-31B-it-Q4_K_M.gguf",
         "context_window": 131072,
         "name": "Gemma 4 31B (Spark llama-server Q4_K_M)",
+        "familia": "gemma",
         "cost_input": 0.12,        # OR-equivalente; free_runtime real
         "cost_output": 0.37,
         "tier": "local",
@@ -2545,6 +2724,7 @@ MODELS = {
         "self_hosted": True,
         "id": "gemma-4-12b-it-Q4_K_M.gguf",
         "name": "Gemma 4 12B (Spark llama-server, reasoning)",
+        "familia": "gemma",
         "cost_input": 0.05,
         "cost_output": 0.20,
         "tier": "local",
@@ -2565,6 +2745,7 @@ MODELS = {
         "self_hosted": True,
         "id": "gemma-4-31B-it-Q4_K_M.gguf",
         "name": "Gemma 4 31B (Spark llama-server, reasoning)",
+        "familia": "gemma",
         "cost_input": 0.12,
         "cost_output": 0.37,
         "tier": "local",
@@ -2591,6 +2772,7 @@ MODELS = {
     "or-llama-3.3-70b": {
         "id": "meta-llama/llama-3.3-70b-instruct",
         "name": "Llama 3.3 70B",
+        "familia": "llama",
         "cost_input": 0.1, "cost_output": 0.32,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "Llama Community",
@@ -2598,6 +2780,7 @@ MODELS = {
     "or-llama-3.1-8b": {
         "id": "meta-llama/llama-3.1-8b-instruct",
         "name": "Llama 3.1 8B Instant",
+        "familia": "llama",
         "cost_input": 0.05, "cost_output": 0.08,
         "tier": "ultra_cheap", "provider": "openrouter",
         "open_source": True, "license": "Llama Community",
@@ -2605,6 +2788,7 @@ MODELS = {
     "or-llama-4-scout": {
         "id": "meta-llama/llama-4-scout",
         "name": "Llama 4 Scout 17B",
+        "familia": "llama",
         "cost_input": 0.1, "cost_output": 0.3,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "Llama Community",
@@ -2613,6 +2797,7 @@ MODELS = {
         "id": "openai/gpt-oss-20b",
         # 10-nov-2026: sin `agentico_sin_dato`: medido en la v6.1 por DekaLLM, que entrega tool_calls.
         "name": "GPT-OSS 20B",
+        "familia": "gpt-oss",
         "cost_input": 0.029, "cost_output": 0.14,
         "tier": "ultra_cheap", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2621,6 +2806,7 @@ MODELS = {
         "id": "openai/gpt-oss-120b",
         # 10-nov-2026: sin `agentico_sin_dato`: medido en la v6.1 por DekaLLM, que entrega tool_calls.
         "name": "GPT-OSS 120B",
+        "familia": "gpt-oss",
         "cost_input": 0.036, "cost_output": 0.18,
         "tier": "cloud_ollama", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2635,6 +2821,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
         "name": "Nemotron Super 49B v1.5",
+        "familia": "nemotron",
         "cost_input": 0.4, "cost_output": 0.4,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open Model",
@@ -2642,6 +2829,7 @@ MODELS = {
     "or-qwen3-next-instruct": {
         "id": "qwen/qwen3-next-80b-a3b-instruct",
         "name": "Qwen 3-Next 80B Instruct",
+        "familia": "qwen",
         "cost_input": 0.09, "cost_output": 1.1,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2657,6 +2845,7 @@ MODELS = {
         "no_medir": True,
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "name": "Qwen 3-Next 80B Thinking",
+        "familia": "qwen",
         "cost_input": 0.15, "cost_output": 1.2,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2672,6 +2861,7 @@ MODELS = {
         "no_medir": True,
         "id": "moonshotai/kimi-k2-thinking",
         "name": "Kimi K2 Thinking",
+        "familia": "kimi",
         "cost_input": 0.6, "cost_output": 2.5,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Modified MIT",
@@ -2679,6 +2869,7 @@ MODELS = {
     "or-kimi-k2.5": {
         "id": "moonshotai/kimi-k2.5",
         "name": "Kimi K2.5",
+        "familia": "kimi",
         "cost_input": 0.45, "cost_output": 2.25,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Modified MIT",
@@ -2686,6 +2877,7 @@ MODELS = {
     "or-mistral-large-3": {
         "id": "mistralai/mistral-large-2512",
         "name": "Mistral Large 3 675B",
+        "familia": "mistral",
         "cost_input": 0.5, "cost_output": 1.5,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2701,6 +2893,7 @@ MODELS = {
         # tokens. Antes de medirlo hay que agregarlo a THINKING_MODELS en adapters.py.
         "id": "stepfun/step-3.5-flash",
         "name": "Step 3.5 Flash",
+        "familia": "step",
         "cost_input": 0.1, "cost_output": 0.3,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2708,6 +2901,7 @@ MODELS = {
     "or-glm5": {
         "id": "z-ai/glm-5",
         "name": "GLM 5",
+        "familia": "glm",
         "cost_input": 0.6, "cost_output": 1.92,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "MIT",
@@ -2715,6 +2909,7 @@ MODELS = {
     "or-ministral-14b": {
         "id": "mistralai/ministral-14b-2512",
         "name": "Ministral 14B",
+        "familia": "mistral",
         "cost_input": 0.2, "cost_output": 0.2,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2725,6 +2920,7 @@ MODELS = {
         # engaña la decisión. Usamos el precio real de NVIDIA (mismo modelo en NIM pago).
         "id": "nvidia/nemotron-nano-9b-v2:free",
         "name": "Nemotron Nano 9B v2",
+        "familia": "nemotron",
         "cost_input": 0.05, "cost_output": 0.2,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open License",
@@ -2734,6 +2930,7 @@ MODELS = {
         # (mismo modelo en NIM pago), NO $0. (14-jul-2026)
         "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning",
+        "familia": "nemotron",
         "cost_input": 0.1, "cost_output": 0.4,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "NVIDIA Open License",
@@ -2741,6 +2938,7 @@ MODELS = {
     "or-gemma-4-31b": {
         "id": "google/gemma-4-31b-it",
         "name": "Gemma 4 31B",
+        "familia": "gemma",
         "cost_input": 0.1, "cost_output": 0.34,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Gemma Terms",
@@ -2748,6 +2946,7 @@ MODELS = {
     "or-qwen3.5-397b": {
         "id": "qwen/qwen3.5-397b-a17b",
         "name": "Qwen 3.5 397B",
+        "familia": "qwen",
         "cost_input": 0.55, "cost_output": 3.5,
         "tier": "cloud_nim", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2773,6 +2972,7 @@ MODELS = {
     "or-qwen-3.5-35b": {
         "id": "qwen/qwen3.5-35b-a3b",
         "name": "Qwen 3.5 35B",
+        "familia": "qwen",
         "cost_input": 0.3125, "cost_output": 1.25,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "Apache 2.0",
@@ -2784,6 +2984,7 @@ MODELS = {
         # Ver la nota de `or-step-3.5-flash`: el retiro se re-chequea, no es definitivo.
         "id": "qwen/qwen-2.5-72b-instruct",
         "name": "Qwen 2.5 72B",
+        "familia": "qwen",
         "cost_input": 0.36, "cost_output": 0.4,
         # Salió en sep-2024: más de un año sin medir. Regla vigente
         # (15-ago-2026): el benchmark existe para decidir qué poner en
@@ -2797,6 +2998,7 @@ MODELS = {
         "id": "deepseek/deepseek-v3.2",
         # 6-nov-2026: mide deepseek-v3.2 y se llamaba «DeepSeek V3». La key no cambia (URL pública).
         "name": "DeepSeek V3.2",
+        "familia": "deepseek",
         "nombres_anteriores": ["DeepSeek V3"],
         "cost_input": 0.269, "cost_output": 0.4,
         "tier": "cheap", "provider": "openrouter",
@@ -2805,6 +3007,7 @@ MODELS = {
     "or-minimax-m2.5": {
         "id": "minimax/minimax-m2.5",
         "name": "MiniMax M2.5",
+        "familia": "minimax",
         "cost_input": 0.27, "cost_output": 1.08,
         "tier": "cheap", "provider": "openrouter",
         "open_source": True, "license": "MIT",
@@ -2824,6 +3027,7 @@ MODELS = {
     "or-claude-fable-5": {
         "id": "anthropic/claude-fable-5",
         "name": "Claude Fable 5",
+        "familia": "claude",
         "cost_input": 10.0, "cost_output": 50.0,
         "tier": "premium", "provider": "openrouter",
         "open_source": False, "license": "Proprietary",
@@ -2836,6 +3040,7 @@ MODELS = {
     "claude-haiku-5.5": {
         "id": "anthropic/claude-haiku-5.5",
         "name": "Claude Haiku 5.5",
+        "familia": "claude",
         "cost_input": 0.10,
         "cost_output": 0.50,
         "tier": "ultra_cheap",
@@ -2848,6 +3053,7 @@ MODELS = {
     "claude-sonnet-5.5": {
         "id": "anthropic/claude-sonnet-5.5",
         "name": "Claude Sonnet 5.5",
+        "familia": "claude",
         "cost_input": 2.00,
         "cost_output": 10.00,
         "tier": "medium",
@@ -2860,6 +3066,7 @@ MODELS = {
     "claude-opus-5.5": {
         "id": "anthropic/claude-opus-5.5",
         "name": "Claude Opus 5.5",
+        "familia": "claude",
         "cost_input": 4.00,
         "cost_output": 20.00,
         "tier": "premium",
@@ -2872,6 +3079,7 @@ MODELS = {
     "claude-fable-5.1": {
         "id": "anthropic/claude-fable-5.1",
         "name": "Claude Fable 5.1",
+        "familia": "claude",
         "cost_input": 10.00,
         "cost_output": 50.00,
         "tier": "premium",
@@ -2888,6 +3096,7 @@ MODELS = {
     "gemini-3.8-flash": {
         "id": "google/gemini-3.8-flash",
         "name": "Gemini 3.8 Flash",
+        "familia": "gemini",
         "cost_input": 0.75,
         "cost_output": 3.75,
         "tier": "cheap",
@@ -2900,6 +3109,7 @@ MODELS = {
     "deepseek-v4.1-flash": {
         "id": "deepseek/deepseek-v4.1-flash",
         "name": "DeepSeek V4.1 Flash",
+        "familia": "deepseek",
         "cost_input": 0.15,
         "cost_output": 0.6,
         "tier": "cheap",
@@ -2913,6 +3123,7 @@ MODELS = {
     "qwen-3.8-max-0902": {
         "id": "qwen/qwen3.8-max-0902",
         "name": "Qwen 3.8 Max 0902",
+        "familia": "qwen",
         "cost_input": 2.0,
         "cost_output": 6.0,
         "tier": "medium",
@@ -2926,6 +3137,7 @@ MODELS = {
     "muse-spark-1.3": {
         "id": "meta/muse-spark-1.3",
         "name": "Muse Spark 1.3",
+        "familia": "muse",
         "cost_input": 1.25,
         "cost_output": 4.25,
         "tier": "medium",
@@ -2937,6 +3149,7 @@ MODELS = {
     "fugu-max": {
         "id": "sakana/fugu-max",
         "name": "Fugu Max",
+        "familia": "sakana",
         "cost_input": 2.0,
         "cost_output": 6.0,
         "tier": "medium",
@@ -2950,6 +3163,7 @@ MODELS = {
     "granite-4.2-8b": {
         "id": "ibm-granite/granite-4.2-8b",
         "name": "Granite 4.2 8B",
+        "familia": "granite",
         "cost_input": 0.06,
         "cost_output": 0.25,
         "tier": "ultra_cheap",
@@ -2967,6 +3181,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "inception/mercury-2.5",
         "name": "Mercury 2.5",
+        "familia": "mercury",
         "cost_input": 0.04,
         "cost_output": 0.15,
         "tier": "ultra_cheap",
@@ -2988,6 +3203,7 @@ MODELS = {
     "gpt-6.1-sol": {
         "id": "openai/gpt-6.1-sol",
         "name": "GPT-6.1 Sol",
+        "familia": "gpt",
         "cost_input": 2, "cost_output": 10,
         "tier": "premium",
         "context_window": 1050000,
@@ -2998,6 +3214,7 @@ MODELS = {
     "gpt-6.1-terra": {
         "id": "openai/gpt-6.1-terra",
         "name": "GPT-6.1 Terra",
+        "familia": "gpt",
         "cost_input": 1, "cost_output": 5,
         "tier": "medium",
         "context_window": 1050000,
@@ -3008,6 +3225,7 @@ MODELS = {
     "grok-4.7": {
         "id": "x-ai/grok-4.7",
         "name": "Grok 4.7",
+        "familia": "grok",
         "cost_input": 2, "cost_output": 6,
         "tier": "medium",
         "context_window": 500000,
@@ -3018,6 +3236,7 @@ MODELS = {
     "gemini-4-argon": {
         "id": "google/gemini-4-argon",
         "name": "Gemini 4 Argon",
+        "familia": "gemini",
         "cost_input": 2, "cost_output": 10,
         "tier": "medium",
         "context_window": 1048576,
@@ -3028,6 +3247,7 @@ MODELS = {
     "kimi-k3.1-pro": {
         "id": "moonshotai/kimi-k3.1-pro",
         "name": "Kimi K3.1 Pro",
+        "familia": "kimi",
         "cost_input": 2, "cost_output": 10,
         "tier": "premium",
         "context_window": 1048576,
@@ -3044,6 +3264,7 @@ MODELS = {
         "retired_kind": "provider",
         "id": "inception/mercury-3",
         "name": "Mercury 3",
+        "familia": "mercury",
         "cost_input": 0.1, "cost_output": 0.35,
         "tier": "ultra_cheap",
         "context_window": 1000000,
@@ -3055,6 +3276,7 @@ MODELS = {
     "mistral-large-4": {
         "id": "mistralai/mistral-large-4-0",
         "name": "Mistral Large 4.0",
+        "familia": "mistral",
         "cost_input": 0.7, "cost_output": 2.1,
         "tier": "cheap",
         "context_window": 1048576,
@@ -3066,6 +3288,7 @@ MODELS = {
     "mimo-v2.6-pro": {
         "id": "xiaomi/mimo-v2.6-pro",
         "name": "MiMo V2.6 Pro",
+        "familia": "mimo",
         "cost_input": 0.435, "cost_output": 0.87,
         "tier": "cheap",
         "context_window": 1048576,
@@ -3078,6 +3301,7 @@ MODELS = {
     "gpt-6-astra": {
         "id": "openai/gpt-6-astra",
         "name": "GPT-6 Astra",
+        "familia": "gpt",
         "cost_input": 10, "cost_output": 50,
         "tier": "premium",
         "context_window": 1050000,
@@ -3087,6 +3311,7 @@ MODELS = {
     "muse-wonder": {
         "id": "meta/muse-wonder",
         "name": "Muse Wonder",
+        "familia": "muse",
         "cost_input": 4, "cost_output": 20,
         "tier": "premium",
         "context_window": 1048576,
@@ -3100,6 +3325,7 @@ MODELS = {
     "muse-ember": {
         "id": "meta/muse-ember",
         "name": "Muse Ember",
+        "familia": "muse",
         "cost_input": 0.10, "cost_output": 0.50,
         "tier": "ultra_cheap",
         "context_window": 1048576,
@@ -3110,6 +3336,7 @@ MODELS = {
     "claude-fable-5.2": {
         "id": "anthropic/claude-fable-5.2",
         "name": "Claude Fable 5.2",
+        "familia": "claude",
         "cost_input": 8.00,
         "cost_output": 40.00,
         "tier": "premium",
@@ -3122,6 +3349,7 @@ MODELS = {
     "minimax-m3.1-flash": {
         "id": "minimax/minimax-m3.1-flash",
         "name": "MiniMax M3.1 Flash",
+        "familia": "minimax",
         "cost_input": 0.075, "cost_output": 0.3,
         "tier": "ultra_cheap",
         "context_window": 1048576,
@@ -3146,6 +3374,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "gemma4:31b",
         "name": "Gemma 4 31B (DGX Spark Q4_K_M)",
+        "familia": "gemma",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3162,6 +3391,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "nemotron-3-super:120b",
         "name": "Nemotron 3 Super 120B (DGX Spark Q4_K_M)",
+        "familia": "nemotron",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3177,6 +3407,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "hf.co/unsloth/NVIDIA-Nemotron-3-Nano-Omni-30B-A3B-Reasoning-GGUF:Q4_K_M",
         "name": "Nemotron 3 Nano Omni 30B-A3B Reasoning (DGX Spark Q4_K_M)",
+        "familia": "nemotron",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3194,6 +3425,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "nemotron3:33b-q4_K_M",
         "name": "Nemotron 3 Base 33B (DGX Spark Q4_K_M)",
+        "familia": "nemotron",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3213,6 +3445,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "qwen3.5:35b",
         "name": "Qwen 3.5 35B (DGX Spark)",
+        "familia": "qwen",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3229,6 +3462,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "qwen3.6:27b",
         "name": "Qwen 3.6 27B base (DGX Spark)",
+        "familia": "qwen",
         "cost_input": 0.29,
         "cost_output": 3.20,
         "tier": "local",
@@ -3245,6 +3479,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "qwen3.6:35b",
         "name": "Qwen 3.6 35B base (DGX Spark)",
+        "familia": "qwen",
         "cost_input": 0.14,
         "cost_output": 1.00,
         "tier": "local",
@@ -3262,6 +3497,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "qwen3-coder-next:q4_K_M",
         "name": "Qwen3-Coder-Next (DGX Spark Q4_K_M)",
+        "familia": "qwen",
         "cost_input": 0.11,
         "cost_output": 0.80,
         "tier": "local",
@@ -3279,6 +3515,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "qwen2.5:72b",
         "name": "Qwen 2.5 72B (DGX Spark)",
+        "familia": "qwen",
         "cost_input": 0.36,
         "cost_output": 0.40,
         "tier": "local",
@@ -3296,6 +3533,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "llama3.3:70b",
         "name": "Llama 3.3 70B (local)",
+        "familia": "llama",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3311,6 +3549,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "llama4-maverick",
         "name": "Llama 4 Maverick (local)",
+        "familia": "llama",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3326,6 +3565,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "gemma4:31b",
         "name": "Gemma 4 31B (local)",
+        "familia": "gemma",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3340,6 +3580,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "gemma4:26b",
         "name": "Gemma 4 26B MoE (local, solo 3.8B activos)",
+        "familia": "gemma",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3354,6 +3595,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "devstral-small2:24b",
         "name": "Devstral Small 2 24B (DGX Spark Q4_K_M)",
+        "familia": "mistral",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3369,6 +3611,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "hf.co/unsloth/diffusiongemma-26B-A4B-it-GGUF:Q8_0",
         "name": "DiffusionGemma 26B-A4B (DGX Spark Q8_0)",
+        "familia": "diffusiongemma",
         "provider": "diffusion_cli",
         "bin_path": "/home/ctala/llama.cpp-diffusion/build/bin/llama-diffusion-cli",
         "gguf_path": "/home/ctala/models/diffusiongemma/diffusiongemma-26B-A4B-it-Q8_0.gguf",
@@ -3401,6 +3644,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "deepseek-v3",
         "name": "DeepSeek V3 (local)",
+        "familia": "deepseek",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3417,6 +3661,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "mistral-nemo",
         "name": "Mistral Nemo 12B (local)",
+        "familia": "mistral",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3436,6 +3681,7 @@ OLLAMA_MODELS = {
         "retired_kind": "policy",
         "id": "phi4",
         "name": "Phi-4 14B (local)",
+        "familia": "phi",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",
@@ -3451,6 +3697,7 @@ OLLAMA_MODELS = {
         "self_hosted": True,
         "id": "MiniMax-M2.5",
         "name": "MiniMax M2.5 (local, open-source)",
+        "familia": "minimax",
         "cost_input": 0.0,
         "cost_output": 0.0,
         "tier": "local",

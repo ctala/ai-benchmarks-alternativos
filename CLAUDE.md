@@ -67,6 +67,7 @@ El runner **guarda incrementalmente** tras cada test y puede continuar desde cua
 "nuevo-modelo": {
     "id": "provider/model-id",       # ID de OpenRouter o del provider directo
     "name": "Nombre Legible",
+    "familia": "qwen",               # OBLIGATORIA: minúsculas; las páginas por familia la leen tal cual
     "cost_input": 0.30,              # USD por millon de tokens input
     "cost_output": 1.20,             # USD por millon de tokens output
     "tier": "cheap",                 # free|ultra_cheap|cheap|medium|premium|local|cloud_*

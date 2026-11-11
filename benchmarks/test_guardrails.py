@@ -963,7 +963,7 @@ def _t_comparacion_sin_modelos():
             sys.argv = ["generate_comparison.py", "--slug", real["slug"]]
             gc.main()  # control verde: no levanta
         roto = {**real, "slug": "prueba-lado-vacio",
-                "b": {"name": "Nadie", "match": ["no-existe-ningun-modelo-asi"]}}
+                "b": {"name": "Nadie", "familia": "no-existe-ninguna-familia-asi"}}
         gc.COMPARISONS[:] = [roto]
         sys.argv = ["generate_comparison.py", "--slug", "prueba-lado-vacio"]
         try:
@@ -2069,7 +2069,7 @@ def _t_ganadores_g6():
         if _correr("check_ganadores.py") != 0:
             raise AssertionError("check_ganadores ya está en rojo: el saboteo no probaría nada")
         cfg = dict(next(c for c in gc.COMPARISONS if c["slug"] == slug))
-        cfg["a"] = {"name": cfg["a"]["name"], "match": ["fable"]}      # como era antes
+        cfg["a"] = {"name": cfg["a"]["name"], "familia": "claude"}      # por familia, como era antes
         ms = gc.load_models()
         A, B = gc.family(ms, cfg["a"]), gc.family(ms, cfg["b"])
         if not any(m["name"] == "Claude Fable 5.1" for m in A):

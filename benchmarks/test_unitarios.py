@@ -3432,3 +3432,69 @@ def test_empaquetar_excepcion_revisada_pasa_y_una_clave_nueva_bloquea(tmp_path):
     assert et.empaquetar("vR", [jobs], tmp_path / "w3", tmp_path / "d3", tmp_path / "m3",
                          revisados=revisados) == 1
     assert not (tmp_path / "d3").exists()
+
+
+# ── Familia declarada, no adivinada (11-nov-2026) ─────────────────────────────────────
+# `family()` buscaba «llama» dentro del nombre: «Gemma 4 12B (Spark llama-server)» salía
+# como Llama en /qwen-vs-llama/, y todo lo de Ollama Cloud («ollama») también. Ahora cada
+# modelo declara `familia` en models.py y las páginas la leen tal cual.
+
+import generate_comparison as gc_fam  # noqa: E402
+import generate_variants as gv_fam  # noqa: E402
+
+
+def _m_fam(key, name, familia, id_=""):
+    return {"key": key, "name": name, "id": id_, "familia": familia, "runs": 200,
+            "score_global": 7.0, "score_calidad": 7.0, "ranked": True,
+            "score_by_pillar": {p: 7.0 for p in gc_fam.PILLARS}, "cost_per_1k_calls_usd": 1.0}
+
+
+_FAMILIA_TRAMPAS = [
+    _m_fam("llama-de-verdad", "Llama 3.3 70B", "llama", "meta-llama/llama-3.3-70b-instruct"),
+    _m_fam("spark-gemma4-12b", "Gemma 4 12B (Spark llama-server)", "gemma", "gemma-4-12b-it-Q4_K_M.gguf"),
+    _m_fam("qwen-ollama", "Qwen 3.5 (Ollama Cloud default)", "qwen", "qwen3.5:cloud"),
+    _m_fam("solar", "Solar Pro 4", "solar", "upstage/solar-pro4"),
+    _m_fam("gpt-oss", "GPT-OSS 120B", "gpt-oss", "openai/gpt-oss-120b"),
+]
+
+
+def test_family_lee_la_familia_declarada_y_no_el_nombre():
+    llama = [m["key"] for m in gc_fam.family(_FAMILIA_TRAMPAS, {"name": "Llama", "familia": "llama"})]
+    assert llama == ["llama-de-verdad"], llama
+    gemma = [m["key"] for m in gc_fam.family(_FAMILIA_TRAMPAS, {"name": "Gemma", "familia": "gemma"})]
+    assert gemma == ["spark-gemma4-12b"]
+    gpt = [m["key"] for m in gc_fam.family(_FAMILIA_TRAMPAS, {"name": "GPT", "familia": "gpt"})]
+    assert gpt == [], gpt  # ni «Solar Pro 4» (o4) ni GPT-OSS, que es su propia familia
+
+
+def test_family_sin_familia_ni_keys_falla_en_vez_de_adivinar():
+    with pytest.raises(KeyError):
+        gc_fam.family(_FAMILIA_TRAMPAS, {"name": "Llama", "match": ["llama"]})
+
+
+def test_variantes_leen_la_familia_declarada():
+    keys = [m["key"] for m in gv_fam.variants_of(_FAMILIA_TRAMPAS, {"familia": "llama"})]
+    assert keys == ["llama-de-verdad"], keys
+
+
+def test_todo_modelo_del_catalogo_declara_su_familia():
+    from benchmarks.models import MODELS, OLLAMA_MODELS
+    sin = [k for k, v in {**MODELS, **OLLAMA_MODELS}.items()
+           if not isinstance(v.get("familia"), str) or v["familia"] != v["familia"].strip().lower() or not v["familia"]]
+    assert sin == [], f"sin `familia` válida en models.py: {sin}"
+    assert MODELS["spark-gemma4-12b"]["familia"] == "gemma"
+    assert MODELS["qwen3.5-cloud"]["familia"] == "qwen"
+
+
+def test_export_no_publica_un_modelo_sin_familia():
+    import export_for_pages as efp
+    assert efp._familia("x", {"familia": "gemma"}) == "gemma"
+    for malo in ({}, {"familia": ""}, {"familia": "Gemma"}, {"familia": " gemma"}):
+        with pytest.raises(SystemExit):
+            efp._familia("x", malo)
+
+
+def test_la_familia_viaja_en_el_dato(datos):
+    assert all(m.get("familia") for m in datos["models"])
+    gemma = next(m for m in datos["models"] if m["key"] == "spark-gemma4-12b")
+    assert gemma["familia"] == "gemma"

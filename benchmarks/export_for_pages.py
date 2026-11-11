@@ -1468,6 +1468,10 @@ def build_export(recalibrate=False, scoring_version=None):
             "key": cfg_key,
             "id": model_id,
             "name": cfg.get("name", cfg_key),
+            # 11-nov-2026: la familia se DECLARA en models.py. Antes cada página la adivinaba
+            # buscando «llama» dentro del nombre, y «Gemma 4 12B (Spark llama-server)» y todo
+            # lo de Ollama Cloud («ollama») caían en la familia Llama. Sin campo, no se exporta.
+            "familia": _familia(cfg_key, cfg),
             # 9-nov-2026: el tier es PRECIO. `cloud_nim` y compañía son rutas y van en `ruta`.
             "tier": _ix_tier(cfg.get("tier"), cfg.get("cost_input"), cfg.get("cost_output")),
             "ruta": cfg.get("tier") if _ix_es_ruta(cfg.get("tier")) else None,
@@ -2045,6 +2049,16 @@ def build_export(recalibrate=False, scoring_version=None):
         "suites": suites_reg.para_export(),
         "models": models_export,
     }
+
+
+def _familia(key: str, cfg: dict) -> str:
+    """La familia declarada en models.py. Un modelo sin ella no se publica: ninguna página
+    puede decidir a qué comparación pertenece sin adivinarlo por el nombre."""
+    f = cfg.get("familia")
+    if not f or not isinstance(f, str) or f != f.strip().lower():
+        raise SystemExit(f"export_for_pages: {key} no declara `familia` en models.py "
+                         "(minúsculas, sin espacios al borde). Ver «Cómo agregar un modelo nuevo».")
+    return f
 
 
 def main():

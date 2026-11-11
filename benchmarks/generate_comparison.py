@@ -40,7 +40,9 @@ PILLAR_DESC = {
 }
 
 # --- Comparaciones a generar (cada una = una página pSEO) ---------------------
-GPT = {"name": "ChatGPT (GPT)", "match": ["gpt-", "gpt5", "gpt-5", "chatgpt"], "exclude": ["oss"]}
+# 11-nov-2026: cada lado nombra una `familia` declarada en models.py, no subcadenas del nombre.
+# GPT-OSS es su propia familia (`gpt-oss`), así que ya no hace falta excluirla.
+GPT = {"name": "ChatGPT (GPT)", "familia": "gpt"}
 COMPARISONS = [
     # CORRECCION (12-jul-2026): los "320/mes" con que se justifico esta pagina salieron
     # de la LOCATION EQUIVOCADA — eran de US/ingles (9.900/mes), no de España. En español
@@ -51,58 +53,58 @@ COMPARISONS = [
     # La gente busca el HEAD ("grok"), no la version ("grok 4.5" ~50/mes) -> familia vs familia.
     {
         "slug": "grok-vs-chatgpt",
-        "a": {"name": "Grok (xAI)", "match": ["grok"]}, "b": GPT,
+        "a": {"name": "Grok (xAI)", "familia": "grok"}, "b": GPT,
         "title": "Grok vs ChatGPT en 2026: comparación con benchmark real",
         "intent_kw": "grok o chatgpt, que es mejor grok o chatgpt, grok vs chatgpt, comparativa grok gpt, xai vs openai",
     },
     {
         "slug": "grok-vs-claude",
-        "a": {"name": "Grok (xAI)", "match": ["grok"]},
-        "b": {"name": "Claude", "match": ["claude", "opus", "sonnet", "haiku", "fable"]},
+        "a": {"name": "Grok (xAI)", "familia": "grok"},
+        "b": {"name": "Claude", "familia": "claude"},
         "title": "Grok vs Claude en 2026: comparación con benchmark real",
         "intent_kw": "grok vs claude, grok o claude, comparativa grok claude, xai vs anthropic",
     },
     {
         "slug": "gemini-vs-chatgpt",
-        "a": {"name": "Gemini", "match": ["gemini"]}, "b": GPT,
+        "a": {"name": "Gemini", "familia": "gemini"}, "b": GPT,
         "title": "Gemini vs ChatGPT en 2026: comparación con benchmark real",
         "intent_kw": "gemini vs chatgpt, comparativa gemini gpt, gemini o chatgpt, mejor ia google openai",
     },
     {
         "slug": "claude-vs-chatgpt",
-        "a": {"name": "Claude", "match": ["claude"]}, "b": GPT,
+        "a": {"name": "Claude", "familia": "claude"}, "b": GPT,
         "title": "Claude vs ChatGPT en 2026: comparación con benchmark real",
         "intent_kw": "claude vs chatgpt, claude o gpt, comparativa claude gpt, anthropic vs openai, claude vs gpt 5",
     },
     {
         "slug": "gemini-vs-claude",
-        "a": {"name": "Gemini", "match": ["gemini"]}, "b": {"name": "Claude", "match": ["claude"]},
+        "a": {"name": "Gemini", "familia": "gemini"}, "b": {"name": "Claude", "familia": "claude"},
         "title": "Gemini vs Claude en 2026: comparación con benchmark real",
         "intent_kw": "gemini vs claude, claude o gemini, comparativa gemini claude, google vs anthropic",
     },
     {
         "slug": "deepseek-vs-chatgpt",
-        "a": {"name": "DeepSeek", "match": ["deepseek"]}, "b": GPT,
+        "a": {"name": "DeepSeek", "familia": "deepseek"}, "b": GPT,
         "title": "DeepSeek vs ChatGPT en 2026: comparación con benchmark real",
         "intent_kw": "deepseek vs chatgpt, deepseek vs gpt, deepseek o gpt, comparativa deepseek openai",
     },
     {
         "slug": "deepseek-vs-claude",
-        "a": {"name": "DeepSeek", "match": ["deepseek"]},
-        "b": {"name": "Claude", "match": ["claude"]},
+        "a": {"name": "DeepSeek", "familia": "deepseek"},
+        "b": {"name": "Claude", "familia": "claude"},
         "title": "DeepSeek vs Claude en 2026: comparación con benchmark real",
         "intent_kw": "deepseek vs claude, deepseek o claude, comparativa deepseek anthropic, claude vs deepseek",
     },
     {
         "slug": "deepseek-vs-gemini",
-        "a": {"name": "DeepSeek", "match": ["deepseek"]},
-        "b": {"name": "Gemini", "match": ["gemini"]},
+        "a": {"name": "DeepSeek", "familia": "deepseek"},
+        "b": {"name": "Gemini", "familia": "gemini"},
         "title": "DeepSeek vs Gemini en 2026: comparación con benchmark real",
         "intent_kw": "deepseek vs gemini, deepseek o gemini, comparativa deepseek google, gemini vs deepseek",
     },
     {
         "slug": "qwen-vs-llama",
-        "a": {"name": "Qwen", "match": ["qwen"]}, "b": {"name": "Llama", "match": ["llama"]},
+        "a": {"name": "Qwen", "familia": "qwen"}, "b": {"name": "Llama", "familia": "llama"},
         "title": "Qwen vs Llama en 2026: comparación open source con benchmark real",
         "intent_kw": "qwen vs llama, llama vs qwen, mejor llm open source, comparativa qwen llama, modelos open source",
     },
@@ -305,8 +307,8 @@ COMPARISONS = [
     # vez de borrarse.
     {
         "slug": "minimax-vs-kimi",
-        "a": {"name": "MiniMax", "match": ["minimax"]},
-        "b": {"name": "Kimi (Moonshot)", "match": ["kimi"]},
+        "a": {"name": "MiniMax", "familia": "minimax"},
+        "b": {"name": "Kimi (Moonshot)", "familia": "kimi"},
         "title": "MiniMax vs Kimi en 2026: comparación con benchmark real",
         "intent_kw": "minimax vs kimi, kimi o minimax, comparativa minimax kimi, mejor modelo chino, alternativa china claude",
     },
@@ -524,10 +526,13 @@ def family(models, cfg):
             if m.get("key") not in cfg["keys"]:
                 continue
         else:
-            blob = f"{m.get('name','')} {m.get('id','')} {m.get('key','')}".lower()
-            if not any(k in blob for k in cfg["match"]):
-                continue
-            if any(x in blob for x in cfg.get("exclude", [])):
+            # 11-nov-2026: por el campo `familia` de models.py, nunca por subcadenas del
+            # nombre. Buscar «llama» metía a «Gemma 4 12B (Spark llama-server)» y a todo lo
+            # servido por Ollama Cloud («ollama») en la familia Llama; «o4» hacía GPT a
+            # «Solar Pro 4». La familia se declara, no se adivina.
+            if "familia" not in cfg:
+                raise KeyError(f"el lado «{cfg.get('name')}» no declara `familia` ni `keys`")
+            if m.get("familia") != cfg["familia"]:
                 continue
         if (m.get("score_global") or 0) <= 0:
             continue
