@@ -17,6 +17,9 @@ este script hace que esa declaración no sea una promesa.
   R3  una URL publicada (directorios de `docs/` y `docs/sitemap.xml`) no tiene entrada en el
       registro, o no existe en `dist` ni como página ni como redirect correcto.
   R4  un `index.html` de `dist` no tiene entrada en el registro.
+  R5  un modelo fuera del ranking no tiene motivo registrado (o `ranked` contradice a su
+      elegibilidad). Sin motivo, una página no puede decir por qué un modelo no está; es un
+      error de datos (Cristian, 11-nov-2026). Corre siempre, con o sin build.
 
 LO QUE LAS PLANTILLAS DEBEN EMITIR (el contrato con Astro):
   - `data-modelo="<key>"` en todo elemento que nombra a un modelo;
@@ -201,7 +204,9 @@ def main() -> int:
     d = json.loads(a.models.read_text(encoding="utf-8"))
     ranked = {m["key"]: bool(m.get("ranked")) for m in d["models"]}
     fallos = revisar(a.dist, a.docs, rp.paginas(), ranked)
-    print("REGISTRO DE PÁGINAS — R0-R4\n")
+    import elegibilidad
+    fallos += [f"R5 · {x}" for x in elegibilidad.contradicciones(d["models"])]
+    print("REGISTRO DE PÁGINAS — R0-R5\n")
     if a.dist is None:
         print("  ⚠️  sin --dist: corrieron R0 y R3 contra docs/. R1, R2 y R4 miran lo compilado "
               "y corren dentro de `npm run build`.")

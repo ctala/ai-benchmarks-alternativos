@@ -1070,6 +1070,26 @@ def test_elegibilidad_reproduce_el_dataset_publicado(datos):
         assert eleg.evaluar(m, umbral)["ranking"] == m["elegible"]["ranking"], m["name"]
 
 
+def test_variante_de_esfuerzo_sale_del_ranking_con_su_motivo():
+    """11-nov-2026: Qwen 3-Next 80B Thinking salía del ranking por `effort_variant` sin motivo."""
+    v = eleg.evaluar({"runs": 500, "examen_completo": True, "effort_variant": True}, 50)
+    assert v["ranking"] is False and v["motivos"]["ranking"] == "esfuerzo"
+
+
+def test_contradicciones_entre_ranked_y_su_motivo():
+    ok = [{"key": "a", "ranked": True, "elegible": {"ranking": True, "motivos": {}}},
+          {"key": "b", "ranked": False, "elegible": {"ranking": False, "motivos": {"ranking": "historico"}}}]
+    assert eleg.contradicciones(ok) == []
+    sin_motivo = [{"key": "c", "ranked": False, "elegible": {"ranking": True, "motivos": {}}}]
+    assert "sin motivo" in eleg.contradicciones(sin_motivo)[0]
+    al_reves = [{"key": "d", "ranked": True, "elegible": {"ranking": False, "motivos": {"ranking": "free"}}}]
+    assert "rankea" in eleg.contradicciones(al_reves)[0]
+
+
+def test_ningun_modelo_publicado_sale_del_ranking_sin_motivo(datos):
+    assert eleg.contradicciones(datos["models"]) == []
+
+
 def test_todo_modelo_publicado_trae_su_veredicto(datos):
     for m in datos["models"]:
         assert "elegible" in m, f"{m['name']} sin veredicto de elegibilidad"

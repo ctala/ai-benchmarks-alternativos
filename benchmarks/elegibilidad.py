@@ -161,7 +161,8 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
     # sigue en el catálogo (sus mediciones son reales), pero no compite por un puesto.
     if m.get("historico"):
         no("ranking", "historico")
-    if m.get("notes") and "no rankea por política" in (m.get("notes") or "").lower():
+    if m.get("effort_variant") or (
+            m.get("notes") and "no rankea por política" in (m.get("notes") or "").lower()):
         no("ranking", "esfuerzo")
     # 9-nov-2026 (Cristian): desde v6.0.0 la nota es 75 % examen + 25 % Harbor. Sin dato
     # agéntico no hay nota, y no se inventa la mitad que falta: fuera del ranking, con ficha
@@ -184,6 +185,22 @@ def evaluar(m: dict, umbral_ranking: int) -> dict:
         no("agentico", "sin_evidencia_agentica")
 
     return v
+
+
+def contradicciones(models) -> list[str]:
+    """`ranked` y el veredicto de ranking tienen que decir lo mismo, y todo modelo fuera del
+    ranking lleva su motivo. (11-nov-2026, Cristian: «el que no rankea sin motivo registrado
+    es un error de datos».) La usan el export, que no publica si hay alguna, y
+    `check_registro` R5, que la verifica sobre lo publicado."""
+    out = []
+    for m in models:
+        v = m.get("elegible") or {}
+        mot = (v.get("motivos") or {}).get("ranking")
+        if m.get("ranked") and v.get("ranking") is False:
+            out.append(f"{m.get('key')}: rankea y su elegibilidad dice que no ({mot})")
+        if not m.get("ranked") and not mot:
+            out.append(f"{m.get('key')}: fuera del ranking sin motivo registrado")
+    return out
 
 
 def explicar(v: dict, ctx: str) -> str:

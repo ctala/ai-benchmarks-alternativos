@@ -3,7 +3,7 @@
 
 > **Regla de flujo**: todo lo que se marca como completado en ROADMAP.md se migra aquí con el commit correspondiente. El ROADMAP mira hacia adelante, el CHANGELOG deja traza de lo que pasó.
 
-## [No publicado]
+## [No publicado] · próximo: menor
 
 ### OpenSpec
 - **Change `motor-sitio` abierto (rama `sitio/motor`).** Astro 7 pasa a ser la capa de presentación y Python sigue como autoridad. El tema es Cercano y claro, desde `brand.json`. Un registro declara cada URL y el build falla con los validadores R1-R4. De las comparaciones de versión exacta, 16 pasan a redirect y 11 quedan congeladas. Son dos sesiones y nada se publica sin OK. Fila del 11-nov en DECISIONES.
@@ -12,6 +12,8 @@
 - **`corte-v5-1` archivado sin tareas abiertas; S1 juzga lo que se empuja a `main`.** El release v6.1.0 llevó a main un change activo (1 de 34 tareas) porque el pre-push miraba la rama local, no la ref de destino. Ahora `check_specs --empuje` corre en el hook antes del QA, el Action corre `--rama main` y la prueba de sabotaje usa un repo desechable. De las 34 tareas, 9 quedan hechas con evidencia (la 5.7 ya estaba descartada) y el resto pasa a la próxima ventana, a 7 ítems del Project #6 o a los changes del sitio. Archivado con `--skip-specs` porque las ocasiones no se construyeron. La ventana v5 costó US$ 129,98 contra US$ 47-53 dimensionados.
 
 ### Corregido
+- **Qwen 3-Next 80B Thinking salía del ranking sin motivo, y su ficha daba uno falso** («no rindió el examen completo»). Es una variante de mayor esfuerzo: `ranked` leía `effort_variant` de `models.py`, pero ese campo no viajaba en el dato y `elegibilidad` no lo veía. Ahora viaja, el motivo es «esfuerzo» y la ficha lo dice. Cristian lo pidió como regla: un modelo fuera del ranking sin motivo es un error de datos. El export no publica si `ranked` y su motivo no coinciden, y `check_registro` R5 lo verifica sobre `models.json`, con su sabotaje.
+- **DECISIONES registra por qué la ventana v5 costó US$ 129,98 contra US$ 47-53** y cómo se estima desde ahora. Hubo 85 modelos en vez de 64, porque la lista creció después del OK, y el costo por prueba fue el doble: el estimado suponía el razonamiento apagado, y los cerrados se llevaron el 70 %.
 - **El piso de redacción de Eco ahora se calcula contra su redactor principal, DeepSeek V4.1 Flash (nota 9,93), en vez de Qwen 3.7 Flash (9,40).** Según el inventario de Eco del 9-nov, Qwen 3.7 Flash es el respaldo; el dato que se dio el 10-nov estaba mal. Con el piso corregido, 32 de 74 rinden peor que el principal por más del ruido (antes eran 15). El respaldo no queda bajo el piso: −0,54 ± 0,57, dentro del ruido. Ling 3.0 Flash empata con el principal (−0,34 ± 0,38) y cuesta unas 10 veces menos. El gráfico, la tabla de OCASIONES y las filas de DECISIONES se regeneraron o corrigieron. La integridad de idioma de DeepSeek (7,21) queda aparte, como filtro.
 
 ### Planificación (sin cambio de versión)

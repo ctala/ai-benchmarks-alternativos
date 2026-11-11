@@ -1552,6 +1552,10 @@ def build_export(recalibrate=False, scoring_version=None):
             # Groq (379 tok/s) con NIM (43 tok/s): no comparás modelos, comparás máquinas.
             # Responde otra pregunta —"¿puedo correrlo yo?"— y va en su propia tabla.
             "self_hosted": bool(cfg.get("self_hosted")),
+            # 11-nov-2026: `ranked` ya leía `effort_variant` de models.py, pero el campo no viajaba
+            # en el dato y `elegibilidad` no lo veía: Qwen 3-Next 80B Thinking quedó fuera del
+            # ranking SIN motivo, con `elegible.ranking` en True. Dos fuentes de lo mismo.
+            "effort_variant": bool(cfg.get("effort_variant")),
             # `no_medir` vivía SOLO en models.py, así que ninguna herramienta que lee el
             # JSON lo sabía: `completar_examen` proponía gastar en Qwen 2.5 (sep-2024) y
             # en las dos variantes PRO, que por política ni siquiera pueden rankear. La
@@ -1965,6 +1969,11 @@ def build_export(recalibrate=False, scoring_version=None):
     # JS del sitio, ni el QA— la recalcula. Ver `benchmarks/elegibilidad.py`.
     for m in models_export:
         m["elegible"] = elegibilidad.evaluar(m, MIN_RUNS_RANKED)
+    # 11-nov-2026 (Cristian): un modelo fuera del ranking sin motivo es un error de datos, no
+    # un caso más. El export no publica un dato que se contradice.
+    _contra = elegibilidad.contradicciones(models_export)
+    if _contra:
+        raise SystemExit("export: el ranking y su motivo no coinciden:\n  " + "\n  ".join(_contra))
 
     # (3) Persistir la referencia SOLO en recalibración deliberada (evento de versión).
     # Ya no lleva `slope_calidad`: el índice de calidad es absoluto (`quality_avg` sin

@@ -465,6 +465,26 @@ def _t_paleta():
         return _correr("check_paleta.py") != 0
 
 
+@prueba("check_registro R5", "un modelo fuera del ranking sin motivo registrado")
+def _t_registro_motivo():
+    # 11-nov-2026 (Cristian): «el que no rankea sin motivo registrado es un error de datos».
+    # Pasaba con Qwen 3-Next 80B Thinking (`effort_variant` no viajaba en el dato). Se borra
+    # el motivo de UN modelo en una copia de models.json y R5 tiene que nombrarlo.
+    real = ROOT / "docs" / "data" / "models.json"
+    r = lambda f: subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--models", str(f)],
+                                 cwd=ROOT, capture_output=True, text=True)
+    if r(real).returncode != 0:
+        return False  # control
+    d = json.loads(real.read_text(encoding="utf-8"))
+    m = next(x for x in d["models"] if not x.get("ranked"))
+    m["elegible"]["motivos"].pop("ranking", None)
+    copia = Path(tempfile.mkdtemp()) / "models.json"
+    copia.write_text(json.dumps(d), encoding="utf-8")
+    out = r(copia)
+    shutil.rmtree(copia.parent, ignore_errors=True)
+    return out.returncode != 0 and f"R5 · {m['key']}" in out.stdout
+
+
 @prueba("check_paleta P3/P4", "un color literal en el motor nuevo y un token editado a mano")
 def _t_paleta_sitio():
     # 11-nov-2026 (motor-sitio 1.2). En `sitio/` ningún color se escribe: sale de tokens.css,
