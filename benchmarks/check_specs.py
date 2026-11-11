@@ -18,7 +18,9 @@ change tiene que decirlo.
 
 QUÉ EXIGE
 ---------
-  S1  En `main` no hay ningún change activo: lo que llega a `main` llega archivado.
+  S1  En `main` no hay ningún change activo: lo que llega a `main` llega archivado. Se juzga
+      en tres lugares: la rama actual, el árbol de cada commit que el pre-push manda a
+      `main` (`--empuje`, 11-nov-2026) y el Action sobre `main` (`--rama main`).
   S2  Como mucho UN change activo a la vez, en cualquier rama (Regla 4 del repo padre).
   S3  Todo change activo tiene `proposal.md`, `design.md`, `tasks.md` con al menos una
       tarea, y `.openspec.yaml`.
@@ -71,6 +73,44 @@ def ultimo_toque(change: Path, raiz: Path) -> date | None:
         if m:
             return date.fromisoformat(m.group(1))
     return None
+
+
+CERO = "0" * 40
+
+
+def refs_a_main(texto: str) -> list[str]:
+    """Los commits que un `git push` manda a `main`, leídos de lo que git le pasa al hook
+    pre-push por stdin (`<ref local> <sha local> <ref remota> <sha remoto>` por línea). Un
+    borrado (sha local en ceros) no manda nada."""
+    shas = []
+    for ln in texto.splitlines():
+        partes = ln.split()
+        if len(partes) == 4 and partes[2] == "refs/heads/main" and partes[1] != CERO:
+            shas.append(partes[1])
+    return shas
+
+
+def activos_en_commit(sha: str, repo: Path) -> list[str] | None:
+    """Los changes activos en el ÁRBOL de un commit (no en el working tree). None si el commit
+    no tiene `openspec/changes/`."""
+    r = subprocess.run(["git", "ls-tree", "-d", "--name-only", f"{sha}:openspec/changes"],
+                       cwd=repo, capture_output=True, text=True)
+    if r.returncode != 0:
+        return None
+    return sorted(n for n in r.stdout.split() if n != "archive")
+
+
+def revisar_empuje(texto: str, repo: Path) -> list[str]:
+    """S1 sobre lo que se empuja a main (11-nov-2026). Hasta acá S1 miraba el nombre de la rama
+    local: el release v6.1.0 se empujó desde `ventana/v6-1` con `HEAD:main` y llevó a main un
+    change activo (`corte-v5-1`, 1 de 34 tareas) sin que nada fallara."""
+    fallas = []
+    for sha in refs_a_main(texto):
+        activos = activos_en_commit(sha, repo) or []
+        if activos:
+            fallas.append(f"S1 · el push lleva a `main` el commit {sha[:9]} con {len(activos)} "
+                          f"change(s) activo(s) sin archivar: " + ", ".join(activos))
+    return fallas
 
 
 def revisar(raiz: Path, rama: str, hoy: date) -> list[str]:
@@ -126,7 +166,23 @@ def main() -> int:
     ap.add_argument("--rama", help="simular otra rama (para el sabotaje de test_guardrails)")
     ap.add_argument("--hoy", type=date.fromisoformat, default=date.today(),
                     help="simular otra fecha (para el sabotaje de test_guardrails)")
+    ap.add_argument("--empuje", action="store_true",
+                    help="modo hook pre-push: lee de stdin las refs empujadas y aplica S1 al "
+                         "árbol de cada commit que va a main")
+    ap.add_argument("--repo", type=Path, default=ROOT,
+                    help="otro repositorio git (para el sabotaje de test_guardrails)")
     a = ap.parse_args()
+
+    if a.empuje:
+        fallas = revisar_empuje(sys.stdin.read(), a.repo)
+        if fallas:
+            print("\n  ❌ OpenSpec · el push no puede llegar a main así:\n")
+            for f in fallas:
+                print(f"  · {f}")
+            print("\n  Lo que llega a main llega archivado: se completa, se archiva o se descarta.")
+            return 1
+        print("  ✅ OpenSpec · nada activo llega a main con este push.")
+        return 0
 
     if not a.raiz.is_dir():
         print("  ✅ no hay openspec/: nada que vigilar.")

@@ -5,6 +5,9 @@
 
 ## [No publicado]
 
+### OpenSpec
+- **`corte-v5-1` archivado sin tareas abiertas; S1 juzga lo que se empuja a `main`.** El release v6.1.0 llevó a main un change activo (1 de 34 tareas) porque el pre-push miraba la rama local, no la ref de destino. Ahora `check_specs --empuje` corre en el hook antes del QA, el Action corre `--rama main` y la prueba de sabotaje usa un repo desechable. De las 34 tareas, 9 quedan hechas con evidencia (la 5.7 ya estaba descartada) y el resto pasa a la próxima ventana, a 7 ítems del Project #6 o a los changes del sitio. Archivado con `--skip-specs` porque las ocasiones no se construyeron. La ventana v5 costó US$ 129,98 contra US$ 47-53 dimensionados.
+
 ### Corregido
 - **El piso de redacción de Eco ahora se calcula contra su redactor principal, DeepSeek V4.1 Flash (nota 9,93), en vez de Qwen 3.7 Flash (9,40).** Según el inventario de Eco del 9-nov, Qwen 3.7 Flash es el respaldo; el dato que se dio el 10-nov estaba mal. Con el piso corregido, 32 de 74 rinden peor que el principal por más del ruido (antes eran 15). El respaldo no queda bajo el piso: −0,54 ± 0,57, dentro del ruido. Ling 3.0 Flash empata con el principal (−0,34 ± 0,38) y cuesta unas 10 veces menos. El gráfico, la tabla de OCASIONES y las filas de DECISIONES se regeneraron o corrigieron. La integridad de idioma de DeepSeek (7,21) queda aparte, como filtro.
 

@@ -33,8 +33,12 @@ HOOK = """#!/bin/sh
 # rompe ninguna página: la hace mentir, que es peor y no se nota.
 #
 # Para saltearlo a propósito (y solo a propósito):  git push --no-verify
-exec "$(git rev-parse --show-toplevel)/.venv/bin/python" \\
-     "$(git rev-parse --show-toplevel)/benchmarks/qa.py" --pre-merge
+#
+# Antes del QA, S1 de OpenSpec sobre lo que se empuja a main (11-nov-2026): el QA mira la
+# rama local, y un `git push origin HEAD:main` desde otra rama se lo saltaba.
+R="$(git rev-parse --show-toplevel)"
+"$R/.venv/bin/python" "$R/benchmarks/check_specs.py" --empuje || exit 1
+exec "$R/.venv/bin/python" "$R/benchmarks/qa.py" --pre-merge
 """
 
 

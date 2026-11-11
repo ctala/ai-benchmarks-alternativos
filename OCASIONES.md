@@ -510,6 +510,16 @@ y la ventana puede tomar solo las primeras.
 ### 7. Contratos (`contract_review`)
 Queda después, por decisión de Cristian del 11-nov-2026.
 
+### Heredado de corte-v5-1 (archivado el 11-nov-2026)
+Va a la misma ventana, en el mismo corte:
+- **Harbor que separe arriba (0.1):** tareas que hoy no pase la mayoría de los que sacan 4 de 4. Cada
+  trampa tiene que poder deducirse de lo que el agente ve, con una muestra antes del lote.
+- **`harbor-facturacion` corregida (0.2) y sin voseo en los enunciados de las 4 tareas (0.3):** los dos
+  cambian el checksum, así que se miden juntos.
+- **Jubilar `code_generation` del índice (1.2):** junto con el pilar Coding ejecutable (estrategias#149).
+
+`precision_datos` no pasa: la muestra dio 84 % de respuestas perfectas (Regla 0.7, DECISIONES 9-nov-2026).
+
 ### En el sitio (change 2 en adelante, no ahora)
 En «Escribir» y en cada ficha, un filtro duro se muestra como **descarte visible arriba**, no como una
 columna más. Por ejemplo: «mete texto en otro idioma: descartado para publicar». Es la respuesta directa

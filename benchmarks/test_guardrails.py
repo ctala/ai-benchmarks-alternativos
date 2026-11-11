@@ -2107,6 +2107,53 @@ def _t_specs_sin_decisiones():
     return control == 0 and roto != 0
 
 
+@prueba("check_specs --empuje", "un push a main que lleva un change activo, aunque salga de otra rama (S1)")
+def _t_specs_empuje_a_main():
+    # 11-nov-2026. El release v6.1.0 se empujó con `HEAD:main` desde `ventana/v6-1` y llevó a
+    # main un change activo: S1 miraba el nombre de la rama local. Repo DESECHABLE y variables
+    # GIT_* fuera del entorno (memoria: dentro de un hook, git hereda GIT_DIR y la prueba
+    # reconfiguraría el repo real).
+    import tempfile as _tf
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    env.update(GIT_AUTHOR_NAME="t", GIT_AUTHOR_EMAIL="t@t", GIT_COMMITTER_NAME="t",
+               GIT_COMMITTER_EMAIL="t@t")
+    d = Path(_tf.mkdtemp())
+    try:
+        g = lambda *a: subprocess.run(["git", *a], cwd=d, env=env, capture_output=True,
+                                      text=True, check=True).stdout.strip()
+        g("init", "-q")
+        (d / "openspec" / "changes" / "archive" / "2026-11-01-viejo").mkdir(parents=True)
+        (d / "openspec" / "changes" / "archive" / "2026-11-01-viejo" / "tasks.md").write_text("- [x] 1\n")
+        g("add", "-A"); g("commit", "-qm", "limpio")
+        limpio = g("rev-parse", "HEAD")
+        (d / "openspec" / "changes" / "corte-x").mkdir()
+        (d / "openspec" / "changes" / "corte-x" / "tasks.md").write_text("- [ ] 1\n")
+        g("add", "-A"); g("commit", "-qm", "activo")
+        activo = g("rev-parse", "HEAD")
+
+        def empuje(linea: str) -> int:
+            return subprocess.run([PY, str(ROOT / "benchmarks" / "check_specs.py"), "--empuje",
+                                   "--repo", str(d)], input=linea + "\n", cwd=ROOT, env=env,
+                                  capture_output=True, text=True).returncode
+        cero = "0" * 40
+        # controles: main limpio pasa; el activo a otra rama pasa; un borrado no manda nada
+        if empuje(f"refs/heads/v {limpio} refs/heads/main {cero}") != 0:
+            return False
+        if empuje(f"refs/heads/v {activo} refs/heads/corte/x {cero}") != 0:
+            return False
+        if empuje(f"(delete) {cero} refs/heads/main {limpio}") != 0:
+            return False
+        # el fallo: el commit con un change activo va a main desde otra rama
+        if empuje(f"refs/heads/ventana {activo} refs/heads/main {limpio}") == 0:
+            return False
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+    # y el hook que se instala lo corre ANTES del QA (si alguien lo saca, esto cae)
+    from benchmarks import instalar_hooks as ih
+    h = ih.HOOK
+    return "check_specs.py\" --empuje || exit 1" in h and h.index("--empuje") < h.index("qa.py")
+
+
 def resumen(res: list[tuple[str, str, str]]) -> tuple[list[str], int]:
     """Las líneas del reporte y el exit code. Aparte de `main` para que se pueda probar."""
     marcas = {"ok": "✅", "falla": "❌", "omitida": "⏭️ "}

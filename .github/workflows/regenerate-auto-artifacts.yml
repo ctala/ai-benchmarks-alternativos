@@ -155,6 +155,11 @@ jobs:
 
       # Lo que se cambio tiene que estar ESCRITO antes de publicarlo, y el bump tiene que
       # alcanzar para lo que se toco. Ver VERSIONADO.md.
+      # 11-nov-2026: S1 de OpenSpec sobre main. El release v6.1.0 llevó a main un change activo
+      # (corte-v5-1) porque el pre-push miraba la rama local. Acá el árbol ES main.
+      - name: Verificar que main no lleva changes de OpenSpec activos
+        run: python benchmarks/check_specs.py --rama main
+
       - name: Verificar el CHANGELOG y el nivel de version
         run: python benchmarks/check_changelog.py --nivel
 
