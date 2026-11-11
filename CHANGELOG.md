@@ -6,6 +6,7 @@
 ## [No publicado]
 
 ### OpenSpec
+- **Change `motor-sitio` abierto (rama `sitio/motor`).** Astro 7 pasa a ser la capa de presentación y Python sigue como autoridad. El tema es Cercano y claro, desde `brand.json`. Un registro declara cada URL y el build falla con los validadores R1-R4. De las comparaciones de versión exacta, 16 pasan a redirect y 11 quedan congeladas. Son dos sesiones y nada se publica sin OK. Fila del 11-nov en DECISIONES.
 - **`corte-v5-1` archivado sin tareas abiertas; S1 juzga lo que se empuja a `main`.** El release v6.1.0 llevó a main un change activo (1 de 34 tareas) porque el pre-push miraba la rama local, no la ref de destino. Ahora `check_specs --empuje` corre en el hook antes del QA, el Action corre `--rama main` y la prueba de sabotaje usa un repo desechable. De las 34 tareas, 9 quedan hechas con evidencia (la 5.7 ya estaba descartada) y el resto pasa a la próxima ventana, a 7 ítems del Project #6 o a los changes del sitio. Archivado con `--skip-specs` porque las ocasiones no se construyeron. La ventana v5 costó US$ 129,98 contra US$ 47-53 dimensionados.
 
 ### Corregido
