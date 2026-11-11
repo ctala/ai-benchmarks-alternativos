@@ -1,0 +1,22 @@
+---
+// «¿Qué mide este benchmark?»: la misma sección en comparaciones, rankings y variantes. Sus cifras
+// salen de `meta.json` (exportar_sitio.meta).
+import Cifra from './Cifra.astro';
+import Nombre from './Nombre.astro';
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+interface Props { meta: any }
+const { meta } = Astro.props;
+const P = meta.pilares as string[];
+---
+<section>
+  <Kicker>metodología</Kicker>
+  <Titulo texto="¿Qué mide este benchmark?">¿Qué mide este benchmark?</Titulo>
+  <p>No es un benchmark académico. Es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren: costo en un proveedor real, velocidad, español neutro y agentes de varios turnos.</p>
+  <p>Hay <strong><Cifra v={meta.modelos_catalogados} /> modelos catalogados</strong>, <strong><Cifra v={meta.modelos_testeados} /> medidos</strong> y <strong><Cifra v={meta.runs_k} suf="+" /> runs reales</strong> evaluados por un LLM-as-Judge (<Nombre>Phi-4</Nombre>, de Microsoft, vía OpenRouter, sin conflicto de interés), en <Cifra v={P.length} /> pilares:</p>
+  <ul>
+    {P.map((p) => <li><strong>{meta.pilar_desc[p].titulo}</strong>: {meta.pilar_desc[p].que}.</li>)}
+  </ul>
+  <p><strong>Dos números distintos.</strong> La tabla se ordena por <strong>calidad</strong>, sin mezclar precio: responde «¿quién lo hace mejor?». El <strong>score global</strong> de la calculadora pondera calidad (<Cifra v={meta.pesos.quality} d={Number.isInteger(meta.pesos.quality) ? 0 : 1} suf=" %" />), costo (<Cifra v={meta.pesos.cost} d={Number.isInteger(meta.pesos.cost) ? 0 : 1} suf=" %" />), velocidad (<Cifra v={meta.pesos.speed} d={Number.isInteger(meta.pesos.speed) ? 0 : 1} suf=" %" />) y latencia (<Cifra v={meta.pesos.latency} d={Number.isInteger(meta.pesos.latency) ? 0 : 1} suf=" %" />): responde «¿qué conviene poner en producción?».</p>
+  <p><strong>Límite conocido:</strong> el juez es un modelo chico y varios evaluados son más capaces que él. Ordena bien, pero comprime las diferencias en la cima: un empate quiere decir que el juez no los distingue, no que sean idénticos. <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>

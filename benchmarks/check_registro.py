@@ -64,6 +64,7 @@ EXENTAS: dict[str, str] = {}
 TERMINOS: dict[str, str] = {
     "N8N": "nombre de producto (la descripción del pilar Agentes)",
     "v5": "nombre de la versión del examen (el motivo «histórico» de elegibilidad)",
+    "B2B": "término de negocio (los casos de uso de un ranking: «newsletters B2B»)",
 }
 
 _MESES = "ene|feb|mar|abr|may|jun|jul|ago|sep|sept|oct|nov|dic"

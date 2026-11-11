@@ -38,9 +38,9 @@ DOCS = ROOT / "docs"
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
-# Tipos que ya compila Astro (sesión 1: comparaciones y sus redirects). En la sesión 2 entran
-# `ranking` y `variantes`; en el 1b, `ficha`, `landing`, `home` y `proveedores`.
-MOTOR_ASTRO = {"comparacion", "redirect"}
+# Tipos que ya compila Astro (sesión 1: comparaciones y sus redirects; sesión 2: rankings y
+# variantes). En el 1b entran `ficha`, `landing`, `home` y `proveedores`.
+MOTOR_ASTRO = {"comparacion", "redirect", "ranking", "variantes"}
 
 _MOTIVO_SIN_FAMILIA = ("Comparación de versión exacta: a un lado le falta su página de familia. "
                        "Se reevalúa cuando el change de comparaciones por familia la cree.")
@@ -53,6 +53,15 @@ CONGELADAS = {
         "nemotron-3-ultra-vs-deepseek-v4-flash", "diffusiongemma-vs-gemma-4",
     )
 }
+# Páginas de variantes con menos de dos tiers en el ranking vigente (sesión 2, 11-nov-2026): no
+# hay escalera que auditar y la página solo puede mostrar el histórico. Mismo mecanismo que las
+# comparaciones sin familia; pendiente del OK de Cristian (DECISIONES, 11-nov-2026).
+_MOTIVO_VARIANTES_HISTORICO = ("Página de variantes con menos de dos versiones en el ranking vigente: "
+                               "no hay escalera de precios que auditar, solo el histórico de la familia.")
+CONGELADAS.update({
+    slug: {"fecha": "2026-11-11", "motivo": _MOTIVO_VARIANTES_HISTORICO}
+    for slug in ("gpt-5.6-luna-terra-sol", "grok-4-1-vs-4-5")
+})
 
 # Aprobadas por Cristian el 11-nov-2026 (design.md del change). Search Console, 16 meses:
 # ninguna pasa de 6 clics; la que más, gpt-5.6-vs-claude-opus-4-8 (6 clics, 372 impresiones).

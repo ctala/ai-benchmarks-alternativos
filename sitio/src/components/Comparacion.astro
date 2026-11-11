@@ -13,10 +13,12 @@ import Nombre from './Nombre.astro';
 import Kicker from './Kicker.astro';
 import Titulo from './Titulo.astro';
 import AvisoCongelada from './AvisoCongelada.astro';
+import Metodologia from './Metodologia.astro';
+import Funnel from './Funnel.astro';
+import Anteriores from './Anteriores.astro';
 
 interface Props { c: any; meta: any }
 const { c, meta } = Astro.props;
-const COMUNIDAD = 'https://go.aprenderepite.com/benchmark';
 const P = meta.pilares as string[];
 const h1 = c.foto ? `${c.a} vs ${c.b}: foto histórica de su comparación`
                   : `${c.a} vs ${c.b}: cuál elegir en 2026 (benchmark real)`;
@@ -42,12 +44,6 @@ const faq = [
     a: 'Mira la columna de costo en la tabla. Con volumen alto, el costo por millón de tokens pesa más en el retorno que una diferencia chica de calidad. Fíltralo por tu presupuesto en la calculadora.',
   },
 ];
-// El pie agrupa por motivo: con 19 versiones, repetir el mismo motivo en cada una no se lee.
-const porMotivo: [string, any[]][] = [];
-for (const m of c.fuera) {
-  const g = porMotivo.find(([t]) => t === m.motivo_texto);
-  g ? g[1].push(m) : porMotivo.push([m.motivo_texto, [m]]);
-}
 const faqLd = JSON.stringify({
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
@@ -133,17 +129,7 @@ const faqLd = JSON.stringify({
     </section>
   )}
 
-  <section>
-    <Kicker>metodología</Kicker>
-    <Titulo texto="¿Qué mide este benchmark?">¿Qué mide este benchmark?</Titulo>
-    <p>No es un benchmark académico. Es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren: costo en un proveedor real, velocidad, español neutro y agentes de varios turnos.</p>
-    <p>Hay <strong><Cifra v={meta.modelos_catalogados} /> modelos catalogados</strong>, <strong><Cifra v={meta.modelos_testeados} /> medidos</strong> y <strong><Cifra v={meta.runs_k} suf="+" /> runs reales</strong> evaluados por un LLM-as-Judge (<Nombre>Phi-4</Nombre>, de Microsoft, vía OpenRouter, sin conflicto de interés), en <Cifra v={P.length} /> pilares:</p>
-    <ul>
-      {P.map((p) => <li><strong>{meta.pilar_desc[p].titulo}</strong>: {meta.pilar_desc[p].que}.</li>)}
-    </ul>
-    <p><strong>Dos números distintos.</strong> La tabla se ordena por <strong>calidad</strong>, sin mezclar precio: responde «¿quién lo hace mejor?». El <strong>score global</strong> de la calculadora pondera calidad (<Cifra v={meta.pesos.quality} suf=" %" />), costo (<Cifra v={meta.pesos.cost} suf=" %" />), velocidad (<Cifra v={meta.pesos.speed} suf=" %" />) y latencia (<Cifra v={meta.pesos.latency} suf=" %" />): responde «¿qué conviene poner en producción?».</p>
-    <p><strong>Límite conocido:</strong> el juez es un modelo chico y varios evaluados son más capaces que él. Ordena bien, pero comprime las diferencias en la cima: un empate quiere decir que el juez no los distingue, no que sean idénticos. <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
-  </section>
+  <Metodologia meta={meta} />
 
   {!c.foto && (
     <>
@@ -193,31 +179,9 @@ const faqLd = JSON.stringify({
     </>
   )}
 
-  {c.fuera.length > 0 && (
-    <section id="versiones-anteriores">
-      <Kicker>versiones anteriores</Kicker>
-      <Titulo texto="Las que no están en el ranking vigente">Las que no están en el ranking vigente</Titulo>
-      <p class="meta">Esta tabla compara solo modelos del ranking vigente. Estas <Cifra v={c.fuera.length} /> versiones de las dos familias se midieron, pero no compiten hoy; cada una tiene su motivo.</p>
-      <ul class="anteriores">
-        {porMotivo.map(([texto, ms]: [string, any[]]) => (
-          <li><span class="motivo">Porque {texto}:</span>{' '}{ms.map((m: any, i: number) => (
-            <>{i > 0 && ', '}{m.ficha
-              ? <a data-anterior={m.key} href={m.ficha}>{m.name}</a>
-              : <span data-anterior={m.key}>{m.name}</span>}</>
-          ))}.</li>
-        ))}
-      </ul>
-      <p><a class="enlace-flecha" href="/#historico">Versiones anteriores →</a></p>
-    </section>
-  )}
+  {c.fuera.length > 0 && <Anteriores fuera={c.fuera} de="las dos familias" />}
 
-  <section class="funnel">
-    <Kicker>antes de migrar</Kicker>
-    <Titulo texto="Antes de migrar, haz esto">Antes de migrar, haz esto</Titulo>
-    <p>No cambies de modelo a ciegas: toma <strong>el mejor de cada familia</strong> y pásales unos cuantos <strong>prompts reales tuyos</strong>, de los que ya corres en producción. Una comparación general dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</p>
-    <p class="meta">Este resultado se recalcula con cada lote de modelos nuevos: el ganador de hoy puede no serlo el mes que viene.</p>
-    <p><a href={COMUNIDAD} target="_blank" rel="noopener" class="cta">Ver la comunidad →</a></p>
-  </section>
+  <Funnel>No cambies de modelo a ciegas: toma <strong>el mejor de cada familia</strong> y pásales unos cuantos <strong>prompts reales tuyos</strong>, de los que ya corres en producción. Una comparación general dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</Funnel>
 
   <section class="faq">
     <script type="application/ld+json" set:html={faqLd} />

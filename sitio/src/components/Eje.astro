@@ -1,0 +1,10 @@
+---
+// El valor que ordena un ranking: la nota sobre diez o, en Agentes, «N de M» tareas de Harbor
+// (la única cifra agéntica que se publica, 8-nov-2026; `data-agentico` la marca para A3).
+interface Props { x: any; ag: boolean; largo?: boolean; suf?: string }
+const { x, ag, largo = false, suf = '/10' } = Astro.props;
+const h = x?.harbor;
+---
+{ag
+  ? <span data-cifra data-agentico="harbor">{h ? `${h.superadas} de ${h.de}${largo ? ' tareas agénticas' : ''}` : 'sin dato agéntico'}</span>
+  : <span data-cifra>{x?.nota === null || x?.nota === undefined ? '—' : `${x.nota.toFixed(1)}${suf}`}</span>}

@@ -11,7 +11,9 @@ que usa `generate_comparison.py` (`family`, `datos_eje`, `datos_pilares`, `extre
 Escribe `sitio/src/datos/` (ignorado por git; lo regenera `npm run build`):
   - `registro.json`: las páginas que compila Astro (`registro_paginas.py`);
   - `meta.json`: conteos, pesos, fechas y el sha de `models.json`;
-  - `comparaciones/<slug>.json`: todo lo que muestra cada comparación.
+  - `comparaciones/<slug>.json`: todo lo que muestra cada comparación;
+  - `rankings/<slug>.json` y `variantes/<slug>.json`: lo mismo para los rankings «Mejor LLM
+    para…» y las páginas de variantes (`sitio_rankings.py`, sesión 2).
 
 R1 ESTRICTA (Cristian, 11-nov-2026, opción A): una comparación por familia muestra solo
 modelos rankeados. Los que salen van en `fuera`, con su motivo y su ficha, para el pie
@@ -38,6 +40,7 @@ import contrato_pagina  # noqa: E402
 import elegibilidad  # noqa: E402
 import generate_comparison as gc  # noqa: E402
 import registro_paginas as rp  # noqa: E402
+import sitio_rankings as sr  # noqa: E402
 
 SALIDA = ROOT / "sitio" / "src" / "datos"
 DOCS = ROOT / "docs"
@@ -185,7 +188,8 @@ def main() -> int:
     por_slug = {c["slug"]: c for c in gc.COMPARISONS}
     if SALIDA.exists():
         shutil.rmtree(SALIDA)
-    (SALIDA / "comparaciones").mkdir(parents=True)
+    for sub in ("comparaciones", "rankings", "variantes"):
+        (SALIDA / sub).mkdir(parents=True)
     astro = [e for e in regs if e["motor"] == "astro"]
     for e in astro:
         if e["redirect_a"]:
@@ -195,15 +199,25 @@ def main() -> int:
                 tipo="redirect", generador="exportar_sitio", recomienda=[], nota=e["motivo"])
     (SALIDA / "registro.json").write_text(json.dumps(astro, ensure_ascii=False, indent=1), encoding="utf-8")
     (SALIDA / "meta.json").write_text(json.dumps(meta(d), ensure_ascii=False, indent=1), encoding="utf-8")
-    n = 0
+    import generate_rankings as gr
+    import generate_variants as gv
+    rk = {c["slug"]: c for c in gr.RANKINGS}
+    va = {c["slug"]: c for c in gv.FAMILIES}
+    n = {"comparacion": 0, "ranking": 0, "variantes": 0}
     for e in astro:
-        if e["tipo"] != "comparacion":
+        if e["redirect_a"] or e["tipo"] not in n:
             continue
-        datos = comparacion(por_slug[e["slug"]], e, models)
-        (SALIDA / "comparaciones" / f"{e['slug']}.json").write_text(
+        if e["tipo"] == "comparacion":
+            datos, sub = comparacion(por_slug[e["slug"]], e, models), "comparaciones"
+        elif e["tipo"] == "ranking":
+            datos, sub = sr.ranking(rk[e["slug"]], models), "rankings"
+        else:
+            datos, sub = sr.variantes(va[e["slug"]], e, models), "variantes"
+        (SALIDA / sub / f"{e['slug']}.json").write_text(
             json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
-        n += 1
-    print(f"✓ sitio/src/datos: {len(astro)} páginas Astro ({n} comparaciones, "
+        n[e["tipo"]] += 1
+    print(f"✓ sitio/src/datos: {len(astro)} páginas Astro ({n['comparacion']} comparaciones, "
+          f"{n['ranking']} rankings, {n['variantes']} variantes, "
           f"{sum(1 for e in astro if e['redirect_a'])} redirects)")
     return 0
 

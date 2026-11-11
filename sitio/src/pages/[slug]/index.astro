@@ -2,21 +2,34 @@
 // Las páginas que compila Astro, desde el registro (`registro_paginas.py`, exportado por
 // `exportar_sitio.py`). Una URL que no está en el registro no se genera (check_registro R4).
 import Comparacion from '../../components/Comparacion.astro';
+import Ranking from '../../components/Ranking.astro';
+import Variantes from '../../components/Variantes.astro';
 import Redirect from '../../components/Redirect.astro';
 import registro from '../../datos/registro.json';
 import meta from '../../datos/meta.json';
 
-const datos = import.meta.glob('../../datos/comparaciones/*.json', { eager: true, import: 'default' });
+const comparaciones = import.meta.glob('../../datos/comparaciones/*.json', { eager: true, import: 'default' });
+const rankings = import.meta.glob('../../datos/rankings/*.json', { eager: true, import: 'default' });
+const variantes = import.meta.glob('../../datos/variantes/*.json', { eager: true, import: 'default' });
+const CARPETA: Record<string, [string, Record<string, any>]> = {
+  comparacion: ['comparaciones', comparaciones], ranking: ['rankings', rankings], variantes: ['variantes', variantes],
+};
 
 export function getStaticPaths() {
   return registro
-    .filter((e: any) => e.tipo === 'comparacion' || e.redirect_a)
+    .filter((e: any) => e.redirect_a || ['comparacion', 'ranking', 'variantes'].includes(e.tipo))
     .map((e: any) => ({ params: { slug: e.slug }, props: { e } }));
 }
 const { e } = Astro.props as any;
-const c = e.redirect_a ? null : datos[`../../datos/comparaciones/${e.slug}.json`];
-if (!e.redirect_a && !c) throw new Error(`sin datos para /${e.slug}/: correr exportar_sitio.py`);
+let d: any = null;
+if (!e.redirect_a) {
+  const [carpeta, todos] = CARPETA[e.tipo];
+  d = todos[`../../datos/${carpeta}/${e.slug}.json`];
+  if (!d) throw new Error(`sin datos para /${e.slug}/: correr exportar_sitio.py`);
+}
 ---
 {e.redirect_a
   ? <Redirect destino={e.destino} motivo={e.motivo} contrato={e.contrato_html} />
-  : <Comparacion c={c} meta={meta} />}
+  : e.tipo === 'comparacion' ? <Comparacion c={d} meta={meta} />
+  : e.tipo === 'ranking' ? <Ranking r={d} meta={meta} />
+  : <Variantes x={d} meta={meta} />}

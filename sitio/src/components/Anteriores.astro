@@ -1,0 +1,30 @@
+---
+// El pie «Versiones anteriores →»: los modelos que salen de la tabla porque no rankean (R1
+// estricta), agrupados por motivo y marcados con `data-anterior` (check_registro exige que NO
+// rankeen). Lo usan comparaciones y variantes.
+import Cifra from './Cifra.astro';
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+interface Props { fuera: any[]; de: string }
+const { fuera, de } = Astro.props;
+const porMotivo: [string, any[]][] = [];
+for (const m of fuera) {
+  const g = porMotivo.find(([t]) => t === m.motivo_texto);
+  g ? g[1].push(m) : porMotivo.push([m.motivo_texto, [m]]);
+}
+---
+<section id="versiones-anteriores">
+  <Kicker>versiones anteriores</Kicker>
+  <Titulo texto="Las que no están en el ranking vigente">Las que no están en el ranking vigente</Titulo>
+  <p class="meta">Esta tabla compara solo modelos del ranking vigente. Estas <Cifra v={fuera.length} /> versiones de {de} se midieron, pero no compiten hoy; cada una tiene su motivo.</p>
+  <ul class="anteriores">
+    {porMotivo.map(([texto, ms]) => (
+      <li><span class="motivo">Porque {texto}:</span>{' '}{ms.map((m: any, i: number) => (
+        <>{i > 0 && ', '}{m.ficha
+          ? <a data-anterior={m.key} href={m.ficha}>{m.name}</a>
+          : <span data-anterior={m.key}>{m.name}</span>}</>
+      ))}.</li>
+    ))}
+  </ul>
+  <p><a class="enlace-flecha" href="/#historico">Versiones anteriores →</a></p>
+</section>

@@ -1,0 +1,153 @@
+---
+// «¿Qué tier de <familia> elegir?». Los datos salen de `sitio_rankings.variantes`: el veredicto con
+// la regla del ruido (el tier recomendado es el más barato de los que no se separan del mejor), la
+// escalera por suite con el margen de error de cada suite, y los que no rankean al pie. Una familia
+// con menos de dos tiers rankeados es una página congelada con el histórico.
+import Base from '../layouts/Base.astro';
+import Cifra from './Cifra.astro';
+import Modelo from './Modelo.astro';
+import Nombre from './Nombre.astro';
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+import Metodologia from './Metodologia.astro';
+import Funnel from './Funnel.astro';
+import Anteriores from './Anteriores.astro';
+import AvisoCongelada from './AvisoCongelada.astro';
+
+interface Props { x: any; meta: any }
+const { x, meta } = Astro.props;
+const P = meta.pilares as string[];
+const v = x.veredicto;
+const e = x.escalera;
+const descripcion = x.historico
+  ? `${x.familia}: sus tiers quedaron en el histórico del benchmark. Lo que se midió de cada uno y cuál sigue en el ranking vigente.`
+  : `${x.familia}: comparamos sus ${x.filas.length} tiers con ${meta.runs_k.toLocaleString('es-CL')}+ runs reales. Cuál conviene, cuánto cuesta cada uno al mes y dónde el caro compra algo.`;
+const lista = (ns: string[]) => ns.length > 1 ? ns.slice(0, -1).join(', ') + ' y ' + ns[ns.length - 1] : ns[0];
+const veredictoFila = (f: any) => {
+  const t = f.veredicto.tipo;
+  if (t === 'empatan_todos') return 'Empatan: el precio no compra nada';
+  if (t === 'empatan_arriba') return f.veredicto.n === 2 ? `Empatan ${lista(f.veredicto.quienes)}` : `Empatan arriba ${f.veredicto.n} de ${f.veredicto.de}`;
+  if (t === 'compra') return 'El precio compra algo';
+  if (t === 'al_reves') return 'Va al revés: gana el barato';
+  return `Gana ${f.veredicto.quien}`;
+};
+---
+<Base titulo={x.titulo} descripcion={descripcion} keywords={x.keywords} url={x.url}
+      publicada={x.fecha_publicada} modificada={meta.hoy} contrato={x.contrato_html}>
+
+  <section class="hero">
+    {x.congelada && <AvisoCongelada c={x.congelada} />}
+    <Kicker>variantes</Kicker>
+    <Titulo nivel={1} texto={x.h1}><span data-nombre>{x.h1}</span></Titulo>
+    {x.historico
+      ? <p class="lead">Estos tiers quedaron en el <strong>histórico</strong>: se midieron con otro examen y su nota no compite con la del ranking vigente, así que esta página no elige entre ellos. {x.vigentes.length > 0 ? <>El que sigue en el ranking es <Modelo m={x.vigentes[0]} fuerte />.</> : 'Ninguno de la familia está en el ranking vigente.'}</p>
+      : <p class="lead"><Nombre>{x.familia}</Nombre> tiene <Cifra v={x.filas.length} /> tiers en el ranking vigente{v.veces >= 2 ? <>, y el más caro cuesta <Cifra v={v.veces} suf="×" /> lo que el más barato</> : ', a precios parecidos'}. Los medimos con el mismo examen, {x.runs_min === x.runs_max ? <><Cifra v={x.runs_min} /> corridas cada uno</> : <>entre <Cifra v={x.runs_min} /> y <Cifra v={x.runs_max} /> corridas cada uno</>}. Esto es lo que pasa cuando los pones a trabajar.</p>}
+    <p class="meta">Última actualización: {meta.hoy} · <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+
+  {x.historico ? (
+    <section class="results">
+      <Kicker>histórico</Kicker>
+      <Titulo texto="Lo que se midió de cada tier">Lo que se midió de cada tier</Titulo>
+      <div class="tabla-scroll"><table class="results-table">
+        <thead><tr><th scope="col">Tier</th><th scope="col" class="num">Calidad</th>
+          {P.map((p) => <th scope="col" class="num">{p === 'Razonamiento' ? 'Razon.' : p}</th>)}
+          <th scope="col" class="num">Costo al mes</th></tr></thead>
+        <tbody>
+          {x.filas.map((f: any) => (
+            <tr><td><Modelo m={f} fuerte={f.ranked} />{f.no_rankea && <span class="no-rankea" title={f.no_rankea}>histórico</span>}</td>
+              <td class="num"><Cifra v={f.calidad} d={2} /></td>
+              {P.map((p) => <td class="num"><Cifra v={f.pilares[p]} d={1} /></td>)}
+              <td class="num"><Cifra v={f.mes} pre="≈$" suf="/mes" /></td></tr>
+          ))}
+        </tbody>
+      </table></div>
+    </section>
+  ) : (
+    <>
+      <section class="veredicto">
+        <Kicker>la respuesta corta</Kicker>
+        <Titulo texto="La respuesta corta">La respuesta corta</Titulo>
+        <p class="lead">{v.empatan_todos
+          ? <>Los <Cifra v={v.n} /> tiers <strong>empatan en calidad</strong>: la diferencia entre ellos es más chica que el margen de error de la medición.</>
+          : <>El tier de más calidad es <Modelo m={v.mejor} fuerte />{v.banda > 1 ? <>, y <Cifra v={v.banda - 1} /> {v.banda - 1 === 1 ? 'tier no se separa' : 'tiers no se separan'} de él dentro del margen de error</> : <>, y se separa de los demás por más que el margen de error</>}.</>}
+          {v.veces >= 2 && <> El más caro cuesta <strong><Cifra v={v.veces} suf="×" /></strong> lo que el más barato.</>}</p>
+        <div class="veredicto-grid">
+          <div class="card card-destacada veredicto-carta">
+            <span class="veredicto-tag">Empieza por este</span>
+            <Modelo m={v.empiece} fuerte />
+            <span class="veredicto-costo"><Cifra v={v.empiece.mes} pre="≈$" suf="/mes" /></span>
+            <span class="meta">calidad <Cifra v={v.empiece.calidad} d={2} suf="/10" /> · <Cifra v={v.empiece.latencia} d={1} suf=" s" /> de respuesta · {v.empiece_es_barato ? 'el más barato' : 'el más barato de los que no se separan del mejor'}</span>
+          </div>
+          {v.caro.key !== v.empiece.key && (
+            <div class="card veredicto-carta">
+              <span class="veredicto-tag">El más caro</span>
+              <Modelo m={v.caro} fuerte />
+              <span class="veredicto-costo"><Cifra v={v.caro.mes} pre="≈$" suf="/mes" /></span>
+              <span class="meta">calidad <Cifra v={v.caro.calidad} d={2} suf="/10" /> · <Cifra v={v.caro.latencia} d={1} suf=" s" />{v.caro_en_banda && <>. La misma calidad dentro del margen, más caro{v.caro_mas_lento ? ' y más lento' : ''}.</>}</span>
+            </div>
+          )}
+        </div>
+        <p class="meta">Costos a <strong><Cifra v={3000} /> llamadas al mes</strong> (unas <Cifra v={100} /> por día). Ajústalo a tu volumen en la <a href="/?calls=3000">calculadora</a>.{e.gana_caro.length > 0 && <> Y más abajo: <strong>hay {e.gana_caro.length === 1 ? 'un caso' : 'casos'} donde el caro sí compra algo</strong>.</>}</p>
+      </section>
+
+      <section class="results">
+        <Kicker>tabla</Kicker>
+        <Titulo texto="Los tiers del ranking vigente, uno al lado del otro">Los <Cifra v={x.filas.length} /> tiers del ranking vigente, uno al lado del otro</Titulo>
+        <p class="meta">Ordenados <strong>por precio</strong>, del más barato al más caro, para que veas si la calidad sube con él. Los pilares son <strong>calidad pura</strong> en esa tarea, sin mezclar costo.</p>
+        <div class="tabla-scroll"><table class="results-table">
+          <thead><tr>
+            <th scope="col">Tier</th><th scope="col" class="num">Calidad</th>
+            {P.map((p) => <th scope="col" class="num">{p === 'Razonamiento' ? 'Razon.' : p}</th>)}
+            <th scope="col" class="num">Costo al mes</th><th scope="col" class="num">Latencia</th><th scope="col" class="num">Score</th>
+          </tr></thead>
+          <tbody>
+            {x.filas.map((f: any) => (
+              <tr><td><Modelo m={f} fuerte />{f.marca === 'barato' && <span class="etiqueta-fila">← el más barato</span>}</td>
+                <td class="num"><Cifra v={f.calidad} d={2} /></td>
+                {P.map((p) => <td class="num"><Cifra v={f.pilares[p]} d={1} /></td>)}
+                <td class="num"><Cifra v={f.mes} pre="≈$" suf="/mes" /></td>
+                <td class="num"><Cifra v={f.latencia} d={1} suf=" s" /></td>
+                <td class="num"><Cifra v={f.global} d={2} /></td></tr>
+            ))}
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="results">
+        <Kicker>la escalera</Kicker>
+        <Titulo texto="¿Dónde compra algo el precio?">¿Dónde compra algo el precio?</Titulo>
+        <p class="lead">{e.gana_caro.length > 0
+          ? <><strong><Nombre>{e.caro}</Nombre>{e.veces >= 2 ? <> cuesta <Cifra v={e.veces} /> veces más que <Nombre>{e.barato}</Nombre></> : ''}</strong> y compra algo solo en <strong><Cifra v={e.gana_caro.length} /> de <Cifra v={e.n} /></strong> categorías: {e.gana_caro.join(', ').toLowerCase()}. En las otras, o empatan o gana otro tier.</>
+          : <><strong><Nombre>{e.caro}</Nombre>{e.veces >= 2 ? <> cuesta <Cifra v={e.veces} /> veces más que <Nombre>{e.barato}</Nombre></> : ''} y no se separa arriba en ninguna de las <Cifra v={e.n} /> categorías.</strong> {e.empatan_todos === e.n ? 'En todas, la diferencia entre tiers cabe en el margen de error de la suite.' : <>En <Cifra v={e.empatan_todos} /> empatan todos los tiers; en el resto, arriba queda más de uno o gana un tier que no es el más caro.</>}</>}</p>
+        <div class="tabla-scroll"><table class="results-table escalera">
+          <thead><tr><th scope="col">Qué le pides</th>
+            {e.columnas.map((c: any) => <th scope="col" class="num"><Modelo m={{ ...c, name: c.corto }} /><br /><Cifra v={c.c1k} d={2} pre="$" /></th>)}
+            <th scope="col">¿El precio compra algo?</th></tr></thead>
+          <tbody>
+            {e.filas.map((f: any) => (
+              <tr><td><strong>{f.label}</strong><small class="eje-desc">{f.desc}</small></td>
+                {f.celdas.map((c: any) => <td class:list={['num', { gana: c.arriba && f.veredicto.tipo !== 'empatan_todos' }]}><Cifra v={c.v} d={2} /></td>)}
+                <td><span data-nombre>{veredictoFila(f)}</span></td></tr>
+            ))}
+          </tbody>
+        </table></div>
+        <p class="meta">Los números son <strong>calidad pura</strong>, sin costo ni velocidad, sobre los <strong>mismos tests</strong> rendidos por los <Cifra v={x.filas.length} /> tiers. Bajo cada tier, lo que cuestan <Cifra v={1000} /> llamadas. Arriba de cada suite queda el mejor y los que no se separan de él por más que el margen de error de esa suite; con pocos tests por suite, ese margen es amplio.</p>
+      </section>
+
+      <section>
+        <Kicker>cómo leerlo</Kicker>
+        <Titulo texto="Cómo leer esto sin equivocarte">Cómo leer esto sin equivocarte</Titulo>
+        <p>Que dos tiers <strong>empaten</strong> no significa que sean idénticos: significa que <strong>esta medición no los distingue</strong>. Con {x.runs_min === x.runs_max ? <><Cifra v={x.runs_min} /> corridas</> : <>entre <Cifra v={x.runs_min} /> y <Cifra v={x.runs_max} /> corridas</>} por tier, cada número tiene un margen alrededor; cuando la diferencia cabe en ese margen, es ruido, no señal. Si volviera a correr el test mañana, el orden podría darse vuelta sin que nada haya cambiado en los modelos.</p>
+        <p>La consecuencia práctica es simple: <strong>si la calidad empata, la decisión es de precio y de velocidad</strong>. Y si el proveedor quiere que pagues más, que te diga exactamente qué compras, con su margen de error al lado.</p>
+        {x.post && <p><a href={x.post.href}>{x.post.texto} →</a></p>}
+      </section>
+
+      {x.fuera.length > 0 && <Anteriores fuera={x.fuera} de={`la familia ${x.familia}`} />}
+
+      <Funnel>No cambies de tier a ciegas: toma <strong>el que empieza la lista</strong> y el que pensabas contratar, y pásales unos cuantos <strong>prompts reales tuyos</strong>. Un benchmark general dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</Funnel>
+    </>
+  )}
+
+  <Metodologia meta={meta} />
+</Base>

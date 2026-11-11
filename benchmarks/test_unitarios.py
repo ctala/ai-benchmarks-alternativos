@@ -3498,3 +3498,63 @@ def test_la_familia_viaja_en_el_dato(datos):
     assert all(m.get("familia") for m in datos["models"])
     gemma = next(m for m in datos["models"] if m["key"] == "spark-gemma4-12b")
     assert gemma["familia"] == "gemma"
+
+
+# ── motor-sitio 2.1: la prosa de rankings y variantes sale del dato (11-nov-2026) ─────────────
+import sitio_rankings as sr_sitio
+
+
+def _m_rk(key, q, ci, cin, cout, familia="x", ranked=True, **kw):
+    return {"key": key, "name": key.upper(), "ranked": ranked, "score_calidad": q, "calidad_ci95": ci,
+            "cost_input_per_M": cin, "cost_output_per_M": cout, "familia": familia, "tier": "cheap",
+            "provider": "openrouter", "cost_per_1k_calls_usd": (300 * cin + 1500 * cout) / 1000, **kw}
+
+
+def test_top3_ruido_dentro_del_margen_gana_el_mas_barato():
+    # A y B no se separan (Δ 0,02 con margen ±0,05): «≈» y primero el más barato, B.
+    # C se separa de los dos y del siguiente: conserva su puesto, 3.
+    a = _m_rk("a", 9.00, 0.05, 10, 50)
+    b = _m_rk("b", 8.98, 0.05, 0.1, 0.5)
+    c = _m_rk("c", 8.50, 0.01, 1, 5)
+    d = _m_rk("d", 8.00, 0.01, 0.01, 0.01)
+    t = sr_sitio.top3_ruido({"criterion": "open_source", "slug": "x"}, [a, b, c, d])
+    assert [(x["m"]["key"], x["marca"]) for x in t] == [("b", "≈"), ("a", "≈"), ("c", 3)]
+
+
+def test_top3_en_la_pagina_de_precio_el_orden_es_exacto():
+    ms = [_m_rk(k, 9.0, 0.5, 0.1 * i, 0.1 * i) for i, k in enumerate("abcd", 1)]
+    t = sr_sitio.top3_ruido({"criterion": "cost", "slug": "x"}, ms)
+    assert [(x["m"]["key"], x["marca"]) for x in t] == [("a", 1), ("b", 2), ("c", 3)]
+
+
+def test_frontera_lee_la_familia_y_solo_rankeados():
+    # El que se llama «GPT…» pero declara otra familia no cuenta; el Claude que no rankea tampoco.
+    ms = [_m_rk("gpt-bueno", 9.0, 0.01, 1, 1, familia="gpt"),
+          _m_rk("claude-viejo", 8.9, 0.01, 1, 1, familia="claude", ranked=False),
+          _m_rk("gpt-oss", 8.8, 0.01, 1, 1, familia="gpt-oss"),
+          _m_rk("grok-x", 8.0, 0.01, 1, 1, familia="grok")]
+    f = {x["familia"]: x["m"] for x in sr_sitio.frontera({"criterion": "open_source", "slug": "x"}, ms)}
+    assert f["gpt"]["key"] == "gpt-bueno" and f["gpt"]["pos"] == 1
+    assert f["claude"] is None and f["gemini"] is None
+    assert f["grok"]["pos"] == 4
+
+
+def test_escalera_usa_el_margen_de_la_suite_y_no_un_umbral_fijo():
+    def tier(k, q, ci, c):
+        return {"key": k, "name": f"Fam {k}", "ranked": True, "cost_per_1k_calls_usd": c,
+                "quality_by_suite": {"business_audit": q}, "quality_ci95_by_suite": {"business_audit": ci}}
+    cfg = {"family": "Fam"}
+    # Un punto de diferencia con margen ±1,5: empatan (el umbral fijo de 0,25 decía «compra»).
+    filas, gana, _ = sr_sitio._escalera([tier("barato", 8.0, 1.5, 1), tier("caro", 9.0, 1.5, 10)], cfg)
+    assert filas[0]["veredicto"]["tipo"] == "empatan_todos" and gana == []
+    # El mismo punto con margen ±0,1: el caro se separa y compra algo.
+    filas, gana, _ = sr_sitio._escalera([tier("barato", 8.0, 0.1, 1), tier("caro", 9.0, 0.1, 10)], cfg)
+    assert filas[0]["veredicto"]["tipo"] == "compra" and gana == ["Auditar un negocio"]
+
+
+def test_los_turnos_de_tareas_largas_salen_del_guion():
+    mn, mx = sr_sitio.turnos_horizonte_largo()
+    from benchmarks.tests import agent_long_horizon as alh
+    assert mx == max(len(t["script"]) for t in alh.TESTS) and mn <= mx
+    lead = sr_sitio._lead_sitio({"slug": "mejor-llm-para-tareas-largas", "lead": "x"})
+    assert {"cifra": mx} in lead

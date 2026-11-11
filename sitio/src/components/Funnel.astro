@@ -1,0 +1,14 @@
+---
+// El cierre «antes de migrar»: el consejo va en el slot y el CTA es el único, al go-link (CAR está
+// cerrada; nada dice «gratis» ni enlaza a skool.com — motor-sitio 2.4).
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+const COMUNIDAD = 'https://go.aprenderepite.com/benchmark';
+---
+<section class="funnel">
+  <Kicker>antes de migrar</Kicker>
+  <Titulo texto="Antes de migrar, haz esto">Antes de migrar, haz esto</Titulo>
+  <p><slot /></p>
+  <p class="meta">Este resultado se recalcula con cada lote de modelos nuevos: el ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href={COMUNIDAD} target="_blank" rel="noopener" class="cta">Ver la comunidad →</a></p>
+</section>

@@ -485,7 +485,8 @@ def _t_registro_motivo():
     return out.returncode != 0 and f"R5 · {m['key']}" in out.stdout
 
 
-@prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida y una congelada que cambia")
+@prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida, una congelada que cambia, "
+                         "una afirmación que cambia sin motivo y una frase retirada que vuelve")
 def _t_paridad_sitio():
     # 11-nov-2026 (motor-sitio 1.7). El corte reemplaza docs/ por lo que compila Astro: una
     # diferencia sin declarar se publicaría en silencio. Sin Node en el CI (llega en la 2.5),
@@ -510,13 +511,22 @@ def _t_paridad_sitio():
             paginas[e["slug"]] = escribir(e, contrato_pagina.emitir("redirect", "x", []))
             continue
         c = contrato_pagina.leer((ROOT / "docs" / e["slug"] / "index.html").read_text(encoding="utf-8"))
+        if e["tipo"] != "comparacion":   # rankings y variantes: el contrato no cambia (sesión 2)
+            paginas[e["slug"]] = escribir(e, contrato_pagina.emitir(c["tipo"], "x", c["recomienda"],
+                                                                    c.get("ordena_por"), c.get("tablas")))
+            continue
         fuera = {m["name"] for m in json.loads((datos / f"{e['slug']}.json").read_text(encoding="utf-8"))["fuera"]}
         rec = [n for n in c["recomienda"] if n not in fuera]
         tablas = [dict(t, filas=len(rec)) for t in c.get("tablas") or []] if fuera & set(c["recomienda"]) else c.get("tablas")
         paginas[e["slug"]] = escribir(e, contrato_pagina.emitir(c["tipo"], "x", rec, c.get("ordena_por"), tablas))
 
+    # Los datos van en una copia: el sabotaje de una afirmación edita un JSON exportado.
+    copia_datos = base.parent / "datos"
+    shutil.copytree(ROOT / "sitio" / "src" / "datos", copia_datos)
+
     def correr():
-        r = subprocess.run([PY, str(ROOT / "benchmarks" / "paridad_sitio.py"), "--dist", str(base)],
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "paridad_sitio.py"), "--dist", str(base),
+                            "--datos", str(copia_datos)],
                            cwd=ROOT, capture_output=True, text=True)
         return r.returncode, r.stdout
 
@@ -539,6 +549,27 @@ def _t_paridad_sitio():
         rc, out = correr()
         ok = ok and rc != 0 and f"{e['url']}" in out and marca in out
         f.write_text(antes, encoding="utf-8")
+
+    # Sesión 2: una afirmación de un ranking que cambia sin motivo declarado (la mejor compra sale
+    # de la misma función en los dos motores: si difiere, es un error) y una frase retirada que
+    # vuelve a aparecer en lo compilado.
+    rk = next(e for e in regs if e["tipo"] == "ranking" and not e["redirect_a"])
+    jr = copia_datos / "rankings" / f"{rk['slug']}.json"
+    orig = jr.read_text(encoding="utf-8")
+    d = json.loads(orig)
+    d["afirmaciones"]["mejor_compra"] = "Un modelo que nadie recomendó"
+    jr.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and rk["url"] in out and "«mejor_compra» cambia sin motivo declarado" in out
+    jr.write_text(orig, encoding="utf-8")
+
+    f = paginas[rk["slug"]]
+    antes = f.read_text(encoding="utf-8")
+    f.write_text(antes.replace("<body>", "<body><p>Entrar es gratis.</p>"), encoding="utf-8")
+    rc, out = correr()
+    ok = ok and rc != 0 and "«Entrar es gratis»: sigue en dist" in out and rk["url"] in out
+    f.write_text(antes, encoding="utf-8")
+    ok = ok and correr()[0] == 0   # y vuelve a verde: los sabotajes se deshicieron
     shutil.rmtree(base.parent, ignore_errors=True)
     return ok
 
