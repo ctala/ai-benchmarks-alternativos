@@ -1751,35 +1751,31 @@ def _t_gitleaks():
 
 @prueba("prueba_arbol_gitleaks", "dos copias de la prueba de gitleaks a la vez (la carrera del 4-nov)")
 def _t_carrera_gitleaks():
-    # corte-v5 5.2.c. Sabotaje: dos copias SIN candado, la segunda arrancando cuando la
-    # primera ya plantó; tiene que reproducir el rojo. Arreglo: con candado, las dos verdes.
+    # corte-v5 5.2.c. Sabotaje: dos copias SIN candado, la segunda escaneando con el secreto
+    # de la primera en el árbol; tiene que reproducir el rojo. Arreglo: con candado, las dos
+    # verdes. Coordinadas por señales (`--rol`/`--sync`), no por tiempos: hasta el 11-nov un
+    # `sleep` calculado fallaba al azar bajo la carga del QA (DECISIONES, 11-nov-2026).
     # Las copias usan un candado propio y este proceso toma el del árbol mientras tanto, para
     # que otra corrida de test_guardrails (la de cobertura.py) no plante en medio.
-    import time
     sys.path.insert(0, str(ROOT / "benchmarks"))
     from benchmarks.prueba_arbol_gitleaks import candado_arbol
     script = str(ROOT / "benchmarks" / "prueba_arbol_gitleaks.py")
 
-    def par(args, desfase):
-        a = subprocess.Popen([PY, script, *args], cwd=ROOT,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(desfase)
-        b = subprocess.Popen([PY, script, *args], cwd=ROOT,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        return a.wait(), b.wait()
+    def par(args):
+        with tempfile.TemporaryDirectory(prefix="carrera_gitleaks_") as sync:
+            a = subprocess.Popen([PY, script, *args, "--rol", "primero", "--sync", sync], cwd=ROOT,
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            b = subprocess.Popen([PY, script, *args, "--rol", "segundo", "--sync", sync], cwd=ROOT,
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return a.wait(), b.wait()
 
-    # El desfase sale de cuánto tarda un escaneo: la segunda copia arranca su control
-    # verde cuando la primera ya terminó el suyo y está plantando.
-    t0 = time.time()
-    subprocess.run([PY, str(ROOT / "benchmarks" / "check_gitleaks.py")], cwd=ROOT,
-                   capture_output=True)
-    desfase = (time.time() - t0) * 1.3
     propio = Path(tempfile.gettempdir()) / f"benchmark_carrera_{os.getpid()}.lock"
     with candado_arbol():
-        sin = par(["--sin-candado"], desfase)
-        con = par(["--candado", str(propio)], desfase)
+        sin = par(["--sin-candado"])
+        con = par(["--candado", str(propio)])
     propio.unlink(missing_ok=True)
-    return any(c != 0 for c in sin) and con == (0, 0)
+    # Sin candado la primera pasa y la segunda ve el secreto ajeno; con candado, las dos pasan.
+    return sin == (0, 1) and con == (0, 0)
 
 
 @prueba("cobertura.py", "el núcleo bajo el piso de cobertura")

@@ -21,6 +21,7 @@
 - **OCASIONES: «Próxima ventana: dolores de negocio».** Son seis suites nuevas, ordenadas por demanda medida y verificables sin juez, con un costo estimado de ~US$ 102. Todavía no se mide nada. El voseo pasa a ser filtro duro de «Escribir». Lo motiva el ebook que Cristian hizo con MiniMax M3.1 Flash: salió con chino y voseo, aunque el benchmark ya le daba 2,49 en integridad de idioma. DeepSeek V4.1 Flash, con 7,21, se suma a la evaluación del redactor de Eco. Fila del 11-nov en DECISIONES.
 
 ### CI
+- **La prueba de la carrera de gitleaks ya no depende del reloj.** Fallaba al azar bajo la carga del QA completo: la segunda copia arrancaba tras un `sleep` calculado y, si el escaneo tardaba más de lo medido, la carrera no se reproducía. Ahora las dos copias se coordinan con archivos de señal (`--rol`, `--sync`), y la prueba exige exactamente (verde, rojo) sin candado y (verde, verde) con él. Fila del 11-nov en DECISIONES.
 - **El Action instala desde `requirements.txt` (más pytest) en vez de una lista escrita a mano.** El primer run de v6.1.0 salió rojo en dos sabotajes, pero el código estaba bien: lo que faltaba era el entorno. `check_indice_calidad` importa `dirhash` (declarado en requirements desde el 9-nov) y el CI no lo instalaba. `test_guardrails` corre pytest y pytest se instalaba un paso después. Reproducido en un checkout limpio de `main`; con el arreglo, los 15 pasos del Action dan 0 en un venv nuevo.
 
 ## [v6.1.0] - 2026-11-10 — siete modelos nuevos, la seguridad entra al examen y las trayectorias se publican (74 rankeados)
