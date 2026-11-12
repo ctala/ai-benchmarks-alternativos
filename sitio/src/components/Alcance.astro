@@ -1,0 +1,12 @@
+---
+// La frase de alcance de un veredicto: «En nuestras N suites de [tipo] (ver la lista)». Sale de
+// `alcance.partes` (benchmarks/alcance.py); cada cifra va por <Cifra> (R2). `check_alcance.py` A1
+// exige que todo bloque de veredicto la traiga y que enlace a `#que-mide`. (12-nov-2026)
+import Cifra from './Cifra.astro';
+
+interface Props { a: any }
+const { a } = Astro.props;
+---
+<span data-alcance>{a.una
+  ? <>En nuestra suite «{a.una}»</>
+  : <>En nuestras{a.n_suites > 0 && <>{' '}<Cifra v={a.n_suites} /> suites {a.tipo ? `de ${a.tipo}` : 'del examen'}</>}{a.n_suites > 0 && a.n_tareas > 0 && ' y'}{a.n_tareas > 0 && <>{' '}<Cifra v={a.n_tareas} /> tareas agénticas</>}</>} (<a href="#que-mide">ver la lista</a>)</span>

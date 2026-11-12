@@ -106,6 +106,9 @@ RETIRADAS = [
      "cifra escrita a mano en la entrada; el múltiplo de precio sale del dato"),
     ("variantes", "cuestan prácticamente lo mismo",
      "afirmación de precio escrita a mano en la entrada; el múltiplo sale del dato"),
+    ("variantes", "el precio no compra nada",
+     "generalizaba un empate más allá de lo medido: ahora «esta medición no los distingue», y si "
+     "todos tocan el techo de la suite, «suite saturada» (Cristian, 12-nov-2026; alcance.py)"),
 ]
 
 
@@ -165,8 +168,10 @@ def _modelo_en(trozo: str) -> tuple[str, str] | None:
 
 def _tipo_escalera(texto: str) -> str:
     """El tipo de una fila de la escalera, leído del veredicto que muestra (Variantes.astro)."""
-    return ("empatan_todos" if texto.startswith("Empatan:") else
-            "empatan_arriba" if texto.startswith("Empatan") else
+    # 12-nov-2026: «Empatan: el precio no compra nada» generalizaba más allá de lo medido (alcance.py).
+    return ("saturada" if texto.startswith("Suite saturada") else
+            "empatan_todos" if texto.startswith("Esta medición no los distingue") else
+            "empatan_arriba" if texto.startswith("Arriba no se separan") else
             "compra" if texto.startswith("El precio compra") else
             "al_reves" if texto.startswith("Va al revés") else "gana")
 
@@ -199,7 +204,7 @@ def afirmaciones_dist(html: str, tipo: str) -> dict:
                 esc[_h.unescape(lab.group(1))] = _tipo_escalera(_h.unescape(ver.group(1)))
         e0 = emp[0][0] if emp and emp[0] else None
         return {"veredicto": ({"empiece": e0, "caro": caro[0][0] if caro and caro[0] else e0,
-                               "empatan_todos": bool(lead and "empatan en calidad" in lead[0])}
+                               "empatan_todos": bool(lead and "esta medición no distingue a los" in lead[0])}
                               if e0 else None),
                 "escalera": esc}
     return {}

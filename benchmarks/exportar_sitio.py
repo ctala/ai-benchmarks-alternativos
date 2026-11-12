@@ -36,6 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
+import alcance  # noqa: E402
 import contrato_pagina  # noqa: E402
 import elegibilidad  # noqa: E402
 import generate_comparison as gc  # noqa: E402
@@ -131,7 +132,8 @@ def comparacion(cfg: dict, entrada: dict, models: list[dict]) -> dict:
     if not foto:
         for v in gc.datos_pilares(A, B):
             p = v["pilar"]
-            d = {"pilar": p, "label": v["label"], "que_mide": v["what"], "empate": v["empate"]}
+            d = {"pilar": p, "label": v["label"], "que_mide": v["what"], "empate": v["empate"],
+                 "alcance": alcance.partes(len(alcance.de_pilar(p)), alcance.TIPO_PILAR[p], 0)}
             if v["empate"]:
                 d["a"], d["b"] = _modelo(v["ba"]), _modelo(v["bb"])
                 d["nota_max"] = round(max(gc.pillar(v["ba"], p), gc.pillar(v["bb"], p)), 1)
@@ -180,6 +182,11 @@ def comparacion(cfg: dict, entrada: dict, models: list[dict]) -> dict:
         "campeones": {"a": _campeon(ca), "b": _campeon(cb)},
         "eje": eje, "pilares": pilares, "extremos": extremos, "ganador": ganador,
         "contrato_html": contrato,
+        # 12-nov-2026: el veredicto dice sobre qué suites se apoya (alcance.py). La saturación
+        # se mira sobre los dos que compara el veredicto, el primero de cada familia.
+        "alcance": None if foto else alcance.bloque(
+            *alcance.indice(models), [A[0], B[0]], [m for m in models if m.get("ranked")],
+            programar=alcance.es_de_claude(A + B)),
     }
 
 

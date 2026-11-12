@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T11:34:15",
+  "generated_at": "2026-11-12T12:54:16",
   "total_models": 244,
   "tested_count": 193,
   "ranked_count": 74,
@@ -541,7 +541,7 @@
     "agent_long_horizon": {
       "pilar": "Agentes",
       "en_promedio": true,
-      "menu": "Tareas largas (sostener el hilo 8-12 turnos)",
+      "menu": "Tareas largas (sostener el hilo a lo largo de muchos turnos)",
       "decide": "sostener una tarea larga"
     },
     "orchestration": {

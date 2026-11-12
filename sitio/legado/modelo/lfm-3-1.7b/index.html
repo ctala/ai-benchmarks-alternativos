@@ -302,7 +302,7 @@
     <ul>
         <li><strong>Precisión literal (hex, JWT, configs)</strong> — 9.38 (+1.79 contra su media). <span class="meta">Decide: no equivocarse en un dato</span></li>
         <li><strong>JSON estructurado (extracción, schemas)</strong> — 8.96 (+1.37 contra su media). <span class="meta">Decide: emitir JSON válido a la primera</span></li>
-        <li><strong>Tareas largas (sostener el hilo 8-12 turnos)</strong> — 8.85 (+1.26 contra su media). <span class="meta">Decide: sostener una tarea larga</span></li>
+        <li><strong>Tareas largas (sostener el hilo a lo largo de muchos turnos)</strong> — 8.85 (+1.26 contra su media). <span class="meta">Decide: sostener una tarea larga</span></li>
         <li><strong>Integridad de idioma (no mezclar idiomas)</strong> — 8.71 (+1.12 contra su media). <span class="meta">Decide: no meter otro idioma en medio del texto</span></li>
     </ul>
     <h3>Donde se cae</h3>
@@ -383,7 +383,7 @@
       <thead><tr><th scope="col">Tarea</th><th scope="col">Mediana</th>
       <th scope="col">Peor caso medido</th><th scope="col">max_tokens sugerido</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Tareas largas (sostener el hilo 8-12 turnos)</th><td>8.108</td><td>18.221</td><td><strong>22.776</strong> <span class="meta">(piso)</span></td></tr>
+        <tr><th scope="row">Tareas largas (sostener el hilo a lo largo de muchos turnos)</th><td>8.108</td><td>18.221</td><td><strong>22.776</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Decisiones de negocio (prioridades. plan)</th><td>3.832</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Generación de código (Python. SQL. debug)</th><td>8.192</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>
         <tr><th scope="row">Razonamiento profundo (matemática. Fermi)</th><td>6.711</td><td>8.192</td><td><strong>10.240</strong> <span class="meta">(piso)</span></td></tr>

@@ -483,7 +483,7 @@ def _t_ganadores_dist():
     # Cada lector, roto en todas sus páginas a la vez: tiene que decir que leyó cero.
     for regla, de, a in (("G3", "data-grupo-cabeza", "data-otro-grupo"),
                          ("G5", "gana <strong>", "gana <b>"),
-                         ("G2", "Empatan", "Igualan")):
+                         ("G2", 'class="lad-verdict"', 'class="lad-verdict"')):
         guardadas = {}
         for f in base.glob("*/index.html"):
             t = f.read_text(encoding="utf-8")
@@ -493,7 +493,9 @@ def _t_ganadores_dist():
                 if regla == "G5":   # las otras formas de coronar también se rompen
                     t2 = t2.replace("Empate técnico en calidad:", "Parejos:").replace("Resumen: quién gana", "Resumen")
                 if regla == "G2":
-                    t2 = _re.sub(r"(<td class=\"lad-verdict\">)Gana ", r"\1Sale ", t2)
+                    # 12-nov-2026: G2 reconoce también los textos nuevos de la escalera; se rompen
+                    # todas las celdas de veredicto de fila, no solo «Empatan» y «Gana».
+                    t2 = _re.sub(r"(<td class=\"lad-verdict\">)", r"\1~", t2)
                 f.write_text(t2, encoding="utf-8")
         rc, out = correr()
         ok = ok and bool(guardadas) and rc != 0 and f"{regla} leyó 0 de" in out
@@ -678,9 +680,10 @@ def _t_paridad_sitio():
         v = d.get("veredicto")
         if not v:
             return ""
-        texto = {"empatan_todos": "Empatan: el precio no compra nada", "empatan_arriba": "Empatan A y B",
+        texto = {"saturada": "Suite saturada: no los distingue",
+                 "empatan_todos": "Esta medición no los distingue", "empatan_arriba": "Arriba no se separan A y B",
                  "compra": "El precio compra algo", "al_reves": "Va al revés: gana el barato", "gana": "Gana A"}
-        h = (f'<section><p class="lead" data-afirmacion="veredicto">{"Los tiers empatan en calidad" if v["empatan_todos"] else "Gana uno"}</p>'
+        h = (f'<section><p class="lead" data-afirmacion="veredicto">{"En nuestras suites, esta medición no distingue a los tiers" if v["empatan_todos"] else "Gana uno"}</p>'
              f'<div data-afirmacion="empiece">{mod(v["empiece"]["key"], v["empiece"]["name"])}</div>')
         if v["caro"]["key"] != v["empiece"]["key"]:
             h += f'<div data-afirmacion="caro">{mod(v["caro"]["key"], v["caro"]["name"])}</div>'
@@ -1986,7 +1989,68 @@ def _t_contraste():
         shutil.rmtree(tmp.parent, ignore_errors=True)
 
 
-@prueba("check_datos_dist", "una página de Astro compilada con otro models.json, una sin su datos-sha y una que falta")
+@prueba("check_alcance A1-A4 E1-E3", "la página de Claude compilada sin su alcance, sin «Qué mide», con «empatan en "
+                                      "calidad» y sin la línea de programar; los externos vencidos y sin un eje")
+def _t_alcance():
+    # 12-nov-2026 (motor-sitio 2.6). /claude-haiku-sonnet-opus/ decía «Los 5 tiers empatan en calidad»
+    # sin decir sobre qué. Control: la página compilada, tal cual, da verde. Cada sabotaje quita una
+    # de las cuatro cosas que la regla exige y tiene que caer con su regla.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import alcance
+    import check_alcance as ca
+    from datetime import date
+    dist = ROOT / "sitio" / "dist"
+    slug = "claude-haiku-sonnet-opus"
+    pagina = (dist / slug / "index.html").read_text(encoding="utf-8")
+    ext = alcance.externos()
+    rel = f"/{slug}/"
+    if ca.revisar_pagina(rel, pagina, ext):
+        raise AssertionError(f"control en rojo: {ca.revisar_pagina(rel, pagina, ext)[:3]}")
+    if not ca.veredictos(pagina):
+        raise AssertionError("control: la página de Claude no tiene bloque de veredicto que revisar")
+
+    def cae(roto, regla):
+        return any(f.startswith(regla) for f in ca.revisar_pagina(rel, roto, ext))
+
+    ok = cae(pagina.replace("data-alcance", "data-x"), "A1")
+    ok = ok and cae(pagina.replace('href="#que-mide"', 'href="#otra"'), "A1")
+    ok = ok and cae(pagina.replace('id="que-mide"', 'id="otra"'), "A2")
+    url_ext = ext["benchmarks"][-1]["url"]
+    ok = ok and cae(pagina.replace(f'href="{url_ext}"', 'href="#"'), "A2")
+    ok = ok and cae(pagina.replace("</main>", "<p>Los tiers empatan en calidad.</p></main>", 1), "A3")
+    ok = ok and cae(pagina.replace("esta página no responde esa pregunta", "esta página responde"), "A4")
+    # una página sin veredicto no exige nada, pero tampoco puede publicar una frase retirada
+    ok = ok and ca.revisar_pagina("/x/", "<main><p>Hola</p></main>", ext) == []
+    ok = ok and cae("<main><p>Pagar más no compra calidad.</p></main>", "A3")
+    # E3: una revisión de hace más de 120 días; E1: un eje mínimo que falta
+    ok = ok and any(f.startswith("E3") for f in alcance.errores_externos(hoy=date(2027, 6, 1)))
+    ok = ok and alcance.errores_externos() == []
+    orig = alcance.externos
+    try:
+        alcance.externos = lambda: {**orig(), "ejes": {k: v for k, v in orig()["ejes"].items() if k != "preferencia"},
+                                    "benchmarks": [b for b in orig()["benchmarks"] if b["eje"] != "preferencia"]}
+        ok = ok and any(f.startswith("E1") for f in alcance.errores_externos())
+    finally:
+        alcance.externos = orig
+    # el envoltorio sobre un dist con la página de Claude sin su alcance → rojo
+    tmp = Path(tempfile.mkdtemp()) / "dist"
+    try:
+        (tmp / slug).mkdir(parents=True)
+        (tmp / "index.html").write_text("<main></main>", encoding="utf-8")
+        (tmp / slug / "index.html").write_text(pagina.replace("data-alcance", "data-x"), encoding="utf-8")
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_alcance.py"), "--dist", str(tmp), "--sin-compilar"],
+                           cwd=ROOT, capture_output=True, text=True)
+        ok = ok and r.returncode == 1 and "A1" in r.stdout
+        (tmp / slug / "index.html").write_text(pagina, encoding="utf-8")
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_alcance.py"), "--dist", str(tmp), "--sin-compilar"],
+                           cwd=ROOT, capture_output=True, text=True)
+        ok = ok and r.returncode == 0
+        return ok
+    finally:
+        shutil.rmtree(tmp.parent, ignore_errors=True)
+
+
+@prueba("check_datos_dist","una página de Astro compilada con otro models.json, una sin su datos-sha y una que falta")
 def _t_datos_dist():
     # 11-nov-2026 (motor-sitio 2.5). Un dist compilado con datos de ayer se ve sano. Sobre una
     # copia de sitio/dist con el sha de ahora en cada página (el control no depende de que el dist

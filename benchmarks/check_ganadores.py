@@ -86,7 +86,10 @@ CARD = re.compile(r'<span class="(?:verdict|veredicto)-tag">([^<]*)</span>\s*(?:
 # Lo que Astro marca como ganador (`Modelo corona`).
 CORONA = re.compile(r'<(?:a|span)\b[^>]*\bdata-corona\b[^>]*>(?:<strong>)?([^<]*)')
 # Una fila de escalera: la última celda dice qué compra el precio.
-VEREDICTO_FILA = ("Gana ", "Empatan", "El precio compra", "Va al revés")
+# 12-nov-2026: «Empatan: el precio no compra nada» se retiró (alcance.py); la escalera dice ahora
+# «Esta medición no los distingue», «Suite saturada…» o «Arriba no se separan…».
+VEREDICTO_FILA = ("Gana ", "Empatan", "El precio compra", "Va al revés", "Esta medición no los distingue",
+                  "Suite saturada", "Arriba no se separan")
 FILA = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
 CELDA = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
 _limpio = lambda x: re.sub(r"<[^>]+>", "", x).strip()
@@ -240,7 +243,7 @@ def main() -> int:
     # ── G2 · «Gana X» sobre un empate visible ────────────────────────────────
     for f in sorted(DOCS.glob("*/index.html")):
         h = f.read_text(errors="ignore")
-        if "Gana " not in h and "Empatan" not in h:
+        if not any(v in h for v in VEREDICTO_FILA):
             continue
         for fila in FILA.findall(h):
             celdas = [_limpio(c) for c in CELDA.findall(fila)]

@@ -530,6 +530,35 @@ y la ventana puede tomar solo las primeras.
 ### 7. Contratos (`contract_review`)
 Queda después, por decisión de Cristian del 11-nov-2026.
 
+### Candidata: programar con un agente durante horas en un repositorio (ocasión 6, sin medir)
+
+**Qué la motiva (12-nov-2026).** /claude-haiku-sonnet-opus/ decía que los cinco tiers «empatan en
+calidad». Cristian: en Claude Code la diferencia entre tiers se nota mucho, y eso no lo medimos. Es
+cierto: el examen son llamadas sueltas o de pocos pasos, y las tareas Harbor son de minutos. Ninguna
+mide a un agente trabajando horas sobre un repositorio propio. Hoy la página dice que no responde esa
+pregunta y enlaza a SWE-Bench Pro y Terminal-Bench (`benchmarks_externos.json`). Esta suite es la que
+la respondería con casos nuestros.
+
+**Qué sería.** El banco de código real del Spark (30 tareas de commits de Flip y CTM, tests ocultos,
+repos privados y por eso sin contaminación), corrido con un agente de código + modelo en sesiones
+largas, verificado por los tests y no por un juez. `pass^k` con k = 3, como Harbor.
+
+**Costo, dimensionado y no ejecutado.** La base es lo medido en Harbor (`tareas-agente/resultados.json`,
+2.278 intentos): **US$ 0,075 de media por intento**, mediana por modelo US$ 0,042, y en Claude de
+US$ 0,006 (Haiku 5.5) a US$ 0,66 (Fable 5.2). Una tarea Harbor dura minutos. Una sesión de horas en un
+repositorio gasta, por supuesto de trabajo, entre **30 y 100 veces** los tokens de una tarea Harbor,
+porque el contexto crece en cada turno. Eso da **US$ 2 a 7,5 por sesión** en promedio, y entre
+US$ 20 y 66 por sesión de un Fable.
+
+| Alcance | Sesiones | Costo estimado | Tiempo de pared |
+|---|---:|---:|---|
+| Todos los rankeados (74 × 30 tareas × 3) | 6.660 | US$ 15.000 a 50.000 | no viable |
+| Los 5 tiers de Claude + 13 de la cabeza (18 × 10 tareas × 3) | 540 | US$ 1.200 a 4.000 | 540 a 1.600 h de sesión: exige paralelizar |
+| Piloto (5 modelos × 5 tareas × 3) | 75 | US$ 170 a 560 | 75 a 225 h |
+
+El rango es ancho porque el factor 30-100× es un supuesto: **el piloto existe para medirlo** antes de
+proponer el lote. Sale de una ventana declarada, con OK de gasto, y no se ejecuta ahora.
+
 ### Heredado de corte-v5-1 (archivado el 11-nov-2026)
 Va a la misma ventana, en el mismo corte:
 - **Harbor que separe arriba (0.1):** tareas que hoy no pase la mayoría de los que sacan 4 de 4. Cada

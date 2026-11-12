@@ -12,6 +12,8 @@ import Kicker from './Kicker.astro';
 import Titulo from './Titulo.astro';
 import Metodologia from './Metodologia.astro';
 import Funnel from './Funnel.astro';
+import QueMide from './QueMide.astro';
+import Alcance from './Alcance.astro';
 
 interface Props { r: any; meta: any }
 const { r, meta } = Astro.props;
@@ -86,18 +88,23 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
       <Titulo texto="La respuesta corta">La respuesta corta</Titulo>
       {v.inconcluso ? (
         <>
-          <p class="lead">Acá el benchmark <strong>no logra separar a los modelos</strong>: <Cifra v={v.n} /> de <Cifra v={v.pool} /> (<Cifra v={v.pct} suf=" %" /> del catálogo) quedan dentro del margen de error en esta tarea. Cuando la medición no distingue, lo honesto es decirlo, no inventar un ganador.</p>
+          <p class="lead"><Alcance a={r.alcance.partes} />, el benchmark <strong>no logra separar a los modelos</strong>: <Cifra v={v.n} /> de <Cifra v={v.pool} /> (<Cifra v={v.pct} suf=" %" /> del catálogo) quedan dentro del margen de error en esta tarea. Cuando la medición no distingue, lo honesto es decirlo, no inventar un ganador.</p>
           <p class="lead">Con esa salvedad, dentro del grupo elige por precio: el más barato es <span data-afirmacion="mejor_compra"><Modelo m={v.mejor} fuerte /></span>, por <strong>≈<Cifra v={v.mejor.mes} d={v.mejor.mes < 10 ? 2 : 0} pre="$" suf="/mes" /></strong>. Ninguno del grupo le saca una diferencia demostrable. <strong>Prueba con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
         </>
       ) : (
         <>
-          <p class="lead">{ag
+          <p class="lead"><Alcance a={r.alcance.partes} />, {ag
             ? (v.n <= 1
                 ? <><Modelo m={v.mejor} fuerte /> es el único que supera <Eje x={v.mejor} ag largo /> en todos sus intentos.</>
                 : <><strong><Cifra v={v.n} /> modelos superan <Eje x={v.mejor} ag largo /></strong> en todos sus intentos, así que la medición no tiene con qué separarlos. <strong>Entre ellos, elige por precio</strong>.</>)
             : (v.n <= 1
                 ? <><Modelo m={v.lider} fuerte /> encabeza la tabla y <strong>nadie empata con él</strong>: la diferencia con el siguiente es mayor que el margen de error de la medición.</>
-                : <><strong>El benchmark no separa a <Cifra v={v.n} /> modelos de la cima</strong> en esta tarea: la diferencia entre ellos es más chica que el margen de error de la medición. <strong>Dentro del grupo, elige por precio</strong>.</>)}</p>
+                : <><strong>el benchmark no separa a <Cifra v={v.n} /> modelos de la cima</strong>: la diferencia entre ellos es más chica que el margen de error de la medición. <strong>Dentro del grupo, elige por precio</strong>.</>)}</p>
+          {!ag && v.n > 1 && r.alcance.n_saturadas > 0 && (
+            <p class="meta">{r.alcance.n_saturadas === r.alcance.n_suites
+              ? <>En {r.alcance.n_suites === 1 ? 'esa suite' : <>las <Cifra v={r.alcance.n_suites} /> suites</>} los del grupo quedan dentro del margen de error del mejor modelo de la suite: <strong>{r.alcance.n_suites === 1 ? 'está saturada' : 'están saturadas'} y no los discriminan</strong>. Que no los separe no prueba que rindan igual en tu caso.</>
+              : <>En <Cifra v={r.alcance.n_saturadas} /> de esas suites los del grupo quedan dentro del margen de error del mejor modelo de la suite: <strong>están saturadas y no los discriminan</strong>.</>}</p>
+          )}
           <div class="veredicto-grid">
             <div class="card card-destacada veredicto-carta" data-afirmacion="mejor_compra">
               <span class="veredicto-tag">{v.n <= 1 ? (ag ? 'El único del grupo' : (v.mismo ? 'El mejor, y además el más barato' : 'La mejor compra del grupo')) : 'La mejor compra del grupo'}</span>
@@ -301,6 +308,8 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
   )}
 
   <Funnel>Ya tienes un candidato. No lo cambies a ciegas: toma los dos primeros de la tabla y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Un benchmark general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</Funnel>
+
+  <QueMide a={r.alcance} />
 
   <Metodologia meta={meta} />
 

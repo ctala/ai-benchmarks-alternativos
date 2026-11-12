@@ -746,7 +746,7 @@
         referencia, y cada modelo nuevo se puntúa contra esa referencia fija. Agregar un modelo <strong>no
         cambia el score de los demás</strong>. La referencia solo se recalcula cuando publicamos una versión
         nueva del benchmark (v4.1, v5.0…): un evento deliberado y anunciado, no algo automático. Aun así,
-        buena práctica: cita el hallazgo ("los de arriba empatan en calidad") y enlaza acá, no el número
+        buena práctica: cita el hallazgo ("arriba, esta medición no los distingue") y enlaza acá, no el número
         suelto — entre versiones sí puede cambiar.
       </p>
       <p>
@@ -783,12 +783,15 @@
     <details>
       <summary><strong>¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?</strong></summary>
       <p>
-        En calidad medida sobre tareas aplicadas en español, <strong>los caros empatan con los mejores
-        abiertos</strong> — pagar más no compra calidad de respuesta. Donde los premium sí compran algo
-        verificable: <strong>seguridad</strong> (resisten mejor la fuga de credenciales ante inyección de
-        prompts) y <strong>debugging agéntico real</strong> (ahí la referencia es SWE-bench Verified, que
-        mide otra cosa que este benchmark). Para volumen alto de tareas comunes, los abiertos baratos son
-        la compra racional; el benchmark te muestra el delta por tarea para tu caso.
+        En lo que medimos (las suites del examen y las tareas agénticas, en español), <strong>esta medición
+        no distingue a los caros de los mejores abiertos</strong>: en varias suites todos quedan dentro del margen de error del mejor y la
+        suite ya no discrimina. Eso no prueba que rindan igual en todo. Donde los premium sí se separan en lo
+        medido: <strong>seguridad</strong> (resisten mejor la fuga de credenciales ante inyección de prompts).
+        Lo que no medimos, <strong>programar con un agente durante horas en un repositorio</strong>, lo miden
+        <a href="https://labs.scale.com/leaderboard/swe_bench_pro_public" target="_blank" rel="noopener">SWE-Bench Pro</a>
+        y <a href="https://www.tbench.ai/leaderboard" target="_blank" rel="noopener">Terminal-Bench</a>, y ahí la
+        diferencia puede ser grande. Para volumen alto de tareas comunes, los abiertos baratos son la compra
+        racional; el benchmark te muestra el delta por tarea para tu caso.
       </p>
     </details>
 
@@ -825,7 +828,7 @@
         referencia contra toda la población actualizada y, como el score es una nota con curva —mide la
         distancia de cada modelo al promedio—, las notas se reajustan aunque el modelo no haya cambiado. El
         <em>orden</em> casi no se mueve (solo vecinos muy pegados pueden intercambiar puesto). Por eso citamos
-        hallazgos ("los de arriba empatan en calidad") y no números sueltos: el hallazgo sobrevive al
+        hallazgos ("arriba, esta medición no los distingue") y no números sueltos: el hallazgo sobrevive al
         recálculo, el número puede cambiar entre versiones.
       </p>
     </details>
@@ -909,7 +912,7 @@
       "name": "¿Vale la pena pagar GPT-5 o Claude Opus si hay alternativas más baratas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En calidad medida sobre tareas aplicadas en español, los caros empatan con los mejores abiertos — pagar más no compra calidad de respuesta. Donde los premium sí compran algo verificable: seguridad (resisten mejor la fuga de credenciales ante inyección de prompts) y debugging agéntico real (ahí la referencia es SWE-bench Verified, que mide otra cosa que este benchmark). Para volumen alto de tareas comunes, los abiertos baratos son la compra racional; el benchmark te muestra el delta por tarea para tu caso."
+        "text": "En lo que medimos (las suites del examen y las tareas agénticas, en español), esta medición no distingue a los caros de los mejores abiertos: en varias suites todos quedan dentro del margen de error del mejor y la suite ya no discrimina. Eso no prueba que rindan igual en todo. Donde los premium sí se separan en lo medido: seguridad (resisten mejor la fuga de credenciales ante inyección de prompts). Lo que no medimos, programar con un agente durante horas en un repositorio, lo miden SWE-Bench Pro y Terminal-Bench, y ahí la diferencia puede ser grande. Para volumen alto de tareas comunes, los abiertos baratos son la compra racional; el benchmark te muestra el delta por tarea para tu caso."
       }
     },
     {
@@ -933,7 +936,7 @@
       "name": "¿Por qué cambió el score de un modelo si el modelo no cambió?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dentro de una misma versión, no cambia: desde la v4.0 la referencia del z-score está congelada, así que agregar un modelo nuevo no mueve la nota de los demás. Lo que sí puede reajustar el número es una versión nueva del benchmark (v4.1, v5.0…): ahí recalculamos la referencia contra toda la población actualizada y, como el score es una nota con curva —mide la distancia de cada modelo al promedio—, las notas se reajustan aunque el modelo no haya cambiado. El orden casi no se mueve (solo vecinos muy pegados pueden intercambiar puesto). Por eso citamos hallazgos (\"los de arriba empatan en calidad\") y no números sueltos: el hallazgo sobrevive al recálculo, el número puede cambiar entre versiones."
+        "text": "Dentro de una misma versión, no cambia: desde la v4.0 la referencia del z-score está congelada, así que agregar un modelo nuevo no mueve la nota de los demás. Lo que sí puede reajustar el número es una versión nueva del benchmark (v4.1, v5.0…): ahí recalculamos la referencia contra toda la población actualizada y, como el score es una nota con curva —mide la distancia de cada modelo al promedio—, las notas se reajustan aunque el modelo no haya cambiado. El orden casi no se mueve (solo vecinos muy pegados pueden intercambiar puesto). Por eso citamos hallazgos (\"arriba, esta medición no los distingue\") y no números sueltos: el hallazgo sobrevive al recálculo, el número puede cambiar entre versiones."
       }
     },
     {

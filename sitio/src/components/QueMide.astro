@@ -1,0 +1,47 @@
+---
+// «Qué mide esta página y qué no» (12-nov-2026, motor-sitio 2.6). Los datos salen de
+// `alcance.bloque` (benchmarks/alcance.py): las suites que sostienen el veredicto, cada una con su
+// enlace y su marca de saturada, las tareas agénticas si entran, y lo que no medimos con el
+// benchmark externo de cada eje (`benchmarks_externos.json`). `check_alcance.py` exige este
+// bloque en toda página con veredicto.
+import Kicker from './Kicker.astro';
+import Titulo from './Titulo.astro';
+import Cifra from './Cifra.astro';
+
+interface Props { a: any }
+const { a } = Astro.props;
+const fecha = (iso: string) => iso.split('-').reverse().join('-');
+---
+<section id="que-mide" class="que-mide">
+  <Kicker>alcance</Kicker>
+  <Titulo texto="Qué mide esta página y qué no">Qué mide esta página y qué no</Titulo>
+  {a.no_responde && (
+    <p class="aviso" data-no-responde>Si lo vas a usar para <strong>programar con un agente</strong> (Claude Code, Cursor), <strong>esta página no responde esa pregunta</strong>: no medimos sesiones largas de un agente en un repositorio. Para eso mira {a.no_responde.map((b: any, i: number) => <>{i > 0 && (i === a.no_responde.length - 1 ? ' y ' : ', ')}<a href={b.url} target="_blank" rel="noopener"><span data-nombre>{b.nombre}</span></a></>)}.</p>
+  )}
+  <h3 class="titulo-corto">Lo que sostiene el veredicto</h3>
+  {a.n_suites > 0 && (
+    <>
+      <p class="meta"><Cifra v={a.n_suites} /> {a.n_suites === 1 ? 'suite' : 'suites'}, cada una con sus pruebas publicadas.{a.n_saturadas > 0 && <> <strong><Cifra v={a.n_saturadas} /> {a.n_saturadas === 1 ? 'está saturada' : 'están saturadas'}</strong> para los modelos de esta página: todos quedan dentro del margen de error del mejor modelo en esa suite, así que no los distingue.</>}</p>
+      <ul class="lista-suites">
+        {a.suites.map((s: any) => (
+          <li><a href={s.url} target="_blank" rel="noopener">{s.nombre}</a> — {s.decide}{s.saturada && <strong class="saturada"> · saturada, no los distingue</strong>}</li>
+        ))}
+      </ul>
+    </>
+  )}
+  {a.n_tareas > 0 && (
+    <>
+      <p class="meta"><Cifra v={a.n_tareas} /> tareas agénticas, que el modelo ejecuta en un entorno real y verifica un test, no un juez:</p>
+      <ul class="lista-suites">
+        {a.tareas.map((t: any) => <li><a href={t.url} target="_blank" rel="noopener"><span data-nombre>{t.id}</span></a></li>)}
+      </ul>
+    </>
+  )}
+  <h3 class="titulo-corto">Lo que no medimos</h3>
+  <p class="meta">Para estas preguntas, este benchmark no tiene dato. Te dejamos dónde mirar (revisado el <span data-cifra>{fecha(a.revisado)}</span>):</p>
+  <ul class="lista-suites">
+    {a.no_medimos.map((e: any) => (
+      <li><strong>{e.que}</strong>: {e.benchmarks.map((b: any, i: number) => <>{i > 0 && ' · '}<a href={b.url} target="_blank" rel="noopener"><span data-nombre>{b.nombre}</span></a> ({b.mide}{b.vigencia && <>; {b.vigencia}</>})</>)}</li>
+    ))}
+  </ul>
+</section>

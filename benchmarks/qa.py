@@ -229,6 +229,10 @@ CHEQUEOS = [
     # y una ficha retirada, a 390 y 1280 px. Nace verde: bloqueante.
     ("paginas", "ningún texto del sitio compilado queda bajo el contraste WCAG AA (axe)",
      [PY, "benchmarks/check_contraste.py"], True, False),
+    # 12-nov-2026 (motor-sitio 2.6, Cristian): «Los 5 tiers empatan en calidad» generalizaba más
+    # allá de lo medido. No hay veredicto sin alcance (alcance.py). Nace verde: bloqueante.
+    ("paginas", "todo veredicto dice sobre qué suites se apoya y qué no medimos, sin frases que generalicen un empate",
+     [PY, "benchmarks/check_alcance.py"], True, False),
     # 12-nov-2026 (motor-sitio 2.6, Cristian): docs/ solo se escribe con la copia de sitio/dist;
     # los generadores de Python escriben en sitio/legado/. Nace verde: bloqueante.
     ("paginas", "lo publicado (docs/) es la copia de sitio/dist y ningún script escribe ahí (P1-P3)",

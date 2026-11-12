@@ -8,7 +8,7 @@
 <meta name="description" content="Mejor LLM para programar (2026) con 88.000+ runs reales: ranking por coding (generar código, JSON estructurado y debugging en tareas reales). Incluye costos para volumen y dónde quedan los modelos frontier. El benchmark no separa a 31 modelos de la cima; el más barato del grupo es Qwen 3.7 Flash.">
 <meta name="keywords" content="mejor llm para programar, mejor ia para programar, mejor modelo para coding, mejor ia para codigo, llm para programar">
 <meta name="author" content="Cristian Tala">
-<meta name="datos-sha" content="58c56c467a41af4b">
+<meta name="datos-sha" content="00faff73265ec66e">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/mejor-llm-para-programar/">
 <meta property="og:title" content="Mejor LLM para programar en 2026: ranking con benchmark real">
 <meta property="og:description" content="Mejor LLM para programar (2026) con 88.000+ runs reales: ranking por coding (generar código, JSON estructurado y debugging en tareas reales). Incluye costos para volumen y dónde quedan los modelos frontier. El benchmark no separa a 31 modelos de la cima; el más barato del grupo es Qwen 3.7 Flash.">
@@ -119,7 +119,7 @@
       <p class="kicker">// la respuesta corta</p>
       <h2 class="titulo-corto">La respuesta corta</h2>
       
-          <p class="lead">Acá el benchmark <strong>no logra separar a los modelos</strong>: <span data-cifra>31</span> de <span data-cifra>74</span> (<span data-cifra>42 %</span> del catálogo) quedan dentro del margen de error en esta tarea. Cuando la medición no distingue, lo honesto es decirlo, no inventar un ganador.</p>
+          <p class="lead"><span data-alcance>En nuestras <span data-cifra>3</span> suites de programación (<a href="#que-mide">ver la lista</a>)</span>, el benchmark <strong>no logra separar a los modelos</strong>: <span data-cifra>31</span> de <span data-cifra>74</span> (<span data-cifra>42 %</span> del catálogo) quedan dentro del margen de error en esta tarea. Cuando la medición no distingue, lo honesto es decirlo, no inventar un ganador.</p>
           <p class="lead">Con esa salvedad, dentro del grupo elige por precio: el más barato es <span data-afirmacion="mejor_compra"><a class="a-ficha" data-modelo="qwen3.7-flash" href="/modelo/qwen3.7-flash/"><strong>Qwen 3.7 Flash</strong></a></span>, por <strong>≈<span data-cifra>$0.61/mes</span></strong>. Ninguno del grupo le saca una diferencia demostrable. <strong>Prueba con tus propios prompts</strong>: este benchmark no va a decidir por ti.</p>
         
       <p class="meta">Cálculo sobre <strong><span data-cifra>3.000</span> llamadas al mes</strong> (unas <span data-cifra>100</span> por día). ¿Otro volumen, o te importa más la velocidad? Ajusta los pesos en la <a href="/?preset=coding&amp;calls=3000">calculadora</a>. Los modelos citados están en la tabla de abajo, marcados.</p>
@@ -392,6 +392,25 @@
   <p>Ya tienes un candidato. No lo cambies a ciegas: toma los dos primeros de la tabla y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Un benchmark general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</p>
   <p class="meta">Este resultado se recalcula con cada lote de modelos nuevos: el ganador de hoy puede no serlo el mes que viene.</p>
   <p><a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta">Ver la comunidad →</a></p>
+</section>
+
+  <section id="que-mide" class="que-mide">
+  <p class="kicker">// alcance</p>
+  <h2 class="titulo-largo">Qué mide esta página y qué no</h2>
+  
+  <h3 class="titulo-corto">Lo que sostiene el veredicto</h3>
+  
+      <p class="meta"><span data-cifra>3</span> suites, cada una con sus pruebas publicadas. <strong><span data-cifra>3</span> están saturadas</strong> para los modelos de esta página: todos quedan dentro del margen de error del mejor modelo en esa suite, así que no los distingue.</p>
+      <ul class="lista-suites">
+        <li><a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/benchmarks/tests/code_generation.py" target="_blank" rel="noopener">Generación de código (Python, SQL, debug)</a> — escribir código que corre<strong class="saturada"> · saturada, no los distingue</strong></li><li><a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/benchmarks/tests/ocr_extraction.py" target="_blank" rel="noopener">OCR / extracción desde imágenes</a> — leer datos de una imagen<strong class="saturada"> · saturada, no los distingue</strong></li><li><a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/benchmarks/tests/structured_output.py" target="_blank" rel="noopener">JSON estructurado (extracción, schemas)</a> — emitir JSON válido a la primera<strong class="saturada"> · saturada, no los distingue</strong></li>
+      </ul>
+    
+  
+  <h3 class="titulo-corto">Lo que no medimos</h3>
+  <p class="meta">Para estas preguntas, este benchmark no tiene dato. Te dejamos dónde mirar (revisado el <span data-cifra>12-11-2026</span>):</p>
+  <ul class="lista-suites">
+    <li><strong>Programar con un agente durante horas en un repositorio (Claude Code, Cursor)</strong>: <a href="https://www.swebench.com/" target="_blank" rel="noopener"><span data-nombre>SWE-bench Verified</span></a> (si un agente resuelve issues reales de repositorios de Python con un parche que pasa los tests; OpenAI dejó de reportarlo en febrero de 2026 por contaminación y tests defectuosos; se lee junto a SWE-Bench Pro) · <a href="https://labs.scale.com/leaderboard/swe_bench_pro_public" target="_blank" rel="noopener"><span data-nombre>SWE-Bench Pro</span></a> (tareas largas de ingeniería de software en repositorios abiertos, por tasa de resolución) · <a href="https://www.tbench.ai/leaderboard" target="_blank" rel="noopener"><span data-nombre>Terminal-Bench 4.1</span></a> (si un agente completa tareas de trabajo real en una terminal, con su costo y tokens)</li><li><strong>Agentes que usan herramientas y atienden a una persona en varios turnos</strong>: <a href="https://taubench.com/" target="_blank" rel="noopener"><span data-nombre>τ²-bench</span></a> (agentes con herramientas que atienden a un usuario que también actúa (retail, aerolínea, telecomunicaciones), con pass^k; en 2026 salió τ³-bench (tareas corregidas, banca con base de conocimiento y voz); la misma página publica los dos)</li><li><strong>Qué respuesta prefiere la gente, votando a ciegas</strong>: <a href="https://arena.ai/leaderboard" target="_blank" rel="noopener"><span data-nombre>Arena (antes LMArena)</span></a> (qué respuesta prefieren las personas en comparaciones a ciegas, por categoría (texto, desarrollo web, visión y otras))</li><li><strong>Precio y velocidad por proveedor, medidos en continuo</strong>: <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener"><span data-nombre>Artificial Analysis</span></a> (precio, velocidad y latencia de cada modelo y de cada proveedor que lo sirve, más su índice de inteligencia)</li>
+  </ul>
 </section>
 
   <section>

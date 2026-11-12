@@ -16,6 +16,8 @@ import AvisoCongelada from './AvisoCongelada.astro';
 import Metodologia from './Metodologia.astro';
 import Funnel from './Funnel.astro';
 import Anteriores from './Anteriores.astro';
+import QueMide from './QueMide.astro';
+import Alcance from './Alcance.astro';
 
 interface Props { c: any; meta: any }
 const { c, meta } = Astro.props;
@@ -143,9 +145,10 @@ const faqLd = JSON.stringify({
         <Kicker>veredicto</Kicker>
         <Titulo texto="Veredicto rápido">Veredicto rápido</Titulo>
         <p>
-          {g.empate
-            ? <>En calidad el benchmark <strong>no separa</strong> a <Modelo m={g.gana} /> (<Cifra v={g.gana.nota} d={2} vacio="sin nota" />) de <Modelo m={g.pierde} /> (<Cifra v={g.pierde.nota} d={2} vacio="sin nota" />): la diferencia cabe en el margen de error.</>
-            : <>En calidad gana <Modelo m={g.gana} fuerte corona /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
+          <Alcance a={c.alcance.partes} />, {g.empate
+            ? <>esta medición <strong>no distingue</strong> a <Modelo m={g.gana} /> (<Cifra v={g.gana.nota} d={2} vacio="sin nota" />) de <Modelo m={g.pierde} /> (<Cifra v={g.pierde.nota} d={2} vacio="sin nota" />): la diferencia cabe en el margen de error.</>
+            : <>en calidad gana <Modelo m={g.gana} fuerte corona /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
+          {c.alcance.n_saturadas > 0 && <> En <Cifra v={c.alcance.n_saturadas} /> de esas suites los dos quedan dentro del margen de error del mejor modelo de la suite: está saturada y no los discrimina.</>}
           {' '}La calidad suma el examen y tareas reales de agente. Pero <strong>no hay ganador universal</strong>: cambia por tipo de trabajo.
         </p>
       </section>
@@ -158,7 +161,7 @@ const faqLd = JSON.stringify({
             <h3 class="titulo-corto">{v.label}</h3>
             <p><em>Qué medimos: {v.que_mide}.</em><br />
               {v.empate
-                ? <>Empate técnico en calidad: <Modelo m={v.a} fuerte corona /> y <Modelo m={v.b} fuerte corona /> rinden casi igual (<Cifra v={v.nota_max} d={1} pre="≈" />). Acá no decidimos por ti: si te importa el costo, <Modelo m={v.barato} fuerte /> sale <span data-cifra>{costo(v.barato)}</span> por millón; si ya tienes <Modelo m={v.otro} /> en tu stack, no hay razón para cambiar.</>
+                ? <><Alcance a={v.alcance} />, esta medición no distingue a <Modelo m={v.a} fuerte corona /> de <Modelo m={v.b} fuerte corona /> (<Cifra v={v.nota_max} d={1} pre="≈" />). Acá no decidimos por ti: si te importa el costo, <Modelo m={v.barato} fuerte /> sale <span data-cifra>{costo(v.barato)}</span> por millón; si ya tienes <Modelo m={v.otro} /> en tu stack, no hay razón para cambiar.</>
                 : <>En calidad pura de este pilar gana <Modelo m={v.gana} fuerte corona /> {v.fuerza}: <Cifra v={v.gana.nota} d={1} /> contra <Cifra v={v.pierde.nota} d={1} /> de <Modelo m={v.pierde} /> (Δ <Cifra v={v.margen} d={1} />), a <span data-cifra>{costo(v.gana)}</span> por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar: ajústalo en la calculadora.</>}
             </p>
           </>
@@ -173,7 +176,7 @@ const faqLd = JSON.stringify({
           <tbody>
             {c.pilares.map((v: any) => (
               <tr><td>{v.label}</td><td>{v.empate
-                ? <>Empate: <Modelo m={v.a} corona /> o <Modelo m={v.b} corona /></>
+                ? <>No los distingue: <Modelo m={v.a} corona /> o <Modelo m={v.b} corona /></>
                 : <><Modelo m={v.gana} fuerte corona /> (por calidad)</>}</td></tr>
             ))}
             <tr><td>Costo más bajo</td><td><Modelo m={c.extremos.barato} fuerte /> (<span data-cifra>{costo(c.extremos.barato)}</span>)</td></tr>
@@ -184,6 +187,8 @@ const faqLd = JSON.stringify({
       </section>
     </>
   )}
+
+  {c.alcance && <QueMide a={c.alcance} />}
 
   {c.fuera.length > 0 && <Anteriores fuera={c.fuera} de="las dos familias" />}
 

@@ -1301,6 +1301,11 @@ def gen_fable_5_review(data):
     _sonnet = next((m for m in data["models"] if m.get("key") == "claude-sonnet-4.6"), None)
     best_agents_score = fmt_pillar(_sonnet, "Agentes") if _sonnet else "—"
 
+    # 12-nov-2026: el veredicto dice sobre qué se apoya y qué no medimos (alcance.py).
+    import alcance as _alcance
+    _alc = _alcance.bloque(*_alcance.indice(data["models"]), table_models,
+                           [m for m in data["models"] if m.get("ranked")], programar=True)
+
     body = f"""  <section class="hero">
     <h1>Claude Fable 5: review con benchmark real ({MES_DATA})</h1>
     <p class="lead">
@@ -1308,6 +1313,7 @@ def gen_fable_5_review(data):
       Lo corrimos por <strong>{_f_runs} tests reales</strong> con juez neutral Phi-4: obtiene
       <strong>score global {_f_score}</strong> (calidad {_f_q} — el score compuesto carga su costo), con un precio de
       <strong>$10.00 / $50.00 por millón de tokens</strong>. ¿Vale la pena? La respuesta corta:
+      <span data-alcance>{_alc["frase"]} (<a href="#que-mide">ver la lista</a>)</span>,
       <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
     </p>
     <p class="meta">
@@ -1396,6 +1402,7 @@ def gen_fable_5_review(data):
         ("¿Qué significa 'Mythos' en Claude Fable 5?",
          "Es la marca interna/línea de lanzamiento de Anthropic para esta variante de junio 2026, posicionada entre Sonnet y Opus en precio pero no en rendimiento."),
     ]
+    body += _alcance.html_que_mide(_alc)
     body += faq_html(faqs)
     body += cta_block([
         '<a href="/fable-5-vs-opus-4-8/">Fable 5 vs Opus 4.8</a>',

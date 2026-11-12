@@ -328,7 +328,7 @@ SUITES = {
     },
     "agent_long_horizon": {
         "pilar": "Agentes", "en_promedio": True,
-        "menu": "Tareas largas (sostener el hilo 8-12 turnos)",
+        "menu": "Tareas largas (sostener el hilo a lo largo de muchos turnos)",  # 12-nov-2026: decía «8-12 turnos»; la suite va de 2 a 13
         "decide": "sostener una tarea larga",
         "nota": "entró al promedio el 16-ago-2026. Su ausencia explicaba algo que estaba "
                 "anotado sin causa: el pilar Agentes ponía a Gemini 3.6 Flash en #65 pese a "

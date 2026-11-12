@@ -1,0 +1,32 @@
+{
+ "_que_es": "Lo que este benchmark NO mide, y dónde mirarlo. Cada entrada dice qué mide el externo, su URL y cuándo se revisó a mano que la URL existe y que lo citado es lo vigente. El bloque «Qué mide esta página y qué no» del sitio sale de acá (alcance.py); check_alcance.py exige los ejes mínimos y que ninguna revisión tenga más de 120 días. Decisión: DECISIONES 12-nov-2026. El mapeo completo por eje va al cambio 1b.",
+ "ejes": {
+  "codigo_agente": "Programar con un agente durante horas en un repositorio (Claude Code, Cursor)",
+  "agentes_herramientas": "Agentes que usan herramientas y atienden a una persona en varios turnos",
+  "preferencia": "Qué respuesta prefiere la gente, votando a ciegas",
+  "precio_velocidad": "Precio y velocidad por proveedor, medidos en continuo"
+ },
+ "benchmarks": [
+  {"id": "swe-bench-verified", "nombre": "SWE-bench Verified", "eje": "codigo_agente",
+   "mide": "si un agente resuelve issues reales de repositorios de Python con un parche que pasa los tests",
+   "url": "https://www.swebench.com/", "revisado": "2026-11-12",
+   "vigencia": "OpenAI dejó de reportarlo en febrero de 2026 por contaminación y tests defectuosos; se lee junto a SWE-Bench Pro",
+   "fuente_vigencia": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/"},
+  {"id": "swe-bench-pro", "nombre": "SWE-Bench Pro", "eje": "codigo_agente",
+   "mide": "tareas largas de ingeniería de software en repositorios abiertos, por tasa de resolución",
+   "url": "https://labs.scale.com/leaderboard/swe_bench_pro_public", "revisado": "2026-11-12"},
+  {"id": "terminal-bench", "nombre": "Terminal-Bench 4.1", "eje": "codigo_agente",
+   "mide": "si un agente completa tareas de trabajo real en una terminal, con su costo y tokens",
+   "url": "https://www.tbench.ai/leaderboard", "revisado": "2026-11-12"},
+  {"id": "tau2-bench", "nombre": "τ²-bench", "eje": "agentes_herramientas",
+   "mide": "agentes con herramientas que atienden a un usuario que también actúa (retail, aerolínea, telecomunicaciones), con pass^k",
+   "url": "https://taubench.com/", "revisado": "2026-11-12",
+   "vigencia": "en 2026 salió τ³-bench (tareas corregidas, banca con base de conocimiento y voz); la misma página publica los dos"},
+  {"id": "arena", "nombre": "Arena (antes LMArena)", "eje": "preferencia",
+   "mide": "qué respuesta prefieren las personas en comparaciones a ciegas, por categoría (texto, desarrollo web, visión y otras)",
+   "url": "https://arena.ai/leaderboard", "revisado": "2026-11-12"},
+  {"id": "artificial-analysis", "nombre": "Artificial Analysis", "eje": "precio_velocidad",
+   "mide": "precio, velocidad y latencia de cada modelo y de cada proveedor que lo sirve, más su índice de inteligencia",
+   "url": "https://artificialanalysis.ai/leaderboards/models", "revisado": "2026-11-12"}
+ ]
+}

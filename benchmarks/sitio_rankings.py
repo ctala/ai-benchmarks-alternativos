@@ -40,6 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
+import alcance  # noqa: E402
 import contrato_pagina  # noqa: E402
 import elegibilidad  # noqa: E402
 import generate_comparison as gc  # noqa: E402
@@ -252,6 +253,20 @@ def _veredicto(cfg, models, all_ranked):
     return out, v
 
 
+def alcance_ranking(cfg: dict, models: list[dict], comparados: list[dict]) -> dict:
+    """Qué suites sostienen el veredicto de este ranking (alcance.py, 12-nov-2026)."""
+    ranked = [m for m in models if m.get("ranked")]
+    if gr.es_agentes(cfg):
+        return alcance.bloque([], alcance.tareas_agenticas(models), comparados, ranked)
+    if cfg["criterion"] == "pillar":
+        return alcance.bloque(alcance.de_pilar(cfg["pillar"]), [], comparados, ranked,
+                              tipo=alcance.TIPO_PILAR[cfg["pillar"]])
+    if cfg["criterion"] == "suite":
+        return alcance.bloque([cfg["suite"]], [], comparados, ranked, una=alcance.S.label(cfg["suite"]))
+    s, t = alcance.indice(models)
+    return alcance.bloque(s, t, comparados, ranked)
+
+
 def ranking(cfg: dict, models: list[dict]) -> dict:
     gr._cargar_puestos(models)
     all_ranked = gr.rank_models(models, cfg)
@@ -351,6 +366,7 @@ def ranking(cfg: dict, models: list[dict]) -> dict:
         "relacionadas": [{"href": f"/{s}/", "texto": gr.RELATED_TITLES.get(s, s.replace("-", " ").title())}
                          for s in cfg.get("related", [])],
         "afirmaciones": afirm, "contrato_html": contrato,
+        "alcance": alcance_ranking(cfg, models, grupo if len(grupo) > 1 else ranked[:8]),
     }
 
 
@@ -360,7 +376,7 @@ def _q(m):
     return m.get("score_calidad")
 
 
-def _escalera(vs, cfg):
+def _escalera(vs, cfg, ranked=None):
     """Cada suite de `SUITES_ESCALERA`: quién está arriba, con la regla del ruido de la suite
     (margen de error de `quality_ci95_by_suite`), no con el umbral fijo de 0,25 de antes."""
     cheapest, priciest = vs[0], vs[-1]
@@ -371,7 +387,12 @@ def _escalera(vs, cfg):
             continue
         mejor = max(vs, key=lambda m: (m.get("quality_by_suite") or {})[suite])
         cima = [m for m in vs if m is mejor or _indistinguishable(mejor, m, SUITE + suite)]
-        if len(cima) == len(vs):
+        if ranked is not None and alcance.saturada(suite, vs, ranked):
+            # 12-nov-2026: todos dentro del margen del techo de la suite. No es un empate entre
+            # ellos: la suite no discrimina (Cristian, «Planificar da 9,20 en los cinco»).
+            veredicto, cls = {"tipo": "saturada"}, "empate"
+            empates += 1
+        elif len(cima) == len(vs):
             veredicto, cls = {"tipo": "empatan_todos"}, "empate"
             empates += 1
         elif len(cima) > 1:
@@ -432,7 +453,8 @@ def variantes(cfg: dict, entrada: dict, models: list[dict]) -> dict:
     empiece = min(banda, key=lambda m: m.get("cost_per_1k_calls_usd") or 0)
     veces = (gv.month(priciest) / gv.month(cheapest)) if gv.month(cheapest) else None
     caro_en_banda = priciest in banda
-    filas_esc, gana_caro, empates = _escalera(vs, cfg)
+    ranked_todos = [m for m in models if m.get("ranked")]
+    filas_esc, gana_caro, empates = _escalera(vs, cfg, ranked_todos)
     runs = sorted(m.get("runs") or 0 for m in vs)
     veredicto = {
         "empatan_todos": len(banda) == len(vs), "n": len(vs), "banda": len(banda),
@@ -443,7 +465,8 @@ def variantes(cfg: dict, entrada: dict, models: list[dict]) -> dict:
         "caro_mas_lento": (priciest.get("latency_avg_s") or 0) > (empiece.get("latency_avg_s") or 0),
     }
     escalera = {"filas": filas_esc, "gana_caro": gana_caro, "n": len(filas_esc), "empates": empates,
-                "empatan_todos": sum(1 for f in filas_esc if f["veredicto"]["tipo"] == "empatan_todos"),
+                "empatan_todos": sum(1 for f in filas_esc if f["veredicto"]["tipo"] in ("empatan_todos", "saturada")),
+                "saturadas": sum(1 for f in filas_esc if f["veredicto"]["tipo"] == "saturada"),
                 "veces": round(veces) if veces else None,
                 "caro": gv.short(priciest, cfg), "barato": gv.short(cheapest, cfg),
                 "columnas": [{**_modelo(m), "corto": gv.short(m, cfg),
@@ -459,4 +482,6 @@ def variantes(cfg: dict, entrada: dict, models: list[dict]) -> dict:
             "filas": [fila(m, "barato" if m is cheapest else None) for m in vs],
             "veredicto": veredicto, "escalera": escalera,
             "runs_min": runs[0], "runs_max": runs[-1], "fuera": fuera,
-            "afirmaciones": afirm, "contrato_html": contrato}
+            "afirmaciones": afirm, "contrato_html": contrato,
+            "alcance": alcance.bloque(*alcance.indice(models), vs, ranked_todos,
+                                      programar=alcance.es_de_claude(vs))}
