@@ -183,6 +183,14 @@ def comparacion(cfg: dict, entrada: dict, models: list[dict]) -> dict:
     }
 
 
+def models_sha(ruta: Path | None = None) -> str:
+    """La huella de `models.json` que cada página de Astro lleva en `<meta name="datos-sha">`.
+    `check_datos_dist` la compara con la del `models.json` de ahora: un `dist` compilado con
+    datos de ayer no se publica (motor-sitio 2.5)."""
+    ruta = ruta or DOCS / "data" / "models.json"
+    return hashlib.sha256(ruta.read_bytes()).hexdigest()[:16]
+
+
 def meta(d: dict) -> dict:
     c = gc.get_counts()
     w = d.get("default_weights", {})
@@ -193,7 +201,7 @@ def meta(d: dict) -> dict:
             "hoy": date.today().isoformat(),
             # El año de un título sale de la medición, nunca fijo (motor-sitio 2.4).
             "anio": __import__("fechas").anio(d),
-            "models_sha": hashlib.sha256((DOCS / "data" / "models.json").read_bytes()).hexdigest()[:16]}
+            "models_sha": models_sha()}
 
 
 def main() -> int:

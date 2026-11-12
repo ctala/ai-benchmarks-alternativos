@@ -7,6 +7,7 @@ import '@fontsource/jetbrains-mono/700.css';
 import '../styles/tokens.css';
 import '../styles/fuentes.css';
 import '../styles/sitio.css';
+import datos from '../datos/meta.json';
 
 interface Props {
   titulo: string; descripcion: string; keywords?: string; url: string;
@@ -33,6 +34,7 @@ const ld = JSON.stringify({
 <meta name="description" content={descripcion}>
 <meta name="keywords" content={keywords}>
 <meta name="author" content="Cristian Tala">
+<meta name="datos-sha" content={datos.models_sha}>
 <link rel="canonical" href={url}>
 <meta property="og:title" content={titulo}>
 <meta property="og:description" content={descripcion}>

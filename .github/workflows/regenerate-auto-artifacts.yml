@@ -64,9 +64,30 @@ jobs:
       # pasó a importar `dirhash` (declarado en requirements.txt) y el CI no lo instalaba;
       # `test_guardrails` además corre pytest y pytest se instalaba DESPUÉS. Dos sabotajes
       # salieron rojos por el entorno, no por el código. Una autoridad: requirements.txt.
-      - name: Instalar dependencias (requirements.txt + pytest)
+      #
+      # 11-nov-2026 (motor-sitio 2.5): en un venv `.venv`, puesto en el PATH. El `package.json`
+      # del sitio corre `../.venv/bin/python`, como en local: sin el venv, el build de Astro no
+      # encuentra Python. Desde acá, `python` es el del venv en todos los pasos.
+      - name: Instalar dependencias en .venv (requirements.txt + pytest)
         run: |
-          pip install -r requirements.txt pytest
+          python -m venv .venv
+          .venv/bin/pip install -r requirements.txt pytest
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      # 11-nov-2026 (motor-sitio 2.5): el sitio se compila con Astro. La versión de Node sale de
+      # `sitio/.nvmrc` (una autoridad, la misma que usa nvm en local) y los paquetes, del lockfile
+      # con `npm ci`. Va antes de `test_guardrails`: su prueba de `check_movil` usa Playwright.
+      # Chrome no se instala: viene en los runners de Ubuntu y `movil.mjs` lo pide con
+      # `channel: "chrome"`. `check_action.py` verifica estos pasos y su orden.
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: sitio/.nvmrc
+          cache: npm
+          cache-dependency-path: sitio/package-lock.json
+
+      - name: Instalar los paquetes del sitio (npm ci)
+        working-directory: sitio
+        run: npm ci
 
       # 3-nov-2026 (corte-v5 1.7). Lo que tiene FORMA de credencial lo busca gitleaks, con la
       # versión fijada (la misma que pide `check_gitleaks.py` al instalarlo). Va antes de
@@ -96,6 +117,17 @@ jobs:
       - name: Regenerar docs/sitemap.xml
         # checkout@v4 con fetch-depth:0 ya nos da historial completo para git log lastmod
         run: python benchmarks/generate_sitemap.py
+
+      # 11-nov-2026 (motor-sitio 2.5): compilar el sitio corre en su `postbuild` todos los
+      # guardrails que leen `dist` (registro, paleta, paridad, cortes, JSON-LD, CTA, fechas,
+      # vista de teléfono…). Hasta el corte, `dist` no se publica: el Action lo compila para que
+      # un rojo del sitio nuevo se vea en `main` el mismo día.
+      - name: Compilar el sitio (Astro + guardrails sobre dist)
+        working-directory: sitio
+        run: npm run build
+
+      - name: Verificar que dist se compiló con el models.json de ahora
+        run: python benchmarks/check_datos_dist.py --dist sitio/dist
 
       # Guardrail: falla el build si un doc vivo publica un score que ya no
       # coincide con models.json. El score es z-score contra la poblacion, asi

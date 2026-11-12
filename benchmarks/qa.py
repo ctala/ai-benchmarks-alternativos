@@ -206,6 +206,10 @@ CHEQUEOS = [
     # corre en el build, junto con check_medicion y fechar_dist --check.
     ("paginas", "un solo CTA a la comunidad, al go-link, sin skool.com ni «gratis»",
      [PY, "benchmarks/check_cta.py"], True, True),
+    # 11-nov-2026 (motor-sitio 2.5): el Action compila el sitio con Node fijado, venv, `npm ci`,
+    # build y el sha de models.json, en ese orden. Lee el YAML, sin red. Nace verde: bloqueante.
+    ("version", "el Action compila el sitio nuevo con Node fijado y en el orden que funciona (A1-A5)",
+     [PY, "benchmarks/check_action.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
     # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
     # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.

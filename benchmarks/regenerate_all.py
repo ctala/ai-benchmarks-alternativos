@@ -64,6 +64,8 @@ def main() -> int:
     ap.add_argument("--skip-comparisons", action="store_true", help="No regenera páginas de comparación/ranking")
     ap.add_argument("--skip-sitemap", action="store_true", help="No regenera sitemap ni llms.txt")
     ap.add_argument("--skip-sync", action="store_true", help="No sincroniza counts en MDs/HTMLs")
+    ap.add_argument("--skip-sitio", action="store_true",
+                    help="No compila el sitio de Astro (sitio/dist) ni corre sus guardrails")
     ap.add_argument("--skip-endpoints", action="store_true",
                     help="No chequea si los modelos del ranking siguen vivos (no recomendado)")
     args = ap.parse_args()
@@ -386,6 +388,26 @@ def main() -> int:
         # Un doc podrido pasando por vigente. Tampoco lo corría nadie desde el 13-ago.
         print()
         run_script("check_docs.py", [], dry_run=False, allow_fail=True)
+
+    # 10. EL SITIO NUEVO (motor-sitio 2.5). Astro compila desde lo que este pipeline acaba de
+    # escribir, y su `postbuild` corre los guardrails que leen `dist` (registro, paridad, CTA,
+    # fechas, vista de teléfono…). Va al final porque lee models.json y el legado ya
+    # regenerados. Después, `check_datos_dist` confirma que `dist` salió del models.json de
+    # ahora: un `dist` viejo es justo lo que el corte copiaría a `docs/`.
+    if not args.dry_run and not args.skip_sitio:
+        sitio = ROOT / "sitio"
+        print()
+        if not (sitio / "node_modules").is_dir():
+            if subprocess.run(["npm", "ci"], cwd=sitio).returncode != 0:
+                print("\n❌ `npm ci` falló en sitio/: sin sus paquetes no se compila el sitio.")
+                return 1
+        if subprocess.run(["npm", "run", "build"], cwd=sitio).returncode != 0:
+            print("\n❌ El sitio de Astro no compila, o un guardrail sobre dist falla. Ver arriba.")
+            return 1
+        rc = run_script("check_datos_dist.py", ["--dist", str(sitio / "dist")], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ sitio/dist no salió del models.json de ahora.")
+            return 1
 
     print("\n✅ Pipeline de regeneración completado — y sin drift.")
     return 0

@@ -1794,6 +1794,100 @@ def _t_fechas():
     return ok
 
 
+
+@prueba("check_action", "un Node que no sale de .nvmrc, un .nvmrc fuera del engines, sin venv o con venv tardío, "
+                        "sin `npm ci` o después del build o de test_guardrails, sin build o antes de models.json, y "
+                        "sin el sha de models.json o antes del build")
+def _t_action():
+    # 11-nov-2026 (motor-sitio 2.5). El Action ya estuvo 40 días en rojo por un paso que faltaba.
+    # Cada sabotaje reescribe el YAML parseado (sin comentarios: se restaura igual) y aísla una
+    # sola regla, de modo que neutralizar cualquiera deje a su sabotaje en verde.
+    import yaml
+    wf, nv = ROOT / ".github" / "workflows" / "regenerate-auto-artifacts.yml", ROOT / "sitio" / ".nvmrc"
+    if _correr("check_action.py") != 0:
+        return False  # control verde
+    flujo = yaml.safe_load(wf.read_text(encoding="utf-8"))
+    job = next(iter(flujo["jobs"]))
+
+    def idx(pasos, cond):
+        return next(i for i, p in enumerate(pasos) if cond(p))
+    corre = lambda txt: (lambda p: txt in str(p.get("run", "")))
+    es_node = lambda p: str(p.get("uses", "")).startswith("actions/setup-node")
+
+    def mover(pasos, cual, despues_de=None, antes_de=None):
+        p = pasos.pop(idx(pasos, cual))
+        pasos.insert(idx(pasos, despues_de) + 1 if despues_de else idx(pasos, antes_de), p)
+
+    def quitar(pasos, cual):
+        pasos.pop(idx(pasos, cual))
+
+    def otra_version(pasos):
+        pasos[idx(pasos, es_node)]["with"] = {"node-version": "22"}
+
+    sabotajes = (
+        (lambda s: otra_version(s), "A1 · setup-node no toma la versión de sitio/.nvmrc"),
+        (lambda s: quitar(s, corre("venv .venv")), "A2 · no se crea el venv"),
+        (lambda s: mover(s, corre("venv .venv"), despues_de=corre("npm run build")), "A2 · el venv .venv se crea después del build"),
+        (lambda s: quitar(s, corre("npm ci")), "A3 · no hay `npm ci`"),
+        (lambda s: mover(s, corre("npm ci"), despues_de=corre("npm run build")), "A3 · `npm ci` corre después del build"),
+        (lambda s: mover(s, corre("test_guardrails"), antes_de=corre("npm ci")), "A3 · `npm ci` corre después de test_guardrails"),
+        (lambda s: quitar(s, corre("npm run build")), "A4 · no hay `npm run build`"),
+        (lambda s: mover(s, corre("npm run build"), antes_de=corre("export_for_pages.py")), "A4 · el build corre antes de regenerar"),
+        (lambda s: quitar(s, corre("check_datos_dist.py")), "A5 · no se verifica el sha"),
+        (lambda s: mover(s, corre("check_datos_dist.py"), antes_de=corre("npm run build")), "A5 · el sha se verifica antes del build"),
+    )
+    ok = True
+    for romper, marca in sabotajes:
+        with Sabotaje(wf):
+            f = yaml.safe_load(wf.read_text(encoding="utf-8"))
+            romper(f["jobs"][job]["steps"])
+            wf.write_text(yaml.safe_dump(f, allow_unicode=True, sort_keys=False), encoding="utf-8")
+            r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_action.py")], cwd=ROOT, capture_output=True, text=True)
+            ok = ok and r.returncode != 0 and marca in r.stdout
+    with Sabotaje(nv):
+        nv.write_text("20\n", encoding="utf-8")
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_action.py")], cwd=ROOT, capture_output=True, text=True)
+        ok = ok and r.returncode != 0 and "A1 · sitio/.nvmrc dice 20" in r.stdout
+    return ok
+
+
+@prueba("check_datos_dist", "una página de Astro compilada con otro models.json, una sin su datos-sha y una que falta")
+def _t_datos_dist():
+    # 11-nov-2026 (motor-sitio 2.5). Un dist compilado con datos de ayer se ve sano. Sobre una
+    # copia de sitio/dist con el sha de ahora en cada página (el control no depende de que el dist
+    # real esté al día), se rompe una página por vez.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    from exportar_sitio import models_sha
+    dist = ROOT / "sitio" / "dist"
+    if not (dist / "mejor-llm-barato" / "index.html").exists():
+        raise AssertionError("no hay sitio/dist compilado: correr `npm run build` en sitio/")
+    tmp = Path(tempfile.mkdtemp()) / "dist"
+    shutil.copytree(dist, tmp)
+    sha = models_sha()
+    for f in tmp.rglob("index.html"):
+        h = f.read_text(encoding="utf-8")
+        n = re.sub(r'(<meta name="datos-sha" content=")[0-9a-f]*(")', rf"\g<1>{sha}\g<2>", h)
+        if n != h:
+            f.write_text(n, encoding="utf-8")
+    cmd = lambda: subprocess.run([PY, str(ROOT / "benchmarks" / "check_datos_dist.py"), "--dist", str(tmp)],
+                                 cwd=ROOT, capture_output=True, text=True)
+    ok = cmd().returncode == 0                                               # control
+    pg = tmp / "mejor-llm-barato" / "index.html"
+    t = pg.read_text(encoding="utf-8")
+    if f'content="{sha}"' not in t:
+        raise AssertionError("la página de Astro no trae su datos-sha: los sabotajes no tocarían nada")
+    for roto, marca in ((t.replace(f'content="{sha}"', 'content="0000000000000000"', 1), "D2 · /mejor-llm-barato/"),
+                        (re.sub(r'<meta name="datos-sha"[^>]*>', "", t), "D1 · /mejor-llm-barato/")):
+        pg.write_text(roto, encoding="utf-8")
+        r = cmd()
+        ok = ok and r.returncode != 0 and marca in r.stdout
+        pg.write_text(t, encoding="utf-8")
+    pg.unlink()
+    r = cmd()
+    ok = ok and r.returncode != 0 and "D3 leyó" in r.stdout
+    shutil.rmtree(tmp.parent, ignore_errors=True)
+    return ok
+
 @prueba("check_consistency", "un doc vivo citando un score que ya no existe")
 def _t_consistency():
     rm = ROOT / "MODELOS.md"
