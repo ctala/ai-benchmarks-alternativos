@@ -1,7 +1,7 @@
 {
  "/": {
   "huella": "c5d7599d7fca5ef9",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/alternativas-chatgpt/": {
   "huella": "76ce27578360d2b1",
@@ -17,35 +17,35 @@
  },
  "/alternativas-gemini/": {
   "huella": "c029e90df8ba125e",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/claude-haiku-sonnet-opus/": {
   "huella": "4313a39f8099bec7",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/claude-vs-chatgpt/": {
   "huella": "4296136d94ae67a9",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/deepseek-v4-flash-o-r1/": {
   "huella": "97a045358bd78ddf",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/deepseek-vs-chatgpt/": {
   "huella": "c7671bb96b1d3236",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/deepseek-vs-claude/": {
   "huella": "76a54aaa35bc9cf0",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/deepseek-vs-gemini/": {
   "huella": "dbac6bce3db2f840",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/diffusiongemma-vs-gemma-4/": {
   "huella": "370c30c8e2994f4a",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/fable-5-review/": {
   "huella": "7f0196ec753f5588",
@@ -53,139 +53,139 @@
  },
  "/fable-5-vs-minimax-m3/": {
   "huella": "a315cd92fab9d1b6",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gemini-flash-o-pro/": {
   "huella": "d35cf8ff786b9b1b",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gemini-vs-chatgpt/": {
   "huella": "9a04dd9e4943da9f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gemini-vs-claude/": {
   "huella": "fba849bf230f07d6",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/glm-5.2-explicado/": {
   "huella": "a67646864b02a7f7",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/glm-5.2-vs-claude-opus-4-8/": {
   "huella": "286434c6421a7744",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/glm-5.2-vs-glm-5.1/": {
   "huella": "9e5c49aef5d2db43",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gpt-5.6-luna-vs-sol/": {
   "huella": "01fc1d279b38cf89",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gpt-5.6-luna-vs-terra/": {
   "huella": "e1ac4d58e2ea81cf",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gpt-5.6-terra-vs-sol/": {
   "huella": "a76afb63c5ccd216",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gpt-5.6-vs-gpt-5.5/": {
   "huella": "0e7cbb089c73640e",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/gpt-5.6-vs-minimax-m3/": {
   "huella": "731dcbd3e4c6eeba",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/grok-4.5-vs-grok-4.3/": {
   "huella": "d70acae50ebd6954",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/grok-vs-chatgpt/": {
   "huella": "3692b173d7b850c8",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/grok-vs-claude/": {
   "huella": "b92ca709f03320d8",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-barato/": {
   "huella": "2f18e412a123d6a1",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-en-espanol/": {
   "huella": "544e0eab222078ff",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-open-source/": {
   "huella": "cb7377549af6068f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-agentes/": {
   "huella": "dd3907c202a3c54a",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-contenido/": {
   "huella": "ce6d0df0f656b0a4",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-datos-exactos/": {
   "huella": "e3fccdc63a5cb51f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-json/": {
   "huella": "2db4bd20c8ba5172",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-n8n/": {
   "huella": "fbbddb3410e8f27c",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-programar/": {
   "huella": "915ab45ca6c2043e",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-razonamiento/": {
   "huella": "43d0734f0e4c7109",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-resumir-textos/": {
   "huella": "2c8901265c4e06e6",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-seguir-instrucciones/": {
   "huella": "285b821b93b5e14b",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-tareas-largas/": {
   "huella": "bd843882d8440b6f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-para-tool-calling/": {
   "huella": "1e739d4c1f348066",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-que-no-inventa-herramientas/": {
   "huella": "6e1b54d60304105c",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mejor-llm-seguro-datos-clientes/": {
   "huella": "fb1390f8dd7714f6",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/minimax-m2-7-o-m3/": {
   "huella": "c2fabcb57988b201",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/minimax-vs-kimi/": {
   "huella": "83ec77841868688f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/mismo-modelo-distinto-proveedor/": {
   "huella": "dbfd141c499235dd",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-fable-5.1/": {
   "huella": "0c100bf552600a39",
@@ -637,7 +637,7 @@
  },
  "/modelo/or-qwen3-next-thinking/": {
   "huella": "7cba0256fe4b8a9d",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/modelo/or-qwen3.5-397b/": {
   "huella": "e13ca663c70d3a67",
@@ -729,10 +729,10 @@
  },
  "/nemotron-3-ultra-vs-deepseek-v4-flash/": {
   "huella": "b91085796b55e85f",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  },
  "/qwen-vs-llama/": {
   "huella": "00e1bb8f3d06b4c8",
-  "modificada": "2026-11-11"
+  "modificada": "2026-11-12"
  }
 }

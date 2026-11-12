@@ -1,0 +1,2184 @@
+{
+ "generado": "2026-11-12",
+ "propiedad": "sc-domain:cristiantala.com",
+ "host": "benchmarks.cristiantala.com",
+ "ventana": {
+  "inicio": "2026-08-13",
+  "fin": "2026-11-10",
+  "dias": 90
+ },
+ "total_subdominio": {
+  "clics": 9,
+  "impresiones": 278,
+  "ctr": 0.0324,
+  "posicion": 12.2
+ },
+ "nota": "total_subdominio es el agregado por propiedad; la suma por URL puede diferir (Search Console agrega distinto por página). La posición por tipo está ponderada por impresiones.",
+ "por_tipo": {
+  "comparacion": {
+   "urls_declaradas": 21,
+   "urls_con_datos": 14,
+   "clics": 4,
+   "impresiones": 116,
+   "ctr": 0.0345,
+   "posicion": 10.9
+  },
+  "ficha": {
+   "urls_declaradas": 132,
+   "urls_con_datos": 0,
+   "clics": 0,
+   "impresiones": 0,
+   "ctr": null,
+   "posicion": null
+  },
+  "home": {
+   "urls_declaradas": 1,
+   "urls_con_datos": 1,
+   "clics": 2,
+   "impresiones": 9,
+   "ctr": 0.2222,
+   "posicion": 7.3
+  },
+  "landing": {
+   "urls_declaradas": 9,
+   "urls_con_datos": 6,
+   "clics": 2,
+   "impresiones": 36,
+   "ctr": 0.0556,
+   "posicion": 14.9
+  },
+  "proveedores": {
+   "urls_declaradas": 1,
+   "urls_con_datos": 0,
+   "clics": 0,
+   "impresiones": 0,
+   "ctr": null,
+   "posicion": null
+  },
+  "ranking": {
+   "urls_declaradas": 16,
+   "urls_con_datos": 7,
+   "clics": 0,
+   "impresiones": 61,
+   "ctr": 0.0,
+   "posicion": 18.7
+  },
+  "redirect": {
+   "urls_declaradas": 20,
+   "urls_con_datos": 6,
+   "clics": 1,
+   "impresiones": 55,
+   "ctr": 0.0182,
+   "posicion": 6.7
+  },
+  "variantes": {
+   "urls_declaradas": 4,
+   "urls_con_datos": 1,
+   "clics": 0,
+   "impresiones": 1,
+   "ctr": 0.0,
+   "posicion": 17.0
+  }
+ },
+ "urls": [
+  {
+   "url": "/nemotron-3-ultra-vs-deepseek-v4-flash/",
+   "tipo": "comparacion",
+   "clics": 2,
+   "impresiones": 12,
+   "posicion": 5.2
+  },
+  {
+   "url": "/",
+   "tipo": "home",
+   "clics": 2,
+   "impresiones": 9,
+   "posicion": 7.3
+  },
+  {
+   "url": "/gpt-5.6-vs-minimax-m3/",
+   "tipo": "comparacion",
+   "clics": 1,
+   "impresiones": 16,
+   "posicion": 4.6
+  },
+  {
+   "url": "/grok-vs-chatgpt/",
+   "tipo": "comparacion",
+   "clics": 1,
+   "impresiones": 15,
+   "posicion": 29.9
+  },
+  {
+   "url": "/alternativas-deepseek/",
+   "tipo": "landing",
+   "clics": 1,
+   "impresiones": 5,
+   "posicion": 7
+  },
+  {
+   "url": "/gemini-3.5-flash-vs-gemini-2.5-flash/",
+   "tipo": "redirect",
+   "clics": 1,
+   "impresiones": 4,
+   "posicion": 4
+  },
+  {
+   "url": "/glm-5.2-explicado/",
+   "tipo": "landing",
+   "clics": 1,
+   "impresiones": 2,
+   "posicion": 5
+  },
+  {
+   "url": "/gpt-5.6-vs-deepseek-v4/",
+   "tipo": "redirect",
+   "clics": 0,
+   "impresiones": 25,
+   "posicion": 6.8
+  },
+  {
+   "url": "/qwen-vs-llama/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 21,
+   "posicion": 5.6
+  },
+  {
+   "url": "/alternativas-gemini/",
+   "tipo": "landing",
+   "clics": 0,
+   "impresiones": 19,
+   "posicion": 19.5
+  },
+  {
+   "url": "/mejor-llm-barato/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 18,
+   "posicion": 9.2
+  },
+  {
+   "url": "/gpt-5.6-vs-claude-opus-4-8/",
+   "tipo": "redirect",
+   "clics": 0,
+   "impresiones": 17,
+   "posicion": 7.5
+  },
+  {
+   "url": "/deepseek-vs-claude/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 16,
+   "posicion": 7.5
+  },
+  {
+   "url": "/gemini-vs-chatgpt/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 16,
+   "posicion": 18.5
+  },
+  {
+   "url": "/mejor-llm-para-programar/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 13,
+   "posicion": 12.2
+  },
+  {
+   "url": "/gpt-5.6-vs-gpt-5.5/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 8,
+   "posicion": 7.8
+  },
+  {
+   "url": "/mejor-llm-open-source/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 8,
+   "posicion": 63.2
+  },
+  {
+   "url": "/mejor-llm-para-razonamiento/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 8,
+   "posicion": 7.6
+  },
+  {
+   "url": "/mejor-llm-para-resumir-textos/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 8,
+   "posicion": 25
+  },
+  {
+   "url": "/mejor-llm-en-espanol/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 5,
+   "posicion": 8.2
+  },
+  {
+   "url": "/modelos-open-source-local/",
+   "tipo": "landing",
+   "clics": 0,
+   "impresiones": 5,
+   "posicion": 10
+  },
+  {
+   "url": "/claude-vs-chatgpt/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 4,
+   "posicion": 9
+  },
+  {
+   "url": "/fable-5-vs-opus-4-8/",
+   "tipo": "redirect",
+   "clics": 0,
+   "impresiones": 4,
+   "posicion": 6.5
+  },
+  {
+   "url": "/alternativas-claude/",
+   "tipo": "landing",
+   "clics": 0,
+   "impresiones": 3,
+   "posicion": 17.7
+  },
+  {
+   "url": "/gpt-5.6-luna-vs-claude-haiku-4-5/",
+   "tipo": "redirect",
+   "clics": 0,
+   "impresiones": 3,
+   "posicion": 5.3
+  },
+  {
+   "url": "/alternativas-chatgpt/",
+   "tipo": "landing",
+   "clics": 0,
+   "impresiones": 2,
+   "posicion": 8
+  },
+  {
+   "url": "/glm-5.2-vs-glm-5.1/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 2,
+   "posicion": 5.5
+  },
+  {
+   "url": "/grok-4-1-vs-4-5/",
+   "tipo": "redirect",
+   "clics": 0,
+   "impresiones": 2,
+   "posicion": 5.5
+  },
+  {
+   "url": "/grok-vs-claude/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 2,
+   "posicion": 5.5
+  },
+  {
+   "url": "/claude-haiku-sonnet-opus/",
+   "tipo": "variantes",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 17
+  },
+  {
+   "url": "/deepseek-vs-chatgpt/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 8
+  },
+  {
+   "url": "/fable-5-vs-minimax-m3/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 4
+  },
+  {
+   "url": "/gemini-vs-claude/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 7
+  },
+  {
+   "url": "/gpt-5.6-luna-vs-sol/",
+   "tipo": "comparacion",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 2
+  },
+  {
+   "url": "/mejor-llm-para-contenido/",
+   "tipo": "ranking",
+   "clics": 0,
+   "impresiones": 1,
+   "posicion": 10
+  }
+ ],
+ "serie_diaria_180d": [
+  {
+   "fecha": "2026-05-15",
+   "clics": 0,
+   "impresiones": 9
+  },
+  {
+   "fecha": "2026-05-16",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-05-17",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-05-18",
+   "clics": 0,
+   "impresiones": 7
+  },
+  {
+   "fecha": "2026-05-19",
+   "clics": 0,
+   "impresiones": 3
+  },
+  {
+   "fecha": "2026-05-20",
+   "clics": 0,
+   "impresiones": 5
+  },
+  {
+   "fecha": "2026-05-21",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-05-22",
+   "clics": 1,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-05-23",
+   "clics": 0,
+   "impresiones": 5
+  },
+  {
+   "fecha": "2026-05-24",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-05-25",
+   "clics": 0,
+   "impresiones": 1
+  },
+  {
+   "fecha": "2026-05-26",
+   "clics": 1,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-05-27",
+   "clics": 0,
+   "impresiones": 7
+  },
+  {
+   "fecha": "2026-05-28",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-05-29",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-05-30",
+   "clics": 0,
+   "impresiones": 3
+  },
+  {
+   "fecha": "2026-05-31",
+   "clics": 0,
+   "impresiones": 6
+  },
+  {
+   "fecha": "2026-06-01",
+   "clics": 0,
+   "impresiones": 13
+  },
+  {
+   "fecha": "2026-06-02",
+   "clics": 0,
+   "impresiones": 1
+  },
+  {
+   "fecha": "2026-06-03",
+   "clics": 0,
+   "impresiones": 3
+  },
+  {
+   "fecha": "2026-06-04",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-05",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-06",
+   "clics": 0,
+   "impresiones": 6
+  },
+  {
+   "fecha": "2026-06-07",
+   "clics": 0,
+   "impresiones": 11
+  },
+  {
+   "fecha": "2026-06-08",
+   "clics": 0,
+   "impresiones": 15
+  },
+  {
+   "fecha": "2026-06-09",
+   "clics": 0,
+   "impresiones": 9
+  },
+  {
+   "fecha": "2026-06-10",
+   "clics": 0,
+   "impresiones": 1
+  },
+  {
+   "fecha": "2026-06-11",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-12",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-06-13",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-06-14",
+   "clics": 0,
+   "impresiones": 7
+  },
+  {
+   "fecha": "2026-06-15",
+   "clics": 0,
+   "impresiones": 3
+  },
+  {
+   "fecha": "2026-06-16",
+   "clics": 1,
+   "impresiones": 7
+  },
+  {
+   "fecha": "2026-06-17",
+   "clics": 0,
+   "impresiones": 7
+  },
+  {
+   "fecha": "2026-06-18",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-19",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-20",
+   "clics": 0,
+   "impresiones": 5
+  },
+  {
+   "fecha": "2026-06-21",
+   "clics": 0,
+   "impresiones": 11
+  },
+  {
+   "fecha": "2026-06-22",
+   "clics": 0,
+   "impresiones": 13
+  },
+  {
+   "fecha": "2026-06-23",
+   "clics": 0,
+   "impresiones": 4
+  },
+  {
+   "fecha": "2026-06-24",
+   "clics": 1,
+   "impresiones": 12
+  },
+  {
+   "fecha": "2026-06-25",
+   "clics": 0,
+   "impresiones": 2
+  },
+  {
+   "fecha": "2026-06-26",
+   "clics": 0,
+   "impresiones": 5
+  },
+  {
+   "fecha": "2026-06-27",
+   "clics": 0,
+   "impresiones": 9
+  },
+  {
+   "fecha": "2026-06-28",
+   "clics": 1,
+   "impresiones": 22
+  },
+  {
+   "fecha": "2026-06-29",
+   "clics": 0,
+   "impresiones": 6
+  },
+  {
+   "fecha": "2026-06-30",
+   "clics": 1,
+   "impresiones": 18
+  },
+  {
+   "fecha": "2026-07-01",
+   "clics": 1,
+   "impresiones": 33
+  },
+  {
+   "fecha": "2026-07-02",
+   "clics": 0,
+   "impresiones": 35
+  },
+  {
+   "fecha": "2026-07-03",
+   "clics": 0,
+   "impresiones": 27
+  },
+  {
+   "fecha": "2026-07-04",
+   "clics": 1,
+   "impresiones": 39
+  },
+  {
+   "fecha": "2026-07-05",
+   "clics": 1,
+   "impresiones": 55
+  },
+  {
+   "fecha": "2026-07-06",
+   "clics": 0,
+   "impresiones": 27
+  },
+  {
+   "fecha": "2026-07-07",
+   "clics": 0,
+   "impresiones": 46
+  },
+  {
+   "fecha": "2026-07-08",
+   "clics": 0,
+   "impresiones": 27
+  },
+  {
+   "fecha": "2026-07-09",
+   "clics": 3,
+   "impresiones": 36
+  },
+  {
+   "fecha": "2026-07-10",
+   "clics": 0,
+   "impresiones": 21
+  },
+  {
+   "fecha": "2026-07-11",
+   "clics": 1,
+   "impresiones": 29
+  },
+  {
+   "fecha": "2026-07-12",
+   "clics": 1,
+   "impresiones": 23
+  },
+  {
+   "fecha": "2026-07-13",
+   "clics": 1,
+   "impresiones": 23
+  },
+  {
+   "fecha": "2026-07-14",
+   "clics": 0,
+   "impresiones": 47
+  },
+  {
+   "fecha": "2026-07-15",
+   "clics": 3,
+   "impresiones": 85
+  },
+  {
+   "fecha": "2026-07-16",
+   "clics": 4,
+   "impresiones": 83
+  },
+  {
+   "fecha": "2026-07-17",
+   "clics": 1,
+   "impresiones": 56
+  },
+  {
+   "fecha": "2026-07-18",
+   "clics": 2,
+   "impresiones": 51
+  },
+  {
+   "fecha": "2026-07-19",
+   "clics": 0,
+   "impresiones": 36
+  },
+  {
+   "fecha": "2026-07-20",
+   "clics": 1,
+   "impresiones": 92
+  },
+  {
+   "fecha": "2026-07-21",
+   "clics": 3,
+   "impresiones": 131
+  },
+  {
+   "fecha": "2026-07-22",
+   "clics": 4,
+   "impresiones": 95
+  },
+  {
+   "fecha": "2026-07-23",
+   "clics": 2,
+   "impresiones": 99
+  },
+  {
+   "fecha": "2026-07-24",
+   "clics": 0,
+   "impresiones": 86
+  },
+  {
+   "fecha": "2026-07-25",
+   "clics": 1,
+   "impresiones": 50
+  },
+  {
+   "fecha": "2026-07-26",
+   "clics": 1,
+   "impresiones": 56
+  },
+  {
+   "fecha": "2026-07-27",
+   "clics": 1,
+   "impresiones": 89
+  },
+  {
+   "fecha": "2026-07-28",
+   "clics": 1,
+   "impresiones": 87
+  },
+  {
+   "fecha": "2026-07-29",
+   "clics": 0,
+   "impresiones": 82
+  },
+  {
+   "fecha": "2026-07-30",
+   "clics": 2,
+   "impresiones": 123
+  },
+  {
+   "fecha": "2026-07-31",
+   "clics": 2,
+   "impresiones": 129
+  },
+  {
+   "fecha": "2026-08-01",
+   "clics": 2,
+   "impresiones": 74
+  },
+  {
+   "fecha": "2026-08-02",
+   "clics": 3,
+   "impresiones": 82
+  },
+  {
+   "fecha": "2026-08-03",
+   "clics": 0,
+   "impresiones": 121
+  },
+  {
+   "fecha": "2026-08-04",
+   "clics": 1,
+   "impresiones": 148
+  },
+  {
+   "fecha": "2026-08-05",
+   "clics": 0,
+   "impresiones": 136
+  },
+  {
+   "fecha": "2026-08-06",
+   "clics": 2,
+   "impresiones": 106
+  },
+  {
+   "fecha": "2026-08-07",
+   "clics": 4,
+   "impresiones": 119
+  },
+  {
+   "fecha": "2026-08-08",
+   "clics": 3,
+   "impresiones": 82
+  },
+  {
+   "fecha": "2026-08-09",
+   "clics": 1,
+   "impresiones": 106
+  },
+  {
+   "fecha": "2026-08-10",
+   "clics": 1,
+   "impresiones": 103
+  },
+  {
+   "fecha": "2026-08-11",
+   "clics": 4,
+   "impresiones": 73
+  },
+  {
+   "fecha": "2026-08-12",
+   "clics": 1,
+   "impresiones": 117
+  },
+  {
+   "fecha": "2026-08-13",
+   "clics": 4,
+   "impresiones": 130
+  },
+  {
+   "fecha": "2026-08-14",
+   "clics": 4,
+   "impresiones": 89
+  },
+  {
+   "fecha": "2026-08-15",
+   "clics": 1,
+   "impresiones": 45
+  },
+  {
+   "fecha": "2026-08-16",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-17",
+   "clics": 0,
+   "impresiones": 1
+  },
+  {
+   "fecha": "2026-08-18",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-19",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-20",
+   "clics": 0,
+   "impresiones": 9
+  },
+  {
+   "fecha": "2026-08-21",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-22",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-23",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-24",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-25",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-26",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-27",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-28",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-29",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-30",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-08-31",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-01",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-02",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-03",
+   "clics": 0,
+   "impresiones": 3
+  },
+  {
+   "fecha": "2026-09-04",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-05",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-06",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-07",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-08",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-09",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-10",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-11",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-12",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-13",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-14",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-15",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-16",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-17",
+   "clics": 0,
+   "impresiones": 1
+  },
+  {
+   "fecha": "2026-09-18",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-19",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-20",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-21",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-22",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-23",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-24",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-25",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-26",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-27",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-28",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-29",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-09-30",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-01",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-02",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-03",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-04",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-05",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-06",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-07",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-08",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-09",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-10",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-11",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-12",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-13",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-14",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-15",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-16",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-17",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-18",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-19",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-20",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-21",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-22",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-23",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-24",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-25",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-26",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-27",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-28",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-29",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-30",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-10-31",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-01",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-03",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-05",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-06",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-07",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-08",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-09",
+   "clics": 0,
+   "impresiones": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "clics": 0,
+   "impresiones": 0
+  }
+ ],
+ "indexacion_por_tipo": {
+  "comparacion": {
+   "Crawled - currently not indexed": 18,
+   "URL is unknown to Google": 2,
+   "Discovered - currently not indexed": 1
+  },
+  "ficha": {
+   "Discovered - currently not indexed": 77,
+   "URL is unknown to Google": 55
+  },
+  "home": {
+   "Crawled - currently not indexed": 1
+  },
+  "landing": {
+   "Crawled - currently not indexed": 8,
+   "Discovered - currently not indexed": 1
+  },
+  "proveedores": {
+   "Discovered - currently not indexed": 1
+  },
+  "ranking": {
+   "Crawled - currently not indexed": 9,
+   "Discovered - currently not indexed": 7
+  },
+  "variantes": {
+   "Crawled - currently not indexed": 2,
+   "URL is unknown to Google": 1,
+   "Discovered - currently not indexed": 1
+  }
+ },
+ "inspeccion": {
+  "/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-22"
+  },
+  "/grok-vs-chatgpt/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-18"
+  },
+  "/grok-vs-claude/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-05"
+  },
+  "/gemini-vs-chatgpt/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-25"
+  },
+  "/claude-vs-chatgpt/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-22"
+  },
+  "/gemini-vs-claude/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-19"
+  },
+  "/deepseek-vs-chatgpt/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-24"
+  },
+  "/deepseek-vs-claude/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-21"
+  },
+  "/deepseek-vs-gemini/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/qwen-vs-llama/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-30"
+  },
+  "/fable-5-vs-minimax-m3/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-21"
+  },
+  "/nemotron-3-ultra-vs-deepseek-v4-flash/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-28"
+  },
+  "/glm-5.2-vs-glm-5.1/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-10"
+  },
+  "/glm-5.2-vs-claude-opus-4-8/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-20"
+  },
+  "/gpt-5.6-vs-gpt-5.5/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-10-18"
+  },
+  "/gpt-5.6-vs-minimax-m3/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-28"
+  },
+  "/grok-4.5-vs-grok-4.3/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-16"
+  },
+  "/gpt-5.6-luna-vs-terra/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-09"
+  },
+  "/gpt-5.6-terra-vs-sol/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/gpt-5.6-luna-vs-sol/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-11"
+  },
+  "/minimax-vs-kimi/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-09-19"
+  },
+  "/diffusiongemma-vs-gemma-4/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-programar/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-20"
+  },
+  "/mejor-llm-para-n8n/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-22"
+  },
+  "/mejor-llm-en-espanol/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/mejor-llm-barato/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/mejor-llm-open-source/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-20"
+  },
+  "/mejor-llm-para-razonamiento/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-03"
+  },
+  "/mejor-llm-para-contenido/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/mejor-llm-para-agentes/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-que-no-inventa-herramientas/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-json/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-seguro-datos-clientes/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-tareas-largas/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-seguir-instrucciones/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-datos-exactos/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/mejor-llm-para-tool-calling/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-19"
+  },
+  "/mejor-llm-para-resumir-textos/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-03"
+  },
+  "/claude-haiku-sonnet-opus/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-16"
+  },
+  "/minimax-m2-7-o-m3/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/gemini-flash-o-pro/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/deepseek-v4-flash-o-r1/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/alternativas-chatgpt/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/alternativas-claude/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-10"
+  },
+  "/alternativas-gemini/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-31"
+  },
+  "/modelos-n8n/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-14"
+  },
+  "/modelos-baratos-emprendedores/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-07"
+  },
+  "/modelos-open-source-local/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-07-04"
+  },
+  "/alternativas-deepseek/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-08-06"
+  },
+  "/fable-5-review/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/glm-5.2-explicado/": {
+   "cobertura": "Crawled - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": "2026-06-29"
+  },
+  "/mismo-modelo-distinto-proveedor/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-fable-5.1/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-fable-5.2/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-haiku-4.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-haiku-5.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-4.6/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-4.7/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-4.8/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-5-fast/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-opus-5.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-sonnet-4.6/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-sonnet-5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/claude-sonnet-5.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-r1/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v4-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v4-flash-0731/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v4-pro/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v4-pro-0813/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/deepseek-v4.1-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/fugu-max/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.1-flash-lite/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.1-flash-lite-ga/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.1-pro/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.5-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.5-flash-lite/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.6-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.7-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-3.8-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-4-argon/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-flash-lite/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemini-pro/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gemma-4-26b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/glm-5.1/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/glm-5.2/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/glm-5.3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/glm-5.3-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-4.1/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-4.1-mini/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.4/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.4-mini/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.6-luna/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.6-sol/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-5.6-terra/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-6-astra/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-6-luna/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-6-luna-pro/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-6.1-sol/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/gpt-6.1-terra/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/granite-4.2-8b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/grok-4.20/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/grok-4.3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/grok-4.5/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/grok-4.6/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/grok-4.7/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/hermes-4-405b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/hermes-4-70b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/hy4/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/hy4-preview/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/inkling-small/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kat-coder-air-2.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kat-coder-pro-2.5/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kimi-k2/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kimi-k2.6/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kimi-k2.7-code/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kimi-k3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/kimi-k3.1-pro/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/laguna-s-2.1/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/laguna-xs-2.1/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/lfm-3-1.7b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/ling-3.0-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/ling-3.0-flash-vl/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/llama-4-maverick/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mercury-2.5/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mercury-3/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mimo-v2.5-or/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mimo-v2.5-pro-or/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mimo-v2.6-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mimo-v2.6-pro/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/minimax-m2.7/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/minimax-m3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/minimax-m3.1-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mistral-large/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mistral-large-4/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/mistral-small-4/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/muse-ember/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/muse-glimmer-30b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/muse-spark-1.2/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/muse-spark-1.3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/muse-wonder/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/nemotron-3.5-lightning/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/nemotron-nano/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/nemotron-super/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/nex-n2-mini/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/openrouter-nemotron-3-ultra-550b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-claude-fable-5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-deepseek-v3/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-gemma-4-31b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-glm5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-gpt-oss-120b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-gpt-oss-20b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-kimi-k2.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-llama-3.1-8b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-llama-3.3-70b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-llama-4-scout/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-minimax-m2.5/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-ministral-14b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-mistral-large-3/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-qwen-3.5-35b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-qwen3-next-instruct/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-qwen3-next-thinking/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-qwen3.5-397b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/or-step-3.5-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.6-max/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.6-plus/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.7-max/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.8-2.4t/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.8-27b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.8-max/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen-3.8-max-0902/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3-coder/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3-coder-next/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3.6-27b/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3.6-35b/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3.7-flash/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/qwen3.8-flash/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/seed-2-1-turbo/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/seed-2.0-code/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/solar-pro4/": {
+   "cobertura": "Discovered - currently not indexed",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  },
+  "/modelo/tencent-hy3/": {
+   "cobertura": "URL is unknown to Google",
+   "veredicto": "NEUTRAL",
+   "ultimo_rastreo": null
+  }
+ }
+}
