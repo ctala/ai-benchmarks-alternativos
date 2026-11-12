@@ -24,12 +24,12 @@ agregando el término a `PERMITIDAS` con su razón — por ejemplo, citar textua
 alguien que vosea.
 
 Uso:
-    python benchmarks/check_espanol_neutro.py                     # docs/ y los generadores
+    python benchmarks/check_espanol_neutro.py                     # sitio/legado/ y los generadores
     python benchmarks/check_espanol_neutro.py --dist sitio/dist   # lo compilado
 
 PÁGINAS LEÍDAS (11-nov-2026, motor-sitio 2.3): lee cada `index.html` del árbol, a cualquier
 profundidad, y falla si no leyó todas las páginas que el registro publica. Antes buscaba en
-`docs/*/index.html`, un solo nivel: las 132 fichas de `docs/modelo/` nunca se revisaron.
+`sitio/legado/*/index.html`, un solo nivel: las 132 fichas de `sitio/legado/modelo/` nunca se revisaron.
 """
 
 import argparse
@@ -46,8 +46,37 @@ VOSEO = [
     "decís", "venís", "salís", "escribís", "seguís", "medís", "corrés", "ponés",
     "fijate", "acordate", "mirá", "dale", "andá", "tomá", "vení", "poné", "sos",
 ]
-# Localismos que el estándar nombra: chilenos, mexicanos y peninsulares exclusivos.
-LOCALISMOS = ["cachái", "po'", "weá", "órale", "wey", "chido", "vale que", "vosotros", "tío"]
+# Localismos: palabras que en un país son normales y en otro no se entienden o suenan a otra
+# cosa. 12-nov-2026: «plata» (por dinero) estaba en 143 páginas («Contra los mejores del
+# ranking, en plata») y el chequeo solo buscaba voseo y nueve palabras. Para un lector de
+# México o España, «plata» es el metal. La lista se agranda cuando aparece un caso: cada
+# entrada lleva al lado lo que se escribe en su lugar.
+LOCALISMOS = [
+    # chilenos
+    "plata",        # → dinero
+    "al tiro",      # → de inmediato
+    "altiro",
+    "fome",         # → aburrido
+    "bacán",        # → muy bueno
+    "cuático",      # → exagerado
+    "la raja",      # → excelente
+    "pololo", "polola",
+    "guagua",       # → bebé
+    "cachái", "po'", "weá",
+    # rioplatenses
+    "laburo", "laburar",  # → trabajo
+    "guita",        # → dinero
+    "boludo", "che",
+    # mexicanos
+    "chamba",       # → trabajo
+    "neta",         # → de verdad
+    "güey", "wey", "órale", "chido", "padrísimo",
+    # peninsulares
+    "vosotros", "vale que", "tío",
+    "currar", "curro",  # → trabajar, trabajo
+    "mola", "guay", "chaval",
+    "ordenador",    # → computadora
+]
 
 # Excepciones declaradas, con su razón. Vacío hoy: si aparece una, va acá y no en el
 # texto — así la excepción queda a la vista y no se convierte en costumbre.
@@ -56,7 +85,10 @@ PERMITIDAS: dict[str, str] = {}
 # Dónde mirar: lo que se publica y lo que lo genera. Los comentarios de código quedan
 # fuera —no los lee nadie de la audiencia— pero el texto dentro de generadores SÍ entra,
 # porque termina en decenas de páginas.
-GENERADORES = ["benchmarks/generate_*.py"]
+GENERADORES = ["benchmarks/generate_*.py",
+               # el campo `decide` de cada suite se publica en las comparaciones (12-nov-2026:
+               # «un dato que cuesta plata» llegaba a 16 páginas desde acá)
+               "benchmarks/suites.py"]
 
 
 def archivos(base: Path, con_generadores: bool) -> list[Path]:
@@ -72,8 +104,8 @@ def archivos(base: Path, con_generadores: bool) -> list[Path]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dist", type=Path, help="revisar lo compilado en vez de docs/")
-    ap.add_argument("--docs", type=Path, default=ROOT / "docs", help="otro docs/ (para el sabotaje)")
+    ap.add_argument("--dist", type=Path, help="revisar lo compilado en vez de sitio/legado/")
+    ap.add_argument("--docs", type=Path, default=ROOT / "sitio" / "legado", help="otro sitio/legado/ (para el sabotaje)")
     a = ap.parse_args()
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import paginas_leidas as pl
@@ -105,7 +137,8 @@ def main() -> int:
     if not hallazgos:
         if ciego:
             return 1
-        print("  ✅ sin voseo ni localismos: se lee igual en México, Chile, España o Perú.")
+        print(f"  ✅ sin voseo ni localismos ({len(VOSEO)} formas de voseo y {len(LOCALISMOS)} localismos buscados):"
+              " se lee igual en México, Chile, España o Perú.")
         return 0
     print(f"  ❌ {len(hallazgos)} uso(s) que excluyen a parte de la audiencia:\n")
     for f, l, t, ctx in hallazgos[:20]:

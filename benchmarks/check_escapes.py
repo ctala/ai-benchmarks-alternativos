@@ -15,7 +15,7 @@ que no se escapa, publicaba `&gt;128K` como texto literal. Nadie lo vio: la pág
   E3  regla de páginas leídas: un árbol que no se lee no da verde.
 
 Uso:
-    python benchmarks/check_escapes.py                    # docs/
+    python benchmarks/check_escapes.py                    # sitio/legado/
     python benchmarks/check_escapes.py --dist sitio/dist  # lo que compila Astro
 """
 from __future__ import annotations
@@ -53,7 +53,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None, help="revisar lo que compila Astro (sitio/dist)")
     a = ap.parse_args()
-    base = a.dist or ROOT / "docs"
+    base = a.dist or ROOT / "sitio" / "legado"
     import paginas_leidas as pl
 
     fallos, leidas = [], set()

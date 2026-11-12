@@ -21,9 +21,10 @@ paths = [
   '''^TESTS\.md$''',
   '''^PROMPTS\.md$''',
   # JSON generados con `"key": "<key-de-modelo>"`: generic-api-key los confunde con claves.
-  '''^docs/data/models\.json$''',
-  '''^docs/jubilacion-2026-10\.json$''',
-  '''^docs/jubilacion-2026-10-opcion-A\.json$''',
+  # 12-nov-2026: los generadores escriben en sitio/legado/ y docs/ es su copia (publicar_dist.py).
+  '''^(docs|sitio/legado)/data/models\.json$''',
+  '''^(docs|sitio/legado)/jubilacion-2026-10\.json$''',
+  '''^(docs|sitio/legado)/jubilacion-2026-10-opcion-A\.json$''',
   '''^benchmarks/dominancia_resultado\.json$''',
   # Credenciales FICTICIAS del entorno de `harbor-incidente` (9-nov-2026): la tarea pide
   # reponer la contraseña SMTP vigente desde este archivo, así que el fixture tiene que

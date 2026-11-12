@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Inyecta en el home (docs/index.html) el bloque "Explora" con enlaces a las páginas pSEO.
+Inyecta en el home (sitio/legado/index.html) el bloque "Explora" con enlaces a las páginas pSEO.
 
 POR QUE EXISTE
 --------------
@@ -21,7 +21,7 @@ Uso:
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 INDEX = DOCS / "index.html"
 
 START = "<!-- AUTO-EXPLORE-START -->"
@@ -125,12 +125,12 @@ def main():
         html = re.sub(rf"{re.escape(START)}.*?{re.escape(END)}", block, html, flags=re.DOTALL)
     else:
         raise SystemExit(
-            f"ERROR: faltan los marcadores {START} / {END} en docs/index.html.\n"
+            f"ERROR: faltan los marcadores {START} / {END} en sitio/legado/index.html.\n"
             "Agrégalos donde deba ir el bloque (después de la calculadora)."
         )
     INDEX.write_text(html)
     n = block.count('class="ex-card') + block.count('class="ex-chip')
-    print(f"OK: docs/index.html — bloque Explora con {n} enlaces a páginas pSEO")
+    print(f"OK: sitio/legado/index.html — bloque Explora con {n} enlaces a páginas pSEO")
 
 
 if __name__ == "__main__":

@@ -56,7 +56,7 @@ contra el registro (`paginas_leidas.py`): un lector que deja de reconocer el HTM
 Hasta el corte (2.6) lee los dos formatos; después, el de Python sobra en rankings y comparaciones.
 
 Uso:
-    python benchmarks/check_ganadores.py                    # docs/
+    python benchmarks/check_ganadores.py                    # sitio/legado/
     python benchmarks/check_ganadores.py --dist sitio/dist  # lo que compila Astro
 """
 
@@ -67,7 +67,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
@@ -167,11 +167,11 @@ def main() -> int:
     global DOCS
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None,
-                    help="leer lo que compila Astro (sitio/dist) en vez de docs/")
+                    help="leer lo que compila Astro (sitio/dist) en vez de sitio/legado/")
     a = ap.parse_args()
     import paginas_leidas as pl
     import registro_paginas as rp
-    datos = DOCS / "data" / "models.json"   # los datos siempre de docs/: dist los copia de ahí
+    datos = DOCS / "data" / "models.json"   # los datos siempre de sitio/legado/: dist los copia de ahí
     if a.dist:
         DOCS = a.dist
     regs = rp.paginas()

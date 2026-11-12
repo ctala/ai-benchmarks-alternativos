@@ -37,7 +37,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 RESULTS = ROOT / "benchmarks" / "results"
 PY = str(ROOT / ".venv" / "bin" / "python")
 

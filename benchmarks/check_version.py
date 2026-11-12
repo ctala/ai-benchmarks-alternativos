@@ -8,9 +8,9 @@ Cristian: *"parte del problema es la falta de control de cambios y versiones."* 
 en ese momento, la versión vivía en seis lugares y **dos estaban desfasados**:
 
     scoring_reference.json  v4.1
-    docs/data/models.json   v4.1
+    sitio/legado/data/models.json   v4.1
     CHANGELOG.md            v4.1.0
-    docs/index.html         v4.1
+    sitio/legado/index.html         v4.1
     git tag                 v4.0.0   ← nunca se taggeó v4.1
     README.md               v4.0     ← quedó viejo
 
@@ -91,7 +91,7 @@ SUPERFICIES = [
     {"archivo": "scoring_reference.json", "json_key": "version",
      "que_es": "la referencia congelada del score",
      "por_que": "es la fuente de la calibración; si miente, todo score publicado queda sin origen"},
-    {"archivo": "docs/data/models.json", "json_key": "scoring_version",
+    {"archivo": "sitio/legado/data/models.json", "json_key": "scoring_version",
      "que_es": "el dataset que sirve el sitio",
      "por_que": "es lo que consume la calculadora y cualquiera que baje los datos"},
     {"archivo": "CHANGELOG.md", "patron": r"^## \[(v[\d.]+)\]",
@@ -101,15 +101,15 @@ SUPERFICIES = [
      "que_es": "el encabezado",
      "por_que": "es lo primero que ve un humano y lo que GitHub muestra en la home del repo. "
                 "El 14-ago decía «Version 3.1.1»: cuatro releases atrás"},
-    {"archivo": "docs/index.html", "patron": r"Dataset <strong>(v[\d.]+)",
+    {"archivo": "sitio/legado/index.html", "patron": r"Dataset <strong>(v[\d.]+)",
      "que_es": "el hero de la calculadora",
      "por_que": "es la versión que lee un visitante del sitio"},
-    {"archivo": "docs/index.html", "patron": r'"version":\s*"(v[\d.]+)"',
+    {"archivo": "sitio/legado/index.html", "patron": r'"version":\s*"(v[\d.]+)"',
      "etiqueta": "schema.org:version",
      "que_es": "el Dataset de schema.org",
      "por_que": "es lo que leen Google y los crawlers de IA. El 14-ago decía v4.0 "
                 "mientras el hero decía v4.1, y nada fallaba"},
-    {"archivo": "docs/index.html", "patron": r'"softwareVersion":\s*"(v[\d.]+)"',
+    {"archivo": "sitio/legado/index.html", "patron": r'"softwareVersion":\s*"(v[\d.]+)"',
      "etiqueta": "schema.org:softwareVersion",
      "que_es": "el SoftwareApplication de schema.org",
      "por_que": "ídem: superficie de buscadores, invisible para quien mira la página"},
@@ -121,14 +121,14 @@ FALTANTES: list[str] = []   # superficies cuyo archivo no está (regla de págin
 
 
 def _leer(sitio: Path | None = None) -> dict:
-    """Cada superficie. Con `sitio` (lo que compila Astro), `docs/index.html` se lee de ahí; los
-    datos (`docs/data/`) siguen saliendo de docs/. Un archivo que falta queda en FALTANTES:
+    """Cada superficie. Con `sitio` (lo que compila Astro), `sitio/legado/index.html` se lee de ahí; los
+    datos (`sitio/legado/data/`) siguen saliendo de sitio/legado/. Un archivo que falta queda en FALTANTES:
     hasta el 11-nov-2026 se saltaba en silencio y las superficies que quedaban «coincidían»."""
     fuentes: dict[str, str | None] = {}
     FALTANTES.clear()
     for s in SUPERFICIES:
         p = ROOT / s["archivo"]
-        if sitio is not None and s["archivo"] == "docs/index.html":
+        if sitio is not None and s["archivo"] == "sitio/legado/index.html":
             p = sitio / "index.html"
         etiqueta = s.get("etiqueta") or s["archivo"].split("/")[-1]
         if not p.exists():
@@ -150,7 +150,7 @@ def main() -> int:
     ap.add_argument("--tag", action="store_true",
                     help="crear el git tag faltante para la versión declarada")
     ap.add_argument("--dist", type=Path, default=None,
-                    help="leer la home de lo que compila Astro (sitio/dist) en vez de docs/")
+                    help="leer la home de lo que compila Astro (sitio/dist) en vez de sitio/legado/")
     args = ap.parse_args()
 
     fuentes = _leer(args.dist)
@@ -172,7 +172,7 @@ def main() -> int:
                       f"Una superficie que no se lee no puede contradecir a las demás.")
     # La home es la única página que lee; se cuenta sin el registro, porque este chequeo también
     # corre copiado solo en un repo desechable (la prueba del tag huérfano).
-    home = not any(s["archivo"] == "docs/index.html" and (s.get("etiqueta") or "index.html") in FALTANTES
+    home = not any(s["archivo"] == "sitio/legado/index.html" and (s.get("etiqueta") or "index.html") in FALTANTES
                    for s in SUPERFICIES)
     print(f"  · check_version: {int(home)} de 1 página(s) que le asigna el registro")
     if not home:

@@ -44,7 +44,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 
 # Páginas que LISTAN modelos y por tanto deben ofrecer el camino al detalle.
@@ -62,7 +62,7 @@ def main() -> int:
     global DOCS
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None,
-                    help="revisar lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
+                    help="revisar lo que compila Astro (sitio/dist); los datos siguen saliendo de sitio/legado/")
     a = ap.parse_args()
     if a.dist:
         DOCS = a.dist

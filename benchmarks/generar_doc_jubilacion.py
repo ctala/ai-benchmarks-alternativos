@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera docs/jubilacion-2026-10.md completo con todos los modelos."""
+"""Genera sitio/legado/jubilacion-2026-10.md completo con todos los modelos."""
 import json
 import argparse
 from pathlib import Path
@@ -12,14 +12,14 @@ def main():
     
     opcion = args.opcion
     # Cargar datos
-    final_file = f'docs/jubilacion-2026-10-opcion-{opcion}.json'
+    final_file = f'sitio/legado/jubilacion-2026-10-opcion-{opcion}.json'
     if not Path(final_file).exists():
         print(f"❌ Ejecutar primero: python3 benchmarks/analizar_jubilacion_final.py --opcion {opcion}")
         return 1
     
     data_final = json.load(open(final_file))
     data_dom = json.load(open('benchmarks/dominancia_resultado.json'))
-    models_full = json.load(open('docs/data/models.json'))['models']
+    models_full = json.load(open('sitio/legado/data/models.json'))['models']
     models_dict = {m['key']: m for m in models_full}
     
     # Mapear dominador por key
@@ -143,18 +143,18 @@ def main():
     md.append("")
     
     # Guardar
-    output_file = f'docs/jubilacion-2026-10-opcion-{opcion}.md'
+    output_file = f'sitio/legado/jubilacion-2026-10-opcion-{opcion}.md'
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(md))
     
     # También guardar como default si es opción B
     if opcion == 'B':
-        with open('docs/jubilacion-2026-10.md', 'w', encoding='utf-8') as f:
+        with open('sitio/legado/jubilacion-2026-10.md', 'w', encoding='utf-8') as f:
             f.write('\n'.join(md))
     
     print(f"✓ Generado {output_file} ({len(md)} líneas)")
     if opcion == 'B':
-        print(f"✓ También docs/jubilacion-2026-10.md (default)")
+        print(f"✓ También sitio/legado/jubilacion-2026-10.md (default)")
     print(f"\n**Comando para regenerar Opción {opcion}**:")
     print(f"```bash")
     print(f"python3 benchmarks/analizar_dominancia.py")

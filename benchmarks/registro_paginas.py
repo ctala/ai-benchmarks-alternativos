@@ -34,7 +34,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 sys.path.insert(0, str(ROOT / "benchmarks"))
 sys.path.insert(0, str(ROOT))
 
@@ -153,7 +153,7 @@ def paginas() -> list[dict]:
 
 
 def urls_en_docs(docs: Path = DOCS) -> set[str]:
-    """Las URLs que hoy publica `docs/` (cada `index.html`)."""
+    """Las URLs que hoy publica `sitio/legado/` (cada `index.html`)."""
     return {"/" if p.parent == docs else f"/{p.parent.relative_to(docs).as_posix()}/"
             for p in docs.rglob("index.html")}
 

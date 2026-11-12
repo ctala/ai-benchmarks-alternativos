@@ -496,7 +496,7 @@ def main():
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(html)
         n = len(variants_of(models, cfg))
-        print(f"✓ {cfg['slug']}: {n} tiers → docs/{cfg['slug']}/index.html")
+        print(f"✓ {cfg['slug']}: {n} tiers → sitio/legado/{cfg['slug']}/index.html")
 
 
 if __name__ == "__main__":

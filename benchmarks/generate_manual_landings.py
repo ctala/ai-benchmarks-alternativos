@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-Genera/actualiza las landings manuales de docs/ a partir de docs/data/models.json.
+Genera/actualiza las landings manuales de sitio/legado/ a partir de sitio/legado/data/models.json.
 
 Landings mantenidas:
-  - docs/alternativas-chatgpt/index.html
-  - docs/alternativas-claude/index.html
-  - docs/alternativas-gemini/index.html
-  - docs/modelos-n8n/index.html
-  - docs/modelos-baratos-emprendedores/index.html
-  - docs/modelos-open-source-local/index.html
+  - sitio/legado/alternativas-chatgpt/index.html
+  - sitio/legado/alternativas-claude/index.html
+  - sitio/legado/alternativas-gemini/index.html
+  - sitio/legado/modelos-n8n/index.html
+  - sitio/legado/modelos-baratos-emprendedores/index.html
+  - sitio/legado/modelos-open-source-local/index.html
 
 Landings nuevas (pSEO):
-  - docs/alternativas-deepseek/index.html
-  - docs/deepseek-vs-claude/index.html
-  - docs/deepseek-vs-gemini/index.html
-  - docs/mejor-llm-para-razonamiento/index.html
+  - sitio/legado/alternativas-deepseek/index.html
+  - sitio/legado/deepseek-vs-claude/index.html
+  - sitio/legado/deepseek-vs-gemini/index.html
+  - sitio/legado/mejor-llm-para-razonamiento/index.html
 
 Incluye marcadores <!-- AUTO:... --> para que sync_doc_counts.py sincronice counts.
 Metodología v4.0 (versión leída de models.json): calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%;
@@ -38,7 +38,7 @@ _sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_comparison import enlace_ficha  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 SITE = "https://benchmarks.cristiantala.com"
 LOGO = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png"
@@ -1658,7 +1658,7 @@ def _no_recomendar_muertos(html: str, slug: str) -> None:
     """
     import json as _j
     from pathlib import Path as _P
-    mj = _P(__file__).parent.parent / "docs" / "data" / "models.json"
+    mj = _P(__file__).parent.parent / "sitio" / "legado" / "data" / "models.json"
     if not mj.exists():
         return
     datos = _j.loads(mj.read_text())["models"]
@@ -1903,7 +1903,7 @@ def main():
         d = DOCS / slug
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(_con_contrato(out, slug), encoding="utf-8")
-        print(f"✓ {slug} → docs/{slug}/index.html")
+        print(f"✓ {slug} → sitio/legado/{slug}/index.html")
 
 
 if __name__ == "__main__":

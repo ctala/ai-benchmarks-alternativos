@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Sincroniza counts (modelos, tests, lotes) en archivos MD/HTML del repo
-desde docs/data/models.json (single source of truth).
+desde sitio/legado/data/models.json (single source of truth).
 
 Uso:
     python benchmarks/sync_doc_counts.py              # aplica cambios
@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 # Marcadores soportados
 COUNT_KEYS = [
@@ -57,8 +57,8 @@ TARGET_GLOBS = [
     "ROADMAP.md",
     "FUENTES-EXTERNAS.md",
     ".claude/agents/*.md",
-    "docs/alternativas-*/index.html",
-    "docs/modelos-*/index.html",
+    "sitio/legado/alternativas-*/index.html",
+    "sitio/legado/modelos-*/index.html",
 ]
 
 # Archivos/directorios que NUNCA se tocan

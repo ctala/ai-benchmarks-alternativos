@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Genera docs/sitemap.xml automaticamente.
+Genera sitio/legado/sitemap.xml automaticamente.
 
 Lista:
-1. Todos los index.html bajo docs/ (calculadora + landing pages)
+1. Todos los index.html bajo sitio/legado/ (calculadora + landing pages)
 2. MDs criticos del repo en GitHub (README, MODELOS, TESTS, AGENTS, etc.)
 
 Para cada URL, lastmod es la fecha del ultimo commit que toco el archivo (`git log`), y
@@ -17,7 +17,7 @@ ficha de `or-qwen3-next-thinking` iba y volvia entre 2026-08-20 y el dia del Act
 clon superficial seria falsa, y por eso el script se niega a correr ahi.
 
 Uso:
-    python benchmarks/generate_sitemap.py        # genera docs/sitemap.xml
+    python benchmarks/generate_sitemap.py        # genera sitio/legado/sitemap.xml
 
 Pesos por defecto (ajustables en PRIORITY_OVERRIDES):
 - / -> 1.0 (calculadora)
@@ -34,7 +34,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 SITE_BASE = "https://benchmarks.cristiantala.com"
 GH_BASE = "https://github.com/ctala/ai-benchmarks-alternativos/blob/main"
 
@@ -102,7 +102,7 @@ def file_lastmod(path: Path, fechas: dict[str, str], sucias: set[str]) -> str:
 def docs_pages():
     """(url, archivo, priority) de cada DESTINO del registro de páginas.
 
-    11-nov-2026 (motor-sitio 2.3): antes recorría los `index.html` de docs/, con una lista a
+    11-nov-2026 (motor-sitio 2.3): antes recorría los `index.html` de sitio/legado/, con una lista a
     mano de exclusiones. Así entraban al sitemap páginas que el registro ya declara redirect:
     19, entre ellas `/fable-5-vs-deepseek-r1/`, que en vivo ya es un meta refresh. Un sitemap
     que lista redirects le pide a Google indexar lo que la página misma marca `noindex`. Ahora
@@ -180,7 +180,7 @@ def main():
 
     # Contar URLs para reporte
     n = content.count("<url>")
-    print(f"OK: docs/sitemap.xml con {n} URLs (docs/ landing pages + MDs del repo)")
+    print(f"OK: sitio/legado/sitemap.xml con {n} URLs (sitio/legado/ landing pages + MDs del repo)")
 
 
 if __name__ == "__main__":

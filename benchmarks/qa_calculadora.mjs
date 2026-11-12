@@ -7,7 +7,7 @@
  * Cristian, al elegir una subcategoría del pilar Agentes: *"me aparece vacío. Nos
  * faltan QAs funcionales y unitarios para el benchmark."*
  *
- * Tenía razón, y el bug lo prueba: `docs/app.js` son ~1.200 líneas que deciden QUÉ
+ * Tenía razón, y el bug lo prueba: `sitio/legado/app.js` son ~1.200 líneas que deciden QUÉ
  * modelo se le recomienda a alguien, y **no tenían un solo test**. `check_calculator.py`
  * hace chequeos ESTÁTICOS (que el campo exista, que el umbral caiga en rango) pero
  * nunca EJECUTA el filtrado. Un filtro que devuelve cero resultados pasa en verde:
@@ -22,8 +22,8 @@
  *
  * CÓMO PRUEBA
  * -----------
- * No mockea la lógica: carga `docs/app.js` de verdad, con un DOM apuntalado, y le pasa
- * `docs/data/models.json` de verdad. Si mañana alguien cambia una escala, un umbral o
+ * No mockea la lógica: carga `sitio/legado/app.js` de verdad, con un DOM apuntalado, y le pasa
+ * `sitio/legado/data/models.json` de verdad. Si mañana alguien cambia una escala, un umbral o
  * un preset, este archivo se entera.
  *
  * Uso:
@@ -43,7 +43,7 @@ const VERBOSE = process.argv.includes("-v");
 // funciones de init que no se llaman acá. Apuntalar es más barato —y menos riesgoso—
 // que refactorizar 1.200 líneas de código que hoy funciona en producción.
 function cargarApp() {
-  const src = readFileSync(join(ROOT, "docs", "app.js"), "utf8");
+  const src = readFileSync(join(ROOT, "sitio", "legado", "app.js"), "utf8");
   const stubEl = new Proxy({}, {
     get: (t, k) => (k === "value" || k === "innerHTML" || k === "textContent") ? ""
       : (k === "hidden" || k === "checked") ? false
@@ -75,7 +75,7 @@ function cargarApp() {
 }
 
 const app = cargarApp();
-const datos = JSON.parse(readFileSync(join(ROOT, "docs", "data", "models.json"), "utf8"));
+const datos = JSON.parse(readFileSync(join(ROOT, "sitio", "legado", "data", "models.json"), "utf8"));
 // `getScore` lee `state.data` para sacar norm_stats y score_rescale — en el navegador
 // lo llena el fetch inicial. Sin esto el QA prueba una app a medio arrancar.
 app.state.data = datos;
@@ -245,14 +245,14 @@ chequeo("Q7 · el filtro agéntico excluye a los que no corren en un agente", ()
 // al usuario. Es el mismo modo de falla silencioso de siempre, en la superficie que más
 // tráfico recibe.
 chequeo("Q8 · ningún enlace interno de la portada apunta a una página inexistente", () => {
-  const html = readFileSync(join(ROOT, "docs", "index.html"), "utf8");
+  const html = readFileSync(join(ROOT, "sitio", "legado", "index.html"), "utf8");
   const rotos = [];
   for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
     const ruta = m[1];
     if (ruta === "/") continue;
-    const destino = join(ROOT, "docs", ruta.replace(/^\//, ""),
+    const destino = join(ROOT, "sitio", "legado", ruta.replace(/^\//, ""),
                          ruta.endsWith("/") ? "index.html" : "");
-    const alt = join(ROOT, "docs", ruta.replace(/^\//, ""));
+    const alt = join(ROOT, "sitio", "legado", ruta.replace(/^\//, ""));
     if (!existsSync(destino) && !existsSync(alt) && !existsSync(alt + ".html")) {
       rotos.push(ruta);
     }
@@ -265,7 +265,7 @@ chequeo("Q8 · ningún enlace interno de la portada apunta a una página inexist
 // encuentra. El guardrail `check_cortes.py` verifica que la página coincida con los
 // datos; esto verifica que además se pueda LLEGAR a ella.
 chequeo("Q9 · cada corte por eje generado está enlazado desde la portada", () => {
-  const html = readFileSync(join(ROOT, "docs", "index.html"), "utf8");
+  const html = readFileSync(join(ROOT, "sitio", "legado", "index.html"), "utf8");
   const src = readFileSync(join(ROOT, "benchmarks", "generate_rankings.py"), "utf8");
   const bloque = src.slice(src.indexOf("RANKINGS = ["));
   const cortes = [];
@@ -305,7 +305,7 @@ chequeo("Q11 · el puesto global coincide entre la calculadora y los cortes por 
                   .sort((a, b) => b.score_calidad - a.score_calidad);
   if (!r.length) return ["no hay modelos con score_calidad"];
   const primero = r[0];
-  const html = readFileSync(join(ROOT, "docs", "mejor-llm-para-datos-exactos", "index.html"), "utf8");
+  const html = readFileSync(join(ROOT, "sitio", "legado", "mejor-llm-para-datos-exactos", "index.html"), "utf8");
   // la página muestra «8.19 | #22 de 80»: el total tiene que ser el mismo
   const m = html.match(/#\d+ de (\d+)/);
   if (!m) return ["la página de corte no publica el puesto global — ¿se regeneró?"];
@@ -377,7 +377,7 @@ chequeo("Q13 · desde el índice de calidad se puede elegir cualquier eje, y nin
 // coronados por un modelo que no rankea**, 15 de ellos variantes PRO — que por decisión
 // vigente no compiten. La decisión estaba escrita y las páginas la ignoraban.
 // Los slugs que ALGÚN generador produce. Se leen TODOS los `generate_*.py`, no solo
-// `generate_comparison.py`: `generate_variants.py` también escribe en `docs/*-vs-*/`
+// `generate_comparison.py`: `generate_variants.py` también escribe en `sitio/legado/*-vs-*/`
 // (sus páginas «qué variante uso» comparten el patrón de slug). Mirar un solo generador
 // dio un falso positivo el 15-ago — `grok-4-1-vs-4-5` se declaró huérfana, se redirigió,
 // y el pipeline la restauró en el mismo run.
@@ -398,7 +398,7 @@ chequeo("Q14 · ninguna comparación corona a un no-rankeado sin la salvedad esc
   const malas = [];
   const nombres = new Map(MODELOS.map(m => [m.name, m]));
   for (const slug of SLUGS_COMPARACION) {
-    const p = join(ROOT, "docs", slug, "index.html");
+    const p = join(ROOT, "sitio", "legado", slug, "index.html");
     if (!existsSync(p)) continue;
     const html = readFileSync(p, "utf8");
     // 8-nov-2026: una FOTO HISTÓRICA (un lado sin rankeados) no elige ganador, así que no
@@ -438,21 +438,21 @@ chequeo("Q15 · ninguna página de comparación quedó huérfana del generador",
   const gc = readFileSync(join(ROOT, "benchmarks", "generate_comparison.py"), "utf8");
   const bloque = gc.slice(gc.indexOf("HUERFANAS_DECLARADAS"));
   const declaradas = new Set([...bloque.matchAll(/^\s{4}"([^"]+)":/gm)].map(m => m[1]));
-  const dirs = readdirSync(join(ROOT, "docs"), { withFileTypes: true })
+  const dirs = readdirSync(join(ROOT, "sitio", "legado"), { withFileTypes: true })
     .filter(d => d.isDirectory() && d.name.includes("-vs-")).map(d => d.name);
   const malas = [];
   for (const d of dirs) {
     if (SLUGS_GENERADOS.has(d) || declaradas.has(d)) continue;
-    malas.push(`docs/${d}/ está publicada y NO la genera nadie: sus datos quedaron ` +
+    malas.push(`sitio/legado/${d}/ está publicada y NO la genera nadie: sus datos quedaron ` +
                `congelados. Agregala a COMPARISONS o declarala en HUERFANAS_DECLARADAS`);
   }
   // Una declarada tiene que ser realmente un redirect, no una página vieja con la
   // etiqueta puesta: si sigue sirviendo su contenido, el problema sigue ahí.
   for (const d of declaradas) {
-    const p = join(ROOT, "docs", d, "index.html");
+    const p = join(ROOT, "sitio", "legado", d, "index.html");
     if (existsSync(p) && !/http-equiv="refresh"|rel="canonical" href="[^"]*"\s*\/?>[\s\S]{0,200}redirect/i
         .test(readFileSync(p, "utf8"))) {
-      malas.push(`docs/${d}/ está declarada como huérfana pero sigue sirviendo su ` +
+      malas.push(`sitio/legado/${d}/ está declarada como huérfana pero sigue sirviendo su ` +
                  `contenido viejo — tiene que ser un redirect`);
     }
   }
@@ -774,7 +774,7 @@ chequeo("W15 · cada tarea del wizard enlaza a un ranking que existe", () => {
   for (const t of app.WIZ.tasks) {
     if (t.id === "general") continue;      // no hay ranking de «un poco de todo»
     if (!t.page) { malas.push(`la tarea «${t.id}» no continúa hacia ningún ranking`); continue; }
-    const dir = join(ROOT, "docs", t.page.replace(/^\/|\/$/g, ""));
+    const dir = join(ROOT, "sitio", "legado", t.page.replace(/^\/|\/$/g, ""));
     if (!existsSync(dir)) malas.push(`«${t.id}» apunta a ${t.page} y esa página no existe`);
   }
   return malas;
@@ -787,7 +787,7 @@ chequeo("W15 · cada tarea del wizard enlaza a un ranking que existe", () => {
 // generado, y esto lo pinta el JS en runtime — el mismo punto ciego que tendría
 // cualquier superficie dinámica que agreguemos después.
 chequeo("W16 · la recomendación del wizard enlaza a la ficha del modelo", () => {
-  const src = readFileSync(join(ROOT, "docs", "app.js"), "utf8");
+  const src = readFileSync(join(ROOT, "sitio", "legado", "app.js"), "utf8");
   const bloque = src.slice(src.indexOf("wiz-pick-name"), src.indexOf("wiz-pick-name") + 320);
   const malas = [];
   if (!/a-ficha/.test(bloque))
@@ -805,7 +805,7 @@ chequeo("W16 · la recomendación del wizard enlaza a la ficha del modelo", () =
 // el visitante simplemente se va.
 chequeo("W14 · cada enlace a ficha apunta a una ficha que existe", () => {
   const malas = [];
-  const dir = join(ROOT, "docs", "modelo");
+  const dir = join(ROOT, "sitio", "legado", "modelo");
   for (const m of MODELOS) {
     if (!m.ranked) continue;               // los no rankeados no llevan enlace
     if (!existsSync(join(dir, m.key))) malas.push(`${m.name} (${m.key}): rankeado y sin ficha`);

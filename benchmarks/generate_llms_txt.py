@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera docs/llms.txt (estándar llms.txt) descubriendo las páginas de docs/ y agrupándolas.
+Genera sitio/legado/llms.txt (estándar llms.txt) descubriendo las páginas de sitio/legado/ y agrupándolas.
 Sirve para que los LLMs citen el benchmark con contexto. Se regenera como el sitemap.
 
 Uso: python benchmarks/generate_llms_txt.py
@@ -9,7 +9,7 @@ import json, re
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 SITE = "https://benchmarks.cristiantala.com"
 
@@ -30,7 +30,7 @@ def _fmt_pct(w):
 
 def main():
     # 11-nov-2026 (motor-sitio 2.3): las páginas salen del registro y solo los destinos. Antes
-    # recorría docs/ y listaba 20 URLs que el registro declara redirect.
+    # recorría sitio/legado/ y listaba 20 URLs que el registro declara redirect.
     import sys
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import registro_paginas as rp
@@ -93,7 +93,7 @@ def main():
             "- [Comunidad Cágala, Aprende, Repite](https://go.aprenderepite.com/benchmark): emprendimiento + IA en español.",
             ""]
     (DOCS / "llms.txt").write_text("\n".join(out), encoding="utf-8")
-    print(f"OK: docs/llms.txt — {len(rankings)} rankings, {len(comparisons)} comparaciones, {len(others)} otras")
+    print(f"OK: sitio/legado/llms.txt — {len(rankings)} rankings, {len(comparisons)} comparaciones, {len(others)} otras")
 
 
 if __name__ == "__main__":

@@ -4,8 +4,8 @@ Guardrail de la calculadora: que sus supuestos no se separen de los datos.
 
 POR QUÉ EXISTE
 --------------
-La calculadora (`docs/app.js` + `docs/index.html`) es **código escrito a mano** que
-consume `docs/data/models.json`, que sí es generado. Cuando cambia la forma del dato,
+La calculadora (`sitio/legado/app.js` + `sitio/legado/index.html`) es **código escrito a mano** que
+consume `sitio/legado/data/models.json`, que sí es generado. Cuando cambia la forma del dato,
 nadie le avisa al código — y el 13-ago-2026 eso costó dos rondas de bugs invisibles:
 
   · Los 11 umbrales de calidad estaban calibrados para la escala z-scoreada (0,50–8,48).
@@ -48,9 +48,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-APP_JS = ROOT / "docs" / "app.js"
-INDEX = ROOT / "docs" / "index.html"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+APP_JS = ROOT / "sitio" / "legado" / "app.js"
+INDEX = ROOT / "sitio" / "legado" / "index.html"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 # Campos que la UI lee del JSON y que el export tiene que seguir emitiendo.
 CAMPOS_REQUERIDOS = [
@@ -81,7 +81,7 @@ def c6_tabla_historico(html: str, models: list[dict]) -> list[str]:
     malos = []
     ini, fin = "<!-- AUTO-HISTORICO-START -->", "<!-- AUTO-HISTORICO-END -->"
     if ini not in html or fin not in html:
-        return ["faltan los marcadores AUTO-HISTORICO en docs/index.html: la tabla no se genera"]
+        return ["faltan los marcadores AUTO-HISTORICO en sitio/legado/index.html: la tabla no se genera"]
     bloque = html[html.index(ini):html.index(fin)]
     hist = {m["key"]: m for m in models if m.get("historico")}
     por_key = {m["key"]: m for m in models}
@@ -128,7 +128,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--verbose", action="store_true")
     ap.add_argument("--dist", type=Path, default=None,
-                    help="revisar la calculadora de lo que compila Astro (sitio/dist); los datos, de docs/")
+                    help="revisar la calculadora de lo que compila Astro (sitio/dist); los datos, de sitio/legado/")
     args = ap.parse_args()
     global APP_JS, INDEX
     if args.dist:

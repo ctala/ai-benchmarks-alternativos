@@ -22,7 +22,7 @@ QUÉ VERIFICA
 ------------
 S1. Toda suite MEDIDA está en el registro. Una suite nueva sin entrada muestra su id
     técnico al usuario y no aparece en ningún menú.
-S2. Nadie mantiene una copia a mano. `docs/app.js` no puede volver a traer su propia
+S2. Nadie mantiene una copia a mano. `sitio/legado/app.js` no puede volver a traer su propia
     lista de etiquetas: tiene que leer `models.json`.
 S3. El registro que viaja en `models.json` coincide con `suites.py`. Si el export quedó
     viejo, el sitio publica etiquetas de otra generación.
@@ -50,8 +50,8 @@ sys.path.insert(0, str(ROOT))
 
 from benchmarks.suites import SUITES, PELDANO, del_examen, del_indice  # noqa: E402
 
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
-APP_JS = ROOT / "docs" / "app.js"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
+APP_JS = ROOT / "sitio" / "legado" / "app.js"
 
 
 def s5_nadie_reimplementa_el_indice(verbose=False) -> list[str]:
@@ -180,7 +180,7 @@ def main() -> int:
     copias = re.findall(r'\{\s*value:\s*"(\w+)",\s*label:\s*"[^"]+"\s*\}', js)
     copias = [c for c in copias if c in SUITES]
     if copias:
-        fallos.append(f"docs/app.js volvió a traer etiquetas de suite escritas a mano "
+        fallos.append(f"sitio/legado/app.js volvió a traer etiquetas de suite escritas a mano "
                       f"({', '.join(sorted(set(copias))[:5])}…). Tiene que leerlas de "
                       f"`models.json` con cargarRegistroDeSuites(): una copia diverge, "
                       f"y ya divergió una vez en 7 suites")

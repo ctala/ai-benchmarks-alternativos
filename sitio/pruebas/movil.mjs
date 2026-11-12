@@ -15,6 +15,8 @@
 //   M2  nada desborda a lo ancho. Como en un teléfono real, un contenido de 600 px agranda el
 //       viewport de diseño a 600 (innerWidth) además del scroll: cualquiera de los dos > 390 es
 //       desborde. Una tabla ancha puede desplazarse DENTRO de su caja, no empujar la página.
+//   M3  en cada tabla, el primer valor de cada fila se ve sin desplazar (12-nov-2026: en la ficha,
+//       las etiquetas de fila ocupaban lo visible y los valores quedaban fuera, sin pista).
 // Con `--capturas <dir>` guarda capturas por tramos de cada URL para revisarlas.
 //
 // Uso:  node pruebas/movil.mjs --dist dist [--capturas ../.capturas-movil] [--solo /slug/]
@@ -56,8 +58,9 @@ function servidor(dist) {
     let f = join(dist, ruta);
     try {
       if ((await stat(f)).isDirectory()) f = join(f, "index.html");
+      const cuerpo = await readFile(f);  // se lee antes de la cabecera: un 404 después de un 200 revienta
       res.writeHead(200, { "content-type": TIPOS[extname(f)] || "application/octet-stream" });
-      res.end(await readFile(f));
+      res.end(cuerpo);
     } catch {
       res.writeHead(404); res.end();
     }
@@ -144,13 +147,49 @@ async function main() {
             texto: (el.textContent || "").trim().slice(0, 50) };
         }
       }
-      return { diseno, doc, culpable };
+      // M3: en cada tabla, el primer valor de la fila se ve sin desplazar. Una tabla ancha puede
+      // desplazarse dentro de su caja, pero si la etiqueta de la fila ocupa todo lo visible, el
+      // lector ve etiquetas sin valores y nada le dice que hay más a la derecha.
+      const tapadas = [];
+      for (const tb of document.querySelectorAll("table")) {
+        if (!tb.getBoundingClientRect().width) continue;
+        let caja = tb.parentElement, borde = ancho;
+        while (caja && caja !== document.body) {
+          if (getComputedStyle(caja).overflowX !== "visible") {
+            borde = Math.min(borde, caja.getBoundingClientRect().right);
+            break;
+          }
+          caja = caja.parentElement;
+        }
+        for (const tr of tb.querySelectorAll("tbody tr")) {
+          const td = tr.querySelector("td");
+          if (!td || !td.getBoundingClientRect().width) continue;
+          const izq = td.getBoundingClientRect().left;
+          if (izq > borde - 24) {
+            let h = tb, titulo = "";
+            while (h && !titulo) {
+              let s = h.previousElementSibling;
+              while (s && !titulo) { const x = s.matches("h2, h3") ? s : s.querySelector("h2, h3"); if (x) titulo = x.textContent; s = s.previousElementSibling; }
+              h = h.parentElement;
+            }
+            tapadas.push({ titulo: titulo.trim().replace(/\s+/g, " ").slice(0, 60),
+              fila: (tr.textContent || "").trim().replace(/\s+/g, " ").slice(0, 40),
+              izq: Math.round(izq), borde: Math.round(borde) });
+            break;
+          }
+        }
+      }
+      return { diseno, doc, culpable, tapadas };
     });
     medidas++;
     if (m.diseno > ANCHO || m.doc > ANCHO) {
       const c = m.culpable;
       fallos.push(`${url}: M2 desborda a lo ancho (${Math.max(m.diseno, m.doc)} px > ${ANCHO})` +
         (c ? ` — <${c.tag}${c.clase ? ` class="${c.clase}"` : ""}> llega a ${c.right} px: «${c.texto}»` : ""));
+    }
+    for (const x of m.tapadas) {
+      fallos.push(`${url}: M3 la tabla «${x.titulo}» deja el valor fuera de la vista: en «${x.fila}» ` +
+        `el primer valor empieza en ${x.izq} px y lo visible termina en ${x.borde}`);
     }
     await p.close();
     if (ctxFoto) {
@@ -179,7 +218,7 @@ async function main() {
     return 2;
   }
   for (const f of fallos) console.log(`  ❌ ${f}`);
-  if (!fallos.length) console.log(`  ✅ ninguna página desborda a ${ANCHO} px`);
+  if (!fallos.length) console.log(`  ✅ ninguna página desborda a ${ANCHO} px, y en cada tabla el primer valor se ve sin desplazar`);
   if (o.capturas) console.log(`  capturas en ${resolve(o.capturas)}`);
   return fallos.length ? 1 : 0;
 }

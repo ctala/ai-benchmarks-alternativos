@@ -3,7 +3,7 @@
 
 POR QUÉ EXISTE
 --------------
-La home (`docs/index.html`) se escribió a mano, y con ella su JSON-LD y sus tres meta
+La home (`sitio/legado/index.html`) se escribió a mano, y con ella su JSON-LD y sus tres meta
 descriptions. `check_jsonld` encontró dos errores en vivo que nadie veía porque esas partes
 no se ven en la página:
 
@@ -23,7 +23,7 @@ Lo vigilan `check_jsonld` J4 (bloquea en la home) y `check_consistency` (lee el 
 las meta, no solo el texto visible).
 
 Uso:
-    python benchmarks/generate_home_jsonld.py           # reescribe docs/index.html
+    python benchmarks/generate_home_jsonld.py           # reescribe sitio/legado/index.html
     python benchmarks/generate_home_jsonld.py --check   # exit 1 si la home no está al día
 """
 from __future__ import annotations
@@ -37,8 +37,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-INDEX = ROOT / "docs" / "index.html"
-MODELS = ROOT / "docs" / "data" / "models.json"
+INDEX = ROOT / "sitio" / "legado" / "index.html"
+MODELS = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 BLOQUE = re.compile(r'(<script type="application/ld\+json">\n)(.*?)(\n</script>)', re.S)
 FAQ = re.compile(r'<section class="faq" id="faq">(.*?)</section>', re.S)

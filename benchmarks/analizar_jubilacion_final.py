@@ -33,7 +33,7 @@ def main():
     opcion = args.opcion
     
     # Cargar datos
-    data = json.load(open('docs/data/models.json'))
+    data = json.load(open('sitio/legado/data/models.json'))
     models = {m['key']: m for m in data['models']}
     
     # Cargar dominancia
@@ -201,18 +201,18 @@ def main():
         }
     }
     
-    output_file = f'docs/jubilacion-2026-10-opcion-{opcion}.json'
+    output_file = f'sitio/legado/jubilacion-2026-10-opcion-{opcion}.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(resultado, f, indent=2, ensure_ascii=False)
     
     # También guardar como -final para backward compat si es opción B
     if opcion == 'B':
-        with open('docs/jubilacion-2026-10-final.json', 'w', encoding='utf-8') as f:
+        with open('sitio/legado/jubilacion-2026-10-final.json', 'w', encoding='utf-8') as f:
             json.dump(resultado, f, indent=2, ensure_ascii=False)
     
     print(f"\n✓ Guardado en {output_file}")
     if opcion == 'B':
-        print(f"✓ También en docs/jubilacion-2026-10-final.json (default)")
+        print(f"✓ También en sitio/legado/jubilacion-2026-10-final.json (default)")
     return 0
 
 if __name__ == '__main__':

@@ -77,7 +77,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 
 # `agentico.sin_dato` → cómo se publica. Uno fuera de esta tabla es rojo: no se inventan.
@@ -107,7 +107,7 @@ def clasificar(m: dict, prov: str) -> tuple[str, str]:
     return ("falta" if prov == "openrouter" else "otra_ruta"), prov
 
 
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 APP_JS = DOCS / "app.js"
 CIFRA_HARBOR = re.compile(r"^(\d+) de (\d+)$")
 SIN_DATO = "sin dato agéntico"
@@ -254,7 +254,7 @@ def main() -> int:
     global DOCS, APP_JS
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--dist", type=Path, default=None,
-                    help="leer lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
+                    help="leer lo que compila Astro (sitio/dist); los datos siguen saliendo de sitio/legado/")
     a = ap.parse_args()
     if a.dist:
         DOCS, APP_JS = a.dist, a.dist / "app.js"

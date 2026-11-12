@@ -33,7 +33,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 # Docs que describen el estado ACTUAL -> deben coincidir con models.json.
 LIVE_DOCS = [
@@ -82,7 +82,7 @@ CLASIFICADAS: set[str] = set()   # URLs que este chequeo clasificó (regla de p�
 
 def _paginas_del_sitio(docs: Path | None = None) -> list[Path]:
     import paginas_leidas as pl
-    docs = docs or ROOT / "docs"
+    docs = docs or ROOT / "sitio" / "legado"
     CLASIFICADAS.clear()
     if not docs.exists():
         return []
@@ -100,7 +100,7 @@ def _paginas_del_sitio(docs: Path | None = None) -> list[Path]:
         # importaban.
         if any(g in t for g in GENERADORES):
             continue
-        # La calculadora (docs/index.html) no trata de UN modelo: los sirve a todos desde
+        # La calculadora (sitio/legado/index.html) no trata de UN modelo: los sirve a todos desde
         # models.json. No hay sujeto que atribuir, y su consistencia la cubre
         # `check_calculator.py` + el QA funcional.
         if p.parent == docs:
@@ -415,7 +415,7 @@ def _chequear_retirados(root) -> list[str]:
     en 11 páginas del sitio meses después de que Mistral apagara su endpoint.
     """
     import json as _json
-    data = _json.loads((root / "docs" / "data" / "models.json").read_text())
+    data = _json.loads((root / "sitio" / "legado" / "data" / "models.json").read_text())
     retirados = {m["name"]: m.get("retired_at") for m in data.get("models", [])
                  if isinstance(m, dict) and m.get("retired_at")}
     hallazgos = []
@@ -462,7 +462,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--verbose", action="store_true")
     ap.add_argument("--dist", type=Path, default=None,
-                    help="revisar las páginas de lo que compila Astro (sitio/dist) en vez de docs/")
+                    help="revisar las páginas de lo que compila Astro (sitio/dist) en vez de sitio/legado/")
     args = ap.parse_args()
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import paginas_leidas as pl
@@ -486,7 +486,7 @@ def main():
     # Regla de páginas leídas: cada página del registro queda clasificada (redirect, generada,
     # calculadora o verificada contra su modelo). Un árbol que no se lee no da verde.
     no_leidas = pl.exigir("check_consistency (páginas)", CLASIFICADAS, pl.esperadas())
-    declarado, leidas_decl = revisar_declarado(args.dist or ROOT / "docs")
+    declarado, leidas_decl = revisar_declarado(args.dist or ROOT / "sitio" / "legado")
     all_findings += declarado + pl.exigir("check_consistency (JSON-LD y meta)", leidas_decl, pl.esperadas())
 
     sin_sujeto = [f[len("__SIN_SUJETO__"):] for f in all_findings
@@ -503,7 +503,7 @@ def main():
         print("    No es que estén bien: es que nadie las miró. Renombra el slug para que "
               "contenga\n    el nombre del modelo, o agrega la atribución a mano.")
         # 11-nov-2026 (motor-sitio 2.3): «sin verificar» era un aviso y el chequeo seguía en
-        # verde con 29 páginas sin leer. Nace en verde (0 en docs/), así que es bloqueante.
+        # verde con 29 páginas sin leer. Nace en verde (0 en sitio/legado/), así que es bloqueante.
         all_findings += [f"{x}: SIN VERIFICAR (no se sabe de qué modelo trata)" for x in sin_sujeto]
     all_findings += no_leidas
     print(f"(Ignorados por diseño — son snapshots con fecha: {', '.join(HISTORICAL_DOCS)})\n")

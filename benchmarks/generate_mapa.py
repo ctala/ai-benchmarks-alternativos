@@ -4,8 +4,8 @@
 POR QUÉ EXISTE (3-sep-2026)
 ---------------------------
 Cristian, después de verme buscar las fichas de modelo en tres lugares equivocados
-—`docs/modelos/*.html`, `docs/ficha-*`, `results/per-model/`— antes de dar con
-`docs/modelo/<key>/index.html`: *"tenemos que tener ese mapa listo y no construirlo
+—`sitio/legado/modelos/*.html`, `sitio/legado/ficha-*`, `results/per-model/`— antes de dar con
+`sitio/legado/modelo/<key>/index.html`: *"tenemos que tener ese mapa listo y no construirlo
 cada vez"*.
 
 Lo caro no fueron los tres intentos: fue que en el intento fallido **concluí que
@@ -43,7 +43,7 @@ SALIDA = ROOT / "MAPA.md"
 ARTEFACTOS = [
     # ── el dato ──
     {"que": "El dataset que sirve el sitio y consume todo lo demás",
-     "ruta": "docs/data/models.json", "genera": "benchmarks/export_for_pages.py",
+     "ruta": "sitio/legado/data/models.json", "genera": "benchmarks/export_for_pages.py",
      "vigila": "benchmarks/check_consistency.py", "grupo": "Dato"},
     {"que": "La referencia congelada del score (mean/std por dimensión)",
      "ruta": "scoring_reference.json", "genera": "benchmarks/export_for_pages.py --recalibrate",
@@ -62,24 +62,24 @@ ARTEFACTOS = [
     # no corre en `regenerate_all` (el pipeline no puede depender de OpenRouter) y su
     # `--check` mira la fecha sin tocar la red.
     {"que": "Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización",
-     "ruta": "docs/data/censo_proveedores.json",
+     "ruta": "sitio/legado/data/censo_proveedores.json",
      "genera": "benchmarks/generate_censo_proveedores.py",
      "vigila": "benchmarks/generate_censo_proveedores.py", "grupo": "Dato"},
 
     # ── lo que ve un lector ──
     {"que": "FICHA POR MODELO — una por cada rankeado",
-     "ruta": "docs/modelo", "patron": "*/index.html",
+     "ruta": "sitio/legado/modelo", "patron": "*/index.html",
      "genera": "benchmarks/generate_model_cards.py",
      "vigila": "benchmarks/check_fichas_alcanzables.py", "grupo": "Páginas"},
     {"que": "La calculadora (home) y su lógica",
-     "ruta": "docs/index.html", "genera": "benchmarks/generate_home_explore.py",
+     "ruta": "sitio/legado/index.html", "genera": "benchmarks/generate_home_explore.py",
      "vigila": "benchmarks/qa_calculadora.mjs", "grupo": "Páginas"},
     {"que": "Rankings por dimensión y comparaciones (pSEO)",
-     "ruta": "docs", "patron": "*/index.html",
+     "ruta": "sitio/legado", "patron": "*/index.html",
      "genera": "benchmarks/generate_rankings.py · benchmarks/generate_comparison.py",
      "vigila": "benchmarks/auditar_paginas.py", "grupo": "Páginas"},
     {"que": "Sitemap y llms.txt",
-     "ruta": "docs/sitemap.xml", "genera": "benchmarks/generate_sitemap.py",
+     "ruta": "sitio/legado/sitemap.xml", "genera": "benchmarks/generate_sitemap.py",
      "vigila": "benchmarks/check_docs.py", "grupo": "Páginas"},
 
     # ── docs del repo ──

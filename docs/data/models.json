@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T21:04:34",
+  "generated_at": "2026-11-12T11:34:15",
   "total_models": 244,
   "tested_count": 193,
   "ranked_count": 74,
@@ -464,7 +464,7 @@
       "pilar": "Coding",
       "en_promedio": false,
       "menu": "Precisión con datos de negocio (RUT, montos, SKU)",
-      "decide": "no cambiar un carácter de un dato que cuesta plata"
+      "decide": "no cambiar un carácter de un dato que cuesta dinero"
     },
     "ocr_extraction": {
       "pilar": "Coding",

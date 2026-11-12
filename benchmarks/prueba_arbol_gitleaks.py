@@ -113,9 +113,9 @@ def plantar_y_verificar(tras_control=None, tras_plantar=None) -> bool:
     finally:
         plantado.unlink(missing_ok=True)
     # Un JSON generado NUEVO con keys de modelos no está en las exclusiones: tiene que verse.
-    copia = ROOT / "docs" / "data" / "_prueba_gitleaks_models.json"
+    copia = ROOT / "sitio" / "legado" / "data" / "_prueba_gitleaks_models.json"
     try:
-        shutil.copy2(ROOT / "docs" / "data" / "models.json", copia)
+        shutil.copy2(ROOT / "sitio" / "legado" / "data" / "models.json", copia)
         if _gitleaks() == 0:
             return False
     finally:

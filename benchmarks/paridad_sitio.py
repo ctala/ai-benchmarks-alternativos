@@ -4,9 +4,9 @@
 
 POR QUÉ EXISTE
 --------------
-El corte reemplaza `docs/` por lo que compila Astro. Si una página cambia de contenido sin que
+El corte reemplaza `sitio/legado/` por lo que compila Astro. Si una página cambia de contenido sin que
 nadie lo haya decidido, el corte lo publica en silencio. Acá se compara el `contrato-pagina`
-de cada página migrada (`recomienda`, `ordena_por`, `filas` por tabla) contra el de `docs/`, y
+de cada página migrada (`recomienda`, `ordena_por`, `filas` por tabla) contra el de `sitio/legado/`, y
 toda diferencia tiene que estar DECLARADA:
 
   - un modelo que SALE de una comparación por familia: está en `fuera` del export, con su
@@ -16,22 +16,22 @@ toda diferencia tiene que estar DECLARADA:
   - una página que pasa a redirect: el registro la declara (`redirect_a`, con su motivo);
   - una congelada: su contrato tiene que ser idéntico al de hoy.
 
-También las URLs: cada URL de `docs/` existe en `dist` o es `legado` en el registro.
+También las URLs: cada URL de `sitio/legado/` existe en `dist` o es `legado` en el registro.
 
 AFIRMACIONES (sesión 2, rankings y variantes; Cristian, 11-nov-2026)
 -------------------------------------------------------------------
 Un ranking o una página de variantes afirma cosas en prosa: quién es la mejor compra, el grupo
 de cabeza, el top 3, dónde queda cada familia frontier, qué tier recomendar y, suite por suite,
 si el precio compra algo. La versión de Astro las genera del dato (`sitio_rankings.py`) y las
-resume en `afirmaciones`; acá se leen las de `docs/` del HTML de Python y se comparan. Toda
+resume en `afirmaciones`; acá se leen las de `sitio/legado/` del HTML de Python y se comparan. Toda
 diferencia necesita un motivo en `MOTIVOS_AFIRMACION` (por tipo de página y de afirmación); sin
 motivo es rojo. El grupo de cabeza y la mejor compra salen de las mismas funciones en los dos
 motores: no tienen motivo declarado y una diferencia ahí es un error.
 
 FRASES RETIRADAS
 ----------------
-`RETIRADAS` lista frases que `docs/` publica y que el dato ya no respalda, con su motivo. Cada
-una tiene que estar en al menos una página de `docs/` de ese tipo (si no, la declaración sobra) y
+`RETIRADAS` lista frases que `sitio/legado/` publica y que el dato ya no respalda, con su motivo. Cada
+una tiene que estar en al menos una página de `sitio/legado/` de ese tipo (si no, la declaración sobra) y
 en ninguna de `dist`.
 
 Uso:
@@ -263,7 +263,7 @@ def comparar_afirmaciones(url: str, tipo: str, antes: dict, ahora: dict):
 
 
 def revisar_retiradas(dist: Path, docs: Path, regs: list[dict]):
-    """(declaradas, fallos): cada frase retirada está en docs/ y en ningún dist de su tipo."""
+    """(declaradas, fallos): cada frase retirada está en sitio/legado/ y en ningún dist de su tipo."""
     declaradas, fallos = [], []
     por_tipo: dict[str, list[dict]] = {}
     for e in regs:
@@ -279,7 +279,7 @@ def revisar_retiradas(dist: Path, docs: Path, regs: list[dict]):
         en_docs = [u for (t_, u), (d, _) in textos.items() if t_ == tipo and frase in d]
         en_dist = [u for (t_, u), (_, a) in textos.items() if t_ == tipo and frase in a]
         if not en_docs:
-            fallos.append(f"frase retirada «{frase}»: no está en ninguna página de {tipo} de docs/ "
+            fallos.append(f"frase retirada «{frase}»: no está en ninguna página de {tipo} de sitio/legado/ "
                           "(la declaración sobra o la frase está mal copiada)")
         if en_dist:
             fallos.append(f"frase retirada «{frase}»: sigue en dist ({', '.join(en_dist)})")
@@ -299,7 +299,7 @@ def revisar(dist: Path, docs: Path, datos: Path, regs: list[dict], ranked_por_no
     for url in sorted(rp.urls_en_docs(docs)):
         e = por_url.get(url)
         if e is None:
-            fallos.append(f"{url}: está en docs/ y no en el registro")
+            fallos.append(f"{url}: está en sitio/legado/ y no en el registro")
         elif e["motor"] == "astro" and not _html(dist, url).exists():
             fallos.append(f"{url}: se perdió (no está en dist)")
 
@@ -385,7 +385,7 @@ def revisar(dist: Path, docs: Path, datos: Path, regs: list[dict], ranked_por_no
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=ROOT / "sitio" / "dist")
-    ap.add_argument("--docs", type=Path, default=ROOT / "docs")
+    ap.add_argument("--docs", type=Path, default=ROOT / "sitio" / "legado")
     ap.add_argument("--datos", type=Path, default=ROOT / "sitio" / "src" / "datos")
     ap.add_argument("--detalle", action="store_true", help="lista cada diferencia declarada")
     a = ap.parse_args()
@@ -395,7 +395,7 @@ def main() -> int:
     d = json.loads((a.docs / "data" / "models.json").read_text(encoding="utf-8"))
     ranked = {m["name"]: bool(m.get("ranked")) for m in d["models"] if m.get("ranked")}
     fallos, declaradas = revisar(a.dist, a.docs, a.datos, rp.paginas(), ranked)
-    print("PARIDAD — docs/ (Python) contra dist (Astro)\n")
+    print("PARIDAD — sitio/legado/ (Python) contra dist (Astro)\n")
     print(f"  {len(declaradas)} diferencias declaradas (redirects, filas que salen por R1, afirmaciones "
           f"que cambian y frases retiradas)")
     if a.detalle:

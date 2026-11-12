@@ -48,7 +48,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 # `BENCH_BLOG` apunta los chequeos a otro checkout (un worktree que espera aprobación) sin
 # tocar el principal; qa.py avisa cuando está puesta (8-nov-2026).
 DEFAULT_BLOG = Path(os.environ.get("BENCH_BLOG")
@@ -329,7 +329,7 @@ def main() -> int:
         print(f"  ⏭️  sin el repo del blog en {args.blog}: no se verificó ningún marcador")
         return 0
     if not MODELS_JSON.exists():
-        sys.exit("Falta docs/data/models.json — corré export_for_pages.py primero")
+        sys.exit("Falta sitio/legado/data/models.json — corré export_for_pages.py primero")
 
     sys.path.insert(0, str(ROOT / "benchmarks"))
     from check_blog_consistency import congelado

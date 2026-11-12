@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera RECOMENDACIONES.md desde docs/data/models.json.
+Genera RECOMENDACIONES.md desde sitio/legado/data/models.json.
 
 POR QUE EXISTE
 --------------
@@ -34,7 +34,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from bands import verdict, quality_bands, is_local  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 OUT = ROOT / "RECOMENDACIONES.md"
 
 CALLS = 3000  # ~100/dia
@@ -88,7 +88,7 @@ def main():
 
     A("# Recomendaciones por Caso de Uso")
     A("")
-    A(f"> **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `docs/data/models.json`.")
+    A(f"> **Auto-generado** por `benchmarks/generate_recomendaciones.py` desde `sitio/legado/data/models.json`.")
     A(f"> **No editar a mano.** Última regeneración: {date.today().isoformat()} · "
       f"{len(ranked)} modelos con muestra sólida (≥50 runs).")
     A("")

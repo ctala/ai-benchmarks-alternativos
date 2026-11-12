@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Lo que Astro todavía no compila se copia tal cual desde `docs/` a `dist`. (11-nov-2026, tarea 2.2)
+"""Lo que Astro todavía no compila se copia tal cual desde `sitio/legado/` a `dist`. (11-nov-2026, tarea 2.2)
 
 POR QUÉ EXISTE
 --------------
-El corte del change `motor-sitio` reemplaza `docs/` por `dist`. Astro compila hoy las
+El corte del change `motor-sitio` reemplaza `sitio/legado/` por `dist`. Astro compila hoy las
 comparaciones, los rankings, las variantes y los redirects. Las fichas, las landings, la home con
 la calculadora y la página de proveedores siguen saliendo de Python (`motor: legado`) hasta el 1b.
 Si `dist` no las llevara, el corte borraría 143 páginas. Además están los archivos que no son
 páginas: `data/` (el JSON público), `app.js`, `style.css`, `img/`, `CNAME`, `robots.txt`,
 `sitemap.xml`, `llms.txt` y la verificación de IndexNow.
 
-Regla: se copia todo lo de `docs/` **salvo** las carpetas de las páginas que el registro declara en
+Regla: se copia todo lo de `sitio/legado/` **salvo** las carpetas de las páginas que el registro declara en
 Astro, porque esas las compila Astro. Si algo copiado choca con un archivo que Astro ya escribió,
 falla: dos motores escribiendo la misma ruta es justo lo que el registro existe para impedir.
 
@@ -53,7 +53,7 @@ def main() -> int:
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=ROOT / "sitio" / "dist")
-    ap.add_argument("--docs", type=Path, default=ROOT / "docs")
+    ap.add_argument("--docs", type=Path, default=ROOT / "sitio" / "legado")
     a = ap.parse_args()
     if not a.dist.is_dir():
         print(f"  ❌ no existe {a.dist}: primero `astro build`")
@@ -64,7 +64,7 @@ def main() -> int:
         for c in choques[:20]:
             print(f"     · {c}")
         return 1
-    print(f"  ✓ legado: {n} archivos copiados de docs/ a dist (fichas, landings, home, proveedores y archivos)")
+    print(f"  ✓ legado: {n} archivos copiados de sitio/legado/ a dist (fichas, landings, home, proveedores y archivos)")
     return 0
 
 

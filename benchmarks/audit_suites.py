@@ -127,7 +127,7 @@ def main() -> int:
     print("\n" + "=" * 78)
     print("  EJES PUBLICADOS — ¿el nombre corresponde con lo que correlaciona?")
     print("=" * 78)
-    exp = json.loads((ROOT / "docs/data/models.json").read_text())
+    exp = json.loads((ROOT / "sitio/legado/data/models.json").read_text())
     SUITES_TOOLS = {"tool_calling", "customer_support", "orchestration", "agent_capabilities"}
     tc_real = defaultdict(list)
     for s in SUITES_TOOLS:

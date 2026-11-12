@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPT-5.6 vs GPT-5.5 en 2026: comparación con benchmark real</title>
+<meta name="description" content="GPT-5.6 vs GPT-5.5 comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta name="keywords" content="gpt 5.6 vs gpt 5.5, openai gpt 5.6 benchmark, chatgpt 5.6 vs 5.5, gpt 5.6 vale la pena">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/gpt-5.6-vs-gpt-5.5/">
+<meta property="og:title" content="GPT-5.6 vs GPT-5.5 en 2026: comparación con benchmark real">
+<meta property="og:description" content="GPT-5.6 vs GPT-5.5 comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/gpt-5.6-vs-gpt-5.5/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-5.6 vs GPT-5.5 en 2026: comparación con benchmark real">
+<meta name="twitter:description" content="GPT-5.6 vs GPT-5.5 comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GPT-5.6 vs GPT-5.5 en 2026: comparación con benchmark real",
+  "description": "GPT-5.6 vs GPT-5.5 comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-11-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/gpt-5.6-vs-gpt-5.5/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/gpt-5.6-vs-gpt-5.5/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+</head>
+<body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>GPT-5.6 vs GPT-5.5: foto histórica de su comparación</h1>
+    <p class="lead">Cómo rindieron <strong>GPT-5.6</strong> y <strong>GPT-5.5</strong> cuando se midieron, en los 4 pilares del emprendedor (coding, contenido, razonamiento, agentes), con costo y velocidad. Evaluados con LLM-as-Judge Phi-4 vía OpenRouter.</p>
+    <p class="versions">
+    <span class="versions-label">Versiones que entran en esta comparación</span>
+    <span class="versions-row">GPT-5.6: <strong>GPT-5.6 Luna</strong>, <strong>GPT-5.6 Sol</strong>, <strong>GPT-5.6 Terra</strong>, <strong>GPT-5.6 Luna Pro</strong>, <strong>GPT-5.6 Terra Pro</strong></span>
+    <span class="versions-row">GPT-5.5: <strong>GPT-5.5</strong></span>
+    <span class="versions-fine">Solo entran modelos con ≥50 runs. Ordenados por <strong>calidad media</strong>
+    en los 4 pilares — no por precio.</span>
+  </p>
+    <p class="meta">Última actualización: 2026-11-12 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>GPT-5.6 vs GPT-5.5: tabla comparativa</h2>
+      <p class="meta"><strong>Calidad</strong> = media de los 4 pilares, y es la columna que ordena la tabla. Los pilares al lado, en la misma escala /10. Sin costo ni velocidad adentro: van en sus propias columnas.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>GPT-5.6 Luna <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.94</strong></td><td>9.7</td><td>8.9</td><td>8.6</td><td>8.1</td><td>$0.20 / $1.20</td><td>105 tok/s</td></tr>
+        <tr><td>2</td><td>GPT-5.6 Sol <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.86</strong></td><td>9.5</td><td>8.8</td><td>8.3</td><td>7.9</td><td>$2.00 / $10.00</td><td>78 tok/s</td></tr>
+        <tr><td>3</td><td>GPT-5.6 Terra <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.70</strong></td><td>9.5</td><td>8.7</td><td>8.1</td><td>7.9</td><td>$2.00 / $12.00</td><td>77 tok/s</td></tr>
+        <tr><td>4</td><td>GPT-5.5 <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.61</strong></td><td>9.0</td><td>9.0</td><td>8.4</td><td>7.0</td><td>$5.00 / $30.00</td><td>56 tok/s</td></tr>
+        <tr><td>5</td><td>GPT-5.6 Luna Pro <span class="row-badge no-rankea" title="es la misma base razonando más, al mismo precio: no es otro producto">no rankea</span></td><td><strong>—</strong></td><td>9.8</td><td>9.0</td><td>8.0</td><td>8.0</td><td>$0.20 / $1.20</td><td>163 tok/s</td></tr>
+        <tr><td>6</td><td>GPT-5.6 Terra Pro <span class="row-badge no-rankea" title="es la misma base razonando más, al mismo precio: no es otro producto">no rankea</span></td><td><strong>—</strong></td><td>9.4</td><td>8.8</td><td>8.0</td><td>7.8</td><td>$2.00 / $12.00</td><td>147 tok/s</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
+  </section>
+  <section class="foto-historica" data-foto-historica="1">
+    <p class="cobertura parcial">📷 <strong>Foto histórica, sin ganador.</strong>
+    <strong>GPT-5.6</strong> se midió con el examen anterior (era E0, E1), y a una parte la reemplazó su versión nueva (GPT-6.1 Sol, GPT-6.1 Terra); <strong>GPT-5.5</strong> se midió con el examen anterior (era E0).
+    Como al menos uno de los dos no está en el ranking vigente, esta página no elige
+    ganador: queda como registro de lo que se midió. Para elegir hoy, mira <a href="/">la calculadora con el ranking vigente</a>.</p>
+  </section>
+  <section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
+  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
+  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
+  velocidad, español neutro y agentes multi-turno.</p>
+  <p>Contamos con <strong>244 modelos catalogados</strong>, <strong>193 testeados</strong>
+  y <strong>88.000+ runs reales</strong> evaluados por un
+  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
+    <li><strong>Contenido y marketing</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
+    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
+    <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+  </ul>
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Lee un empate
+  como "el juez no los distingue", no como "son idénticos".
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>
+  <section class="faq">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿GPT-5.6 o GPT-5.5 es mejor en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la calculadora con el ranking vigente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Estos datos de dónde salen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De un benchmark abierto con 88.000+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en GitHub."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es más barato para agentes con volumen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la calculadora."
+      }
+    }
+  ]
+}
+</script>
+  <h2>Preguntas frecuentes</h2>
+  <details><summary><strong>¿GPT-5.6 o GPT-5.5 es mejor en 2026?</strong></summary>
+  <p>Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la <a href="/">calculadora</a> con el ranking vigente.</p></details>
+  <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
+  <p>De un benchmark abierto con 88.000+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
+  <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
+  <p>Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
+</section>
+  <section class="cta-block">
+    <h2>Prueba la calculadora con tu caso real</h2>
+    <p>Filtra GPT-5.6, GPT-5.5 y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
+    <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  </section>
+<script type="application/json" id="contrato-pagina">
+{"tipo": "comparacion", "generador": "generate_comparison", "recomienda": [], "ordena_por": "Calidad (media de los 4 pilares)", "tablas": [{"rol": "principal", "ordena_por": "Calidad", "filas": 6, "bloques": 2}]}
+</script>
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a></p>
+  </div>
+</footer>
+</body>
+</html>

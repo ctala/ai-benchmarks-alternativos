@@ -46,8 +46,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
-SALIDA = ROOT / "docs" / "data" / "censo_proveedores.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
+SALIDA = ROOT / "sitio" / "legado" / "data" / "censo_proveedores.json"
 API = "https://openrouter.ai/api/v1/models/{id}/endpoints"
 
 # Los precios y la cuantización de un endpoint cambian sin aviso. Un mes es el plazo en el

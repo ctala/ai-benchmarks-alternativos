@@ -195,7 +195,7 @@ def e8_examen_v5(foto: dict) -> list[str]:
 
 def e9_rankeados_con_nivel(catalogo: dict) -> list[str]:
     import json
-    mj = ROOT / "docs" / "data" / "models.json"
+    mj = ROOT / "sitio" / "legado" / "data" / "models.json"
     rank = [m["key"] for m in json.loads(mj.read_text())["models"] if m.get("ranked")]
     if not rank:
         return ["E9 models.json no trae rankeados: el detector está ciego"]

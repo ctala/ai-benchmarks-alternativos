@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 Genera la imagen Open Graph (1200x630) de la calculadora/benchmark a partir de
-docs/data/models.json — representativa del producto (ranking real top-5 + stats),
+sitio/legado/data/models.json — representativa del producto (ranking real top-5 + stats),
 no del logo personal. Marca synthwave (cyan/verde/oro, JetBrains Mono).
 
-Salida: docs/og-benchmark.png  (referenciada en docs/index.html og:image/twitter:image)
+Salida: sitio/legado/og-benchmark.png  (referenciada en sitio/legado/index.html og:image/twitter:image)
 
 Regenerar tras cada lote (la incluyo en el pipeline de auto-generación):
     python benchmarks/generate_og_image.py
@@ -13,8 +13,8 @@ import json, os
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODELS_JSON = os.path.join(ROOT, "docs", "data", "models.json")
-OUT = os.path.join(ROOT, "docs", "og-benchmark.png")
+MODELS_JSON = os.path.join(ROOT, "sitio", "legado", "data", "models.json")
+OUT = os.path.join(ROOT, "sitio", "legado", "og-benchmark.png")
 
 W, H = 1200, 630
 # Marca

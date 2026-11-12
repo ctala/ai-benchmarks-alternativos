@@ -4,10 +4,10 @@
 
 POR QUÉ EXISTE
 --------------
-Al poner el HTML de Astro (`dist`) en lugar del de Python (`docs/`), `check_ganadores` y
+Al poner el HTML de Astro (`dist`) en lugar del de Python (`sitio/legado/`), `check_ganadores` y
 `check_cortes` leyeron cero filas, y `check_consistency` dejó 29 páginas sin verificar **en
 verde**. Un guardrail cuyo lector no reconoce el HTML no falla: no encuentra nada que objetar.
-Comparar `docs/` contra `dist` lo destapó una vez; no puede depender de que alguien se acuerde.
+Comparar `sitio/legado/` contra `dist` lo destapó una vez; no puede depender de que alguien se acuerde.
 
 La regla: cada guardrail portado dice qué páginas leyó y falla si son menos de las que el
 registro (`registro_paginas.py`) le asigna. Así, uno que en el futuro deje de leer, por un
@@ -37,7 +37,7 @@ def esperadas(tipos: set[str] | None = None, con_redirects: bool = False) -> set
 
 
 def url_de(base: Path, html: Path) -> str:
-    """La URL pública de un `index.html` bajo `base` (`docs/` o `dist`)."""
+    """La URL pública de un `index.html` bajo `base` (`sitio/legado/` o `dist`)."""
     rel = html.parent.relative_to(base)
     return "/" if str(rel) == "." else f"/{rel.as_posix()}/"
 

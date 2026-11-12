@@ -61,7 +61,7 @@ from benchmarks.models import MODELS, OLLAMA_MODELS  # noqa: E402
 from providers.registry import MissingCredential, build_providers, provider_for  # noqa: E402
 
 MODELS_PY = ROOT / "benchmarks" / "models.py"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 # El resultado del ping se guarda fechado para que quien lo use (el conjunto base de
 # `fuentes_externas.py`) se recalcule sin red y sin volver a gastar. Un ping es una foto:
 # vale para su fecha, y la fecha va en el nombre.

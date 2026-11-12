@@ -4,7 +4,7 @@ Genera tabla de modelos probados para MODELOS.md con links a:
 1. MD por modelo en benchmarks/results/per-model/
 2. Carpeta de responses individuales
 
-El score mostrado es el `score_global` z-scoreado de docs/data/models.json,
+El score mostrado es el `score_global` z-scoreado de sitio/legado/data/models.json,
 exactamente el mismo que usa la calculadora web. No recalcula nada desde los
 JSONs crudos para evitar discrepancias.
 
@@ -22,7 +22,7 @@ ROOT = Path(__file__).parent.parent
 RESULTS_DIR = ROOT / "benchmarks" / "results"
 PER_MODEL_DIR = RESULTS_DIR / "per-model"
 RESPONSES_DIR = RESULTS_DIR / "responses"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 
 def model_id_to_per_model_filename(model_id: str) -> str:

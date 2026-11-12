@@ -102,7 +102,7 @@ jobs:
       # estan ambos en git. CI usa los mismos archivos que dev local. No se
       # copian ni sincronizan (eliminado config.example.py).
 
-      - name: Regenerar docs/data/models.json
+      - name: Regenerar sitio/legado/data/models.json
         run: python benchmarks/export_for_pages.py
 
       - name: Regenerar MODELOS.md (tabla con links)
@@ -114,7 +114,7 @@ jobs:
       - name: Regenerar TESTS.md (prompts completos)
         run: python benchmarks/generate_tests_md.py -o TESTS.md
 
-      - name: Regenerar docs/sitemap.xml
+      - name: Regenerar sitio/legado/sitemap.xml
         # checkout@v4 con fetch-depth:0 ya nos da historial completo para git log lastmod
         run: python benchmarks/generate_sitemap.py
 
@@ -128,6 +128,14 @@ jobs:
 
       - name: Verificar que dist se compiló con el models.json de ahora
         run: python benchmarks/check_datos_dist.py --dist sitio/dist
+
+      # 12-nov-2026 (motor-sitio 2.6): docs/ es lo que sirve Pages y desde el corte solo lo
+      # escribe esta copia de sitio/dist. Los generadores de Python escriben en sitio/legado/.
+      - name: Copiar dist a docs/ (lo único que escribe docs/)
+        run: python benchmarks/publicar_dist.py
+
+      - name: Verificar que docs/ es la copia de dist y que nada más escribe ahí
+        run: python benchmarks/publicar_dist.py --check --sin-compilar
 
       # Guardrail: falla el build si un doc vivo publica un score que ya no
       # coincide con models.json. El score es z-score contra la poblacion, asi
@@ -199,7 +207,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/models.json docs/sitemap.xml MODELOS.md TESTS.md README.md
+          # Lo que se commitea en docs/ sale del build: si difiere de dist, no se commitea nada.
+          python benchmarks/publicar_dist.py --check --sin-compilar
+          git add docs sitio/legado/data/models.json sitio/legado/sitemap.xml MODELOS.md TESTS.md README.md
           # corte-v5 2.7 (DECISIONES, 4-nov-2026): si lo único distinto es la fecha de corrida
           # (`generated_at`, «última regeneración»), no se commitea. Al 3-nov, 12 de los 13
           # commits del bot desde agosto eran eso, y la calculadora decía «actualizado hoy»

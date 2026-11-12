@@ -18,7 +18,7 @@ gratis» o «curso gratis». Era la tarea 1.4.d de `corte-v5-1`, que pasó al mo
   C5  regla de páginas leídas.
 
 Uso:
-    python benchmarks/check_cta.py                    # docs/
+    python benchmarks/check_cta.py                    # sitio/legado/
     python benchmarks/check_cta.py --dist sitio/dist  # lo que compila Astro
 """
 from __future__ import annotations
@@ -112,7 +112,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None, help="revisar lo que compila Astro (sitio/dist)")
     a = ap.parse_args()
-    base = a.dist or ROOT / "docs"
+    base = a.dist or ROOT / "sitio" / "legado"
     import paginas_leidas as pl
 
     fallos, leidas = [], set()

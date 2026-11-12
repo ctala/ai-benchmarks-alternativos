@@ -44,7 +44,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 # Rango donde viven los scores del benchmark. Por debajo son precios y proporciones.
 #
 # Acepta COMA y punto: el datasheet se escribe en español («8,53») y el HTML del
@@ -159,7 +159,7 @@ def main() -> int:
     print(f"\n  ❌ {len(fallos)} problema(s):\n")
     for x in fallos:
         print(f"     {x}")
-    print("\n     El release usa la MISMA fuente que el sitio: `docs/data/models.json`.")
+    print("\n     El release usa la MISMA fuente que el sitio: `sitio/legado/data/models.json`.")
     print("     Si una cifra no está ahí, viene de una escala vieja o se escribió a mano.")
     return 1
 

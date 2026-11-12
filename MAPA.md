@@ -20,21 +20,21 @@ el próximo que lo busque.
 
 | Qué es | Dónde vive | Hoy | Quién lo escribe | Quién lo vigila |
 |---|---|---|---|---|
-| El dataset que sirve el sitio y consume todo lo demás | `docs/data/models.json` | 1 archivo | `benchmarks/export_for_pages.py` | `benchmarks/check_consistency.py` |
+| El dataset que sirve el sitio y consume todo lo demás | `sitio/legado/data/models.json` | 1 archivo | `benchmarks/export_for_pages.py` | `benchmarks/check_consistency.py` |
 | La referencia congelada del score (mean/std por dimensión) | `scoring_reference.json` | 1 archivo | `benchmarks/export_for_pages.py --recalibrate` | `benchmarks/check_version.py` |
 | Resultados crudos de cada lote, uno por corrida | `benchmarks/results/*.json` | 719 archivos | `benchmarks/runner.py` | `benchmarks/validate.py` |
 | La ENTRADA y la salida de cada run, auditable desde GitHub | `benchmarks/results/responses/*/*/*.md` | 58264 archivos | `benchmarks/runner.py` | `benchmarks/check_truncamiento.py` |
 | Tareas agénticas ejecutadas (Harbor), por tarea y modelo | `tareas-agente/resultados.json` | 1 archivo | `benchmarks/export_harbor.py` | `benchmarks/check_agentico_publicado.py` |
-| Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización | `docs/data/censo_proveedores.json` | 1 archivo | `benchmarks/generate_censo_proveedores.py` | `benchmarks/generate_censo_proveedores.py` |
+| Por dónde se puede consumir cada modelo: proveedor, precio, contexto y cuantización | `sitio/legado/data/censo_proveedores.json` | 1 archivo | `benchmarks/generate_censo_proveedores.py` | `benchmarks/generate_censo_proveedores.py` |
 
 ## Páginas
 
 | Qué es | Dónde vive | Hoy | Quién lo escribe | Quién lo vigila |
 |---|---|---|---|---|
-| FICHA POR MODELO — una por cada rankeado | `docs/modelo/*/index.html` | 132 archivos | `benchmarks/generate_model_cards.py` | `benchmarks/check_fichas_alcanzables.py` |
-| La calculadora (home) y su lógica | `docs/index.html` | 1 archivo | `benchmarks/generate_home_explore.py` | `benchmarks/qa_calculadora.mjs` |
-| Rankings por dimensión y comparaciones (pSEO) | `docs/*/index.html` | 71 archivos | `benchmarks/generate_rankings.py · benchmarks/generate_comparison.py` | `benchmarks/auditar_paginas.py` |
-| Sitemap y llms.txt | `docs/sitemap.xml` | 1 archivo | `benchmarks/generate_sitemap.py` | `benchmarks/check_docs.py` |
+| FICHA POR MODELO — una por cada rankeado | `sitio/legado/modelo/*/index.html` | 132 archivos | `benchmarks/generate_model_cards.py` | `benchmarks/check_fichas_alcanzables.py` |
+| La calculadora (home) y su lógica | `sitio/legado/index.html` | 1 archivo | `benchmarks/generate_home_explore.py` | `benchmarks/qa_calculadora.mjs` |
+| Rankings por dimensión y comparaciones (pSEO) | `sitio/legado/*/index.html` | 71 archivos | `benchmarks/generate_rankings.py · benchmarks/generate_comparison.py` | `benchmarks/auditar_paginas.py` |
+| Sitemap y llms.txt | `sitio/legado/sitemap.xml` | 1 archivo | `benchmarks/generate_sitemap.py` | `benchmarks/check_docs.py` |
 
 ## Docs
 

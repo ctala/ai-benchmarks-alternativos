@@ -3,16 +3,18 @@
 Pipeline maestro de regeneración de artefactos del benchmark.
 
 Orden:
-1. export_for_pages.py       -> docs/data/models.json (single source of truth)
+1. export_for_pages.py       -> sitio/legado/data/models.json (single source of truth)
 2. generate_modelos_md_table.py -i  -> MODELOS.md
 3. generate_tests_md.py -o TESTS.md -> TESTS.md
 4. generate_per_model_md.py  -> benchmarks/results/per-model/
-5. generate_rankings.py      -> docs/mejor-llm-*/
-6. generate_comparison.py    -> docs/*-vs-*/
-7. generate_sitemap.py       -> docs/sitemap.xml
-8. generate_llms_txt.py      -> docs/llms.txt
-9. generate_og_image.py      -> docs/og-benchmark.png
+5. generate_rankings.py      -> sitio/legado/mejor-llm-*/
+6. generate_comparison.py    -> sitio/legado/*-vs-*/
+7. generate_sitemap.py       -> sitio/legado/sitemap.xml
+8. generate_llms_txt.py      -> sitio/legado/llms.txt
+9. generate_og_image.py      -> sitio/legado/og-benchmark.png
 10. sync_doc_counts.py       -> README.md y otros MDs/HTMLs con marcadores
+11. npm run build (sitio/)  -> sitio/dist (Astro + el legado copiado + sus guardrails)
+12. publicar_dist.py        -> docs/, copia espejo de sitio/dist: lo único que escribe docs/
 
 Uso:
     python benchmarks/regenerate_all.py              # pipeline completo
@@ -59,7 +61,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Pipeline maestro de regeneración de artefactos")
     ap.add_argument("--dry-run", action="store_true", help="Muestra comandos sin ejecutar")
     ap.add_argument("--check", action="store_true", help="Solo valida counts con sync_doc_counts.py --dry-run")
-    ap.add_argument("--skip-og-image", action="store_true", help="No regenera docs/og-benchmark.png")
+    ap.add_argument("--skip-og-image", action="store_true", help="No regenera sitio/legado/og-benchmark.png")
     ap.add_argument("--skip-per-model", action="store_true", help="No regenera benchmarks/results/per-model/")
     ap.add_argument("--skip-comparisons", action="store_true", help="No regenera páginas de comparación/ranking")
     ap.add_argument("--skip-sitemap", action="store_true", help="No regenera sitemap ni llms.txt")
@@ -393,7 +395,9 @@ def main() -> int:
     # escribir, y su `postbuild` corre los guardrails que leen `dist` (registro, paridad, CTA,
     # fechas, vista de teléfono…). Va al final porque lee models.json y el legado ya
     # regenerados. Después, `check_datos_dist` confirma que `dist` salió del models.json de
-    # ahora: un `dist` viejo es justo lo que el corte copiaría a `docs/`.
+    # ahora: un `dist` viejo es justo lo que se copiaría a `docs/`.
+    # 11. LO PUBLICADO (12-nov-2026, motor-sitio 2.6). `docs/` es la copia de `dist` y nada más la
+    # escribe: los generadores de arriba escriben en `sitio/legado/`. Se copia y se verifica.
     if not args.dry_run and not args.skip_sitio:
         sitio = ROOT / "sitio"
         print()
@@ -407,6 +411,11 @@ def main() -> int:
         rc = run_script("check_datos_dist.py", ["--dist", str(sitio / "dist")], dry_run=False, allow_fail=True)
         if rc != 0:
             print("\n❌ sitio/dist no salió del models.json de ahora.")
+            return 1
+        run_script("publicar_dist.py", [], dry_run=False)
+        rc = run_script("publicar_dist.py", ["--check", "--sin-compilar"], dry_run=False, allow_fail=True)
+        if rc != 0:
+            print("\n❌ docs/ no quedó igual a sitio/dist, o un script escribe en docs/. Ver arriba.")
             return 1
 
     print("\n✅ Pipeline de regeneración completado — y sin drift.")

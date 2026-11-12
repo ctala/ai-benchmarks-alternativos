@@ -211,12 +211,12 @@ CHEQUEOS = [
     ("version", "el Action compila el sitio nuevo con Node fijado y en el orden que funciona (A1-A5)",
      [PY, "benchmarks/check_action.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
-    # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
+    # incluidas (antes leía un solo nivel de sitio/legado/), y falla si lee menos páginas que el
     # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.
     ("paginas", "lo publicado está en español neutro, sin voseo ni localismos",
      [PY, "benchmarks/check_espanol_neutro.py"], True, True),
     # 11-nov-2026 (motor-sitio 1.4): cada URL publicada está declarada en el registro. Sin
-    # build corren R0 y R3 contra docs/; R1, R2 y R4 miran lo compilado dentro de
+    # build corren R0 y R3 contra sitio/legado/; R1, R2 y R4 miran lo compilado dentro de
     # `npm run build`. Nace verde: bloqueante.
     ("paginas", "cada URL publicada está en el registro de páginas, y el sitemap y llms.txt solo sus destinos (R0-R6)",
      [PY, "benchmarks/check_registro.py"], True, True),
@@ -224,6 +224,15 @@ CHEQUEOS = [
     # isMobile). Compila antes si el build es más viejo que las fuentes. Nace verde: bloqueante.
     ("paginas", "ninguna página del sitio nuevo desborda en un teléfono de 390 px",
      [PY, "benchmarks/check_movil.py"], True, False),
+    # 12-nov-2026 (motor-sitio 2.6, Cristian): ningún guardrail medía contraste, y el magenta de
+    # alerta quedó como texto sobre claro (3,1:1). axe sobre lo compilado, dos páginas de cada tipo
+    # y una ficha retirada, a 390 y 1280 px. Nace verde: bloqueante.
+    ("paginas", "ningún texto del sitio compilado queda bajo el contraste WCAG AA (axe)",
+     [PY, "benchmarks/check_contraste.py"], True, False),
+    # 12-nov-2026 (motor-sitio 2.6, Cristian): docs/ solo se escribe con la copia de sitio/dist;
+    # los generadores de Python escriben en sitio/legado/. Nace verde: bloqueante.
+    ("paginas", "lo publicado (docs/) es la copia de sitio/dist y ningún script escribe ahí (P1-P3)",
+     [PY, "benchmarks/publicar_dist.py", "--check"], True, False),
     ("paginas", "toda página que lista un modelo deja llegar a su ficha",
      [PY, "benchmarks/check_fichas_alcanzables.py"], True, True),
     ("datos", "cobertura del núcleo sobre el piso",
@@ -238,7 +247,7 @@ AREAS = ["datos", "suites", "calculadora", "paginas", "guardrails", "version"]
 # a una rama `lote/…`, y regenerar los artefactos sólo al cerrar el lote. Eso deja, a
 # propósito, dos estados que este QA lee como error:
 #
-#   · runs en disco de un modelo que `docs/data/models.json` todavía no publica — porque
+#   · runs en disco de un modelo que `sitio/legado/data/models.json` todavía no publica — porque
 #     el export corre una vez, al final, para que el ranking se mueva una vez y no seis;
 #   · un CHANGELOG sin el bump declarado, porque el release se arma cuando el lote cierra.
 #

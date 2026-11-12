@@ -28,7 +28,7 @@ Y de paso destapó que el índice declarado no es el que promedia — ver `check
 MÉTODO (por qué se le puede creer)
 ----------------------------------
 No reimplementa el cálculo: reutiliza `aggregate_metrics`, la MISMA función que produce
-`quality_avg` y `quality_ci95` en `docs/data/models.json`. Jubilar una suite = pasarla en
+`quality_avg` y `quality_ci95` en `sitio/legado/data/models.json`. Jubilar una suite = pasarla en
 `low_coverage_suites`, el conjunto que `general` ya excluye del quality.
 
 La fase 1 reproduce el quality_avg PUBLICADO de los 107 rankeados y **se niega a simular si
@@ -51,7 +51,7 @@ from benchmarks.export_for_pages import (  # noqa: E402
 )
 from benchmarks.runner import ALL_TEST_SUITES as TS  # noqa: E402
 
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 # Tolerancias del control. Cero en la práctica (se reutiliza la función real); el margen
 # existe para no romperse por un redondeo si el export cambia de formato.

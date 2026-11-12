@@ -47,7 +47,7 @@ import generate_rankings as gr  # noqa: E402
 import generate_variants as gv  # noqa: E402
 from bands import _indistinguishable, is_local, quality_bands, SUITE  # noqa: E402
 
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 
 # Las familias que la gente busca como «frontier». Es una decisión editorial, no un dato: los
 # cuatro laboratorios cerrados grandes. Qué modelo de cada una aparece sale del ranking.

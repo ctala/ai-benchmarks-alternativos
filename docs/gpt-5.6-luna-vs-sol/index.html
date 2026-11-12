@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<!-- generado-por: sitio/ (Astro, motor-sitio) — no editar a mano, se sobrescribe -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,7 @@
 <meta name="description" content="GPT-5.6 Luna vs GPT-5.6 Sol comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
 <meta name="keywords" content="gpt 5.6 luna vs sol, chatgpt 5.6 barato vs flagship, diferencia luna sol, gpt 5.6 comparativa">
 <meta name="author" content="Cristian Tala">
+<meta name="datos-sha" content="58c56c467a41af4b">
 <link rel="canonical" href="https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-sol/">
 <meta property="og:title" content="GPT-5.6 Luna vs Sol en 2026: comparación con benchmark real">
 <meta property="og:description" content="GPT-5.6 Luna vs GPT-5.6 Sol comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
@@ -23,12 +24,7 @@
 <meta name="twitter:description" content="GPT-5.6 Luna vs GPT-5.6 Sol comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
 <meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
 <link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "GPT-5.6 Luna vs Sol en 2026: comparación con benchmark real",
@@ -39,7 +35,7 @@
     "url": "https://cristiantala.com"
   },
   "datePublished": "2026-07-17",
-  "dateModified": "2026-11-11",
+  "dateModified": "2026-11-12",
   "inLanguage": "es",
   "url": "https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-sol/",
   "mainEntityOfPage": "https://benchmarks.cristiantala.com/gpt-5.6-luna-vs-sol/",
@@ -48,15 +44,7 @@
     "name": "Cristian Tala",
     "url": "https://cristiantala.com"
   }
-}
-</script>
-<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
-     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
-     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
-     idle, para no meterlo en la ruta critica del LCP.
-     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
-     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
-<script>
+}</script><script>
 (function () {
   var loaded = false;
   function loadGTM() {
@@ -74,10 +62,8 @@
   });
   setTimeout(loadGTM, 3500);
 })();
-</script>
-</head>
+</script><link rel="stylesheet" href="/_astro/index.eM1f4DtW.css"></head>
 <body>
-<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
 <script>
 (function () {
   window.dataLayer = window.dataLayer || [];
@@ -96,7 +82,6 @@
       window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
     }
   }, { passive: true });
-  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
   var t = document.querySelector('.results-table');
   if (t && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
@@ -108,87 +93,102 @@
     io.observe(t);
   }
 })();
-</script>
-<header>
-  <div class="container header-inner">
+</script><header class="sitio-header">
+  <div class="contenedor header-inner">
     <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
       <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
     </a>
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a>
     </nav>
   </div>
 </header>
-<main class="container">
+<main class="contenedor">
+
+
   <section class="hero">
-    <h1>GPT-5.6 Luna vs GPT-5.6 Sol: foto histórica de su comparación</h1>
-    <p class="lead">Cómo rindieron <strong>GPT-5.6 Luna</strong> y <strong>GPT-5.6 Sol</strong> cuando se midieron, en los 4 pilares del emprendedor (coding, contenido, razonamiento, agentes), con costo y velocidad. Evaluados con LLM-as-Judge Phi-4 vía OpenRouter.</p>
-    <p class="versions">
-    <span class="versions-label">Versiones que entran en esta comparación</span>
-    <span class="versions-row">GPT-5.6 Luna: <strong>GPT-5.6 Luna</strong>, <strong>GPT-5.6 Luna Pro</strong></span>
-    <span class="versions-row">GPT-5.6 Sol: <strong>GPT-5.6 Sol</strong></span>
-    <span class="versions-fine">Solo entran modelos con ≥50 runs. Ordenados por <strong>calidad media</strong>
-    en los 4 pilares — no por precio.</span>
-  </p>
-    <p class="meta">Última actualización: 2026-11-11 ·
-    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
-  </section>
-  <section class="results">
-    <div class="results-header">
-      <h2>GPT-5.6 Luna vs GPT-5.6 Sol: tabla comparativa</h2>
-      <p class="meta"><strong>Calidad</strong> = media de los 4 pilares, y es la columna que ordena la tabla. Los pilares al lado, en la misma escala /10. Sin costo ni velocidad adentro: van en sus propias columnas.</p>
+    <aside class="aviso aviso-congelada" data-congelada>
+  <p><strong>Página congelada desde el 2026-11-11.</strong> Comparación de versión exacta: a un lado le falta su página de familia. Se reevalúa cuando el change de comparaciones por familia la cree.</p>
+  <p>Para elegir hoy, mira <a href="/">la calculadora con el ranking vigente</a>.</p>
+</aside>
+    <p class="kicker">// comparación</p>
+    <h1 class="titulo-largo"><span data-nombre>GPT-5.6 Luna</span> vs <span data-nombre>GPT-5.6 Sol</span>: foto histórica de su comparación</h1>
+    <p class="lead">Cómo rindieron <strong><span data-nombre>GPT-5.6 Luna</span></strong> y <strong><span data-nombre>GPT-5.6 Sol</span></strong> cuando se midieron, en los <span data-cifra>4</span> pilares del emprendedor (coding, contenido, razonamiento, agentes), con costo y velocidad. Evaluados con LLM-as-Judge <span data-nombre>Phi-4</span> vía OpenRouter.</p>
+    <div class="card versiones">
+      <span class="versiones-label">Versiones que entran en esta comparación</span>
+      <span><span data-nombre>GPT-5.6 Luna</span>: <strong data-nombre>GPT-5.6 Luna</strong>, <strong data-nombre>GPT-5.6 Luna Pro</strong></span>
+      <span><span data-nombre>GPT-5.6 Sol</span>: <strong data-nombre>GPT-5.6 Sol</strong></span>
+      <span class="meta">Página congelada: entran los modelos medidos de cada familia, con su etiqueta si no rankean. Ordenados por <strong>calidad</strong>, no por precio.</span>
     </div>
-    <div class="table-scroll"><table class="results-table">
-      <thead>
-        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
-      </thead>
+    <p class="meta">Última actualización: 2026-11-12 · <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+
+  <section class="results">
+    <p class="kicker">// tabla</p>
+    <h2 class="titulo-largo"><span data-nombre>GPT-5.6 Luna</span> vs <span data-nombre>GPT-5.6 Sol</span>: tabla comparativa</h2>
+    <p class="meta"><strong>Calidad</strong> es la nota publicada (examen más tareas reales de agente) y ordena la tabla. Los pilares van al lado, en la misma escala. Costo y velocidad, en sus propias columnas.</p>
+    <div class="tabla-scroll"><table class="results-table">
+      <thead><tr>
+        <th scope="col" class="num">#</th><th scope="col">Modelo</th><th scope="col" class="num">Calidad</th>
+        <th scope="col" class="num">Coding</th><th scope="col" class="num">Contenido</th><th scope="col" class="num">Razon.</th><th scope="col" class="num">Agentes</th>
+        <th scope="col" class="num">US$ in / out por M</th><th scope="col" class="num">Velocidad</th>
+      </tr></thead>
       <tbody>
-        <tr><td>1</td><td>GPT-5.6 Luna <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.94</strong></td><td>9.7</td><td>8.9</td><td>8.6</td><td>8.1</td><td>$0.20 / $1.20</td><td>105 tok/s</td></tr>
-        <tr><td>2</td><td>GPT-5.6 Sol <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.86</strong></td><td>9.5</td><td>8.8</td><td>8.3</td><td>7.9</td><td>$2.00 / $10.00</td><td>78 tok/s</td></tr>
-        <tr><td>3</td><td>GPT-5.6 Luna Pro <span class="row-badge no-rankea" title="es la misma base razonando más, al mismo precio: no es otro producto">no rankea</span></td><td><strong>—</strong></td><td>9.8</td><td>9.0</td><td>8.0</td><td>8.0</td><td>$0.20 / $1.20</td><td>163 tok/s</td></tr>
+        <tr>
+            <td class="num"><span data-cifra>1</span></td>
+            <td><span data-modelo="gpt-5.6-luna">GPT-5.6 Luna</span><span class="no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td>
+            <td class="num"><strong><span data-cifra>8.94</span></strong></td>
+            <td class="num"><span data-cifra>9.7</span></td><td class="num"><span data-cifra>8.9</span></td><td class="num"><span data-cifra>8.6</span></td><td class="num"><span data-cifra>8.1</span></td>
+            <td class="num" data-cifra>$0.20 / $1.20</td>
+            <td class="num"><span data-cifra>105 tok/s</span></td>
+          </tr><tr>
+            <td class="num"><span data-cifra>2</span></td>
+            <td><span data-modelo="gpt-5.6-sol">GPT-5.6 Sol</span><span class="no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td>
+            <td class="num"><strong><span data-cifra>8.86</span></strong></td>
+            <td class="num"><span data-cifra>9.5</span></td><td class="num"><span data-cifra>8.8</span></td><td class="num"><span data-cifra>8.3</span></td><td class="num"><span data-cifra>7.9</span></td>
+            <td class="num" data-cifra>$2.00 / $10.00</td>
+            <td class="num"><span data-cifra>78 tok/s</span></td>
+          </tr><tr>
+            <td class="num"><span data-cifra>3</span></td>
+            <td><span data-modelo="gpt-5.6-luna-pro">GPT-5.6 Luna Pro</span><span class="no-rankea" title="es la misma base razonando más, al mismo precio: no es otro producto">no rankea</span></td>
+            <td class="num"><strong><span data-cifra>—</span></strong></td>
+            <td class="num"><span data-cifra>9.8</span></td><td class="num"><span data-cifra>9.0</span></td><td class="num"><span data-cifra>8.0</span></td><td class="num"><span data-cifra>8.0</span></td>
+            <td class="num" data-cifra>$0.20 / $1.20</td>
+            <td class="num"><span data-cifra>163 tok/s</span></td>
+          </tr>
       </tbody>
     </table></div>
+    <p class="meta">Medido en (proveedor que sirvió los runs, cuantización y razonamiento): el mismo modelo rinde distinto según quién lo sirva.</p>
+    <ul class="medido-en meta">
+      <li data-medido-en="gpt-5.6-luna"><span data-nombre>GPT-5.6 Luna</span>: OpenAI · <span data-cifra>cuantización no declarada</span> · razonamiento: default del proveedor</li><li data-medido-en="gpt-5.6-sol"><span data-nombre>GPT-5.6 Sol</span>: OpenAI · <span data-cifra>cuantización no declarada</span> · razonamiento: default del proveedor</li><li data-medido-en="gpt-5.6-luna-pro"><span data-nombre>GPT-5.6 Luna Pro</span>: OpenAI (<span data-cifra>99 %</span> de los runs) · <span data-cifra>cuantización no declarada</span> · razonamiento: default del proveedor</li>
+    </ul>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
-  <section class="foto-historica" data-foto-historica="1">
-    <p class="cobertura parcial">📷 <strong>Foto histórica, sin ganador.</strong>
-    <strong>GPT-5.6 Luna</strong> se midió con el examen anterior (era E0, E1); <strong>GPT-5.6 Sol</strong> lo reemplazó su versión nueva (GPT-6.1 Sol).
-    Como al menos uno de los dos no está en el ranking vigente, esta página no elige
-    ganador: queda como registro de lo que se midió. Para elegir hoy, mira <a href="/">la calculadora con el ranking vigente</a>.</p>
-  </section>
+
   <section>
-  <h2>¿Qué mide este benchmark?</h2>
-  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
-  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
-  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
-  velocidad, español neutro y agentes multi-turno.</p>
-  <p>Contamos con <strong>244 modelos catalogados</strong>, <strong>193 testeados</strong>
-  y <strong>88.000+ runs reales</strong> evaluados por un
-  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <p class="kicker">// metodología</p>
+  <h2 class="titulo-corto">¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico. Es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren: costo en un proveedor real, velocidad, español neutro y agentes de varios turnos.</p>
+  <p>Hay <strong><span data-cifra>244</span> modelos catalogados</strong>, <strong><span data-cifra>193</span> medidos</strong> y <strong><span data-cifra>88.000+</span> runs reales</strong> evaluados por un LLM-as-Judge (<span data-nombre>Phi-4</span>, de Microsoft, vía OpenRouter, sin conflicto de interés), en <span data-cifra>4</span> pilares:</p>
   <ul>
-    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
-    <li><strong>Contenido y marketing</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
-    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
-    <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+    <li><strong>Coding</strong>: generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li><li><strong>Contenido y marketing</strong>: blogs, copy y textos largos en español neutro (no traducción del inglés).</li><li><strong>Razonamiento</strong>: matemáticas, lógica formal y planificación multi-paso.</li><li><strong>Agentes y operaciones</strong>: multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
   </ul>
-  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
-  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
-  "¿quién lo hace mejor?".</p>
-  <p>El <strong>score global</strong> es otra cosa: una función ponderada
-  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
-  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
-  pero caro. Los dos números sirven — para preguntas distintas.</p>
-  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
-  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
-  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Lee un empate
-  como "el juez no los distingue", no como "son idénticos".
-  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+  <p><strong>Dos números distintos.</strong> La tabla se ordena por <strong>calidad</strong>, sin mezclar precio: responde «¿quién lo hace mejor?». El <strong>score global</strong> de la calculadora pondera calidad (<span data-cifra>70 %</span>), costo (<span data-cifra>15 %</span>), velocidad (<span data-cifra>7.5 %</span>) y latencia (<span data-cifra>7.5 %</span>): responde «¿qué conviene poner en producción?».</p>
+  <p><strong>Límite conocido:</strong> el juez es un modelo chico y varios evaluados son más capaces que él. Ordena bien, pero comprime las diferencias en la cima: un empate quiere decir que el juez no los distingue, no que sean idénticos. <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
 </section>
+
+  <section class="funnel">
+  <p class="kicker">// antes de migrar</p>
+  <h2 class="titulo-corto">Antes de migrar, haz esto</h2>
+  <p>No cambies de modelo a ciegas: toma <strong>el mejor de cada familia</strong> y pásales unos cuantos <strong>prompts reales tuyos</strong>, de los que ya corres en producción. Una comparación general dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.</p>
+  <p class="meta">Este resultado se recalcula con cada lote de modelos nuevos: el ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta">Ver la comunidad →</a></p>
+</section>
+
   <section class="faq">
-  <script type="application/ld+json">
-{
+    <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -213,31 +213,33 @@
       "name": "¿Cuál es más barato para agentes con volumen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la calculadora."
+        "text": "Mira la columna de costo en la tabla. Con volumen alto, el costo por millón de tokens pesa más en el retorno que una diferencia chica de calidad. Fíltralo por tu presupuesto en la calculadora."
       }
     }
   ]
-}
-</script>
-  <h2>Preguntas frecuentes</h2>
-  <details><summary><strong>¿GPT-5.6 Luna o GPT-5.6 Sol es mejor en 2026?</strong></summary>
-  <p>Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la <a href="/">calculadora</a> con el ranking vigente.</p></details>
-  <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
-  <p>De un benchmark abierto con 88.000+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
-  <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
-  <p>Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
-</section>
-  <section class="cta-block">
-    <h2>Prueba la calculadora con tu caso real</h2>
-    <p>Filtra GPT-5.6 Luna, GPT-5.6 Sol y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
-    <a href="/" class="cta-primary">Ir a la calculadora →</a>
+}</script><p class="kicker">// preguntas</p>
+    <h2 class="titulo-corto">Preguntas frecuentes</h2>
+    <details><summary><strong>¿<span data-nombre>GPT-5.6 Luna</span> o <span data-nombre>GPT-5.6 Sol</span> es mejor en 2026?</strong></summary>
+      <p>Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la <a href="/">calculadora</a> con el ranking vigente.</p></details>
+    <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
+      <p>De un benchmark abierto con <span data-cifra>88.000+</span> runs reales y LLM-as-Judge (<span data-nombre>Phi-4</span>, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
+    <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
+      <p>Mira la columna de costo en la tabla. Con volumen alto, el costo por millón de tokens pesa más en el retorno que una diferencia chica de calidad. Fíltralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
   </section>
+
+  <section class="cta-block">
+    <p class="kicker">// calculadora</p>
+    <h2 class="titulo-largo">Prueba la calculadora con tu caso real</h2>
+    <p>Filtra <span data-nombre>GPT-5.6 Luna</span>, <span data-nombre>GPT-5.6 Sol</span> y <span data-cifra>193</span> modelos más por presupuesto, calidad y tipo de tarea.</p>
+    <a href="/" class="enlace-flecha">Ir a la calculadora →</a>
+  </section>
+
 <script type="application/json" id="contrato-pagina">
-{"tipo": "comparacion", "generador": "generate_comparison", "recomienda": [], "ordena_por": "Calidad (media de los 4 pilares)", "tablas": [{"rol": "principal", "ordena_por": "Calidad", "filas": 3, "bloques": 2}]}
+{"tipo": "comparacion", "generador": "exportar_sitio", "recomienda": [], "ordena_por": "Calidad (media de los 4 pilares)", "tablas": [{"rol": "principal", "ordena_por": "Calidad", "filas": 3, "bloques": 2}]}
 </script>
 </main>
-<footer>
-  <div class="container">
+<footer class="sitio-footer">
+  <div class="contenedor">
     <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
     <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a></p>

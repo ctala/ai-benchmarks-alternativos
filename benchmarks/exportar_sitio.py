@@ -43,7 +43,7 @@ import registro_paginas as rp  # noqa: E402
 import sitio_rankings as sr  # noqa: E402
 
 SALIDA = ROOT / "sitio" / "src" / "datos"
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 
 
 def _ficha(m) -> str | None:

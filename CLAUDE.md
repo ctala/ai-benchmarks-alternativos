@@ -5,6 +5,8 @@
 >
 > ⚠️ **Desde el 8-nov-2026 `AGENTS.md` es un snapshot del examen v4** (recomienda modelos retirados): hasta su reescritura en v5.1, la recomendación sale de `docs/data/models.json` y de las páginas generadas, no de sus tablas.
 
+> ⚠️ **Desde el 12-nov-2026 (motor-sitio 2.6) los generadores escriben en `sitio/legado/` y `docs/` es solo la copia de `sitio/dist`** (`publicar_dist.py`, lo único que escribe `docs/`). La fuente del dato es `sitio/legado/data/models.json`; `docs/data/models.json` es su copia publicada. Donde esta guía dice `docs/…` como algo que se genera o se edita, léase `sitio/legado/…`.
+
 ## Que es este proyecto
 Benchmark de modelos AI alternativos para uso con agentes (N8N, Hermes). Compara precios, calidad, velocidad, tool calling y disponibilidad. Incluye tests ejecutables, LLM-as-Judge (Phi-4 vía OpenRouter) y documentación comparativa.
 

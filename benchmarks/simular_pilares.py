@@ -77,7 +77,7 @@ def main() -> int:
         print("  ✅ ninguna suite medida quedó fuera del promedio de su pilar.")
         return 0
 
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     nombres = {m["key"]: m["name"] for m in d["models"]}
 
     print(f"\nSimulando {len(CANDIDATAS)} suite(s) entrando al promedio de su pilar:\n")

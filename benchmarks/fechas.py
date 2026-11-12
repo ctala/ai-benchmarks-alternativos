@@ -22,7 +22,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS = ROOT / "docs" / "data" / "models.json"
+MODELS = ROOT / "sitio" / "legado" / "data" / "models.json"
 REGISTRO = ROOT / "sitio" / "fechas_contenido.json"
 
 MESES = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",

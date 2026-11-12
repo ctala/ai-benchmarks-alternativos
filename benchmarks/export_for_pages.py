@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera docs/data/models.json para la calculadora HTML en GitHub Pages.
+Genera sitio/legado/data/models.json para la calculadora HTML en GitHub Pages.
 
 Consolida:
 - Metadata desde benchmarks/config.py (MODELS dict): tier, pricing, license, provider, notas
@@ -250,7 +250,7 @@ def _recalc_final(r: dict) -> float:
 
 # Mapeo suite → pilar. Vive en `benchmarks/suites.py`, que es EL registro: el mismo del
 # que salen las etiquetas del menú y la línea humana de cada eje. Antes esta tabla vivía
-# acá y una copia distinta en `docs/app.js`; siete suites estaban en pilares distintos
+# acá y una copia distinta en `sitio/legado/app.js`; siete suites estaban en pilares distintos
 # según de dónde se mirara, y tres no estaban acá en absoluto — o sea, medidas y fuera del
 # promedio de su pilar, en silencio.
 SUITE_TO_PILLAR = suites_reg.SUITE_TO_PILLAR
@@ -2097,7 +2097,7 @@ def main():
     a = ap.parse_args()
     if a.recalibrate and not a.scoring_version:
         ap.error("--recalibrate requiere --scoring-version vX.Y (ej. v4.0)")
-    out_path = Path(__file__).parent.parent / "docs" / "data" / "models.json"
+    out_path = Path(__file__).parent.parent / "sitio" / "legado" / "data" / "models.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     export = build_export(recalibrate=a.recalibrate, scoring_version=a.scoring_version)
     out_path.write_text(json.dumps(export, indent=2, ensure_ascii=False))

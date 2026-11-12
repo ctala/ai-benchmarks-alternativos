@@ -45,7 +45,7 @@ CLASES = [
         "clase": "Conteos",
         "que_sincroniza": "modelos catalogados · testeados · rankeados · tests · suites, "
                           "citados en README, ROADMAP, MODELOS.md y las landings",
-        "fuente": "`docs/data/models.json`",
+        "fuente": "`sitio/legado/data/models.json`",
         "guardrail": "benchmarks/sync_doc_counts.py",
         "como": "reescribe los bloques `<!-- AUTO:campo -->…<!-- /AUTO -->`. "
                 "**Un conteo fuera de un bloque AUTO no se sincroniza**: si lo escribes a "
@@ -55,7 +55,7 @@ CLASES = [
         "clase": "Scores citados en prosa",
         "que_sincroniza": "toda cifra de score que aparezca en un doc VIVO "
                           "(README, MODELOS, CLAUDE, AGENTS, RECOMENDACIONES, COMPARATIVA)",
-        "fuente": "`docs/data/models.json`",
+        "fuente": "`sitio/legado/data/models.json`",
         "guardrail": "benchmarks/check_consistency.py",
         "como": "compara lo citado contra el dato. Ignora a propósito los snapshots con "
                 "fecha (CHANGELOG, DATASHEET_*, INSIGHTS): ésos DEBEN conservar el valor "
@@ -63,8 +63,8 @@ CLASES = [
     },
     {
         "clase": "Campos que la calculadora lee",
-        "que_sincroniza": "cada campo que `docs/app.js` consume, y cada umbral de filtro",
-        "fuente": "`docs/data/models.json`",
+        "que_sincroniza": "cada campo que `sitio/legado/app.js` consume, y cada umbral de filtro",
+        "fuente": "`sitio/legado/data/models.json`",
         "guardrail": "benchmarks/check_calculator.py",
         "como": "caza un campo que el JS lee y el export dejó de emitir, y un umbral fuera "
                 "del rango real de los datos (un filtro que no filtra a nadie es decorativo).",
@@ -72,7 +72,7 @@ CLASES = [
     {
         "clase": "Cifras del pilar del blog",
         "que_sincroniza": "el post cornerstone en el repo hermano `cristiantala-blog`",
-        "fuente": "`docs/data/models.json`",
+        "fuente": "`sitio/legado/data/models.json`",
         "guardrail": "benchmarks/check_blog_consistency.py",
         "como": "un rescoring caduca TODAS las cifras del post — prosa, tablas y FAQ — y "
                 "puede dejar una recomendación de seguridad peligrosa.",
@@ -80,7 +80,7 @@ CLASES = [
     {
         "clase": "Cortes por eje del sitio",
         "que_sincroniza": "las páginas que ordenan por UNA suite en vez de por un promedio",
-        "fuente": "`docs/data/models.json`",
+        "fuente": "`sitio/legado/data/models.json`",
         "guardrail": "benchmarks/check_cortes.py",
         "como": "Existen porque los promedios esconden: Gemini 3.6 Flash es #3 de 80 en "
                 "calidad agéntica y #76 de 80 en el índice general, y el pilar Agentes "
@@ -124,7 +124,7 @@ CLASES = [
         "que_sincroniza": "quién rankea, quién va al histórico y con qué era, en models.json, "
                           "la tabla histórico de la calculadora y las fichas por modelo; y la "
                           "nota pública que una declaración de proveedor pide en su ficha",
-        "fuente": "`examen_v5`, `historico` y `era` de `docs/data/models.json`; "
+        "fuente": "`examen_v5`, `historico` y `era` de `sitio/legado/data/models.json`; "
                   "`nota_publica` de `proveedores_declarados.json`",
         "guardrail": "benchmarks/validate.py",
         "como": "B4 exige que un rankeado tenga el examen v5 entero y que el histórico no "
@@ -133,9 +133,9 @@ CLASES = [
     },
     {
         "clase": "Tabla histórico de la home",
-        "que_sincroniza": "las filas de la tabla histórico de docs/index.html, con quién "
+        "que_sincroniza": "las filas de la tabla histórico de sitio/legado/index.html, con quién "
                           "reemplazó a cada modelo y su era, contra el export",
-        "fuente": "`historico`, `reemplazado_por` y `era` de `docs/data/models.json` "
+        "fuente": "`historico`, `reemplazado_por` y `era` de `sitio/legado/data/models.json` "
                   "(la escribe `generate_historico.py`)",
         "guardrail": "benchmarks/check_calculator.py",
         "como": "C6 compara cada fila con el export y falla si una fila o el título dicen "

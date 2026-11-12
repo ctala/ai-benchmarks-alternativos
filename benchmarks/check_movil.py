@@ -11,7 +11,8 @@ que quede repetible en el QA.
 Esto llama a `sitio/pruebas/movil.mjs`, que emula un teléfono con Playwright (390×844,
 `isMobile`, táctil, DPR 3) sobre cada página compilada que no es un redirect y exige:
   M1  que el ancho de diseño sea 390 (si la emulación no corrió, la medición no vale);
-  M2  que nada desborde a lo ancho (una tabla ancha se desplaza dentro de su caja).
+  M2  que nada desborde a lo ancho (una tabla ancha se desplaza dentro de su caja);
+  M3  que en cada tabla el primer valor de cada fila se vea sin desplazar (12-nov-2026).
 
 Mide `sitio/dist`. Si falta, o si es más viejo que las fuentes del sitio o que `models.json`,
 primero compila (`npm run build`, que además corre el registro y la paridad): un verde sobre
@@ -49,9 +50,13 @@ def viejo(dist: Path) -> str | None:
     paginas = list(dist.rglob("index.html")) if dist.is_dir() else []
     if not paginas:
         return "no hay build"
-    hecho = min(f.stat().st_mtime for f in paginas)
-    fuentes = max(_mtime_max(SITIO / "src", excluir=("datos",)),
-                  (ROOT / "docs" / "data" / "models.json").stat().st_mtime)
+    # La hora del build sale de lo que Astro escribe siempre de nuevo (`_astro/`): las páginas del
+    # legado se copian con su fecha de `sitio/legado/` (copy2) y harían parecer viejo cualquier build.
+    astro = [f for f in (dist / "_astro").rglob("*") if f.is_file()] if (dist / "_astro").is_dir() else []
+    hecho = min(f.stat().st_mtime for f in (astro or paginas))
+    # 12-nov-2026: `sitio/legado/` también es fuente del build (copiar_legado lo pasa a dist).
+    fuentes = max(_mtime_max(SITIO / "src", excluir=("datos",)), _mtime_max(SITIO / "legado"),
+                  (ROOT / "sitio" / "legado" / "data" / "models.json").stat().st_mtime)
     return "el build es más viejo que las fuentes" if fuentes > hecho else None
 
 

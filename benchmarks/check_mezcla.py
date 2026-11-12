@@ -113,7 +113,7 @@ def main() -> int:
     from benchmarks.models import MODELS, OLLAMA_MODELS
     from benchmarks.export_for_pages import load_all_results
     cat = {**OLLAMA_MODELS, **MODELS}
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     rank = [m for m in d["models"] if m.get("ranked")]
     if not rank:
         print("❌ M0 models.json no trae rankeados: el detector está ciego")

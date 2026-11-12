@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Genera páginas pSEO de ranking "Mejor LLM para [caso]" en docs/<slug>/index.html
-a partir de docs/data/models.json (data real del benchmark). Reusa el shell y los
+Genera páginas pSEO de ranking "Mejor LLM para [caso]" en sitio/legado/<slug>/index.html
+a partir de sitio/legado/data/models.json (data real del benchmark). Reusa el shell y los
 helpers de generate_comparison.py (no duplica HTML ni lógica de datos).
 
 Tipo de página distinto a las comparaciones: ranking filtrado por un criterio
@@ -410,7 +410,7 @@ def pillar_quality(m, name):
 PESO_TOOLS_AGENTES = 0.5
 
 # Peso de la tarea REAL (Harbor) frente a `tool_calling` al ordenar lo agéntico. Tiene que
-# coincidir con `PESO_TAREA_REAL` de `docs/app.js`: la calculadora y estas páginas ordenan
+# coincidir con `PESO_TAREA_REAL` de `sitio/legado/app.js`: la calculadora y estas páginas ordenan
 # el mismo eje y no pueden decir cosas distintas. Lo verifica `check_calculator`.
 PESO_TAREA_REAL = 0.6
 
@@ -1559,7 +1559,7 @@ def main():
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(out, encoding="utf-8")
         n = len(rank_models(models, cfg)[:8])
-        print(f"✓ {cfg['slug']}: top {n} → docs/{cfg['slug']}/index.html")
+        print(f"✓ {cfg['slug']}: top {n} → sitio/legado/{cfg['slug']}/index.html")
 
 
 if __name__ == "__main__":

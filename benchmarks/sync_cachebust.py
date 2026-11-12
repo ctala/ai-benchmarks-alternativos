@@ -3,7 +3,7 @@
 
 POR QUÉ EXISTE (21-ago-2026)
 ----------------------------
-`docs/index.html` cargaba `app.js?v=20260813d`: un cache-bust escrito a mano y fechado
+`sitio/legado/index.html` cargaba `app.js?v=20260813d`: un cache-bust escrito a mano y fechado
 el **13 de agosto**. Entre esa fecha y hoy `app.js` cambió muchas veces —el wizard, los
 enlaces a fichas, W16, la columna nueva— y cada uno de esos cambios llegó al navegador
 de un visitante que ya había entrado **con el JavaScript viejo**, porque la URL no
@@ -26,7 +26,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 INDEX = DOCS / "index.html"
 ASSETS = ("app.js", "style.css")
 

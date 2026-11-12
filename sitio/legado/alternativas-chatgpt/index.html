@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternativas a ChatGPT en 2026: 10 modelos comparados con benchmark real</title>
+<meta name="description" content="¿Buscas alternativas a ChatGPT/GPT-4/GPT-5 para agentes, coding o contenido en español? Comparamos 10 modelos con 88,000+ tests reales: DeepSeek, Claude, Llama, Devstral, Gemini, Mistral, Qwen y más. Datos abiertos.">
+<meta name="keywords" content="alternativas ChatGPT, alternativas GPT-4, alternativas GPT-5, ChatGPT vs Claude, ChatGPT vs Gemini, ChatGPT vs DeepSeek, OpenAI alternativas, GPT alternativas español, modelos similares ChatGPT, ChatGPT API alternativa">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/alternativas-chatgpt/">
+<meta property="og:title" content="Alternativas a ChatGPT en 2026: 10 modelos comparados con benchmark real">
+<meta property="og:description" content="¿Buscas alternativas a ChatGPT/GPT-4/GPT-5 para agentes, coding o contenido en español? Comparamos 10 modelos con 88,000+ tests reales: DeepSeek, Claude, Llama, Devstral, Gemini, Mistral, Qwen y más. Datos abiertos.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/alternativas-chatgpt/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Top alternativas a ChatGPT comparadas con benchmark real">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alternativas a ChatGPT en 2026: 10 modelos comparados con benchmark real">
+<meta name="twitter:description" content="¿Buscas alternativas a ChatGPT/GPT-4/GPT-5 para agentes, coding o contenido en español? Comparamos 10 modelos con 88,000+ tests reales: DeepSeek, Claude, Llama, Devstral, Gemini, Mistral, Qwen y más. Datos abiertos.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Alternativas a ChatGPT en 2026: 10 modelos comparados con benchmark real",
+  "description": "¿Buscas alternativas a ChatGPT/GPT-4/GPT-5 para agentes, coding o contenido en español? Comparamos 10 modelos con 88,000+ tests reales: DeepSeek, Claude, Llama, Devstral, Gemini, Mistral, Qwen y más. Datos abiertos.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-11-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/alternativas-chatgpt/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/alternativas-chatgpt/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Hay alguna alternativa a ChatGPT que sea gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Ministral 14B o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿ChatGPT Plus o suscripción Anthropic — cuál conviene?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del uso. Si usas chat conversacional sin volumen, ChatGPT Plus a $20 sigue siendo competitivo. Si construyes agentes/herramientas: ninguna suscripción mensual gana — usa API direct con modelos open-source que cuestan ~$0.30 per M output tokens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿GPT-5 es necesario o puedo usar alternativas más baratas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Ministral 14B a 1/100 del costo cubre el caso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Las alternativas a ChatGPT soportan tool calling y function calling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí — Llama 3.3, Mistral Small 4, Devstral, Hermes 4 y Qwen soportan tool calling OpenAI-compatible. El benchmark testea esto como badge; modelos sin soporte robusto se identifican claramente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar alternativas a ChatGPT vía OpenRouter sin cambiar mi código?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí — OpenRouter expone API compatible con OpenAI. Cambias base_url y api_key, y eliges modelos por su ID (ej. mistralai/mistral-small-2603). Tu código de OpenAI SDK funciona igual."
+      }
+    }
+  ]
+}
+</script>
+<!-- GTM (mismo container que cristiantala.com), diferido: primera interaccion o 3.5s.
+     Estas landings quedaron fuera del primer pase de analytics. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (a && (a.getAttribute('href') || '').indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({ event: 'cta_comunidad', cta_ubicacion: 'landing', pagina_pseo: page });
+    }
+  }, { passive: true });
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Alternativas a ChatGPT: 10 modelos comparados con benchmark real (Noviembre 2026)</h1>
+    <p class="lead">
+      Si pagas $20/mes de ChatGPT Plus o usas GPT-4/GPT-5 vía API, estas son las alternativas reales —
+      probadas con <strong><!-- AUTO:tested_count -->193<!-- /AUTO --> modelos testeados</strong>
+      y LLM-as-Judge Phi-4 vía OpenRouter. Sin opiniones, sin marketing: sólo datos.
+    </p>
+    <p class="lead" style="margin-top: 1rem;">
+      ⚠️ <strong>Importante</strong>: no existe una "alternativa a ChatGPT" universal. Depende de tu
+      tarea: <em>coding de scripts</em> ≠ <em>plugins WordPress</em> ≠ <em>proyectos grandes</em>.
+      <em>Blog técnico</em> ≠ <em>copy de marketing</em> ≠ <em>soporte al cliente</em>.
+    </p>
+    <p class="meta">
+      Última actualización: 2026-11-12 ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
+    </p>
+  </section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Top 10 alternativas a ChatGPT (ranking global)</h2>
+      <p class="meta">Calidad de 0 a 10: 75 % examen + 25 % tareas reales de agente (Harbor). Costo y velocidad van aparte.</p>
+    </div>
+
+    <div class="table-scroll"><table class="results-table">
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/glm-5.3/"><strong>GLM 5.3</strong></a></td><td>9.00</td><td>$1.40 / $4.40</td><td>MIT</td><td>openrouter (70 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/glm-5.2/">GLM 5.2</a></td><td>8.95</td><td>$0.68 / $2.15</td><td>MIT</td><td>openrouter (76 tok/s)</td></tr>
+        <tr><td>3</td><td>GPT-5.6 Luna <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td>8.94</td><td>$0.20 / $1.20</td><td>Propietaria</td><td>openrouter (105 tok/s)</td></tr>
+        <tr><td>4</td><td>Claude Opus 4.6 <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td>8.92</td><td>$5.00 / $25.00</td><td>Propietaria</td><td>openrouter (45 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/qwen3.8-flash/">Qwen 3.8 Flash</a></td><td>8.91</td><td>$0.15 / $0.47</td><td>Propietaria</td><td>openrouter (76 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/qwen-3.8-27b/">Qwen 3.8 27B</a></td><td>8.90</td><td>$0.21 / $2.55</td><td>Apache 2.0</td><td>openrouter (45 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/qwen-3.8-max-0902/">Qwen 3.8 Max 0902</a></td><td>8.90</td><td>$2.00 / $6.00</td><td>Propietaria</td><td>openrouter (40 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/gemini-4-argon/">Gemini 4 Argon</a></td><td>8.90</td><td>$2.00 / $10.00</td><td>Propietaria</td><td>openrouter (41 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/glm-5.3-flash/">GLM 5.3 Flash</a></td><td>8.88</td><td>$0.15 / $0.50</td><td>MIT</td><td>openrouter (69 tok/s)</td></tr>
+        <tr><td>≈</td><td><a class="a-ficha" href="/modelo/claude-fable-5.1/">Claude Fable 5.1</a></td><td>8.88</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>openrouter (72 tok/s)</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="meta">
+      Para filtrar por presupuesto, calidad mínima o tarea específica usa la
+      <a href="/">calculadora interactiva</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>¿Qué alternativa a ChatGPT elegir según tu caso?</h2>
+
+    <h3>Si reemplazas ChatGPT Plus para uso personal/exploratorio</h3>
+    <p>
+      Para chat conversacional <strong>Claude Haiku 4.5</strong> o <strong>Gemini 2.5 Flash Lite</strong>
+      cubren prácticamente todo lo que hace GPT-4 Plus. Si quieres gratis, <strong>NVIDIA NIM</strong>
+      ofrece 135+ modelos a 40 RPM.
+    </p>
+
+    <h3>Si pagas GPT-4 / GPT-5 API para tu app o agente</h3>
+    <p>
+      Donde el ahorro es brutal: <strong>Mistral Small 4</strong> ($0.15/$0.60) y
+      <strong>Ministral 14B</strong> ($0.20/$0.20) cubren 80% de los casos a una fracción del costo de GPT-4.1.
+      Para volumen &gt;5,000 calls/mes el cambio paga decenas de USD/mes.
+    </p>
+
+    <h3>Si usas ChatGPT para coding</h3>
+    <p>
+      <strong>Plugins WordPress, scripts, automatizaciones</strong> → Ministral 14B basta.
+      <strong>Templates N8N (JSON workflows)</strong> → Llama 3.3 70B es óptimo (ver <a href="/modelos-n8n/">modelos para N8N</a>).
+      <strong>Proyectos grandes con arquitectura compleja</strong> → solo aquí GPT-5.5 o Claude Opus 4.8 justifican el costo.
+    </p>
+
+    <h3>Si usas ChatGPT para contenido en español</h3>
+    <p>
+      <strong>Gemini 3.1 Flash Lite</strong> supera a GPT-4 en
+      blog técnico y contenido de actualidad startup en español. Caso real: Cristian usa modelos Qwen en producción para
+      <a href="https://ecosistemastartup.com" target="_blank" rel="noopener">ecosistemastartup.com</a>.
+    </p>
+
+    <h3>Si usas ChatGPT para agentes (con tool calling)</h3>
+    <p>
+      <strong>Llama 3.3 70B</strong> es el más sólido para
+      tool calling estructurado.
+    </p>
+  </section>
+<section class="faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary><strong>¿Hay alguna alternativa a ChatGPT que sea gratis?</strong></summary><p>Sí — NVIDIA NIM ofrece 135+ modelos gratis con 40 RPM. Para uso local sin costos de API: Mistral Small 4, Ministral 14B o Llama 3.3 70B corren en hardware decente (≥32GB RAM unified).</p></details>
+    <details><summary><strong>¿ChatGPT Plus o suscripción Anthropic — cuál conviene?</strong></summary><p>Depende del uso. Si usas chat conversacional sin volumen, ChatGPT Plus a $20 sigue siendo competitivo. Si construyes agentes/herramientas: ninguna suscripción mensual gana — usa API direct con modelos open-source que cuestan ~$0.30 per M output tokens.</p></details>
+    <details><summary><strong>¿GPT-5 es necesario o puedo usar alternativas más baratas?</strong></summary><p>GPT-5 (y GPT-5.5) brillan en razonamiento profundo, planning multi-step y código complejo de proyectos grandes. Para 80% de tareas estándar son overkill: Ministral 14B a 1/100 del costo cubre el caso.</p></details>
+    <details><summary><strong>¿Las alternativas a ChatGPT soportan tool calling y function calling?</strong></summary><p>Sí — Llama 3.3, Mistral Small 4, Devstral, Hermes 4 y Qwen soportan tool calling OpenAI-compatible. El benchmark testea esto como badge; modelos sin soporte robusto se identifican claramente.</p></details>
+    <details><summary><strong>¿Puedo usar alternativas a ChatGPT vía OpenRouter sin cambiar mi código?</strong></summary><p>Sí — OpenRouter expone API compatible con OpenAI. Cambias base_url y api_key, y eliges modelos por su ID (ej. mistralai/mistral-small-2603). Tu código de OpenAI SDK funciona igual.</p></details>
+</section><section class="cta-block">
+  <h2>Prueba la calculadora con tu caso real</h2>
+  <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
+  <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/alternativas-gemini/">alternativas a Gemini</a> · <a href="/alternativas-deepseek/">alternativas a DeepSeek</a> · <a href="/modelos-n8n/">modelos para N8N</a> · <a href="/modelos-open-source-local/">open-source local</a></p>
+</section>
+{contrato}
+<script type="application/json" id="contrato-pagina">
+{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["GPT-5.6 Luna", "Claude Opus 4.6"]}
+</script>
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

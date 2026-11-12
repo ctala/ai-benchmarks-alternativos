@@ -30,7 +30,7 @@ escape, en `generate_manual_landings.py`) y J4 quedó en verde en todo el sitio:
 entonces bloquea en todo el sitio, igual que J1, J2, J3, J5 y J6.
 
 Uso:
-    python benchmarks/check_jsonld.py                    # docs/
+    python benchmarks/check_jsonld.py                    # sitio/legado/
     python benchmarks/check_jsonld.py --dist sitio/dist  # lo que compila Astro
 """
 from __future__ import annotations
@@ -120,7 +120,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None, help="revisar lo que compila Astro (sitio/dist)")
     a = ap.parse_args()
-    base = a.dist or ROOT / "docs"
+    base = a.dist or ROOT / "sitio" / "legado"
     import paginas_leidas as pl
 
     fallos, leidas, bloques = [], set(), 0

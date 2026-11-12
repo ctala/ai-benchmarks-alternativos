@@ -48,7 +48,7 @@ from benchmarks.suites import SUITES, pilar_del_promedio  # noqa: E402
 from contrato_pagina import emitir  # noqa: E402
 
 SITE = "https://benchmarks.cristiantala.com"
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 PILARES = ("Coding", "Contenido", "Razonamiento", "Agentes")
 
@@ -143,7 +143,7 @@ BRAND_CSS = """<style>
            color: var(--gray-dark); background: color-mix(in srgb, var(--white) 2%, transparent); }
   .badge.on { color: var(--green); border-color: color-mix(in srgb, var(--green) 34%, transparent); background: color-mix(in srgb, var(--green) 7%, transparent); }
   .badge.info { color: var(--cyan); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); background: color-mix(in srgb, var(--cyan) 6%, transparent); }
-  .badge.warn { color: var(--magenta); border-color: color-mix(in srgb, var(--magenta) 34%, transparent); background: color-mix(in srgb, var(--magenta) 7%, transparent); }
+  .badge.warn { color: var(--magenta-texto); border-color: color-mix(in srgb, var(--magenta) 34%, transparent); background: color-mix(in srgb, var(--magenta) 7%, transparent); }
 
   /* ── Perfil por pilar: una nota suelta no dice nada sin la población al lado.
      La marca vertical es la MEDIANA de los rankeados en ese pilar, así que la
@@ -179,7 +179,7 @@ BRAND_CSS = """<style>
   .results-table tr.grupo th { font-family: 'JetBrains Mono', monospace; font-size: .68rem;
         letter-spacing: .11em; text-transform: uppercase; color: var(--cyan);
         padding-top: 1.35rem; background: transparent; }
-  .results-table td .riesgo { color: var(--magenta); font-weight: 700; }
+  .results-table td .riesgo { color: var(--magenta-texto); font-weight: 700; }
   .results-table td .bien { color: var(--green); font-weight: 700; }
 </style>"""
 
@@ -270,7 +270,7 @@ def veredicto(m: dict, ranked: list) -> str:
 
 
 # ── lo que se responde sin bajar: cuatro números y las propiedades binarias ───
-# El uso típico con el que se traduce el precio a plata mensual.
+# El uso típico con el que se traduce el precio a dinero al mes.
 #
 # 50 llamadas al día es un workflow de n8n corriendo cada media hora en horario hábil, o
 # un agente que atiende el feed dos veces al día con varias vueltas cada vez — la escala
@@ -593,7 +593,7 @@ def contra_frontier(m: dict, ranked: list) -> str:
 
     return f"""  <section class="results">
     <div class="results-header">
-      <h2>Contra los mejores del ranking, en plata</h2>
+      <h2>Lo que cuesta frente a los mejores del ranking</h2>
       <p class="meta">La pregunta útil no es cuánto le falta a {esc(m['name'])} para ser
       el mejor: es <strong>cuánta calidad extra estás comprando, y a cuántas veces el
       precio</strong>. Eso es lo que decide si conviene.</p>
@@ -729,7 +729,7 @@ def alternativas(m: dict, ranked: list) -> tuple[str, list]:
                     and (x["score_calidad"] or 0) >= q - 0.15]
         cbaratos.sort(key=lambda x: x.get("cost_per_1k_calls_usd") or 9e9)
         add(cbaratos[0] if cbaratos else None, "Más barato, calidad equivalente",
-            "misma nota o mejor, menos plata por llamada")
+            "misma nota o mejor, menos dinero por llamada")
         # mejor calidad a precio parecido
         cerca = [x for x in otros if (x.get("cost_per_1k_calls_usd") or 9e9) <= c * 1.3
                  and (x["score_calidad"] or 0) > q]
@@ -1003,7 +1003,7 @@ def main() -> int:
             # proveedor): tampoco se abandona con su texto viejo.
             (out / slug(m) / "index.html").write_text(render(m, ranked, None))
             o += 1
-    print(f"✓ {n} fichas de modelo → docs/modelo/<key>/index.html · {r} de retirados como foto "
+    print(f"✓ {n} fichas de modelo → sitio/legado/modelo/<key>/index.html · {r} de retirados como foto "
           f"fechada · {h} del histórico como foto de su era · {o} que no rankean")
     con_pesos = sum(1 for m in ranked if m.get("weights_url"))
     print(f"  con enlace a pesos oficiales: {con_pesos} de {n} "

@@ -27,7 +27,7 @@ clases, saltos de línea y el puesto dentro de `data-cifra`. Ahora las dos forma
 misma regex, `--dist` lee lo compilado y C2, C3 y C4 cuentan las páginas que leyeron contra el
 registro (`paginas_leidas.py`).
 
-Uso:  python benchmarks/check_cortes.py                    # docs/
+Uso:  python benchmarks/check_cortes.py                    # sitio/legado/
       python benchmarks/check_cortes.py --dist sitio/dist  # lo que compila Astro
 """
 
@@ -62,8 +62,8 @@ FILA_1 = re.compile(_CELDA_PUESTO.format(p="1|≈") + _NOMBRE)
 FILA_N = re.compile(_CELDA_PUESTO.format(p=r"\d+|≈") + _NOMBRE)
 sys.path.insert(0, str(ROOT))
 
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
-DOCS = ROOT / "docs"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
+DOCS = ROOT / "sitio" / "legado"
 
 # Suites que describen trabajo DENTRO de un agente: sus cortes no pueden recomendar un
 # modelo que no corre en uno. Debe coincidir con `generate_rankings.SUITES_AGENTICAS`.
@@ -111,7 +111,7 @@ def main() -> int:
     ap.add_argument("--dist", type=Path, default=None, help="leer lo que compila Astro (sitio/dist)")
     a = ap.parse_args()
     if a.dist:
-        DOCS = a.dist          # los datos siguen saliendo de docs/data: dist los copia de ahí
+        DOCS = a.dist          # los datos siguen saliendo de sitio/legado/data: dist los copia de ahí
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import paginas_leidas as pl
     import registro_paginas as rp

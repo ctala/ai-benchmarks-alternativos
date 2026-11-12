@@ -26,7 +26,7 @@ QUÉ VERIFICA
 ------------
   P1  Todo hex en CSS/HTML/generadores pertenece a la paleta del manual o a un tema de `brand.json`
       (desde el 11-nov-2026 el legado usa el tema claro: motor-sitio 2.2).
-  P2  El `:root` de `docs/style.css` no se escribe: lo genera `tokens_sitio.py` desde `brand.json`
+  P2  El `:root` de `sitio/legado/style.css` no se escribe: lo genera `tokens_sitio.py` desde `brand.json`
       entre marcadores, y P4 exige que sea igual a lo generado.
   P3  En el motor nuevo (`sitio/src`, 11-nov-2026), NINGÚN color literal: ni hex, ni rgb(), ni
       hsl(). Todo color es `var(--color-…)` de `tokens.css`, que se genera desde `brand.json`.
@@ -72,7 +72,7 @@ MANUAL = {
 # Grises de UI sin rol de marca (bordes, deshabilitado). Se toleran y se listan.
 UI = {"#4a4a5e", "#2a2a3e", "#000000"}
 
-DONDE = ["docs/style.css", "docs/index.html", "docs/app.js",
+DONDE = ["sitio/legado/style.css", "sitio/legado/index.html", "sitio/legado/app.js",
          "benchmarks/generate_*.py"]
 # La imagen OG se compone con PIL y no comparte el CSS; se audita aparte.
 SALTAR = ("generate_og_image.py",)

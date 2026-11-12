@@ -74,7 +74,7 @@ def i1_nota(models: list[dict]) -> list[str]:
 
 
 def i2_peso_unico(fuentes: dict[str, str]) -> list[str]:
-    """`fuentes`: {ruta: texto} de los .py del pipeline y de `docs/app.js`."""
+    """`fuentes`: {ruta: texto} de los .py del pipeline y de `sitio/legado/app.js`."""
     fallos = []
     for ruta, txt in fuentes.items():
         if ruta.endswith("indice.py") or "test_" in ruta or ruta.endswith("check_indice_calidad.py"):
@@ -207,7 +207,7 @@ def i7_checks_sin_contar(sin_contar: dict, tests: dict[str, str], resultados: di
 
 
 def i8_linea_checks(data: dict, html: str, app_js: str, fichas: dict[str, str]) -> list[str]:
-    """`fichas`: {key: html de docs/modelo/<key>/index.html}."""
+    """`fichas`: {key: html de sitio/legado/modelo/<key>/index.html}."""
     from html import escape
     ic = data.get("indice_calidad") or {}
     meta = indice.checks_sin_contar_meta(ROOT)
@@ -233,9 +233,9 @@ def i8_linea_checks(data: dict, html: str, app_js: str, fichas: dict[str, str]) 
     return fallos
 
 
-# Lo publicado se lee de `docs/` o, con `--dist`, de lo que compila Astro (motor-sitio 2.3).
-# Los datos (models.json) siguen saliendo de docs/.
-SITIO = ROOT / "docs"
+# Lo publicado se lee de `sitio/legado/` o, con `--dist`, de lo que compila Astro (motor-sitio 2.3).
+# Los datos (models.json) siguen saliendo de sitio/legado/.
+SITIO = ROOT / "sitio" / "legado"
 
 
 def _leer(p: Path) -> str:
@@ -266,13 +266,13 @@ def revisar(data, readme, html, fuentes, paginas) -> list[str]:
 
 
 def leer_todo():
-    data = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    data = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     html = _leer(SITIO / "index.html")
     fuentes = {str(p.relative_to(ROOT)): p.read_text(encoding="utf-8")
                for p in sorted((ROOT / "benchmarks").glob("*.py"))}
-    fuentes["docs/app.js"] = _leer(SITIO / "app.js")
-    paginas = {"docs/" + str(p.relative_to(SITIO)): p.read_text(encoding="utf-8")
+    fuentes["sitio/legado/app.js"] = _leer(SITIO / "app.js")
+    paginas = {"sitio/legado/" + str(p.relative_to(SITIO)): p.read_text(encoding="utf-8")
                for p in sorted(SITIO.glob("*/index.html"))}
     return data, readme, html, fuentes, paginas
 
@@ -282,7 +282,7 @@ def main() -> int:
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None,
-                    help="leer lo publicado de lo que compila Astro (sitio/dist); los datos, de docs/")
+                    help="leer lo publicado de lo que compila Astro (sitio/dist); los datos, de sitio/legado/")
     a = ap.parse_args()
     if a.dist:
         SITIO = a.dist
@@ -295,7 +295,7 @@ def main() -> int:
     ciego = pl.exigir("check_indice_calidad", leidas, pl.esperadas())
     fallos = revisar(data, readme, html, fuentes, paginas)
     fallos += i7_checks_sin_contar(indice.CHECKS_SIN_CONTAR, *leer_harbor())
-    fallos += i8_linea_checks(data, html, fuentes["docs/app.js"], fichas)
+    fallos += i8_linea_checks(data, html, fuentes["sitio/legado/app.js"], fichas)
     fallos += ciego
     leidos = sum(1 for m in data["models"] if m.get("score_calidad") is not None)
     print(f"  {leidos} notas de calidad leídas · {len(paginas)} páginas · {len(fuentes)} fuentes")

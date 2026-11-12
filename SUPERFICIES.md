@@ -41,10 +41,10 @@ Todas tienen que decir lo mismo. Lo verifica **`benchmarks/check_version.py`**, 
 | Superficie | Qué declara | Por qué importa |
 |---|---|---|
 | `scoring_reference.json` | la referencia congelada del score | es la fuente de la calibración; si miente, todo score publicado queda sin origen |
-| `docs/data/models.json` | el dataset que sirve el sitio | es lo que consume la calculadora y cualquiera que baje los datos |
+| `sitio/legado/data/models.json` | el dataset que sirve el sitio | es lo que consume la calculadora y cualquiera que baje los datos |
 | `CHANGELOG.md` | la entrada más reciente | publicar sin entrada es publicar sin traza. Pasó con v4.1 |
 | `README.md` | el encabezado | es lo primero que ve un humano y lo que GitHub muestra en la home del repo. El 14-ago decía «Version 3.1.1»: cuatro releases atrás |
-| `docs/index.html` | el hero de la calculadora | es la versión que lee un visitante del sitio |
+| `sitio/legado/index.html` | el hero de la calculadora | es la versión que lee un visitante del sitio |
 | `schema.org:version` | el Dataset de schema.org | es lo que leen Google y los crawlers de IA. El 14-ago decía v4.0 mientras el hero decía v4.1, y nada fallaba |
 | `schema.org:softwareVersion` | el SoftwareApplication de schema.org | ídem: superficie de buscadores, invisible para quien mira la página |
 
@@ -61,16 +61,16 @@ Y dos condiciones más, que no son archivos:
 
 | Clase | Qué sincroniza | Fuente única | Guardrail |
 |---|---|---|---|
-| **Conteos** | modelos catalogados · testeados · rankeados · tests · suites, citados en README, ROADMAP, MODELOS.md y las landings | `docs/data/models.json` | `benchmarks/sync_doc_counts.py` |
-| **Scores citados en prosa** | toda cifra de score que aparezca en un doc VIVO (README, MODELOS, CLAUDE, AGENTS, RECOMENDACIONES, COMPARATIVA) | `docs/data/models.json` | `benchmarks/check_consistency.py` |
-| **Campos que la calculadora lee** | cada campo que `docs/app.js` consume, y cada umbral de filtro | `docs/data/models.json` | `benchmarks/check_calculator.py` |
-| **Cifras del pilar del blog** | el post cornerstone en el repo hermano `cristiantala-blog` | `docs/data/models.json` | `benchmarks/check_blog_consistency.py` |
-| **Cortes por eje del sitio** | las páginas que ordenan por UNA suite en vez de por un promedio | `docs/data/models.json` | `benchmarks/check_cortes.py` |
+| **Conteos** | modelos catalogados · testeados · rankeados · tests · suites, citados en README, ROADMAP, MODELOS.md y las landings | `sitio/legado/data/models.json` | `benchmarks/sync_doc_counts.py` |
+| **Scores citados en prosa** | toda cifra de score que aparezca en un doc VIVO (README, MODELOS, CLAUDE, AGENTS, RECOMENDACIONES, COMPARATIVA) | `sitio/legado/data/models.json` | `benchmarks/check_consistency.py` |
+| **Campos que la calculadora lee** | cada campo que `sitio/legado/app.js` consume, y cada umbral de filtro | `sitio/legado/data/models.json` | `benchmarks/check_calculator.py` |
+| **Cifras del pilar del blog** | el post cornerstone en el repo hermano `cristiantala-blog` | `sitio/legado/data/models.json` | `benchmarks/check_blog_consistency.py` |
+| **Cortes por eje del sitio** | las páginas que ordenan por UNA suite en vez de por un promedio | `sitio/legado/data/models.json` | `benchmarks/check_cortes.py` |
 | **Afirmaciones de método** | que ningún doc VIVO afirme una metodología que ya se reemplazó | `DECISIONES.md` | `benchmarks/check_claims.py` |
 | **Ciclo de vida de la documentación** | la marca `<!-- doc: vigente | verificado: FECHA -->` de cada doc | la fecha de verificación humana | `benchmarks/check_docs.py` |
 | **Caminos de medición** | que todo lo que llame a una API de modelos esté sancionado | la lista `SANCIONADOS` | `benchmarks/check_caminos.py` |
-| **Ranking v5 e histórico** | quién rankea, quién va al histórico y con qué era, en models.json, la tabla histórico de la calculadora y las fichas por modelo; y la nota pública que una declaración de proveedor pide en su ficha | `examen_v5`, `historico` y `era` de `docs/data/models.json`; `nota_publica` de `proveedores_declarados.json` | `benchmarks/validate.py` |
-| **Tabla histórico de la home** | las filas de la tabla histórico de docs/index.html, con quién reemplazó a cada modelo y su era, contra el export | `historico`, `reemplazado_por` y `era` de `docs/data/models.json` (la escribe `generate_historico.py`) | `benchmarks/check_calculator.py` |
+| **Ranking v5 e histórico** | quién rankea, quién va al histórico y con qué era, en models.json, la tabla histórico de la calculadora y las fichas por modelo; y la nota pública que una declaración de proveedor pide en su ficha | `examen_v5`, `historico` y `era` de `sitio/legado/data/models.json`; `nota_publica` de `proveedores_declarados.json` | `benchmarks/validate.py` |
+| **Tabla histórico de la home** | las filas de la tabla histórico de sitio/legado/index.html, con quién reemplazó a cada modelo y su era, contra el export | `historico`, `reemplazado_por` y `era` de `sitio/legado/data/models.json` (la escribe `generate_historico.py`) | `benchmarks/check_calculator.py` |
 
 ### Detalle de cada una
 

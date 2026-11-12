@@ -75,8 +75,11 @@ ORDEN = {"patch": 0, "minor": 1, "major": 2}
 # (PATCH) y merece su línea. Es data, no un derivado.
 IRRELEVANTES = (
     ".gitignore", ".DS_Store", ".coverage", "scratchpad/",
-    "docs/data/models.json", "docs/sitemap.xml", "docs/llms.txt", "docs/modelo/",
-    "docs/og-benchmark.png", "MODELOS.md", "TESTS.md", "PROMPTS.md",
+    "sitio/legado/data/models.json", "sitio/legado/sitemap.xml", "sitio/legado/llms.txt", "sitio/legado/modelo/",
+    "sitio/legado/og-benchmark.png", "MODELOS.md", "TESTS.md", "PROMPTS.md",
+    # 12-nov-2026: docs/ es la copia de sitio/dist (publicar_dist.py); lo que cambia ahí ya
+    # cambió en su fuente, que es la que pide la entrada.
+    "docs/",
     "benchmarks/results/per-model/", "SUPERFICIES.md",
 )
 

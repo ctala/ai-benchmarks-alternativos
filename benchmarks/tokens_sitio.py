@@ -14,7 +14,7 @@ Lo que sale: cada rol de `themes.light` como `--color-<rol>`; las familias de `t
 `radius`, `spacing` y `motion`; y la sombra destacada en claro de `extensions.sombras`.
 
 LEGADO (motor-sitio 2.2, 11-nov-2026; Cristian eligió «claro ya»): las páginas que todavía salen de
-Python (fichas, landings, home, proveedores) usan `docs/style.css` con sus propias variables
+Python (fichas, landings, home, proveedores) usan `sitio/legado/style.css` con sus propias variables
 (`--bg`, `--green`, `--white`…). Su `:root` también se genera acá, entre marcadores, mapeando
 cada variable a un rol del mismo tema (`MAPEO_LEGADO`). Así el claro llega al sitio entero el
 día del corte y ningún color del legado queda escrito a mano. `--check` verifica los dos.
@@ -40,7 +40,7 @@ MANUAL = Path.home() / "Playground" / "brand-manuals" / "cristian-tala" / "token
 COPIA = ROOT / "sitio" / "brand.json"
 SALIDA = ROOT / "sitio" / "src" / "styles" / "tokens.css"
 TEMA = "light"     # nivel Cercano, claro por defecto (DECISIONES 11-nov-2026); el oscuro, en el 1b
-LEGADO = ROOT / "docs" / "style.css"
+LEGADO = ROOT / "sitio" / "legado" / "style.css"
 INICIO_LEGADO = "/* AUTO-TOKENS-LEGADO-START · generado por benchmarks/tokens_sitio.py desde brand.json; no se edita a mano */"
 FIN_LEGADO = "/* AUTO-TOKENS-LEGADO-END */"
 # Variable del legado → rol del tema. Los nombres vienen del tema oscuro (`--green` era el primario,
@@ -52,7 +52,11 @@ MAPEO_LEGADO = {
     "green": "primary",          # primario: headings, CTAs
     "cyan": "link",              # secundario: links y badges
     "purple": "accent",          # acento: glow y grid
-    "magenta": "warning",        # alertas, uso escaso
+    "magenta": "warning",        # alertas, uso escaso: marcas, bordes y fondos
+    # 12-nov-2026: el magenta no se usa como color de texto sobre claro (3,1 a 3,5:1, bajo el
+    # 4,5:1 de WCAG AA). El manual ya lo dice: sobre `warning` el texto es `warning-content`.
+    # La alerta se ve por el fondo o el borde magenta; la letra, oscura.
+    "magenta-texto": "warning-content",
     "white": "titulo",           # texto fuerte
     "prose": "base-content",     # prosa
     "gray": "muted",             # captions
@@ -87,7 +91,7 @@ def generar(marca: dict) -> str:
 
 
 def generar_legado(marca: dict) -> str:
-    """El bloque `:root` de `docs/style.css`, con sus marcadores."""
+    """El bloque `:root` de `sitio/legado/style.css`, con sus marcadores."""
     tema = marca["themes"][TEMA]
     lin = [INICIO_LEGADO, ":root {"]
     lin += [f"  --{var}: {tema[rol].lower()};   /* {rol} */" for var, rol in MAPEO_LEGADO.items()]
@@ -96,7 +100,7 @@ def generar_legado(marca: dict) -> str:
 
 
 def con_legado(css: str, bloque: str) -> str:
-    """`docs/style.css` con su bloque de tokens reemplazado. Falla si faltan los marcadores."""
+    """`sitio/legado/style.css` con su bloque de tokens reemplazado. Falla si faltan los marcadores."""
     if INICIO_LEGADO not in css or FIN_LEGADO not in css:
         raise SystemExit(f"❌ faltan los marcadores de tokens en {LEGADO.relative_to(ROOT)}")
     i, j = css.index(INICIO_LEGADO), css.index(FIN_LEGADO) + len(FIN_LEGADO)

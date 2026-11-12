@@ -19,7 +19,7 @@ from __future__ import annotations
 
 
 def ejecuciones(data: dict) -> int:
-    """Total de ejecuciones medidas del dataset (`docs/data/models.json`).
+    """Total de ejecuciones medidas del dataset (`sitio/legado/data/models.json`).
 
     El fallback suma los runs por modelo, y existe sólo para datasets viejos anteriores a
     que el export publicara el campo: da un número MENOR (no cuenta los descartados), así

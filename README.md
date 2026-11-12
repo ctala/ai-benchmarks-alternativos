@@ -45,7 +45,7 @@ vigentes, en [DECISIONES.md](DECISIONES.md).
 
 <!-- AUTO-RANKING-START -->
 
-> Auto-generado por `benchmarks/generate_readme_ranking.py` desde `docs/data/models.json`. **No editar a mano** — el z-score se recalcula con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.
+> Auto-generado por `benchmarks/generate_readme_ranking.py` desde `sitio/legado/data/models.json`. **No editar a mano** — el z-score se recalcula con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.
 
 ### Índice de calidad — ¿qué modelo responde mejor?
 

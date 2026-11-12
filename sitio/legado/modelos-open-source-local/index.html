@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos IA open-source para correr local: comparativa por hardware (2026)</title>
+<meta name="description" content="¿Qué modelo IA open-source correr local en Mac M-series, NVIDIA DGX Spark o GPU dedicada? Comparativa de Devstral, Mistral, Llama, Qwen, DeepSeek, GPT-OSS por RAM/VRAM con benchmark real de 88,000+ tests.">
+<meta name="keywords" content="modelos IA local, LLM open source local, Ollama Mac M3, DGX Spark modelos, Mistral Small local, Llama 70B local, GPT-OSS local, modelo IA sin API, modelo IA gratis local">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/modelos-open-source-local/">
+<meta property="og:title" content="Modelos IA open-source para correr local: comparativa por hardware (2026)">
+<meta property="og:description" content="¿Qué modelo IA open-source correr local en Mac M-series, NVIDIA DGX Spark o GPU dedicada? Comparativa de Devstral, Mistral, Llama, Qwen, DeepSeek, GPT-OSS por RAM/VRAM con benchmark real de 88,000+ tests.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/modelos-open-source-local/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Modelos IA open-source para correr local según benchmark real">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modelos IA open-source para correr local: comparativa por hardware (2026)">
+<meta name="twitter:description" content="¿Qué modelo IA open-source correr local en Mac M-series, NVIDIA DGX Spark o GPU dedicada? Comparativa de Devstral, Mistral, Llama, Qwen, DeepSeek, GPT-OSS por RAM/VRAM con benchmark real de 88,000+ tests.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Modelos IA open-source para correr local: comparativa por hardware (2026)",
+  "description": "¿Qué modelo IA open-source correr local en Mac M-series, NVIDIA DGX Spark o GPU dedicada? Comparativa de Devstral, Mistral, Llama, Qwen, DeepSeek, GPT-OSS por RAM/VRAM con benchmark real de 88,000+ tests.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-11-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/modelos-open-source-local/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/modelos-open-source-local/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo instalo Ollama y descargo un modelo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mac/Linux: curl -fsSL https://ollama.com/install.sh | sh. Después ollama pull mistral-small:24b-instruct-2503-q5_K_M. Para correr: ollama run mistral-small. API OpenAI-compatible expuesta en http://localhost:11434/v1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa con la velocidad local vs API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con las APIs más rápidas del benchmark es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Open-source local sirve para producción comercial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, con Apache 2.0/MIT (Mistral, Devstral, Qwen base, DeepSeek, Phi-4). Llama 3 tiene cláusula de >700M MAU pero para 99% de startups latinas no es problema. Verifica siempre la licencia del modelo específico antes de comercializar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿NVIDIA DGX Spark vale la pena para emprendedores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del volumen. DGX Spark (~$3,000) cuesta ~$80/mes amortizado a 3 años. Si tu uso de API es >$80/mes Y los datos son sensibles, sí. Si es <$50/mes, OpenRouter sigue ganando."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quantization Q3 vs Q4 vs Q5 — cuánto pierdo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Q5_K_M: pérdida casi imperceptible (~1-2% en métricas). Q4_K_M: pérdida ~3-5%, balance recomendado. Q3_K_M: pérdida 8-15%, sólo si necesitas meter el modelo en RAM justa. Para casos comerciales, mantenete en Q4 o Q5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo combino modelos local con APIs cuando local no alcanza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pattern de 'fallback chain': tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, NVIDIA NIM). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez."
+      }
+    }
+  ]
+}
+</script>
+<!-- GTM (mismo container que cristiantala.com), diferido: primera interaccion o 3.5s.
+     Estas landings quedaron fuera del primer pase de analytics. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (a && (a.getAttribute('href') || '').indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({ event: 'cta_comunidad', cta_ubicacion: 'landing', pagina_pseo: page });
+    }
+  }, { passive: true });
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Modelos IA open-source para correr local: comparativa por hardware (Noviembre 2026)</h1>
+    <p class="lead">
+      Correr modelos local te da: cero costos por call, privacidad total de datos, y latencia sin
+      red. Pero la pregunta correcta no es "qué modelo es el mejor" sino <strong>"qué modelo cabe en
+      mi hardware y rinde para mi caso"</strong>. Esta página cruza el benchmark con requisitos de RAM/VRAM
+      reales para Mac M-series, NVIDIA DGX Spark, GPUs dedicadas y servers.
+    </p>
+    <p class="lead" style="margin-top: 1rem;">
+      ⚠️ <strong>Importante</strong>: "open-source" tiene matices. Apache 2.0 (Mistral, Devstral, Qwen
+      base, DeepSeek) puedes usar comercialmente sin restricción. Llama tiene cláusulas (limitada para 700M+
+      MAU). Verifica la licencia para tu caso comercial.
+    </p>
+    <p class="meta">
+      Última actualización: 2026-11-12 ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
+    </p>
+  </section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Mejores modelos open-source por hardware</h2>
+    </div>
+
+    <h3>Mac M2/M3/M4 con 16GB RAM</h3>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ministral 14B (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.95</td><td>Apache 2.0</td><td>Tight pero corre</td></tr>
+        <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q4_K_M (~14GB)</td><td>7.62</td><td>Apache 2.0</td><td>Mejor calidad/tamaño</td></tr>
+        <tr><td>DeepSeek V4 Flash (236B/21B activos)</td><td>Q4_K_M (~140GB)</td><td>8.28*</td><td>MIT</td><td>* Score cloud, no cabe en 16GB</td></tr>
+        <tr><td>Phi-4 (14B)</td><td>Q4_K_M (~9GB)</td><td>—</td><td>MIT</td><td>Excelente para judge tasks</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Mac M-series 32GB RAM</h3>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mistral Small 4 (24B)</strong></td><td>Q5_K_M (~17GB)</td><td>7.62</td><td>Apache 2.0</td><td>Top calidad/recursos</td></tr>
+        <tr><td><strong>Qwen 3-Next 80B (Dic 2025)</strong></td><td>Q5_K_M (~22GB)</td><td>—</td><td>Apache 2.0</td><td>Coding profesional</td></tr>
+        <tr><td>Qwen 3.6 35B base</td><td>Q4_K_M (~22GB)</td><td>7.32</td><td>Apache 2.0</td><td>Versatil</td></tr>
+        <tr><td>Llama 3.3 70B</td><td>Q3_K_M (~30GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>NVIDIA DGX Spark (128GB unified) o servers GPU 80GB+</h3>
+    <div class="table-scroll"><table class="results-table">
+      <thead><tr><th scope="col">Modelo</th><th scope="col">Quant</th><th scope="col">Score</th><th scope="col">License</th><th scope="col">Notas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DeepSeek V4 Flash</strong></td><td>Q4_K_M (~140GB)</td><td>8.28</td><td>MIT</td><td>Top open-source large</td></tr>
+        <tr><td><strong>Qwen 3.6 35B base</strong></td><td>Q5_K_M (~25GB)</td><td>7.32</td><td>Apache 2.0</td><td>Balance calidad/tamaño</td></tr>
+        <tr><td><strong>Llama 3.3 70B</strong></td><td>Q5_K_M (~50GB)</td><td>—</td><td>Llama 3</td><td>Sin score local medido</td></tr>
+        <tr><td>Nemotron Ultra 253B</td><td>Q4_K_M (~150GB)</td><td>—</td><td>Open weights</td><td>Demasiado grande para Spark</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="meta">Score = del benchmark cloud. Local con misma quantization da scores similares pero menor velocidad.</p>
+  </section>
+
+  <section>
+    <h2>¿Qué modelo elegir según tu caso local?</h2>
+
+    <h3>Privacidad de datos crítica (LegalTech, HealthTech)</h3>
+    <p>
+      <strong>Mistral Small 4</strong> (Apache 2.0) cubre el 80% de casos sin que ningún byte salga
+      de tu hardware. Para modelos más grandes con alguna privacidad: <strong>DeepSeek V4 Flash</strong>
+      en DGX Spark o server GPU.
+    </p>
+
+    <h3>Coding offline para tus proyectos</h3>
+    <p>
+      <strong>Ministral 14B</strong> (24B Apache 2.0) en Mac M-series 16GB+. Para proyectos grandes:
+      <strong>Qwen 3-Next 80B</strong> en 32GB+. Ambos optimizados para código.
+    </p>
+
+    <h3>Generación de contenido en español sin API costs</h3>
+    <p>
+      <strong>Qwen 3.6 35B base</strong> (Apache 2.0) en Mac M-series. Para mejor calidad y hardware
+      potente: <strong>Qwen 3.5 397B Cloud</strong> via Ollama Cloud (incluido en suscripción ~$30/mes
+      sin costo per call). Caso real: Cristian usa este último para
+      <a href="https://ecosistemastartup.com" target="_blank" rel="noopener">ecosistemastartup.com</a>.
+    </p>
+
+    <h3>Agente N8N self-hosted</h3>
+    <p>
+      <strong>Mistral Small 4</strong> via Ollama (puerto 11434) — N8N apunta su nodo OpenAI Chat al
+      <code>localhost:11434/v1</code>. Cero latencia de red, cero costo per call. Detalles en
+      <a href="/modelos-n8n/">modelos para N8N</a>.
+    </p>
+
+    <h3>LLM-as-Judge / evaluación de outputs</h3>
+    <p>
+      <strong>Phi-4</strong> (Microsoft, 14B, MIT) — exactamente lo que usa este benchmark como juez.
+      Cero conflicto de interés (no es de ningún proveedor evaluado), cabe en 9GB y la rúbrica está
+      en español publicada en el repo.
+    </p>
+  </section>
+<section class="faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary><strong>¿Cómo instalo Ollama y descargo un modelo?</strong></summary><p>Mac/Linux: curl -fsSL https://ollama.com/install.sh | sh. Después ollama pull mistral-small:24b-instruct-2503-q5_K_M. Para correr: ollama run mistral-small. API OpenAI-compatible expuesta en http://localhost:11434/v1.</p></details>
+    <details><summary><strong>¿Qué pasa con la velocidad local vs API?</strong></summary><p>Local en Mac M3 Max ~30-50 tok/s, en M4 Max ~50-70 tok/s. Comparado con las APIs más rápidas del benchmark es mucho más lento. Pero la latencia de primer token (TTFT) local es 0ms vs ~200-500ms del API — para chat conversacional la sensación es similar.</p></details>
+    <details><summary><strong>¿Open-source local sirve para producción comercial?</strong></summary><p>Sí, con Apache 2.0/MIT (Mistral, Devstral, Qwen base, DeepSeek, Phi-4). Llama 3 tiene cláusula de &gt;700M MAU pero para 99% de startups latinas no es problema. Verifica siempre la licencia del modelo específico antes de comercializar.</p></details>
+    <details><summary><strong>¿NVIDIA DGX Spark vale la pena para emprendedores?</strong></summary><p>Depende del volumen. DGX Spark (~$3,000) cuesta ~$80/mes amortizado a 3 años. Si tu uso de API es &gt;$80/mes Y los datos son sensibles, sí. Si es &lt;$50/mes, OpenRouter sigue ganando.</p></details>
+    <details><summary><strong>¿Quantization Q3 vs Q4 vs Q5 — cuánto pierdo?</strong></summary><p>Q5_K_M: pérdida casi imperceptible (~1-2% en métricas). Q4_K_M: pérdida ~3-5%, balance recomendado. Q3_K_M: pérdida 8-15%, sólo si necesitas meter el modelo en RAM justa. Para casos comerciales, mantenete en Q4 o Q5.</p></details>
+    <details><summary><strong>¿Cómo combino modelos local con APIs cuando local no alcanza?</strong></summary><p>Pattern de &#x27;fallback chain&#x27;: tu app intenta local primero (Ollama), si timeout o error cae a API (OpenRouter, NVIDIA NIM). N8N permite esto con nodos If/Error. Ahorra costos en 80% de casos y mantiene robustez.</p></details>
+</section><section class="cta-block">
+  <h2>Prueba la calculadora con tu caso real</h2>
+  <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
+  <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/alternativas-chatgpt/">alternativas a ChatGPT</a> · <a href="/alternativas-gemini/">alternativas a Gemini</a> · <a href="/modelos-n8n/">modelos para N8N</a></p>
+</section>
+{contrato}
+<script type="application/json" id="contrato-pagina">
+{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["Q4_K_M (~14GB)", "Apache 2.0", "Tight pero corre", "Q4_K_M (~14GB)", "Apache 2.0", "Mejor calidad/tamaño", "DeepSeek V4 Flash (236B/21B activos)", "Q4_K_M (~140GB)", "MIT", "Phi-4 (14B)"]}
+</script>
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

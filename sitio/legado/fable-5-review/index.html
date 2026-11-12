@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)</title>
+<meta name="description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.22, costo $10/$50 por millón, 189 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta name="keywords" content="Claude Fable 5 review, Fable 5 benchmark, Fable 5 vs Opus 4.8, Fable 5 vs Sonnet 4.6, Mythos 5 anthropic, Claude Fable 5 español, Fable 5 vale la pena">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/fable-5-review/">
+<meta property="og:title" content="Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)">
+<meta property="og:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.22, costo $10/$50 por millón, 189 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/fable-5-review/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Review de Claude Fable 5 comparado con Opus 4.8 y Sonnet 4.6">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)">
+<meta name="twitter:description" content="Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.22, costo $10/$50 por millón, 189 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Fable 5: review con benchmark real (¿vale la pena en 2026?)",
+  "description": "Review de Claude Fable 5 (línea Mythos de Anthropic) con datos reales: score 6.22, costo $10/$50 por millón, 189 runs. Comparado con Opus 4.8, Sonnet 4.6, MiniMax M3 y DeepSeek R1.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-11-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/fable-5-review/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/fable-5-review/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Claude Fable 5 es mejor que Opus 4.8?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para uso por API: Opus 4.8 supera a Fable 5 en score global y cuesta la mitad ($5/$25 vs $10/$50 por millón). Vía suscripción de Claude Code la historia se invierte: ahí Fable lidera entre los Claude a costo marginal cero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Vale la pena pagar por Claude Fable 5?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo si ya estás en el ecosistema Anthropic y prefieres su tono para contenido creativo. Para producción con volumen, MiniMax M3 y DeepSeek R1 ofrecen mejor relación calidad/precio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Fable 5 es bueno para programar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es su fuerte: 6.67/10 en Coding, por debajo de Sonnet 4.6, Opus 4.8 y modelos open-source especializados como Ministral 14B o Qwen3-Coder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué significa 'Mythos' en Claude Fable 5?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la marca interna/línea de lanzamiento de Anthropic para esta variante de junio 2026, posicionada entre Sonnet y Opus en precio pero no en rendimiento."
+      }
+    }
+  ]
+}
+</script>
+<!-- GTM (mismo container que cristiantala.com), diferido: primera interaccion o 3.5s.
+     Estas landings quedaron fuera del primer pase de analytics. -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (a && (a.getAttribute('href') || '').indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({ event: 'cta_comunidad', cta_ubicacion: 'landing', pagina_pseo: page });
+    }
+  }, { passive: true });
+})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Claude Fable 5: review con benchmark real (Noviembre 2026)</h1>
+    <p class="meta fechada" data-medido="2026-07-17" data-retirados="DeepSeek R1">Review con datos medidos el 17 de julio de 2026; sus cifras son de esa fecha. Se retiraron después: DeepSeek R1 (el 4 de noviembre de 2026).</p>
+    <p class="lead">
+      <strong>Claude Fable 5</strong> es la nueva línea "Mythos" de Anthropic, lanzada en junio de 2026.
+      Lo corrimos por <strong>189 tests reales</strong> con juez neutral Phi-4: obtiene
+      <strong>score global 6.22</strong> (calidad 8.45 — el score compuesto carga su costo), con un precio de
+      <strong>$10.00 / $50.00 por millón de tokens</strong>. ¿Vale la pena? La respuesta corta:
+      <strong>solo si tu caso justifica pagar el premium de Anthropic</strong>.
+    </p>
+    <p class="meta">
+      Última actualización: 2026-11-12 ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a>
+    </p>
+  </section>
+
+  <section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico: es un benchmark <strong>aplicado para emprendedores hispanohablantes</strong>.
+  Medimos qué modelo conviene poner en producción para casos reales, con lo que los benchmarks oficiales no cubren —
+  costo en provider real, velocidad, español neutro y agentes multi-turno.</p>
+  <p>Contamos con <strong><!-- AUTO:total_models -->244<!-- /AUTO --> modelos catalogados</strong>,
+  <strong><!-- AUTO:tested_count -->193<!-- /AUTO --> testeados</strong> y
+  <strong><!-- AUTO:tests_marketing -->88,000+<!-- /AUTO --> tests reales</strong> evaluados por un
+  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
+    <li><strong>Contenido</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
+    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
+    <li><strong>Agentes</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+  </ul>
+  <p>El <strong>score global v6.1.0</strong> es una función ponderada: <strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>.
+  Tool calling se reporta como badge de capacidad, no entra en el score. Mide <em>valor para producción</em>, no solo capacidad bruta.
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>
+
+  <section class="results">
+    <div class="results-header">
+      <h2>Fable 5 vs alternativas directas</h2>
+      <p class="meta">Calidad de 0 a 10: 75 % examen + 25 % tareas reales de agente (Harbor). Costo y velocidad van aparte.</p>
+    </div>
+
+    <div class="table-scroll"><table class="results-table">
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">$ in/out per M</th><th scope="col">License</th><th scope="col">Provider</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Claude Opus 4.8</strong> <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td>8.88</td><td>$5.00 / $25.00</td><td>Propietaria</td><td>openrouter (61 tok/s)</td></tr>
+        <tr><td>2</td><td>Claude Fable 5 <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td>8.84</td><td>$10.00 / $50.00</td><td>Propietaria</td><td>openrouter (49 tok/s)</td></tr>
+        <tr><td>3</td><td>Claude Sonnet 4.6 <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td>8.64</td><td>$3.00 / $15.00</td><td>Propietaria</td><td>openrouter (47 tok/s)</td></tr>
+        <tr><td>4</td><td><a class="a-ficha" href="/modelo/minimax-m3/">MiniMax M3</a></td><td>8.33</td><td>$0.30 / $1.20</td><td>MiniMax Community License (propia de MiniMax, no MIT)</td><td>openrouter (76 tok/s)</td></tr>
+        <tr><td>5</td><td>DeepSeek R1 (reasoning) <span class="row-badge no-rankea" title="su endpoint ya no existe: quien lo integre se estrella">no rankea</span></td><td>7.35</td><td>$0.70 / $2.50</td><td>MIT</td><td>openrouter (22 tok/s)</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="meta">
+      El score global castiga fuerte a Fable 5 por costo. En calidad pura es competitivo, pero no lidera.
+      Ajusta pesos en la <a href="/">calculadora</a> para tu presupuesto real.
+    </p>
+  </section>
+
+  <section>
+    <h2>¿Qué es Claude Fable 5?</h2>
+    <p>
+      Fable 5 es un modelo de Anthropic orientado a <strong>contenido, agentes multi-turno y razonamiento</strong>.
+      No es el flagship de la familia (Opus 4.8 sigue arriba en casi todo), sino una apuesta intermedia
+      con velocidad similar a Opus (~60 tok/s) y un precio que lo acerca más a Opus que a Sonnet.
+    </p>
+    <ul>
+      <li><strong>Score global:</strong> 6.22 — hundido por el costo más caro del catálogo y los bloqueos de política en API.</li>
+      <li><strong>Calidad por pilar:</strong> Contenido 7.43, Agentes 6.31, Coding 7.75, Razonamiento 6.79.</li>
+      <li><strong>Costo:</strong> $10.00 input / $50.00 output por millón.</li>
+      <li><strong>Velocidad:</strong> ~60 tok/s en suscripción Anthropic.</li>
+      <li><strong>Licencia:</strong> Propietaria (suscripción Claude / Anthropic API).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Veredicto: ¿cuándo conviene Fable 5?</h2>
+    <p>
+      <strong>No conviene como modelo único.</strong> Por el mismo ecosistema, Sonnet 4.6 entrega mejor
+      score global (7.80) a la mitad de costo, y Opus 4.8 es más fuerte en todos los pilares (7.88) por $5/$25.
+      Fable 5 queda en una zona incómoda: más caro que Sonnet, peor que Opus.
+    </p>
+    <p>
+      Sí tiene sentido <strong>si ya pagas suscripción Claude Pro/Max</strong> y quieres un modelo con
+      tono más creativo/narrativo para contenido largo o brainstorming, sin salir del stack Anthropic.
+      Pero para producción con volumen, MiniMax M3 (7.92, $0.30/$1.20) o DeepSeek R1 (8.33, $0.70/$2.50)
+      entregan mucho más valor por dólar.
+    </p>
+  </section>
+
+  <section>
+    <h2>Fable 5 por tipo de trabajo</h2>
+    <ul>
+      <li><strong>Coding:</strong> 7.75/10. Por debajo de Sonnet 4.6 (7.62/10) y muy por debajo de modelos open-source baratos como Ministral 14B. No lo elegiría para code-generation en producción.</li>
+      <li><strong>Contenido:</strong> 7.43/10. Bueno, pero Opus 4.8 (7.60/10) y Sonnet 4.6 (7.43/10) rinden similar o mejor por menos.</li>
+      <li><strong>Razonamiento:</strong> 6.79/10. Sólido, pero DeepSeek R1 lidera este grupo (7.08/10).</li>
+      <li><strong>Agentes:</strong> 6.31/10. Competitivo, aunque Sonnet 4.6 (6.96/10) lo supera <em>(corregido el 4-nov-2026)</em>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Comparaciones detalladas</h2>
+    <p>
+      Si quieres ver el enfrentamiento pilar por pilar, tenemos comparaciones automáticas generadas
+      a partir de los mismos datos:
+    </p>
+    <ul>
+      <li><a href="/fable-5-vs-opus-4-8/">Fable 5 vs Claude Opus 4.8</a></li>
+      <li><a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Claude Sonnet 4.6</a></li>
+      <li><a href="/fable-5-vs-minimax-m3/">Fable 5 vs MiniMax M3</a></li>
+    </ul>
+  </section>
+<section class="faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary><strong>¿Claude Fable 5 es mejor que Opus 4.8?</strong></summary><p>No para uso por API: Opus 4.8 supera a Fable 5 en score global y cuesta la mitad ($5/$25 vs $10/$50 por millón). Vía suscripción de Claude Code la historia se invierte: ahí Fable lidera entre los Claude a costo marginal cero.</p></details>
+    <details><summary><strong>¿Vale la pena pagar por Claude Fable 5?</strong></summary><p>Solo si ya estás en el ecosistema Anthropic y prefieres su tono para contenido creativo. Para producción con volumen, MiniMax M3 y DeepSeek R1 ofrecen mejor relación calidad/precio.</p></details>
+    <details><summary><strong>¿Fable 5 es bueno para programar?</strong></summary><p>No es su fuerte: 6.67/10 en Coding, por debajo de Sonnet 4.6, Opus 4.8 y modelos open-source especializados como Ministral 14B o Qwen3-Coder.</p></details>
+    <details><summary><strong>¿Qué significa &#x27;Mythos&#x27; en Claude Fable 5?</strong></summary><p>Es la marca interna/línea de lanzamiento de Anthropic para esta variante de junio 2026, posicionada entre Sonnet y Opus en precio pero no en rendimiento.</p></details>
+</section><section class="cta-block">
+  <h2>Prueba la calculadora con tu caso real</h2>
+  <p>Filtra por presupuesto mensual, calidad mínima, velocidad requerida y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
+  <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  <p class="meta" style="margin-top: 1rem;">Ver también: <a href="/fable-5-vs-opus-4-8/">Fable 5 vs Opus 4.8</a> · <a href="/fable-5-vs-claude-sonnet-4-6/">Fable 5 vs Sonnet 4.6</a> · <a href="/alternativas-claude/">alternativas a Claude</a> · <a href="/modelos-baratos-emprendedores/">modelos baratos</a></p>
+</section>
+<script type="application/json" id="contrato-pagina">
+{"tipo": "landing", "generador": "generate_manual_landings", "recomienda": ["Claude Opus 4.8", "Claude Fable 5", "Claude Sonnet 4.6", "MiniMax M3"], "nota": "review fechada: foto de la medición del 2026-07-17"}
+</script>
+{contrato}
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -42,7 +42,7 @@ def calcular_familia(nombre):
 
 def main():
     # Cargar datos
-    data = json.load(open('docs/data/models.json'))
+    data = json.load(open('sitio/legado/data/models.json'))
     models = {m['key']: m for m in data['models']}
     
     # Excluir ya jubilados por criterios 1-3

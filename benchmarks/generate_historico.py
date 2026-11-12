@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Escribe en el home (docs/index.html) la tabla «histórico», desde models.json.
+Escribe en el home (sitio/legado/index.html) la tabla «histórico», desde models.json.
 
 POR QUÉ EXISTE (7-nov-2026)
 ---------------------------
@@ -24,8 +24,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-INDEX = ROOT / "docs" / "index.html"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+INDEX = ROOT / "sitio" / "legado" / "index.html"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 START = "<!-- AUTO-HISTORICO-START -->"
 END = "<!-- AUTO-HISTORICO-END -->"
@@ -128,13 +128,13 @@ def main():
     data = json.loads(MODELS_JSON.read_text())
     html = INDEX.read_text()
     if START not in html or END not in html:
-        raise SystemExit(f"ERROR: faltan los marcadores {START} / {END} en docs/index.html, "
+        raise SystemExit(f"ERROR: faltan los marcadores {START} / {END} en sitio/legado/index.html, "
                          "dentro de <section id=\"historico\">.")
     html = re.sub(rf"{re.escape(START)}.*?{re.escape(END)}", lambda _: build(data), html,
                   flags=re.DOTALL)
     INDEX.write_text(html)
     fs = filas(data)
-    print(f"OK: docs/index.html — tabla histórico con {len(fs)} filas "
+    print(f"OK: sitio/legado/index.html — tabla histórico con {len(fs)} filas "
           f"({sum(f['motivo'] == MOTIVO_REEMPLAZO for f in fs)} reemplazadas)")
 
 

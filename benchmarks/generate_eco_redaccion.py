@@ -23,7 +23,7 @@ QUÉ CALCULA
 - **piso de Eco**: un modelo queda bajo el piso si rinde peor que el redactor principal de Eco
   (`PISO_REF`, DeepSeek V4.1 Flash) por más del ruido, con la misma prueba pareada.
 
-Escribe `docs/img/eco-redaccion.svg` y la tabla de la frontera dentro de OCASIONES.md, entre
+Escribe `sitio/legado/img/eco-redaccion.svg` y la tabla de la frontera dentro de OCASIONES.md, entre
 `<!-- ECO-REDACCION-START -->` y `<!-- ECO-REDACCION-END -->`. Nada de esto se edita a mano.
 
 Uso:
@@ -42,7 +42,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SVG = ROOT / "docs" / "img" / "eco-redaccion.svg"
+SVG = ROOT / "sitio" / "legado" / "img" / "eco-redaccion.svg"
 DOC = ROOT / "OCASIONES.md"
 INI, FIN = "<!-- ECO-REDACCION-START -->", "<!-- ECO-REDACCION-END -->"
 SUITE = "noticias_redaccion"
@@ -63,7 +63,7 @@ TINTA, TINTA2, FONDO, GRILLA = "#ffffff", "#b0b0b0", "#0a0a1a", "#1a1a2e"
 
 
 def puntos() -> list[dict]:
-    data = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    data = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     rank = {m["key"]: m for m in data["models"] if m.get("ranked")}
     from benchmarks.models import MODELS  # noqa: PLC0415
     por_id = {}
@@ -246,7 +246,7 @@ def bloque(ps: list[dict]) -> str:
     f3 = lambda v: f"{v:.3f}".replace(".", ",")
     filas = [p for p in ps if p["frontera"] or p["empata_con"] or p["key"] in ECO]
     lin = [INI, "",
-           "![Redacción de noticias: nota contra costo por punto](docs/img/eco-redaccion.svg)", "",
+           "![Redacción de noticias: nota contra costo por punto](sitio/legado/img/eco-redaccion.svg)", "",
            "| Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto "
            "| Diferencia pareada | |",
            "|---|---|---|---|---|---|"]

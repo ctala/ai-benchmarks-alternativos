@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
 
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 
 
@@ -53,9 +53,9 @@ def r1_filtro_agentico():
     faltan = []
     js = (DOCS / "app.js").read_text()
     if "sirve_para_agentes" not in js:
-        faltan.append("docs/app.js no filtra por `sirve_para_agentes`")
+        faltan.append("sitio/legado/app.js no filtra por `sirve_para_agentes`")
     if "EJES_AGENTICOS" not in js:
-        faltan.append("docs/app.js no distingue los ejes agénticos de los demás")
+        faltan.append("sitio/legado/app.js no distingue los ejes agénticos de los demás")
     gr = (ROOT / "benchmarks" / "generate_rankings.py").read_text()
     if "sirve_para_agentes" not in gr:
         faltan.append("generate_rankings.py no filtra no-aptos en los cortes agénticos")
@@ -233,7 +233,7 @@ def r7_contrato_de_pagina():
         if leer(pg.read_text(errors="replace")) is None:
             sin.append(pg.parent.name)
     # Regla de páginas leídas (motor-sitio 2.3): todas las del registro salvo la home.
-    return [f"docs/{s}/ no declara su contrato: el auditor tiene que adivinar su "
+    return [f"sitio/legado/{s}/ no declara su contrato: el auditor tiene que adivinar su "
             f"estructura, y ahí es donde nacen los puntos ciegos" for s in sin] \
         + pl.exigir("R7", leidas, pl.esperadas() - {"/"})
 
@@ -390,7 +390,7 @@ def main() -> int:
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, default=None,
-                    help="revisar lo que compila Astro (sitio/dist); los datos, de docs/")
+                    help="revisar lo que compila Astro (sitio/dist); los datos, de sitio/legado/")
     a = ap.parse_args()
     if a.dist:
         DOCS = a.dist

@@ -51,7 +51,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 
 ALTA, MEDIA, BAJA = "🔴", "🟡", "⚪"
@@ -468,7 +468,7 @@ def main() -> int:
     ap.add_argument("--solo", help="una clase (P1..P6)")
     ap.add_argument("--duro", action="store_true", help="exit 1 si hay severidad alta")
     ap.add_argument("--dist", type=Path, default=None,
-                    help="auditar lo que compila Astro (sitio/dist); los datos siguen saliendo de docs/")
+                    help="auditar lo que compila Astro (sitio/dist); los datos siguen saliendo de sitio/legado/")
     a = ap.parse_args()
     global DOCS
     if a.dist:

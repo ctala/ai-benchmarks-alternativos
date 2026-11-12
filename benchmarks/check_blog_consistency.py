@@ -25,7 +25,7 @@ Para cada post del blog que cite el benchmark:
   · ejecuciones ("más de 80.000 ejecuciones", contra `conteos.ejecuciones`)
   · posts congelados: con `benchmarkEra` Y nota visible se audita solo lo que muestra Google;
     con una sola de las dos marcas, rojo
-Los contrasta contra docs/data/models.json y falla si algo ya no coincide.
+Los contrasta contra sitio/legado/data/models.json y falla si algo ya no coincide.
 
 Revisa el FRONTMATTER (title, seoTitle, description) con prioridad, porque es lo que
 Google muestra — y es justo donde se coló el bug: se corrigió el `description` y se
@@ -45,7 +45,7 @@ from pathlib import Path
 BENCH = Path(__file__).parent.parent
 sys.path.insert(0, str(Path(__file__).parent))
 import conteos  # noqa: E402
-MODELS_JSON = BENCH / "docs" / "data" / "models.json"
+MODELS_JSON = BENCH / "sitio" / "legado" / "data" / "models.json"
 # `BENCH_BLOG` apunta los chequeos a otro checkout (un worktree que espera aprobación) sin
 # tocar el principal; qa.py avisa cuando está puesta (8-nov-2026).
 DEFAULT_BLOG = Path(os.environ.get("BENCH_BLOG")
@@ -286,7 +286,7 @@ def main():
         print(f"  ⏭️  sin el repo del blog en {args.blog}: NO se verificó ninguna cifra")
         return 0
     if not MODELS_JSON.exists():
-        sys.exit("Falta docs/data/models.json — corré export_for_pages.py primero")
+        sys.exit("Falta sitio/legado/data/models.json — corré export_for_pages.py primero")
 
     # Un post borrado en el push ya no existe en disco: no hay nada que verificar.
     objetivo = ([p for p in (Path(x) for x in args.posts) if p.exists()]

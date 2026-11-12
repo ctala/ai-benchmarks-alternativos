@@ -4,9 +4,9 @@
 POR QUÉ EXISTE
 --------------
 Astro compila desde `sitio/src/datos/`, que `exportar_sitio.py` escribe desde
-`docs/data/models.json`. Si alguien re-exporta los datos (un lote nuevo, un modelo retirado)
+`sitio/legado/data/models.json`. Si alguien re-exporta los datos (un lote nuevo, un modelo retirado)
 y no recompila, `sitio/dist` sigue mostrando el ranking de ayer, y en el corte eso es lo que
-se copia a `docs/`. Ninguna página se ve rota: cada cifra cuadra con los datos con los que se
+se copia a `sitio/legado/`. Ninguna página se ve rota: cada cifra cuadra con los datos con los que se
 compiló, que ya no son los publicados.
 
 Cada página de Astro lleva `<meta name="datos-sha">`, la huella del `models.json` con el que
@@ -55,7 +55,7 @@ def revisar(dist: Path, esperado: str, astro: set[str]) -> tuple[list[str], set[
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, required=True, help="el sitio compilado (sitio/dist)")
-    ap.add_argument("--models", type=Path, default=ROOT / "docs" / "data" / "models.json")
+    ap.add_argument("--models", type=Path, default=ROOT / "sitio" / "legado" / "data" / "models.json")
     a = ap.parse_args()
     import paginas_leidas as pl
     import registro_paginas as rp

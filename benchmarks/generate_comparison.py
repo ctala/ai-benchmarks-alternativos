@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Genera páginas pSEO de comparación "[Familia A] vs [Familia B]" en docs/<slug>/index.html
-a partir de docs/data/models.json (data real del benchmark). HTML estático server-rendered
+Genera páginas pSEO de comparación "[Familia A] vs [Familia B]" en sitio/legado/<slug>/index.html
+a partir de sitio/legado/data/models.json (data real del benchmark). HTML estático server-rendered
 — mismo patrón que las landing actuales (no toca la calculadora ni usa app.js).
 
 Es paso opcional del pipeline (ver CLAUDE.md). El generate_sitemap.py descubre las páginas
@@ -20,7 +20,7 @@ import sys as _sys; _sys.path.insert(0, str(Path(__file__).resolve().parent.pare
 from benchmarks import elegibilidad
 
 ROOT = Path(__file__).parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "sitio" / "legado"
 MODELS_JSON = DOCS / "data" / "models.json"
 SITE = "https://benchmarks.cristiantala.com"
 LOGO = "https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png"
@@ -345,7 +345,7 @@ HUERFANAS_DECLARADAS = {
 # archivo y no lo es — la genera `generate_variants.py`, que produce páginas «qué variante
 # uso» con el mismo patrón de slug. Se llegó a declarar como huérfana y a redirigirla; el
 # pipeline la restauró en el mismo run y ahí se vio el error. Por eso el chequeo mira
-# TODOS los generadores, no solo éste: dos scripts distintos escriben en `docs/*-vs-*/`.
+# TODOS los generadores, no solo éste: dos scripts distintos escriben en `sitio/legado/*-vs-*/`.
 
 
 def _contrato_redirect(slug, cfg):
@@ -1422,7 +1422,7 @@ def main():
         outdir = DOCS / cfg["slug"]
         outdir.mkdir(exist_ok=True)
         (outdir / "index.html").write_text(render(cfg, A, B), encoding="utf-8")
-        print(f"✓ {cfg['slug']}: {len(A)} {cfg['a']['name']} + {len(B)} {cfg['b']['name']} → docs/{cfg['slug']}/index.html")
+        print(f"✓ {cfg['slug']}: {len(A)} {cfg['a']['name']} + {len(B)} {cfg['b']['name']} → sitio/legado/{cfg['slug']}/index.html")
     if not args.slug:
         escribir_redirects()
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benchmarks.cristiantala.com/sitemap.xml

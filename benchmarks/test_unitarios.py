@@ -50,7 +50,7 @@ from benchmarks import auditar_paginas as aud  # noqa: E402
 
 @pytest.fixture(scope="session")
 def datos():
-    return json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    return json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
 
 
 @pytest.fixture(scope="session")
@@ -1464,7 +1464,7 @@ def test_ningun_titulo_promete_un_modelo_retirado(datos):
     import re as _re
     retirados = {m["name"] for m in datos["models"] if m.get("retired")}
     malas = []
-    for idx in sorted((ROOT / "docs").rglob("index.html")):
+    for idx in sorted((ROOT / "sitio" / "legado").rglob("index.html")):
         html = idx.read_text(errors="replace")
         t = _re.search(r"<title>([^<]*)</title>", html)
         if not t:
@@ -1473,7 +1473,7 @@ def test_ningun_titulo_promete_un_modelo_retirado(datos):
             # se compara sobre el nombre sin el sufijo de tier: «Grok 4.1» basta
             corto = " ".join(r.split()[:2])
             if corto in t.group(1) and corto not in _re.sub(r"<title>.*?</title>", "", html):
-                malas.append(f"docs/{idx.parent.name}/ promete «{corto}» en el title "
+                malas.append(f"sitio/legado/{idx.parent.name}/ promete «{corto}» en el title "
                              f"y no lo muestra en la página")
     assert not malas, "\n".join(malas)
 
@@ -1813,14 +1813,14 @@ def test_las_fichas_ordenan_por_la_nota_que_muestran():
     """
     import json, re, pathlib
     raiz = pathlib.Path(__file__).resolve().parent.parent
-    d = json.loads((raiz / "docs/data/models.json").read_text())
+    d = json.loads((raiz / "sitio/legado/data/models.json").read_text())
     R = [m for m in d["models"] if m.get("ranked")]
     orden = sorted(R, key=lambda x: -(x.get("score_calidad") or 0))  # la nota v6 (9-nov-2026)
     esperado = {m["key"]: i + 1 for i, m in enumerate(orden)}
 
     malas = []
     for m in R:
-        f = raiz / "docs/modelo" / m["key"] / "index.html"
+        f = raiz / "sitio/legado/modelo" / m["key"] / "index.html"
         if not f.exists():
             continue
         txt = re.sub(r"<[^>]+>", " ", f.read_text())
@@ -1962,7 +1962,7 @@ def test_sitemap_lastmod_sale_de_git_y_no_del_mtime():
     import subprocess
     import time
     from benchmarks import generate_sitemap as gs
-    pagina = ROOT / "docs" / "modelo" / "or-qwen3-next-thinking" / "index.html"
+    pagina = ROOT / "sitio" / "legado" / "modelo" / "or-qwen3-next-thinking" / "index.html"
     rel = pagina.relative_to(ROOT).as_posix()
     sucias = gs.sin_commitear()
     if rel in sucias:
@@ -2305,7 +2305,7 @@ def test_grupo_de_cabeza_por_suite_usa_su_margen_y_no_el_tope_absoluto():
 
 
 def test_el_export_publica_el_margen_de_error_por_suite():
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     rk = [m for m in d["models"] if m.get("ranked")]
     assert rk and all(m.get("quality_ci95_by_suite") for m in rk)
     for m in rk:
@@ -2561,7 +2561,7 @@ def test_publicado_ningun_predecesor_rankea_con_su_sucesor_medido():
     # el predecesor no puede seguir rankeado.
     import json
     from benchmarks.models import MODELS
-    ms = {m["key"]: m for m in json.loads((ROOT / "docs/data/models.json").read_text())["models"]}
+    ms = {m["key"]: m for m in json.loads((ROOT / "sitio/legado/data/models.json").read_text())["models"]}
     for k, c in MODELS.items():
         p = c.get("reemplaza")
         suc, pred = ms.get(k), ms.get(p)
@@ -2639,8 +2639,8 @@ def test_tabla_historico_c6_compara_cada_fila_con_el_export():
     # rindieron entero. Control verde con los archivos reales; después, cada mundo roto.
     import re as _re
     from benchmarks import check_calculator as CC, generate_historico as GH
-    data = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
-    html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+    data = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
+    html = (ROOT / "sitio" / "legado" / "index.html").read_text(encoding="utf-8")
     assert CC.c6_tabla_historico(html, data["models"]) == []
     fresca = GH.build(data)
     ini, fin = GH.START, GH.END
@@ -2724,12 +2724,12 @@ _JUEZ_LOCAL = re.compile(r"(?i)(llm-as-judge|juez)[^.<\n]{0,30}\blocal\b|phi-?4 
 def test_ninguna_pagina_publica_el_juez_como_local():
     """8-nov-2026. El juez canónico corre por OpenRouter (`phi4-or`) desde el 14-sep-2026, y
     seis plantillas, el README y llms.txt seguían diciendo «LLM-as-Judge local». Se mira lo
-    PUBLICADO (docs/, README, llms.txt), no los generadores: un comentario que cuenta la
+    PUBLICADO (sitio/legado/, README, llms.txt), no los generadores: un comentario que cuenta la
     historia puede citar la frase vieja."""
     assert _JUEZ_LOCAL.search("evaluados con LLM-as-Judge Phi-4 local, en 4 pilares")
     assert not _JUEZ_LOCAL.search("LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter)")
-    publicadas = [ROOT / "README.md", ROOT / "docs" / "llms.txt",
-                  *sorted((ROOT / "docs").glob("**/*.html"))]
+    publicadas = [ROOT / "README.md", ROOT / "sitio" / "legado" / "llms.txt",
+                  *sorted((ROOT / "sitio" / "legado").glob("**/*.html"))]
     malas = [str(p.relative_to(ROOT)) for p in publicadas
              if p.exists() and _JUEZ_LOCAL.search(p.read_text(errors="ignore"))]
     assert not malas, f"publican el juez como local: {malas[:10]}"

@@ -232,7 +232,7 @@ Un modelo fuera de la frontera tiene a otro que escribe igual o mejor por menos.
 
 <!-- ECO-REDACCION-START -->
 
-![Redacción de noticias: nota contra costo por punto](docs/img/eco-redaccion.svg)
+![Redacción de noticias: nota contra costo por punto](sitio/legado/img/eco-redaccion.svg)
 
 | Modelo | Nota de redacción | US$ por 1.000 llamadas | US$ por 1.000 llamadas por punto | Diferencia pareada | |
 |---|---|---|---|---|---|

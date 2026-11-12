@@ -14,12 +14,12 @@ este script hace que esa declaración no sea una promesa.
       congelada; o una congelada no muestra el aviso.
   R2  una cifra visible del HTML compilado no viene marcada con `data-cifra`. Quedan exentos los
       años, las fechas, los nombres de modelo (que van marcados con `data-modelo`) y `EXENTAS`.
-  R3  una URL publicada (directorios de `docs/` y `docs/sitemap.xml`) no tiene entrada en el
+  R3  una URL publicada (directorios de `sitio/legado/` y `sitio/legado/sitemap.xml`) no tiene entrada en el
       registro, o no existe en `dist` ni como página ni como redirect correcto.
   R4  un `index.html` de `dist` no tiene entrada en el registro.
   R6  `sitemap.xml` y `llms.txt` listan exactamente los destinos del registro: ningún redirect
       (Google no indexa lo que la página misma marca `noindex`) y ningún destino afuera. Se
-      revisan los de `docs/` y, con `--dist`, también los copiados a `dist`. (motor-sitio 2.3)
+      revisan los de `sitio/legado/` y, con `--dist`, también los copiados a `dist`. (motor-sitio 2.3)
   R5  un modelo fuera del ranking no tiene motivo registrado (o `ranked` contradice a su
       elegibilidad). Sin motivo, una página no puede decir por qué un modelo no está; es un
       error de datos (Cristian, 11-nov-2026). Corre siempre, con o sin build.
@@ -38,11 +38,11 @@ Se mira lo COMPILADO y no la fuente: una cifra escrita en el código de una plan
 
 Las páginas `legado` (el HTML de Python) siguen bajo los guardrails de hoy hasta que su sesión las
 migre. Desde la tarea 2.2 (`COPIA_LEGADO`), `copiar_legado.py` las lleva a `dist` y R3 las busca
-ahí: lo que no esté en `dist` el corte lo borraría. Sin `--dist`, R3 sigue mirando `docs/`.
+ahí: lo que no esté en `dist` el corte lo borraría. Sin `--dist`, R3 sigue mirando `sitio/legado/`.
 
 Uso:
     python benchmarks/check_registro.py --dist sitio/dist   # dentro de `npm run build`
-    python benchmarks/check_registro.py                     # sin build: solo R0 y R3 contra docs/
+    python benchmarks/check_registro.py                     # sin build: solo R0 y R3 contra sitio/legado/
 """
 from __future__ import annotations
 
@@ -245,8 +245,8 @@ def revisar_indices(base: Path, regs: list[dict]) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dist", type=Path, help="el sitio compilado (sitio/dist)")
-    ap.add_argument("--docs", type=Path, default=ROOT / "docs")
-    ap.add_argument("--models", type=Path, default=ROOT / "docs" / "data" / "models.json")
+    ap.add_argument("--docs", type=Path, default=ROOT / "sitio" / "legado")
+    ap.add_argument("--models", type=Path, default=ROOT / "sitio" / "legado" / "data" / "models.json")
     a = ap.parse_args()
     if a.dist is not None and not a.dist.is_dir():
         print(f"  ❌ no existe {a.dist}: el build no produjo nada que validar")
@@ -261,7 +261,7 @@ def main() -> int:
         fallos += revisar_indices(a.dist, rp.paginas())
     print("REGISTRO DE PÁGINAS — R0-R6\n")
     if a.dist is None:
-        print("  ⚠️  sin --dist: corrieron R0 y R3 contra docs/. R1, R2 y R4 miran lo compilado "
+        print("  ⚠️  sin --dist: corrieron R0 y R3 contra sitio/legado/. R1, R2 y R4 miran lo compilado "
               "y corren dentro de `npm run build`.")
     for x in fallos:
         print(f"  ❌ {x}")

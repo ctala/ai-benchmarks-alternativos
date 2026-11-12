@@ -90,7 +90,7 @@ def main() -> int:
 
     keys = a.models or []
     if a.rankeados:
-        d = json.loads((ROOT / "docs/data/models.json").read_text())
+        d = json.loads((ROOT / "sitio/legado/data/models.json").read_text())
         keys = [m["key"] for m in d["models"] if m.get("ranked")]
     if not keys:
         ap.error("pasá --models o --rankeados")

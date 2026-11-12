@@ -121,7 +121,7 @@ def prueba(nombre: str, detalle: str):
 # ── check_calculator: un umbral fuera del rango real no filtra a nadie ─────────
 @prueba("check_calculator", "un umbral de calidad bajo el mínimo real")
 def _t_calculadora():
-    app = ROOT / "docs" / "app.js"
+    app = ROOT / "sitio" / "legado" / "app.js"
     with Sabotaje(app):
         s = app.read_text(encoding="utf-8")
         # 0.1 está muy por debajo de cualquier score real: no filtraría a nadie
@@ -246,7 +246,7 @@ def _t_superficies():
 
 @prueba("check_calculator C5", "un eje medido que la calculadora dejó de exponer")
 def _t_calc_c5():
-    app = ROOT / "docs" / "app.js"
+    app = ROOT / "sitio" / "legado" / "app.js"
     with Sabotaje(app):
         # C1-C4 preguntan si la calculadora se ROMPIÓ; C5 si quedó INCOMPLETA. Sin este
         # test, el día que alguien saque un eje del JS todo sigue en verde.
@@ -257,7 +257,7 @@ def _t_calc_c5():
 
 @prueba("check_calculator C6", "la tabla histórico vuelve a decir «antes del examen v5» de un reemplazado")
 def _t_calc_c6():
-    idx = ROOT / "docs" / "index.html"
+    idx = ROOT / "sitio" / "legado" / "index.html"
     with Sabotaje(idx):
         # 7-nov-2026: el fallo real. Los 7 reemplazados rindieron el examen v5 entero y la
         # tabla decía que se midieron antes y no nombraba a su sucesor.
@@ -272,7 +272,7 @@ def _t_calc_c6():
 
 @prueba("check_cortes", "un corte por eje desincronizado de models.json")
 def _t_cortes():
-    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    pg = ROOT / "sitio" / "legado" / "mejor-llm-para-json" / "index.html"
     if not pg.exists():
         return False
     if _correr("check_cortes.py") != 0:
@@ -296,10 +296,10 @@ def _cortes_cfg():
 @prueba("check_cortes --dist", "filas con la forma de Astro y un #1 cambiado, y un lector que no reconoce las filas (C3 y C4 leen cero)")
 def _t_cortes_dist():
     # 11-nov-2026 (motor-sitio 2.3). Frente a `dist`, FILA_1 no leía nada. Sin Node en el CI, el
-    # árbol es una copia de docs/ y las filas se reescriben con la forma que compila Astro.
+    # árbol es una copia de sitio/legado/ y las filas se reescriben con la forma que compila Astro.
     import re as _re
     base = Path(tempfile.mkdtemp()) / "dist"
-    for f in (ROOT / "docs").glob("*/index.html"):
+    for f in (ROOT / "sitio" / "legado").glob("*/index.html"):
         d = base / f.parent.name / "index.html"
         d.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(f, d)
@@ -340,13 +340,13 @@ def _t_cortes_dist():
 
 @prueba("check_cortes C3", "un corte agéntico que recomienda a un modelo que no corre en un agente")
 def _t_cortes_c3():
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     no_apto = next((m["name"] for m in datos["models"] if m.get("sirve_para_agentes") is False), None)
     if not no_apto:
         raise AssertionError("ningún modelo marcado como no apto: no hay con qué sabotear")
     cfg = next(c for c in _cortes_cfg() if c.get("criterion") == "suite"
                and c["suite"] in {"tool_calling", "agent_long_horizon", "policy_adherence"})
-    pg = ROOT / "docs" / cfg["slug"] / "index.html"
+    pg = ROOT / "sitio" / "legado" / cfg["slug"] / "index.html"
     if _correr("check_cortes.py") != 0:
         return False
     with Sabotaje(pg):
@@ -361,7 +361,7 @@ def _t_cortes_c3():
 
 @prueba("check_cortes C4", "una página con la segunda tabla puesta (o quitada) contra lo que dice el dato")
 def _t_cortes_c4():
-    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    pg = ROOT / "sitio" / "legado" / "mejor-llm-para-json" / "index.html"
     if _correr("check_cortes.py") != 0:
         return False
     marca = "La misma capacidad, por lo que cuesta"
@@ -377,7 +377,7 @@ def _t_cortes_c4():
 
 @prueba("check_cortes C5", "un veredicto que corona a uno y una tabla que pone primero a otro")
 def _t_cortes_c5():
-    pg = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
+    pg = ROOT / "sitio" / "legado" / "mejor-llm-para-agentes" / "index.html"
     if _correr("check_cortes.py") != 0:
         return False
     import re as _re
@@ -400,7 +400,7 @@ def _t_ganadores():
     # escalera. Se busca cualquier página con un empate en la cima: si no hay, la prueba no
     # tiene qué romper y lo dice, en vez de dar verde sin sabotear nada.
     import re as _re
-    pg = next((p for p in sorted((ROOT / "docs").glob("*/index.html"))
+    pg = next((p for p in sorted((ROOT / "sitio" / "legado").glob("*/index.html"))
                if "Empatan arriba" in p.read_text(encoding="utf-8", errors="ignore")), None)
     if pg is None:
         raise AssertionError("ninguna página tiene una fila «Empatan arriba»: el sabotaje no tocaría nada")
@@ -418,8 +418,8 @@ def _t_ganadores_grupo():
     import re as _re
     if _correr("check_ganadores.py") != 0:
         raise AssertionError("check_ganadores ya está en rojo: el sabotaje no probaría nada")
-    grupo = ROOT / "docs" / "mejor-llm-para-razonamiento" / "index.html"
-    veredicto = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
+    grupo = ROOT / "sitio" / "legado" / "mejor-llm-para-razonamiento" / "index.html"
+    veredicto = ROOT / "sitio" / "legado" / "mejor-llm-para-agentes" / "index.html"
     h = grupo.read_text(encoding="utf-8")
     m = _re.search(r'data-grupo-cabeza="([^"]*)"', h)
     if not m or len(m.group(1).split(",")) < 2:
@@ -452,7 +452,7 @@ def _t_ganadores_grupo():
         if _correr("check_ganadores.py") == 0:
             return False
         # G1: recomienda a un rankeado que no está en el grupo
-        d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+        d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
         g = _re.search(r'data-grupo-cabeza="([^"]*)"', hv).group(1).split(",")
         fuera = next(x["name"] for x in d["models"] if x.get("ranked") and x["key"] not in g)
         veredicto.write_text(hv.replace(card.group(0), card.group(1) + fuera + card.group(3), 1),
@@ -465,11 +465,11 @@ def _t_ganadores_grupo():
 def _t_ganadores_dist():
     # 11-nov-2026 (motor-sitio 2.3). Frente al HTML de Astro, check_ganadores leyó cero filas y
     # reportó contradicciones falsas sin saber que no leía. Ahora cuenta páginas contra el
-    # registro. Sin Node en el CI, el árbol es una copia de docs/ (el control) y las formas de
+    # registro. Sin Node en el CI, el árbol es una copia de sitio/legado/ (el control) y las formas de
     # Astro se inyectan: `data-corona` en Modelo, `veredicto-tag` + enlace, el grupo sin valor.
     import re as _re
     base = Path(tempfile.mkdtemp()) / "dist"
-    for f in (ROOT / "docs").glob("*/index.html"):
+    for f in (ROOT / "sitio" / "legado").glob("*/index.html"):
         d = base / f.parent.name / "index.html"
         d.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(f, d)
@@ -550,7 +550,7 @@ def _t_release():
     # los dos casos se exige control VERDE y recién entonces se sabotea la primera fila.
     from datetime import date
     import re as _re
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     R = sorted([m for m in d["models"] if m.get("ranked")],
                key=lambda x: -(x.get("quality_avg") or 0))
     ds = ROOT / f"DATASHEET_{date.today().strftime('%Y-%m')}.md"
@@ -579,7 +579,7 @@ def _t_paleta():
     # El caso real: alguien necesita «un amarillo para advertencia», lo escribe en una
     # regla y se queda. Así llegaron los 22 colores fuera de manual que había el 19-ago
     # — ninguno por decisión, todos por acumulación.
-    css = ROOT / "docs" / "style.css"
+    css = ROOT / "sitio" / "legado" / "style.css"
     with Sabotaje(css):
         css.write_text(css.read_text(encoding="utf-8") +
                        "\n.inventado { color: #ffcc00; }\n", encoding="utf-8")
@@ -591,7 +591,7 @@ def _t_registro_motivo():
     # 11-nov-2026 (Cristian): «el que no rankea sin motivo registrado es un error de datos».
     # Pasaba con Qwen 3-Next 80B Thinking (`effort_variant` no viajaba en el dato). Se borra
     # el motivo de UN modelo en una copia de models.json y R5 tiene que nombrarlo.
-    real = ROOT / "docs" / "data" / "models.json"
+    real = ROOT / "sitio" / "legado" / "data" / "models.json"
     r = lambda f: subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--models", str(f)],
                                  cwd=ROOT, capture_output=True, text=True)
     if r(real).returncode != 0:
@@ -610,15 +610,15 @@ def _t_registro_motivo():
 def _t_registro_indices():
     # 11-nov-2026 (motor-sitio 2.3). El sitemap listaba 19 redirects que la página misma marca
     # `noindex`: Google los rastreaba para descartarlos. Hoy el sitemap y llms.txt salen del
-    # registro; R6 exige que digan exactamente sus destinos. Se rompe una copia de docs/.
+    # registro; R6 exige que digan exactamente sus destinos. Se rompe una copia de sitio/legado/.
     import registro_paginas as _rp
     regs = _rp.paginas()
     redirect = next(e["url"] for e in regs if e["redirect_a"])
     destino = next(e["url"] for e in regs if not e["redirect_a"] and e["url"] != "/")
     site = "https://benchmarks.cristiantala.com"
     tmp = Path(tempfile.mkdtemp())
-    base = tmp / "docs"
-    shutil.copytree(ROOT / "docs", base)
+    base = tmp / "sitio" / "legado"
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     r = lambda: subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--docs", str(base)],
                                cwd=ROOT, capture_output=True, text=True)
     ok = r().returncode == 0                                       # control
@@ -645,9 +645,9 @@ def _t_registro_indices():
 @prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida, una congelada que cambia, "
                          "una afirmación que cambia sin motivo y una frase retirada que vuelve")
 def _t_paridad_sitio():
-    # 11-nov-2026 (motor-sitio 1.7). El corte reemplaza docs/ por lo que compila Astro: una
+    # 11-nov-2026 (motor-sitio 1.7). El corte reemplaza sitio/legado/ por lo que compila Astro: una
     # diferencia sin declarar se publicaría en silencio. Sin Node en el CI (llega en la 2.5),
-    # el `dist` se arma desde los contratos de docs/ tal como Astro debe publicarlos —sin los
+    # el `dist` se arma desde los contratos de sitio/legado/ tal como Astro debe publicarlos —sin los
     # modelos de `fuera` y con los redirects del registro—, se exige verde y se rompe.
     import contrato_pagina, registro_paginas as rp
     if _correr("exportar_sitio.py") != 0:
@@ -693,7 +693,7 @@ def _t_paridad_sitio():
         if e["redirect_a"]:
             paginas[e["slug"]] = escribir(e, contrato_pagina.emitir("redirect", "x", []))
             continue
-        c = contrato_pagina.leer((ROOT / "docs" / e["slug"] / "index.html").read_text(encoding="utf-8"))
+        c = contrato_pagina.leer((ROOT / "sitio" / "legado" / e["slug"] / "index.html").read_text(encoding="utf-8"))
         if e["tipo"] != "comparacion":   # rankings y variantes: el contrato no cambia (sesión 2)
             sub = "rankings" if e["tipo"] == "ranking" else "variantes"
             jf = ROOT / "sitio" / "src" / "datos" / sub / f"{e['slug']}.json"
@@ -784,7 +784,7 @@ def _t_paridad_sitio():
     jr.write_text(orig, encoding="utf-8")
     f.write_text(antes, encoding="utf-8")
 
-    # 11-nov (2.4): «Entrar es gratis» salió también de docs/ y la prohíbe check_cta C4; la
+    # 11-nov (2.4): «Entrar es gratis» salió también de sitio/legado/ y la prohíbe check_cta C4; la
     # prueba usa otra frase que sigue retirada.
     f.write_text(antes.replace("<body>", "<body><p>Filtra con score global ≥ 6,8.</p>"), encoding="utf-8")
     rc, out = correr()
@@ -795,14 +795,14 @@ def _t_paridad_sitio():
     return ok
 
 
-@prueba("check_espanol_neutro", "voseo en una ficha (dos niveles abajo), un árbol que no se lee y uno al que le faltan páginas")
+@prueba("check_espanol_neutro", "voseo y un localismo («plata») en una ficha (dos niveles abajo), un árbol que no se lee y uno al que le faltan páginas")
 def _t_espanol_neutro():
-    # 11-nov-2026 (motor-sitio 2.3). Buscaba en `docs/*/index.html`, un nivel: las 132 fichas de
-    # `docs/modelo/` nunca se revisaron, y el «mirá» de /glm-5.2-explicado/ estuvo publicado sin
+    # 11-nov-2026 (motor-sitio 2.3). Buscaba en `sitio/legado/*/index.html`, un nivel: las 132 fichas de
+    # `sitio/legado/modelo/` nunca se revisaron, y el «mirá» de /glm-5.2-explicado/ estuvo publicado sin
     # que el QA lo corriera. Ahora lee todo el árbol y falla si lee menos páginas que el registro.
-    base = Path(tempfile.mkdtemp()) / "docs"
-    for f in (ROOT / "docs").rglob("index.html"):
-        d = base / f.relative_to(ROOT / "docs")
+    base = Path(tempfile.mkdtemp()) / "sitio" / "legado"
+    for f in (ROOT / "sitio" / "legado").rglob("index.html"):
+        d = base / f.relative_to(ROOT / "sitio" / "legado")
         d.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(f, d)
 
@@ -818,7 +818,12 @@ def _t_espanol_neutro():
                      encoding="utf-8")
     rc, out = correr(base)
     ok = ok and rc != 0 and "querés" in out and "modelo/" in out
+    # 12-nov-2026: un localismo, no solo voseo. «en plata» estuvo en 143 páginas.
+    ficha.write_text(antes.replace("</body>", "<h2>Contra los mejores, en plata</h2></body>"), encoding="utf-8")
+    rc, out = correr(base)
+    ok = ok and rc != 0 and "«plata»" in out and "modelo/" in out
     ficha.write_text(antes, encoding="utf-8")
+    ok = ok and correr(base)[0] == 0                           # y vuelve a verde
     vacio = base.parent / "vacio"
     vacio.mkdir()
     rc, out = correr(vacio)                                    # lee cero páginas → rojo
@@ -832,14 +837,14 @@ def _t_espanol_neutro():
 
 @prueba("check_paleta P5", "un color inventado en lo compilado, también escrito corto por el minificador")
 def _t_paleta_dist():
-    # 11-nov-2026 (motor-sitio 2.2). `dist` lleva lo de Astro y el legado copiado de docs/: lo que
+    # 11-nov-2026 (motor-sitio 2.2). `dist` lleva lo de Astro y el legado copiado de sitio/legado/: lo que
     # se publica es lo compilado, no la fuente. El minificador escribe `#fff`; un color inventado
     # escrito corto (`#fa0`) tiene que caer igual que uno largo. Un color citado en un comentario
     # (cómo murió un color) no cuenta.
-    # 2.3: P5 exige leer todas las páginas del registro, así que el árbol es una copia de docs/
+    # 2.3: P5 exige leer todas las páginas del registro, así que el árbol es una copia de sitio/legado/
     # (verde por sí sola) con los archivos de la prueba agregados.
     base = Path(tempfile.mkdtemp()) / "dist"
-    shutil.copytree(ROOT / "docs", base)
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     (base / "a").mkdir()
     (base / "a" / "index.html").write_text(
         '<style>.x{color:#fff;background:#7A00DF}</style><!-- antes era #ffd700 --><a href="#top">.</a>',
@@ -885,8 +890,8 @@ def _t_paleta_sitio():
         linea = next(l for l in t.splitlines() if l.strip().startswith("--color-primary:"))
         tokens.write_text(t.replace(linea, "  --color-primary: #7a00e0;"), encoding="utf-8")
         p4 = _correr("check_paleta.py") != 0
-    # 2.2: el :root del legado (docs/style.css) también sale de brand.json; retocarlo a mano cae.
-    css = ROOT / "docs" / "style.css"
+    # 2.2: el :root del legado (sitio/legado/style.css) también sale de brand.json; retocarlo a mano cae.
+    css = ROOT / "sitio" / "legado" / "style.css"
     with Sabotaje(css):
         t = css.read_text(encoding="utf-8")
         linea = next(l for l in t.splitlines() if l.strip().startswith("--green:"))
@@ -896,7 +901,7 @@ def _t_paleta_sitio():
     return p3 and p4 and p4_legado and not nuevo.exists() and _correr("check_paleta.py") == 0
 
 
-@prueba("check_movil", "una página que desborda a 390 px, una sin viewport de móvil y un dist sin nada que medir")
+@prueba("check_movil", "una página que desborda a 390 px, una sin viewport de móvil, una tabla con el valor fuera de la vista y un dist sin nada que medir")
 def _t_movil():
     # 11-nov-2026 (motor-sitio). La revisión a 390 px era a mano y mintió: Chrome sin interfaz
     # dibuja a ~500 px. Se emula un teléfono de verdad sobre un `dist` sintético: control verde
@@ -932,6 +937,19 @@ def _t_movil():
         codigo, salida = correr()
         if codigo == 0 or "M1" not in salida:
             return False
+        # M3 (12-nov-2026): la ficha mostraba etiquetas sin valores. Una tabla de dos columnas
+        # dentro de su caja, con la etiqueta de fila sin partir: el valor queda fuera de la vista.
+        tabla = ('<h2>{t}</h2><div style="overflow-x:auto"><table style="min-width:640px"><tbody><tr>'
+                 '<th scope="row" style="white-space:{ws}">PRECIO POR MILLÓN DE TOKENS DE ENTRADA, MEDIDO</th>'
+                 '<td>$1.03</td></tr></tbody></table></div>')
+        escribir("/ancha/", tabla.format(t="En números", ws="normal").replace("min-width:640px", "width:100%"))
+        codigo, salida = correr()
+        if codigo != 0:
+            raise AssertionError(f"control M3 en rojo: {salida[-400:]}")
+        escribir("/ancha/", tabla.format(t="En números", ws="nowrap"))
+        codigo, salida = correr()
+        if codigo == 0 or "M3" not in salida or "«En números»" not in salida:
+            return False
         shutil.rmtree(base)
         escribir("/se-movio/", "<p>solo un redirect</p>", head=vp + '<meta http-equiv="refresh" content="0; url=/">')
         codigo, salida = correr()
@@ -947,7 +965,7 @@ def _t_registro():
     # las páginas Astro del registro tal como deben salir de las plantillas, se exige verde
     # y después se rompe UNA regla por vez: cada rojo tiene que venir de SU regla.
     import registro_paginas as rp
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     dentro = next(m["key"] for m in d["models"] if m.get("ranked"))
     fuera = next(m["key"] for m in d["models"] if not m.get("ranked"))
     regs = [e for e in rp.paginas() if e["motor"] == "astro"]
@@ -978,7 +996,7 @@ def _t_registro():
 
     for e in regs:
         escribir(e, pagina(e))
-    # 2.2: `dist` lleva también el legado (fichas, landings, home), copiado de docs/ como en el build.
+    # 2.2: `dist` lleva también el legado (fichas, landings, home), copiado de sitio/legado/ como en el build.
     copia = [PY, str(ROOT / "benchmarks" / "copiar_legado.py"), "--dist", str(base)]
     if subprocess.run(copia, cwd=ROOT, capture_output=True, text=True).returncode != 0:
         return False
@@ -1025,7 +1043,7 @@ def _t_fichas():
     # Se le quita el enlace a la ficha a UNA página de ranking, dejando el nombre pelado.
     # Es el estado exacto en que estaban las 16 páginas antes del 19-ago: publicaban al
     # modelo, y el lector que quería el detalle no tenía a dónde ir.
-    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    pg = ROOT / "sitio" / "legado" / "mejor-llm-para-json" / "index.html"
     if not pg.exists():
         return False
     with Sabotaje(pg):
@@ -1047,7 +1065,7 @@ def _t_claims():
 
 @prueba("check_suites", "el sitio volviendo a escribir a mano las etiquetas de los ejes")
 def _t_suites():
-    app = ROOT / "docs" / "app.js"
+    app = ROOT / "sitio" / "legado" / "app.js"
     with Sabotaje(app):
         # La forma exacta que tenía la copia vieja. Vivió meses, divergió en 7 suites y
         # nadie se enteró porque una etiqueta distinta no rompe nada: solo hace que el
@@ -1136,7 +1154,7 @@ def _t_mezcla():
 
 @prueba("qa Q15", "una página de comparación publicada que ya nadie regenera")
 def _t_huerfanas():
-    d = ROOT / "docs" / "modelo-fantasma-vs-otro"
+    d = ROOT / "sitio" / "legado" / "modelo-fantasma-vs-otro"
     try:
         d.mkdir(exist_ok=True)
         # Una huérfana no falla: carga, se ve bien y sirve datos congelados. Se descubrió
@@ -1162,14 +1180,14 @@ def _t_dato_comunitario():
     r = qa()
     if r.returncode != 0 or "✅ Q16" not in r.stdout:
         return False  # control verde
-    mj = ROOT / "docs" / "data" / "models.json"
+    mj = ROOT / "sitio" / "legado" / "data" / "models.json"
     with Sabotaje(mj):
         d = json.loads(mj.read_text(encoding="utf-8"))
         d["models"][0].pop("sin_dato_comunitario", None)
         mj.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
         if not q16_falla(qa()):
             return False
-    app = ROOT / "docs" / "app.js"
+    app = ROOT / "sitio" / "legado" / "app.js"
     with Sabotaje(app):
         original = app.read_text(encoding="utf-8")
         roto = original.replace("if (m.sin_dato_comunitario || !m.externos) {", "if (true) {", 1)
@@ -1185,7 +1203,7 @@ def _t_cachebust():
     # exactamente lo que pasó tras 2.4 sin que nada fallara.
     if _correr("sync_cachebust.py", "--check") != 0:
         return False  # control verde
-    idx = ROOT / "docs" / "index.html"
+    idx = ROOT / "sitio" / "legado" / "index.html"
     with Sabotaje(idx):
         original = idx.read_text(encoding="utf-8")
         roto, n = re.subn(r"app\.js\?v=[A-Za-z0-9._-]+", "app.js?v=00000000", original, count=1)
@@ -1220,7 +1238,7 @@ def _t_solo_fechas():
         git("init", "-q")
         git("config", "user.email", "prueba@local")
         git("config", "user.name", "prueba")
-        original = (ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8")
+        original = (ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8")
         mj = tmp / "models.json"
         mj.write_text(original, encoding="utf-8")
         git("add", "models.json")
@@ -1256,7 +1274,7 @@ def _t_b4_ranking_v5():
     # rankeado que pierde `examen_v5`, un histórico que además rankea, y uno sin era.
     if _correr("validate.py") != 0:
         return False  # control verde
-    mj = ROOT / "docs" / "data" / "models.json"
+    mj = ROOT / "sitio" / "legado" / "data" / "models.json"
     resultados = []
     for romper in ("sin_v5", "en_los_dos", "sin_era"):
         with Sabotaje(mj):
@@ -1282,14 +1300,14 @@ def _t_c4_fichas_v5():
     if _correr("validate.py") != 0:
         return False  # control verde
     from benchmarks.generate_model_cards import slug
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     hi = next(m for m in d["models"] if m.get("historico")
-              and (ROOT / "docs" / "modelo" / slug(m) / "index.html").exists())
+              and (ROOT / "sitio" / "legado" / "modelo" / slug(m) / "index.html").exists())
     nt = next(m for m in d["models"] if m.get("nota_publica"))
     resultados = []
     for m, quitar in ((hi, r'<p class="meta fechada historico"[^>]*>.*?</p>'),
                       (nt, r'<p class="meta nota-publica">.*?</p>')):
-        f = ROOT / "docs" / "modelo" / slug(m) / "index.html"
+        f = ROOT / "sitio" / "legado" / "modelo" / slug(m) / "index.html"
         with Sabotaje(f):
             html = f.read_text(encoding="utf-8")
             roto = re.sub(quitar, "", html, count=1, flags=re.S)
@@ -1308,8 +1326,8 @@ def _t_c1_foto_fechada():
     # que declara a otro modelo (no excusa al que no nombra).
     if _correr("validate.py") != 0:
         return False  # control verde
-    ficha = ROOT / "docs" / "modelo" / "qwen-3.6-max" / "index.html"
-    alt = ROOT / "docs" / "alternativas-claude" / "index.html"
+    ficha = ROOT / "sitio" / "legado" / "modelo" / "qwen-3.6-max" / "index.html"
+    alt = ROOT / "sitio" / "legado" / "alternativas-claude" / "index.html"
     resultados = []
     with Sabotaje(ficha):
         html = ficha.read_text(encoding="utf-8")
@@ -1338,7 +1356,7 @@ def _t_comparacion_sin_modelos():
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import generate_comparison as gc
     real = gc.COMPARISONS[0]
-    pagina = ROOT / "docs" / real["slug"] / "index.html"
+    pagina = ROOT / "sitio" / "legado" / real["slug"] / "index.html"
     antes = list(gc.COMPARISONS)
     argv = sys.argv
     try:
@@ -1353,12 +1371,12 @@ def _t_comparacion_sin_modelos():
         try:
             gc.main()
         except SystemExit:
-            return not (ROOT / "docs" / "prueba-lado-vacio").exists()
+            return not (ROOT / "sitio" / "legado" / "prueba-lado-vacio").exists()
         return False
     finally:
         gc.COMPARISONS[:] = antes
         sys.argv = argv
-        shutil.rmtree(ROOT / "docs" / "prueba-lado-vacio", ignore_errors=True)
+        shutil.rmtree(ROOT / "sitio" / "legado" / "prueba-lado-vacio", ignore_errors=True)
 
 
 @prueba("generate_manual_landings", "una landing que recomienda un muerto por su nombre a secas")
@@ -1408,11 +1426,11 @@ def _t_landings_sin_muertos():
 
 def _dist_lee_cero(script: str, marca: str, args: tuple = ()) -> bool:
     """Regla de páginas leídas (motor-sitio 2.3) para un guardrail con `--dist`: sobre una copia
-    de docs/ da verde (el control: `--dist` lee de verdad), y sobre un árbol vacío da rojo
+    de sitio/legado/ da verde (el control: `--dist` lee de verdad), y sobre un árbol vacío da rojo
     diciendo que leyó cero. Sin el conteo, un árbol que no se lee no tiene nada que objetar."""
     tmp = Path(tempfile.mkdtemp())
     copia, vacio = tmp / "copia", tmp / "vacio"
-    shutil.copytree(ROOT / "docs", copia)
+    shutil.copytree(ROOT / "sitio" / "legado", copia)
     vacio.mkdir()
 
     def correr(base):
@@ -1424,7 +1442,7 @@ def _dist_lee_cero(script: str, marca: str, args: tuple = ()) -> bool:
     rc1, out1 = correr(vacio)
     shutil.rmtree(tmp, ignore_errors=True)
     if rc0 != 0:
-        raise AssertionError(f"{script} --dist sobre una copia de docs/ ya está en rojo: {out0[-300:]}")
+        raise AssertionError(f"{script} --dist sobre una copia de sitio/legado/ ya está en rojo: {out0[-300:]}")
     return rc1 != 0 and marca in out1
 
 
@@ -1440,7 +1458,7 @@ def _t_fichas_dist():
     import fnmatch
     tmp = Path(tempfile.mkdtemp())
     base = tmp / "dist"
-    shutil.copytree(ROOT / "docs", base)
+    shutil.copytree(ROOT / "sitio" / "legado", base)
 
     def correr():
         r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_fichas_alcanzables.py"), "--dist", str(base)],
@@ -1486,12 +1504,12 @@ def _t_paleta_dist_cero():
                         "página no muestra (en Astro y en la home) y un árbol que no se lee")
 def _t_jsonld():
     # 11-nov-2026 (motor-sitio 2.3). Nadie validaba el JSON-LD, que es lo que leen los buscadores.
-    # Sin Node en el CI, el árbol es una copia de docs/: las páginas que el registro declara de
+    # Sin Node en el CI, el árbol es una copia de sitio/legado/: las páginas que el registro declara de
     # Astro valen como tales (J4 bloquea ahí) y las del legado, como legado (J4 avisa).
     import re as _re
     tmp = Path(tempfile.mkdtemp())
     base = tmp / "dist"
-    shutil.copytree(ROOT / "docs", base)
+    shutil.copytree(ROOT / "sitio" / "legado", base)
 
     def correr(raiz=base):
         r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_jsonld.py"), "--dist", str(raiz)],
@@ -1545,8 +1563,8 @@ def _t_consistency_dist():
     # 11-nov-2026 (motor-sitio 2.3). Frente a `dist`, las páginas de Astro (`generado-por: sitio/`)
     # no se reconocían como generadas, caían como «SIN VERIFICAR» y el chequeo seguía en verde.
     base = Path(tempfile.mkdtemp()) / "dist"
-    for f in (ROOT / "docs").rglob("index.html"):
-        d = base / f.relative_to(ROOT / "docs")
+    for f in (ROOT / "sitio" / "legado").rglob("index.html"):
+        d = base / f.relative_to(ROOT / "sitio" / "legado")
         d.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(f, d)
 
@@ -1582,11 +1600,11 @@ def _t_consistency_dist():
                                       "una en una meta description y un score falso en el JSON-LD de una página a mano")
 def _t_consistency_jsonld():
     # 11-nov-2026 (motor-sitio). La home declaraba «191 modelos» y «29.000+ tests» en su JSON-LD
-    # y este chequeo estaba en verde: tiraba los <script> y las <meta>. Se rompe una copia de docs/.
+    # y este chequeo estaba en verde: tiraba los <script> y las <meta>. Se rompe una copia de sitio/legado/.
     import re as _re
     tmp = Path(tempfile.mkdtemp())
-    base = tmp / "docs"
-    shutil.copytree(ROOT / "docs", base)
+    base = tmp / "sitio" / "legado"
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     r = lambda: subprocess.run([PY, str(ROOT / "benchmarks" / "check_consistency.py"), "--dist", str(base)],
                                cwd=ROOT, capture_output=True, text=True)
     ok = r().returncode == 0                                              # control
@@ -1629,10 +1647,10 @@ def _t_consistency_jsonld():
                          "y un árbol que no se lee")
 def _t_escapes():
     # 11-nov-2026 (motor-sitio). /alternativas-gemini/ mostraba «contexto &gt;128K» por un doble
-    # escape en el generador, y su JSON-LD publicaba la entidad como texto. Se rompe una copia de docs/.
+    # escape en el generador, y su JSON-LD publicaba la entidad como texto. Se rompe una copia de sitio/legado/.
     tmp = Path(tempfile.mkdtemp())
-    base = tmp / "docs"
-    shutil.copytree(ROOT / "docs", base)
+    base = tmp / "sitio" / "legado"
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     r = lambda raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "check_escapes.py"), "--dist", str(raiz)],
                                          cwd=ROOT, capture_output=True, text=True)
     ok = r().returncode == 0                                              # control
@@ -1659,10 +1677,10 @@ def _t_escapes():
                      "bloque del CTA y un árbol que no se lee")
 def _t_cta():
     # 11-nov-2026 (motor-sitio 2.4). CAR es de pago desde el 28-sep y está cerrada desde el 27-oct;
-    # 204 páginas enlazaban a skool.com y varias decían «Entrar es gratis». Se rompe una copia de docs/.
+    # 204 páginas enlazaban a skool.com y varias decían «Entrar es gratis». Se rompe una copia de sitio/legado/.
     tmp = Path(tempfile.mkdtemp())
-    base = tmp / "docs"
-    shutil.copytree(ROOT / "docs", base)
+    base = tmp / "sitio" / "legado"
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     r = lambda raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "check_cta.py"), "--dist", str(raiz)],
                                          cwd=ROOT, capture_output=True, text=True)
     ok = r().returncode == 0                                              # control
@@ -1701,11 +1719,11 @@ def _t_medicion():
     import exportar_sitio as es, registro_paginas as rp
     if _correr("exportar_sitio.py") != 0:
         return False
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     por_key = {m["key"]: m for m in d["models"]}
     tmp = Path(tempfile.mkdtemp())
     base = tmp / "dist"
-    shutil.copytree(ROOT / "docs", base)
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     for e in rp.paginas():
         if e["tipo"] != "comparacion" or e["motor"] != "astro" or e["redirect_a"] or e.get("congelada"):
             continue
@@ -1754,10 +1772,10 @@ def _t_medicion():
                                "«Última actualización» y un lastmod que no son los del registro, y un árbol que no se lee")
 def _t_fechas():
     # 11-nov-2026 (motor-sitio 2.4). Las fechas se movían a hoy en cada regeneración. Se fecha una
-    # copia de docs/ con un registro propio, se exige verde y se rompe.
+    # copia de sitio/legado/ con un registro propio, se exige verde y se rompe.
     tmp = Path(tempfile.mkdtemp())
     base, reg = tmp / "dist", tmp / "fechas.json"
-    shutil.copytree(ROOT / "docs", base)
+    shutil.copytree(ROOT / "sitio" / "legado", base)
     cmd = lambda *x, raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "fechar_dist.py"), "--dist", str(raiz),
                                                "--registro", str(reg), *x], cwd=ROOT, capture_output=True, text=True)
     ok = cmd().returncode == 0 and cmd("--check").returncode == 0         # control
@@ -1797,7 +1815,8 @@ def _t_fechas():
 
 @prueba("check_action", "un Node que no sale de .nvmrc, un .nvmrc fuera del engines, sin venv o con venv tardío, "
                         "sin `npm ci` o después del build o de test_guardrails, sin build o antes de models.json, y "
-                        "sin el sha de models.json o antes del build")
+                        "sin el sha de models.json o antes del build, sin la copia a docs/ o antes del build, y un "
+                        "commit que no verifica la copia o un segundo `git add`")
 def _t_action():
     # 11-nov-2026 (motor-sitio 2.5). El Action ya estuvo 40 días en rojo por un paso que faltaba.
     # Cada sabotaje reescribe el YAML parseado (sin comentarios: se restaura igual) y aísla una
@@ -1824,6 +1843,12 @@ def _t_action():
     def otra_version(pasos):
         pasos[idx(pasos, es_node)]["with"] = {"node-version": "22"}
 
+    es_copia = lambda p: str(p.get("run", "")).strip() == "python benchmarks/publicar_dist.py"
+
+    def sin_check(pasos):
+        i = idx(pasos, corre("git add"))
+        pasos[i]["run"] = pasos[i]["run"].replace("python benchmarks/publicar_dist.py --check --sin-compilar\n", "")
+
     sabotajes = (
         (lambda s: otra_version(s), "A1 · setup-node no toma la versión de sitio/.nvmrc"),
         (lambda s: quitar(s, corre("venv .venv")), "A2 · no se crea el venv"),
@@ -1835,6 +1860,12 @@ def _t_action():
         (lambda s: mover(s, corre("npm run build"), antes_de=corre("export_for_pages.py")), "A4 · el build corre antes de regenerar"),
         (lambda s: quitar(s, corre("check_datos_dist.py")), "A5 · no se verifica el sha"),
         (lambda s: mover(s, corre("check_datos_dist.py"), antes_de=corre("npm run build")), "A5 · el sha se verifica antes del build"),
+        # 12-nov-2026 (motor-sitio 2.6): docs/ solo se escribe con la copia de dist.
+        (lambda s: quitar(s, es_copia), "A6 · ningún paso copia dist a docs/"),
+        (lambda s: mover(s, es_copia, antes_de=corre("npm run build")), "A6 · la copia a docs/ corre antes del build"),
+        (lambda s: sin_check(s), "A7 · el commit no verifica"),
+        (lambda s: s.insert(idx(s, corre("npm run build")) + 1, {"name": "x", "run": "git add docs/sitemap.xml"}),
+         "A7 · 2 pasos hacen `git add`"),
     )
     ok = True
     for romper, marca in sabotajes:
@@ -1849,6 +1880,110 @@ def _t_action():
         r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_action.py")], cwd=ROOT, capture_output=True, text=True)
         ok = ok and r.returncode != 0 and "A1 · sitio/.nvmrc dice 20" in r.stdout
     return ok
+
+
+@prueba("publicar_dist P1-P3", "un archivo de más, uno distinto y uno que falta en docs/; un generador que vuelve "
+                               "a escribir en docs/; y _astro/ publicado sin .nojekyll")
+def _t_publicar_dist():
+    # 12-nov-2026 (motor-sitio 2.6). Desde el corte, docs/ es la copia de sitio/dist y nada más la
+    # escribe. Antes, la primera regeneración después del corte habría pisado las páginas de Astro
+    # con las de Python sin que nada fallara. Sobre un dist y un docs/ sintéticos (el control no
+    # depende del build real) se rompe una regla por vez; P2 se sabotea en un generador de verdad.
+    script = str(ROOT / "benchmarks" / "publicar_dist.py")
+    tmp = Path(tempfile.mkdtemp())
+    dist, docs = tmp / "dist", tmp / "docs"
+
+    def correr(*extra):
+        r = subprocess.run([PY, script, "--dist", str(dist), "--docs", str(docs), *extra],
+                           cwd=ROOT, capture_output=True, text=True)
+        return r.returncode, r.stdout + r.stderr
+
+    try:
+        for rel, txt in (("index.html", "<p>home</p>"), ("modelo/x/index.html", "<p>ficha</p>"),
+                         ("_astro/a.css", "p{}"), (".nojekyll", ""), ("data/models.json", "{}")):
+            (dist / rel).parent.mkdir(parents=True, exist_ok=True)
+            (dist / rel).write_text(txt, encoding="utf-8")
+        (docs / "viejo").mkdir(parents=True)
+        (docs / "viejo" / "index.html").write_text("<p>lo de Python</p>", encoding="utf-8")
+        if correr()[0] != 0 or (docs / "viejo").exists():
+            return False                                      # la copia es espejo: borra lo que sobra
+        if correr("--check", "--sin-compilar")[0] != 0:
+            raise AssertionError("control en rojo: docs/ recién copiado no es igual a dist")
+        ok = True
+        f = docs / "modelo" / "x" / "index.html"
+        for romper, marca in (
+            (lambda: (docs / "sitemap.xml").write_text("<urlset/>", encoding="utf-8"), "docs/sitemap.xml no está en dist"),
+            (lambda: f.write_text("<p>pisada por Python</p>", encoding="utf-8"), "docs/modelo/x/index.html difiere"),
+            (lambda: (docs / "_astro" / "a.css").unlink(), "docs/_astro/a.css falta"),
+        ):
+            romper()
+            rc, out = correr("--check", "--sin-compilar")
+            ok = ok and rc != 0 and marca in out
+            correr()                                          # la copia lo deja como estaba
+            ok = ok and correr("--check", "--sin-compilar")[0] == 0
+        gen = ROOT / "benchmarks" / "generate_sitemap.py"
+        with Sabotaje(gen):
+            gen.write_text(gen.read_text(encoding="utf-8") +
+                           '\n(ROOT / "docs" / "sitemap.xml").write_text("x")\n', encoding="utf-8")
+            rc, out = correr("--check", "--sin-compilar")
+            ok = ok and rc != 0 and "P2 · benchmarks/generate_sitemap.py" in out
+        ok = ok and correr("--check", "--sin-compilar")[0] == 0
+        (dist / ".nojekyll").unlink()
+        rc, out = correr()
+        ok = ok and rc != 0 and "P3" in out and "_astro" in out
+        (docs / ".nojekyll").unlink()
+        rc, out = correr("--check", "--sin-compilar")
+        ok = ok and rc != 0 and "P3" in out
+        return ok
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+@prueba("check_contraste K0-K1", "el token del texto de alerta devuelto al magenta en una ficha retirada real, una URL "
+                                 "que no existe y un tipo de página sin URLs")
+def _t_contraste():
+    # 12-nov-2026 (motor-sitio 2.6). Ningún guardrail medía contraste y el magenta quedó como texto
+    # sobre claro. Control: la ficha retirada compilada, tal cual, da verde. Sabotaje: el token
+    # `--magenta-texto` vuelve a ser el magenta (el error de antes) y axe tiene que caer.
+    sys.path.insert(0, str(ROOT / "benchmarks"))
+    import check_contraste as cc
+    dist = ROOT / "sitio" / "dist"
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
+    ret = next(m["key"] for m in datos["models"] if m.get("retired")
+               and "riesgo" in (dist / "modelo" / m["key"] / "index.html").read_text(encoding="utf-8", errors="ignore"))
+    tmp = Path(tempfile.mkdtemp()) / "dist"
+    (tmp / "modelo" / ret).mkdir(parents=True)
+    shutil.copyfile(dist / "style.css", tmp / "style.css")
+    shutil.copyfile(dist / "modelo" / ret / "index.html", tmp / "modelo" / ret / "index.html")
+
+    def correr(*urls):
+        r = subprocess.run(["node", str(cc.SCRIPT), "--dist", str(tmp)] + [x for u in urls for x in ("--url", u)],
+                           cwd=ROOT / "sitio", capture_output=True, text=True)
+        return r.returncode, r.stdout + r.stderr
+
+    try:
+        url = f"/modelo/{ret}/"
+        rc, out = correr(url)
+        if rc != 0:
+            raise AssertionError(f"control en rojo: {out[-400:]}")
+        css = (tmp / "style.css").read_text(encoding="utf-8")
+        (tmp / "style.css").write_text(css.replace("--magenta-texto: #0a0a1a;", "--magenta-texto: #ff006e;"), encoding="utf-8")
+        rc, out = correr(url)
+        ok = rc == 1 and "K1" in out and "#ff006e" in out
+        (tmp / "style.css").write_text(css, encoding="utf-8")
+        ok = ok and correr(url)[0] == 0
+        rc, out = correr("/no-existe/")
+        ok = ok and rc != 0 and "no existe" in out
+        # el envoltorio sobre un dist al que le faltan las páginas que elige del registro → rojo
+        r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_contraste.py"), "--dist", str(tmp), "--sin-compilar"],
+                           cwd=ROOT, capture_output=True, text=True)
+        ok = ok and r.returncode != 0 and "no existe" in r.stdout + r.stderr
+        regs = [{"url": "/", "tipo": "home", "redirect_a": None}, {"url": "/modelo/a/", "tipo": "ficha", "redirect_a": None}]
+        urls, vacios = cc.elegir(regs, {"a"})
+        ok = ok and "variantes" in vacios and "/modelo/a/" in urls
+        return ok
+    finally:
+        shutil.rmtree(tmp.parent, ignore_errors=True)
 
 
 @prueba("check_datos_dist", "una página de Astro compilada con otro models.json, una sin su datos-sha y una que falta")
@@ -2007,7 +2142,7 @@ def _t_blog():
     # y se descubrió al dejar el blog en cero. Por eso ahora: (1) control en verde primero,
     # porque sobre un blog sucio ningún saboteo prueba nada, y (2) el modelo sale de
     # models.json, para que la prueba no caduque cuando cambie el catálogo.
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     rankeados = sorted([m for m in datos["models"] if m.get("ranked")],
                        key=lambda m: -(m.get("score_calidad") or 0))
     modelo = rankeados[0]["name"]        # el primero por calidad
@@ -2033,7 +2168,7 @@ def _t_blog_datos():
     blog = Path(tempfile.mkdtemp())
     posts = blog / "src" / "content" / "blog"
     posts.mkdir(parents=True)
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     key = next(m["key"] for m in datos["models"] if m.get("ranked"))
     tmp = posts / "_prueba_guardrail_datos.md"
     try:
@@ -2069,7 +2204,7 @@ def _t_blog_congelado():
     # control es el post congelado bien hecho, con cifras viejas en el cuerpo y un marcador
     # viejo: los dos chequeos en verde. Cada saboteo quita una marca y los dos deben caerse.
     blog, posts = _blog_desechable()
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     key = next(m["key"] for m in datos["models"] if m.get("ranked"))
     viejo = datos["ranked_count"] + 36          # un conteo que hoy es falso
     cuerpo = (f"Mi benchmark tiene {viejo} modelos rankeados.\n\n"
@@ -2109,7 +2244,7 @@ def _t_blog_no_escribe_sin_write():
     # sentidos: sin flags el archivo queda igual (y el exit dice que hay drift); con --write
     # cambia. Sin el segundo, un generador roto que nunca escribe también pasaría.
     blog, posts = _blog_desechable()
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     key = next(m["key"] for m in datos["models"] if m.get("ranked"))
     post = posts / "_prueba_no_escribe.md"
     texto = ("---\ntitle: prueba\ndescription: prueba\npubDate: 2026-11-08\n---\n\n"
@@ -2154,7 +2289,7 @@ def _t_blog_ejecuciones():
     blog, posts = _blog_desechable()
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import conteos
-    total = conteos.ejecuciones(json.loads((ROOT / "docs" / "data" / "models.json").read_text()))
+    total = conteos.ejecuciones(json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text()))
     piso = (total // 10_000) * 10_000
     fmt = lambda n: f"{n:,}".replace(",", ".")
     post = posts / "_prueba_ejecuciones.md"
@@ -2181,7 +2316,7 @@ def _t_blog_datos_lideres():
     posts = blog / "src" / "content" / "blog"
     if not posts.is_dir():
         return True
-    datos = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    datos = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     muerto = next(m["name"] for m in datos["models"] if m.get("retired"))
     key = next(m["key"] for m in datos["models"] if m.get("ranked"))
     saboteos = [
@@ -2412,7 +2547,7 @@ def _t_effort_e9():
     # y la prueba no distinguiría a E9 apagado.
     import json as _j
     fd = ROOT / "benchmarks" / "reasoning_directo.json"
-    mj = ROOT / "docs" / "data" / "models.json"
+    mj = ROOT / "sitio" / "legado" / "data" / "models.json"
     if _correr("check_effort.py") != 0:
         return False
     with Sabotaje(fd), Sabotaje(mj):
@@ -2667,7 +2802,7 @@ def _t_agentico():
     # Se fabrica el mundo limpio —todo rankeado con tarea— y se rompe de a una cosa. SIN
     # `--duro`: así lo corre qa.py. Hasta el 6-nov la prueba pasaba el flag y probaba el
     # detector, no el cableado; el QA mostraba ✅ con tres Claude 5.5 sin Harbor.
-    mj = ROOT / "docs" / "data" / "models.json"
+    mj = ROOT / "sitio" / "legado" / "data" / "models.json"
     sys.path.insert(0, str(ROOT / "benchmarks"))
     from models import MODELS
     with Sabotaje(mj):
@@ -2749,7 +2884,7 @@ def _t_agentico_a3_dist():
     spec = importlib.util.spec_from_file_location("_cap_a3", ROOT / "benchmarks" / "check_agentico_publicado.py")
     cap = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(cap)
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text(encoding="utf-8"))
     por_key = {m["key"]: m for m in d["models"]}
     m = next(x for x in d["models"] if x.get("ranked") and (x.get("agentico") or {}).get("de"))
     ag = m["agentico"]
@@ -2767,7 +2902,7 @@ def _t_agentico_a3_dist():
     # Un árbol sin páginas (solo la calculadora) no se da por revisado.
     base = Path(tempfile.mkdtemp()) / "dist"
     base.mkdir(parents=True)
-    shutil.copyfile(ROOT / "docs" / "app.js", base / "app.js")
+    shutil.copyfile(ROOT / "sitio" / "legado" / "app.js", base / "app.js")
     r = subprocess.run([PY, str(ROOT / "benchmarks" / "check_agentico_publicado.py"), "--dist", str(base)],
                        cwd=ROOT, capture_output=True, text=True)
     ok = ok and r.returncode != 0 and "A3 leyó 0 de" in r.stdout
@@ -2780,8 +2915,8 @@ def _t_agentico_a3():
     # 8-nov-2026: `agentic_score` (multi-turno sin herramientas) se publicó como «trabajo
     # agéntico», y las landings mostraban como «tarea real» Harbor mezclado con tool calling.
     # Control sobre las páginas reales; después siete sabotajes, uno por cada forma (a–f).
-    pag = ROOT / "docs" / "mejor-llm-para-agentes" / "index.html"
-    app = ROOT / "docs" / "app.js"
+    pag = ROOT / "sitio" / "legado" / "mejor-llm-para-agentes" / "index.html"
+    app = ROOT / "sitio" / "legado" / "app.js"
     # La celda es «N de N» con N = las tareas Harbor vigentes (4 hasta v6.0.0; 8 desde la v6.1).
     rotulo = 'multiturno_quality: "Multiturno sin herramientas"'
     if _correr("check_agentico_publicado.py") != 0:
@@ -2868,7 +3003,7 @@ def _t_version_en_nombre():
 
 @prueba("auditar_paginas", "una página de ranking que no publica ninguna fila")
 def _t_auditar_paginas():
-    pg = ROOT / "docs" / "mejor-llm-para-json" / "index.html"
+    pg = ROOT / "sitio" / "legado" / "mejor-llm-para-json" / "index.html"
     if _correr("auditar_paginas.py", "--duro") != 0:
         raise AssertionError("ya hay hallazgos ALTA: el saboteo no probaría nada")
     with Sabotaje(pg):
@@ -2885,7 +3020,7 @@ def _t_auditar_paginas():
 def _t_censo():
     # 3-nov-2026: `--check` devolvía 0 con 45 días encima y el QA imprimía ✅ (H7).
     from datetime import date, timedelta
-    censo = ROOT / "docs" / "data" / "censo_proveedores.json"
+    censo = ROOT / "sitio" / "legado" / "data" / "censo_proveedores.json"
     with Sabotaje(censo):
         d = json.loads(censo.read_text(encoding="utf-8"))
         d["consultado_at"] = date.today().isoformat()
@@ -2965,7 +3100,7 @@ def _t_ganadores_g6():
     sys.path.insert(0, str(ROOT / "benchmarks"))
     import generate_comparison as gc
     slug, foto = "fable-5-vs-opus-4-8", "gpt-5.6-terra-vs-sol"
-    pagina, pagina_foto = ROOT / "docs" / slug / "index.html", ROOT / "docs" / foto / "index.html"
+    pagina, pagina_foto = ROOT / "sitio" / "legado" / slug / "index.html", ROOT / "sitio" / "legado" / foto / "index.html"
     original, original_foto = pagina.read_text(encoding="utf-8"), pagina_foto.read_text(encoding="utf-8")
     try:
         if _correr("check_ganadores.py") != 0:
@@ -3307,7 +3442,7 @@ def _t_indice_calidad():
     m["score_calidad"] = round(0.5 * m["quality_avg"] + 0.5 * m["nota_harbor"], 2)
     casos.append(ci.i1_nota(d["models"]))
     # I2: app.js combina examen y Harbor por su cuenta, y un generador define el peso
-    f = dict(fuentes); f["docs/app.js"] += "\nconst q = 0.8 * m.quality_avg + 0.2 * m.nota_harbor;\n"
+    f = dict(fuentes); f["sitio/legado/app.js"] += "\nconst q = 0.8 * m.quality_avg + 0.2 * m.nota_harbor;\n"
     casos.append(ci.i2_peso_unico(f))
     f = dict(fuentes); f["benchmarks/generate_rankings.py"] += "\nPESO_HARBOR_EN_CALIDAD = 0.3\n"
     casos.append(ci.i2_peso_unico(f))
@@ -3322,7 +3457,7 @@ def _t_indice_calidad():
     d = copy.deepcopy(data); x = next(y for y in d["models"] if y["key"] == sin[0]["key"])
     x["ranked"], x["score_calidad"] = True, 8.0
     casos.append(ci.i5_sin_dato(d, readme, {}))
-    pag = {"docs/x/index.html": ('<table><tr><th scope="col">Calidad</th></tr>'
+    pag = {"sitio/legado/x/index.html": ('<table><tr><th scope="col">Calidad</th></tr>'
                                  f'<tr><td><a href="/modelo/{sin[0]["key"]}/">x</a></td></tr></table>')}
     casos.append(ci.i5_sin_dato(data, readme, pag))
     # I6: un tier que es una ruta
@@ -3352,14 +3487,14 @@ def _t_indice_calidad():
     # I8: control verde; una ficha sin la línea, la calculadora sin su hueco, y la línea
     # publicada a mano (distinta de la que arma indice.py)
     fichas = ci.leer_fichas()
-    if ci.i8_linea_checks(data, html, fuentes["docs/app.js"], fichas):
+    if ci.i8_linea_checks(data, html, fuentes["sitio/legado/app.js"], fichas):
         return False
     k8 = next(m["key"] for m in data["models"] if m.get("nota_harbor") is not None and m["key"] in fichas)
     f8 = dict(fichas); f8[k8] = re.sub(r'<p class="ficha-fuente nota-checks">.*?</p>', "", f8[k8], flags=re.S)
-    casos.append(ci.i8_linea_checks(data, html, fuentes["docs/app.js"], f8))
-    casos.append(ci.i8_linea_checks(data, html.replace('id="nota-checks"', 'id="otra"'), fuentes["docs/app.js"], fichas))
+    casos.append(ci.i8_linea_checks(data, html, fuentes["sitio/legado/app.js"], f8))
+    casos.append(ci.i8_linea_checks(data, html.replace('id="nota-checks"', 'id="otra"'), fuentes["sitio/legado/app.js"], fichas))
     d = copy.deepcopy(data); d["indice_calidad"]["linea_checks"] = "Algunos checks no cuentan."
-    casos.append(ci.i8_linea_checks(d, html, fuentes["docs/app.js"], fichas))
+    casos.append(ci.i8_linea_checks(d, html, fuentes["sitio/legado/app.js"], fichas))
     # y de punta a punta: resultados.json sin la lista publicada tiene que dejar rojo el script
     with Sabotaje(ROOT / "tareas-agente" / "resultados.json"):
         rp = ROOT / "tareas-agente" / "resultados.json"

@@ -32,7 +32,7 @@ Todas las páginas comparten `docs/style.css` y llevan un `contrato-pagina` embe
 ### D1. Astro 7 en `sitio/`, estático, compila a `sitio/dist`
 `output: "static"`, `build.format: "directory"`, `trailingSlash: "always"`: son las mismas URLs que hoy (`/slug/`). Es la versión que ya usa `sitios/aprenderepite`.
 
-`docs/` no se toca hasta el corte. En el corte, `regenerate_all.py` sincroniza `sitio/dist` → `docs/`, preservando `docs/data/`, `CNAME`, `robots.txt` y la verificación de dominio.
+`docs/` no se toca hasta el corte. En el corte, `regenerate_all.py` sincroniza `sitio/dist` → `docs/`, preservando `docs/data/`, `CNAME`, `robots.txt` y la verificación de dominio. **Revisado el 12-nov-2026:** la sincronización no existía. Los generadores de Python escriben ahora en `sitio/legado/` (el antiguo `docs/`, con `data/`, `CNAME`, `robots.txt` y la verificación incluidos), el build los copia a `dist` y `publicar_dist.py` copia `dist` a `docs/` en espejo. Nada más escribe `docs/` (P1-P3).
 
 *Alternativa descartada:* GitHub Actions como fuente de Pages. Cambia la configuración de Pages y la reversa deja de ser un `git revert`.
 

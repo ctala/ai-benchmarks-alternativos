@@ -42,7 +42,7 @@ def qr_b64(url: str, size: int = 180) -> str:
 
 
 def load_models() -> dict:
-    p = ROOT / "docs" / "data" / "models.json"
+    p = ROOT / "sitio" / "legado" / "data" / "models.json"
     return json.loads(p.read_text())
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera el Top 10 Global del README desde docs/data/models.json.
+Genera el Top 10 Global del README desde sitio/legado/data/models.json.
 
 POR QUE EXISTE
 --------------
@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from benchmarks.indice import PESO_HARBOR_EN_CALIDAD as PESO  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 README = ROOT / "README.md"
 
 START = "<!-- AUTO-RANKING-START -->"
@@ -68,7 +68,7 @@ def build_block(ranked: list[dict], data: dict) -> str:
         START,
         "",
         f"> Auto-generado por `benchmarks/generate_readme_ranking.py` desde "
-        f"`docs/data/models.json`. **No editar a mano** — el z-score se recalcula "
+        f"`sitio/legado/data/models.json`. **No editar a mano** — el z-score se recalcula "
         f"con cada modelo nuevo y una tabla escrita a mano queda obsoleta sola.",
         "",
         "### Índice de calidad — ¿qué modelo responde mejor?",

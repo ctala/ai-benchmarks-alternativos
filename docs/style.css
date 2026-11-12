@@ -33,6 +33,7 @@
   --cyan: #006080;   /* link */
   --purple: #7a00df;   /* accent */
   --magenta: #ff006e;   /* warning */
+  --magenta-texto: #0a0a1a;   /* warning-content */
   --white: #0a0a1a;   /* titulo */
   --prose: #0a0a1a;   /* base-content */
   --gray: #5a5a6a;   /* muted */
@@ -365,8 +366,20 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
 /* min-width SOLO dentro de un contenedor scrolleable. Si una tabla se emite sin
    wrapper, se comprime -- feo, pero legible. Nunca se corta sin salida. */
 #results-table-wrap .results-table,
-.table-scroll .results-table {
+.table-scroll .results-table:has(tr > :nth-child(5)) {
   min-width: 640px;
+}
+/* 12-nov-2026 · en el teléfono, la ficha mostraba las etiquetas y no los valores. La tabla
+   «en números» (2 columnas) y la de max_tokens (4) heredaban este min-width y el `nowrap` de
+   `th`: la etiqueta de fila, en mayúsculas y monoespaciada, ocupaba los 356 px visibles y el
+   valor quedaba a la derecha, fuera de la vista y sin pista de que había que desplazarse.
+   Parecía texto invisible; era texto fuera de la caja. Ahora el ancho mínimo es solo para las
+   tablas de 5 columnas o más, y la etiqueta de fila se parte en líneas. Lo mide M3 de
+   `sitio/pruebas/movil.mjs`: el primer valor de cada fila se ve sin desplazar. */
+.results-table th[scope="row"] {
+  white-space: normal;
+  min-width: 7rem;
+  max-width: 13rem;
 }
 
 .results-table {
@@ -430,7 +443,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   color: var(--green);
   border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
 }
-.score-pill.low { background: color-mix(in srgb, var(--magenta) 12%, transparent); color: var(--magenta); border-color: color-mix(in srgb, var(--magenta) 30%, transparent); }
+.score-pill.low { background: color-mix(in srgb, var(--magenta) 12%, transparent); color: var(--magenta-texto); border-color: color-mix(in srgb, var(--magenta) 30%, transparent); }
 .score-pill.mid { background: color-mix(in srgb, var(--cyan) 12%, transparent); color: var(--cyan); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); }
 
 .tag {
@@ -450,7 +463,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   margin-bottom: 0.15rem;
 }
 .tag.os { color: var(--green); border-color: color-mix(in srgb, var(--green) 30%, transparent); }
-.tag.thinking { color: var(--magenta); border-color: color-mix(in srgb, var(--magenta) 30%, transparent); }
+.tag.thinking { color: var(--magenta-texto); border-color: color-mix(in srgb, var(--magenta) 30%, transparent); }
 .tag.tools { color: var(--cyan); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); }
 .tag.multimodal { color: var(--cyan); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); }
 /* Frontera de Pareto: morado de marca (brand.json #7a00df, aclarado para contraste
@@ -478,7 +491,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   background: color-mix(in srgb, var(--green) 7%, transparent);
 }
 .tag.tag-danger {
-  color: var(--magenta);
+  color: var(--magenta-texto);
   border-color: color-mix(in srgb, var(--magenta) 50%, transparent);
   background: color-mix(in srgb, var(--magenta) 9%, transparent);
   font-weight: 600;
@@ -519,7 +532,7 @@ select:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   border-color: color-mix(in srgb, var(--cyan) 30%, transparent);
 }
 .cb-badge.cb-poor {       /* <25% — caro */
-  color: var(--magenta);
+  color: var(--magenta-texto);
   background: color-mix(in srgb, var(--magenta) 8%, transparent);
   border-color: color-mix(in srgb, var(--magenta) 30%, transparent);
 }
@@ -909,7 +922,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .cap-no .cap-badge {
   background: color-mix(in srgb, var(--magenta) 10%, transparent);
-  color: var(--magenta);
+  color: var(--magenta-texto);
   border-color: color-mix(in srgb, var(--magenta) 30%, transparent);
 }
 
@@ -1180,7 +1193,7 @@ a.a-ficha:hover { text-decoration: underline; }
   border-color: color-mix(in srgb, var(--cyan) 30%, transparent);
 }
 .ctx-badge.ctx-low {
-  color: var(--magenta);
+  color: var(--magenta-texto);
   background: color-mix(in srgb, var(--magenta) 8%, transparent);
   border-color: color-mix(in srgb, var(--magenta) 25%, transparent);
 }
@@ -1215,7 +1228,7 @@ a.a-ficha:hover { text-decoration: underline; }
   border-color: color-mix(in srgb, var(--cyan) 30%, transparent);
 }
 .sec-badge.sec-low {
-  color: var(--magenta);
+  color: var(--magenta-texto);
   background: color-mix(in srgb, var(--magenta) 10%, transparent);
   border-color: color-mix(in srgb, var(--magenta) 30%, transparent);
 }
@@ -1345,8 +1358,8 @@ footer p { word-break: break-word; }
 .verdict-best { border-color: var(--green); }
 .verdict-best .verdict-tag { color: var(--green); }
 .verdict-best .verdict-cost { color: var(--green); }
-.verdict-costly .verdict-tag { color: var(--magenta); }
-.verdict-costly .verdict-cost { color: var(--magenta); }
+.verdict-costly .verdict-tag { color: var(--magenta-texto); }
+.verdict-costly .verdict-cost { color: var(--magenta-texto); }
 .verdict-foot { margin-top: 0.9rem; font-size: 0.82rem; color: var(--gray-dark); line-height: 1.5; }
 
 /* ---- Funnel: el paso siguiente despues de decidir ------------------------
@@ -1521,7 +1534,7 @@ tr.lad-yes td { background: color-mix(in srgb, var(--green) 7%, transparent); }
 tr.lad-yes .lad-verdict { color: var(--green); font-weight:700; }
 tr.lad-yes td:first-child { box-shadow: inset 2px 0 0 var(--green); }
 tr.lad-no td { background: color-mix(in srgb, var(--magenta) 7%, transparent); }
-tr.lad-no .lad-verdict { color: var(--magenta); font-weight:700; }
+tr.lad-no .lad-verdict { color: var(--magenta-texto); font-weight:700; }
 tr.lad-no td:first-child { box-shadow: inset 2px 0 0 var(--magenta); }
 tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 
@@ -1628,7 +1641,7 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .wiz-bdg { font-size: 11px; font-weight: 700; border-radius: 99px; padding: 4px 10px; }
 .wiz-bdg.os { background: color-mix(in srgb, var(--green) 12%, transparent); color: var(--green); border: 1px solid color-mix(in srgb, var(--green) 30%, transparent); }
 .wiz-bdg.price { background: color-mix(in srgb, var(--cyan) 12%, transparent); color: var(--cyan); border: 1px solid color-mix(in srgb, var(--cyan) 30%, transparent); }
-.wiz-bdg.q { background: color-mix(in srgb, var(--magenta) 12%, transparent); color: var(--magenta); border: 1px solid color-mix(in srgb, var(--magenta) 30%, transparent); }
+.wiz-bdg.q { background: color-mix(in srgb, var(--magenta) 12%, transparent); color: var(--magenta-texto); border: 1px solid color-mix(in srgb, var(--magenta) 30%, transparent); }
 .wiz-why { font-size: 14.5px; color: var(--prose); margin: 0 0 15px; line-height: 1.55; } .wiz-why b { color: var(--white); }
 .wiz-cost { display: flex; gap: 16px; padding: 13px 0 2px; border-top: 1px solid color-mix(in srgb, var(--white) 9%, transparent); margin-top: 4px; }
 .wiz-cost div { flex: 1; } .wiz-cost .k { font-size: 10.5px; color: var(--gray); text-transform: uppercase; letter-spacing: .05em; }
@@ -1668,7 +1681,7 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
 .results-table td.contraste { color: var(--green); font-weight: 700; }
 .results-table td.ag-ok    { color: var(--green); }
 .results-table td.ag-medio { color: var(--cyan); }
-.results-table td.ag-bajo  { color: var(--magenta); font-weight: 600; }
+.results-table td.ag-bajo  { color: var(--magenta-texto); font-weight: 600; }
 .results-table td small { color: var(--muted); font-weight: 400; font-size: .78em; }
 
 /* ── Tabla eje por eje de las comparaciones (v4.3) ─────────────────────────
@@ -1826,3 +1839,18 @@ tr.lad-tie .lad-verdict { color: var(--gray-dark); }
   border-color: color-mix(in srgb, var(--cyan) 35%, transparent);
   cursor: default;
 }
+
+/* 12-nov-2026 · contraste AA. Estos textos eran magenta sobre claro (3,1 a 3,5:1) y el magenta
+   era su única señal de alerta. Ahora la letra es `--magenta-texto` (warning-content del manual)
+   y la alerta la lleva un fondo magenta suave, como pide el manual para `warning`. Lo mide
+   `sitio/pruebas/contraste.mjs` con axe. */
+.results-table td .riesgo,
+.results-table td.ag-bajo,
+tr.lad-no .lad-verdict,
+.verdict-costly .verdict-tag,
+.verdict-costly .verdict-cost {
+  background: color-mix(in srgb, var(--magenta) 16%, transparent);
+  border-radius: 3px;
+  padding: 0 0.3em;
+}
+

@@ -61,7 +61,7 @@ def muestra_diversa(n: int) -> list[str]:
     no la forma de la distribución. Con n repartidos se ve si el pelotón del medio se
     apelotona arriba, que es como se manifiesta la saturación.
     """
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     rank = sorted([m for m in d["models"] if m.get("ranked") and m.get("score_calidad")],
                   key=lambda m: -m["score_calidad"])
     if not rank:
@@ -132,7 +132,7 @@ def main() -> int:
     perfectos = sum(1 for x in todos if x >= 10) / len(todos)
     sd = pstdev(medias) if len(medias) > 1 else 0.0
 
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     sd_ref = pstdev([m["score_calidad"] for m in d["models"]
                      if m.get("ranked") and m.get("score_calidad")])
 

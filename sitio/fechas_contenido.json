@@ -24,7 +24,7 @@
   "modificada": "2026-11-12"
  },
  "/claude-vs-chatgpt/": {
-  "huella": "4296136d94ae67a9",
+  "huella": "64ef3f1ba4cc224e",
   "modificada": "2026-11-12"
  },
  "/deepseek-v4-flash-o-r1/": {
@@ -32,15 +32,15 @@
   "modificada": "2026-11-12"
  },
  "/deepseek-vs-chatgpt/": {
-  "huella": "c7671bb96b1d3236",
+  "huella": "d1d6476854c6edf3",
   "modificada": "2026-11-12"
  },
  "/deepseek-vs-claude/": {
-  "huella": "76a54aaa35bc9cf0",
+  "huella": "fc63c216b768b661",
   "modificada": "2026-11-12"
  },
  "/deepseek-vs-gemini/": {
-  "huella": "dbac6bce3db2f840",
+  "huella": "b04ac032b3641178",
   "modificada": "2026-11-12"
  },
  "/diffusiongemma-vs-gemma-4/": {
@@ -60,11 +60,11 @@
   "modificada": "2026-11-12"
  },
  "/gemini-vs-chatgpt/": {
-  "huella": "9a04dd9e4943da9f",
+  "huella": "3754010461dd0fb8",
   "modificada": "2026-11-12"
  },
  "/gemini-vs-claude/": {
-  "huella": "fba849bf230f07d6",
+  "huella": "16d9742da162aa0f",
   "modificada": "2026-11-12"
  },
  "/glm-5.2-explicado/": {
@@ -76,7 +76,7 @@
   "modificada": "2026-11-12"
  },
  "/glm-5.2-vs-glm-5.1/": {
-  "huella": "9e5c49aef5d2db43",
+  "huella": "329a604073e39ded",
   "modificada": "2026-11-12"
  },
  "/gpt-5.6-luna-vs-sol/": {
@@ -104,11 +104,11 @@
   "modificada": "2026-11-12"
  },
  "/grok-vs-chatgpt/": {
-  "huella": "3692b173d7b850c8",
+  "huella": "0ab5f035482aa0e8",
   "modificada": "2026-11-12"
  },
  "/grok-vs-claude/": {
-  "huella": "b92ca709f03320d8",
+  "huella": "9d9632335ff531da",
   "modificada": "2026-11-12"
  },
  "/mejor-llm-barato/": {
@@ -180,7 +180,7 @@
   "modificada": "2026-11-12"
  },
  "/minimax-vs-kimi/": {
-  "huella": "83ec77841868688f",
+  "huella": "e19051fc76fbb1a9",
   "modificada": "2026-11-12"
  },
  "/mismo-modelo-distinto-proveedor/": {
@@ -188,532 +188,532 @@
   "modificada": "2026-11-12"
  },
  "/modelo/claude-fable-5.1/": {
-  "huella": "0c100bf552600a39",
-  "modificada": "2026-11-10"
+  "huella": "dae3348e2744cf9d",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-fable-5.2/": {
-  "huella": "9afdfa833cf0b3d6",
-  "modificada": "2026-11-10"
+  "huella": "d370d60f47597d44",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-haiku-4.5/": {
-  "huella": "4d55405937f67b49",
-  "modificada": "2026-11-10"
+  "huella": "27ae8101a22684a3",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-haiku-5.5/": {
-  "huella": "2419dded18b8b09e",
-  "modificada": "2026-11-10"
+  "huella": "5feefe2d7bd204da",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-4.6/": {
-  "huella": "c9d58e2bdc3c384a",
-  "modificada": "2026-11-10"
+  "huella": "7e77dc7fd375aec6",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-4.7/": {
-  "huella": "a7f5954f63410607",
-  "modificada": "2026-11-10"
+  "huella": "4fa22e18bbbd4528",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-4.8/": {
-  "huella": "fd55bc97860274e4",
-  "modificada": "2026-11-10"
+  "huella": "292d15ff9405988a",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-5-fast/": {
-  "huella": "c90109f941b8b070",
-  "modificada": "2026-11-10"
+  "huella": "999b1eeca6d0c6d3",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-5.5/": {
-  "huella": "16004a732a861bfc",
-  "modificada": "2026-11-10"
+  "huella": "81f165df3f88376d",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-opus-5/": {
-  "huella": "0528a5611af18208",
-  "modificada": "2026-11-10"
+  "huella": "9c4c396fb85d385f",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-sonnet-4.6/": {
-  "huella": "2e477f52a4eb780b",
-  "modificada": "2026-11-10"
+  "huella": "a7a9174b01298c74",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-sonnet-5.5/": {
-  "huella": "174017b155891d32",
-  "modificada": "2026-11-10"
+  "huella": "890138cdb07f683d",
+  "modificada": "2026-11-12"
  },
  "/modelo/claude-sonnet-5/": {
-  "huella": "8d0225a629485fda",
-  "modificada": "2026-11-10"
+  "huella": "8a00d4fcd3b3e6db",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-r1/": {
-  "huella": "990d1efc53d23d45",
-  "modificada": "2026-11-10"
+  "huella": "74848b9ac0a9bb83",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v3/": {
-  "huella": "d8b4b324bba9f585",
-  "modificada": "2026-11-10"
+  "huella": "b7a199e61d302d97",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v4-flash-0731/": {
-  "huella": "09604b65cdd04720",
-  "modificada": "2026-11-10"
+  "huella": "6fd177feb0983ad2",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v4-flash/": {
-  "huella": "e9a5da0a1bcd44d3",
-  "modificada": "2026-11-10"
+  "huella": "b5d52ad14cd04c79",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v4-pro-0813/": {
-  "huella": "2f0d185b41455339",
-  "modificada": "2026-11-10"
+  "huella": "91f5a8e00e75b2ba",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v4-pro/": {
-  "huella": "4eb62d1b5d13c55e",
-  "modificada": "2026-11-10"
+  "huella": "3f3cf3aa8f3a5c12",
+  "modificada": "2026-11-12"
  },
  "/modelo/deepseek-v4.1-flash/": {
-  "huella": "4701eba29e411bbb",
-  "modificada": "2026-11-10"
+  "huella": "4770464e627165ef",
+  "modificada": "2026-11-12"
  },
  "/modelo/fugu-max/": {
-  "huella": "286a72b21033416a",
-  "modificada": "2026-11-10"
+  "huella": "ac008b031d3aa91c",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.1-flash-lite-ga/": {
-  "huella": "8230fd86c3c1e55d",
-  "modificada": "2026-11-10"
+  "huella": "4f2cffae4906acb5",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.1-flash-lite/": {
-  "huella": "958f54a6a781ea49",
-  "modificada": "2026-11-10"
+  "huella": "78f50b44da8096d2",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.1-pro/": {
-  "huella": "e1ab5a4eced3f6b7",
-  "modificada": "2026-11-10"
+  "huella": "aecb006e97d36a79",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.5-flash-lite/": {
-  "huella": "eba664538120b5c5",
-  "modificada": "2026-11-10"
+  "huella": "23462f7a8a9c0339",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.5-flash/": {
-  "huella": "451245cb0e3b97a5",
-  "modificada": "2026-11-10"
+  "huella": "86adaa374f2b381f",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.6-flash/": {
-  "huella": "06ee6dba5a126442",
-  "modificada": "2026-11-10"
+  "huella": "a02a2dac7d809452",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.7-flash/": {
-  "huella": "9a5ddf338cf504ae",
-  "modificada": "2026-11-10"
+  "huella": "7f698a673ae0933c",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-3.8-flash/": {
-  "huella": "86972c8e225ad9c9",
-  "modificada": "2026-11-10"
+  "huella": "c7f4c9fde63838b9",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-4-argon/": {
-  "huella": "a013b9b5412fe9cc",
-  "modificada": "2026-11-10"
+  "huella": "76f0f904000f8354",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-flash-lite/": {
-  "huella": "e4ea864360bbb731",
-  "modificada": "2026-11-10"
+  "huella": "def505cb6c56ba9e",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-flash/": {
-  "huella": "16d3cd639acbc535",
-  "modificada": "2026-11-10"
+  "huella": "bcda1d4506842481",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemini-pro/": {
-  "huella": "b35fdf8f74074399",
-  "modificada": "2026-11-10"
+  "huella": "fa9186f6da181732",
+  "modificada": "2026-11-12"
  },
  "/modelo/gemma-4-26b/": {
-  "huella": "37aafc8b0c632ac9",
-  "modificada": "2026-11-10"
+  "huella": "5dc98ed27b7f33d5",
+  "modificada": "2026-11-12"
  },
  "/modelo/glm-5.1/": {
-  "huella": "d6aaa7f396c6f4b3",
-  "modificada": "2026-11-10"
+  "huella": "a9197370e63b956b",
+  "modificada": "2026-11-12"
  },
  "/modelo/glm-5.2/": {
-  "huella": "13432d3bbf1989f2",
-  "modificada": "2026-11-10"
+  "huella": "84e2e47ab7b030c9",
+  "modificada": "2026-11-12"
  },
  "/modelo/glm-5.3-flash/": {
-  "huella": "22db7496b0681636",
-  "modificada": "2026-11-10"
+  "huella": "3885cfb6fee198ae",
+  "modificada": "2026-11-12"
  },
  "/modelo/glm-5.3/": {
-  "huella": "44b97c1d105103b1",
-  "modificada": "2026-11-10"
+  "huella": "e72f305c16cef46e",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-4.1-mini/": {
-  "huella": "921291bbe27f9db3",
-  "modificada": "2026-11-10"
+  "huella": "6f80ee26ce92595b",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-4.1/": {
-  "huella": "dadbd3a050236b14",
-  "modificada": "2026-11-10"
+  "huella": "f6f7a6a07da30b4f",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.4-mini/": {
-  "huella": "77dc47dcd5ef10d6",
-  "modificada": "2026-11-10"
+  "huella": "1ea3295ffcdc9d81",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.4/": {
-  "huella": "492ccbe026f5e7b7",
-  "modificada": "2026-11-10"
+  "huella": "92bba6b12f821e99",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.5/": {
-  "huella": "e9e546f61baa511b",
-  "modificada": "2026-11-10"
+  "huella": "2981304564602d2a",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.6-luna/": {
-  "huella": "6c752e53b0047467",
-  "modificada": "2026-11-10"
+  "huella": "1686b049ab8d02d8",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.6-sol/": {
-  "huella": "314fe3bbf912e0f4",
-  "modificada": "2026-11-10"
+  "huella": "36c52d66d92504f1",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-5.6-terra/": {
-  "huella": "b75c897770e2894a",
-  "modificada": "2026-11-10"
+  "huella": "f95f6bd6f222a253",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-6-astra/": {
-  "huella": "7b5721a8551c613c",
-  "modificada": "2026-11-10"
+  "huella": "6f5bc586302bbef7",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-6-luna-pro/": {
-  "huella": "defefc3861041cd4",
-  "modificada": "2026-11-10"
+  "huella": "995e61328cc0077c",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-6-luna/": {
-  "huella": "678a98aa201e551d",
-  "modificada": "2026-11-10"
+  "huella": "18ca211fd3e92fd9",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-6.1-sol/": {
-  "huella": "0a6463f30330e548",
-  "modificada": "2026-11-10"
+  "huella": "a770552d24e8f755",
+  "modificada": "2026-11-12"
  },
  "/modelo/gpt-6.1-terra/": {
-  "huella": "79ea22b4381290a8",
-  "modificada": "2026-11-10"
+  "huella": "959e45c5a31ee972",
+  "modificada": "2026-11-12"
  },
  "/modelo/granite-4.2-8b/": {
-  "huella": "fca7cd8a9b99eaa6",
-  "modificada": "2026-11-10"
+  "huella": "f57aebf41a7985c4",
+  "modificada": "2026-11-12"
  },
  "/modelo/grok-4.20/": {
-  "huella": "7bffaf39f0c61c79",
-  "modificada": "2026-11-10"
+  "huella": "ff5a3c13c4fd38ac",
+  "modificada": "2026-11-12"
  },
  "/modelo/grok-4.3/": {
-  "huella": "1a02dc8898de391d",
-  "modificada": "2026-11-10"
+  "huella": "663ff2d79b7fcdb1",
+  "modificada": "2026-11-12"
  },
  "/modelo/grok-4.5/": {
-  "huella": "e3a1466019cda86c",
-  "modificada": "2026-11-10"
+  "huella": "4bdabb8093bf3faa",
+  "modificada": "2026-11-12"
  },
  "/modelo/grok-4.6/": {
-  "huella": "c1a2178c5c61eb4b",
-  "modificada": "2026-11-10"
+  "huella": "bee622dc1b9ad5af",
+  "modificada": "2026-11-12"
  },
  "/modelo/grok-4.7/": {
-  "huella": "4175ebfc7a09881b",
-  "modificada": "2026-11-10"
+  "huella": "766ed3ca1631528e",
+  "modificada": "2026-11-12"
  },
  "/modelo/hermes-4-405b/": {
-  "huella": "f657d0a1994fa165",
-  "modificada": "2026-11-10"
+  "huella": "362bc07f1dbe978c",
+  "modificada": "2026-11-12"
  },
  "/modelo/hermes-4-70b/": {
-  "huella": "e0df5ca1ca461d64",
-  "modificada": "2026-11-10"
+  "huella": "7b77a4774f4ec322",
+  "modificada": "2026-11-12"
  },
  "/modelo/hy4-preview/": {
-  "huella": "767f01ab9e370fc2",
-  "modificada": "2026-11-10"
+  "huella": "4854921cac266b9d",
+  "modificada": "2026-11-12"
  },
  "/modelo/hy4/": {
-  "huella": "0e89242471c43c3c",
-  "modificada": "2026-11-10"
+  "huella": "7942908550e6e3c2",
+  "modificada": "2026-11-12"
  },
  "/modelo/inkling-small/": {
-  "huella": "11580bd44b6e442c",
-  "modificada": "2026-11-10"
+  "huella": "0051c1f32f17af2c",
+  "modificada": "2026-11-12"
  },
  "/modelo/kat-coder-air-2.5/": {
-  "huella": "136f401ec31ec31f",
-  "modificada": "2026-11-10"
+  "huella": "d3e675818d43c810",
+  "modificada": "2026-11-12"
  },
  "/modelo/kat-coder-pro-2.5/": {
-  "huella": "2fc866459a76d28d",
-  "modificada": "2026-11-10"
+  "huella": "735f06760f356ec4",
+  "modificada": "2026-11-12"
  },
  "/modelo/kimi-k2.6/": {
-  "huella": "a3da8963d46e1629",
-  "modificada": "2026-11-10"
+  "huella": "1ebf17a1c92c07e0",
+  "modificada": "2026-11-12"
  },
  "/modelo/kimi-k2.7-code/": {
-  "huella": "c0b287d479398fdf",
-  "modificada": "2026-11-10"
+  "huella": "9164ef3e2d497d37",
+  "modificada": "2026-11-12"
  },
  "/modelo/kimi-k2/": {
-  "huella": "c781685931bd93ef",
-  "modificada": "2026-11-10"
+  "huella": "756688360980898d",
+  "modificada": "2026-11-12"
  },
  "/modelo/kimi-k3.1-pro/": {
-  "huella": "277498859bb002f0",
-  "modificada": "2026-11-10"
+  "huella": "ed842534f0a12971",
+  "modificada": "2026-11-12"
  },
  "/modelo/kimi-k3/": {
-  "huella": "4dc4cd12fb8f8325",
-  "modificada": "2026-11-10"
+  "huella": "73c41d7a4f533dbd",
+  "modificada": "2026-11-12"
  },
  "/modelo/laguna-s-2.1/": {
-  "huella": "366f6a92fa3fc22a",
-  "modificada": "2026-11-10"
+  "huella": "87c7f49afd5b3eb1",
+  "modificada": "2026-11-12"
  },
  "/modelo/laguna-xs-2.1/": {
-  "huella": "9d3ad5bcee09c675",
-  "modificada": "2026-11-10"
+  "huella": "12493312eea717ce",
+  "modificada": "2026-11-12"
  },
  "/modelo/lfm-3-1.7b/": {
-  "huella": "4c0f61741e4515e7",
-  "modificada": "2026-11-10"
+  "huella": "f4170ad763c286ae",
+  "modificada": "2026-11-12"
  },
  "/modelo/ling-3.0-flash-vl/": {
   "huella": "c4ec28136e3def5e",
   "modificada": "2026-11-10"
  },
  "/modelo/ling-3.0-flash/": {
-  "huella": "ca272ecec7ed8572",
-  "modificada": "2026-11-10"
+  "huella": "261724ce59f3fff3",
+  "modificada": "2026-11-12"
  },
  "/modelo/llama-4-maverick/": {
-  "huella": "ef91cedec330fcbf",
-  "modificada": "2026-11-10"
+  "huella": "46a1b9c93f314293",
+  "modificada": "2026-11-12"
  },
  "/modelo/mercury-2.5/": {
-  "huella": "9ed844118645fc72",
-  "modificada": "2026-11-10"
+  "huella": "1ea6ee95a9ea4b35",
+  "modificada": "2026-11-12"
  },
  "/modelo/mercury-3/": {
-  "huella": "3d01a93a09065468",
-  "modificada": "2026-11-10"
+  "huella": "a176b4bf40d76dac",
+  "modificada": "2026-11-12"
  },
  "/modelo/mimo-v2.5-or/": {
-  "huella": "d7c2c0676e7080f8",
-  "modificada": "2026-11-10"
+  "huella": "687c69553491e091",
+  "modificada": "2026-11-12"
  },
  "/modelo/mimo-v2.5-pro-or/": {
-  "huella": "77fc5a872bbc5efb",
-  "modificada": "2026-11-10"
+  "huella": "3e0295dff06f0a06",
+  "modificada": "2026-11-12"
  },
  "/modelo/mimo-v2.6-flash/": {
-  "huella": "705d9419db688308",
-  "modificada": "2026-11-10"
+  "huella": "70eb0f8f5134d601",
+  "modificada": "2026-11-12"
  },
  "/modelo/mimo-v2.6-pro/": {
-  "huella": "fbed1a43d2186bc8",
-  "modificada": "2026-11-10"
+  "huella": "265ea95fca035106",
+  "modificada": "2026-11-12"
  },
  "/modelo/minimax-m2.7/": {
-  "huella": "4f007cbd22ce61d3",
-  "modificada": "2026-11-10"
+  "huella": "427109f7c99344c6",
+  "modificada": "2026-11-12"
  },
  "/modelo/minimax-m3.1-flash/": {
-  "huella": "2d4f8a424ef7b5e9",
-  "modificada": "2026-11-10"
+  "huella": "4dd685f8d94e4892",
+  "modificada": "2026-11-12"
  },
  "/modelo/minimax-m3/": {
-  "huella": "2e21c98b6fd0af2b",
-  "modificada": "2026-11-10"
+  "huella": "66584c2d707f509c",
+  "modificada": "2026-11-12"
  },
  "/modelo/mistral-large-4/": {
-  "huella": "a35ac489ea6f4d39",
-  "modificada": "2026-11-10"
+  "huella": "1544840acfc99e6f",
+  "modificada": "2026-11-12"
  },
  "/modelo/mistral-large/": {
-  "huella": "2e91a6455c6a1174",
-  "modificada": "2026-11-10"
+  "huella": "e7a51f883cb1bb8d",
+  "modificada": "2026-11-12"
  },
  "/modelo/mistral-small-4/": {
-  "huella": "c4317be4741e6927",
-  "modificada": "2026-11-10"
+  "huella": "bfacbb04e9a1e560",
+  "modificada": "2026-11-12"
  },
  "/modelo/muse-ember/": {
-  "huella": "8b9f3394e52455f2",
-  "modificada": "2026-11-10"
+  "huella": "92a3f2de35e5b960",
+  "modificada": "2026-11-12"
  },
  "/modelo/muse-glimmer-30b/": {
-  "huella": "09ee52743375eef8",
-  "modificada": "2026-11-10"
+  "huella": "903c28c3385c9a45",
+  "modificada": "2026-11-12"
  },
  "/modelo/muse-spark-1.2/": {
-  "huella": "4ef164ab4b3fc597",
-  "modificada": "2026-11-10"
+  "huella": "d828a2bfaba74bc0",
+  "modificada": "2026-11-12"
  },
  "/modelo/muse-spark-1.3/": {
-  "huella": "fc58094951a2a769",
-  "modificada": "2026-11-10"
+  "huella": "972e99322ae9d9b6",
+  "modificada": "2026-11-12"
  },
  "/modelo/muse-wonder/": {
-  "huella": "cdcd92ce8b2c0186",
-  "modificada": "2026-11-10"
+  "huella": "0d6ad59764814140",
+  "modificada": "2026-11-12"
  },
  "/modelo/nemotron-3.5-lightning/": {
-  "huella": "a16e55dcf4740324",
-  "modificada": "2026-11-10"
+  "huella": "d8850a5f34a06312",
+  "modificada": "2026-11-12"
  },
  "/modelo/nemotron-nano/": {
-  "huella": "efd728985833e1cf",
-  "modificada": "2026-11-10"
+  "huella": "ebd01b007c2e4bcc",
+  "modificada": "2026-11-12"
  },
  "/modelo/nemotron-super/": {
-  "huella": "1190509a45db7892",
-  "modificada": "2026-11-10"
+  "huella": "d9bef81dd3a55641",
+  "modificada": "2026-11-12"
  },
  "/modelo/nex-n2-mini/": {
-  "huella": "318024e46df4bf82",
-  "modificada": "2026-11-10"
+  "huella": "950301d96463129a",
+  "modificada": "2026-11-12"
  },
  "/modelo/openrouter-nemotron-3-ultra-550b/": {
-  "huella": "5d98702e6e88d23c",
-  "modificada": "2026-11-10"
+  "huella": "df2946f20ebbdb54",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-claude-fable-5/": {
-  "huella": "df7c31b854a24f4d",
-  "modificada": "2026-11-10"
+  "huella": "1edfc56c58e45c3f",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-deepseek-v3/": {
-  "huella": "e1a927e772c7f336",
-  "modificada": "2026-11-10"
+  "huella": "3d97015b94a34ea9",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-gemma-4-31b/": {
-  "huella": "35d0d94c42b9f571",
-  "modificada": "2026-11-10"
+  "huella": "fa9fe9902ac4cdfa",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-glm5/": {
-  "huella": "26e8f9345573287d",
-  "modificada": "2026-11-10"
+  "huella": "f151c38fa06a76ec",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-gpt-oss-120b/": {
-  "huella": "ed5245272ecea271",
-  "modificada": "2026-11-10"
+  "huella": "91b6fbb60e215730",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-gpt-oss-20b/": {
-  "huella": "87b5b5d82be6ebb5",
-  "modificada": "2026-11-10"
+  "huella": "44816dc6e0e7075e",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-kimi-k2.5/": {
-  "huella": "f77970302f55594f",
-  "modificada": "2026-11-10"
+  "huella": "679b3983fd1c4e8a",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-llama-3.1-8b/": {
-  "huella": "ea70593616b9d01b",
-  "modificada": "2026-11-10"
+  "huella": "94ee327360e98887",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-llama-3.3-70b/": {
-  "huella": "929db0129295433e",
-  "modificada": "2026-11-10"
+  "huella": "515140bdfcdd8066",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-llama-4-scout/": {
-  "huella": "19fc463f73b5c183",
-  "modificada": "2026-11-10"
+  "huella": "894b47b5ef15d6b0",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-minimax-m2.5/": {
-  "huella": "f48d02d454682835",
-  "modificada": "2026-11-10"
+  "huella": "e760fa2c700eeb5c",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-ministral-14b/": {
-  "huella": "7d4cab8d43443da3",
-  "modificada": "2026-11-10"
+  "huella": "bcae5b0bba9fc812",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-mistral-large-3/": {
-  "huella": "ba96328f129f43f7",
-  "modificada": "2026-11-10"
+  "huella": "4167c5c550e1203c",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-qwen-3.5-35b/": {
-  "huella": "3b4b4e3949ed776d",
-  "modificada": "2026-11-10"
+  "huella": "e2413fa6f3516d5b",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-qwen3-next-instruct/": {
-  "huella": "3b63cef8e99a324e",
-  "modificada": "2026-11-10"
+  "huella": "bf3fc04dafe83533",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-qwen3-next-thinking/": {
-  "huella": "7cba0256fe4b8a9d",
+  "huella": "e0b22af91f1fd8f8",
   "modificada": "2026-11-12"
  },
  "/modelo/or-qwen3.5-397b/": {
-  "huella": "e13ca663c70d3a67",
-  "modificada": "2026-11-10"
+  "huella": "f9242aef66c01caf",
+  "modificada": "2026-11-12"
  },
  "/modelo/or-step-3.5-flash/": {
-  "huella": "a036e4b45f956a73",
-  "modificada": "2026-11-10"
+  "huella": "d75169bc9342e4db",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.6-max/": {
-  "huella": "a0456e330f5cec1c",
-  "modificada": "2026-11-10"
+  "huella": "d242cd77b55483a2",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.6-plus/": {
-  "huella": "b5a32fe5692bcfe3",
-  "modificada": "2026-11-10"
+  "huella": "84e07353a86e8a85",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.7-max/": {
-  "huella": "9413837fddaa8c60",
-  "modificada": "2026-11-10"
+  "huella": "df2171104e47da3a",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.8-2.4t/": {
-  "huella": "797d74709e8fd966",
-  "modificada": "2026-11-10"
+  "huella": "9c277a9aec5a994b",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.8-27b/": {
-  "huella": "f11927e7c7ebd5b6",
-  "modificada": "2026-11-10"
+  "huella": "7d4761b1a6af2867",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.8-max-0902/": {
-  "huella": "81ebbb2549558f0b",
-  "modificada": "2026-11-10"
+  "huella": "58292082026e34db",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen-3.8-max/": {
-  "huella": "edb7b81d72a4776c",
-  "modificada": "2026-11-10"
+  "huella": "50783044ad119164",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3-coder-next/": {
-  "huella": "64615ed0d536a107",
-  "modificada": "2026-11-10"
+  "huella": "2fad0b9cf75dbfce",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3-coder/": {
-  "huella": "59fa85f28da25f1c",
-  "modificada": "2026-11-10"
+  "huella": "2b41e503af8413d9",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3.6-27b/": {
-  "huella": "e795de40a9171512",
-  "modificada": "2026-11-10"
+  "huella": "e5b72af04d5b9f13",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3.6-35b/": {
-  "huella": "2c1ecf0296d6a14f",
-  "modificada": "2026-11-10"
+  "huella": "109e4e5a395228aa",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3.7-flash/": {
-  "huella": "aa03ce120ab9c2ce",
-  "modificada": "2026-11-10"
+  "huella": "aca8ef5683db366b",
+  "modificada": "2026-11-12"
  },
  "/modelo/qwen3.8-flash/": {
-  "huella": "c6e29ec72fe44cb1",
-  "modificada": "2026-11-10"
+  "huella": "c85817a4008249fb",
+  "modificada": "2026-11-12"
  },
  "/modelo/seed-2-1-turbo/": {
-  "huella": "5edb9697a54d3c9c",
-  "modificada": "2026-11-10"
+  "huella": "7e6d7c11e8686a5b",
+  "modificada": "2026-11-12"
  },
  "/modelo/seed-2.0-code/": {
-  "huella": "503ef8bec41d0245",
-  "modificada": "2026-11-10"
+  "huella": "55a0bb7aa7278efb",
+  "modificada": "2026-11-12"
  },
  "/modelo/solar-pro4/": {
-  "huella": "fb21f6eb0d0f0838",
-  "modificada": "2026-11-10"
+  "huella": "de83823ea22abd78",
+  "modificada": "2026-11-12"
  },
  "/modelo/tencent-hy3/": {
-  "huella": "b3536e9c56915e33",
-  "modificada": "2026-11-10"
+  "huella": "105f3c48c9a00b4f",
+  "modificada": "2026-11-12"
  },
  "/modelos-baratos-emprendedores/": {
   "huella": "cccd5061339ced90",
@@ -728,11 +728,11 @@
   "modificada": "2026-11-10"
  },
  "/nemotron-3-ultra-vs-deepseek-v4-flash/": {
-  "huella": "b91085796b55e85f",
+  "huella": "a6bd21186ad6defc",
   "modificada": "2026-11-12"
  },
  "/qwen-vs-llama/": {
-  "huella": "00e1bb8f3d06b4c8",
+  "huella": "7740e1a7038e7b44",
   "modificada": "2026-11-12"
  }
 }

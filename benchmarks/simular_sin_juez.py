@@ -41,7 +41,7 @@ from benchmarks.export_for_pages import (  # noqa: E402
 from benchmarks.simular_jubilacion import _low_coverage, _runs_de, _spearman  # noqa: E402
 from benchmarks.suites import SUITES  # noqa: E402
 
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 TOL_MEDIANA, TOL_MAX = 0.005, 0.05
 JUZGADO = {"juez-30-70"}
 SIN_VERDAD = {"juez-30-70", "solo-rubrica-SIN-JUEZ", "sin-marca"}

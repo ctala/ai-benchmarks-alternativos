@@ -231,7 +231,7 @@ SUITES = {
         # `string_precision`. Si entra al índice se decide con la simulación de la parada D.
         "fuera_por": "por_decidir",
         "menu": "Precisión con datos de negocio (RUT, montos, SKU)",
-        "decide": "no cambiar un carácter de un dato que cuesta plata",
+        "decide": "no cambiar un carácter de un dato que cuesta dinero",
         "nota": "NUEVA el 9-nov-2026 (ventana v6.1, tarea 5.5). Mide lo que `string_precision` "
                 "dejó de medir cuando su política ante cadenas que parecen secretos tapó la "
                 "precisión: 14 tests y 81 ítems con identificadores fiscales y bancarios "

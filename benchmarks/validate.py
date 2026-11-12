@@ -49,7 +49,7 @@ ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
 RESULTS = ROOT / "benchmarks" / "results"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 FALLOS: list[str] = []
 AVISOS: list[str] = []
@@ -356,7 +356,7 @@ def c1_nada_muerto_recomendado(models, verbose):
     respuesta destacada. Le recomendábamos a la gente, en la SERP, un modelo que da 404.
     """
     muertos = [m["name"] for m in models if m.get("retired")]
-    docs = ROOT / "docs"
+    docs = ROOT / "sitio" / "legado"
     culpables = defaultdict(list)
     # La home ENTRA al barrido. Era el punto ciego: docs.glob("*/index.html") solo mira
     # subpáginas, y la FAQ de la home (visible + schema FAQPage que Google muestra como
@@ -431,7 +431,7 @@ def c4_fichas_del_ranking_v5(models, verbose):
     malos = []
     leidas = 0
     for m in models:
-        f = ROOT / "docs" / "modelo" / slug(m) / "index.html"
+        f = ROOT / "sitio" / "legado" / "modelo" / slug(m) / "index.html"
         if not f.exists():
             continue
         html = f.read_text(encoding="utf-8")

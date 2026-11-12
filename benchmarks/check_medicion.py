@@ -26,7 +26,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-MODELS = ROOT / "docs" / "data" / "models.json"
+MODELS = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 ANIO = re.compile(r"(?<!\d)(20\d{2})(?!\d)")
 TITULOS = (re.compile(r"<title>(.*?)</title>", re.S),

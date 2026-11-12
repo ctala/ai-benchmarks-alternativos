@@ -1,5 +1,5 @@
 // Motor del sitio (change motor-sitio, DECISIONES 11-nov-2026). Estático, mismas URLs que hoy
-// (`/slug/`): `directory` + `trailingSlash: "always"`. Compila a `dist`; `docs/` no se toca
+// (`/slug/`): `directory` + `trailingSlash: "always"`. Compila a `dist`; `sitio/legado/` no se toca
 // hasta el corte (design.md D1).
 import { defineConfig } from 'astro/config';
 

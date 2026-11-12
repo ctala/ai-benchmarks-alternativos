@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- generado-por: benchmarks/ (pipeline) — no editar a mano, se sobrescribe -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini vs Claude en 2026: comparación con benchmark real</title>
+<meta name="description" content="Gemini vs Claude comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta name="keywords" content="gemini vs claude, claude o gemini, comparativa gemini claude, google vs anthropic">
+<meta name="author" content="Cristian Tala">
+<link rel="canonical" href="https://benchmarks.cristiantala.com/gemini-vs-claude/">
+<meta property="og:title" content="Gemini vs Claude en 2026: comparación con benchmark real">
+<meta property="og:description" content="Gemini vs Claude comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta property="og:url" content="https://benchmarks.cristiantala.com/gemini-vs-claude/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ranking de modelos IA del benchmark de Cristian Tala">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini vs Claude en 2026: comparación con benchmark real">
+<meta name="twitter:description" content="Gemini vs Claude comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.">
+<meta name="twitter:image" content="https://benchmarks.cristiantala.com/og-benchmark.png">
+<link rel="icon" type="image/png" href="https://assets.nyx.cristiantala.com/2026/images/logo-cristian-tala-sanchez-2026.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gemini vs Claude en 2026: comparación con benchmark real",
+  "description": "Gemini vs Claude comparados con 88.000+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.",
+  "author": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  },
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-11-12",
+  "inLanguage": "es",
+  "url": "https://benchmarks.cristiantala.com/gemini-vs-claude/",
+  "mainEntityOfPage": "https://benchmarks.cristiantala.com/gemini-vs-claude/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Cristian Tala",
+    "url": "https://cristiantala.com"
+  }
+}
+</script>
+<!-- GTM: MISMO container que cristiantala.com (GTM-N69D7XXH) para poder seguir el
+     funnel cruzado blog -> benchmark -> comunidad desde un solo lugar.
+     DIFERIDO igual que en el blog: carga en la primera interaccion o a los 3.5s de
+     idle, para no meterlo en la ruta critica del LCP.
+     Antes: 0 de 57 paginas tenian analytics. Habia 45 CTAs a la comunidad y CERO
+     forma de saber si convertian (Regla #8 del repo: tracking desde el dia uno). -->
+<script>
+(function () {
+  var loaded = false;
+  function loadGTM() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N69D7XXH';
+    document.head.appendChild(j);
+  }
+  ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+    addEventListener(ev, loadGTM, { once: true, passive: true });
+  });
+  setTimeout(loadGTM, 3500);
+})();
+</script>
+</head>
+<body>
+<!-- Eventos del funnel. Sin esto no se puede saber que pagina alimenta la comunidad. -->
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('go.aprenderepite.com') > -1) {
+      window.dataLayer.push({
+        event: 'cta_comunidad',
+        cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
+        pagina_pseo: page
+      });
+    } else if (href.indexOf('/?preset=') === 0 || href.indexOf('/?calls=') === 0) {
+      window.dataLayer.push({ event: 'ir_a_calculadora', pagina_pseo: page });
+    }
+  }, { passive: true });
+  // Llego a ver la tabla (la evidencia). Marca lectura real, no rebote.
+  var t = document.querySelector('.results-table');
+  if (t && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) {
+        window.dataLayer.push({ event: 've_tabla', pagina_pseo: page });
+        io.disconnect();
+      }
+    }, { threshold: 0.25 });
+    io.observe(t);
+  }
+})();
+</script>
+<header>
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="Cristian Tala — inicio del benchmark">
+      <span class="wordmark">Cristian Tala<span class="cursor">_</span></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/">Calculadora</a>
+      <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <h1>Gemini vs Claude: cuál elegir en 2026 (benchmark real)</h1>
+    <p class="lead">Comparamos las familias <strong>Gemini</strong> y <strong>Claude</strong> con datos, no opiniones:
+    <strong>88.000+ runs reales</strong> evaluados con LLM-as-Judge Phi-4 vía OpenRouter, en los 4 pilares del emprendedor
+    (coding, contenido, razonamiento, agentes) + costo y velocidad reales.</p>
+    <p class="versions">
+    <span class="versions-label">Versiones que entran en esta comparación</span>
+    <span class="versions-row">Gemini: <strong>Gemini 4 Argon</strong>, <strong>Gemini 3.8 Flash</strong>, <strong>Gemini 3.5 Flash Lite</strong>, <strong>Gemini 3.1 Flash Lite (GA)</strong>, <strong>Gemini 3.1 Pro</strong>, <strong>Gemini 3.7 Flash</strong> <em>y 6 más</em></span>
+    <span class="versions-row">Claude: <strong>Claude Fable 5.1</strong>, <strong>Claude Opus 5.5</strong>, <strong>Claude Fable 5.2</strong>, <strong>Claude Sonnet 5.5</strong>, <strong>Claude Haiku 5.5</strong>, <strong>Claude Opus 4.6</strong> <em>y 8 más</em></span>
+    <span class="versions-fine">Solo entran modelos con ≥50 runs. Ordenados por <strong>calidad media</strong>
+    en los 4 pilares — no por precio.</span>
+  </p>
+    <p class="meta">Última actualización: 2026-11-12 ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">datos abiertos en GitHub</a></p>
+  </section>
+  <section class="results">
+    <div class="results-header">
+      <h2>Gemini vs Claude: tabla comparativa</h2>
+      <p class="meta"><strong>Calidad</strong> = media de los 4 pilares, y es la columna que ordena la tabla. Los pilares al lado, en la misma escala /10. Sin costo ni velocidad adentro: van en sus propias columnas.</p>
+    </div>
+    <div class="table-scroll"><table class="results-table">
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">Modelo</th><th scope="col">Calidad</th><th scope="col">Coding</th><th scope="col">Contenido</th><th scope="col">Razon.</th><th scope="col">Agentes</th><th scope="col">$ in/out per M</th><th scope="col">Velocidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><a class="a-ficha" href="/modelo/gemini-4-argon/"><strong>Gemini 4 Argon</strong></a></td><td><strong>8.90</strong></td><td>9.5</td><td>8.8</td><td>8.4</td><td>8.1</td><td>$2.00 / $10.00</td><td>41 tok/s</td></tr>
+        <tr><td>2</td><td><a class="a-ficha" href="/modelo/gemini-3.8-flash/">Gemini 3.8 Flash</a></td><td><strong>8.79</strong></td><td>9.5</td><td>8.9</td><td>8.2</td><td>7.6</td><td>$0.75 / $3.75</td><td>107 tok/s</td></tr>
+        <tr><td>3</td><td><a class="a-ficha" href="/modelo/gemini-3.5-flash-lite/">Gemini 3.5 Flash Lite</a></td><td><strong>8.67</strong></td><td>9.8</td><td>8.5</td><td>8.0</td><td>7.7</td><td>$0.30 / $2.50</td><td>158 tok/s</td></tr>
+        <tr><td>4</td><td><a class="a-ficha" href="/modelo/gemini-3.1-flash-lite-ga/">Gemini 3.1 Flash Lite (GA)</a></td><td><strong>8.12</strong></td><td>9.4</td><td>8.5</td><td>7.7</td><td>7.3</td><td>$0.25 / $1.50</td><td>156 tok/s</td></tr>
+        <tr><td>5</td><td><a class="a-ficha" href="/modelo/claude-fable-5.1/">Claude Fable 5.1</a></td><td><strong>8.88</strong></td><td>9.5</td><td>9.0</td><td>8.4</td><td>7.8</td><td>$10.00 / $50.00</td><td>72 tok/s</td></tr>
+        <tr><td>6</td><td><a class="a-ficha" href="/modelo/claude-opus-5.5/">Claude Opus 5.5</a></td><td><strong>8.81</strong></td><td>9.6</td><td>9.0</td><td>8.1</td><td>7.8</td><td>$4.00 / $20.00</td><td>94 tok/s</td></tr>
+        <tr><td>7</td><td><a class="a-ficha" href="/modelo/claude-fable-5.2/">Claude Fable 5.2</a></td><td><strong>8.81</strong></td><td>9.5</td><td>9.0</td><td>8.1</td><td>7.7</td><td>$8.00 / $40.00</td><td>84 tok/s</td></tr>
+        <tr><td>8</td><td><a class="a-ficha" href="/modelo/claude-sonnet-5.5/">Claude Sonnet 5.5</a></td><td><strong>8.79</strong></td><td>9.6</td><td>9.0</td><td>8.3</td><td>7.5</td><td>$2.00 / $10.00</td><td>113 tok/s</td></tr>
+        <tr><td>9</td><td><a class="a-ficha" href="/modelo/claude-haiku-5.5/">Claude Haiku 5.5</a></td><td><strong>8.67</strong></td><td>9.5</td><td>8.8</td><td>8.1</td><td>7.3</td><td>$0.10 / $0.50</td><td>179 tok/s</td></tr>
+        <tr><td>10</td><td>Gemini 3.1 Pro <span class="row-badge no-rankea" title="rindió el examen completo antes de la ventana de v5: se publica en el histórico, con su era y sin puesto">no rankea</span></td><td><strong>8.82</strong></td><td>9.7</td><td>8.9</td><td>7.8</td><td>8.0</td><td>$2.00 / $12.00</td><td>84 tok/s</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
+  </section>
+  <section class="eje-eje">
+  <h2>Eje por eje: Gemini 4 Argon vs Claude Fable 5.1</h2>
+  <p class="meta">Los dos mejores de cada familia, comparados en cada cosa que se mide por separado.
+  Un promedio de 29 ejes esconde el que te importa: hay modelos que son <strong>#3 en multi-turno
+  sin herramientas y #76 en el índice general</strong>. Nota /10, calidad pura.</p>
+  <p class="cobertura parcial">⚠️ <strong>El examen no está parejo.</strong> Gemini 4 Argon rindió 30 ejes y Claude Fable 5.1 rindió 34; a <strong>Gemini 4 Argon</strong> le faltan 4. Solo los <strong>30</strong> que rindieron los dos son comparables — los demás salen marcados «sin comparar» y no cuentan para el resultado.</p>
+  
+  <div class="table-scroll"><table class="results-table eje-tabla">
+    <thead><tr>
+      <th scope="col">Qué decide</th><th scope="col">Gemini 4 Argon</th>
+      <th scope="col">Claude Fable 5.1</th><th scope="col">Gana</th>
+    </tr></thead>
+    <tbody>
+      
+<tr class="eje-pilar"><td colspan="4">Coding</td></tr>      <tr><td class="eje-nombre">emitir JSON válido a la primera<small>structured_output</small></td><td class="num">8.65</td><td class="num gana">8.67</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">escribir código que corre<small>code_generation</small></td><td class="num gana">7.90</td><td class="num">7.52</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">leer datos de una imagen<small>ocr_extraction</small></td><td class="num gana">7.99</td><td class="num">7.78</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">no cambiar un carácter de un dato que cuesta dinero<small>precision_datos</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">no equivocarse en un dato<small>string_precision</small></td><td class="num gana">8.59</td><td class="num">5.72</td><td class="num">←</td></tr>      <tr class="eje-pilar"><td colspan="4">Contenido</td></tr>      <tr><td class="eje-nombre">decidir si una fuente respalda una afirmación<small>verificar_claim</small></td><td class="num">8.04</td><td class="num gana">8.27</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">devolver un juicio por cada dato, no solo por los primeros<small>verificar_claims_lote</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num">7.77</td><td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td></tr>      <tr><td class="eje-nombre">distinguir si una nota es para tu medio<small>noticias_relevancia</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">elegir el dominio real, o abstenerse<small>dominio_entidad</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num">8.37</td><td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td></tr>      <tr><td class="eje-nombre">encontrar un ángulo que no es el obvio<small>creativity</small></td><td class="num gana">7.52</td><td class="num">7.10</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">escribir la nota sin inventar cifras<small>noticias_redaccion</small></td><td class="num">7.81</td><td class="num gana">7.83</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">escribir para una audiencia de negocio<small>startup_content</small></td><td class="num gana">7.74</td><td class="num">7.59</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">escribir para vender<small>sales_outreach</small></td><td class="num gana">7.41</td><td class="num">6.88</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">escribir publicable con la pauta, sin revisar<small>noticias_pauta</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">escribir sin caer en la trampa del brief<small>content_verificable</small></td><td class="num">7.47</td><td class="num gana">8.09</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">escribir un artículo publicable<small>news_seo_writing</small></td><td class="num gana">6.33</td><td class="num">6.02</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">escribir un texto correcto<small>content_generation</small></td><td class="num gana">7.79</td><td class="num">7.41</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">estructurar para que Google recomiende la nota<small>noticias_seo_discover</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">estructurar una presentación<small>presentation</small></td><td class="num gana">7.75</td><td class="num">7.39</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">no meter otro idioma en medio del texto<small>integridad_idioma</small></td><td class="num gana">8.09</td><td class="num">7.66</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">resumir sin perder lo que importa<small>summarization</small></td><td class="num gana">6.89</td><td class="num">6.79</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">sacar TODOS los datos, no solo los fáciles<small>extraer_claims</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num">8.41</td><td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td></tr>      <tr><td class="eje-nombre">sacar todos los datos, también el del último párrafo<small>noticias_extraccion</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">traducir el fragmento sin tocar el resto<small>noticias_traduccion</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">traducir sin deformar el sentido<small>translation</small></td><td class="num gana">7.76</td><td class="num">6.74</td><td class="num">←</td></tr>      <tr class="eje-pilar"><td colspan="4">Razonamiento</td></tr>      <tr><td class="eje-nombre">armar un plan que se sostiene<small>business_strategy</small></td><td class="num gana">7.74</td><td class="num">7.39</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">elegir entre opciones de negocio<small>strategy</small></td><td class="num gana">8.27</td><td class="num">7.76</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">encontrar el error en un número<small>business_audit</small></td><td class="num">6.87</td><td class="num gana">6.90</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">no inventar cuando no sabe<small>hallucination</small></td><td class="num gana">7.40</td><td class="num">6.37</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">razonar con varias piezas a la vez<small>reasoning</small></td><td class="num gana">8.11</td><td class="num">7.75</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">resolver un problema difícil sin atajos<small>deep_reasoning</small></td><td class="num gana">6.50</td><td class="num">5.89</td><td class="num">←</td></tr>      <tr class="eje-pilar"><td colspan="4">Agentes</td></tr>      <tr><td class="eje-nombre">clasificar y responder un ticket<small>customer_support</small></td><td class="num">5.62</td><td class="num gana">6.49</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">convertir una conversación en tareas<small>task_management</small></td><td class="num gana">8.24</td><td class="num">7.72</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">coordinar un flujo de varios pasos<small>orchestration</small></td><td class="num gana">7.58</td><td class="num">7.00</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">delegar y usar lo que tiene a mano<small>agent_capabilities</small></td><td class="num">6.31</td><td class="num gana">6.70</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">encontrar qué requiere fuente antes de publicar<small>noticias_verificacion</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">evitar publicar el mismo hecho dos veces<small>noticias_repetidas</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num sin-dato">—</td></tr>      <tr><td class="eje-nombre">hacer exactamente lo que se pidió<small>policy_adherence</small></td><td class="num gana">7.57</td><td class="num">7.55</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">llamar bien las funciones<small>tool_calling</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num">5.06</td><td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td></tr>      <tr><td class="eje-nombre">no inventar herramientas que no existen<small>tool_calling_adversarial</small></td><td class="num">6.16</td><td class="num gana">6.35</td><td class="num">→</td></tr>      <tr><td class="eje-nombre">no perderse en una conversación larga<small>multi_turn</small></td><td class="num gana">6.33</td><td class="num">6.05</td><td class="num">←</td></tr>      <tr><td class="eje-nombre">sostener una tarea larga<small>agent_long_horizon</small></td><td class="num gana">7.83</td><td class="num">6.27</td><td class="num">←</td></tr>      <tr class="eje-pilar"><td colspan="4">Se reportan aparte (no entran a ningún promedio)</td></tr>      <tr><td class="eje-nombre">encontrar un dato dentro de un contexto enorme<small>niah_es</small></td><td class="num sin-dato" title="No rindió este eje">—</td><td class="num">7.45</td><td class="num sin-dato" title="Solo uno lo rindió: no es comparable">sin comparar</td></tr>      <tr><td class="eje-nombre">resistir una fuga de datos<small>prompt_injection_es</small></td><td class="num">1.63</td><td class="num gana">3.29</td><td class="num">→</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta"><strong>Gemini 4 Argon</strong> gana 22 ejes, <strong>Claude Fable 5.1</strong> gana 8 — de 30 que ambos rindieron.</p>
+</section>
+  <section>
+  <h2>¿Qué mide este benchmark?</h2>
+  <p>No es un benchmark académico (para eso están MMLU, HumanEval o SWE-bench). Es un benchmark
+  <strong>aplicado para emprendedores hispanohablantes</strong>: mide qué modelo conviene poner en
+  producción para casos reales, con lo que los benchmarks oficiales no cubren — costo en provider real,
+  velocidad, español neutro y agentes multi-turno.</p>
+  <p>Contamos con <strong>244 modelos catalogados</strong>, <strong>193 testeados</strong>
+  y <strong>88.000+ runs reales</strong> evaluados por un
+  <strong>LLM-as-Judge (Phi-4, de Microsoft, vía OpenRouter — sin conflicto de interés)</strong>, en 4 pilares:</p>
+  <ul>
+    <li><strong>Coding</strong> — generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</li>
+    <li><strong>Contenido y marketing</strong> — blogs, copy y textos largos en español neutro (no traducción del inglés).</li>
+    <li><strong>Razonamiento</strong> — matemáticas, lógica formal y planificación multi-paso.</li>
+    <li><strong>Agentes y operaciones</strong> — multi-turno largo, tool calling y flujos tipo N8N / Hermes.</li>
+  </ul>
+  <p><strong>Dos números distintos, no los confundas.</strong> Las tablas por tarea de esta página se
+  ordenan por <strong>calidad en esa tarea</strong>: capacidad pura, sin mezclar precio. Es la respuesta a
+  "¿quién lo hace mejor?".</p>
+  <p>El <strong>score global</strong> es otra cosa: una función ponderada
+  (<strong>calidad 70% + costo 15% + velocidad 7,5% + latencia 7,5%</strong>) que responde
+  "¿qué conviene poner en producción?". Ahí un modelo barato y rápido sí puede superar a uno más capaz
+  pero caro. Los dos números sirven — para preguntas distintas.</p>
+  <p>Tool calling va como <strong>insignia aparte</strong> (no suma al score global): indica si el modelo soporta
+  herramientas, no su calidad. <strong>Límite conocido:</strong> el juez es Phi-4 (14B) y varios modelos
+  evaluados son más capaces que él — ordena bien, pero comprime las diferencias en la cima. Lee un empate
+  como "el juez no los distingue", no como "son idénticos".
+  <a href="https://github.com/ctala/ai-benchmarks-alternativos/blob/main/TESTS.md" target="_blank" rel="noopener">Metodología y tests completos</a>.</p>
+</section>
+<section>
+  <h2>Veredicto rápido</h2>
+  <p>En calidad el benchmark <strong>no separa</strong> a Gemini 4 Argon (8.90) de Claude Fable 5.1 (8.88): la diferencia cabe en el margen de error. La calidad suma el examen y tareas reales de agente. Pero
+  <strong>no hay ganador universal</strong>: cambia por tipo de trabajo. El enfrentamiento real, abajo.</p>
+</section>
+<section>
+  <h2>Gemini vs Claude por tipo de trabajo</h2>
+  <h3>Coding: ¿Gemini o Claude?</h3>
+  <p><em>Qué medimos: generar código, JSON estructurado y debugging en tareas reales (plugins WordPress, scripts, templates de N8N).</em><br>En calidad pura de este pilar gana <strong>Gemini 3.5 Flash Lite</strong> por poco: 9.8/10 contra 9.6/10 de Claude Opus 5.5 (Δ 0.2). A $0.30 / $2.50 por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar — ajústalo en la calculadora.</p>
+  <h3>Contenido y marketing: ¿Gemini o Claude?</h3>
+  <p><em>Qué medimos: blogs, copy y textos largos en español neutro (no traducción del inglés).</em><br>Empate técnico en calidad: <strong>Gemini 3.8 Flash</strong> y <strong>Claude Fable 5.2</strong> rinden casi igual (≈9.0/10). Acá no decidimos por ti: si te importa el costo, <strong>Gemini 3.8 Flash</strong> sale $0.75 / $3.75 por millón; si ya tienes Claude Fable 5.2 en tu stack, no hay razón para cambiar — la calidad es la misma.</p>
+  <h3>Razonamiento: ¿Gemini o Claude?</h3>
+  <p><em>Qué medimos: matemáticas, lógica formal y planificación multi-paso.</em><br>Empate técnico en calidad: <strong>Gemini 4 Argon</strong> y <strong>Claude Fable 5.1</strong> rinden casi igual (≈8.4/10). Acá no decidimos por ti: si te importa el costo, <strong>Gemini 4 Argon</strong> sale $2.00 / $10.00 por millón; si ya tienes Claude Fable 5.1 en tu stack, no hay razón para cambiar — la calidad es la misma.</p>
+  <h3>Agentes y operaciones: ¿Gemini o Claude?</h3>
+  <p><em>Qué medimos: multi-turno largo, tool calling y flujos tipo N8N / Hermes.</em><br>En calidad pura de este pilar gana <strong>Gemini 4 Argon</strong> por poco: 8.1/10 contra 7.8/10 de Claude Fable 5.1 (Δ 0.2). A $2.00 / $10.00 por millón. Si tu prioridad es costo o velocidad, el ganador puede cambiar — ajústalo en la calculadora.</p>
+</section>
+<section class="results">
+  <div class="results-header"><h2>Resumen: quién gana según tu caso</h2></div>
+  <div class="table-scroll"><table class="results-table">
+    <thead><tr><th scope="col">Tu caso</th><th scope="col">Ganador</th></tr></thead>
+    <tbody>
+      <tr><td>Coding</td><td><strong>Gemini 3.5 Flash Lite (por calidad)</strong></td></tr><tr><td>Contenido y marketing</td><td><strong>Empate — Gemini 3.8 Flash o Claude Fable 5.2</strong></td></tr><tr><td>Razonamiento</td><td><strong>Empate — Gemini 4 Argon o Claude Fable 5.1</strong></td></tr><tr><td>Agentes y operaciones</td><td><strong>Gemini 4 Argon (por calidad)</strong></td></tr><tr><td>Costo más bajo</td><td><strong>Claude Haiku 5.5</strong> ($0.10 / $0.50)</td></tr><tr><td>Más rápido</td><td><strong>Claude Haiku 5.5</strong> (179 tok/s)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">Este cuadro muestra el mejor por <strong>calidad de cada pilar</strong> — pero el "ganador" real depende de <strong>tu</strong> prioridad: calidad, costo o velocidad. No sabemos tu caso, así que ajusta esos pesos en la <a href="/">calculadora</a> y obtén el ganador para ti.</p>
+</section>
+<section class="funnel">
+  <h2>Antes de migrar, haz esto</h2>
+  <p>Ya sabes cuál gana en el papel. No lo cambies a ciegas: toma <strong>el mejor de cada familia</strong>
+  y pásales <strong>cinco prompts reales tuyos</strong>, de los que ya corres en producción. Una
+  comparación general te dice quién arranca adelante; <strong>tu caso decide quién gana</strong>.
+  Son veinte minutos y te ahorran una migración equivocada.</p>
+  <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
+  Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
+  El ganador de hoy puede no serlo el mes que viene.</p>
+  <p><a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-primary">
+  Ver la comunidad →</a></p>
+  <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
+  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.</p>
+</section>
+  <section class="faq">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Gemini o Claude es mejor en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error. pero el mejor por pilar cambia (ver arriba). La pregunta correcta es 'mejor para qué caso'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Estos datos de dónde salen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De un benchmark abierto con 88.000+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en GitHub."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es más barato para agentes con volumen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la calculadora."
+      }
+    }
+  ]
+}
+</script>
+  <h2>Preguntas frecuentes</h2>
+  <details><summary><strong>¿Gemini o Claude es mejor en 2026?</strong></summary>
+  <p>Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error. pero el mejor por pilar cambia (ver arriba). La pregunta correcta es "mejor para qué caso".</p></details>
+  <details><summary><strong>¿Estos datos de dónde salen?</strong></summary>
+  <p>De un benchmark abierto con 88.000+ runs reales y LLM-as-Judge (Phi-4, Microsoft, vía OpenRouter, sin conflicto de interés). Código y resultados en <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">GitHub</a>.</p></details>
+  <details><summary><strong>¿Cuál es más barato para agentes con volumen?</strong></summary>
+  <p>Mira la columna de costo en la tabla. Para 1.000+ calls/mes, el costo por millón de tokens domina el ROI por encima de diferencias chicas de calidad. Fíltralo por tu presupuesto en la <a href="/">calculadora</a>.</p></details>
+</section>
+  <section class="cta-block">
+    <h2>Prueba la calculadora con tu caso real</h2>
+    <p>Filtra Gemini, Claude y 100+ modelos más por presupuesto, calidad y tipo de tarea. En 30 segundos encuentras el mejor para ti.</p>
+    <a href="/" class="cta-primary">Ir a la calculadora →</a>
+  </section>
+<script type="application/json" id="contrato-pagina">
+{"tipo": "comparacion", "generador": "generate_comparison", "recomienda": ["Gemini 4 Argon", "Gemini 3.8 Flash", "Gemini 3.5 Flash Lite", "Gemini 3.1 Flash Lite (GA)", "Gemini 3.1 Pro", "Claude Fable 5.1", "Claude Opus 5.5", "Claude Fable 5.2", "Claude Sonnet 5.5", "Claude Haiku 5.5"], "ordena_por": "Calidad (media de los 4 pilares)", "tablas": [{"rol": "principal", "ordena_por": "Calidad", "filas": 10, "bloques": 2}]}
+</script>
+</main>
+<footer>
+  <div class="container">
+    <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
+    <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
+    <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a></p>
+  </div>
+</footer>
+</body>
+</html>

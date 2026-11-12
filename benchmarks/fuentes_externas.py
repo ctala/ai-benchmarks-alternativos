@@ -51,7 +51,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 FOTOS = ROOT / "externos" / "fotos"
-MODELS_JSON = ROOT / "docs" / "data" / "models.json"
+MODELS_JSON = ROOT / "sitio" / "legado" / "data" / "models.json"
 
 TB_REPO = "harborframework/terminal-bench-2-leaderboard"
 TB_VERSION = "2.0"

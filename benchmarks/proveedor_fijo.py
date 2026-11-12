@@ -173,7 +173,7 @@ def cuantizacion_de(model_id: str, upstream: str | None) -> str | None:
         return d["cuantizacion"]
     if _censo_cache is None:
         try:
-            _censo_cache = json.loads((ROOT / "docs" / "data" / "censo_proveedores.json")
+            _censo_cache = json.loads((ROOT / "sitio" / "legado" / "data" / "censo_proveedores.json")
                                       .read_text(encoding="utf-8")).get("modelos", {})
         except FileNotFoundError:
             _censo_cache = {}
@@ -234,7 +234,7 @@ def elegir(model_id: str, endpoints: list[dict], runs: Counter,
 def _abiertos() -> list[tuple[str, dict]]:
     sys.path.insert(0, str(ROOT))
     from benchmarks.models import MODELS
-    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text())
+    d = json.loads((ROOT / "sitio" / "legado" / "data" / "models.json").read_text())
     return [(m["key"], MODELS[m["key"]]) for m in d["models"]
             if m.get("ranked") and m.get("open_source")
             and MODELS[m["key"]].get("provider", "openrouter") == "openrouter"]
