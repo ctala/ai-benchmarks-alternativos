@@ -38,7 +38,7 @@ FAMILIES = [
         "slug": "gpt-5.6-luna-terra-sol",
         "family": "GPT-5.6",
         "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-terra", "gpt-5.6-terra-pro", "gpt-5.6-sol"],
-        "title": "GPT-5.6: Luna, Terra o Sol — cuál elegir en 2026 (benchmark real)",
+        "title": "GPT-5.6: Luna, Terra o Sol — cuál elegir en {anio} (benchmark real)",
         "h1": "GPT-5.6: ¿Luna, Terra o Sol?",
         "intent_kw": ("gpt 5.6 luna terra sol, cual gpt 5.6 usar, gpt 5.6 luna o sol, "
                       "diferencia gpt 5.6 luna terra sol, que tier de gpt 5.6 elegir, gpt 5.6 precio"),
@@ -53,7 +53,7 @@ FAMILIES = [
         "slug": "claude-haiku-sonnet-opus",
         "family": "Claude",
         "familia": "claude",
-        "title": "Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en 2026 (benchmark real)",
+        "title": "Claude: Haiku, Sonnet, Opus o Fable — cuál elegir en {anio} (benchmark real)",
         "h1": "Claude: ¿Haiku, Sonnet, Opus o Fable?",
         # Volumen real (DataForSEO, ES+MX, jul-2026): "claude sonnet vs opus" + su
         # variante de orden suman ~720/mes. Ese es el head; lo demás es cola.
@@ -69,7 +69,7 @@ FAMILIES = [
         "slug": "minimax-m2-7-o-m3",
         "family": "MiniMax",
         "familia": "minimax",
-        "title": "MiniMax M2.7 o M3: cuál usar en 2026 (benchmark real)",
+        "title": "MiniMax M2.7 o M3: cuál usar en {anio} (benchmark real)",
         "h1": "MiniMax: ¿M2.7 o M3?",
         # "minimax m3" hace ~530/mes (ES+MX) y NO tiene pagina propia. Es el head:
         # la gente busca el modelo, no la comparacion. Va primero.
@@ -82,7 +82,7 @@ FAMILIES = [
         "slug": "gemini-flash-o-pro",
         "family": "Gemini",
         "familia": "gemini",
-        "title": "Gemini Flash o Pro: cuál conviene en 2026 (benchmark real)",
+        "title": "Gemini Flash o Pro: cuál conviene en {anio} (benchmark real)",
         "h1": "Gemini: ¿Flash o Pro?",
         "intent_kw": ("gemini flash vs pro, gemini 2.5 pro vale la pena, cual gemini usar, "
                       "gemini flash lite vs pro, diferencia gemini flash pro"),
@@ -99,7 +99,7 @@ FAMILIES = [
         # y es real, así que la respuesta correcta no es borrar la mención: es decir que
         # se retiró y contra qué compararlo hoy. Eso responde la intención mejor que el
         # título viejo, que prometía una fila inexistente.
-        "title": "Grok 4.20, 4.3 o 4.5: cuál usar en 2026 (benchmark real)",
+        "title": "Grok 4.20, 4.3 o 4.5: cuál usar en {anio} (benchmark real)",
         "h1": "Grok: ¿cuál de las versiones?",
         "intent_kw": ("grok 4.5 vs 4.3, grok 4.5 vale la pena, cual grok usar, "
                       "grok 4.1 fast retirado, grok 4.5 benchmark"),
@@ -112,7 +112,7 @@ FAMILIES = [
         "slug": "deepseek-v4-flash-o-r1",
         "family": "DeepSeek",
         "familia": "deepseek",
-        "title": "DeepSeek V4 Flash, R1 o Pro: cuál usar en 2026 (benchmark real)",
+        "title": "DeepSeek V4 Flash, R1 o Pro: cuál usar en {anio} (benchmark real)",
         "h1": "DeepSeek: ¿V4 Flash, R1 o Pro?",
         "intent_kw": ("deepseek v4 flash vs r1, cual deepseek usar, deepseek r1 vale la pena, "
                       "deepseek v4 pro opiniones, deepseek benchmark español"),
@@ -120,6 +120,10 @@ FAMILIES = [
                  "Las medimos con la misma suite para ver si esa diferencia se nota donde importa."),
     },
 ]
+# El año de un título sale de la medición, nunca fijo: `{anio}` se resuelve con models.json
+# (motor-sitio 2.4, `fechas.py`).
+import fechas as _fechas  # noqa: E402
+_fechas.resolver_config(FAMILIES)
 
 # Dimensiones que se reportan APARTE del score global (README). En una familia son
 # justo donde puede esconderse la única diferencia real entre tiers.

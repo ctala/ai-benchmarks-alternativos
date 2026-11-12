@@ -117,7 +117,7 @@
   var page = location.pathname.replace(/^\/|\/$/g, '') || 'home';
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a');
-    if (a && (a.getAttribute('href') || '').indexOf('skool.com') > -1) {
+    if (a && (a.getAttribute('href') || '').indexOf('go.aprenderepite.com') > -1) {
       window.dataLayer.push({ event: 'cta_comunidad', cta_ubicacion: 'landing', pagina_pseo: page });
     }
   }, { passive: true });
@@ -134,7 +134,7 @@
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
     </nav>
   </div>
 </header>
@@ -310,7 +310,7 @@
     <p>
       Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
-      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener">Skool</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a>
     </p>
   </div>
 </footer>

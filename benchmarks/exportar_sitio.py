@@ -57,6 +57,26 @@ def _modelo(m) -> dict:
             "ficha": _ficha(m) if m.get("ranked") else None}
 
 
+def medido(m) -> dict:
+    """«Medido en»: el proveedor que sirvió la mayoría de los runs (y qué parte, si no fueron
+    todos), su cuantización y el razonamiento con que se llamó. Sale de `medido_en` y
+    `reasoning_medido` del export; lo que no está registrado se dice, no se supone. Función pura.
+    (motor-sitio 2.4)"""
+    me = m.get("medido_en") or {}
+    pct = me.get("proveedor_pct")
+    return {"proveedor": me.get("proveedor") or "proveedor sin registrar",
+            "pct": pct if me.get("proveedor") and pct is not None and pct < 100 else None,
+            "cuantizacion": me.get("cuantizacion") or "cuantización no declarada",
+            "razonamiento": m.get("reasoning_medido") or "sin registrar"}
+
+
+def linea_medido_en(m) -> str:
+    """La misma línea como texto plano: lo que la página tiene que mostrar (guardrail M1)."""
+    x = medido(m)
+    pct = f" ({x['pct']} % de los runs)" if x["pct"] is not None else ""
+    return f"{x['proveedor']}{pct} · {x['cuantizacion']} · razonamiento: {x['razonamiento']}"
+
+
 def _fila(rank, m, top):
     c = gc.capacidad(m)
     motivo = ((m.get("elegible") or {}).get("motivos") or {}).get("ranking")
@@ -66,7 +86,8 @@ def _fila(rank, m, top):
             "pilares": {p: (round(gc.pillar(m, p), 1) if gc.pillar(m, p) > 0 else None) for p in gc.PILLARS},
             "costo_in": round(m.get("cost_input_per_M") or 0, 2),
             "costo_out": round(m.get("cost_output_per_M") or 0, 2),
-            "tps": round(m.get("tokens_per_second") or 0)}
+            "tps": round(m.get("tokens_per_second") or 0),
+            "medido": medido(m), "medido_en": linea_medido_en(m)}
 
 
 def _fuera(m) -> dict:
@@ -170,6 +191,8 @@ def meta(d: dict) -> dict:
             "pilar_desc": {p: {"titulo": gc.PILLAR_DESC[p][0], "que": gc.PILLAR_DESC[p][1]} for p in gc.PILLARS},
             "pesos": {k: round(w.get(k, 0) * 100, 1) for k in ("quality", "cost", "speed", "latency", "tool_calling")},
             "hoy": date.today().isoformat(),
+            # El año de un título sale de la medición, nunca fijo (motor-sitio 2.4).
+            "anio": __import__("fechas").anio(d),
             "models_sha": hashlib.sha256((DOCS / "data" / "models.json").read_bytes()).hexdigest()[:16]}
 
 

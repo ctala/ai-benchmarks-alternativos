@@ -282,7 +282,7 @@ function bindAnalytics() {
 
   document.addEventListener("click", (e) => {
     const a = e.target.closest?.("a");
-    if (a && (a.getAttribute("href") || "").includes("skool.com")) {
+    if (a && (a.getAttribute("href") || "").includes("go.aprenderepite.com")) {
       push("cta_comunidad", { cta_ubicacion: "calculadora" });
     }
   }, { passive: true });

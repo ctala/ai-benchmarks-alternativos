@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T09:18:48",
+  "generated_at": "2026-11-11T21:04:34",
   "total_models": 244,
   "tested_count": 193,
   "ranked_count": 74,
@@ -88,6 +88,7 @@
     "de": 74
   },
   "total_runs_measured": 88363,
+  "medido_hasta": "2026-11-09",
   "total_runs_active": 83991,
   "total_runs_discarded": 4372,
   "thresholds": {
@@ -720,6 +721,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Z.AI",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 252,
       "score_global": 7.99,
@@ -1304,6 +1311,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Z.AI",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 251,
       "score_global": 8.34,
@@ -1850,6 +1863,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 497,
       "score_global": 8.08,
@@ -2437,6 +2456,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 80,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 236,
       "score_global": 7.53,
@@ -2966,6 +2991,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 209,
       "score_global": 6.98,
@@ -3525,6 +3556,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 7.36,
@@ -4044,6 +4081,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Z.AI",
+        "proveedor_pct": 99,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 7.73,
@@ -4625,6 +4668,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 234,
       "score_global": 6.82,
@@ -5197,6 +5246,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Z.AI",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 7.54,
@@ -5746,6 +5801,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 251,
       "score_global": 7.59,
@@ -6299,6 +6360,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Meta",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 7.28,
@@ -6873,6 +6940,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Xiaomi",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 7.19,
@@ -7394,6 +7467,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Moonshot AI",
+        "proveedor_pct": 100,
+        "cuantizacion": "mxfp4",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 6.22,
@@ -7913,6 +7992,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Mistral",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 7.97,
@@ -8432,6 +8517,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 241,
       "score_global": 8.44,
@@ -8977,6 +9068,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 80,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 234,
       "score_global": 6.58,
@@ -9558,6 +9655,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 6.2,
@@ -10077,6 +10180,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Z.AI",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 6.92,
@@ -10608,6 +10717,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 222,
       "score_global": 8.2,
@@ -11150,6 +11265,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 92,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 204,
       "score_global": 6.79,
@@ -11682,6 +11803,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 80,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 234,
       "score_global": 6.77,
@@ -12261,6 +12388,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 252,
       "score_global": 6.91,
@@ -12845,6 +12978,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Crusoe",
+        "proveedor_pct": 98,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 773,
       "score_global": 7.77,
@@ -13390,6 +13529,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 196,
       "score_global": 8.14,
@@ -13919,6 +14064,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 7.97,
@@ -14448,6 +14599,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "BaseTen",
+        "proveedor_pct": 73,
+        "cuantizacion": "fp32",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 257,
       "score_global": 7.4,
@@ -15004,6 +15161,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "SiliconFlow",
+        "proveedor_pct": 100,
+        "cuantizacion": "int4",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 1452,
       "score_global": 5.94,
@@ -15553,6 +15716,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Crusoe",
+        "proveedor_pct": 98,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 301,
       "score_global": 6.9,
@@ -16112,6 +16281,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Tencent",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp4",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 202,
       "score_global": 7.38,
@@ -16641,6 +16816,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Sakana AI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 6.42,
@@ -17215,6 +17396,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 6.9,
@@ -17791,6 +17978,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Xiaomi",
+        "proveedor_pct": 96,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 6.25,
@@ -18365,6 +18558,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 311,
       "score_global": 8.15,
@@ -18938,6 +19137,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 6.06,
@@ -19457,6 +19662,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Meta",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 5.71,
@@ -19976,6 +20187,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 96,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 203,
       "score_global": 6.95,
@@ -20525,6 +20742,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 81,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 248,
       "score_global": 6.81,
@@ -21114,6 +21337,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 5.22,
@@ -21633,6 +21862,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Moonshot AI",
+        "proveedor_pct": 96,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 267,
       "score_global": 7.13,
@@ -22202,6 +22437,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "GMICloud",
+        "proveedor_pct": 85,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 6.36,
@@ -22776,6 +23017,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Meta",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 6.62,
@@ -23300,6 +23547,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "xAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 5.36,
@@ -23819,6 +24072,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 195,
       "score_global": 5.55,
@@ -24348,6 +24607,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 202,
       "score_global": 5.72,
@@ -24877,6 +25142,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Seed",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 380,
       "score_global": 5.27,
@@ -25406,6 +25677,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 243,
       "score_global": 6.5,
@@ -25950,6 +26227,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "StreamLake",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 310,
       "score_global": 4.98,
@@ -26498,6 +26781,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "AtlasCloud",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 6.74,
@@ -27047,6 +27336,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "AkashML",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 237,
       "score_global": 7.93,
@@ -27606,6 +27901,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Novita",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 195,
       "score_global": 5.54,
@@ -28135,6 +28436,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Crusoe",
+        "proveedor_pct": 93,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 263,
       "score_global": 8.45,
@@ -28711,6 +29018,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Minimax",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 4.18,
@@ -29230,6 +29543,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Minimax",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 305,
       "score_global": 3.59,
@@ -29794,6 +30113,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "AtlasCloud",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 6.01,
@@ -30343,6 +30668,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Venice",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 282,
       "score_global": 5.62,
@@ -30883,6 +31214,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "SiliconFlow",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 298,
       "score_global": 5.52,
@@ -31422,6 +31759,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 5.9,
@@ -31941,6 +32284,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Parasail",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 237,
       "score_global": 4.1,
@@ -32484,6 +32833,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Mistral",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 282,
       "score_global": 5.76,
@@ -33027,6 +33382,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "CoreWeave",
+        "proveedor_pct": 93,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 209,
       "score_global": 6.85,
@@ -33586,6 +33947,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 196,
       "score_global": 7.9,
@@ -34115,6 +34482,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 238,
       "score_global": 6.64,
@@ -34689,6 +35062,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Upstage",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 254,
       "score_global": 5.7,
@@ -35253,6 +35632,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "GMICloud",
+        "proveedor_pct": 96,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 248,
       "score_global": 7.61,
@@ -35816,6 +36201,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "NextBit",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 6.7,
@@ -36345,6 +36736,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DekaLLM",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 6.5,
@@ -36875,6 +37272,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Parasail",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 206,
       "score_global": 6.1,
@@ -37415,6 +37818,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 372,
       "score_global": 4.72,
@@ -37958,6 +38367,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Nebius",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 4.78,
@@ -38488,6 +38903,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Mistral",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 4.52,
@@ -39017,6 +39438,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DekaLLM",
+        "proveedor_pct": 100,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 5.88,
@@ -39556,6 +39983,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "CoreWeave",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 192,
       "score_global": 4.89,
@@ -40093,6 +40526,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Parasail",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 306,
       "score_global": 5.28,
@@ -40657,6 +41096,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "CoreWeave",
+        "proveedor_pct": 91,
+        "cuantizacion": "bf16",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 210,
       "score_global": 0.23,
@@ -41210,6 +41655,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 154,
       "total_runs": 286,
       "score_global": 8.68,
@@ -41720,6 +42171,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 65,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 207,
       "total_runs": 265,
       "score_global": 7.12,
@@ -42235,6 +42692,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 89,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 159,
       "total_runs": 285,
       "score_global": 7.1,
@@ -42750,6 +43213,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Moonshot AI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 167,
       "score_global": 6.66,
@@ -43250,6 +43719,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 308,
       "score_global": 7.56,
@@ -43765,6 +44240,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 167,
       "total_runs": 295,
       "score_global": 6.58,
@@ -44279,6 +44760,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Amazon Bedrock",
+        "proveedor_pct": 86,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 189,
       "total_runs": 237,
       "score_global": 6.22,
@@ -44772,6 +45259,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 167,
       "score_global": 6.57,
@@ -45288,6 +45781,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 69,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 204,
       "total_runs": 258,
       "score_global": 6.44,
@@ -45797,6 +46296,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 142,
       "total_runs": 187,
       "score_global": 6.97,
@@ -46326,6 +46831,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "xAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 178,
       "score_global": 6.34,
@@ -46846,6 +47357,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-09-17"
+      },
       "runs": 277,
       "total_runs": 388,
       "score_global": 6.23,
@@ -47370,6 +47887,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 149,
       "total_runs": 179,
       "score_global": 6.42,
@@ -47864,6 +48387,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DigitalOcean",
+        "proveedor_pct": 37,
+        "cuantizacion": null,
+        "hasta": "2026-09-17"
+      },
       "runs": 277,
       "total_runs": 391,
       "score_global": 6.5,
@@ -48390,6 +48919,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Amazon Bedrock",
+        "proveedor_pct": 79,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 233,
       "total_runs": 343,
       "score_global": 6.2,
@@ -48921,6 +49456,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 427,
       "total_runs": 569,
       "score_global": 5.78,
@@ -49433,6 +49974,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 98,
+        "cuantizacion": null,
+        "hasta": "2026-08-20"
+      },
       "runs": 482,
       "total_runs": 646,
       "score_global": 6.37,
@@ -49945,6 +50492,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 269,
       "score_global": 6.92,
@@ -50471,6 +51024,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 74,
       "total_runs": 84,
       "score_global": 6.47,
@@ -50938,6 +51497,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Seed",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-04"
+      },
       "runs": 510,
       "total_runs": 612,
       "score_global": 5.74,
@@ -51424,6 +51989,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 74,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 222,
       "total_runs": 303,
       "score_global": 6.33,
@@ -51926,6 +52497,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Tencent",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 213,
       "score_global": 5.84,
@@ -52472,6 +53049,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Novita",
+        "proveedor_pct": 59,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 151,
       "total_runs": 181,
       "score_global": 6.01,
@@ -52965,6 +53548,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Amazon Bedrock",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 151,
       "total_runs": 181,
       "score_global": 6.4,
@@ -53463,6 +54052,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Amazon Bedrock",
+        "proveedor_pct": 62,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 337,
       "total_runs": 461,
       "score_global": 5.15,
@@ -53976,6 +54571,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Meta",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 137,
       "total_runs": 212,
       "score_global": 6.04,
@@ -54484,6 +55085,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Anthropic",
+        "proveedor_pct": 69,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 165,
       "total_runs": 223,
       "score_global": 5.38,
@@ -54993,6 +55600,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 148,
       "total_runs": 182,
       "score_global": 6.63,
@@ -55486,6 +56099,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 51,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 443,
       "total_runs": 485,
       "score_global": 5.65,
@@ -55996,6 +56615,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "GMICloud",
+        "proveedor_pct": 57,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 157,
       "total_runs": 187,
       "score_global": 5.46,
@@ -56498,6 +57123,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 73,
       "total_runs": 83,
       "score_global": 5.62,
@@ -56969,6 +57600,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "xAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 146,
       "total_runs": 277,
       "score_global": 4.92,
@@ -57477,6 +58114,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "StreamLake",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 473,
       "total_runs": 637,
       "score_global": 5.93,
@@ -57991,6 +58634,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Mistral",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 167,
       "score_global": 6.03,
@@ -58491,6 +59140,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Inception",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 143,
       "score_global": 5.69,
@@ -58973,6 +59628,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 156,
       "total_runs": 203,
       "score_global": 5.64,
@@ -59493,6 +60154,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google AI Studio",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 157,
       "total_runs": 238,
       "score_global": 6.25,
@@ -60001,6 +60668,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Nex AGI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 137,
       "total_runs": 212,
       "score_global": 5.9,
@@ -60509,6 +61182,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Minimax",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 211,
       "total_runs": 256,
       "score_global": 3.81,
@@ -61038,6 +61717,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Mistral",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 159,
       "total_runs": 193,
       "score_global": 4.54,
@@ -61531,6 +62216,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Poolside",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 137,
       "total_runs": 212,
       "score_global": 6.75,
@@ -62039,6 +62730,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Poolside",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 137,
       "total_runs": 226,
       "score_global": 4.29,
@@ -62552,6 +63249,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "StreamLake",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 250,
       "total_runs": 332,
       "score_global": 3.73,
@@ -63066,6 +63769,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 156,
       "total_runs": 190,
       "score_global": 4.73,
@@ -63559,6 +64268,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "xAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 147,
       "total_runs": 260,
       "score_global": 4.29,
@@ -64066,6 +64781,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Inception",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-11-04"
+      },
       "runs": 137,
       "total_runs": 198,
       "score_global": 6.03,
@@ -64619,6 +65340,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 160,
       "total_runs": 373,
       "score_global": 1.79,
@@ -65164,6 +65891,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "xAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 140,
       "total_runs": 170,
       "score_global": 3.57,
@@ -65657,6 +66390,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 173,
       "total_runs": 203,
       "score_global": 2.17,
@@ -66150,6 +66889,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Venice",
+        "proveedor_pct": 48,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 156,
       "total_runs": 190,
       "score_global": 3.74,
@@ -66649,6 +67394,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Novita",
+        "proveedor_pct": 64,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 264,
       "total_runs": 309,
       "score_global": 5.18,
@@ -67162,6 +67913,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Novita",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 152,
       "total_runs": 223,
       "score_global": 6.69,
@@ -67672,6 +68429,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 157,
       "total_runs": 191,
       "score_global": 5.96,
@@ -68167,6 +68930,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 147,
       "total_runs": 315,
       "score_global": 4.85,
@@ -68677,6 +69446,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 43,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 142,
       "total_runs": 172,
       "score_global": 5.31,
@@ -69173,6 +69948,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Liquid",
+        "proveedor_pct": 100,
+        "cuantizacion": "fp8",
+        "hasta": "2026-11-09"
+      },
       "runs": 137,
       "total_runs": 188,
       "score_global": 5.43,
@@ -69701,6 +70482,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Nebius",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 460,
       "total_runs": 535,
       "score_global": 6.19,
@@ -70204,6 +70991,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Nebius",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 469,
       "total_runs": 764,
       "score_global": 4.26,
@@ -70721,6 +71514,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Google",
+        "proveedor_pct": 52,
+        "cuantizacion": null,
+        "hasta": "2026-08-17"
+      },
       "runs": 150,
       "total_runs": 180,
       "score_global": 2.31,
@@ -71204,6 +72003,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 92,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 498,
       "total_runs": 528,
       "score_global": 0.0,
@@ -71686,6 +72491,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 83,
       "total_runs": 243,
       "score_global": 7.48,
@@ -72172,6 +72983,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Minimax",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 259,
       "total_runs": 353,
       "score_global": 5.09,
@@ -72654,6 +73471,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "AtlasCloud",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 22,
       "total_runs": 23,
       "score_global": 7.55,
@@ -72963,6 +73786,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Sakana AI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 1584,
       "total_runs": 2352,
       "score_global": 7.83,
@@ -73433,6 +74262,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Darkbloom",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-09-26"
+      },
       "runs": 93,
       "total_runs": 103,
       "score_global": 6.96,
@@ -73863,6 +74698,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Alibaba",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-09-26"
+      },
       "runs": 104,
       "total_runs": 114,
       "score_global": 7.24,
@@ -74311,6 +75152,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "Novita",
+        "proveedor_pct": 95,
+        "cuantizacion": null,
+        "hasta": "2026-09-26"
+      },
       "runs": 137,
       "total_runs": 199,
       "score_global": 6.82,
@@ -74820,6 +75667,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-22"
+      },
       "runs": 31,
       "total_runs": 35,
       "score_global": 9.04,
@@ -75204,6 +76057,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-24"
+      },
       "runs": 73,
       "total_runs": 83,
       "score_global": 6.33,
@@ -75657,6 +76516,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 96,
       "total_runs": 177,
       "score_global": 7.7,
@@ -76125,6 +76990,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 103,
       "total_runs": 173,
       "score_global": 6.65,
@@ -76610,6 +77481,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 64,
       "total_runs": 70,
       "score_global": 6.27,
@@ -77059,6 +77936,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 87,
       "total_runs": 158,
       "score_global": 6.49,
@@ -77525,6 +78408,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 80,
       "total_runs": 151,
       "score_global": 7.14,
@@ -77992,6 +78881,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-22"
+      },
       "runs": 34,
       "total_runs": 42,
       "score_global": 8.85,
@@ -78358,6 +79253,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-24"
+      },
       "runs": 77,
       "total_runs": 87,
       "score_global": 5.57,
@@ -78776,6 +79677,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-16"
+      },
       "runs": 130,
       "total_runs": 172,
       "score_global": 5.36,
@@ -79233,6 +80140,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-26"
+      },
       "runs": 78,
       "total_runs": 87,
       "score_global": 5.58,
@@ -79666,6 +80579,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-26"
+      },
       "runs": 78,
       "total_runs": 87,
       "score_global": 3.48,
@@ -80103,6 +81022,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 91,
       "total_runs": 171,
       "score_global": 4.03,
@@ -80553,6 +81478,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 85,
       "total_runs": 95,
       "score_global": 2.83,
@@ -81012,6 +81943,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-25"
+      },
       "runs": 50,
       "total_runs": 60,
       "score_global": 4.49,
@@ -81483,6 +82420,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-25"
+      },
       "runs": 47,
       "total_runs": 56,
       "score_global": 2.41,
@@ -81960,6 +82903,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-25"
+      },
       "runs": 78,
       "total_runs": 88,
       "score_global": 3.93,
@@ -82392,6 +83341,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 86,
       "total_runs": 96,
       "score_global": 2.34,
@@ -82834,6 +83789,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 89,
       "total_runs": 164,
       "score_global": 5.89,
@@ -83291,6 +84252,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 172,
       "total_runs": 192,
       "score_global": 0.0,
@@ -83717,6 +84684,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 74,
       "total_runs": 84,
       "score_global": 5.06,
@@ -84191,6 +85164,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-25"
+      },
       "runs": 75,
       "total_runs": 85,
       "score_global": 5.67,
@@ -84627,6 +85606,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 511,
       "total_runs": 581,
       "score_global": 0.73,
@@ -85097,6 +86082,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 76,
       "total_runs": 86,
       "score_global": 6.8,
@@ -85533,6 +86524,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 62,
       "total_runs": 72,
       "score_global": 5.23,
@@ -86001,6 +86998,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 91,
       "total_runs": 101,
       "score_global": 5.59,
@@ -86427,6 +87430,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 78,
       "total_runs": 88,
       "score_global": 6.29,
@@ -86855,6 +87864,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 79,
       "total_runs": 89,
       "score_global": 3.6,
@@ -87283,6 +88298,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 58,
       "total_runs": 68,
       "score_global": 7.56,
@@ -87675,6 +88696,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 80,
       "total_runs": 90,
       "score_global": 3.96,
@@ -88099,6 +89126,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-29"
+      },
       "runs": 80,
       "total_runs": 90,
       "score_global": 4.08,
@@ -88523,6 +89556,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 86,
       "total_runs": 96,
       "score_global": 5.56,
@@ -88959,6 +89998,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 88,
       "total_runs": 98,
       "score_global": 6.93,
@@ -89397,6 +90442,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-26"
+      },
       "runs": 80,
       "total_runs": 90,
       "score_global": 5.85,
@@ -89830,6 +90881,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-08-12"
+      },
       "runs": 107,
       "total_runs": 117,
       "score_global": 5.85,
@@ -90293,6 +91350,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-08-12"
+      },
       "runs": 117,
       "total_runs": 202,
       "score_global": 8.59,
@@ -90768,6 +91831,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 99,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 252,
       "total_runs": 402,
       "score_global": 7.34,
@@ -91251,6 +92320,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": "OpenAI",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 263,
       "total_runs": 413,
       "score_global": 6.15,
@@ -91734,6 +92809,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-26"
+      },
       "runs": 74,
       "total_runs": 84,
       "score_global": 3.92,
@@ -92189,6 +93270,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 73,
       "total_runs": 83,
       "score_global": 6.19,
@@ -92642,6 +93729,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 68,
       "total_runs": 78,
       "score_global": 4.55,
@@ -93094,6 +94187,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-06-05"
+      },
       "runs": 80,
       "total_runs": 155,
       "score_global": 7.68,
@@ -93541,6 +94640,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-06-04"
+      },
       "runs": 80,
       "total_runs": 110,
       "score_global": 5.92,
@@ -93974,6 +95079,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-06-05"
+      },
       "runs": 79,
       "total_runs": 109,
       "score_global": 5.82,
@@ -94411,6 +95522,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-16"
+      },
       "runs": 122,
       "total_runs": 132,
       "score_global": 7.34,
@@ -94855,6 +95972,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "Nvidia",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-13"
+      },
       "runs": 128,
       "total_runs": 138,
       "score_global": 4.73,
@@ -95306,6 +96429,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-16"
+      },
       "runs": 141,
       "total_runs": 151,
       "score_global": 5.25,
@@ -95750,6 +96879,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": "DeepInfra",
+        "proveedor_pct": 100,
+        "cuantizacion": null,
+        "hasta": "2026-08-18"
+      },
       "runs": 161,
       "total_runs": 180,
       "score_global": 6.35,
@@ -96207,6 +97342,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-28"
+      },
       "runs": 78,
       "total_runs": 88,
       "score_global": 6.96,
@@ -96639,6 +97780,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-28"
+      },
       "runs": 78,
       "total_runs": 88,
       "score_global": 4.72,
@@ -97073,6 +98220,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-29"
+      },
       "runs": 80,
       "total_runs": 90,
       "score_global": 4.64,
@@ -97497,6 +98650,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": true,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-06-26"
+      },
       "runs": 85,
       "total_runs": 95,
       "score_global": 7.98,
@@ -98210,6 +99369,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-11"
+      },
       "runs": 0,
       "total_runs": 4,
       "score_global": null,
@@ -99843,6 +101008,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-08-12"
+      },
       "runs": 14,
       "total_runs": 18,
       "score_global": 5.15,
@@ -100116,6 +101287,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-25"
+      },
       "runs": 8,
       "total_runs": 12,
       "score_global": 8.27,
@@ -100409,6 +101586,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 2,
       "total_runs": 3,
       "score_global": 7.83,
@@ -100679,6 +101862,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-04-27"
+      },
       "runs": 4,
       "total_runs": 8,
       "score_global": 7.83,
@@ -101748,6 +102937,12 @@
       "tool_calling": true,
       "thinking": true,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-07-13"
+      },
       "runs": 2,
       "total_runs": 2,
       "score_global": 5.36,
@@ -102149,6 +103344,12 @@
       "tool_calling": true,
       "thinking": false,
       "multimodal": false,
+      "medido_en": {
+        "proveedor": null,
+        "proveedor_pct": null,
+        "cuantizacion": null,
+        "hasta": "2026-06-01"
+      },
       "runs": 4,
       "total_runs": 4,
       "score_global": 6.98,

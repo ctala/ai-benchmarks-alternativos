@@ -941,7 +941,9 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
               "ficha de un modelo que no rankea: sus números, sin puesto" if not m.get("ranked") else
               "ficha de un modelo: publica SUS números y enlaza los oficiales al fabricante"),
     )
-    html = page_shell(f"{nombre}: benchmark real en español (2026)", desc,
+    # El año sale de la última medición del modelo, nunca fijo (motor-sitio 2.4).
+    _anio = ((m.get("medido_en") or {}).get("hasta") or __import__("fechas").medido_hasta())[:4]
+    html = page_shell(f"{nombre}: benchmark real en español ({_anio})", desc,
                       f"{nombre.lower()} benchmark, {nombre.lower()} precio, {nombre.lower()} opiniones",
                       url, body, contrato)
     # Las fichas viven UN NIVEL más abajo que el resto (`/modelo/<key>/` contra

@@ -72,8 +72,6 @@ MOTIVOS_AFIRMACION = {
 RETIRADAS = [
     ("ranking", "un modelo nuevo mueve a todos",
      "la referencia del puntaje está congelada desde v4.0: un modelo nuevo no mueve a los demás"),
-    ("ranking", "Entrar es gratis",
-     "CAR es de pago desde el 28-sep-2026 y está cerrada desde el 27-oct; el CTA va al go-link"),
     ("ranking", "con score global ≥ 6,8",
      "el piso de /mejor-llm-barato/ es de calidad (≥ 8,4 sobre `score_calidad`), no del score global"),
     ("ranking", "Ordenado por score global, filtrando solo modelos open source",

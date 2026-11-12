@@ -784,9 +784,11 @@ def _t_paridad_sitio():
     jr.write_text(orig, encoding="utf-8")
     f.write_text(antes, encoding="utf-8")
 
-    f.write_text(antes.replace("<body>", "<body><p>Entrar es gratis.</p>"), encoding="utf-8")
+    # 11-nov (2.4): «Entrar es gratis» salió también de docs/ y la prohíbe check_cta C4; la
+    # prueba usa otra frase que sigue retirada.
+    f.write_text(antes.replace("<body>", "<body><p>Filtra con score global ≥ 6,8.</p>"), encoding="utf-8")
     rc, out = correr()
-    ok = ok and rc != 0 and "«Entrar es gratis»: sigue en dist" in out and rk["url"] in out
+    ok = ok and rc != 0 and "«con score global ≥ 6,8»: sigue en dist" in out and rk["url"] in out
     f.write_text(antes, encoding="utf-8")
     ok = ok and correr()[0] == 0   # y vuelve a verde: los sabotajes se deshicieron
     shutil.rmtree(base.parent, ignore_errors=True)
@@ -1649,6 +1651,145 @@ def _t_escapes():
     vacio.mkdir()
     out = r(vacio)
     ok = ok and out.returncode != 0 and "E3 leyó 0 de" in out.stdout
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
+@prueba("check_cta", "un enlace a skool.com, un go-link con otro slug, un segundo bloque de CTA, «gratis» en el "
+                     "bloque del CTA y un árbol que no se lee")
+def _t_cta():
+    # 11-nov-2026 (motor-sitio 2.4). CAR es de pago desde el 28-sep y está cerrada desde el 27-oct;
+    # 204 páginas enlazaban a skool.com y varias decían «Entrar es gratis». Se rompe una copia de docs/.
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "docs"
+    shutil.copytree(ROOT / "docs", base)
+    r = lambda raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "check_cta.py"), "--dist", str(raiz)],
+                                         cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0                                              # control
+    pg = base / "mejor-llm-barato" / "index.html"
+    t = pg.read_text(encoding="utf-8")
+    go = 'href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-primary">'
+    if go not in t:
+        raise AssertionError("mejor-llm-barato ya no trae su bloque de CTA: los sabotajes no tocarían nada")
+    bloque = t[t.index(go) - 12:t.index("</a>", t.index(go)) + 4]
+    for roto, marca in (
+            (t.replace(go, go.replace("https://go.aprenderepite.com/benchmark",
+                                      "https://www.skool.com/cagala-aprende-repite/about"), 1), "C1 · enlaza a skool.com"),
+            (t.replace(go, go.replace("/benchmark", "/otra"), 1), "C2 · enlaza a https://go.aprenderepite.com/otra"),
+            (t.replace(bloque, bloque + bloque, 1), "C3 · 2 bloques de CTA"),
+            (t.replace(bloque, bloque + "<p>Entrar es gratis.</p>", 1), "C4 · dice «gratis»")):
+        if roto == t:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió la página")
+        pg.write_text(roto, encoding="utf-8")
+        out = r()
+        ok = ok and out.returncode != 0 and marca in out.stdout and "/mejor-llm-barato/" in out.stdout
+        pg.write_text(t, encoding="utf-8")
+    vacio = tmp / "vacio"
+    vacio.mkdir()
+    out = r(vacio)
+    ok = ok and out.returncode != 0 and "C5 leyó 0 de" in out.stdout
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
+@prueba("check_medicion", "un año fijo en un título, un mes en un título, una línea «medido en» que no es la del "
+                          "dato, un modelo de la tabla sin su línea y un árbol que no se lee")
+def _t_medicion():
+    # 11-nov-2026 (motor-sitio 2.4). «(2026)» estaba escrito en 141 líneas de los generadores, y
+    # ninguna comparación decía dónde se midió cada modelo. Sin Node en el CI, las comparaciones
+    # de Astro se arman desde su JSON exportado con la forma que emite Comparacion.astro.
+    import exportar_sitio as es, registro_paginas as rp
+    if _correr("exportar_sitio.py") != 0:
+        return False
+    d = json.loads((ROOT / "docs" / "data" / "models.json").read_text(encoding="utf-8"))
+    por_key = {m["key"]: m for m in d["models"]}
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "dist"
+    shutil.copytree(ROOT / "docs", base)
+    for e in rp.paginas():
+        if e["tipo"] != "comparacion" or e["motor"] != "astro" or e["redirect_a"] or e.get("congelada"):
+            continue
+        c = json.loads((ROOT / "sitio" / "src" / "datos" / "comparaciones" / f"{e['slug']}.json").read_text(encoding="utf-8"))
+        filas = "".join(f'<tr><td><a data-modelo="{f["key"]}">{html.escape(f["name"])}</a></td></tr>' for f in c["filas"])
+        items = "".join(f'<li data-medido-en="{f["key"]}"><span data-nombre>{html.escape(f["name"])}</span>: '
+                        f'{html.escape(es.linea_medido_en(por_key[f["key"]]))}</li>' for f in c["filas"])
+        (base / e["slug"] / "index.html").write_text(
+            f'<html><head><title>{html.escape(c["titulo"])}</title></head><body><main>'
+            f'<table class="results-table">{filas}</table><ul class="medido-en">{items}</ul></main></body></html>',
+            encoding="utf-8")
+    r = lambda raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "check_medicion.py"), "--dist", str(raiz)],
+                                         cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0                                              # control
+    anio = d["medido_hasta"][:4]
+    otro = str(int(anio) - 1)
+    rk = base / "mejor-llm-para-programar" / "index.html"
+    trk = rk.read_text(encoding="utf-8")
+    cmp_ = next(e for e in rp.paginas() if e["tipo"] == "comparacion" and e["motor"] == "astro"
+                and not e["redirect_a"] and not e.get("congelada"))
+    cp = base / cmp_["slug"] / "index.html"
+    tcp = cp.read_text(encoding="utf-8")
+    li = re.search(r'<li data-medido-en="[^"]+">.*?</li>', tcp, re.S).group(0)
+    for f, original, roto, marca in (
+            (rk, trk, trk.replace(f"<title>Mejor LLM para programar en {anio}", f"<title>Mejor LLM para programar en {otro}", 1),
+             f"T1 · el título «Mejor LLM para programar en {otro}"),
+            (rk, trk, trk.replace(f"<title>Mejor LLM para programar en {anio}", "<title>Mejor LLM para programar en marzo", 1),
+             "T2 · el título «Mejor LLM para programar en marzo"),
+            (cp, tcp, tcp.replace(li, li.replace(" · razonamiento:", " · fp4 · razonamiento:"), 1), "M1 · "),
+            (cp, tcp, tcp.replace(li, "", 1), "está en la tabla y no dice dónde se midió")):
+        if roto == original:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió la página")
+        f.write_text(roto, encoding="utf-8")
+        out = r()
+        ok = ok and out.returncode != 0 and marca in out.stdout
+        f.write_text(original, encoding="utf-8")
+    vacio = tmp / "vacio"
+    vacio.mkdir()
+    out = r(vacio)
+    ok = ok and out.returncode != 0 and "M0 (títulos) leyó 0 de" in out.stdout and "M0 (medido en) leyó 0 de" in out.stdout
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
+@prueba("fechar_dist --check", "un contenido que cambia sin fecha nueva, una fecha que cambia sin contenido, un "
+                               "«Última actualización» y un lastmod que no son los del registro, y un árbol que no se lee")
+def _t_fechas():
+    # 11-nov-2026 (motor-sitio 2.4). Las fechas se movían a hoy en cada regeneración. Se fecha una
+    # copia de docs/ con un registro propio, se exige verde y se rompe.
+    tmp = Path(tempfile.mkdtemp())
+    base, reg = tmp / "dist", tmp / "fechas.json"
+    shutil.copytree(ROOT / "docs", base)
+    cmd = lambda *x, raiz=base: subprocess.run([PY, str(ROOT / "benchmarks" / "fechar_dist.py"), "--dist", str(raiz),
+                                               "--registro", str(reg), *x], cwd=ROOT, capture_output=True, text=True)
+    ok = cmd().returncode == 0 and cmd("--check").returncode == 0         # control
+    # Fechar dos veces no cambia nada: la fecha propia no entra a la huella.
+    antes = json.loads(reg.read_text(encoding="utf-8"))
+    ok = ok and cmd().returncode == 0 and json.loads(reg.read_text(encoding="utf-8")) == antes
+    pg = base / "mejor-llm-barato" / "index.html"
+    t = pg.read_text(encoding="utf-8")
+    fecha = antes["/mejor-llm-barato/"]["modificada"]
+    sm = base / "sitemap.xml"
+    tsm = sm.read_text(encoding="utf-8")
+    loc = "<loc>https://benchmarks.cristiantala.com/mejor-llm-barato/</loc>"
+    if loc not in tsm or f'"dateModified": "{fecha}"' not in t or f"Última actualización: {fecha}" not in t:
+        raise AssertionError("la página o el sitemap ya no traen sus fechas: los sabotajes no tocarían nada")
+    i = tsm.index(loc)
+    tsm_roto = tsm[:i] + re.sub(r"<lastmod>[^<]+</lastmod>", "<lastmod>2001-01-01</lastmod>", tsm[i:], count=1)
+    for f, original, roto, marca in (
+            (pg, t, t.replace("</main>", "<p>Una frase nueva.</p></main>", 1), "el contenido cambió y la fecha no"),
+            (pg, t, t.replace(f'"dateModified": "{fecha}"', '"dateModified": "2099-01-01"', 1), "publica dateModified 2099-01-01"),
+            (pg, t, t.replace(f"Última actualización: {fecha}", "Última actualización: 2099-01-01", 1),
+             "«Última actualización: 2099-01-01»"),
+            (sm, tsm, tsm_roto, "F2 · sitemap: /mejor-llm-barato/ lleva lastmod 2001-01-01")):
+        if roto == original:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió el archivo")
+        f.write_text(roto, encoding="utf-8")
+        out = cmd("--check")
+        ok = ok and out.returncode != 0 and marca in out.stdout
+        f.write_text(original, encoding="utf-8")
+    vacio = tmp / "vacio"
+    vacio.mkdir()
+    out = cmd("--check", raiz=vacio)
+    ok = ok and out.returncode != 0 and "F3 leyó 0 de" in out.stdout
     shutil.rmtree(tmp, ignore_errors=True)
     return ok
 

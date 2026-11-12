@@ -202,6 +202,10 @@ CHEQUEOS = [
      [PY, "benchmarks/check_jsonld.py"], True, True),
     ("paginas", "ninguna página muestra una entidad HTML como texto (&amp;gt;, o &gt; en el JSON-LD)",
      [PY, "benchmarks/check_escapes.py"], True, True),
+    # 11-nov-2026 (motor-sitio 2.4): CAR es de pago y está cerrada; todo va al go-link. Sobre dist
+    # corre en el build, junto con check_medicion y fechar_dist --check.
+    ("paginas", "un solo CTA a la comunidad, al go-link, sin skool.com ni «gratis»",
+     [PY, "benchmarks/check_cta.py"], True, True),
     # 11-nov-2026 (motor-sitio 2.3, Cristian): voseo y localismos en TODO lo publicable, fichas
     # incluidas (antes leía un solo nivel de docs/), y falla si lee menos páginas que el
     # registro. Sobre dist corre dentro de `npm run build`. Nace verde: bloqueante.

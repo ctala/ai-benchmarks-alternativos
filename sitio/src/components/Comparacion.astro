@@ -21,14 +21,14 @@ interface Props { c: any; meta: any }
 const { c, meta } = Astro.props;
 const P = meta.pilares as string[];
 const h1 = c.foto ? `${c.a} vs ${c.b}: foto histórica de su comparación`
-                  : `${c.a} vs ${c.b}: cuál elegir en 2026 (benchmark real)`;
+                  : `${c.a} vs ${c.b}: cuál elegir en ${meta.anio} (benchmark real)`;
 const descripcion = `${c.a} vs ${c.b} comparados con ${meta.runs_k.toLocaleString('es-CL')}+ runs reales: coding, contenido, razonamiento, agentes, costo y velocidad. Benchmark abierto en español.`;
 const costo = (x: any) => `$${x.costo_in.toFixed(2)} / $${x.costo_out.toFixed(2)}`;
 const g = c.ganador;
 const e = c.eje;
 const faq = [
   {
-    q: `¿${c.a} o ${c.b} es mejor en 2026?`,
+    q: `¿${c.a} o ${c.b} es mejor en ${meta.anio}?`,
     a: c.foto
       ? 'Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la calculadora con el ranking vigente.'
       : g.empate
@@ -55,7 +55,7 @@ const faqLd = JSON.stringify({
   <section class="hero">
     {c.congelada && <AvisoCongelada c={c.congelada} />}
     <Kicker>comparación</Kicker>
-    <Titulo nivel={1} texto={h1}><Nombre>{c.a}</Nombre> vs <Nombre>{c.b}</Nombre>: {c.foto ? 'foto histórica de su comparación' : 'cuál elegir en 2026 (benchmark real)'}</Titulo>
+    <Titulo nivel={1} texto={h1}><Nombre>{c.a}</Nombre> vs <Nombre>{c.b}</Nombre>: {c.foto ? 'foto histórica de su comparación' : `cuál elegir en ${meta.anio} (benchmark real)`}</Titulo>
     {c.foto
       ? <p class="lead">Cómo rindieron <strong><Nombre>{c.a}</Nombre></strong> y <strong><Nombre>{c.b}</Nombre></strong> cuando se midieron, en los <Cifra v={P.length} /> pilares del emprendedor (coding, contenido, razonamiento, agentes), con costo y velocidad. Evaluados con LLM-as-Judge <Nombre>Phi-4</Nombre> vía OpenRouter.</p>
       : <p class="lead">Comparamos las familias <strong><Nombre>{c.a}</Nombre></strong> y <strong><Nombre>{c.b}</Nombre></strong> con datos, no opiniones: <strong><Cifra v={meta.runs_k} suf="+" /> runs reales</strong> evaluados con LLM-as-Judge <Nombre>Phi-4</Nombre> vía OpenRouter, en los <Cifra v={P.length} /> pilares del emprendedor (coding, contenido, razonamiento, agentes), más costo y velocidad reales.</p>}
@@ -91,6 +91,12 @@ const faqLd = JSON.stringify({
         ))}
       </tbody>
     </table></div>
+    <p class="meta">Medido en (proveedor que sirvió los runs, cuantización y razonamiento): el mismo modelo rinde distinto según quién lo sirva.</p>
+    <ul class="medido-en meta">
+      {c.filas.map((f: any) => (
+        <li data-medido-en={f.key}><Nombre>{f.name}</Nombre>: {f.medido.proveedor}{f.medido.pct !== null && <> (<Cifra v={f.medido.pct} suf=" %" /> de los runs)</>} · <span data-cifra>{f.medido.cuantizacion}</span> · razonamiento: {f.medido.razonamiento}</li>
+      ))}
+    </ul>
     <p class="meta">Filtra por presupuesto, calidad mínima o tarea en la <a href="/">calculadora interactiva</a>.</p>
   </section>
 
@@ -187,7 +193,7 @@ const faqLd = JSON.stringify({
     <script type="application/ld+json" set:html={faqLd} />
     <Kicker>preguntas</Kicker>
     <Titulo texto="Preguntas frecuentes">Preguntas frecuentes</Titulo>
-    <details><summary><strong>¿<Nombre>{c.a}</Nombre> o <Nombre>{c.b}</Nombre> es mejor en 2026?</strong></summary>
+    <details><summary><strong>¿<Nombre>{c.a}</Nombre> o <Nombre>{c.b}</Nombre> es mejor en {meta.anio}?</strong></summary>
       <p>{c.foto ? <>Esta página es una foto histórica: al menos uno de los dos se midió con el examen anterior, y sus notas no son comparables con el ranking de hoy. Para elegir hoy, usa la <a href="/">calculadora</a> con el ranking vigente.</>
         : g.empate ? <>Depende de la tarea. En calidad nuestro benchmark no los separa: la diferencia cabe en el margen de error, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».</>
         : <>Depende de la tarea. En calidad nuestro benchmark da arriba a <Modelo m={g.gana} fuerte />, pero el mejor por pilar cambia (ver arriba). La pregunta correcta es «mejor para qué caso».</>}</p></details>

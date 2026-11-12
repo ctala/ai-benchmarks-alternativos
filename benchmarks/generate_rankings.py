@@ -39,13 +39,13 @@ def suite(m, name: str) -> float:
 RANKINGS = [
     {
         "slug": "mejor-llm-para-programar",
-        "title": "Mejor LLM para programar en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM para programar (2026)",
+        "title": "Mejor LLM para programar en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM para programar ({anio})",
         "intent_kw": "mejor llm para programar, mejor ia para programar, mejor modelo para coding, mejor ia para codigo, llm para programar",
         "criterion": "pillar", "pillar": "Coding",
         "case": "coding (generar código, JSON estructurado y debugging en tareas reales)",
         "what": "coding",
-        "lead": "¿Qué modelo de IA conviene para programar en 2026? Lo medimos con tests de coding reales "
+        "lead": "¿Qué modelo de IA conviene para programar en {anio}? Lo medimos con tests de coding reales "
                 "(plugins, scripts, templates de N8N), no con benchmarks de juguete. Ranking por calidad de código.",
         "use_cases": ["plugins WordPress", "scripts Python y Bash", "templates JSON para N8N", "debugging de errores reales", "refactor de código existente"],
         "why": "En producción el código tiene que compilar, integrarse con tu stack y mantenerse. Un modelo que genera código elegante pero con errores de sintaxis o que no respeta tu API te cuesta más tiempo del que ahorra.",
@@ -53,8 +53,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-n8n",
-        "title": "Mejor LLM para N8N y agentes en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM para N8N y agentes (2026)",
+        "title": "Mejor LLM para N8N y agentes en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM para N8N y agentes ({anio})",
         "intent_kw": "mejor llm para n8n, mejor modelo para agentes, llm para automatizacion, mejor ia para n8n, llm para hermes",
         "criterion": "pillar", "pillar": "Agentes",
         "case": "agentes y operaciones (multi-turno largo, tool calling y flujos tipo N8N / Hermes)",
@@ -67,8 +67,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-en-espanol",
-        "title": "Mejor LLM para contenido en español en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM para contenido en español (2026)",
+        "title": "Mejor LLM para contenido en español en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM para contenido en español ({anio})",
         "intent_kw": "mejor llm en español, mejor ia para escribir en español, modelo para contenido español, mejor ia para redactar",
         "criterion": "pillar", "pillar": "Contenido",
         "case": "contenido y marketing en español neutro (blogs, copy y textos largos, no traducción del inglés)",
@@ -81,8 +81,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-barato",
-        "title": "LLM más baratos en 2026 (con buena calidad): ranking con benchmark real",
-        "h1": "LLM más baratos con buena calidad (2026)",
+        "title": "LLM más baratos en {anio} (con buena calidad): ranking con benchmark real",
+        "h1": "LLM más baratos con buena calidad ({anio})",
         "intent_kw": "llm más barato, modelos de ia baratos, llm economico, mejor llm barato, ia barata para agentes",
         "criterion": "cost", "min_score": 8.4,
         "case": "presupuesto ajustado (mejor relación calidad/precio para volumen real)",
@@ -95,8 +95,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-open-source",
-        "title": "Mejor LLM open source en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM open source (2026)",
+        "title": "Mejor LLM open source en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM open source ({anio})",
         "intent_kw": "mejor llm open source, mejor modelo open source, llm codigo abierto, mejor ia open source, modelos open source local",
         "criterion": "open_source",
         "case": "open source (pesos abiertos — corres local o en cualquier provider, sin lock-in)",
@@ -109,13 +109,13 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-razonamiento",
-        "title": "Mejor LLM para razonamiento 2026: ranking con benchmark",
-        "h1": "Mejor LLM para razonamiento (2026)",
+        "title": "Mejor LLM para razonamiento {anio}: ranking con benchmark",
+        "h1": "Mejor LLM para razonamiento ({anio})",
         "intent_kw": "mejor llm para razonamiento, mejor ia para razonar, modelo razonamiento logico, llm razonamiento matematico",
         "criterion": "pillar", "pillar": "Razonamiento",
         "case": "razonamiento (math, lógica y planning)",
         "what": "razonamiento",
-        "lead": "¿Qué modelo de IA razona mejor en 2026? Ranking por el pilar de razonamiento del benchmark: "
+        "lead": "¿Qué modelo de IA razona mejor en {anio}? Ranking por el pilar de razonamiento del benchmark: "
                 "matemáticas, lógica formal, análisis causal y planificación multi-paso en español.",
         "use_cases": ["análisis de negocio", "matemáticas y lógica formal", "planificación con restricciones", "resúmenes ejecutivos con inferencias", "toma de decisiones estructurada"],
         "why": "Para tareas de razonamiento no sirve una respuesta que suena bien pero es incorrecta. Medimos precisión lógica, coherencia causal y capacidad de mantener el hilo en problemas complejos.",
@@ -123,13 +123,13 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-contenido",
-        "title": "Mejor LLM para contenido y marketing en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM para contenido y marketing (2026)",
+        "title": "Mejor LLM para contenido y marketing en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM para contenido y marketing ({anio})",
         "intent_kw": "mejor llm para contenido, mejor ia para marketing, modelo para escribir blogs, mejor ia para copywriting, llm para contenido",
         "criterion": "pillar", "pillar": "Contenido",
         "case": "contenido y marketing (blogs, copy, newsletters y textos largos en español neutro)",
         "what": "contenido y marketing",
-        "lead": "¿Qué modelo escribe mejor contenido en español en 2026? Ranking por el pilar de contenido del benchmark: "
+        "lead": "¿Qué modelo escribe mejor contenido en español en {anio}? Ranking por el pilar de contenido del benchmark: "
                 "blogs, copy, newsletters y textos largos con tono natural para hispanohablantes.",
         "use_cases": ["blogs SEO", "copy de marketing", "newsletters B2B", "posts para redes sociales", "guiones y presentaciones"],
         "why": "El contenido genérico no vende ni posiciona. Medimos estructura, tono natural, uso correcto de tecnicismos y capacidad de seguir instrucciones de estilo en español neutro.",
@@ -137,8 +137,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-agentes",
-        "title": "Mejor LLM para agentes y automatizaciones en 2026: ranking con benchmark",
-        "h1": "Mejor LLM para agentes y automatizaciones (2026)",
+        "title": "Mejor LLM para agentes y automatizaciones en {anio}: ranking con benchmark",
+        "h1": "Mejor LLM para agentes y automatizaciones ({anio})",
         "intent_kw": "mejor llm para agentes, mejor ia para automatizacion, modelo para n8n, llm para hermes, agentes ia 2026",
         "criterion": "pillar", "pillar": "Agentes",
         "case": "agentes y operaciones (multi-turno, tool calling y orquestación de flujos)",
@@ -162,8 +162,8 @@ RANKINGS = [
     # tabla que solo diga «#3» es tan parcial como una que solo diga «#76».
     {
         "slug": "mejor-llm-que-no-inventa-herramientas",
-        "title": "Mejor LLM que no inventa herramientas en 2026: ranking adversarial",
-        "h1": "Mejor LLM que NO inventa herramientas (2026)",
+        "title": "Mejor LLM que no inventa herramientas en {anio}: ranking adversarial",
+        "h1": "Mejor LLM que NO inventa herramientas ({anio})",
         "intent_kw": "llm no inventa funciones, modelo alucina herramientas, tool calling adversarial, agente llama funcion inexistente",
         "criterion": "suite", "suite": "tool_calling_adversarial",
         "case": "resistir la tentación de llamar una herramienta que no existe o que no corresponde",
@@ -176,8 +176,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-json",
-        "title": "Mejor LLM para JSON estructurado en 2026: ranking con benchmark",
-        "h1": "Mejor LLM para emitir JSON válido (2026)",
+        "title": "Mejor LLM para JSON estructurado en {anio}: ranking con benchmark",
+        "h1": "Mejor LLM para emitir JSON válido ({anio})",
         "intent_kw": "mejor llm json, modelo json estructurado, llm schema valido, ia extraccion estructurada",
         "criterion": "suite", "suite": "structured_output",
         "case": "emitir JSON que parsea a la primera y respeta el schema pedido",
@@ -190,8 +190,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-seguro-datos-clientes",
-        "title": "Mejor LLM para datos de clientes en 2026: resistencia a fuga",
-        "h1": "Mejor LLM para manejar datos de clientes (2026)",
+        "title": "Mejor LLM para datos de clientes en {anio}: resistencia a fuga",
+        "h1": "Mejor LLM para manejar datos de clientes ({anio})",
         "intent_kw": "llm seguro datos clientes, prompt injection espanol, modelo no filtra datos, ia segura chatbot",
         "criterion": "suite", "suite": "prompt_injection_es",
         "case": "resistir que un usuario le saque datos o instrucciones con prompt injection",
@@ -204,8 +204,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-tareas-largas",
-        "title": "Mejor LLM para tareas multi-paso en 2026: ranking por horizonte largo",
-        "h1": "Mejor LLM para tareas largas y multi-paso (2026)",
+        "title": "Mejor LLM para tareas multi-paso en {anio}: ranking por horizonte largo",
+        "h1": "Mejor LLM para tareas largas y multi-paso ({anio})",
         "intent_kw": "mejor llm tareas largas, llm multi paso, agente horizonte largo, mantener contexto conversacion, llm que no se pierde",
         "criterion": "suite", "suite": "agent_long_horizon",
         "case": "tareas multi-paso donde el modelo tiene que sostener el hilo (8-12 turnos)",
@@ -218,8 +218,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-seguir-instrucciones",
-        "title": "Mejor LLM para seguir instrucciones en 2026: ranking de adherencia",
-        "h1": "Mejor LLM para seguir instrucciones al pie de la letra (2026)",
+        "title": "Mejor LLM para seguir instrucciones en {anio}: ranking de adherencia",
+        "h1": "Mejor LLM para seguir instrucciones al pie de la letra ({anio})",
         "intent_kw": "llm que sigue instrucciones, modelo obediente, llm adherencia politica, ia que hace lo que le pides",
         "criterion": "suite", "suite": "policy_adherence",
         "case": "hacer exactamente lo que se pidió, ni más ni menos",
@@ -232,8 +232,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-datos-exactos",
-        "title": "Mejor LLM para datos exactos en 2026: ranking de precisión literal",
-        "h1": "Mejor LLM para no equivocarse en un dato (2026)",
+        "title": "Mejor LLM para datos exactos en {anio}: ranking de precisión literal",
+        "h1": "Mejor LLM para no equivocarse en un dato ({anio})",
         "intent_kw": "llm preciso datos, modelo que no inventa numeros, ia precision literal, llm hex jwt configs",
         "criterion": "suite", "suite": "string_precision",
         "case": "reproducir datos sin alterarlos: códigos, montos, identificadores, configuraciones",
@@ -246,8 +246,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-tool-calling",
-        "title": "Mejor LLM para tool calling en 2026: ranking con benchmark real",
-        "h1": "Mejor LLM para tool calling (2026)",
+        "title": "Mejor LLM para tool calling en {anio}: ranking con benchmark real",
+        "h1": "Mejor LLM para tool calling ({anio})",
         "intent_kw": "mejor llm para tool calling, mejor ia para funciones, modelo para llamar apis, llm function calling, agentes tool use",
         "criterion": "suite", "suite": "tool_calling",
         "case": "tool calling (llamada correcta de funciones y estructura JSON fiable)",
@@ -260,8 +260,8 @@ RANKINGS = [
     },
     {
         "slug": "mejor-llm-para-resumir-textos",
-        "title": "Mejor LLM para resumir textos en 2026: ranking con benchmark",
-        "h1": "Mejor LLM para resumir textos (2026)",
+        "title": "Mejor LLM para resumir textos en {anio}: ranking con benchmark",
+        "h1": "Mejor LLM para resumir textos ({anio})",
         "intent_kw": "mejor llm para resumir, mejor ia para resumir textos, modelo para summarization, resumen automatico ia, llm resumen",
         "criterion": "suite", "suite": "summarization",
         "case": "summarization (resumir textos largos sin perder información clave)",
@@ -273,6 +273,10 @@ RANKINGS = [
         "related": ["mejor-llm-para-razonamiento", "alternativas-claude", "mejor-llm-para-contenido"],
     },
 ]
+# El año de un título sale de la medición, nunca fijo: `{anio}` se resuelve con models.json
+# (motor-sitio 2.4, `fechas.py`).
+import fechas as _fechas  # noqa: E402
+_fechas.resolver_config(RANKINGS)
 
 
 # --- Modelos frontier que el usuario suele buscar -----------------------------
@@ -1062,8 +1066,9 @@ def funnel_block():
     solo en el nav. El funnel moria justo donde el lector estaba mas comprometido.
 
     Regla dura del proyecto: NO inventar perks. Aca se ofrece solo lo que existe --
-    la comunidad es gratis (tier Standard $0) y el ranking se recalcula con cada lote.
-    Nada mas.
+    la comunidad y el ranking que se recalcula con cada lote. Nada mas. Desde el 28-sep-2026 CAR
+    es de pago y desde el 27-oct esta cerrada: el enlace va al go-link (lista de espera) y nada
+    dice «gratis» (motor-sitio 2.4).
     """
     return """  <section class="funnel">
     <h2>Antes de migrar, haz esto</h2>
@@ -1074,11 +1079,10 @@ def funnel_block():
     <p class="funnel-note">Y una advertencia sobre este ranking: se recalcula con cada lote de modelos
     nuevos. Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve
     a todos. Lo que hoy es el #1 puede no serlo el mes que viene.</p>
-    <p><a href="https://www.skool.com/cagala-aprende-repite/about?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=ranking" target="_blank" rel="noopener" class="cta-primary">
+    <p><a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-primary">
     Ver la comunidad →</a></p>
     <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
-    crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
-    Entrar es gratis.</p>
+    crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.</p>
   </section>
 """
 

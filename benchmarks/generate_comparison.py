@@ -54,58 +54,58 @@ COMPARISONS = [
     {
         "slug": "grok-vs-chatgpt",
         "a": {"name": "Grok (xAI)", "familia": "grok"}, "b": GPT,
-        "title": "Grok vs ChatGPT en 2026: comparación con benchmark real",
+        "title": "Grok vs ChatGPT en {anio}: comparación con benchmark real",
         "intent_kw": "grok o chatgpt, que es mejor grok o chatgpt, grok vs chatgpt, comparativa grok gpt, xai vs openai",
     },
     {
         "slug": "grok-vs-claude",
         "a": {"name": "Grok (xAI)", "familia": "grok"},
         "b": {"name": "Claude", "familia": "claude"},
-        "title": "Grok vs Claude en 2026: comparación con benchmark real",
+        "title": "Grok vs Claude en {anio}: comparación con benchmark real",
         "intent_kw": "grok vs claude, grok o claude, comparativa grok claude, xai vs anthropic",
     },
     {
         "slug": "gemini-vs-chatgpt",
         "a": {"name": "Gemini", "familia": "gemini"}, "b": GPT,
-        "title": "Gemini vs ChatGPT en 2026: comparación con benchmark real",
+        "title": "Gemini vs ChatGPT en {anio}: comparación con benchmark real",
         "intent_kw": "gemini vs chatgpt, comparativa gemini gpt, gemini o chatgpt, mejor ia google openai",
     },
     {
         "slug": "claude-vs-chatgpt",
         "a": {"name": "Claude", "familia": "claude"}, "b": GPT,
-        "title": "Claude vs ChatGPT en 2026: comparación con benchmark real",
+        "title": "Claude vs ChatGPT en {anio}: comparación con benchmark real",
         "intent_kw": "claude vs chatgpt, claude o gpt, comparativa claude gpt, anthropic vs openai, claude vs gpt 5",
     },
     {
         "slug": "gemini-vs-claude",
         "a": {"name": "Gemini", "familia": "gemini"}, "b": {"name": "Claude", "familia": "claude"},
-        "title": "Gemini vs Claude en 2026: comparación con benchmark real",
+        "title": "Gemini vs Claude en {anio}: comparación con benchmark real",
         "intent_kw": "gemini vs claude, claude o gemini, comparativa gemini claude, google vs anthropic",
     },
     {
         "slug": "deepseek-vs-chatgpt",
         "a": {"name": "DeepSeek", "familia": "deepseek"}, "b": GPT,
-        "title": "DeepSeek vs ChatGPT en 2026: comparación con benchmark real",
+        "title": "DeepSeek vs ChatGPT en {anio}: comparación con benchmark real",
         "intent_kw": "deepseek vs chatgpt, deepseek vs gpt, deepseek o gpt, comparativa deepseek openai",
     },
     {
         "slug": "deepseek-vs-claude",
         "a": {"name": "DeepSeek", "familia": "deepseek"},
         "b": {"name": "Claude", "familia": "claude"},
-        "title": "DeepSeek vs Claude en 2026: comparación con benchmark real",
+        "title": "DeepSeek vs Claude en {anio}: comparación con benchmark real",
         "intent_kw": "deepseek vs claude, deepseek o claude, comparativa deepseek anthropic, claude vs deepseek",
     },
     {
         "slug": "deepseek-vs-gemini",
         "a": {"name": "DeepSeek", "familia": "deepseek"},
         "b": {"name": "Gemini", "familia": "gemini"},
-        "title": "DeepSeek vs Gemini en 2026: comparación con benchmark real",
+        "title": "DeepSeek vs Gemini en {anio}: comparación con benchmark real",
         "intent_kw": "deepseek vs gemini, deepseek o gemini, comparativa deepseek google, gemini vs deepseek",
     },
     {
         "slug": "qwen-vs-llama",
         "a": {"name": "Qwen", "familia": "qwen"}, "b": {"name": "Llama", "familia": "llama"},
-        "title": "Qwen vs Llama en 2026: comparación open source con benchmark real",
+        "title": "Qwen vs Llama en {anio}: comparación open source con benchmark real",
         "intent_kw": "qwen vs llama, llama vs qwen, mejor llm open source, comparativa qwen llama, modelos open source",
     },
     # Fable 5 (línea Mythos de Anthropic, jun-2026) — spike de búsquedas post-lanzamiento.
@@ -114,14 +114,14 @@ COMPARISONS = [
         "slug": "fable-5-vs-opus-4-8",
         "a": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
         "b": {"name": "Claude Opus 4.8", "keys": ["claude-opus-4.8"]},
-        "title": "Fable 5 vs Opus 4.8 en 2026: comparación con benchmark real",
+        "title": "Fable 5 vs Opus 4.8 en {anio}: comparación con benchmark real",
         "intent_kw": "fable 5 vs opus 4.8, claude fable vs opus, fable 5 anthropic benchmark, fable 5 vale la pena, mythos 5 anthropic",
     },
     {
         "slug": "fable-5-vs-gpt-5-5",
         "a": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
         "b": {"name": "GPT-5.5", "keys": ["gpt-5.5"]},
-        "title": "Fable 5 vs GPT-5.5 en 2026: comparación con benchmark real",
+        "title": "Fable 5 vs GPT-5.5 en {anio}: comparación con benchmark real",
         "intent_kw": "fable 5 vs gpt 5.5, claude fable vs chatgpt, anthropic vs openai 2026, fable 5 benchmark español",
     },
     {
@@ -130,7 +130,7 @@ COMPARISONS = [
         "slug": "fable-5-vs-gpt-5-6-sol",
         "a": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
         "b": {"name": "GPT-5.6 Sol", "keys": ["gpt-5.6-sol"]},
-        "title": "Fable 5 vs GPT-5.6 Sol en 2026: los dos flagships premium, medidos",
+        "title": "Fable 5 vs GPT-5.6 Sol en {anio}: los dos flagships premium, medidos",
         "intent_kw": "fable 5 vs gpt 5.6 sol, claude fable vs gpt 5.6, flagship anthropic vs openai, fable 5 o gpt 5.6, mejores modelos premium 2026",
     },
     # --- Fable 5: más comparaciones para captar búsquedas post-lanzamiento ---
@@ -138,14 +138,14 @@ COMPARISONS = [
         "slug": "fable-5-vs-claude-sonnet-4-6",
         "a": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
         "b": {"name": "Claude Sonnet 4.6", "keys": ["claude-sonnet-4.6"]},
-        "title": "Fable 5 vs Claude Sonnet 4.6 en 2026: comparación con benchmark real",
+        "title": "Fable 5 vs Claude Sonnet 4.6 en {anio}: comparación con benchmark real",
         "intent_kw": "fable 5 vs sonnet 4.6, claude fable vs sonnet, fable 5 anthropic comparativa, sonnet 4.6 vs fable",
     },
     {
         "slug": "fable-5-vs-minimax-m3",
         "a": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
         "b": {"name": "MiniMax M3", "keys": ["minimax-m3"]},
-        "title": "Fable 5 vs MiniMax M3 en 2026: comparación con benchmark real",
+        "title": "Fable 5 vs MiniMax M3 en {anio}: comparación con benchmark real",
         "intent_kw": "fable 5 vs minimax m3, claude fable vs minimax, fable 5 benchmark costo, minimax m3 vs fable 5",
     },
     # --- Nuevas comparaciones junio 2026 (modelos recién disponibles / por medir) ---
@@ -153,35 +153,35 @@ COMPARISONS = [
         "slug": "nemotron-3-ultra-vs-deepseek-v4-flash",
         "a": {"name": "Nemotron 3 Ultra", "keys": ["openrouter-nemotron-3-ultra-550b"]},
         "b": {"name": "DeepSeek V4 Flash", "keys": ["deepseek-v4-flash-0731", "deepseek-v4-flash"]},
-        "title": "Nemotron 3 Ultra vs DeepSeek V4 Flash en 2026: comparación con benchmark real",
+        "title": "Nemotron 3 Ultra vs DeepSeek V4 Flash en {anio}: comparación con benchmark real",
         "intent_kw": "nemotron 3 ultra vs deepseek v4 flash, nvidia vs deepseek, mejor modelo barato 2026, llm calidad precio",
     },
     {
         "slug": "glm-5.2-vs-glm-5.1",
         "a": {"name": "GLM 5.2", "keys": ["glm-5.2"]},
         "b": {"name": "GLM 5.1", "keys": ["glm-5.1"]},
-        "title": "GLM 5.2 vs GLM 5.1 en 2026: comparación con benchmark real",
+        "title": "GLM 5.2 vs GLM 5.1 en {anio}: comparación con benchmark real",
         "intent_kw": "glm 5.2 vs glm 5.1, zhipu glm 5.2, glm 5.2 benchmark, glm 5.1 vs 5.2, mejor glm",
     },
     {
         "slug": "glm-5.2-vs-claude-opus-4-8",
         "a": {"name": "GLM 5.2", "keys": ["glm-5.2"]},
         "b": {"name": "Claude Opus 4.8", "keys": ["claude-opus-4.8"]},
-        "title": "GLM 5.2 vs Claude Opus 4.8 en 2026: comparación con benchmark real",
+        "title": "GLM 5.2 vs Claude Opus 4.8 en {anio}: comparación con benchmark real",
         "intent_kw": "glm 5.2 vs claude opus 4.8, zhipu vs anthropic, glm 5.2 benchmark español, opus 4.8 vs glm",
     },
     {
         "slug": "grok-4.3-vs-gpt-5-5",
         "a": {"name": "Grok 4.3", "keys": ["grok-4.3"]},
         "b": {"name": "GPT-5.5", "keys": ["gpt-5.5"]},
-        "title": "Grok 4.3 vs GPT-5.5 en 2026: comparación con benchmark real",
+        "title": "Grok 4.3 vs GPT-5.5 en {anio}: comparación con benchmark real",
         "intent_kw": "grok 4.3 vs gpt 5.5, xai vs openai, grok vs chatgpt, mejor modelo flagship 2026",
     },
     {
         "slug": "gemini-3.5-flash-vs-gemini-2.5-flash",
         "a": {"name": "Gemini 3.5 Flash", "keys": ["gemini-3.5-flash"]},
         "b": {"name": "Gemini 2.5 Flash", "keys": ["gemini-flash"]},
-        "title": "Gemini 3.5 Flash vs Gemini 2.5 Flash en 2026: comparación con benchmark real",
+        "title": "Gemini 3.5 Flash vs Gemini 2.5 Flash en {anio}: comparación con benchmark real",
         "intent_kw": "gemini 3.5 flash vs gemini 2.5 flash, google gemini comparativa, gemini flash 3.5 vs 2.5",
     },
     # --- Lote julio 2026: GPT-5.6 (Luna/Terra/Sol) y Grok 4.5 ---
@@ -189,63 +189,63 @@ COMPARISONS = [
         "slug": "gpt-5.6-vs-gpt-5.5",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "GPT-5.5", "keys": ["gpt-5.5"]},
-        "title": "GPT-5.6 vs GPT-5.5 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs GPT-5.5 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs gpt 5.5, openai gpt 5.6 benchmark, chatgpt 5.6 vs 5.5, gpt 5.6 vale la pena",
     },
     {
         "slug": "gpt-5.6-vs-claude-opus-4-8",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "Claude Opus 4.8", "keys": ["claude-opus-4.8"]},
-        "title": "GPT-5.6 vs Claude Opus 4.8 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs Claude Opus 4.8 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs claude opus 4.8, openai vs anthropic 2026, mejor modelo flagship, gpt 5.6 o opus 4.8",
     },
     {
         "slug": "gpt-5.6-vs-deepseek-v4",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "DeepSeek V4", "keys": ["deepseek-v4-pro-0813", "deepseek-v4-flash-0731", "deepseek-v4-pro", "deepseek-v4-flash"]},
-        "title": "GPT-5.6 vs DeepSeek V4 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs DeepSeek V4 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs deepseek v4, openai vs deepseek 2026, deepseek v4 vs chatgpt, comparativa flagship",
     },
     {
         "slug": "gpt-5.6-vs-gemini-3.5-flash",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "Gemini 3.5 Flash", "keys": ["gemini-3.5-flash"]},
-        "title": "GPT-5.6 vs Gemini 3.5 Flash en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs Gemini 3.5 Flash en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs gemini 3.5 flash, openai vs google 2026, gemini flash vs chatgpt, comparativa flash",
     },
     {
         "slug": "gpt-5.6-vs-minimax-m3",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "MiniMax M3", "keys": ["minimax-m3"]},
-        "title": "GPT-5.6 vs MiniMax M3 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs MiniMax M3 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs minimax m3, openai vs minimax, agentes minimax vs chatgpt, comparativa agentes 2026",
     },
     {
         "slug": "gpt-5.6-vs-claude-sonnet-4-6",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "Claude Sonnet 4.6", "keys": ["claude-sonnet-4.6"]},
-        "title": "GPT-5.6 vs Claude Sonnet 4.6 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs Claude Sonnet 4.6 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs claude sonnet 4.6, openai vs anthropic sonnet, chatgpt vs claude sonnet, comparativa 2026",
     },
     {
         "slug": "grok-4.5-vs-grok-4.3",
         "a": {"name": "Grok 4.5", "keys": ["grok-4.5"]},
         "b": {"name": "Grok 4.3", "keys": ["grok-4.3"]},
-        "title": "Grok 4.5 vs Grok 4.3 en 2026: comparación con benchmark real",
+        "title": "Grok 4.5 vs Grok 4.3 en {anio}: comparación con benchmark real",
         "intent_kw": "grok 4.5 vs grok 4.3, xai grok comparativa, grok 4.5 benchmark, grok 4.3 vs 4.5",
     },
     {
         "slug": "grok-4.5-vs-gpt-5-6",
         "a": {"name": "Grok 4.5", "keys": ["grok-4.5"]},
         "b": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
-        "title": "Grok 4.5 vs GPT-5.6 en 2026: comparación con benchmark real",
+        "title": "Grok 4.5 vs GPT-5.6 en {anio}: comparación con benchmark real",
         "intent_kw": "grok 4.5 vs gpt 5.6, xai vs openai 2026, grok vs chatgpt, grok 4.5 o gpt 5.6",
     },
     {
         "slug": "grok-4.5-vs-claude-sonnet-4-6",
         "a": {"name": "Grok 4.5", "keys": ["grok-4.5"]},
         "b": {"name": "Claude Sonnet 4.6", "keys": ["claude-sonnet-4.6"]},
-        "title": "Grok 4.5 vs Claude Sonnet 4.6 en 2026: comparación con benchmark real",
+        "title": "Grok 4.5 vs Claude Sonnet 4.6 en {anio}: comparación con benchmark real",
         "intent_kw": "grok 4.5 vs claude sonnet 4.6, xai vs anthropic, grok vs claude, comparativa 2026",
     },
     # --- Comparables por tier (OpenAI vs Anthropic) ---
@@ -253,28 +253,28 @@ COMPARISONS = [
         "slug": "gpt-5.6-vs-fable-5",
         "a": {"name": "GPT-5.6", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "Claude Fable 5", "keys": ["or-claude-fable-5"]},
-        "title": "GPT-5.6 vs Claude Fable 5 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 vs Claude Fable 5 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 vs fable 5, openai vs anthropic fable, chatgpt vs fable 5, fable 5 benchmark español",
     },
     {
         "slug": "gpt-5.6-luna-vs-claude-haiku-4-5",
         "a": {"name": "GPT-5.6 Luna", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro"]},
         "b": {"name": "Claude Haiku 4.5", "keys": ["claude-haiku-4.5"]},
-        "title": "GPT-5.6 Luna vs Claude Haiku 4.5 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Luna vs Claude Haiku 4.5 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 luna vs claude haiku 4.5, modelo rapido barato 2026, chatgpt luna vs haiku, comparativa economica",
     },
     {
         "slug": "gpt-5.6-terra-vs-claude-sonnet-4-6",
         "a": {"name": "GPT-5.6 Terra", "keys": ["gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "Claude Sonnet 4.6", "keys": ["claude-sonnet-4.6"]},
-        "title": "GPT-5.6 Terra vs Claude Sonnet 4.6 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Terra vs Claude Sonnet 4.6 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 terra vs claude sonnet 4.6, modelo medio openai anthropic, chatgpt terra vs sonnet",
     },
     {
         "slug": "gpt-5.6-sol-vs-claude-opus-4-8",
         "a": {"name": "GPT-5.6 Sol", "keys": ["gpt-5.6-sol"]},
         "b": {"name": "Claude Opus 4.8", "keys": ["claude-opus-4.8"]},
-        "title": "GPT-5.6 Sol vs Claude Opus 4.8 en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Sol vs Claude Opus 4.8 en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 sol vs claude opus 4.8, mejor modelo flagship 2026, chatgpt sol vs opus, openai vs anthropic",
     },
     # --- Variantes GPT-5.6 entre sí ---
@@ -282,21 +282,21 @@ COMPARISONS = [
         "slug": "gpt-5.6-luna-vs-terra",
         "a": {"name": "GPT-5.6 Luna", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro"]},
         "b": {"name": "GPT-5.6 Terra", "keys": ["gpt-5.6-terra", "gpt-5.6-terra-pro"]},
-        "title": "GPT-5.6 Luna vs Terra en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Luna vs Terra en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 luna vs terra, diferencia luna terra, chatgpt 5.6 comparativa, gpt 5.6 cual elegir",
     },
     {
         "slug": "gpt-5.6-terra-vs-sol",
         "a": {"name": "GPT-5.6 Terra", "keys": ["gpt-5.6-terra", "gpt-5.6-terra-pro"]},
         "b": {"name": "GPT-5.6 Sol", "keys": ["gpt-5.6-sol"]},
-        "title": "GPT-5.6 Terra vs Sol en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Terra vs Sol en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 terra vs sol, diferencia terra sol, chatgpt 5.6 comparativa, gpt 5.6 flagship",
     },
     {
         "slug": "gpt-5.6-luna-vs-sol",
         "a": {"name": "GPT-5.6 Luna", "keys": ["gpt-5.6-luna", "gpt-5.6-luna-pro"]},
         "b": {"name": "GPT-5.6 Sol", "keys": ["gpt-5.6-sol"]},
-        "title": "GPT-5.6 Luna vs Sol en 2026: comparación con benchmark real",
+        "title": "GPT-5.6 Luna vs Sol en {anio}: comparación con benchmark real",
         "intent_kw": "gpt 5.6 luna vs sol, chatgpt 5.6 barato vs flagship, diferencia luna sol, gpt 5.6 comparativa",
     },
     # RE-INCORPORADAS (15-ago-2026). Estaban publicadas y **fuera del generador**: sus
@@ -309,17 +309,21 @@ COMPARISONS = [
         "slug": "minimax-vs-kimi",
         "a": {"name": "MiniMax", "familia": "minimax"},
         "b": {"name": "Kimi (Moonshot)", "familia": "kimi"},
-        "title": "MiniMax vs Kimi en 2026: comparación con benchmark real",
+        "title": "MiniMax vs Kimi en {anio}: comparación con benchmark real",
         "intent_kw": "minimax vs kimi, kimi o minimax, comparativa minimax kimi, mejor modelo chino, alternativa china claude",
     },
     {
         "slug": "diffusiongemma-vs-gemma-4",
         "a": {"name": "DiffusionGemma", "keys": ["local-diffusiongemma-26b"]},
         "b": {"name": "Gemma 4", "keys": ["or-gemma-4-31b", "gemma-4-26b", "spark-gemma4-12b", "spark-gemma4-12b-think"]},
-        "title": "DiffusionGemma vs Gemma 4 en 2026: comparación con benchmark real",
+        "title": "DiffusionGemma vs Gemma 4 en {anio}: comparación con benchmark real",
         "intent_kw": "diffusiongemma vs gemma 4, modelo difusion texto, gemma 4 benchmark, google open source llm",
     },
 ]
+# El año de un título sale de la medición, nunca fijo: `{anio}` se resuelve con models.json
+# (motor-sitio 2.4, `fechas.py`).
+import fechas as _fechas  # noqa: E402
+_fechas.resolver_config(COMPARISONS)
 
 # Huérfanas que NO vuelven al generador, con el motivo escrito. Q15 exige que toda página
 # publicada esté acá o en COMPARISONS: una decisión declarada o una página mantenida, pero
@@ -1008,7 +1012,8 @@ def analysis(a_name, b_name, A, B):
 def funnel_block():
     """Ver generate_rankings.funnel_block. Duplicado minimo a proposito: este modulo
     es el que importa generate_rankings (no al reves), y no quiero un import circular.
-    Regla dura: no inventar perks -- solo la comunidad gratis y el ranking que se mueve.
+    Regla dura: no inventar perks -- solo la comunidad y el ranking que se mueve. Va al go-link
+    y nada dice «gratis»: CAR es de pago y esta cerrada (motor-sitio 2.4).
     """
     return """<section class="funnel">
   <h2>Antes de migrar, haz esto</h2>
@@ -1019,11 +1024,10 @@ def funnel_block():
   <p class="funnel-note">Y una advertencia: este resultado se recalcula con cada lote de modelos nuevos.
   Como el score de cada modelo es <em>relativo a todos los demás</em>, un modelo nuevo mueve a todos.
   El ganador de hoy puede no serlo el mes que viene.</p>
-  <p><a href="https://www.skool.com/cagala-aprende-repite/about?utm_source=benchmarks&amp;utm_medium=pseo&amp;utm_campaign=comparacion" target="_blank" rel="noopener" class="cta-primary">
+  <p><a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-primary">
   Ver la comunidad →</a></p>
   <p class="funnel-fine">Cada vez que corro un lote nuevo, publico el recálculo ahí — con los datos
-  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.
-  Entrar es gratis.</p>
+  crudos y lo que cambió de lugar. Es también donde hay gente tomando esta misma decisión.</p>
 </section>"""
 
 
@@ -1206,7 +1210,7 @@ def page_shell(title, desc, kw, url, body, contrato=None):
     var a = e.target.closest && e.target.closest('a');
     if (!a) return;
     var href = a.getAttribute('href') || '';
-    if (href.indexOf('skool.com') > -1) {{
+    if (href.indexOf('go.aprenderepite.com') > -1) {{
       window.dataLayer.push({{
         event: 'cta_comunidad',
         cta_ubicacion: a.closest('.funnel') ? 'funnel' : (a.closest('header') ? 'nav' : 'otro'),
@@ -1237,7 +1241,7 @@ def page_shell(title, desc, kw, url, body, contrato=None):
     <nav aria-label="Principal">
       <a href="/">Calculadora</a>
       <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Repo</a>
-      <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
+      <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener" class="cta-mini">Comunidad</a>
     </nav>
   </div>
 </header>
@@ -1249,7 +1253,7 @@ def page_shell(title, desc, kw, url, body, contrato=None):
   <div class="container">
     <p>Hecho por <a href="https://cristiantala.com" target="_blank" rel="noopener">Cristian Tala</a> ·
     <a href="https://github.com/ctala/ai-benchmarks-alternativos" target="_blank" rel="noopener">Código abierto en GitHub</a> ·
-    <a href="https://www.skool.com/cagala-aprende-repite/about" target="_blank" rel="noopener">Skool</a></p>
+    <a href="https://go.aprenderepite.com/benchmark" target="_blank" rel="noopener">Comunidad</a></p>
   </div>
 </footer>
 </body>

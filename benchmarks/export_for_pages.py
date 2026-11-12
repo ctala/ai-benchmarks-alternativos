@@ -121,6 +121,27 @@ def solo_del_declarado(runs: list[dict], coincide) -> list[dict]:
             or coincide(r.get("model_id"), r.get("upstream_provider"))]
 
 
+def medido_en(runs: list[dict]) -> dict:
+    """Dónde se midió un modelo: el proveedor que sirvió la mayoría de sus runs contados y la
+    cuantización que declaró ese proveedor. Función pura. (motor-sitio 2.4, era corte-v5-1 1.4.c)
+
+    «Endpoint ≠ modelo»: OpenRouter es un router, y el mismo modelo rinde distinto según quién
+    lo sirva. La comparación lo dice en una línea. La cuantización casi nunca viene declarada;
+    sin dato se publica «no declarada», nunca un valor supuesto."""
+    from collections import Counter
+    fechas = [f"{t[:4]}-{t[4:6]}-{t[6:8]}" for r in runs
+              if re.match(r"\d{8}", t := str(r.get("timestamp") or ""))]
+    hasta = max(fechas) if fechas else None
+    prov = Counter(r.get("upstream_provider") for r in runs if r.get("upstream_provider"))
+    if not prov:
+        return {"proveedor": None, "proveedor_pct": None, "cuantizacion": None, "hasta": hasta}
+    top, n = prov.most_common(1)[0]
+    cuant = Counter(r.get("cuantizacion") for r in runs if r.get("upstream_provider") == top
+                    and r.get("cuantizacion") not in (None, "", "unknown"))
+    return {"proveedor": top, "proveedor_pct": round(100 * n / sum(prov.values())),
+            "cuantizacion": cuant.most_common(1)[0][0] if cuant else None, "hasta": hasta}
+
+
 def solo_ventana(runs: list[dict]) -> list[dict]:
     """Por (suite, test): si hay runs de una ventana, quedan solo ésos. Función pura."""
     medidos = {(r.get("suite"), r.get("test_name")) for r in runs if r.get("_ventana")}
@@ -1073,6 +1094,7 @@ def aggregate_metrics(runs, low_coverage_suites=frozenset()):
             effective_ctx = c
 
     return {
+        "medido_en": medido_en(runs),
         "runs": len(general),  # cobertura = tareas prácticas (umbral tested >=20)
         "total_runs": len(runs),  # todos los runs exitosos incluyendo niah y seguridad
         "score_global": round(sum(scores) / len(scores), 2) if scores else None,
@@ -2019,6 +2041,10 @@ def build_export(recalibrate=False, scoring_version=None):
         # Esfuerzo total de medición (para el hero): TODOS los runs ejecutados,
         # incluidos los descartados en la limpieza. Ver count_runs_measured().
         "total_runs_measured": _runs_active + _runs_discarded,
+        # La fecha de la medición vigente: la última ejecución contada de un rankeado. Un título
+        # con año o mes sale de acá, nunca fijo (motor-sitio 2.4).
+        "medido_hasta": max((m.get("medido_en") or {}).get("hasta") or "" for m in models_export
+                            if m.get("ranked")) or None,
         "total_runs_active": _runs_active,
         "total_runs_discarded": _runs_discarded,
         # Umbrales explicitos: el consumidor no deberia adivinarlos ni hardcodearlos.
