@@ -132,6 +132,9 @@ mes. Son demanda, no tráfico esperado.
 | 3 | Entender documentos y resumir | ~940 | **Revisar antes de abrirla.** `summarization` se decide por juez (correlación −0,20 con su rúbrica). Las verificables cercanas son `extraer_claims`, `verificar_claim`, `hallucination` y `business_audit`. Hay que confirmar que respaldan «resumir» y no solo «verificar» |
 | 4 | Responder, Vender, Local, Automatizar | según volumen | Cada una con su fila de arriba |
 | — | Excel | 870 | **Fuera mientras no se mida.** Ninguna suite lo respalda |
+| — | «Mejor IA gratis» | 2.190 | **Fuera** (Cristian, 12-nov): no medimos los planes gratis de las apps |
+
+**Actualización del 12-nov-2026 (DataForSEO MX+ES, Cristian):** «Escribir en español» queda confirmada como página nueva de este change. Las consultas «mejor ia para programar» y «mejor ia para resumir» se asignan en el 1b a los rankings existentes (`/mejor-llm-para-programar/` y `/mejor-llm-para-resumir-textos/`). **Antes de abrir las páginas 1 y 3 de esta tabla hay que decidir** si la ocasión reemplaza o enriquece al ranking, o si apunta a otra consulta: dos páginas indexables con la misma consulta las prohíbe el check del 1b.
 
 Cada página por ocasión lleva su consulta objetivo en el registro (la regla del change 1b). Su
 primer párrafo es el veredicto generado del dato, con «≈» cuando hay empate. Lleva `ItemList` y
