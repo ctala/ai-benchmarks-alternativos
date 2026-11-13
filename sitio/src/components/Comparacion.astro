@@ -148,7 +148,7 @@ const faqLd = JSON.stringify({
           <Alcance a={c.alcance.partes} />, {g.empate
             ? <>esta medición <strong>no distingue</strong> a <Modelo m={g.gana} /> (<Cifra v={g.gana.nota} d={2} vacio="sin nota" />) de <Modelo m={g.pierde} /> (<Cifra v={g.pierde.nota} d={2} vacio="sin nota" />): la diferencia cabe en el margen de error.</>
             : <>en calidad gana <Modelo m={g.gana} fuerte corona /> (<Cifra v={g.gana.nota} d={2} /> contra <Cifra v={g.pierde.nota} d={2} vacio="sin nota" /> de <Modelo m={g.pierde} />).</>}
-          {c.alcance.n_saturadas > 0 && <> En <Cifra v={c.alcance.n_saturadas} /> de esas suites los dos quedan dentro del margen de error del mejor modelo de la suite: está saturada y no los discrimina.</>}
+          {c.alcance.n_saturadas > 0 && (c.alcance.n_saturadas === 1 ? <> En una de esas suites los dos quedan dentro del margen de error del mejor modelo de la suite: está saturada y no los discrimina.</> : <> En <Cifra v={c.alcance.n_saturadas} /> de esas suites los dos quedan dentro del margen de error del mejor modelo de cada suite: esas <Cifra v={c.alcance.n_saturadas} /> están saturadas y no los discriminan.</>)}
           {' '}La calidad suma el examen y tareas reales de agente. Pero <strong>no hay ganador universal</strong>: cambia por tipo de trabajo.
         </p>
       </section>

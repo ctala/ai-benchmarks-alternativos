@@ -99,7 +99,7 @@ const sinFam = r.frontera.filter((f: any) => !f.m);
                 : <><strong><Cifra v={v.n} /> modelos superan <Eje x={v.mejor} ag largo /></strong> en todos sus intentos, así que la medición no tiene con qué separarlos. <strong>Entre ellos, elige por precio</strong>.</>)
             : (v.n <= 1
                 ? <><Modelo m={v.lider} fuerte /> encabeza la tabla y <strong>nadie empata con él</strong>: la diferencia con el siguiente es mayor que el margen de error de la medición.</>
-                : <><strong>el benchmark no separa a <Cifra v={v.n} /> modelos de la cima</strong>: la diferencia entre ellos es más chica que el margen de error de la medición. <strong>Dentro del grupo, elige por precio</strong>.</>)}</p>
+                : <><strong>el benchmark no separa a <Cifra v={v.n} /> modelos de la cima</strong>: la diferencia entre ellos es menor que el margen de error de la medición. <strong>Dentro del grupo, elige por precio</strong>.</>)}</p>
           {!ag && v.n > 1 && r.alcance.n_saturadas > 0 && (
             <p class="meta">{r.alcance.n_saturadas === r.alcance.n_suites
               ? <>En {r.alcance.n_suites === 1 ? 'esa suite' : <>las <Cifra v={r.alcance.n_suites} /> suites</>} los del grupo quedan dentro del margen de error del mejor modelo de la suite: <strong>{r.alcance.n_suites === 1 ? 'está saturada' : 'están saturadas'} y no los discriminan</strong>. Que no los separe no prueba que rindan igual en tu caso.</>
