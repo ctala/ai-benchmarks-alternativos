@@ -952,6 +952,12 @@ def render(m: dict, ranked: list, puesto: int | None) -> str:
     # y sin que nada fallara, que es el modo de romper más difícil de detectar. Se usa
     # ruta absoluta, que es correcta a cualquier profundidad.
     html = html.replace('href="../style.css"', 'href="/style.css"')
+    # 12-nov-2026: las fichas se publican y se enlazan, pero no se indexan mientras el subdominio
+    # esté desindexado por calidad (`registro_paginas.NO_INDEXABLES`; DECISIONES, 12-nov-2026).
+    # `follow` para que Google siga los enlaces de la ficha a los rankings.
+    import registro_paginas as _rp
+    if "ficha" in _rp.NO_INDEXABLES:
+        html = html.replace('<link rel="canonical"', '<meta name="robots" content="noindex, follow">\n<link rel="canonical"', 1)
     return html.replace("</head>", BRAND_CSS + "\n</head>")
 
 

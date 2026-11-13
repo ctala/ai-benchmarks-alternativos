@@ -113,7 +113,7 @@ def docs_pages():
     import registro_paginas as rp
     pages = []
     for e in sorted(rp.paginas(), key=lambda e: e["url"]):
-        if e["redirect_a"]:
+        if not e["indexable"]:  # 12-nov-2026: ni redirects ni noindex (fichas)
             continue
         url = e["url"]
         f = DOCS / "index.html" if url == "/" else DOCS / url.strip("/") / "index.html"

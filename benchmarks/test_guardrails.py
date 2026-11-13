@@ -644,6 +644,52 @@ def _t_registro_indices():
     return ok
 
 
+@prueba("check_registro R7", "una ficha noindex en el sitemap, una ficha sin noindex, una indexable con "
+                             "noindex, una con canonical ajeno, y en dist un ranking con canonical ajeno")
+def _t_registro_robots():
+    # 12-nov-2026. Search Console mostró el subdominio desindexado por calidad (23 indexadas el
+    # 16-ago, 2 desde el 21-sep). Las fichas pasan a `noindex, follow` y salen del sitemap; R7
+    # exige que lo que se pide indexar y lo que la página dice coincidan.
+    import registro_paginas as _rp
+    regs = _rp.paginas()
+    ficha = next(e["url"] for e in regs if e["tipo"] == "ficha")
+    landing = next(e["url"] for e in regs if e["tipo"] == "landing")
+    ranking = next(e["url"] for e in regs if e["tipo"] == "ranking")
+    site = "https://benchmarks.cristiantala.com"
+    tmp = Path(tempfile.mkdtemp())
+    base = tmp / "sitio" / "legado"
+    shutil.copytree(ROOT / "sitio" / "legado", base)
+    dist = tmp / "dist"
+    shutil.copytree(ROOT / "sitio" / "dist", dist)
+    r = lambda *x: subprocess.run([PY, str(ROOT / "benchmarks" / "check_registro.py"), "--docs", str(base), *x],
+                                  cwd=ROOT, capture_output=True, text=True)
+    ok = r().returncode == 0 and r("--dist", str(dist)).returncode == 0          # control
+    pag = lambda b, u: b / u.strip("/") / "index.html"
+    nidx = '<meta name="robots" content="noindex, follow">\n'
+    casos = [
+        (base / "sitemap.xml", lambda t: t.replace("</urlset>", f"<url><loc>{site}{ficha}</loc></url></urlset>"),
+         f"R7 · sitemap.xml lista {ficha}, que lleva noindex", ()),
+        (pag(base, ficha), lambda t: t.replace(nidx, ""), f"R7 · {ficha}: el registro la declara no indexable", ()),
+        (pag(base, landing), lambda t: t.replace('<link rel="canonical"', nidx + '<link rel="canonical"', 1),
+         f"R7 · {landing}: el registro la declara indexable y la página lleva noindex", ()),
+        (pag(base, landing), lambda t: t.replace(f'rel="canonical" href="{site}{landing}"', f'rel="canonical" href="{site}/"', 1),
+         f"R7 · {landing}: indexable sin canonical a sí misma", ()),
+        (pag(dist, ranking), lambda t: t.replace(f'rel="canonical" href="{site}{ranking}"', f'rel="canonical" href="{site}/"', 1),
+         f"R7 · {ranking}: indexable sin canonical a sí misma", ("--dist", str(dist))),
+    ]
+    for f, romper, marca, extra in casos:
+        original = f.read_text(encoding="utf-8")
+        roto = romper(original)
+        if roto == original:
+            raise AssertionError(f"el sabotaje «{marca}» no cambió el archivo")
+        f.write_text(roto, encoding="utf-8")
+        out = r(*extra)
+        ok = ok and out.returncode != 0 and marca in out.stdout
+        f.write_text(original, encoding="utf-8")
+    shutil.rmtree(tmp, ignore_errors=True)
+    return ok
+
+
 @prueba("paridad_sitio", "una fila que sale sin declarar, una URL perdida, una congelada que cambia, "
                          "una afirmación que cambia sin motivo y una frase retirada que vuelve")
 def _t_paridad_sitio():
@@ -982,7 +1028,9 @@ def _t_registro():
                     f'content="noindex, follow"><meta http-equiv="refresh" content="0; url={u}">'
                     f'</head><body><p>Se movió a <a href="{u}">la comparación</a>.</p></body></html>')
         aviso = '<div data-congelada>Foto del 11-nov-2026</div>' if e["congelada"] else ""
-        return (f'<html><head><title>X vs Y en 2026</title></head><body>{aviso}<table><tr>'
+        # 12-nov-2026: R7 exige canonical a sí misma en toda página indexable.
+        return (f'<html><head><title>X vs Y en 2026</title><link rel="canonical" href="{sitio}{e["url"]}">'
+                f'</head><body>{aviso}<table><tr>'
                 f'<td data-modelo="{modelo}">Modelo 4.5</td><td data-cifra>7,21</td></tr></table>'
                 f'<p>Medido el 11-nov-2026 con <span data-nombre>Phi-4</span>.</p>'
                 f'<a data-anterior="{fuera}" href="#">Versión 4.1</a>{extra}</body></html>')

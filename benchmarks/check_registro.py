@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Los validadores del registro de páginas: R0-R6. (11-nov-2026, change `motor-sitio`)
+"""Los validadores del registro de páginas: R0-R7. (11-nov-2026, change `motor-sitio`)
 
 POR QUÉ EXISTE
 --------------
@@ -17,9 +17,15 @@ este script hace que esa declaración no sea una promesa.
   R3  una URL publicada (directorios de `sitio/legado/` y `sitio/legado/sitemap.xml`) no tiene entrada en el
       registro, o no existe en `dist` ni como página ni como redirect correcto.
   R4  un `index.html` de `dist` no tiene entrada en el registro.
-  R6  `sitemap.xml` y `llms.txt` listan exactamente los destinos del registro: ningún redirect
+  R6  `sitemap.xml` y `llms.txt` listan exactamente las páginas indexables del registro: ningún redirect
+      ni página `noindex` (desde el 12-nov-2026, las fichas)
       (Google no indexa lo que la página misma marca `noindex`) y ningún destino afuera. Se
       revisan los de `sitio/legado/` y, con `--dist`, también los copiados a `dist`. (motor-sitio 2.3)
+  R7  lo que se indexa es coherente (12-nov-2026, desindexación del subdominio): ninguna URL del
+      sitemap es una página con `noindex`; toda página indexable del registro lleva canonical a sí
+      misma y no lleva `noindex`; toda página no indexable que no es redirect (las fichas) lleva
+      `noindex, follow`. En `sitio/legado/` mira solo las páginas que todavía son de Python; con
+      `--dist`, todas.
   R5  un modelo fuera del ranking no tiene motivo registrado (o `ranked` contradice a su
       elegibilidad). Sin motivo, una página no puede decir por qué un modelo no está; es un
       error de datos (Cristian, 11-nov-2026). Corre siempre, con o sin build.
@@ -218,9 +224,10 @@ def revisar(dist: Path | None, docs: Path, regs: list[dict], ranked: dict[str, b
 
 
 def revisar_indices(base: Path, regs: list[dict]) -> list[str]:
-    """R6: el sitemap y llms.txt de `base` listan exactamente los destinos del registro."""
-    destinos = {e["url"] for e in regs if not e["redirect_a"]}
+    """R6: el sitemap y llms.txt de `base` listan exactamente las páginas indexables del registro."""
+    destinos = {e["url"] for e in regs if e["indexable"]}
     redirects = {e["url"] for e in regs if e["redirect_a"]}
+    noindex = {e["url"] for e in regs if not e["indexable"] and not e["redirect_a"]}
     fallos = []
     for nombre, patron in (("sitemap.xml", r"<loc>([^<]+)</loc>"),
                            ("llms.txt", r"\((https://benchmarks\.cristiantala\.com[^)\s]*)\)")):
@@ -235,10 +242,58 @@ def revisar_indices(base: Path, regs: list[dict]) -> list[str]:
             continue
         for u in sorted(urls & redirects):
             fallos.append(f"R6 · {nombre} lista {u}, que el registro declara redirect")
-        for u in sorted(urls - destinos - redirects):
+        for u in sorted(urls & noindex):
+            fallos.append(f"R6 · {nombre} lista {u}, que el registro declara no indexable")
+        for u in sorted(urls - destinos - redirects - noindex):
             fallos.append(f"R6 · {nombre} lista {u}, que no está en el registro")
         for u in sorted(destinos - urls):
-            fallos.append(f"R6 · {nombre} no lista {u}, que es un destino del registro")
+            fallos.append(f"R6 · {nombre} no lista {u}, que es una página indexable del registro")
+    return fallos
+
+
+ROBOTS_NOINDEX = re.compile(r'<meta\s+name="robots"\s+content="[^"]*noindex', re.I)
+CANONICAL = re.compile(r'<link\s+rel="canonical"\s+href="([^"]+)"', re.I)
+
+
+def _cabeza(html: str) -> str:
+    return html.split("</head>", 1)[0]
+
+
+def revisar_robots(base: Path, regs: list[dict], todas: bool) -> list[str]:
+    """R7: qué se indexa. `todas` = falso en `sitio/legado/`, donde las páginas que ya compila Astro
+    son restos de Python y no se publican."""
+    fallos, leidas = [], 0
+    def archivo(url):
+        return base / "index.html" if url == "/" else base / url.strip("/") / "index.html"
+    for e in regs:
+        if e["redirect_a"] or not (todas or e["motor"] == "legado"):
+            continue
+        f = archivo(e["url"])
+        if not f.exists():
+            continue
+        cab = _cabeza(f.read_text(encoding="utf-8"))
+        leidas += 1
+        noidx = bool(ROBOTS_NOINDEX.search(cab))
+        if e["indexable"]:
+            if noidx:
+                fallos.append(f"R7 · {e['url']}: el registro la declara indexable y la página lleva noindex")
+            c = CANONICAL.search(cab)
+            if not c or (c.group(1).replace(SITE, "") or "/") != e["url"]:
+                fallos.append(f"R7 · {e['url']}: indexable sin canonical a sí misma "
+                              f"({c.group(1) if c else 'sin canonical'})")
+        elif not noidx:
+            fallos.append(f"R7 · {e['url']}: el registro la declara no indexable ({e['tipo']}) "
+                          f"y la página no lleva noindex")
+    sm = base / "sitemap.xml"
+    if sm.exists():
+        for u in re.findall(r"<loc>([^<]+)</loc>", sm.read_text(encoding="utf-8")):
+            url = u.replace(SITE, "") or "/"
+            f = archivo(url)
+            if url.endswith("/") and f.exists() and ROBOTS_NOINDEX.search(_cabeza(f.read_text(encoding="utf-8"))):
+                if todas or next((x["motor"] for x in regs if x["url"] == url), "legado") == "legado":
+                    fallos.append(f"R7 · sitemap.xml lista {url}, que lleva noindex")
+    if not leidas:
+        fallos.append(f"R7 · {base.name}: no leí ninguna página (¿cambió la ruta?)")
     return fallos
 
 
@@ -257,9 +312,11 @@ def main() -> int:
     import elegibilidad
     fallos += [f"R5 · {x}" for x in elegibilidad.contradicciones(d["models"])]
     fallos += revisar_indices(a.docs, rp.paginas())
+    fallos += revisar_robots(a.docs, rp.paginas(), todas=False)
     if a.dist is not None:
         fallos += revisar_indices(a.dist, rp.paginas())
-    print("REGISTRO DE PÁGINAS — R0-R6\n")
+        fallos += revisar_robots(a.dist, rp.paginas(), todas=True)
+    print("REGISTRO DE PÁGINAS — R0-R7\n")
     if a.dist is None:
         print("  ⚠️  sin --dist: corrieron R0 y R3 contra sitio/legado/. R1, R2 y R4 miran lo compilado "
               "y corren dentro de `npm run build`.")

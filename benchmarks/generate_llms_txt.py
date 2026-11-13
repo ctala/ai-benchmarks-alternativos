@@ -36,7 +36,7 @@ def main():
     import registro_paginas as rp
     comparisons, rankings, others = [], [], []
     for e in sorted(rp.paginas(), key=lambda e: e["url"]):
-        if e["redirect_a"] or e["url"] == "/":
+        if not e["indexable"] or e["url"] == "/":  # 12-nov-2026: ni redirects ni noindex (fichas)
             continue
         rel = e["url"].strip("/")
         f = DOCS / rel / "index.html"

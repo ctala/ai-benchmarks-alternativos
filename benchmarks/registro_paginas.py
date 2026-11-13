@@ -17,9 +17,12 @@ declara lo que es decisión:
   - `CONGELADAS`: fecha y motivo. Es la ÚNICA forma de que una página muestre un modelo fuera
     del ranking vigente (R1 de `check_registro.py`).
   - `REDIRECTS_VERSION`: las comparaciones de versión exacta que pasan a su familia.
+  - `NO_INDEXABLES`: los tipos que se publican y se enlazan pero llevan `noindex, follow` y no
+    entran al sitemap ni a `llms.txt` (12-nov-2026: las fichas, por la desindexación del
+    subdominio). Un redirect nunca es indexable.
 
 Cada entrada: `url` ("/slug/"), `slug`, `tipo`, `familias`, `ocasion`, `motor`, `congelada`
-({fecha, motivo} o None), `redirect_a` (slug o None), `generador`.
+({fecha, motivo} o None), `redirect_a` (slug o None), `indexable` (bool), `generador`.
 
 Uso:
     python benchmarks/registro_paginas.py            # resumen por tipo y motor
@@ -41,6 +44,20 @@ sys.path.insert(0, str(ROOT))
 # Tipos que ya compila Astro (sesión 1: comparaciones y sus redirects; sesión 2: rankings y
 # variantes). En el 1b entran `ficha`, `landing`, `home` y `proveedores`.
 MOTOR_ASTRO = {"comparacion", "redirect", "ranking", "variantes"}
+
+# 12-nov-2026 (DECISIONES): Search Console muestra el subdominio desindexado por calidad (de 23
+# indexadas el 16-ago a 2 desde el 21-sep, justo después de que entraran ~100 fichas). Las fichas
+# siguen publicadas y enlazadas, con `noindex, follow`, fuera del sitemap y de llms.txt. Vuelven
+# al índice en el 1b, de a poco, cuando tengan texto propio, empezando por las que tienen demanda.
+NO_INDEXABLES = {
+    "ficha": "Desindexación del subdominio por calidad (Search Console, 12-nov-2026): las fichas "
+             "vuelven al índice en el 1b, con texto propio y empezando por las que tienen demanda.",
+}
+
+
+def indexable(e: dict) -> bool:
+    return not e.get("redirect_a") and e["tipo"] not in NO_INDEXABLES
+
 
 _MOTIVO_SIN_FAMILIA = ("Comparación de versión exacta: a un lado le falta su página de familia. "
                        "Se reevalúa cuando el change de comparaciones por familia la cree.")
@@ -140,6 +157,7 @@ def paginas() -> list[dict]:
         if e["slug"] in CONGELADAS:
             e["congelada"] = dict(CONGELADAS[e["slug"]])
         e["motor"] = "astro" if e["tipo"] in MOTOR_ASTRO else "legado"
+        e["indexable"] = indexable(e)
     # Un redirect que apunta a otro redirect se resuelve al destino final: dos saltos pierden
     # señal y Google puede no seguir el segundo. Caso real: grok-4.3-vs-gpt-5.5 → grok-4.3-vs-gpt-5-5,
     # que el 11-nov pasó a redirigir a grok-vs-chatgpt.
@@ -193,7 +211,8 @@ def main() -> int:
     for (t, mo), n in sorted(Counter((e["tipo"], e["motor"]) for e in regs).items()):
         print(f"  {t:12} {mo:7} {n}")
     print(f"  congeladas: {sum(1 for e in regs if e['congelada'])} · "
-          f"redirects: {sum(1 for e in regs if e['redirect_a'])}")
+          f"redirects: {sum(1 for e in regs if e['redirect_a'])} · "
+          f"indexables: {sum(1 for e in regs if e['indexable'])}")
     f = errores(regs)
     for x in f:
         print(f"  ❌ {x}")
